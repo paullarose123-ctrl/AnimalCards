@@ -13,6 +13,30 @@ const SAMPLE = ['lion', 'tigre', 'elephant', 'loup', 'orque', 'requin-blanc', 'p
 // une espèce par famille, pour vérifier les emblèmes et les noms longs
 const FAMILIES = ['manul', 'fennec', 'ours-lippu', 'aye-aye', 'okapi', 'saiga', 'rat-taupe-nu', 'ornithorynque', 'narval', 'raie-manta', 'coelacanthe', 'harfang', 'macareux', 'cameleon', 'phyllobate', 'mante-religieuse', 'crevette-mante', 'alpaga', 'rhinoceros-noir-de-l-ouest'];
 
+/**
+ * Ordre de revue des cartes : famille par famille (ordre du jeu), de la plus rare à la plus commune comme dans l'album,
+ * puis les Mythes. Sert à la planche de revue (#toutes-les-cartes).
+ */
+export function reviewOrder() {
+  const byAlbum = (a: (typeof ATHLETES)[number], b: (typeof ATHLETES)[number]) =>
+    rarityOf(b).order - rarityOf(a).order || b.fame - a.fame || a.last.localeCompare(b.last, 'fr');
+  return [
+    ...SPORT_ORDER.flatMap((sport) => ATHLETES.filter((a) => a.sport === sport && !a.mythe).sort(byAlbum)),
+    ...ATHLETES.filter((a) => a.mythe).sort(byAlbum),
+  ];
+}
+
+/** Toutes les cartes du jeu, dans l'ordre de revue (#toutes-les-cartes), pour les captures de la planche. */
+export function AllCards() {
+  return (
+    <div id="toutes" style={{ padding: 16, display: 'flex', flexWrap: 'wrap', gap: 14 }}>
+      {reviewOrder().map((a) => (
+        <Card key={a.id} card={{ athleteId: a.id, variant: 'base' }} size="md" />
+      ))}
+    </div>
+  );
+}
+
 export function Gallery() {
   const sample = SAMPLE.map((id) => ATHLETES.find((a) => a.id === id)!).filter(Boolean);
   // une espèce actuelle par rareté (bronze → légende), pour comparer les matières
