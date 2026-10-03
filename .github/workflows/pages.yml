@@ -1,0 +1,46 @@
+# Met le jeu en ligne sur GitHub Pages (https://<compte>.github.io/<dépôt>/) à chaque envoi sur la branche
+# principale : construit le jeu avec Vite (dist) puis publie ce dossier.
+# Réglage à faire une fois dans le dépôt : Settings → Pages → Source : « GitHub Actions ».
+name: Site du jeu
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+        env:
+          # les navigateurs de Playwright ne servent qu'aux captures en local
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  publier:
+    needs: construire
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v4

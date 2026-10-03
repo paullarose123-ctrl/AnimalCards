@@ -1,0 +1,125 @@
+/* Direction : un sous-bois au crépuscule, comme un carnet de naturaliste ouvert à la lueur d'une lampe.
+   Fond vert forêt profond, texte couleur parchemin, mousse et lichen pour l'action, miel pour l'or,
+   et les matières naturelles des cartes (écorce, pierre, ambre, cristal) comme couleurs vives. */
+:root {
+  --bg: #0e1712;
+  --bg-2: #142019;
+  --bg-3: #1b2a20;
+  --bg-4: #243728;
+  --line: rgba(232, 222, 196, 0.09);
+  --line-2: rgba(232, 222, 196, 0.17);
+  --text: #efe8d6;
+  --text-dim: #b2ab95;
+  --text-faint: #7d7866;
+  --accent: #4d7a39;
+  --accent-2: #69984a;
+  --accent-ink: #f7f3e6;
+  /* lichen : texte et icônes verts lisibles sur le fond sombre */
+  --accent-text: #a9cf7e;
+  --honey: #d9a441;
+  --good: #8fd47e;
+  --bad: #e8866b;
+  --info: #86bccb;
+
+  /* couleurs des paliers, reprises des palettes des boosters : forêt, cimes, savane, aurore, crépuscule */
+  --r-commune: #7fcdb8;
+  --r-peu-commune: #8cc3f0;
+  --r-rare: #ffa95a;
+  --r-epique: #b98bff;
+  --r-legendaire: #ff8f78;
+  --prime: #f2c7d8;
+
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Outfit', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-data: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+
+  --radius: 18px;
+  --radius-sm: 11px;
+  --shadow: 0 14px 34px rgba(3, 10, 6, 0.45);
+  --nav-h: 64px;
+
+  /* feuillage en filigrane et grain de papier */
+  --leaves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23e8dec4' stroke-opacity='0.045' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M18 78 C 42 30, 92 26, 112 50 C 86 78, 46 92, 18 78 Z M18 78 C 50 64, 82 54, 112 50 M48 72 L 56 56 M70 64 L 80 46 M88 58 L 98 44'/%3E%3Cpath d='M130 196 C 140 150, 186 136, 206 150 C 190 178, 160 196, 130 196 Z M130 196 C 156 176, 180 160, 206 150 M152 184 L 152 166 M172 172 L 176 154'/%3E%3Cpath d='M150 30 Q 168 60 160 96 M160 96 Q 140 70 150 30 M154 52 L 164 48 M156 70 L 164 66'/%3E%3Cpath d='M40 150 Q 64 140 84 160 Q 60 172 40 150 Z'/%3E%3C/g%3E%3C/svg%3E");
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.7 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* le paysage de fond (sous-bois sous les étoiles) est peint par le composant Landscape (.backdrop) */
+body {
+  background: var(--bg);
+}
+
+/* grain de papier sur toute la page */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background: var(--grain);
+  opacity: 0.55;
+  mix-blend-mode: soft-light;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.gallery-flag{width:60px;height:40px;display:block}

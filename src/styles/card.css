@@ -1,0 +1,1065 @@
+/* ───────────── Carte (cadre de naturaliste) ─────────────
+   Toutes les tailles internes sont en em : 1em = largeur de la carte / 24.
+   Les positions en % suivent le cadre SVG (100 × 140) dessiné dans Card.tsx.
+   La matière (fond, cadre, liserés, textes métallisés) dépend du palier ; Icône et Prime s'y superposent. */
+
+.card {
+  --w: var(--card-w, 196px);
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  flex: none;
+  width: var(--w);
+  aspect-ratio: 100 / 140;
+  font-size: calc(var(--w) / 24);
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s;
+  filter: drop-shadow(0 0.7em 0.9em rgba(0, 0, 0, 0.45));
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Chaque palier reprend la palette d'un booster : un ciel peint autour de la photo (--foil), un cadre
+     couleur de premier plan (--panel), des liserés et des textes clairs de la couleur du ciel (--trim, --metal)
+     et des collines en aplats sous le nom (--hill-far, --hill-near). Pas de métal. */
+  /* commune : forêt au lever du jour (booster gratuit) */
+  --foil:
+    radial-gradient(55% 22% at 82% 6%, rgba(255, 245, 216, 0.9), transparent 70%),
+    linear-gradient(172deg, #6cc6c0 0%, #b9dcbf 35%, #ffe1a6 70%, #c9d9a8 100%);
+  --panel: #0e2c27;
+  --trim: #a8dcc5;
+  --metal: linear-gradient(180deg, #ffffff 0%, #fff5dc 55%, #ffe1a6 100%);
+  --metal-edge: #061712;
+  --plate-ink: #0e2c27;
+  --tier-bg: linear-gradient(90deg, #8fd6cf, #ffe1a6);
+  --tier-ink: #0e2c27;
+  --hill-far: #1d4a3f;
+  --hill-near: #153a32;
+}
+
+.card[data-active='true'] {
+  transition: transform 0.08s linear, filter 0.3s;
+}
+
+.card.is-clickable {
+  cursor: pointer;
+}
+
+.card.is-clickable:not(.has-tilt):hover {
+  transform: translateY(-0.35em) scale(1.02);
+  filter: drop-shadow(0 1em 1.2em rgba(0, 0, 0, 0.55));
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--accent, #ffb020);
+  outline-offset: 0.4em;
+  border-radius: 1.3em;
+}
+
+/* peu commune : sommets enneigés, matin bleu (pack Découverte) */
+.r-peu-commune {
+  --foil:
+    radial-gradient(50% 20% at 20% 6%, rgba(255, 255, 255, 0.9), transparent 70%),
+    linear-gradient(172deg, #4f9fe0 0%, #8cc3f0 35%, #d5ecff 72%, #b7cdea 100%);
+  --panel: #132748;
+  --trim: #bcd8f7;
+  --metal: linear-gradient(180deg, #ffffff 0%, #eef6ff 55%, #cfe4fb 100%);
+  --metal-edge: #07122a;
+  --plate-ink: #132748;
+  --tier-bg: linear-gradient(90deg, #79b7ec, #e3f2ff);
+  --tier-ink: #132748;
+  --hill-far: #24406e;
+  --hill-near: #1b3359;
+}
+
+/* rare : savane au coucher du soleil (pack Pro) */
+.r-rare {
+  --foil:
+    radial-gradient(48% 24% at 50% 100%, rgba(255, 241, 196, 0.85), transparent 70%),
+    linear-gradient(172deg, #e5484d 0%, #f27a4c 35%, #ffb04f 68%, #ffc857 100%);
+  --panel: #2a1012;
+  --trim: #ffc857;
+  --metal: linear-gradient(180deg, #ffffff 0%, #fff1d2 50%, #ffcf86 100%);
+  --metal-edge: #160607;
+  --plate-ink: #2a1012;
+  --tier-bg: linear-gradient(90deg, #ff9a5c, #ffd77a);
+  --tier-ink: #2a1012;
+  --hill-far: #4a1d1a;
+  --hill-near: #3a1616;
+}
+
+/* épique : aurore boréale (pack Élite) */
+.r-epique {
+  --foil:
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0 0.035em, transparent 0.08em) 0 0 / 1.3em 1.1em,
+    linear-gradient(160deg, transparent 20%, rgba(79, 240, 176, 0.55) 38%, transparent 55%),
+    linear-gradient(200deg, transparent 40%, rgba(200, 107, 255, 0.55) 60%, transparent 80%),
+    linear-gradient(172deg, #0e0c2e 0%, #2a1c5c 45%, #4b3c8e 80%, #7a5cc0 100%);
+  --panel: #0a0717;
+  --trim: #7ff5c4;
+  --metal: linear-gradient(180deg, #ffffff 0%, #dcfff1 50%, #e9d2ff 100%);
+  --metal-edge: #04030c;
+  --plate-ink: #f4fff9;
+  --tier-bg: linear-gradient(90deg, #4ff0b0, #c86bff);
+  --tier-ink: #0a0717;
+  --hill-far: #1d1840;
+  --hill-near: #151230;
+}
+
+/* légende : crépuscule flamboyant, violet, corail et soleil */
+.r-legendaire {
+  --foil:
+    radial-gradient(42% 20% at 50% 96%, rgba(255, 230, 140, 0.95), transparent 70%),
+    conic-gradient(from 210deg at 35% 30%, rgba(255, 90, 180, 0.18), rgba(255, 230, 90, 0.16), rgba(90, 255, 190, 0.14), rgba(90, 170, 255, 0.18), rgba(200, 90, 255, 0.16), rgba(255, 90, 180, 0.18)),
+    linear-gradient(172deg, #4a2a80 0%, #a8457e 32%, #f2705a 62%, #ffb157 85%, #ffd66b 100%);
+  --panel: #1a0c1f;
+  --trim: #ffcf7a;
+  --metal: linear-gradient(180deg, #ffffff 0%, #ffecd2 45%, #ffb98f 100%);
+  --metal-edge: #0d0510;
+  --plate-ink: #1a0c1f;
+  --tier-bg: linear-gradient(90deg, #ff7a8a, #ffb157, #ffe08a);
+  --tier-ink: #1a0c1f;
+  --hill-far: #3a1a3e;
+  --hill-near: #2a132e;
+}
+
+/* Icônes (espèces disparues) : blanc de musée, comme un moulage en plâtre ou une salle de muséum.
+   Cadre blanc, ciel gris perle, textes et pastille anthracite. */
+.card.is-icon {
+  --foil:
+    radial-gradient(45% 20% at 80% 8%, #ffffff, transparent 70%),
+    linear-gradient(172deg, #ffffff 0%, #f1f3f5 40%, #e2e6ea 78%, #d3d9df 100%);
+  --panel: #fbfbf9;
+  --trim: #8f99a5;
+  --metal: linear-gradient(180deg, #232931 0%, #353d47 55%, #535c67 100%);
+  --metal-edge: rgba(255, 255, 255, 0.9);
+  --plate-ink: #2a3038;
+  --tier-bg: linear-gradient(90deg, #2a3038, #4b5560);
+  --tier-ink: #ffffff;
+  --hill-far: #e6eaee;
+  --hill-near: #f0f2f4;
+}
+
+/* textes anthracite sur blanc : un liseré blanc au lieu de l'ombre sombre */
+.card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .metal-text {
+  filter: drop-shadow(0 0.05em 0 rgba(255, 255, 255, 0.9));
+}
+
+.card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .card__body {
+  box-shadow: inset 0 0 0 0.06em rgba(40, 48, 56, 0.25);
+}
+
+/* Prime : océan pastel, rose et pervenche, semé de nacre (pack Prime) */
+.card.is-prime {
+  --foil:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.85) 0 0.05em, transparent 0.12em) 0 0 / 1.3em 1.7em,
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.65) 0 0.05em, transparent 0.1em) 0 0 / 0.9em 1.1em,
+    radial-gradient(50% 20% at 50% 96%, rgba(255, 250, 238, 0.9), transparent 70%),
+    linear-gradient(172deg, #f2a7cf 0%, #f7c3d6 38%, #ffe4c2 70%, #c9cff5 100%);
+  --panel: #2b2c72;
+  --trim: #fbc2eb;
+  --metal: linear-gradient(180deg, #ffffff 0%, #ffeef7 50%, #dfe2ff 100%);
+  --metal-edge: #14154a;
+  --plate-ink: #2b2c72;
+  --tier-bg: linear-gradient(90deg, #f6b3d4, #c4cbf5);
+  --tier-ink: #2b2c72;
+  --hill-far: #3f4094;
+  --hill-near: #34357f;
+}
+
+/* Reverse : aquarelle pastel. Lavis rose, pêche, beurre, menthe, ciel et lilas fondus sur un papier crème,
+   semés de paillettes nacrées ; bandeaux crème, textes et liserés prune et orchidée. */
+.card.is-reverse {
+  --foil:
+    radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.95) 0 0.04em, transparent 0.1em) 0 0 / 0.8em 1em,
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.75) 0 0.05em, transparent 0.11em) 0 0 / 1.3em 1.5em,
+    radial-gradient(50% 34% at 10% 8%, rgba(255, 186, 214, 0.95), transparent 72%),
+    radial-gradient(44% 30% at 94% 20%, rgba(184, 222, 255, 0.95), transparent 72%),
+    radial-gradient(48% 32% at 88% 80%, rgba(206, 188, 255, 0.95), transparent 72%),
+    radial-gradient(46% 30% at 8% 84%, rgba(182, 240, 208, 0.95), transparent 72%),
+    radial-gradient(40% 26% at 52% 52%, rgba(255, 228, 176, 0.9), transparent 72%),
+    linear-gradient(165deg, #ffd9ea 0%, #ffe9d2 22%, #fff4c9 40%, #d9f5e6 58%, #d6ecff 76%, #e6dcff 100%);
+  --panel: #fffaf4;
+  --trim: #b383c9;
+  --metal: linear-gradient(180deg, #b45f93 0%, #8053ad 45%, #533c8c 62%, #9064bd 100%);
+  --metal-edge: rgba(255, 255, 255, 0.9);
+  --plate-ink: #5b4380;
+  --tier-bg: linear-gradient(180deg, #ffffff, #f7ebff 60%, #e9d8fb);
+  --tier-ink: #5b4380;
+  --hill-far: #f6e2f1;
+  --hill-near: #eedcf6;
+}
+
+/* les lavis glissent très lentement d'une teinte à l'autre */
+.is-reverse .card__bg {
+  animation: reverse-shimmer 10s ease-in-out infinite alternate;
+}
+
+@keyframes reverse-shimmer {
+  to {
+    filter: hue-rotate(28deg) saturate(1.12);
+  }
+}
+
+/* textes prune sur crème : un liseré blanc au lieu de l'ombre noire des métaux */
+.is-reverse .metal-text {
+  filter: drop-shadow(0 0.05em 0 rgba(255, 255, 255, 0.85));
+}
+
+/* ─── structure ─── */
+.card__body {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 0.9em;
+  isolation: isolate;
+  background: #111;
+}
+
+.card__bg,
+.card__frame,
+.card__holo,
+.card__shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.card__bg {
+  background: var(--foil);
+}
+
+/* reflet doux et grain naturel de la matière */
+.card__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 30%, rgba(255, 250, 235, 0.22) 45%, transparent 60%),
+    var(--grain);
+  background-size: 100% 100%, 9em 9em;
+}
+
+/* ─── fenêtre photo ─── */
+.card__window {
+  position: absolute;
+  left: 9.4%;
+  right: 5.8%;
+  top: 3.3%;
+  bottom: 17.1%;
+  overflow: hidden;
+  border-radius: 0.6em;
+  background: #0b0f18;
+}
+
+/* décor derrière les animaux détourés : décor flou façon photo d'affût
+   (taches de lumière, bandeau aux couleurs de la famille, sol propre à chaque milieu) */
+.card__scene {
+  --floor: #2f7a3a;
+  --floor-far: #1f5528;
+  --floor-pattern: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1.4em, transparent 1.4em 2.8em);
+  position: absolute;
+  inset: -6%;
+  background:
+    var(--floor-pattern) 0 100% / 100% 36% no-repeat,
+    linear-gradient(180deg, transparent 64%, var(--floor-far) 64%, var(--floor) 84%, color-mix(in srgb, var(--floor) 65%, #000) 100%),
+    linear-gradient(
+      180deg,
+      transparent 57.5%,
+      color-mix(in srgb, var(--sport) 55%, #fff) 57.5%,
+      var(--sport) 60%,
+      color-mix(in srgb, var(--sport) 55%, #000) 64%,
+      transparent 64%
+    ),
+    linear-gradient(180deg, #1c2e22 0%, #2b4430 28%, #3a5236 48%, #24382a 58%);
+  filter: blur(0.25em);
+}
+
+/* le feuillage : taches de lumière floues entre les feuilles, sans motif répété */
+.card__scene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(255, 246, 210, 0.6) 0 0.35em, transparent 1.1em),
+    radial-gradient(circle at 48% 4%, rgba(255, 238, 190, 0.55) 0 0.45em, transparent 1.3em),
+    radial-gradient(circle at 83% 9%, rgba(255, 246, 210, 0.55) 0 0.35em, transparent 1.1em),
+    radial-gradient(circle at 7% 30%, rgba(120, 170, 80, 0.55) 0 0.6em, transparent 1.4em),
+    radial-gradient(circle at 26% 22%, rgba(220, 230, 170, 0.45) 0 0.5em, transparent 1.2em),
+    radial-gradient(circle at 37% 38%, rgba(70, 120, 60, 0.6) 0 0.7em, transparent 1.5em),
+    radial-gradient(circle at 58% 20%, rgba(240, 200, 100, 0.4) 0 0.5em, transparent 1.2em),
+    radial-gradient(circle at 70% 33%, rgba(200, 225, 160, 0.4) 0 0.6em, transparent 1.3em),
+    radial-gradient(circle at 92% 27%, rgba(70, 120, 60, 0.6) 0 0.65em, transparent 1.4em),
+    radial-gradient(circle at 18% 47%, rgba(220, 230, 170, 0.4) 0 0.55em, transparent 1.2em),
+    radial-gradient(circle at 80% 48%, rgba(120, 170, 80, 0.45) 0 0.6em, transparent 1.3em),
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--sport) 60%, transparent) 0 0.7em, transparent 1.6em),
+    radial-gradient(circle at 4% 52%, color-mix(in srgb, var(--sport) 55%, transparent) 0 0.5em, transparent 1.2em),
+    radial-gradient(circle at 64% 44%, rgba(240, 190, 100, 0.35) 0 0.45em, transparent 1.1em),
+    radial-gradient(circle at 96% 42%, rgba(220, 235, 190, 0.35) 0 0.45em, transparent 1.1em),
+    radial-gradient(45% 22% at 22% 30%, rgba(90, 140, 70, 0.3), transparent),
+    radial-gradient(45% 22% at 78% 38%, rgba(60, 100, 60, 0.35), transparent);
+  filter: blur(0.4em);
+  mask-image: linear-gradient(180deg, #000 0 54%, transparent 58%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0 54%, transparent 58%);
+}
+
+/* lumière du sous-bois et assombrissement des bords */
+.card__scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(75% 45% at 50% 35%, rgba(255, 250, 235, 0.14), transparent 70%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 22%, transparent 78%, rgba(0, 0, 0, 0.35)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 22%, transparent 72%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+/* sol de chaque famille (milieu de vie) */
+.s-felins .card__scene,
+.s-geants .card__scene,
+.s-ongules .card__scene {
+  --floor: #b89a4e;
+  --floor-far: #8a7034;
+  --floor-pattern: repeating-linear-gradient(100deg, rgba(255, 240, 200, 0.12) 0 0.1em, transparent 0.1em 0.7em);
+}
+
+.s-canides .card__scene,
+.s-ours .card__scene,
+.s-primates .card__scene,
+.s-petits .card__scene {
+  --floor: #3f6b35;
+  --floor-far: #2a4a24;
+  --floor-pattern: none;
+}
+
+.s-marsupiaux .card__scene {
+  --floor: #b5562b;
+  --floor-far: #82391b;
+  --floor-pattern: none;
+}
+
+.s-marins .card__scene,
+.s-requins .card__scene,
+.s-poissons .card__scene,
+.s-invertebres .card__scene {
+  --floor: #1f7fb0;
+  --floor-far: #0f5a85;
+  --floor-pattern: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0 0.12em, transparent 0.12em 0.8em);
+}
+
+.s-rapaces .card__scene,
+.s-oiseaux .card__scene {
+  --floor: #7fa7c9;
+  --floor-far: #57809f;
+  --floor-pattern: none;
+}
+
+.s-reptiles .card__scene,
+.s-amphibiens .card__scene {
+  --floor: #4a6b3a;
+  --floor-far: #314a26;
+  --floor-pattern: repeating-linear-gradient(175deg, rgba(255, 255, 255, 0.12) 0 0.14em, transparent 0.14em 1em);
+}
+
+.s-insectes .card__scene {
+  --floor: #5aa347;
+  --floor-far: #3a7a31;
+  --floor-pattern: none;
+}
+
+/* ferme : un pré et sa clôture */
+.s-ferme .card__scene {
+  --floor: #6aa84f;
+  --floor-far: #4a8236;
+  --floor-pattern: linear-gradient(180deg, transparent 30%, rgba(120, 80, 40, 0.75) 30% 36%, transparent 36%);
+}
+
+/* préhistoire : roche et strates */
+.s-prehistoire .card__scene {
+  --floor: #8b7356;
+  --floor-far: #5f4d38;
+  --floor-pattern: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0 0.12em, transparent 0.12em 1em);
+}
+
+.is-prime .card__scene {
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.35) 0 0.06em, transparent 0.14em) 0 0 / 0.7em 0.9em,
+    repeating-linear-gradient(135deg, #e7a9c4 0 1.6em, #a9dccb 1.6em 3.4em, #b9c8ef 3.4em 4.6em, #f0d79a 4.6em 6.2em);
+  filter: saturate(1.1) contrast(1.05) blur(0.05em);
+}
+
+.is-prime .card__scene::before {
+  display: none;
+}
+
+.is-prime .card__scene::after {
+  background:
+    repeating-linear-gradient(35deg, rgba(0, 0, 0, 0.18) 0 0.08em, transparent 0.08em 0.5em),
+    linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.card__player {
+  position: absolute;
+  inset: 5% 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.card__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 100%;
+  animation: photo-in 0.35s ease-out;
+}
+
+@keyframes photo-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.has-cutout .card__photo {
+  filter: drop-shadow(0 0.2em 0.5em rgba(0, 0, 0, 0.5)) saturate(1.08) contrast(1.04);
+}
+
+/* photo non détourée : elle remplit toute la fenêtre */
+.has-photo .card__player {
+  inset: 0;
+}
+
+.has-photo .card__scene {
+  display: none;
+}
+
+.has-photo .card__photo {
+  object-fit: cover;
+  object-position: 50% 18%;
+}
+
+/* Prime avec photo : un voile de nacre irisé par-dessus */
+.is-prime.has-photo .card__window::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.55) 0 0.05em, transparent 0.12em) 0 0 / 0.6em 0.8em,
+    repeating-radial-gradient(ellipse at 15% 115%, rgba(255, 255, 255, 0.3) 0 0.1em, transparent 0.1em 1.1em),
+    repeating-linear-gradient(125deg, #f3b7d0 0 2.2em, #bfe8da 2.2em 4.4em, #c9d6f7 4.4em 6.6em, #f6e1a8 6.6em 8.8em);
+  mix-blend-mode: soft-light;
+  opacity: 0.85;
+}
+
+/* Reverse : la photo reste nette, juste adoucie par un voile pastel et un reflet nacré */
+.is-reverse .card__photo {
+  filter: saturate(1.04) brightness(1.05) contrast(1.02);
+}
+
+/* voile pastel : rose en haut, pêche et menthe au milieu, lilas en bas */
+.is-reverse .card__window::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(140deg, rgba(255, 184, 216, 0.75), rgba(255, 232, 186, 0.45) 35%, rgba(186, 240, 218, 0.5) 65%, rgba(204, 196, 255, 0.75));
+  mix-blend-mode: soft-light;
+}
+
+/* reflet nacré dans le coin, fines paillettes et bord de lumière rosée */
+.is-reverse .card__window::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(110% 70% at 0% 0%, rgba(255, 255, 255, 0.4), transparent 55%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.75) 0 0.03em, transparent 0.08em) 0 0 / 0.6em 0.8em;
+  box-shadow: inset 0 0 0 0.12em rgba(255, 255, 255, 0.6), inset 0 0 1.6em rgba(255, 206, 232, 0.5);
+  mix-blend-mode: screen;
+  opacity: 0.65;
+}
+
+.is-reverse .card__tier i {
+  background: linear-gradient(90deg, #cf5f97, #8a5cc4, #4c96bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.is-reverse .card__holo {
+  opacity: 0.16;
+  mix-blend-mode: soft-light;
+  animation: holo-drift 7s linear infinite;
+}
+
+/* pas de photo : médaillon de la famille */
+.card__bust {
+  width: 88%;
+  height: 92%;
+  filter: drop-shadow(0 0.3em 0.5em rgba(0, 0, 0, 0.45));
+}
+
+/* ─── cadre SVG ─── */
+.card__frame {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.card__panel {
+  fill: var(--panel);
+}
+
+.card__trim {
+  fill: none;
+  stroke: var(--trim);
+  stroke-width: 0.45;
+}
+
+.card__trim--thin {
+  stroke-width: 0.25;
+  opacity: 0.75;
+}
+
+.card__trim--window {
+  stroke-width: 0.6;
+}
+
+.card__rail path {
+  fill: none;
+  stroke: var(--trim);
+  stroke-width: 0.3;
+  opacity: 0.8;
+}
+
+.card__rail .card__diamond {
+  fill: var(--trim);
+  stroke: none;
+  opacity: 1;
+}
+
+/* ─── collines en aplats sous le nom, comme le premier plan des boosters ─── */
+.card__hills {
+  position: absolute;
+  left: 3.6%;
+  right: 3.6%;
+  top: 83.4%;
+  height: 8.2%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card__hills::before,
+.card__hills::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  -webkit-mask: var(--hill-shape) no-repeat 0 100% / 100% 100%;
+  mask: var(--hill-shape) no-repeat 0 100% / 100% 100%;
+}
+
+.card__hills::before {
+  --hill-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' preserveAspectRatio='none'%3E%3Cpath d='M0 30V15C9 10 17 7 27 10C37 13 44 5 56 7C68 9 74 14 84 11C92 9 96 10 100 12V30Z'/%3E%3C/svg%3E");
+  background: color-mix(in srgb, var(--trim) 26%, var(--hill-far));
+}
+
+.card__hills::after {
+  --hill-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' preserveAspectRatio='none'%3E%3Cpath d='M0 30V23C12 19 21 22 33 20C46 18 54 23 66 21C78 19 88 22 100 20V30Z'/%3E%3C/svg%3E");
+  background: color-mix(in srgb, var(--trim) 12%, var(--hill-near));
+}
+
+/* ─── textes clairs (nom, code, note) ─── */
+.metal-text {
+  background: var(--metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0.06em 0 var(--metal-edge)) drop-shadow(0 0.1em 0.12em rgba(0, 0, 0, 0.55));
+}
+
+/* onglet : code de l'espèce */
+.card__code {
+  position: absolute;
+  left: 4.4%;
+  top: 2.5%;
+  width: 21%;
+  height: 5.6%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.95em;
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+
+/* ─── pastille de note ─── */
+.card__badge {
+  position: absolute;
+  left: 11.2%;
+  top: 10.2%;
+  width: 19.5%;
+  display: grid;
+  justify-items: center;
+  z-index: 2;
+  filter: drop-shadow(0 0.15em 0.25em rgba(0, 0, 0, 0.5));
+}
+
+.card__tier {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0.12em 0 0.06em;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.86em;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--tier-ink);
+  background: var(--tier-bg);
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.card__tier i {
+  font-style: inherit;
+}
+
+.is-prime .card__tier i {
+  background: linear-gradient(90deg, #f4a8c8, #f6dc95, #a8e6d4, #b4c8f4, #dcb6f2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card__rating {
+  position: relative;
+  width: 100%;
+  height: 3.35em;
+  margin-top: -0.05em;
+  display: grid;
+  place-items: start center;
+  background: var(--trim);
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 50% 100%, 0 40%);
+}
+
+.card__rating::before {
+  content: '';
+  position: absolute;
+  inset: 0.12em 0.14em 0.2em;
+  background: var(--panel);
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 50% 100%, 0 40%);
+}
+
+.card__rating::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0.45em;
+  width: 0.45em;
+  height: 0.45em;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--trim);
+}
+
+.card__rating b {
+  position: relative;
+  margin-top: 0.12em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.15em;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: lining-nums;
+}
+
+.card__flag {
+  position: absolute;
+  right: 8%;
+  top: 5.6%;
+  width: 2.5em;
+  height: 1.67em;
+  border-radius: 0.2em;
+  overflow: hidden;
+  box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.5), 0 0 0 0.1em var(--trim);
+  z-index: 2;
+}
+
+/* ─── famille à la verticale (rail gauche) ─── */
+.card__sport {
+  position: absolute;
+  left: 6.5%;
+  top: 27.5%;
+  height: 21%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--trim);
+  z-index: 2;
+}
+
+/* ─── médaillon de la famille ─── */
+.card__medal {
+  position: absolute;
+  left: 4.6%;
+  top: 81.2%;
+  width: 20.8%;
+  aspect-ratio: 1;
+  padding: 0.3em;
+  border-radius: 50%;
+  background: var(--foil);
+  box-shadow: 0 0 0 0.12em var(--panel), 0 0.2em 0.4em rgba(0, 0, 0, 0.45);
+  z-index: 3;
+}
+
+.card__medal span {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--panel) 70%, #fff), var(--panel) 70%);
+  box-shadow: inset 0 0 0 0.12em var(--trim), inset 0 0 0 0.3em var(--panel), inset 0 0 0 0.36em var(--trim);
+  color: var(--trim);
+}
+
+.card__medal svg {
+  width: 62%;
+  height: 62%;
+  stroke-width: 1.6;
+  filter: drop-shadow(0 0.05em 0.08em rgba(0, 0, 0, 0.6));
+}
+
+/* ─── mesures : petite réglette vitrée en bas de la photo, à droite du médaillon ─── */
+.card__facts {
+  position: absolute;
+  left: 27%;
+  right: 7.6%;
+  bottom: 17.9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.15em;
+  padding: 0.28em 0.35em;
+  border-radius: 0.55em;
+  background: linear-gradient(180deg, rgba(10, 14, 12, 0.5), rgba(10, 14, 12, 0.72));
+  box-shadow: inset 0 0 0 0.07em rgba(255, 248, 230, 0.22), 0 0.15em 0.4em rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  color: #fff8ec;
+  z-index: 2;
+}
+
+.card__fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22em;
+  min-width: 0;
+  padding: 0 0.3em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.98em;
+  line-height: 1.1;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.card__fact + .card__fact {
+  border-left: 0.07em solid rgba(255, 248, 230, 0.3);
+}
+
+.card__fact svg {
+  flex: none;
+  width: 1.05em;
+  height: 1.05em;
+  fill: none;
+  stroke: var(--trim);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* le poids est un objet plein */
+.card__fact--poids svg path {
+  fill: color-mix(in srgb, var(--trim) 35%, transparent);
+}
+
+/* espèce éteinte : en rouge brique */
+.card__fact.is-extinct {
+  color: #ffb4a2;
+}
+
+.card__fact.is-extinct svg {
+  stroke: #ff8a70;
+}
+
+.is-compact .card__fact {
+  font-size: 1.1em;
+}
+
+/* Reverse : réglette crème et texte prune, comme le reste de la carte */
+.is-reverse .card__facts {
+  background: linear-gradient(180deg, rgba(255, 250, 244, 0.72), rgba(255, 246, 252, 0.86));
+  box-shadow: inset 0 0 0 0.07em rgba(179, 131, 201, 0.5), 0 0.15em 0.4em rgba(90, 60, 120, 0.25);
+  color: #5b4380;
+}
+
+.is-reverse .card__fact + .card__fact {
+  border-left-color: rgba(91, 67, 128, 0.25);
+}
+
+.is-reverse .card__fact.is-extinct {
+  color: #b5473a;
+}
+
+/* ─── bandeau du nom ─── */
+.card__banner {
+  position: absolute;
+  left: 25.5%;
+  right: 5.8%;
+  top: 84%;
+  height: 6.6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5em 0 0.9em;
+  z-index: 2;
+}
+
+.card__name {
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  padding-right: 0.1em;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── plaque du milieu de vie ─── */
+.card__subtitle {
+  position: absolute;
+  left: 25%;
+  right: 7.5%;
+  top: 91.6%;
+  height: 4.7%;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  color: var(--plate-ink);
+  z-index: 2;
+}
+
+.card__subtitle::before,
+.card__subtitle::after {
+  content: '';
+  flex: 1 1 0;
+  min-width: 0.6em;
+  height: 0.07em;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+/* milieu de vie, écrit comme une étiquette de spécimen */
+.card__subtitle span {
+  flex: none;
+  max-width: 82%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.86em;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+/* ─── reflets ─── */
+.card__holo {
+  opacity: 0;
+  mix-blend-mode: color-dodge;
+  background: repeating-linear-gradient(
+    115deg,
+    rgba(240, 160, 200, 0) 0%,
+    rgba(240, 160, 200, 0.45) 7%,
+    rgba(245, 214, 120, 0.42) 14%,
+    rgba(140, 220, 180, 0.42) 21%,
+    rgba(140, 180, 240, 0.45) 28%,
+    rgba(200, 150, 235, 0.42) 35%,
+    rgba(240, 160, 200, 0) 42%
+  );
+  background-size: 260% 260%;
+  background-position: var(--mx, 50%) var(--my, 50%);
+  z-index: 5;
+}
+
+.r-epique .card__holo {
+  opacity: 0.12;
+  animation: holo-drift 9s linear infinite;
+}
+
+.r-legendaire .card__holo {
+  opacity: 0.2;
+  animation: holo-drift 7s linear infinite;
+}
+
+.is-prime .card__holo {
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  animation: holo-drift 5s linear infinite;
+}
+
+.has-tilt[data-active='true'] .card__holo {
+  animation: none;
+}
+
+.card__shine {
+  opacity: 0;
+  mix-blend-mode: overlay;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 30%), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 45%);
+  transition: opacity 0.3s;
+  z-index: 6;
+}
+
+.has-tilt[data-active='true'] .card__shine {
+  opacity: 1;
+}
+
+@keyframes holo-drift {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+/* ─── petites tailles : on garde l'essentiel lisible ─── */
+.card.is-compact .card__badge {
+  width: 22%;
+}
+
+.card.is-compact .card__tier {
+  font-size: 1em;
+}
+
+.card.is-compact .card__rating {
+  height: 3.7em;
+}
+
+.card.is-compact .card__rating b {
+  font-size: 2.4em;
+}
+
+.card.is-compact .card__subtitle span {
+  font-size: 1em;
+}
+
+.card.is-tiny .card__badge {
+  width: 25%;
+}
+
+.card.is-tiny .card__tier {
+  font-size: 1.12em;
+}
+
+.card.is-tiny .card__rating {
+  height: 4.1em;
+}
+
+.card.is-tiny .card__rating b {
+  font-size: 2.7em;
+}
+
+.card.is-tiny .card__code {
+  font-size: 2.15em;
+}
+
+/* ─── album : carte pas encore obtenue ─── */
+.card.is-locked .card__body {
+  filter: grayscale(1) brightness(0.42) contrast(0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card[data-active='true'] {
+    transition: none;
+  }
+  .card__holo {
+    animation: none !important;
+  }
+}
+/* ───────────── Cartes Mythe : créatures légendaires, sanctuaires, divinités ─────────────
+   Même structure que les animaux, palette propre : nuit de pleine lune bleutée et étoilée, comme le pack des canidés. */
+.card.is-mythe {
+  --foil:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 0.035em, transparent 0.08em) 0 0 / 1.2em 1.4em,
+    radial-gradient(circle, rgba(207, 224, 255, 0.6) 0 0.03em, transparent 0.07em) 0.5em 0.6em / 1.7em 1.5em,
+    radial-gradient(34% 18% at 72% 10%, rgba(241, 246, 255, 0.85), transparent 70%),
+    linear-gradient(172deg, #0d1a3a 0%, #22396a 45%, #4c74ab 85%, #6f93c4 100%);
+  --panel: #080f1f;
+  --trim: #cfe0ff;
+  --metal: linear-gradient(180deg, #ffffff 0%, #eaf2ff 50%, #b9cff2 100%);
+  --metal-edge: #030712;
+  --plate-ink: #f1f6ff;
+  --tier-bg: linear-gradient(90deg, #6f93c4, #dbe8ff);
+  --tier-ink: #080f1f;
+  --hill-far: #16284a;
+  --hill-near: #101e3a;
+}
+
+.is-mythe .card__scene {
+  background:
+    radial-gradient(55% 45% at 50% 45%, rgba(207, 224, 255, 0.3), transparent 72%),
+    linear-gradient(180deg, #13213f, #070d1c);
+}
+
+.is-mythe .card__scene::before {
+  display: none;
+}
+
+/* sans photo : l'emblème de la famille, couleur de lune */
+.card__emblem {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: #cfe0ff;
+}
+
+.card__emblem svg {
+  width: 48%;
+  height: 48%;
+  stroke-width: 1.2;
+  filter: drop-shadow(0 0 0.6em rgba(207, 224, 255, 0.55));
+}
+
+.is-mythe .card__photo {
+  filter: saturate(0.92) contrast(1.06);
+}
+
+.is-mythe .card__holo {
+  opacity: 0.12;
+  mix-blend-mode: color-dodge;
+  animation: holo-drift 9s linear infinite;
+}

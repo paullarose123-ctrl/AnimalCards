@@ -1,0 +1,355 @@
+import { useMemo, useState } from 'react';
+import { useGame } from '../store/game';
+import { useUi, DEFAULT_FILTERS } from '../store/ui';
+import { useNow, formatDuration, timeAgo } from '../hooks/useNow';
+import { ATHLETES_BY_ID } from '../data/athletes';
+import { SPORTS, SPORT_ORDER } from '../data/sports';
+import { RARITIES, RARITY_ORDER, displayName, overallOf, rarityOf } from '../engine/cards';
+import { MARKET_TAX, MAX_MY_LISTINGS, marketPrice, netAfterTax, nextMinBid, type Listing, type MyListing } from '../engine/market';
+import type { RarityId, SportId } from '../engine/types';
+import { Card } from '../components/Card';
+import { Balles } from '../components/Balles';
+import { Landscape } from '../components/PackScene';
+import { SCREEN_SCENES } from '../art/scenes';
+
+function normalize(text: string): string {
+  return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+}
+
+function ListingRow({ listing, now }: { listing: Listing; now: number }) {
+  const athlete = ATHLETES_BY_ID[listing.card.athleteId];
+  const news = useGame((s) => s.market.news);
+  const balles = useGame((s) => s.balles);
+  const buy = useGame((s) => s.buyListing);
+  const bid = useGame((s) => s.placeBid);
+  const watch = useGame((s) => s.toggleWatch);
+  const watched = useGame((s) => s.watchlist.includes(listing.id));
+  const openDetail = useUi((s) => s.openDetail);
+  const [bidding, setBidding] = useState(false);
+  const minBid = nextMinBid(listing);
+  const [amount, setAmount] = useState(minBid);
+  const price = marketPrice(listing.card, now, news);
+  const left = listing.expiresAt - now;
+  const deal = listing.buyNow < price * 0.97;
+  const rarity = rarityOf(athlete);
+
+  return (
+    <li className={`listing${listing.bidder === 'me' ? ' is-leading' : ''}`}>
+      <Card card={listing.card} size="xs" onClick={() => openDetail({ card: listing.card, listingId: listing.id })} />
+      <div className="listing__info">
+        <p className="listing__name">
+          <b>{displayName(athlete)}</b>
+          {listing.card.variant === 'prime' && <span className="chip-rarity chip-rarity--prime">Prime</span>}
+          {listing.card.variant === 'reverse' && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
+        </p>
+        <p className="listing__meta">
+          <span className={`chip-rarity chip-rarity--${rarity.id}`}>{rarity.name}</span> {overallOf(athlete, listing.card.variant)} · {SPORTS[athlete.sport].name} ·{' '}
+          {listing.seller}
+        </p>
+        <p className="listing__market">
+          Cote <Balles value={price} />
+          {deal && <span className="deal">Bonne affaire</span>}
+        </p>
+      </div>
+      <div className="listing__prices">
+        <span className={`listing__time${left < 60_000 ? ' is-urgent' : ''}`}>{formatDuration(left)}</span>
+        <span className="listing__bid">
+          {listing.currentBid === null ? 'Départ' : listing.bidder === 'me' ? 'Ton enchère' : 'Enchère'} <Balles value={listing.currentBid ?? listing.startPrice} />
+        </span>
+      </div>
+      <div className="listing__actions">
+        <button type="button" className="btn btn--primary btn--sm" disabled={balles < listing.buyNow} onClick={() => buy(listing.id)}>
+          Acheter <Balles value={listing.buyNow} />
+        </button>
+        {!bidding ? (
+          <button
+            type="button"
+            className="btn btn--ghost btn--sm"
+            onClick={() => {
+              setAmount(minBid);
+              setBidding(true);
+            }}
+          >
+            Enchérir
+          </button>
+        ) : (
+          <form
+            className="bid-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (bid(listing.id, Math.max(amount, minBid))) setBidding(false);
+            }}
+          >
+            <label className="visually-hidden" htmlFor={`bid-${listing.id}`}>
+              Montant de l’enchère
+            </label>
+            <input id={`bid-${listing.id}`} type="number" inputMode="numeric" min={minBid} step={50} value={amount} onChange={(e) => setAmount(Number(e.target.value))} autoFocus />
+            <button type="submit" className="btn btn--gold btn--sm">
+              OK
+            </button>
+            <button type="button" className="btn btn--ghost btn--sm" onClick={() => setBidding(false)} aria-label="Annuler l’enchère">
+              ×
+            </button>
+          </form>
+        )}
+        <button type="button" className={`icon-btn icon-btn--sm${watched ? ' is-on' : ''}`} onClick={() => watch(listing.id)} aria-pressed={watched} aria-label={watched ? 'Ne plus suivre' : 'Suivre cette annonce'}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12,20 L4.5,12.5 A4.5,4.5 0 0 1 12,6.5 A4.5,4.5 0 0 1 19.5,12.5 Z" />
+          </svg>
+        </button>
+      </div>
+    </li>
+  );
+}
+
+function BuyTab() {
+  const listings = useGame((s) => s.market.listings);
+  const news = useGame((s) => s.market.news);
+  const filters = useUi((s) => s.marketFilters);
+  const setFilters = useUi((s) => s.setMarketFilters);
+  const now = useNow(1000);
+
+  const results = useMemo(() => {
+    const q = normalize(filters.query.trim());
+    const list = listings.filter((listing) => {
+      const athlete = ATHLETES_BY_ID[listing.card.athleteId];
+      if (filters.sport && athlete.sport !== filters.sport) return false;
+      if (filters.rarity && rarityOf(athlete).id !== filters.rarity) return false;
+      if (filters.prime && listing.card.variant !== 'prime') return false;
+      if (filters.icons && !athlete.retired) return false;
+      if (filters.maxPrice && listing.buyNow > filters.maxPrice) return false;
+      if (q && !normalize(`${displayName(athlete)} ${athlete.nick ?? ''} ${athlete.latin ?? ''}`).includes(q)) return false;
+      return listing.expiresAt > now;
+    });
+    return list.sort((a, b) => {
+      switch (filters.sort) {
+        case 'price-asc':
+          return a.buyNow - b.buyNow;
+        case 'price-desc':
+          return b.buyNow - a.buyNow;
+        case 'rating':
+          return overallOf(ATHLETES_BY_ID[b.card.athleteId], b.card.variant) - overallOf(ATHLETES_BY_ID[a.card.athleteId], a.card.variant);
+        default:
+          return a.expiresAt - b.expiresAt;
+      }
+    });
+  }, [listings, filters, now]);
+
+  return (
+    <>
+      <div className="filters" role="search">
+        <label className="field field--grow">
+          <span className="visually-hidden">Rechercher un animal</span>
+          <input id="market-search" type="search" placeholder="Rechercher un animal (ex. Guépard)" value={filters.query} onChange={(e) => setFilters({ query: e.target.value })} />
+        </label>
+        <label className="field">
+          <span className="visually-hidden">Famille</span>
+          <select id="market-sport" value={filters.sport} onChange={(e) => setFilters({ sport: e.target.value as SportId | '' })}>
+            <option value="">Toutes les familles</option>
+            {SPORT_ORDER.map((id) => (
+              <option key={id} value={id}>
+                {SPORTS[id].name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="field">
+          <span className="visually-hidden">Rareté</span>
+          <select id="market-rarity" value={filters.rarity} onChange={(e) => setFilters({ rarity: e.target.value as RarityId | '' })}>
+            <option value="">Toutes les raretés</option>
+            {RARITY_ORDER.map((id) => (
+              <option key={id} value={id}>
+                {RARITIES[id].name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="field">
+          <span className="visually-hidden">Prix maximum</span>
+          <input
+            id="market-max"
+            type="number"
+            inputMode="numeric"
+            placeholder="Prix max"
+            value={filters.maxPrice ?? ''}
+            onChange={(e) => setFilters({ maxPrice: e.target.value ? Number(e.target.value) : null })}
+          />
+        </label>
+        <label className="field">
+          <span className="visually-hidden">Trier</span>
+          <select id="market-sort" value={filters.sort} onChange={(e) => setFilters({ sort: e.target.value as typeof filters.sort })}>
+            <option value="ending">Fin la plus proche</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="rating">Meilleure note</option>
+          </select>
+        </label>
+        <label className="toggle">
+          <input id="market-prime" type="checkbox" checked={filters.prime} onChange={(e) => setFilters({ prime: e.target.checked })} />
+          <span>Prime</span>
+        </label>
+        <label className="toggle">
+          <input id="market-icons" type="checkbox" checked={filters.icons} onChange={(e) => setFilters({ icons: e.target.checked })} />
+          <span>Icônes</span>
+        </label>
+      </div>
+      <div className="market-news" aria-label="Tendances du marché">
+        {news.slice(0, 3).map((item) => (
+          <span key={item.id} className={item.factor >= 1 ? 'is-up' : 'is-down'}>
+            {item.factor >= 1 ? '▲' : '▼'} {item.text} <time>{timeAgo(item.at, now)}</time>
+          </span>
+        ))}
+      </div>
+      {results.length === 0 ? (
+        <div className="empty">
+          <p>Aucune carte ne correspond à ta recherche en ce moment.</p>
+          <p className="muted">De nouvelles annonces arrivent chaque minute. Élargis les filtres ou reviens plus tard.</p>
+          <button type="button" className="btn btn--ghost" onClick={() => setFilters(DEFAULT_FILTERS)}>
+            Effacer les filtres
+          </button>
+        </div>
+      ) : (
+        <ul className="listings">
+          {results.slice(0, 60).map((listing) => (
+            <ListingRow key={listing.id} listing={listing} now={now} />
+          ))}
+        </ul>
+      )}
+    </>
+  );
+}
+
+function MyListingRow({ listing, now }: { listing: MyListing; now: number }) {
+  const athlete = ATHLETES_BY_ID[listing.card.athleteId];
+  const cancel = useGame((s) => s.cancelListing);
+  const openDetail = useUi((s) => s.openDetail);
+  return (
+    <li className={`listing listing--mine is-${listing.status}`}>
+      <Card card={listing.card} size="xs" onClick={() => openDetail({ card: listing.card })} />
+      <div className="listing__info">
+        <p className="listing__name">
+          <b>{displayName(athlete)}</b>
+        </p>
+        <p className="listing__meta">
+          Départ <Balles value={listing.startPrice} /> · Immédiat <Balles value={listing.buyNow} />
+        </p>
+      </div>
+      <div className="listing__prices">
+        {listing.status === 'active' && (
+          <>
+            <span className="listing__time">{formatDuration(listing.expiresAt - now)}</span>
+            <span className="listing__bid">
+              {listing.currentBid === null ? 'Aucune enchère' : <>Enchère <Balles value={listing.currentBid} /></>}
+            </span>
+          </>
+        )}
+        {listing.status === 'sold' && (
+          <span className="status status--good">
+            Vendue à {listing.buyer} · +<Balles value={netAfterTax(listing.soldPrice ?? 0)} />
+          </span>
+        )}
+        {listing.status === 'expired' && <span className="status">Invendue, revenue dans ta réserve</span>}
+      </div>
+      <div className="listing__actions">
+        {listing.status === 'active' && listing.currentBid === null && (
+          <button type="button" className="btn btn--ghost btn--sm" onClick={() => cancel(listing.id)}>
+            Retirer
+          </button>
+        )}
+      </div>
+    </li>
+  );
+}
+
+function MineTab() {
+  const myListings = useGame((s) => s.market.myListings);
+  const clear = useGame((s) => s.clearFinishedListings);
+  const setTab = useUi((s) => s.setTab);
+  const now = useNow(1000);
+  const active = myListings.filter((l) => l.status === 'active');
+  const finished = myListings.filter((l) => l.status !== 'active');
+  return (
+    <>
+      <div className="info-bar">
+        <span>
+          {active.length}/{MAX_MY_LISTINGS} cartes en vente. Taxe du marché : {Math.round(MARKET_TAX * 100)} % sur chaque vente.
+        </span>
+        {finished.length > 0 && (
+          <button type="button" className="btn btn--ghost btn--sm" onClick={clear}>
+            Effacer les ventes terminées
+          </button>
+        )}
+      </div>
+      {myListings.length === 0 ? (
+        <div className="empty">
+          <p>Tu n’as aucune carte en vente.</p>
+          <p className="muted">Ouvre une carte de ta réserve et choisis « Mettre en vente ». Les collectionneurs IA achètent en quelques minutes si le prix est juste.</p>
+          <button type="button" className="btn btn--primary" onClick={() => setTab('collection')}>
+            Aller à ma réserve
+          </button>
+        </div>
+      ) : (
+        <ul className="listings">
+          {[...active, ...finished].map((listing) => (
+            <MyListingRow key={listing.id} listing={listing} now={now} />
+          ))}
+        </ul>
+      )}
+    </>
+  );
+}
+
+function WatchTab() {
+  const listings = useGame((s) => s.market.listings);
+  const watchlist = useGame((s) => s.watchlist);
+  const now = useNow(1000);
+  const watched = listings.filter((l) => watchlist.includes(l.id));
+  if (!watched.length) {
+    return (
+      <div className="empty">
+        <p>Aucune annonce suivie.</p>
+        <p className="muted">Touche le cœur d’une annonce pour la suivre. Les annonces sur lesquelles tu enchéris sont suivies automatiquement.</p>
+      </div>
+    );
+  }
+  return (
+    <ul className="listings">
+      {watched.map((listing) => (
+        <ListingRow key={listing.id} listing={listing} now={now} />
+      ))}
+    </ul>
+  );
+}
+
+export function MarketScreen() {
+  const tab = useUi((s) => s.marketTab);
+  const setTab = useUi((s) => s.setMarketTab);
+  const myCount = useGame((s) => s.market.myListings.length);
+  const watchCount = useGame((s) => s.watchlist.length);
+  return (
+    <div className="screen">
+      <header className="screen__head screen__head--art">
+        <Landscape className="screen__art" scene={SCREEN_SCENES.mercato} seed="marché" />
+        <div>
+          <p className="eyebrow">Bourse d’échange</p>
+          <h1>Marché</h1>
+          <p className="muted">Achète au prix immédiat, enchéris, ou vends tes cartes aux autres collectionneurs.</p>
+        </div>
+        <div className="segmented" role="tablist" aria-label="Sections du marché">
+          <button type="button" role="tab" aria-selected={tab === 'buy'} className={tab === 'buy' ? 'is-active' : ''} onClick={() => setTab('buy')}>
+            Acheter
+          </button>
+          <button type="button" role="tab" aria-selected={tab === 'mine'} className={tab === 'mine' ? 'is-active' : ''} onClick={() => setTab('mine')}>
+            Mes ventes{myCount ? ` (${myCount})` : ''}
+          </button>
+          <button type="button" role="tab" aria-selected={tab === 'watch'} className={tab === 'watch' ? 'is-active' : ''} onClick={() => setTab('watch')}>
+            Suivies{watchCount ? ` (${watchCount})` : ''}
+          </button>
+        </div>
+      </header>
+      {tab === 'buy' && <BuyTab />}
+      {tab === 'mine' && <MineTab />}
+      {tab === 'watch' && <WatchTab />}
+    </div>
+  );
+}
