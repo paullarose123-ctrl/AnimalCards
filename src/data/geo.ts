@@ -83,8 +83,6 @@ export const REGIONS: Region[] = [
   { key: 'BE', codes: ['BE'], iso: '056', at: [4.5, 50.6] },
   { key: 'IE', codes: ['IE'], iso: '372', at: [-8, 53.2] },
   { key: 'IL', codes: ['IL'], iso: '376', at: [34.9, 31.4] },
-  { key: 'DK', codes: ['DK'], iso: '208', at: [9.5, 56] },
-  { key: 'TR', codes: ['TR'], iso: '792', at: [35, 39] },
   { key: 'IR', codes: ['IR'], iso: '364', at: [53.7, 32.4] },
   // sans contour : les espèces des océans (au milieu du Pacifique) et celles présentes partout (Atlantique Sud)
   { key: 'XO', codes: ['XO'], at: [-150, -12] },

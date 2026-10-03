@@ -246,7 +246,9 @@ export function CardDetail() {
                 ? ', Pixabay'
                 : photoCredit(face.athleteId)!.page.includes('flickr.com')
                   ? ', Flickr'
-                  : ', Wikimedia Commons'}
+                  : photoCredit(face.athleteId)!.page.includes('stockcake.com')
+                    ? ', StockCake'
+                    : ', Wikimedia Commons'}
               {photoCredit(face.athleteId)!.cutout ? ' (détourée)' : ''}
             </p>
           )}

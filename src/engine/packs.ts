@@ -1,7 +1,21 @@
 import type { Athlete, CardFace, RarityId, SportId, Variant } from './types';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS } from '../data/sports';
-import { MYTHE_CHANCE, PRIME_CHANCE, RARITY_ORDER, REVERSE_CHANCE, canBePrime, dropWeight, isMythe, mytheWeight, primeRecordStart, rarityOf } from './cards';
+import {
+  ICON_CHANCE,
+  MYTHE_CHANCE,
+  PRIME_CHANCE,
+  RARITY_ORDER,
+  REVERSE_CHANCE,
+  canBePrime,
+  dropWeight,
+  iconWeight,
+  isIcon,
+  isMythe,
+  mytheWeight,
+  primeRecordStart,
+  rarityOf,
+} from './cards';
 import { weightedPick, weightedPickCached, type Rng } from './random';
 
 export type Odds = Record<RarityId, number>;
@@ -72,7 +86,7 @@ export const SHOP_PACKS: PackDef[] = [
     id: 'icones',
     name: 'Pack Icônes',
     tagline: '3 espèces disparues (dinosaures, dodo, thylacine…), 1 Rare ou mieux garantie',
-    price: 15_000,
+    price: 60_000,
     size: 3,
     odds: { commune: 25, 'peu-commune': 35, rare: 27, epique: 10, legendaire: 3 },
     primeChance: PRIME_CHANCE * 1.25,
@@ -109,7 +123,8 @@ export function sportPack(sport: SportId, sportName: string): PackDef {
     id: `sport-${sport}`,
     name: `Pack ${sportName}`,
     tagline: `5 cartes, uniquement ${SPORTS[sport].group}`,
-    price: 1_500,
+    // la Préhistoire ne contient que des Icônes : son pack coûte le prix d'un trésor
+    price: sport === 'prehistoire' ? 100_000 : 1_500,
     size: 5,
     odds: { commune: 50, 'peu-commune': 30, rare: 14, epique: 4.8, legendaire: 1.2 },
     primeChance: PRIME_CHANCE,
@@ -121,17 +136,34 @@ export function sportPack(sport: SportId, sportName: string): PackDef {
 
 const poolCache = new Map<string, Record<RarityId, Athlete[]>>();
 
+/** Booster qui ne contient que des Icônes (Pack Icônes, Pack Préhistoire) : elles y sortent normalement. */
+export function isIconPack(pack: PackDef): boolean {
+  return pack.tone === 'icon' || pack.sport === 'prehistoire';
+}
+
 function poolFor(pack: PackDef): Record<RarityId, Athlete[]> {
   const cached = poolCache.get(pack.id);
   if (cached) return cached;
   const pool = { commune: [], 'peu-commune': [], rare: [], epique: [], legendaire: [] } as Record<RarityId, Athlete[]>;
   for (const athlete of ATHLETES) {
-    // les Mythes ont leur propre tirage (voir drawCard)
-    if (isMythe(athlete)) continue;
+    // les Mythes ont leur propre tirage, et les Icônes aussi hors de leurs packs (voir drawCard)
+    if (isMythe(athlete) || (isIcon(athlete) && !isIconPack(pack))) continue;
     if (!pack.filter || pack.filter(athlete)) pool[rarityOf(athlete).id].push(athlete);
   }
   poolCache.set(pack.id, pool);
   return pool;
+}
+
+/** Icônes qui peuvent sortir, très rarement, dans un booster ordinaire. */
+export function iconPool(pack: PackDef): Athlete[] {
+  if (isIconPack(pack)) return [];
+  return ATHLETES.filter((athlete) => isIcon(athlete) && !isMythe(athlete) && (!pack.filter || pack.filter(athlete)));
+}
+
+/** Probabilité qu'une carte ordinaire du booster soit une Icône (affichée en boutique ; 1 pour les packs d'Icônes). */
+export function iconOdds(pack: PackDef): number {
+  if (isIconPack(pack)) return 1;
+  return iconPool(pack).length ? ICON_CHANCE : 0;
 }
 
 function rollRarity(rng: Rng, odds: Partial<Odds>, pool: Record<RarityId, Athlete[]>): RarityId {
@@ -188,8 +220,13 @@ function drawCard(
     const mythes = mythePool(pack);
     if (mythes.length) return cardOf(pickFresh(rng, mythes, mytheWeight, avoid, taken), 'base');
   }
-  const rarity = rollRarity(rng, odds, pool);
-  const athlete = pickFresh(rng, pool[rarity], dropWeight, avoid, taken);
+  let athlete: Athlete | null = null;
+  // une Icône, très rarement, à la place d'une carte ordinaire (jamais à la place de la carte garantie)
+  if (allowMythe && rng() < ICON_CHANCE) {
+    const icons = iconPool(pack);
+    if (icons.length) athlete = pickFresh(rng, icons, iconWeight, avoid, taken);
+  }
+  athlete ??= pickFresh(rng, pool[rollRarity(rng, odds, pool)], dropWeight, avoid, taken);
   if (canBePrime(athlete) && rng() < pack.primeChance) return cardOf(athlete, 'prime');
   return cardOf(athlete, rng() < REVERSE_CHANCE ? 'reverse' : 'base');
 }

@@ -463,14 +463,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Caracal_caracal_caracal_186538043.jpg"
  },
- "carnotaure": {
-  "file": "carnotaure.webp",
-  "cutout": false,
-  "author": "Diversicat",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-dinosaur-dino-reptile-8214596/"
- },
  "carpe-koi": {
   "file": "carpe-koi.webp",
   "cutout": false,
@@ -758,14 +750,6 @@
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
   "page": "https://commons.wikimedia.org/wiki/File:2021_sep_kenia-110_(51676164417).jpg"
- },
- "compsognathus": {
-  "file": "compsognathus.webp",
-  "cutout": false,
-  "author": "Mike Beauregard from Nunavut, Canada",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Compsognathus_longpipes_Paleomania.jpg"
  },
  "condor": {
   "file": "condor.webp",
@@ -1310,14 +1294,6 @@
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
   "page": "https://commons.wikimedia.org/wiki/File:The_wolverine_in_the_wilderness_(48112068898).jpg"
- },
- "glyptodon": {
-  "file": "glyptodon.webp",
-  "cutout": false,
-  "author": "ABelov2014",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Glyptodonts.jpg"
  },
  "gnou": {
   "file": "gnou.webp",
@@ -2007,14 +1983,6 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/dragonfly-insect-macro-wings-6536606/"
  },
- "megatherium": {
-  "file": "megatherium.webp",
-  "cutout": false,
-  "author": "DiBgd at English Wikipedia",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Pleistocene_SA.jpg"
- },
  "menure": {
   "file": "menure.webp",
   "cutout": false,
@@ -2607,14 +2575,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Tripneustes_ventricosus_(West_Indian_Sea_Egg-top)_and_Echinometra_viridis_(Reef_Urchin_-_bottom).jpg"
  },
- "pachycephalosaure": {
-  "file": "pachycephalosaure.webp",
-  "cutout": false,
-  "author": "ABelov2014",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Hell_Creek_pachycephalosaurs.jpg"
- },
  "panda": {
   "file": "panda.webp",
   "cutout": false,
@@ -2686,14 +2646,6 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Paraponera_clavata.jpg"
- },
- "parasaurolophus": {
-  "file": "parasaurolophus.webp",
-  "cutout": false,
-  "author": "Marco Antonio Pineda",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Parasaurolophus_walkeri_Dinosaur_Park.png"
  },
  "paresseux": {
   "file": "paresseux.webp",
@@ -3270,14 +3222,6 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Indian_rhinoceros_(Rhinoceros_unicornis)_1.jpg"
- },
- "rhinoceros-laineux": {
-  "file": "rhinoceros-laineux.webp",
-  "cutout": false,
-  "author": "Heinrich Harder (1858-1935)",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Woolly_rhino_nashorn.jpg"
  },
  "rhinoceros-noir": {
   "file": "rhinoceros-noir.webp",

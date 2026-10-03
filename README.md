@@ -41,7 +41,7 @@ npm run build:single # un seul fichier HTML autonome dans artifact/
 
 ### Rareté = célébrité
 
-Chaque espèce a un score de célébrité (0-100). Plus elle est connue, plus sa carte est rare. Le jeu compte 442 espèces dans 19 familles, dont 53 Icônes (espèces disparues), plus 31 cartes Mythe.
+Chaque espèce a un score de célébrité (0-100). Plus elle est connue, plus sa carte est rare. Le jeu compte 435 espèces dans 19 familles, dont 46 Icônes (espèces disparues), plus 31 cartes Mythe.
 
 | Rareté | Célébrité | Booster gratuit |
 | --- | --- | --- |
@@ -122,7 +122,8 @@ Les espèces vedettes ont un **ulti signature** : « Pointe de vitesse » pour l
 
 - Un booster gratuit toutes les 10 minutes, jusqu’à 10 en réserve.
 - Pas de doublon rapproché : une espèce sortie dans un booster ne peut pas ressortir avant 7 boosters (ni deux fois dans le même). Seuls les petits packs de famille relâchent cette règle quand il ne reste plus d’espèce disponible dans la rareté tirée.
-- Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (espèces disparues), Prime (1 individu célèbre garanti, 250 000 graines), Légende (1 Légendaire garantie) et un pack par famille. Les chances sont affichées sur chaque pack.
+- Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (espèces disparues, 60 000 graines), Prime (1 individu célèbre garanti, 250 000 graines), Légende (1 Légendaire garantie) et un pack par famille (1 500 graines, 100 000 pour la Préhistoire, qui ne contient que des Icônes). Les chances sont affichées sur chaque pack.
+- Les Icônes sont des trésors : hors du Pack Icônes et du Pack Préhistoire, environ 1 carte sur 200 seulement (jamais à la place de la carte garantie), et elles passent très rarement sur le marché.
 - La monnaie du jeu : les graines.
 - Les Épiques, Légendaires et Prime ont droit à leur révélation : drapeau, puis famille, puis note, puis la carte avec confettis et fanfare.
 
@@ -148,7 +149,7 @@ Le code est celui d’AthletiCards : les noms internes n’ont pas changé (une 
 
 ```
 src/
-  data/athletes.ts   les 442 espèces, leurs ultis signatures, versions Prime, et les 31 cartes Mythe
+  data/athletes.ts   les 435 espèces, leurs ultis signatures, versions Prime, et les 31 cartes Mythe
   data/sports.ts     familles, particularités, ultis de famille, épreuves, stats
   engine/            moteur pur, sans interface : cartes, boosters, marché, matchs
   store/             état du jeu (sauvegarde locale « animalcards-save ») et état de l’interface

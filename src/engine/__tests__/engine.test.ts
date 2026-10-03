@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ATHLETES, ATHLETES_BY_ID } from '../../data/athletes';
 import { RECORD_START, baseValueOf, canBePrime, overallOf, rarityOf, primeRecordStart } from '../cards';
-import { FREE_ODDS, FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, primeOdds } from '../packs';
+import { FREE_ODDS, FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, primeOdds, sportPack } from '../packs';
 import { advanceMarket, createAiListing, createMarket, createMyListing, marketPrice, netAfterTax, TARGET_LISTINGS, type MarketState } from '../market';
 import { computePower, createMatch, matchResult, mytheBonus, playRound, ROUNDS, takenMalus, type MatchCard } from '../match';
 import { mulberry32 } from '../random';
@@ -80,6 +80,32 @@ describe('boosters', () => {
     for (let i = 0; i < 300; i++) {
       const athletes = openPack(legende, rng).map((card) => ATHLETES_BY_ID[card.athleteId]);
       expect(athletes.some((athlete) => !athlete.mythe && rarityOf(athlete).id === 'legendaire')).toBe(true);
+    }
+  });
+
+  it('rend les Icônes très rares hors de leurs packs (environ 1 carte sur 200)', () => {
+    const rng = mulberry32(7);
+    const isIconCard = (card: { athleteId: string }) => {
+      const athlete = ATHLETES_BY_ID[card.athleteId];
+      return !!athlete.retired && !athlete.mythe;
+    };
+    let icons = 0;
+    let total = 0;
+    for (let i = 0; i < 8000; i++) {
+      for (const card of openPack(FREE_PACK, rng)) {
+        total += 1;
+        if (isIconCard(card)) icons += 1;
+      }
+    }
+    expect(icons / total).toBeGreaterThan(0.003);
+    expect(icons / total).toBeLessThan(0.008);
+    // le Pack Icônes et le Pack Préhistoire, eux, ne contiennent que des Icônes (ou un Mythe)
+    const iconPack = SHOP_PACKS.find((p) => p.id === 'icones')!;
+    const prehistoire = sportPack('prehistoire', 'Préhistoire');
+    for (let i = 0; i < 300; i++) {
+      for (const pack of [iconPack, prehistoire]) {
+        for (const card of openPack(pack, rng)) expect(isIconCard(card) || !!ATHLETES_BY_ID[card.athleteId].mythe).toBe(true);
+      }
     }
   });
 

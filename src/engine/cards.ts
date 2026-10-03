@@ -66,6 +66,16 @@ export function isMythe(athlete: Athlete): boolean {
   return !!athlete.mythe;
 }
 
+// ───────────── Icônes ─────────────
+// Espèces disparues : un trésor, environ 1 carte sur 200 dans les boosters ordinaires. Seuls le Pack Icônes et le
+// Pack Préhistoire, bien plus chers, n'en contiennent que.
+export const ICON_CHANCE = 0.005;
+
+/** Poids de tirage d'une Icône : le T. rex ou le mammouth (Légende) sortent huit fois moins qu'une Icône commune. */
+export function iconWeight(athlete: Athlete): number {
+  return [8, 6, 4, 2, 1][rarityOf(athlete).order] * dropWeight(athlete);
+}
+
 /** Poids de tirage d'un Mythe selon sa rareté : les Légendes sortent six fois moins que les Or. */
 export function mytheWeight(athlete: Athlete): number {
   const order = rarityOf(athlete).order;

@@ -627,7 +627,8 @@ async function finalize() {
   const credits = existsSync(CREDITS_FILE) ? JSON.parse(readFileSync(CREDITS_FILE, 'utf8')) : {};
   for (const id of Object.keys(credits)) if (!known.has(id) || none.includes(id)) delete credits[id];
   for (const [id, info] of Object.entries(photos)) {
-    if (!existsSync(join(RAW_DIR, `${id}.jpg`))) continue;
+    // espèce retirée du jeu depuis le téléchargement : on l'ignore
+    if (!known.has(id) || !existsSync(join(RAW_DIR, `${id}.jpg`))) continue;
     await renderCard(id);
     credits[id] = {
       file: `${id}.webp`,

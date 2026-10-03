@@ -24,6 +24,9 @@ export const START_BALLES = 5_000;
 export const UNLIMITED_BALLES = 99_999_999_999;
 const DIVISION_POINTS_TO_PROMOTE = 7;
 
+/** Graines rendues pour chaque carte d'une espèce retirée du jeu (sauvegardes < v4). */
+const REMOVED_CARD_REFUND = 2_000;
+
 /** Anciennes cartes Mythe (sanctuaires, divinités…) → créature fantastique qui les remplace (sauvegardes < v3). */
 const MYTHES_REMPLACES: Record<string, string> = {
   sphinx: 'lion-aile',
@@ -618,7 +621,7 @@ export const useGame = create<GameState>()(
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
       name: 'animalcards-save',
-      version: 3,
+      version: 4,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
         let state = persisted as GameState;
@@ -648,6 +651,26 @@ export const useGame = create<GameState>()(
             Object.entries(state.primesFound ?? {}).filter(([id]) => ATHLETES_BY_ID[id] && canBePrime(ATHLETES_BY_ID[id])),
           );
           if (state.stats.bestPull) state.stats = { ...state.stats, bestPull: fix(state.stats.bestPull) };
+        }
+        if (version < 4) {
+          // version 4 : des espèces ont été retirées du jeu. Leurs cartes disparaissent de la réserve, du marché,
+          // de l'équipe et de l'album, et les graines de leur revente rapide sont rendues au joueur.
+          const known = (id: string) => !!ATHLETES_BY_ID[id];
+          const gone = state.collection.filter((card) => !known(card.athleteId));
+          const goneUids = new Set(gone.map((card) => card.uid));
+          state.balles += gone.length * REMOVED_CARD_REFUND;
+          state.collection = state.collection.filter((card) => known(card.athleteId));
+          state.team = (state.team ?? []).map((uid) => (goneUids.has(uid) ? '' : uid));
+          state.discovered = Object.fromEntries(Object.entries(state.discovered ?? {}).filter(([id]) => known(id)));
+          state.primesFound = Object.fromEntries(Object.entries(state.primesFound ?? {}).filter(([id]) => known(id)));
+          state.recentPacks = (state.recentPacks ?? []).map((ids) => ids.filter(known));
+          state.market = {
+            ...state.market,
+            listings: state.market.listings.filter((listing) => known(listing.card.athleteId)),
+            myListings: state.market.myListings.filter((listing) => known(listing.card.athleteId)),
+          };
+          if (state.stats.bestPull && !known(state.stats.bestPull.athleteId)) state.stats = { ...state.stats, bestPull: undefined };
+          state.match = null;
         }
         return state;
       },

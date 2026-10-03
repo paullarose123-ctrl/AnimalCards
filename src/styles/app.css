@@ -4683,6 +4683,11 @@
   --dot: linear-gradient(180deg, #fff1bf, #e0b85a);
 }
 
+/* Icône : marbre blanc et or, comme la carte */
+.rarity-row--icon {
+  --dot: linear-gradient(135deg, #fbf3df, #d9b874 60%, #c39a4b);
+}
+
 /* ───────────── Fiche express pendant l’ouverture ─────────────
    Nom, pays, sport, note, les trois meilleures stats et l’ulti de la carte révélée
    (sous la carte, à côté du walkout et sous le récapitulatif). */
