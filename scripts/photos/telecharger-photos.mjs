@@ -47,7 +47,9 @@ const choiceOf = (id) => {
   if (typeof choice === 'string') return { file: choice };
   const extra = { crop: choice.recadrage, rotation: choice.rotation, fond: choice.fond, detourer: choice.detourer };
   if (choice.url) {
-    return { file: choice.page, ...extra, direct: { thumb: choice.url, page: choice.page, author: choice.auteur, ...PIXABAY_LICENSE } };
+    // licence Pixabay par défaut ; « licence » et « licenceUrl » pour une image d'ailleurs (Flickr en CC BY-SA…)
+    const license = choice.licence ? { license: choice.licence, licenseUrl: choice.licenceUrl ?? '' } : PIXABAY_LICENSE;
+    return { file: choice.page, ...extra, direct: { thumb: choice.url, page: choice.page, author: choice.auteur, ...license } };
   }
   return { file: choice.fichier, ...extra };
 };

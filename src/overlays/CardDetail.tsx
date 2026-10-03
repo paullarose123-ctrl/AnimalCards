@@ -242,7 +242,11 @@ export function CardDetail() {
                 {photoCredit(face.athleteId)!.author}
               </a>
               , {photoCredit(face.athleteId)!.license}
-              {photoCredit(face.athleteId)!.page.includes('pixabay.com') ? ', Pixabay' : ', Wikimedia Commons'}
+              {photoCredit(face.athleteId)!.page.includes('pixabay.com')
+                ? ', Pixabay'
+                : photoCredit(face.athleteId)!.page.includes('flickr.com')
+                  ? ', Flickr'
+                  : ', Wikimedia Commons'}
               {photoCredit(face.athleteId)!.cutout ? ' (détourée)' : ''}
             </p>
           )}

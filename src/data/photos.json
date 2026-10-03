@@ -466,10 +466,10 @@
  "carnotaure": {
   "file": "carnotaure.webp",
   "cutout": false,
-  "author": "Andrey Atuchin",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Carnotaurus_sastrei_Andrey_Atuchin.jpg"
+  "author": "Diversicat",
+  "license": "Licence Pixabay",
+  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
+  "page": "https://pixabay.com/illustrations/ai-generated-dinosaur-dino-reptile-8214596/"
  },
  "carpe-koi": {
   "file": "carpe-koi.webp",
@@ -1026,10 +1026,10 @@
  "dunkleosteus": {
   "file": "dunkleosteus.webp",
   "cutout": false,
-  "author": "Nobu Tamura ( https://spinops.blogspot.com )",
-  "license": "CC BY 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dunkleosteus_BW.jpg"
+  "author": "RobinGoodfellow_(m)",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "page": "https://www.flickr.com/photos/130140542@N03/54024954589"
  },
  "dynaste-hercule": {
   "file": "dynaste-hercule.webp",
@@ -1994,18 +1994,18 @@
  "megalodon": {
   "file": "megalodon.webp",
   "cutout": false,
-  "author": "AI-Stuff",
+  "author": "RALPH_GERMANY",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/megalodon-shark-ocean-sea-nature-8473071/"
+  "page": "https://pixabay.com/illustrations/ai-generated-shark-fish-animal-sea-8383720/"
  },
  "meganeura": {
   "file": "meganeura.webp",
   "cutout": false,
-  "author": "Ridderhof",
+  "author": "DjordjeR1982",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-dragonfly-bug-insect-9423677/"
+  "page": "https://pixabay.com/photos/dragonfly-insect-macro-wings-6536606/"
  },
  "megatherium": {
   "file": "megatherium.webp",
