@@ -39,12 +39,12 @@ export function Gallery() {
         <CardBack />
       </div>
       <section id="mythes" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {ATHLETES.filter((a) => a.mythe).map((a, i) => (
-          <Card key={a.id} card={{ athleteId: a.id, variant: 'base' }} size={i < 6 ? 'lg' : 'sm'} />
+        {ATHLETES.filter((a) => a.mythe).map((a) => (
+          <Card key={a.id} card={{ athleteId: a.id, variant: 'base' }} size="md" />
         ))}
       </section>
       <section id="apercu" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {['crocodile-du-nil', 'alligator', 'chien', 'requin-baleine', 't-rex', 'triceratops', 'mammouth', 'smilodon', 'mythe-dragon', 'mythe-pegase', 'mythe-sirene', 'mythe-nessie'].map((id) => (
+        {['crocodile-du-nil', 'alligator', 'chien', 'requin-baleine', 't-rex', 'triceratops', 'mammouth', 'smilodon', 'mythe-dragon', 'mythe-pegase', 'mythe-griffon', 'mythe-nessie'].map((id) => (
           <Card key={id} card={{ athleteId: id, variant: 'base' }} size="md" />
         ))}
       </section>
@@ -54,8 +54,8 @@ export function Gallery() {
         ))}
       </section>
       <section id="icones" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {['t-rex', 'mammouth', 'dodo', 'thylacine', 'tourte-voyageuse', 'aurochs', 'megalodon', 'meganeura'].map((id) => (
-          <Card key={id} card={{ athleteId: id, variant: 'base' }} size="md" />
+        {ATHLETES.filter((a) => a.retired && !a.mythe).map((a) => (
+          <Card key={a.id} card={{ athleteId: a.id, variant: 'base' }} size="md" />
         ))}
       </section>
       <section id="boosters" style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>

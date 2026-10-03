@@ -241,7 +241,9 @@ export function CardDetail() {
               <a href={photoCredit(face.athleteId)!.page} target="_blank" rel="noreferrer">
                 {photoCredit(face.athleteId)!.author}
               </a>
-              , {photoCredit(face.athleteId)!.license}, Wikimedia Commons{photoCredit(face.athleteId)!.cutout ? ' (détourée)' : ''}
+              , {photoCredit(face.athleteId)!.license}
+              {photoCredit(face.athleteId)!.page.includes('pixabay.com') ? ', Pixabay' : ', Wikimedia Commons'}
+              {photoCredit(face.athleteId)!.cutout ? ' (détourée)' : ''}
             </p>
           )}
         </div>

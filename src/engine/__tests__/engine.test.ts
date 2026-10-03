@@ -84,12 +84,12 @@ describe('boosters', () => {
   });
 
   it('ne donne le bonus d’une carte Mythe qu’aux animaux de sa famille', () => {
-    const side = { mythe: { uid: 'm', athleteId: 'mythe-sphinx', variant: 'base' as const } };
+    const side = { mythe: { uid: 'm', athleteId: 'mythe-lion-aile', variant: 'base' as const } };
     expect(mytheBonus(side, { athleteId: 'lion', variant: 'base' }, 'sprint')?.value).toBe(4);
     expect(mytheBonus(side, { athleteId: 'lion', variant: 'base' }, 'coup-de-genie')?.value).toBe(8);
     expect(mytheBonus(side, { athleteId: 'loup', variant: 'base' }, 'sprint')).toBeNull();
-    const arche = { mythe: { uid: 'j', athleteId: 'mythe-arche-de-noe', variant: 'base' as const } };
-    expect(mytheBonus(arche, { athleteId: 'loup', variant: 'base' }, 'sprint')?.value).toBe(2);
+    const tortue = { mythe: { uid: 'j', athleteId: 'mythe-tortue-monde', variant: 'base' as const } };
+    expect(mytheBonus(tortue, { athleteId: 'loup', variant: 'base' }, 'sprint')?.value).toBe(2);
   });
 
   it('ne donne une version Prime qu’aux espèces vedettes', () => {

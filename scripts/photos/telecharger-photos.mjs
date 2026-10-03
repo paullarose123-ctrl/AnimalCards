@@ -34,11 +34,19 @@ const CONFIG = readJson('./config.json');
 const OVERRIDES = readJson('./titres.json');
 const REFUS = readJson('./refus.json');
 const CHOIX = readJson('./choix.json');
-/** Photo choisie à la main : un nom de fichier, ou { fichier, recadrage: [x, y, largeur, hauteur] } en fractions de l'image. */
+/**
+ * Photo choisie à la main : un nom de fichier Commons, ou { fichier, recadrage: [x, y, largeur, hauteur] } en fractions
+ * de l'image, ou une image hors Commons { url, page, auteur } (Pixabay, licence Pixabay : réutilisation libre).
+ */
+const PIXABAY_LICENSE = { license: 'Licence Pixabay', licenseUrl: 'https://pixabay.com/fr/service/license-summary/' };
 const choiceOf = (id) => {
   const choice = CHOIX[id];
   if (!choice) return null;
-  return typeof choice === 'string' ? { file: choice } : { file: choice.fichier, crop: choice.recadrage };
+  if (typeof choice === 'string') return { file: choice };
+  if (choice.url) {
+    return { file: choice.page, crop: choice.recadrage, direct: { thumb: choice.url, page: choice.page, author: choice.auteur, ...PIXABAY_LICENSE } };
+  }
+  return { file: choice.fichier, crop: choice.recadrage };
 };
 const EXPLORE_DIR = path('scripts/photos/explorer');
 const REPO = process.env.GITHUB_REPOSITORY ?? 'paullarose123-ctrl/AnimalCards';
@@ -58,7 +66,10 @@ let pausedUntil = 0;
 
 async function request(url, attempt = 1) {
   await sleep(pausedUntil - Date.now());
-  const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT, 'Api-User-Agent': USER_AGENT } });
+  const headers = { 'User-Agent': USER_AGENT, 'Api-User-Agent': USER_AGENT };
+  // le CDN de Pixabay sert ses images aux pages de Pixabay
+  if (url.includes('cdn.pixabay.com')) headers.Referer = 'https://pixabay.com/';
+  const response = await fetch(url, { headers });
   if (response.status === 404) return null;
   if ((response.status === 429 || response.status >= 500) && attempt < 7) {
     await response.body?.cancel();
@@ -140,7 +151,7 @@ async function* candidates(animal, log) {
   const choice = choiceOf(animal.id);
   if (choice) {
     seen.add(choice.file);
-    yield { file: choice.file, source: 'choix', crop: choice.crop };
+    yield { file: choice.file, source: choice.direct ? 'pixabay' : 'choix', crop: choice.crop, direct: choice.direct };
   }
   let item = null;
   let enTitle = null;
@@ -260,7 +271,8 @@ async function download() {
   const limit = Number(option('limite') ?? CONFIG.limite ?? 0);
   const current = existsSync(CREDITS_FILE) ? JSON.parse(readFileSync(CREDITS_FILE, 'utf8')) : {};
   const refused = (id, file) => (REFUS[id] ?? []).includes(file);
-  const currentFile = (id) => fileOfPage(current[id]?.page);
+  // fichier Commons de la photo actuelle, ou adresse de sa page pour une image hors Commons
+  const currentFile = (id) => (current[id]?.page?.includes('File:') ? fileOfPage(current[id].page) : (current[id]?.page ?? ''));
   const sameCrop = (a, b) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
   const outdated = (a) => {
     const choice = choiceOf(a.id);
@@ -289,12 +301,12 @@ async function download() {
       const animal = animals[next++];
       const log = [];
       try {
-        for await (const { file, source, crop } of candidates(animal, log)) {
+        for await (const { file, source, crop, direct } of candidates(animal, log)) {
           if (refused(animal.id, file)) {
             log.push(`« ${file} » refusée`);
             continue;
           }
-          const { info, reason } = await commonsInfo(file);
+          const { info, reason } = direct ? { info: direct } : await commonsInfo(file);
           if (!info) {
             log.push(`« ${file} » ${reason}`);
             continue;

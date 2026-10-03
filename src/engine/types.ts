@@ -146,11 +146,11 @@ export interface Athlete {
   wikidata?: string;
   /** titre de la page Wikipédia en français, quand il diffère du nom (photos) */
   wiki?: string;
-  /** carte « Mythe » : une créature légendaire, un sanctuaire ou une divinité, et non une espèce */
+  /** carte « Mythe » : une créature fantastique des mythes et légendes, et non une espèce */
   mythe?: MytheInfo;
 }
 
-/** competition = créature légendaire, equipe = sanctuaire, club = divinité animale */
+/** competition = créature légendaire (les seules cartes Mythe depuis la version 3) ; equipe et club ne servent plus */
 export type MytheKind = 'competition' | 'equipe' | 'club';
 
 /** Bonus d'une carte Mythe pendant un match, pour les animaux de la famille concernée (ou tous). */

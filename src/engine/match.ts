@@ -26,7 +26,7 @@ export interface SideState {
   /** bonus permanent accumulé (ultis de type « toute l'équipe ») */
   buff: number;
   wonLast: boolean;
-  /** carte Mythe (créature, sanctuaire, divinité) qui donne un bonus à ses animaux */
+  /** carte Mythe (créature fantastique) qui donne un bonus à ses animaux */
   mythe?: MatchCard;
 }
 

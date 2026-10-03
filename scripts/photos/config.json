@@ -3,478 +3,3163 @@
   "tout": false,
   "explorer": {},
   "cadrage": {
-    "abeille": { "corps": [0.1, 0.15, 0.75, 0.6] },
-    "aepyornis": { "corps": [0.1, 0.05, 0.95, 0.95] },
-    "aigle-royal": { "corps": [0.3, 0, 0.75, 1] },
-    "albatros": { "corps": [0.18, 0.3, 0.85, 0.62] },
-    "alligator": { "corps": [0, 0.05, 1, 0.95] },
-    "allosaure": { "corps": [0.05, 0.05, 0.95, 0.98] },
-    "alpaga": { "corps": [0.25, 0.1, 0.75, 0.92] },
-    "anaconda": { "corps": [0, 0, 1, 0.95] },
-    "ane": { "corps": [0.15, 0.1, 0.6, 0.9] },
-    "anemone": { "corps": [0, 0.1, 1, 1] },
-    "anguille": { "corps": [0.1, 0.1, 1, 0.75] },
-    "ankylosaure": "etendre",
-    "antilocapre": { "corps": [0.2, 0.15, 0.75, 0.88] },
-    "ara": { "corps": [0.3, 0.1, 0.65, 0.97] },
-    "araignee-paon": { "corps": [0.25, 0.15, 0.68, 0.8] },
-    "archeopteryx": { "corps": [0.05, 0.05, 0.95, 0.98] },
-    "argentinosaure": "etendre",
-    "atele": { "corps": [0.15, 0.08, 0.85, 0.92] },
-    "aurochs": { "corps": [0.1, 0.2, 0.85, 0.95] },
-    "autour": { "corps": [0.1, 0.2, 0.75, 0.85] },
-    "autruche": { "corps": [0.3, 0.1, 0.8, 0.95] },
-    "axolotl": { "corps": [0.05, 0, 0.95, 1] },
-    "aye-aye": { "corps": [0.3, 0.15, 0.75, 0.95] },
-    "babouin": { "corps": [0.1, 0.05, 0.95, 1] },
-    "baiji": { "corps": [0, 0.1, 0.95, 0.8] },
-    "balbuzard": { "corps": [0.4, 0.2, 0.9, 0.95] },
-    "baleine-a-bosse": { "corps": [0.25, 0.15, 0.9, 0.75] },
-    "baleine-bleue": { "corps": [0.15, 0, 0.85, 0.97] },
-    "baleine-boreale": { "corps": [0.05, 0.2, 0.95, 0.85] },
-    "barracuda": { "corps": [0.25, 0, 0.75, 1] },
-    "basilic": { "corps": [0.3, 0.05, 0.85, 0.75] },
-    "baudroie": { "corps": [0.1, 0.05, 0.85, 0.88] },
-    "belette": { "corps": [0.15, 0.25, 0.5, 0.75] },
-    "beluga": { "corps": [0, 0.25, 0.9, 0.85] },
-    "bernard-l-ermite": { "corps": [0.2, 0.3, 0.85, 0.75] },
-    "bilby": { "corps": [0.35, 0.25, 0.75, 0.8] },
-    "bison": { "corps": [0.25, 0.1, 0.85, 0.92] },
-    "bison-d-europe": { "corps": [0.15, 0.15, 0.9, 0.8] },
-    "blaireau": { "corps": [0.25, 0.25, 0.9, 0.6] },
-    "bongo": { "corps": [0.15, 0.08, 0.85, 0.97] },
-    "bonobo": { "corps": [0.15, 0.15, 0.8, 0.92] },
-    "bouquetin": { "corps": [0.3, 0.2, 0.8, 0.65] },
-    "bouquetin-des-pyrenees": { "corps": [0.25, 0.05, 0.8, 0.95] },
-    "bourdon": { "corps": [0.4, 0.3, 0.85, 0.65] },
-    "bousier": { "corps": [0.1, 0.05, 0.9, 0.85] },
-    "brachiosaure": { "corps": [0.1, 0, 0.85, 0.8] },
-    "brochet": { "corps": [0.1, 0.1, 0.8, 0.85] },
-    "buffle": { "corps": [0.15, 0.3, 0.8, 0.95] },
-    "buffle-d-eau": { "corps": [0.15, 0.08, 0.8, 0.95] },
-    "buse": { "corps": [0.1, 0.1, 0.85, 0.85] },
-    "cachalot": { "corps": [0.35, 0.15, 0.75, 0.85] },
-    "calao": { "corps": [0.15, 0.05, 0.9, 0.98] },
-    "calmar-geant": { "corps": [0, 0.1, 1, 1] },
-    "cameleon": { "corps": [0, 0.15, 0.75, 1] },
-    "canard": { "corps": [0.05, 0.15, 0.85, 0.9] },
-    "capucin": { "corps": [0.3, 0.15, 0.85, 0.95] },
-    "capybara": { "corps": [0.2, 0.15, 0.75, 0.88] },
-    "caracal": { "corps": [0.3, 0.2, 0.75, 0.95] },
-    "carnotaure": { "corps": [0, 0.3, 0.55, 0.85] },
-    "carpe-koi": { "corps": [0.2, 0.15, 0.8, 0.85] },
-    "casoar": { "corps": [0.15, 0.15, 0.75, 0.97] },
-    "castor": { "corps": [0.15, 0.1, 0.85, 0.95] },
-    "cecilie": { "corps": [0, 0.15, 1, 0.75] },
-    "cerf": { "corps": [0.25, 0.05, 0.75, 0.92] },
-    "chacal-a-chabraque": { "corps": [0.15, 0.05, 0.85, 0.97] },
-    "chacal-dore": { "corps": [0.08, 0.08, 0.88, 0.97] },
-    "chamois": { "corps": [0.1, 0.15, 0.75, 0.9] },
-    "chat": { "corps": [0.15, 0.05, 0.85, 0.95] },
-    "chat-a-pieds-noirs": { "corps": [0.05, 0.08, 0.95, 0.95] },
-    "chat-des-sables": { "corps": [0.1, 0.15, 0.75, 0.85] },
-    "chat-dore": { "corps": [0.05, 0.15, 0.95, 0.85] },
-    "chat-forestier": { "corps": [0.2, 0.08, 0.9, 0.95] },
-    "chat-rubigineux": { "corps": [0.3, 0.25, 0.9, 0.85] },
-    "chat-viverrin": { "corps": [0.15, 0.3, 0.55, 0.8] },
-    "cheval": { "corps": [0.25, 0.1, 0.75, 0.92] },
-    "cheval-de-przewalski": { "corps": [0.08, 0.15, 0.95, 0.95] },
-    "cheveche": { "corps": [0.15, 0.1, 0.85, 0.95] },
-    "chevre": { "corps": [0.3, 0.3, 0.7, 0.95] },
-    "chevreuil": { "corps": [0.15, 0.08, 0.95, 1] },
-    "chien": { "corps": [0.1, 0.12, 0.95, 0.98] },
-    "chien-de-prairie": { "corps": [0.3, 0.05, 0.7, 0.92] },
-    "chien-viverrin": { "corps": [0.1, 0.1, 0.95, 0.85] },
-    "chimpanze": { "corps": [0.15, 0.1, 0.9, 0.95] },
-    "chinchilla": { "corps": [0.05, 0.02, 0.95, 0.92] },
-    "chirurgien-bleu": { "corps": [0.35, 0.3, 0.75, 0.75] },
-    "cigale": { "corps": [0.25, 0.25, 0.75, 0.85] },
-    "cigogne": { "corps": [0.1, 0.15, 0.9, 0.92] },
-    "circaete": { "corps": [0.4, 0.2, 0.7, 0.8] },
-    "cobra-royal": { "corps": [0.45, 0.15, 0.95, 0.95] },
-    "coccinelle": { "corps": [0.3, 0.1, 0.85, 0.45] },
-    "cochon": { "corps": [0.1, 0.35, 0.75, 0.95] },
-    "cochon-d-inde": { "corps": [0.25, 0.1, 1, 0.75] },
-    "coelacanthe": { "corps": [0.1, 0.15, 0.9, 0.85] },
-    "colibri": { "corps": [0.15, 0.15, 0.85, 0.95] },
-    "colobe": { "corps": [0.2, 0.05, 0.65, 0.95] },
-    "compsognathus": { "corps": [0.1, 0.25, 0.7, 0.8] },
-    "condor": { "corps": [0.1, 0.1, 0.6, 0.95] },
-    "corail": { "corps": [0.08, 0.15, 0.88, 0.92] },
-    "corbeau": { "corps": [0.3, 0.25, 0.95, 0.97] },
-    "couleuvre": { "corps": [0.35, 0.25, 1, 0.6] },
-    "coyote": { "corps": [0.2, 0.05, 0.8, 0.97] },
-    "crabe-de-cocotier": { "corps": [0.2, 0.3, 0.85, 0.8] },
-    "crabe-royal": { "corps": [0.15, 0.1, 0.85, 0.85] },
-    "crapaud-buffle": { "corps": [0.25, 0.35, 0.85, 0.88] },
-    "crapaud-commun": { "corps": [0.1, 0.4, 0.8, 0.75] },
-    "crapaud-dore": { "corps": [0.3, 0.25, 0.9, 0.95] },
-    "crecerelle": { "corps": [0.1, 0.05, 0.85, 0.95] },
-    "crevette-mante": { "corps": [0, 0.1, 0.95, 0.9] },
-    "criquet-pelerin": { "corps": [0.3, 0.15, 0.85, 0.8] },
-    "crocodile-du-nil": { "corps": [0.27, 0.35, 0.7, 0.65] },
-    "crocodile-marin": { "corps": [0.4, 0.1, 0.65, 0.75] },
-    "crotale": { "corps": [0.15, 0.3, 0.85, 0.75] },
-    "cygne": { "corps": [0.35, 0.2, 0.65, 0.85] },
-    "dauphin": { "corps": [0.25, 0.3, 0.7, 0.75] },
-    "dauphin-rose": { "corps": [0.2, 0.2, 0.75, 1] },
-    "deinosuchus": { "corps": [0, 0.25, 1, 0.95] },
-    "dendrolague": { "corps": [0.1, 0.1, 0.85, 0.95] },
-    "dhole": { "corps": [0.3, 0.25, 0.75, 0.95] },
-    "diable-de-tasmanie": { "corps": [0.3, 0.3, 0.6, 0.65] },
-    "dik-dik": { "corps": [0.2, 0.05, 0.85, 0.95] },
-    "dimetrodon": { "corps": [0, 0, 1, 0.98] },
-    "dindon": { "corps": [0.05, 0.05, 0.85, 0.95] },
-    "dingo": { "corps": [0.25, 0.1, 0.75, 0.95] },
-    "diplodocus": { "corps": [0.05, 0.1, 0.95, 0.88] },
-    "dodo": { "corps": [0.25, 0.15, 0.85, 0.95] },
-    "dragon-de-komodo": { "corps": [0.15, 0.3, 0.95, 1] },
-    "dromadaire": { "corps": [0.1, 0.2, 0.9, 0.95] },
-    "dugong": { "corps": [0.25, 0.2, 0.9, 0.85] },
-    "dunkleosteus": { "corps": [0.05, 0.1, 0.95, 0.85] },
-    "dynaste-hercule": { "corps": [0.4, 0.1, 1, 0.95] },
-    "echidne": { "corps": [0.2, 0.15, 0.85, 0.9] },
-    "ecureuil-roux": { "corps": [0.15, 0.05, 0.85, 0.95] },
-    "effraie": { "corps": [0.1, 0.2, 0.55, 0.85] },
-    "elan": { "corps": [0.2, 0.12, 0.65, 0.4] },
-    "elephant": { "corps": [0.1, 0.1, 0.85, 0.97] },
-    "elephant-d-asie": { "corps": [0.2, 0.12, 0.8, 0.88] },
-    "elephant-de-foret": { "corps": [0.1, 0.25, 0.9, 0.85] },
-    "elephant-de-mer": { "corps": [0.25, 0.1, 1, 0.98] },
-    "emeu": { "corps": [0.1, 0.1, 0.75, 0.92] },
-    "epeire": { "corps": [0.1, 0.1, 0.95, 0.9] },
-    "escargot": { "corps": [0.15, 0.1, 0.95, 0.85] },
-    "espadon": { "corps": [0.2, 0.32, 0.9, 0.52] },
-    "esturgeon": { "corps": [0.05, 0.05, 0.75, 1] },
-    "etoile-de-mer": { "corps": [0.25, 0.1, 0.8, 0.75] },
-    "exocet": { "corps": [0.3, 0.2, 0.75, 0.75] },
-    "faucon-pelerin": { "corps": [0.2, 0.15, 0.9, 0.92] },
-    "fennec": { "corps": [0, 0.1, 1, 0.85] },
-    "flamant-rose": { "corps": [0.15, 0.2, 0.9, 0.7] },
-    "fossa": { "corps": [0.15, 0.05, 0.95, 0.98] },
-    "fourmi": { "corps": [0.25, 0.1, 0.75, 0.9] },
-    "fourmilier": { "corps": [0.25, 0.15, 0.9, 0.75] },
-    "frelon": { "corps": [0.15, 0.05, 0.85, 0.95] },
-    "frelon-geant": { "corps": [0.15, 0.2, 0.85, 0.75] },
-    "fugu": { "corps": [0.15, 0.3, 0.8, 0.65] },
-    "furet": { "corps": [0.15, 0.05, 1, 1] },
-    "gavial": { "corps": [0, 0.35, 1, 0.75] },
-    "gazelle": { "corps": [0.25, 0.08, 0.65, 0.92] },
-    "gecko": { "corps": [0.35, 0.05, 0.75, 1] },
-    "gelada": { "corps": [0.2, 0.25, 0.75, 0.88] },
-    "gerenuk": { "corps": [0.3, 0.05, 0.65, 0.95] },
-    "gibbon": { "corps": [0.4, 0.05, 0.65, 0.85] },
-    "giganotosaure": { "corps": [0.15, 0.05, 0.95, 0.85] },
-    "girafe": { "corps": [0.1, 0.05, 0.55, 0.97] },
-    "glouton": { "corps": [0.15, 0.3, 0.75, 0.8] },
-    "glyptodon": { "corps": [0, 0, 0.95, 0.85] },
-    "gnou": { "corps": [0.3, 0.05, 0.8, 0.85] },
-    "goliath": { "corps": [0.1, 0.05, 0.9, 0.95] },
-    "gorille": { "corps": [0.3, 0.2, 0.8, 0.8] },
-    "grand-duc": { "corps": [0.3, 0.05, 0.8, 0.95] },
-    "grand-pingouin": { "corps": [0, 0, 1, 1] },
-    "grenouille-de-verre": { "corps": [0, 0.1, 1, 0.9] },
-    "grenouille-goliath": { "corps": [0.25, 0.2, 0.85, 0.75] },
-    "grenouille-verte": { "corps": [0.25, 0.15, 0.85, 0.75] },
-    "grizzly-de-californie": { "corps": [0.3, 0.25, 0.95, 0.75] },
-    "grue": { "corps": [0.15, 0.15, 0.85, 0.92] },
-    "guepard": { "corps": [0.2, 0.12, 0.75, 0.88] },
-    "guepe": { "corps": [0.1, 0, 0.9, 0.95] },
-    "gymnote": { "corps": [0, 0, 1, 1] },
-    "gypaete": { "corps": [0.15, 0.08, 0.95, 0.92] },
-    "hamster": { "corps": [0.2, 0.05, 0.85, 0.95] },
-    "harfang": { "corps": [0.3, 0.25, 0.75, 0.8] },
-    "harpie": { "corps": [0.35, 0.05, 0.75, 0.95] },
-    "heloderme": { "corps": [0.15, 0, 0.8, 0.98] },
-    "herisson": { "corps": [0.2, 0.15, 0.85, 0.75] },
-    "hermine": { "corps": [0.43, 0.25, 0.55, 0.75] },
-    "hippocampe": { "corps": [0.2, 0.25, 0.85, 0.97] },
-    "hippopotame": { "corps": [0.15, 0.2, 0.65, 0.8] },
-    "hippopotame-nain": { "corps": [0.08, 0.1, 0.95, 0.8] },
-    "hirondelle": { "corps": [0.35, 0.2, 0.75, 0.92] },
-    "homard": { "corps": [0, 0.25, 1, 0.95] },
-    "hyene": { "corps": [0.25, 0.2, 0.75, 0.92] },
-    "hyene-rayee": { "corps": [0, 0.05, 0.85, 0.97] },
-    "ichtyosaure": { "corps": [0, 0.25, 0.95, 0.65] },
-    "iguane-marin": { "corps": [0.15, 0.2, 0.95, 0.85] },
-    "iguanodon": { "corps": [0.05, 0.05, 0.95, 0.95] },
-    "impala": { "corps": [0.15, 0.05, 0.85, 1] },
-    "isopode-geant": { "corps": [0.05, 0.1, 0.95, 0.95] },
-    "jaguar": { "corps": [0.3, 0.1, 0.75, 0.85] },
-    "jaguarondi": { "corps": [0.1, 0.35, 0.75, 0.75] },
-    "kangourou": { "corps": [0.3, 0.15, 0.75, 0.85] },
-    "kea": { "corps": [0.15, 0.05, 0.85, 0.95] },
-    "kiwi": { "corps": [0, 0.2, 1, 0.95] },
-    "koala": { "corps": [0.2, 0.3, 0.75, 0.95] },
-    "kodiak": { "corps": [0.05, 0.05, 0.95, 0.95] },
-    "koudou": { "corps": [0.1, 0, 0.95, 1] },
-    "krill": { "corps": [0.1, 0.25, 0.95, 0.85] },
-    "lama": { "corps": [0.2, 0.2, 0.6, 0.92] },
-    "lamantin": { "corps": [0.1, 0.05, 0.9, 0.75] },
-    "lapin": { "corps": [0.15, 0.1, 0.75, 0.9] },
-    "lemming": { "corps": [0.15, 0.1, 0.85, 0.75] },
-    "lemur-catta": { "corps": [0.2, 0.15, 0.6, 0.92] },
-    "leopard": { "corps": [0.1, 0.15, 0.75, 0.98] },
-    "leopard-de-mer": { "corps": [0.05, 0.25, 0.95, 0.65] },
-    "lezard-vert": { "corps": [0.25, 0.1, 0.65, 1] },
-    "libellule": { "corps": [0.15, 0.25, 0.75, 0.95] },
-    "lievre": { "corps": [0.2, 0.05, 0.85, 0.97] },
-    "limule": { "corps": [0.15, 0.1, 0.9, 1] },
-    "lion": { "corps": [0.05, 0.2, 1, 0.85] },
-    "lion-d-asie": { "corps": [0.15, 0.05, 0.85, 1] },
-    "lion-des-cavernes": { "corps": [0.15, 0.2, 0.9, 0.95] },
-    "loir": { "corps": [0.2, 0.2, 0.75, 0.65] },
-    "loris-lent": { "corps": [0.25, 0.05, 0.75, 0.92] },
-    "loup": { "corps": [0, 0.05, 1, 1] },
-    "loup-a-criniere": { "corps": [0.2, 0.25, 1, 0.75] },
-    "loup-arctique": { "corps": [0, 0.1, 0.8, 0.85] },
-    "loup-d-ethiopie": { "corps": [0.15, 0.1, 0.85, 0.75] },
-    "loutre": { "corps": [0.2, 0, 0.65, 0.6] },
-    "loutre-de-mer": { "corps": [0, 0.1, 0.95, 0.75] },
-    "lucane": { "corps": [0.15, 0.05, 0.85, 0.95] },
-    "luciole": { "corps": [0.35, 0.4, 0.75, 0.75] },
-    "lycaon": { "corps": [0.15, 0.2, 0.9, 0.95] },
-    "lynx": { "corps": [0.15, 0.08, 0.85, 0.95] },
-    "lynx-roux": { "corps": [0.15, 0.1, 0.75, 0.92] },
-    "macaque-japonais": { "corps": [0.15, 0.05, 0.85, 0.97] },
-    "macareux": { "corps": [0.1, 0.1, 0.75, 0.88] },
-    "mamba-noir": { "corps": [0.2, 0.05, 0.9, 0.97] },
-    "mammouth": { "corps": [0.15, 0.1, 0.8, 0.95] },
-    "manchot-empereur": { "corps": [0.25, 0.05, 0.8, 0.97] },
-    "mandrill": { "corps": [0.25, 0.2, 0.65, 0.85] },
-    "mangouste": { "corps": [0.25, 0.35, 0.6, 0.75] },
-    "mante-religieuse": { "corps": [0.2, 0.25, 0.9, 1] },
-    "manul": { "corps": [0.3, 0.25, 0.75, 0.85] },
-    "margay": { "corps": [0.3, 0.2, 0.9, 0.95] },
-    "marmotte": { "corps": [0.3, 0.2, 0.75, 0.85] },
-    "marsouin": { "corps": [0.05, 0.15, 0.95, 0.95] },
-    "martin-pecheur": { "corps": [0.1, 0.25, 0.85, 0.95] },
-    "martinet": { "corps": [0.1, 0.1, 0.95, 0.9] },
-    "meduse": { "corps": [0.2, 0.05, 0.75, 0.9] },
-    "megaloceros": { "corps": [0.1, 0.05, 0.95, 0.95] },
-    "megalodon": { "corps": [0, 0.05, 0.95, 0.75] },
-    "meganeura": { "corps": [0, 0.05, 1, 0.95] },
-    "megatherium": { "corps": [0.15, 0.05, 0.85, 0.97] },
-    "menure": { "corps": [0.15, 0.15, 0.85, 0.8] },
-    "milan-royal": { "corps": [0.15, 0.05, 0.9, 0.95] },
-    "mille-pattes": { "corps": [0, 0, 0.9, 0.7] },
-    "moa": { "corps": [0, 0, 1, 1] },
-    "moineau": { "corps": [0.25, 0.2, 0.95, 0.92] },
-    "moloch": { "corps": [0.1, 0.15, 0.9, 0.8] },
-    "monarque": { "corps": [0.1, 0, 0.6, 0.45] },
-    "morpho": { "corps": [0.3, 0, 0.85, 0.95] },
-    "morse": { "corps": [0, 0.05, 1, 1] },
-    "mosasaure": { "corps": [0.05, 0.3, 0.97, 0.75] },
-    "moufette": { "corps": [0.15, 0.05, 0.85, 0.97] },
-    "mouflon": { "corps": [0.15, 0.25, 0.75, 0.95] },
-    "moustique": { "corps": [0, 0, 1, 0.8] },
-    "mouton": { "corps": [0.2, 0.05, 0.75, 0.95] },
-    "musaraigne": { "corps": [0.35, 0.2, 0.85, 0.55] },
-    "mygale": { "corps": [0.2, 0.1, 0.9, 0.85] },
-    "mythe-amazonie": [0.55, 0.5, 1],
-    "mythe-antarctique": [0.527, 0.5, 1],
-    "mythe-anubis": [0.5, 0.55, 1],
-    "mythe-apis": [0.5, 0.45, 1],
-    "mythe-arche-de-noe": [0.497, 0.5, 1],
-    "mythe-bastet": [0.5, 0.5, 1],
-    "mythe-dakuwaqa": [0.5, 0.5, 1],
-    "mythe-dragon": [0.5, 0.456, 1],
-    "mythe-galapagos": [0.5, 0.5, 1],
-    "mythe-ganesh": [0.5, 0.5, 1],
-    "mythe-gevaudan": [0.45, 0.5, 1],
-    "mythe-grande-barriere": [0.5, 0.5, 1],
-    "mythe-griffon": [0.5, 0.5, 1],
-    "mythe-horus": [0.5, 0.45, 1],
-    "mythe-ile-kangourou": [0.55, 0.5, 1],
-    "mythe-khepri": [0.5, 0.6, 1],
-    "mythe-kraken": [0.525, 0.5, 1],
-    "mythe-kruger": [0.4, 0.5, 1],
-    "mythe-lapin-de-jade": [0.55, 0.583, 1.734],
-    "mythe-leviathan": [0.5, 0.5, 1],
-    "mythe-licorne": [0.5, 0.444, 1],
-    "mythe-madagascar": [0.6, 0.5, 1],
-    "mythe-nessie": [0.45, 0.505, 1.484],
-    "mythe-pegase": [0.5, 0.5, 1],
-    "mythe-phenix": [0.5, 0.444, 1],
-    "mythe-serengeti": [0.45, 0.5, 1],
-    "mythe-sirene": [0.5, 0.444, 1],
-    "mythe-sobek": [0.3, 0.45, 1],
-    "mythe-sphinx": [0.3, 0.5, 1],
-    "mythe-yellowstone": [0.4, 0.5, 1],
-    "mythe-yeti": [0.5, 0.443, 1],
-    "narval": { "corps": [0.2, 0.4, 0.95, 0.85] },
-    "nasique": { "corps": [0.2, 0, 0.85, 1] },
-    "nautile": { "corps": [0.05, 0.02, 0.92, 0.95] },
-    "numbat": { "corps": [0, 0.25, 0.85, 0.65] },
-    "ocelot": { "corps": [0.05, 0.08, 0.95, 0.98] },
-    "oie": { "corps": [0.05, 0.1, 0.85, 0.98] },
-    "okapi": { "corps": [0.1, 0.05, 0.95, 0.88] },
-    "opossum": { "corps": [0.15, 0.08, 0.75, 0.85] },
-    "orang-outan": { "corps": [0.3, 0.15, 0.75, 0.85] },
-    "ornithorynque": { "corps": [0.25, 0.15, 0.7, 0.85] },
-    "orque": { "corps": [0.1, 0.05, 0.75, 1] },
-    "oryx": { "corps": [0.3, 0.1, 0.75, 0.75] },
-    "otarie": { "corps": [0, 0.05, 0.9, 0.85] },
-    "otocyon": { "corps": [0.15, 0.1, 0.9, 0.95] },
-    "ouaouaron": { "corps": [0.2, 0.15, 0.65, 0.5] },
-    "ouistiti-pygmee": { "corps": [0.05, 0.05, 0.95, 0.95] },
-    "ours-a-collier": { "corps": [0.1, 0.25, 0.9, 0.85] },
-    "ours-a-lunettes": { "corps": [0.25, 0.2, 0.65, 0.6] },
-    "ours-brun": [0.5, 0.5, 1],
-    "ours-de-gobi": { "corps": [0, 0.05, 1, 1] },
-    "ours-des-cavernes": { "corps": [0, 0, 1, 1] },
-    "ours-isabelle": { "corps": [0.2, 0.1, 0.7, 0.95] },
-    "ours-lippu": { "corps": [0.1, 0.2, 0.85, 0.85] },
-    "ours-malais": { "corps": [0.25, 0.1, 0.7, 0.88] },
-    "ours-noir": { "corps": [0.15, 0.4, 0.65, 0.88] },
-    "ours-polaire": { "corps": [0.25, 0.15, 0.8, 0.65] },
-    "oursin": { "corps": [0.35, 0.15, 0.85, 0.55] },
-    "pachycephalosaure": { "corps": [0.25, 0.1, 0.8, 0.95] },
-    "panda": { "corps": [0.15, 0.15, 0.85, 0.97] },
-    "panda-roux": { "corps": [0.25, 0.1, 0.65, 0.65] },
-    "pangolin": { "corps": [0.05, 0.2, 0.95, 0.85] },
-    "panthere-des-neiges": { "corps": [0.2, 0.25, 0.8, 0.65] },
-    "panthere-nebuleuse": { "corps": [0.25, 0.2, 0.65, 0.8] },
-    "panthere-noire": { "corps": [0.15, 0.05, 0.65, 0.97] },
-    "paon": { "corps": [0.2, 0.1, 0.95, 1] },
-    "paradisier": { "corps": [0.3, 0, 0.65, 0.85] },
-    "paraponera": { "corps": [0.2, 0.25, 0.85, 0.8] },
-    "parasaurolophus": { "corps": [0.45, 0.3, 0.85, 0.75] },
-    "paresseux": { "corps": [0.15, 0.05, 0.95, 0.75] },
-    "pastenague": { "corps": [0.25, 0.25, 0.9, 0.85] },
-    "peau-bleue": { "corps": [0.05, 0.05, 0.95, 0.95] },
-    "pelican": { "corps": [0.2, 0.05, 0.85, 0.85] },
-    "perruche": { "corps": [0.05, 0.05, 1, 0.98] },
-    "petite-roussette": { "corps": [0.05, 0.25, 0.95, 0.8] },
-    "phacochere": { "corps": [0.1, 0.2, 0.95, 0.85] },
-    "phalanger-volant": { "corps": [0.35, 0.2, 0.85, 0.92] },
-    "phasme": { "corps": [0, 0.3, 0.6, 0.95] },
-    "phoque": { "corps": [0.3, 0.25, 0.65, 0.7] },
-    "phoque-du-groenland": { "corps": [0.25, 0.15, 1, 0.8] },
-    "phoque-moine-des-caraibes": { "corps": [0, 0.3, 1, 0.95] },
-    "phyllobate": { "corps": [0.25, 0.1, 0.75, 0.85] },
-    "physalie": { "corps": [0.05, 0.05, 0.95, 0.97] },
-    "pic-vert": { "corps": [0.25, 0.15, 0.75, 0.85] },
-    "pie": { "corps": [0.25, 0.15, 0.75, 0.88] },
-    "pieuvre": { "corps": [0.15, 0.25, 0.85, 0.9] },
-    "pigeon": { "corps": [0.15, 0.1, 0.9, 0.85] },
-    "pipa": { "corps": [0.05, 0.25, 0.85, 0.95] },
-    "pipistrelle": { "corps": [0.05, 0.35, 0.85, 0.8] },
-    "piranha": { "corps": [0.1, 0.3, 0.8, 0.85] },
-    "pithecophage": { "corps": [0.2, 0.05, 0.9, 0.85] },
-    "plesiosaure": { "corps": [0.05, 0.05, 0.95, 0.9] },
-    "poisson-archer": { "corps": [0.25, 0.4, 0.7, 0.65] },
-    "poisson-clown": { "corps": [0.15, 0.05, 0.85, 0.6] },
-    "poisson-lune": { "corps": [0.25, 0.2, 0.8, 0.85] },
-    "poisson-perroquet": { "corps": [0.2, 0.05, 0.95, 0.85] },
-    "poisson-pierre": { "corps": [0.1, 0, 0.95, 1] },
-    "poisson-rouge": { "corps": [0.05, 0.05, 1, 0.85] },
-    "poisson-scie": { "corps": [0.2, 0.15, 0.9, 0.95] },
-    "polatouche": { "corps": [0, 0.1, 0.9, 0.95] },
-    "porc-epic": { "corps": [0.1, 0.25, 0.95, 0.75] },
-    "poule": { "corps": [0.1, 0.1, 0.95, 0.85] },
-    "poulpe-a-anneaux-bleus": { "corps": [0.1, 0.15, 0.9, 0.85] },
-    "poulpe-dumbo": { "corps": [0.55, 0.15, 0.95, 0.85] },
-    "protee": { "corps": [0.3, 0.1, 0.75, 0.95] },
-    "protele": { "corps": [0.1, 0.25, 0.95, 0.85] },
-    "pteranodon": { "corps": [0.15, 0.2, 0.95, 0.85] },
-    "puce": { "corps": [0, 0, 1, 1] },
-    "puma": { "corps": [0.3, 0.25, 0.75, 0.8] },
-    "pygargue": { "corps": [0.3, 0.1, 0.85, 0.98] },
-    "python-reticule": { "corps": [0, 0, 1, 1] },
-    "quagga": { "corps": [0.05, 0.05, 0.95, 0.95] },
-    "quetzal": { "corps": [0.35, 0.15, 0.65, 0.95] },
-    "quetzalcoatlus": { "corps": [0, 0, 1, 1] },
-    "quokka": { "corps": [0.2, 0.2, 0.9, 0.95] },
-    "quoll": { "corps": [0.4, 0.1, 0.85, 0.55] },
-    "raie-manta": { "corps": [0.3, 0.15, 0.75, 0.6] },
-    "rainette-aux-yeux-rouges": { "corps": [0.2, 0.2, 0.75, 0.97] },
-    "rainette-verte": { "corps": [0.2, 0.25, 0.75, 0.8] },
-    "rat": { "corps": [0, 0.05, 0.85, 1] },
-    "rat-taupe-nu": { "corps": [0, 0.05, 1, 1] },
-    "ratel": { "corps": [0.08, 0.1, 0.95, 0.9] },
-    "raton-laveur": { "corps": [0.45, 0, 0.95, 0.6] },
-    "renard-polaire": { "corps": [0.05, 0.08, 0.75, 0.95] },
-    "renard-roux": { "corps": [0.15, 0.05, 0.85, 0.95] },
-    "renne": { "corps": [0.15, 0.12, 0.85, 0.9] },
-    "requin-a-pointes-noires": { "corps": [0.1, 0.3, 0.8, 0.55] },
-    "requin-baleine": { "corps": [0.15, 0.1, 0.85, 0.85] },
-    "requin-blanc": { "corps": [0.15, 0.1, 0.95, 0.8] },
-    "requin-bouledogue": { "corps": [0.15, 0.3, 0.75, 0.65] },
-    "requin-du-groenland": { "corps": [0, 0.1, 0.95, 0.55] },
-    "requin-lutin": { "corps": [0, 0, 1, 1] },
-    "requin-mako": { "corps": [0.05, 0.2, 0.95, 0.85] },
-    "requin-marteau": { "corps": [0.2, 0, 0.95, 0.6] },
-    "requin-nourrice": { "corps": [0, 0.25, 1, 0.85] },
-    "requin-pelerin": { "corps": [0.25, 0.1, 1, 1] },
-    "requin-tigre": { "corps": [0.2, 0.2, 0.75, 0.6] },
-    "rhacophore": { "corps": [0.3, 0.2, 0.75, 0.75] },
-    "rhinoceros-blanc": { "corps": [0.2, 0.33, 0.8, 0.82] },
-    "rhinoceros-de-sumatra": { "corps": [0.25, 0.25, 0.85, 0.88] },
-    "rhinoceros-indien": { "corps": [0.2, 0.2, 0.85, 0.95] },
-    "rhinoceros-laineux": { "corps": [0, 0.1, 0.98, 0.95] },
-    "rhinoceros-noir": { "corps": [0.12, 0.35, 0.9, 0.75] },
-    "rhinoceros-noir-de-l-ouest": { "corps": [0.25, 0.3, 0.8, 0.75] },
-    "rhytine-de-steller": { "corps": [0, 0, 1, 0.95] },
-    "rorqual-commun": { "corps": [0.25, 0.15, 0.75, 0.7] },
-    "rougegorge": { "corps": [0.15, 0.2, 0.85, 0.92] },
-    "saiga": { "corps": [0.2, 0.12, 0.75, 0.95] },
-    "saimiri": { "corps": [0.1, 0.05, 0.95, 0.97] },
-    "salamandre": { "corps": [0, 0.5, 1, 0.95] },
-    "salamandre-geante": { "corps": [0.15, 0.35, 0.95, 0.9] },
-    "sanglier": { "corps": [0.15, 0.1, 0.9, 0.95] },
-    "saumon": { "corps": [0, 0.15, 1, 0.85] },
-    "scorpion": { "corps": [0.05, 0, 0.95, 1] },
-    "seiche": { "corps": [0.15, 0.15, 0.85, 0.95] },
-    "serpentaire": { "corps": [0.15, 0.1, 0.75, 0.75] },
-    "serval": { "corps": [0.2, 0.15, 0.95, 0.95] },
-    "sifaka": { "corps": [0, 0, 1, 1] },
-    "silure": { "corps": [0, 0.2, 0.85, 0.75] },
-    "singe-hurleur": { "corps": [0.3, 0.1, 0.85, 0.75] },
-    "smilodon": { "corps": [0.05, 0.05, 0.95, 0.85] },
-    "souris": { "corps": [0.3, 0.2, 0.85, 0.8] },
-    "spinosaure": { "corps": [0.1, 0.05, 0.6, 0.85] },
-    "springbok": { "corps": [0.2, 0.08, 0.75, 0.92] },
-    "stegosaure": { "corps": [0.05, 0, 0.95, 0.95] },
-    "sterne-arctique": { "corps": [0, 0.25, 0.9, 0.85] },
-    "suricate": { "corps": [0.25, 0.15, 0.75, 0.92] },
-    "t-rex": { "corps": [0.05, 0.1, 0.65, 0.9] },
-    "taipan": { "corps": [0, 0.4, 1, 0.6] },
-    "tamarin-lion": { "corps": [0.25, 0.2, 0.65, 0.85] },
-    "tapir": { "corps": [0.15, 0.15, 0.85, 0.8] },
-    "tardigrade": { "corps": [0.05, 0.05, 0.45, 0.95] },
-    "tarsier": { "corps": [0.2, 0.15, 0.75, 0.85] },
-    "tatou": { "corps": [0.25, 0.05, 0.8, 0.9] },
-    "taupe": { "corps": [0.35, 0.3, 0.75, 0.65] },
-    "termite": { "corps": [0, 0, 1, 1] },
-    "thon-rouge": { "corps": [0.15, 0.1, 0.85, 0.75] },
-    "thylacine": { "corps": [0.05, 0, 1, 0.97] },
-    "tigre": { "corps": [0.25, 0.08, 0.85, 0.97] },
-    "titanoboa": { "corps": [0, 0.05, 1, 0.95] },
-    "torpille": { "corps": [0.05, 0.1, 0.95, 0.95] },
-    "tortue-alligator": { "corps": [0.1, 0.2, 0.95, 0.8] },
-    "tortue-d-hermann": { "corps": [0.2, 0.35, 0.75, 0.9] },
-    "tortue-de-pinta": { "corps": [0.15, 0.15, 0.85, 0.45] },
-    "tortue-geante": { "corps": [0, 0, 0.95, 0.98] },
-    "tortue-luth": { "corps": [0.05, 0, 0.95, 0.95] },
-    "toucan": { "corps": [0.05, 0.05, 0.95, 0.98] },
-    "tourte-voyageuse": { "corps": [0.05, 0.25, 0.95, 0.95] },
-    "triceratops": { "corps": [0.05, 0.05, 0.85, 0.9] },
-    "trilobite": { "corps": [0, 0.05, 1, 0.95] },
-    "triton-crete": { "corps": [0, 0.3, 0.95, 0.7] },
-    "tuatara": { "corps": [0.05, 0.05, 0.95, 0.85] },
-    "vache": { "corps": [0.1, 0.55, 0.85, 0.92] },
-    "vampire": { "corps": [0.2, 0.05, 0.85, 0.75] },
-    "vaquita": { "corps": [0.15, 0.25, 0.75, 0.75] },
-    "vautour-fauve": { "corps": [0.25, 0.1, 0.75, 0.92] },
-    "velociraptor": { "corps": [0.05, 0.1, 0.9, 0.98] },
-    "ver-a-soie": { "corps": [0, 0.2, 1, 0.9] },
-    "veuve-noire": { "corps": [0.15, 0.15, 0.85, 0.95] },
-    "vipere-aspic": { "corps": [0.15, 0.05, 0.85, 0.95] },
-    "voilier": { "corps": [0, 0.2, 1, 1] },
-    "wallaby": { "corps": [0.2, 0, 0.8, 0.97] },
-    "wombat": { "corps": [0.1, 0.15, 0.75, 0.92] },
-    "yak": { "corps": [0.3, 0.3, 0.75, 0.9] },
-    "zebre": { "corps": [0.15, 0.15, 0.9, 0.97] }
+    "abeille": {
+      "corps": [
+        0.1,
+        0.15,
+        0.75,
+        0.6
+      ]
+    },
+    "aepyornis": {
+      "corps": [
+        0.1,
+        0.05,
+        0.95,
+        0.95
+      ]
+    },
+    "aigle-royal": {
+      "corps": [
+        0.3,
+        0,
+        0.75,
+        1
+      ]
+    },
+    "albatros": {
+      "corps": [
+        0.18,
+        0.3,
+        0.85,
+        0.62
+      ]
+    },
+    "alligator": {
+      "corps": [
+        0,
+        0.05,
+        1,
+        0.95
+      ]
+    },
+    "alpaga": {
+      "corps": [
+        0.25,
+        0.1,
+        0.75,
+        0.92
+      ]
+    },
+    "anaconda": {
+      "corps": [
+        0,
+        0,
+        1,
+        0.95
+      ]
+    },
+    "ane": {
+      "corps": [
+        0.15,
+        0.1,
+        0.6,
+        0.9
+      ]
+    },
+    "anemone": {
+      "corps": [
+        0,
+        0.1,
+        1,
+        1
+      ]
+    },
+    "anguille": {
+      "corps": [
+        0.1,
+        0.1,
+        1,
+        0.75
+      ]
+    },
+    "antilocapre": {
+      "corps": [
+        0.2,
+        0.15,
+        0.75,
+        0.88
+      ]
+    },
+    "ara": {
+      "corps": [
+        0.3,
+        0.1,
+        0.65,
+        0.97
+      ]
+    },
+    "araignee-paon": {
+      "corps": [
+        0.25,
+        0.15,
+        0.68,
+        0.8
+      ]
+    },
+    "atele": {
+      "corps": [
+        0.15,
+        0.08,
+        0.85,
+        0.92
+      ]
+    },
+    "autour": {
+      "corps": [
+        0.1,
+        0.2,
+        0.75,
+        0.85
+      ]
+    },
+    "autruche": {
+      "corps": [
+        0.3,
+        0.1,
+        0.8,
+        0.95
+      ]
+    },
+    "axolotl": {
+      "corps": [
+        0.05,
+        0,
+        0.95,
+        1
+      ]
+    },
+    "aye-aye": {
+      "corps": [
+        0.3,
+        0.15,
+        0.75,
+        0.95
+      ]
+    },
+    "babouin": {
+      "corps": [
+        0.1,
+        0.05,
+        0.95,
+        1
+      ]
+    },
+    "balbuzard": {
+      "corps": [
+        0.4,
+        0.2,
+        0.9,
+        0.95
+      ]
+    },
+    "baleine-a-bosse": {
+      "corps": [
+        0.25,
+        0.15,
+        0.9,
+        0.75
+      ]
+    },
+    "baleine-bleue": {
+      "corps": [
+        0.15,
+        0,
+        0.85,
+        0.97
+      ]
+    },
+    "baleine-boreale": {
+      "corps": [
+        0.05,
+        0.2,
+        0.95,
+        0.85
+      ]
+    },
+    "barracuda": {
+      "corps": [
+        0.25,
+        0,
+        0.75,
+        1
+      ]
+    },
+    "basilic": {
+      "corps": [
+        0.3,
+        0.05,
+        0.85,
+        0.75
+      ]
+    },
+    "baudroie": {
+      "corps": [
+        0.1,
+        0.05,
+        0.85,
+        0.88
+      ]
+    },
+    "belette": {
+      "corps": [
+        0.15,
+        0.25,
+        0.5,
+        0.75
+      ]
+    },
+    "beluga": {
+      "corps": [
+        0,
+        0.25,
+        0.9,
+        0.85
+      ]
+    },
+    "bernard-l-ermite": {
+      "corps": [
+        0.2,
+        0.3,
+        0.85,
+        0.75
+      ]
+    },
+    "bilby": {
+      "corps": [
+        0.35,
+        0.25,
+        0.75,
+        0.8
+      ]
+    },
+    "bison": {
+      "corps": [
+        0.25,
+        0.1,
+        0.85,
+        0.92
+      ]
+    },
+    "bison-d-europe": {
+      "corps": [
+        0.15,
+        0.15,
+        0.9,
+        0.8
+      ]
+    },
+    "blaireau": {
+      "corps": [
+        0.25,
+        0.25,
+        0.9,
+        0.6
+      ]
+    },
+    "bongo": {
+      "corps": [
+        0.15,
+        0.08,
+        0.85,
+        0.97
+      ]
+    },
+    "bonobo": {
+      "corps": [
+        0.15,
+        0.15,
+        0.8,
+        0.92
+      ]
+    },
+    "bouquetin": {
+      "corps": [
+        0.3,
+        0.2,
+        0.8,
+        0.65
+      ]
+    },
+    "bourdon": {
+      "corps": [
+        0.4,
+        0.3,
+        0.85,
+        0.65
+      ]
+    },
+    "bousier": {
+      "corps": [
+        0.1,
+        0.05,
+        0.9,
+        0.85
+      ]
+    },
+    "brochet": {
+      "corps": [
+        0.1,
+        0.1,
+        0.8,
+        0.85
+      ]
+    },
+    "buffle-d-eau": {
+      "corps": [
+        0.15,
+        0.08,
+        0.8,
+        0.95
+      ]
+    },
+    "buse": {
+      "corps": [
+        0.1,
+        0.1,
+        0.85,
+        0.85
+      ]
+    },
+    "cachalot": {
+      "corps": [
+        0.35,
+        0.15,
+        0.75,
+        0.85
+      ]
+    },
+    "calao": {
+      "corps": [
+        0.15,
+        0.05,
+        0.9,
+        0.98
+      ]
+    },
+    "calmar-geant": {
+      "corps": [
+        0,
+        0.1,
+        1,
+        1
+      ]
+    },
+    "cameleon": {
+      "corps": [
+        0,
+        0.15,
+        0.75,
+        1
+      ]
+    },
+    "canard": {
+      "corps": [
+        0.05,
+        0.15,
+        0.85,
+        0.9
+      ]
+    },
+    "capucin": {
+      "corps": [
+        0.3,
+        0.15,
+        0.85,
+        0.95
+      ]
+    },
+    "capybara": {
+      "corps": [
+        0.2,
+        0.15,
+        0.75,
+        0.88
+      ]
+    },
+    "caracal": {
+      "corps": [
+        0.3,
+        0.2,
+        0.75,
+        0.95
+      ]
+    },
+    "carpe-koi": {
+      "corps": [
+        0.2,
+        0.15,
+        0.8,
+        0.85
+      ]
+    },
+    "casoar": {
+      "corps": [
+        0.15,
+        0.15,
+        0.75,
+        0.97
+      ]
+    },
+    "castor": {
+      "corps": [
+        0.15,
+        0.1,
+        0.85,
+        0.95
+      ]
+    },
+    "cecilie": {
+      "corps": [
+        0,
+        0.15,
+        1,
+        0.75
+      ]
+    },
+    "cerf": {
+      "corps": [
+        0.25,
+        0.05,
+        0.75,
+        0.92
+      ]
+    },
+    "chacal-a-chabraque": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.97
+      ]
+    },
+    "chacal-dore": {
+      "corps": [
+        0.08,
+        0.08,
+        0.88,
+        0.97
+      ]
+    },
+    "chamois": {
+      "corps": [
+        0.1,
+        0.15,
+        0.75,
+        0.9
+      ]
+    },
+    "chat": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "chat-a-pieds-noirs": {
+      "corps": [
+        0.05,
+        0.08,
+        0.95,
+        0.95
+      ]
+    },
+    "chat-des-sables": {
+      "corps": [
+        0.1,
+        0.15,
+        0.75,
+        0.85
+      ]
+    },
+    "chat-dore": {
+      "corps": [
+        0.05,
+        0.15,
+        0.95,
+        0.85
+      ]
+    },
+    "chat-forestier": {
+      "corps": [
+        0.2,
+        0.08,
+        0.9,
+        0.95
+      ]
+    },
+    "chat-rubigineux": {
+      "corps": [
+        0.3,
+        0.25,
+        0.9,
+        0.85
+      ]
+    },
+    "chat-viverrin": {
+      "corps": [
+        0.15,
+        0.3,
+        0.55,
+        0.8
+      ]
+    },
+    "cheval": {
+      "corps": [
+        0.25,
+        0.1,
+        0.75,
+        0.92
+      ]
+    },
+    "cheval-de-przewalski": {
+      "corps": [
+        0.08,
+        0.15,
+        0.95,
+        0.95
+      ]
+    },
+    "cheveche": {
+      "corps": [
+        0.15,
+        0.1,
+        0.85,
+        0.95
+      ]
+    },
+    "chevre": {
+      "corps": [
+        0.3,
+        0.3,
+        0.7,
+        0.95
+      ]
+    },
+    "chevreuil": {
+      "corps": [
+        0.15,
+        0.08,
+        0.95,
+        1
+      ]
+    },
+    "chien": {
+      "corps": [
+        0.1,
+        0.12,
+        0.95,
+        0.98
+      ]
+    },
+    "chien-de-prairie": {
+      "corps": [
+        0.3,
+        0.05,
+        0.7,
+        0.92
+      ]
+    },
+    "chien-viverrin": {
+      "corps": [
+        0.1,
+        0.1,
+        0.95,
+        0.85
+      ]
+    },
+    "chimpanze": {
+      "corps": [
+        0.15,
+        0.1,
+        0.9,
+        0.95
+      ]
+    },
+    "chinchilla": {
+      "corps": [
+        0.05,
+        0.02,
+        0.95,
+        0.92
+      ]
+    },
+    "chirurgien-bleu": {
+      "corps": [
+        0.35,
+        0.3,
+        0.75,
+        0.75
+      ]
+    },
+    "cigale": {
+      "corps": [
+        0.25,
+        0.25,
+        0.75,
+        0.85
+      ]
+    },
+    "cigogne": {
+      "corps": [
+        0.1,
+        0.15,
+        0.9,
+        0.92
+      ]
+    },
+    "circaete": {
+      "corps": [
+        0.4,
+        0.2,
+        0.7,
+        0.8
+      ]
+    },
+    "cobra-royal": {
+      "corps": [
+        0.45,
+        0.15,
+        0.95,
+        0.95
+      ]
+    },
+    "coccinelle": {
+      "corps": [
+        0.3,
+        0.1,
+        0.85,
+        0.45
+      ]
+    },
+    "cochon": {
+      "corps": [
+        0.1,
+        0.35,
+        0.75,
+        0.95
+      ]
+    },
+    "cochon-d-inde": {
+      "corps": [
+        0.25,
+        0.1,
+        1,
+        0.75
+      ]
+    },
+    "coelacanthe": {
+      "corps": [
+        0.1,
+        0.15,
+        0.9,
+        0.85
+      ]
+    },
+    "colibri": {
+      "corps": [
+        0.15,
+        0.15,
+        0.85,
+        0.95
+      ]
+    },
+    "colobe": {
+      "corps": [
+        0.2,
+        0.05,
+        0.65,
+        0.95
+      ]
+    },
+    "compsognathus": {
+      "corps": [
+        0.1,
+        0.25,
+        0.7,
+        0.8
+      ]
+    },
+    "condor": {
+      "corps": [
+        0.1,
+        0.1,
+        0.6,
+        0.95
+      ]
+    },
+    "corail": {
+      "corps": [
+        0.08,
+        0.15,
+        0.88,
+        0.92
+      ]
+    },
+    "corbeau": {
+      "corps": [
+        0.3,
+        0.25,
+        0.95,
+        0.97
+      ]
+    },
+    "couleuvre": {
+      "corps": [
+        0.35,
+        0.25,
+        1,
+        0.6
+      ]
+    },
+    "coyote": {
+      "corps": [
+        0.2,
+        0.05,
+        0.8,
+        0.97
+      ]
+    },
+    "crabe-de-cocotier": {
+      "corps": [
+        0.2,
+        0.3,
+        0.85,
+        0.8
+      ]
+    },
+    "crabe-royal": {
+      "corps": [
+        0.15,
+        0.1,
+        0.85,
+        0.85
+      ]
+    },
+    "crapaud-buffle": {
+      "corps": [
+        0.25,
+        0.35,
+        0.85,
+        0.88
+      ]
+    },
+    "crapaud-commun": {
+      "corps": [
+        0.1,
+        0.4,
+        0.8,
+        0.75
+      ]
+    },
+    "crecerelle": {
+      "corps": [
+        0.1,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "crevette-mante": {
+      "corps": [
+        0,
+        0.1,
+        0.95,
+        0.9
+      ]
+    },
+    "criquet-pelerin": {
+      "corps": [
+        0.3,
+        0.15,
+        0.85,
+        0.8
+      ]
+    },
+    "crocodile-du-nil": {
+      "corps": [
+        0.27,
+        0.35,
+        0.7,
+        0.65
+      ]
+    },
+    "crocodile-marin": {
+      "corps": [
+        0.4,
+        0.1,
+        0.65,
+        0.75
+      ]
+    },
+    "crotale": {
+      "corps": [
+        0.15,
+        0.3,
+        0.85,
+        0.75
+      ]
+    },
+    "cygne": {
+      "corps": [
+        0.35,
+        0.2,
+        0.65,
+        0.85
+      ]
+    },
+    "dauphin": {
+      "corps": [
+        0.25,
+        0.3,
+        0.7,
+        0.75
+      ]
+    },
+    "dauphin-rose": {
+      "corps": [
+        0.2,
+        0.2,
+        0.75,
+        1
+      ]
+    },
+    "dendrolague": {
+      "corps": [
+        0.1,
+        0.1,
+        0.85,
+        0.95
+      ]
+    },
+    "dhole": {
+      "corps": [
+        0.3,
+        0.25,
+        0.75,
+        0.95
+      ]
+    },
+    "diable-de-tasmanie": {
+      "corps": [
+        0.3,
+        0.3,
+        0.6,
+        0.65
+      ]
+    },
+    "dik-dik": {
+      "corps": [
+        0.2,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "dimetrodon": {
+      "corps": [
+        0,
+        0,
+        1,
+        0.98
+      ]
+    },
+    "dindon": {
+      "corps": [
+        0.05,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "dingo": {
+      "corps": [
+        0.25,
+        0.1,
+        0.75,
+        0.95
+      ]
+    },
+    "dragon-de-komodo": {
+      "corps": [
+        0.15,
+        0.3,
+        0.95,
+        1
+      ]
+    },
+    "dromadaire": {
+      "corps": [
+        0.1,
+        0.2,
+        0.9,
+        0.95
+      ]
+    },
+    "dugong": {
+      "corps": [
+        0.25,
+        0.2,
+        0.9,
+        0.85
+      ]
+    },
+    "dunkleosteus": {
+      "corps": [
+        0.05,
+        0.1,
+        0.95,
+        0.85
+      ]
+    },
+    "dynaste-hercule": {
+      "corps": [
+        0.4,
+        0.1,
+        1,
+        0.95
+      ]
+    },
+    "echidne": {
+      "corps": [
+        0.2,
+        0.15,
+        0.85,
+        0.9
+      ]
+    },
+    "ecureuil-roux": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "effraie": {
+      "corps": [
+        0.1,
+        0.2,
+        0.55,
+        0.85
+      ]
+    },
+    "elan": {
+      "corps": [
+        0.2,
+        0.12,
+        0.65,
+        0.4
+      ]
+    },
+    "elephant": {
+      "corps": [
+        0.1,
+        0.1,
+        0.85,
+        0.97
+      ]
+    },
+    "elephant-d-asie": {
+      "corps": [
+        0.2,
+        0.12,
+        0.8,
+        0.88
+      ]
+    },
+    "elephant-de-foret": {
+      "corps": [
+        0.1,
+        0.25,
+        0.9,
+        0.85
+      ]
+    },
+    "elephant-de-mer": {
+      "corps": [
+        0.25,
+        0.1,
+        1,
+        0.98
+      ]
+    },
+    "emeu": {
+      "corps": [
+        0.1,
+        0.1,
+        0.75,
+        0.92
+      ]
+    },
+    "epeire": {
+      "corps": [
+        0.1,
+        0.1,
+        0.95,
+        0.9
+      ]
+    },
+    "escargot": {
+      "corps": [
+        0.15,
+        0.1,
+        0.95,
+        0.85
+      ]
+    },
+    "espadon": {
+      "corps": [
+        0.2,
+        0.32,
+        0.9,
+        0.52
+      ]
+    },
+    "esturgeon": {
+      "corps": [
+        0.05,
+        0.05,
+        0.75,
+        1
+      ]
+    },
+    "etoile-de-mer": {
+      "corps": [
+        0.25,
+        0.1,
+        0.8,
+        0.75
+      ]
+    },
+    "exocet": {
+      "corps": [
+        0.3,
+        0.2,
+        0.75,
+        0.75
+      ]
+    },
+    "faucon-pelerin": {
+      "corps": [
+        0.2,
+        0.15,
+        0.9,
+        0.92
+      ]
+    },
+    "fennec": {
+      "corps": [
+        0,
+        0.1,
+        1,
+        0.85
+      ]
+    },
+    "flamant-rose": {
+      "corps": [
+        0.15,
+        0.2,
+        0.9,
+        0.7
+      ]
+    },
+    "fossa": {
+      "corps": [
+        0.15,
+        0.05,
+        0.95,
+        0.98
+      ]
+    },
+    "fourmi": {
+      "corps": [
+        0.25,
+        0.1,
+        0.75,
+        0.9
+      ]
+    },
+    "fourmilier": {
+      "corps": [
+        0.25,
+        0.15,
+        0.9,
+        0.75
+      ]
+    },
+    "frelon": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "frelon-geant": {
+      "corps": [
+        0.15,
+        0.2,
+        0.85,
+        0.75
+      ]
+    },
+    "fugu": {
+      "corps": [
+        0.15,
+        0.3,
+        0.8,
+        0.65
+      ]
+    },
+    "furet": {
+      "corps": [
+        0.15,
+        0.05,
+        1,
+        1
+      ]
+    },
+    "gavial": {
+      "corps": [
+        0,
+        0.35,
+        1,
+        0.75
+      ]
+    },
+    "gazelle": {
+      "corps": [
+        0.25,
+        0.08,
+        0.65,
+        0.92
+      ]
+    },
+    "gecko": {
+      "corps": [
+        0.35,
+        0.05,
+        0.75,
+        1
+      ]
+    },
+    "gelada": {
+      "corps": [
+        0.2,
+        0.25,
+        0.75,
+        0.88
+      ]
+    },
+    "gerenuk": {
+      "corps": [
+        0.3,
+        0.05,
+        0.65,
+        0.95
+      ]
+    },
+    "gibbon": {
+      "corps": [
+        0.4,
+        0.05,
+        0.65,
+        0.85
+      ]
+    },
+    "girafe": {
+      "corps": [
+        0.1,
+        0.05,
+        0.55,
+        0.97
+      ]
+    },
+    "glouton": {
+      "corps": [
+        0.15,
+        0.3,
+        0.75,
+        0.8
+      ]
+    },
+    "glyptodon": {
+      "corps": [
+        0,
+        0,
+        0.95,
+        0.85
+      ]
+    },
+    "gnou": {
+      "corps": [
+        0.3,
+        0.05,
+        0.8,
+        0.85
+      ]
+    },
+    "goliath": {
+      "corps": [
+        0.1,
+        0.05,
+        0.9,
+        0.95
+      ]
+    },
+    "gorille": {
+      "corps": [
+        0.3,
+        0.2,
+        0.8,
+        0.8
+      ]
+    },
+    "grand-duc": {
+      "corps": [
+        0.3,
+        0.05,
+        0.8,
+        0.95
+      ]
+    },
+    "grenouille-de-verre": {
+      "corps": [
+        0,
+        0.1,
+        1,
+        0.9
+      ]
+    },
+    "grenouille-goliath": {
+      "corps": [
+        0.25,
+        0.2,
+        0.85,
+        0.75
+      ]
+    },
+    "grenouille-verte": {
+      "corps": [
+        0.25,
+        0.15,
+        0.85,
+        0.75
+      ]
+    },
+    "grue": {
+      "corps": [
+        0.15,
+        0.15,
+        0.85,
+        0.92
+      ]
+    },
+    "guepard": {
+      "corps": [
+        0.2,
+        0.12,
+        0.75,
+        0.88
+      ]
+    },
+    "guepe": {
+      "corps": [
+        0.1,
+        0,
+        0.9,
+        0.95
+      ]
+    },
+    "gymnote": {
+      "corps": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "gypaete": {
+      "corps": [
+        0.15,
+        0.08,
+        0.95,
+        0.92
+      ]
+    },
+    "hamster": {
+      "corps": [
+        0.2,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "harfang": {
+      "corps": [
+        0.3,
+        0.25,
+        0.75,
+        0.8
+      ]
+    },
+    "harpie": {
+      "corps": [
+        0.35,
+        0.05,
+        0.75,
+        0.95
+      ]
+    },
+    "heloderme": {
+      "corps": [
+        0.15,
+        0,
+        0.8,
+        0.98
+      ]
+    },
+    "herisson": {
+      "corps": [
+        0.2,
+        0.15,
+        0.85,
+        0.75
+      ]
+    },
+    "hermine": {
+      "corps": [
+        0.43,
+        0.25,
+        0.55,
+        0.75
+      ]
+    },
+    "hippocampe": {
+      "corps": [
+        0.2,
+        0.25,
+        0.85,
+        0.97
+      ]
+    },
+    "hippopotame": {
+      "corps": [
+        0.15,
+        0.2,
+        0.65,
+        0.8
+      ]
+    },
+    "hirondelle": {
+      "corps": [
+        0.35,
+        0.2,
+        0.75,
+        0.92
+      ]
+    },
+    "homard": {
+      "corps": [
+        0,
+        0.25,
+        1,
+        0.95
+      ]
+    },
+    "hyene": {
+      "corps": [
+        0.25,
+        0.2,
+        0.75,
+        0.92
+      ]
+    },
+    "hyene-rayee": {
+      "corps": [
+        0,
+        0.05,
+        0.85,
+        0.97
+      ]
+    },
+    "iguane-marin": {
+      "corps": [
+        0.15,
+        0.2,
+        0.95,
+        0.85
+      ]
+    },
+    "impala": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        1
+      ]
+    },
+    "isopode-geant": {
+      "corps": [
+        0.05,
+        0.1,
+        0.95,
+        0.95
+      ]
+    },
+    "jaguar": {
+      "corps": [
+        0.3,
+        0.1,
+        0.75,
+        0.85
+      ]
+    },
+    "jaguarondi": {
+      "corps": [
+        0.1,
+        0.35,
+        0.75,
+        0.75
+      ]
+    },
+    "kangourou": {
+      "corps": [
+        0.3,
+        0.15,
+        0.75,
+        0.85
+      ]
+    },
+    "kea": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "koala": {
+      "corps": [
+        0.2,
+        0.3,
+        0.75,
+        0.95
+      ]
+    },
+    "kodiak": {
+      "corps": [
+        0.05,
+        0.05,
+        0.95,
+        0.95
+      ]
+    },
+    "koudou": {
+      "corps": [
+        0.1,
+        0,
+        0.95,
+        1
+      ]
+    },
+    "krill": {
+      "corps": [
+        0.1,
+        0.25,
+        0.95,
+        0.85
+      ]
+    },
+    "lama": {
+      "corps": [
+        0.2,
+        0.2,
+        0.6,
+        0.92
+      ]
+    },
+    "lamantin": {
+      "corps": [
+        0.1,
+        0.05,
+        0.9,
+        0.75
+      ]
+    },
+    "lapin": {
+      "corps": [
+        0.15,
+        0.1,
+        0.75,
+        0.9
+      ]
+    },
+    "lemming": {
+      "corps": [
+        0.15,
+        0.1,
+        0.85,
+        0.75
+      ]
+    },
+    "lemur-catta": {
+      "corps": [
+        0.2,
+        0.15,
+        0.6,
+        0.92
+      ]
+    },
+    "leopard": {
+      "corps": [
+        0.1,
+        0.15,
+        0.75,
+        0.98
+      ]
+    },
+    "leopard-de-mer": {
+      "corps": [
+        0.05,
+        0.25,
+        0.95,
+        0.65
+      ]
+    },
+    "lezard-vert": {
+      "corps": [
+        0.25,
+        0.1,
+        0.65,
+        1
+      ]
+    },
+    "libellule": {
+      "corps": [
+        0.15,
+        0.25,
+        0.75,
+        0.95
+      ]
+    },
+    "lievre": {
+      "corps": [
+        0.2,
+        0.05,
+        0.85,
+        0.97
+      ]
+    },
+    "limule": {
+      "corps": [
+        0.15,
+        0.1,
+        0.9,
+        1
+      ]
+    },
+    "lion": {
+      "corps": [
+        0.05,
+        0.2,
+        1,
+        0.85
+      ]
+    },
+    "lion-d-asie": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        1
+      ]
+    },
+    "loir": {
+      "corps": [
+        0.2,
+        0.2,
+        0.75,
+        0.65
+      ]
+    },
+    "loris-lent": {
+      "corps": [
+        0.25,
+        0.05,
+        0.75,
+        0.92
+      ]
+    },
+    "loup": {
+      "corps": [
+        0,
+        0.05,
+        1,
+        1
+      ]
+    },
+    "loup-a-criniere": {
+      "corps": [
+        0.2,
+        0.25,
+        1,
+        0.75
+      ]
+    },
+    "loup-d-ethiopie": {
+      "corps": [
+        0.15,
+        0.1,
+        0.85,
+        0.75
+      ]
+    },
+    "loutre": {
+      "corps": [
+        0.2,
+        0,
+        0.65,
+        0.6
+      ]
+    },
+    "loutre-de-mer": {
+      "corps": [
+        0,
+        0.1,
+        0.95,
+        0.75
+      ]
+    },
+    "lucane": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "luciole": {
+      "corps": [
+        0.35,
+        0.4,
+        0.75,
+        0.75
+      ]
+    },
+    "lycaon": {
+      "corps": [
+        0.15,
+        0.2,
+        0.9,
+        0.95
+      ]
+    },
+    "lynx": {
+      "corps": [
+        0.15,
+        0.08,
+        0.85,
+        0.95
+      ]
+    },
+    "lynx-roux": {
+      "corps": [
+        0.15,
+        0.1,
+        0.75,
+        0.92
+      ]
+    },
+    "macaque-japonais": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.97
+      ]
+    },
+    "macareux": {
+      "corps": [
+        0.1,
+        0.1,
+        0.75,
+        0.88
+      ]
+    },
+    "mamba-noir": {
+      "corps": [
+        0.2,
+        0.05,
+        0.9,
+        0.97
+      ]
+    },
+    "manchot-empereur": {
+      "corps": [
+        0.25,
+        0.05,
+        0.8,
+        0.97
+      ]
+    },
+    "mandrill": {
+      "corps": [
+        0.25,
+        0.2,
+        0.65,
+        0.85
+      ]
+    },
+    "mangouste": {
+      "corps": [
+        0.25,
+        0.35,
+        0.6,
+        0.75
+      ]
+    },
+    "mante-religieuse": {
+      "corps": [
+        0.2,
+        0.25,
+        0.9,
+        1
+      ]
+    },
+    "manul": {
+      "corps": [
+        0.3,
+        0.25,
+        0.75,
+        0.85
+      ]
+    },
+    "margay": {
+      "corps": [
+        0.3,
+        0.2,
+        0.9,
+        0.95
+      ]
+    },
+    "marmotte": {
+      "corps": [
+        0.3,
+        0.2,
+        0.75,
+        0.85
+      ]
+    },
+    "marsouin": {
+      "corps": [
+        0.05,
+        0.15,
+        0.95,
+        0.95
+      ]
+    },
+    "martin-pecheur": {
+      "corps": [
+        0.1,
+        0.25,
+        0.85,
+        0.95
+      ]
+    },
+    "martinet": {
+      "corps": [
+        0.1,
+        0.1,
+        0.95,
+        0.9
+      ]
+    },
+    "meduse": {
+      "corps": [
+        0.2,
+        0.05,
+        0.75,
+        0.9
+      ]
+    },
+    "megaloceros": {
+      "corps": [
+        0.1,
+        0.05,
+        0.95,
+        0.95
+      ]
+    },
+    "meganeura": {
+      "corps": [
+        0,
+        0.05,
+        1,
+        0.95
+      ]
+    },
+    "megatherium": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.97
+      ]
+    },
+    "menure": {
+      "corps": [
+        0.15,
+        0.15,
+        0.85,
+        0.8
+      ]
+    },
+    "milan-royal": {
+      "corps": [
+        0.15,
+        0.05,
+        0.9,
+        0.95
+      ]
+    },
+    "mille-pattes": {
+      "corps": [
+        0,
+        0,
+        0.9,
+        0.7
+      ]
+    },
+    "moa": {
+      "corps": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "moineau": {
+      "corps": [
+        0.25,
+        0.2,
+        0.95,
+        0.92
+      ]
+    },
+    "moloch": {
+      "corps": [
+        0.1,
+        0.15,
+        0.9,
+        0.8
+      ]
+    },
+    "monarque": {
+      "corps": [
+        0.1,
+        0,
+        0.6,
+        0.45
+      ]
+    },
+    "morpho": {
+      "corps": [
+        0.3,
+        0,
+        0.85,
+        0.95
+      ]
+    },
+    "moufette": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.97
+      ]
+    },
+    "mouflon": {
+      "corps": [
+        0.15,
+        0.25,
+        0.75,
+        0.95
+      ]
+    },
+    "moustique": {
+      "corps": [
+        0,
+        0,
+        1,
+        0.8
+      ]
+    },
+    "mouton": {
+      "corps": [
+        0.2,
+        0.05,
+        0.75,
+        0.95
+      ]
+    },
+    "musaraigne": {
+      "corps": [
+        0.35,
+        0.2,
+        0.85,
+        0.55
+      ]
+    },
+    "mygale": {
+      "corps": [
+        0.2,
+        0.1,
+        0.9,
+        0.85
+      ]
+    },
+    "narval": {
+      "corps": [
+        0.2,
+        0.4,
+        0.95,
+        0.85
+      ]
+    },
+    "nasique": {
+      "corps": [
+        0.2,
+        0,
+        0.85,
+        1
+      ]
+    },
+    "nautile": {
+      "corps": [
+        0.05,
+        0.02,
+        0.92,
+        0.95
+      ]
+    },
+    "numbat": {
+      "corps": [
+        0,
+        0.25,
+        0.85,
+        0.65
+      ]
+    },
+    "ocelot": {
+      "corps": [
+        0.05,
+        0.08,
+        0.95,
+        0.98
+      ]
+    },
+    "oie": {
+      "corps": [
+        0.05,
+        0.1,
+        0.85,
+        0.98
+      ]
+    },
+    "okapi": {
+      "corps": [
+        0.1,
+        0.05,
+        0.95,
+        0.88
+      ]
+    },
+    "opossum": {
+      "corps": [
+        0.15,
+        0.08,
+        0.75,
+        0.85
+      ]
+    },
+    "orang-outan": {
+      "corps": [
+        0.3,
+        0.15,
+        0.75,
+        0.85
+      ]
+    },
+    "ornithorynque": {
+      "corps": [
+        0.25,
+        0.15,
+        0.7,
+        0.85
+      ]
+    },
+    "orque": {
+      "corps": [
+        0.1,
+        0.05,
+        0.75,
+        1
+      ]
+    },
+    "oryx": {
+      "corps": [
+        0.3,
+        0.1,
+        0.75,
+        0.75
+      ]
+    },
+    "otocyon": {
+      "corps": [
+        0.15,
+        0.1,
+        0.9,
+        0.95
+      ]
+    },
+    "ouaouaron": {
+      "corps": [
+        0.2,
+        0.15,
+        0.65,
+        0.5
+      ]
+    },
+    "ouistiti-pygmee": {
+      "corps": [
+        0.05,
+        0.05,
+        0.95,
+        0.95
+      ]
+    },
+    "ours-a-collier": {
+      "corps": [
+        0.1,
+        0.25,
+        0.9,
+        0.85
+      ]
+    },
+    "ours-a-lunettes": {
+      "corps": [
+        0.25,
+        0.2,
+        0.65,
+        0.6
+      ]
+    },
+    "ours-brun": [
+      0.5,
+      0.5,
+      1
+    ],
+    "ours-de-gobi": {
+      "corps": [
+        0,
+        0.05,
+        1,
+        1
+      ]
+    },
+    "ours-isabelle": {
+      "corps": [
+        0.2,
+        0.1,
+        0.7,
+        0.95
+      ]
+    },
+    "ours-lippu": {
+      "corps": [
+        0.1,
+        0.2,
+        0.85,
+        0.85
+      ]
+    },
+    "ours-malais": {
+      "corps": [
+        0.25,
+        0.1,
+        0.7,
+        0.88
+      ]
+    },
+    "ours-noir": {
+      "corps": [
+        0.15,
+        0.4,
+        0.65,
+        0.88
+      ]
+    },
+    "ours-polaire": {
+      "corps": [
+        0.25,
+        0.15,
+        0.8,
+        0.65
+      ]
+    },
+    "oursin": {
+      "corps": [
+        0.35,
+        0.15,
+        0.85,
+        0.55
+      ]
+    },
+    "pachycephalosaure": {
+      "corps": [
+        0.25,
+        0.1,
+        0.8,
+        0.95
+      ]
+    },
+    "panda": {
+      "corps": [
+        0.15,
+        0.15,
+        0.85,
+        0.97
+      ]
+    },
+    "panda-roux": {
+      "corps": [
+        0.25,
+        0.1,
+        0.65,
+        0.65
+      ]
+    },
+    "pangolin": {
+      "corps": [
+        0.05,
+        0.2,
+        0.95,
+        0.85
+      ]
+    },
+    "panthere-des-neiges": {
+      "corps": [
+        0.2,
+        0.25,
+        0.8,
+        0.65
+      ]
+    },
+    "panthere-nebuleuse": {
+      "corps": [
+        0.25,
+        0.2,
+        0.65,
+        0.8
+      ]
+    },
+    "panthere-noire": {
+      "corps": [
+        0.15,
+        0.05,
+        0.65,
+        0.97
+      ]
+    },
+    "paon": {
+      "corps": [
+        0.2,
+        0.1,
+        0.95,
+        1
+      ]
+    },
+    "paradisier": {
+      "corps": [
+        0.3,
+        0,
+        0.65,
+        0.85
+      ]
+    },
+    "paraponera": {
+      "corps": [
+        0.2,
+        0.25,
+        0.85,
+        0.8
+      ]
+    },
+    "parasaurolophus": {
+      "corps": [
+        0.45,
+        0.3,
+        0.85,
+        0.75
+      ]
+    },
+    "paresseux": {
+      "corps": [
+        0.15,
+        0.05,
+        0.95,
+        0.75
+      ]
+    },
+    "pastenague": {
+      "corps": [
+        0.25,
+        0.25,
+        0.9,
+        0.85
+      ]
+    },
+    "peau-bleue": {
+      "corps": [
+        0.05,
+        0.05,
+        0.95,
+        0.95
+      ]
+    },
+    "pelican": {
+      "corps": [
+        0.2,
+        0.05,
+        0.85,
+        0.85
+      ]
+    },
+    "perruche": {
+      "corps": [
+        0.05,
+        0.05,
+        1,
+        0.98
+      ]
+    },
+    "petite-roussette": {
+      "corps": [
+        0.05,
+        0.25,
+        0.95,
+        0.8
+      ]
+    },
+    "phalanger-volant": {
+      "corps": [
+        0.35,
+        0.2,
+        0.85,
+        0.92
+      ]
+    },
+    "phasme": {
+      "corps": [
+        0,
+        0.3,
+        0.6,
+        0.95
+      ]
+    },
+    "phoque": {
+      "corps": [
+        0.3,
+        0.25,
+        0.65,
+        0.7
+      ]
+    },
+    "phoque-du-groenland": {
+      "corps": [
+        0.25,
+        0.15,
+        1,
+        0.8
+      ]
+    },
+    "phyllobate": {
+      "corps": [
+        0.25,
+        0.1,
+        0.75,
+        0.85
+      ]
+    },
+    "physalie": {
+      "corps": [
+        0.05,
+        0.05,
+        0.95,
+        0.97
+      ]
+    },
+    "pic-vert": {
+      "corps": [
+        0.25,
+        0.15,
+        0.75,
+        0.85
+      ]
+    },
+    "pie": {
+      "corps": [
+        0.25,
+        0.15,
+        0.75,
+        0.88
+      ]
+    },
+    "pieuvre": {
+      "corps": [
+        0.15,
+        0.25,
+        0.85,
+        0.9
+      ]
+    },
+    "pigeon": {
+      "corps": [
+        0.15,
+        0.1,
+        0.9,
+        0.85
+      ]
+    },
+    "pipa": {
+      "corps": [
+        0.05,
+        0.25,
+        0.85,
+        0.95
+      ]
+    },
+    "pipistrelle": {
+      "corps": [
+        0.05,
+        0.35,
+        0.85,
+        0.8
+      ]
+    },
+    "piranha": {
+      "corps": [
+        0.1,
+        0.3,
+        0.8,
+        0.85
+      ]
+    },
+    "pithecophage": {
+      "corps": [
+        0.2,
+        0.05,
+        0.9,
+        0.85
+      ]
+    },
+    "poisson-archer": {
+      "corps": [
+        0.25,
+        0.4,
+        0.7,
+        0.65
+      ]
+    },
+    "poisson-clown": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.6
+      ]
+    },
+    "poisson-lune": {
+      "corps": [
+        0.25,
+        0.2,
+        0.8,
+        0.85
+      ]
+    },
+    "poisson-perroquet": {
+      "corps": [
+        0.2,
+        0.05,
+        0.95,
+        0.85
+      ]
+    },
+    "poisson-pierre": {
+      "corps": [
+        0.1,
+        0,
+        0.95,
+        1
+      ]
+    },
+    "poisson-rouge": {
+      "corps": [
+        0.05,
+        0.05,
+        1,
+        0.85
+      ]
+    },
+    "poisson-scie": {
+      "corps": [
+        0.2,
+        0.15,
+        0.9,
+        0.95
+      ]
+    },
+    "polatouche": {
+      "corps": [
+        0,
+        0.1,
+        0.9,
+        0.95
+      ]
+    },
+    "porc-epic": {
+      "corps": [
+        0.1,
+        0.25,
+        0.95,
+        0.75
+      ]
+    },
+    "poule": {
+      "corps": [
+        0.1,
+        0.1,
+        0.95,
+        0.85
+      ]
+    },
+    "poulpe-a-anneaux-bleus": {
+      "corps": [
+        0.1,
+        0.15,
+        0.9,
+        0.85
+      ]
+    },
+    "poulpe-dumbo": {
+      "corps": [
+        0.55,
+        0.15,
+        0.95,
+        0.85
+      ]
+    },
+    "protee": {
+      "corps": [
+        0.3,
+        0.1,
+        0.75,
+        0.95
+      ]
+    },
+    "protele": {
+      "corps": [
+        0.1,
+        0.25,
+        0.95,
+        0.85
+      ]
+    },
+    "puce": {
+      "corps": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "puma": {
+      "corps": [
+        0.3,
+        0.25,
+        0.75,
+        0.8
+      ]
+    },
+    "pygargue": {
+      "corps": [
+        0.3,
+        0.1,
+        0.85,
+        0.98
+      ]
+    },
+    "python-reticule": {
+      "corps": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "quagga": {
+      "corps": [
+        0.05,
+        0.05,
+        0.95,
+        0.95
+      ]
+    },
+    "quetzal": {
+      "corps": [
+        0.35,
+        0.15,
+        0.65,
+        0.95
+      ]
+    },
+    "quokka": {
+      "corps": [
+        0.2,
+        0.2,
+        0.9,
+        0.95
+      ]
+    },
+    "quoll": {
+      "corps": [
+        0.4,
+        0.1,
+        0.85,
+        0.55
+      ]
+    },
+    "raie-manta": {
+      "corps": [
+        0.3,
+        0.15,
+        0.75,
+        0.6
+      ]
+    },
+    "rainette-aux-yeux-rouges": {
+      "corps": [
+        0.2,
+        0.2,
+        0.75,
+        0.97
+      ]
+    },
+    "rainette-verte": {
+      "corps": [
+        0.2,
+        0.25,
+        0.75,
+        0.8
+      ]
+    },
+    "rat": {
+      "corps": [
+        0,
+        0.05,
+        0.85,
+        1
+      ]
+    },
+    "rat-taupe-nu": {
+      "corps": [
+        0,
+        0.05,
+        1,
+        1
+      ]
+    },
+    "ratel": {
+      "corps": [
+        0.08,
+        0.1,
+        0.95,
+        0.9
+      ]
+    },
+    "raton-laveur": {
+      "corps": [
+        0.45,
+        0,
+        0.95,
+        0.6
+      ]
+    },
+    "renard-polaire": {
+      "corps": [
+        0.05,
+        0.08,
+        0.75,
+        0.95
+      ]
+    },
+    "renard-roux": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "renne": {
+      "corps": [
+        0.15,
+        0.12,
+        0.85,
+        0.9
+      ]
+    },
+    "requin-a-pointes-noires": {
+      "corps": [
+        0.1,
+        0.3,
+        0.8,
+        0.55
+      ]
+    },
+    "requin-baleine": {
+      "corps": [
+        0.15,
+        0.1,
+        0.85,
+        0.85
+      ]
+    },
+    "requin-blanc": {
+      "corps": [
+        0.15,
+        0.1,
+        0.95,
+        0.8
+      ]
+    },
+    "requin-bouledogue": {
+      "corps": [
+        0.15,
+        0.3,
+        0.75,
+        0.65
+      ]
+    },
+    "requin-du-groenland": {
+      "corps": [
+        0,
+        0.1,
+        0.95,
+        0.55
+      ]
+    },
+    "requin-lutin": {
+      "corps": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "requin-mako": {
+      "corps": [
+        0.05,
+        0.2,
+        0.95,
+        0.85
+      ]
+    },
+    "requin-marteau": {
+      "corps": [
+        0.2,
+        0,
+        0.95,
+        0.6
+      ]
+    },
+    "requin-nourrice": {
+      "corps": [
+        0,
+        0.25,
+        1,
+        0.85
+      ]
+    },
+    "requin-pelerin": {
+      "corps": [
+        0.25,
+        0.1,
+        1,
+        1
+      ]
+    },
+    "requin-tigre": {
+      "corps": [
+        0.2,
+        0.2,
+        0.75,
+        0.6
+      ]
+    },
+    "rhacophore": {
+      "corps": [
+        0.3,
+        0.2,
+        0.75,
+        0.75
+      ]
+    },
+    "rhinoceros-blanc": {
+      "corps": [
+        0.2,
+        0.33,
+        0.8,
+        0.82
+      ]
+    },
+    "rhinoceros-de-sumatra": {
+      "corps": [
+        0.25,
+        0.25,
+        0.85,
+        0.88
+      ]
+    },
+    "rhinoceros-indien": {
+      "corps": [
+        0.2,
+        0.2,
+        0.85,
+        0.95
+      ]
+    },
+    "rhinoceros-noir": {
+      "corps": [
+        0.12,
+        0.35,
+        0.9,
+        0.75
+      ]
+    },
+    "rhytine-de-steller": {
+      "corps": [
+        0,
+        0,
+        1,
+        0.95
+      ]
+    },
+    "rorqual-commun": {
+      "corps": [
+        0.25,
+        0.15,
+        0.75,
+        0.7
+      ]
+    },
+    "rougegorge": {
+      "corps": [
+        0.15,
+        0.2,
+        0.85,
+        0.92
+      ]
+    },
+    "saiga": {
+      "corps": [
+        0.2,
+        0.12,
+        0.75,
+        0.95
+      ]
+    },
+    "saimiri": {
+      "corps": [
+        0.1,
+        0.05,
+        0.95,
+        0.97
+      ]
+    },
+    "salamandre": {
+      "corps": [
+        0,
+        0.5,
+        1,
+        0.95
+      ]
+    },
+    "salamandre-geante": {
+      "corps": [
+        0.15,
+        0.35,
+        0.95,
+        0.9
+      ]
+    },
+    "sanglier": {
+      "corps": [
+        0.15,
+        0.1,
+        0.9,
+        0.95
+      ]
+    },
+    "scorpion": {
+      "corps": [
+        0.05,
+        0,
+        0.95,
+        1
+      ]
+    },
+    "seiche": {
+      "corps": [
+        0.15,
+        0.15,
+        0.85,
+        0.95
+      ]
+    },
+    "serpentaire": {
+      "corps": [
+        0.15,
+        0.1,
+        0.75,
+        0.75
+      ]
+    },
+    "serval": {
+      "corps": [
+        0.2,
+        0.15,
+        0.95,
+        0.95
+      ]
+    },
+    "sifaka": {
+      "corps": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "silure": {
+      "corps": [
+        0,
+        0.2,
+        0.85,
+        0.75
+      ]
+    },
+    "singe-hurleur": {
+      "corps": [
+        0.3,
+        0.1,
+        0.85,
+        0.75
+      ]
+    },
+    "smilodon": "etendre",
+    "souris": {
+      "corps": [
+        0.3,
+        0.2,
+        0.85,
+        0.8
+      ]
+    },
+    "springbok": {
+      "corps": [
+        0.2,
+        0.08,
+        0.75,
+        0.92
+      ]
+    },
+    "sterne-arctique": {
+      "corps": [
+        0,
+        0.25,
+        0.9,
+        0.85
+      ]
+    },
+    "suricate": {
+      "corps": [
+        0.25,
+        0.15,
+        0.75,
+        0.92
+      ]
+    },
+    "taipan": {
+      "corps": [
+        0,
+        0.4,
+        1,
+        0.6
+      ]
+    },
+    "tamarin-lion": {
+      "corps": [
+        0.25,
+        0.2,
+        0.65,
+        0.85
+      ]
+    },
+    "tapir": {
+      "corps": [
+        0.15,
+        0.15,
+        0.85,
+        0.8
+      ]
+    },
+    "tardigrade": {
+      "corps": [
+        0.05,
+        0.05,
+        0.45,
+        0.95
+      ]
+    },
+    "tarsier": {
+      "corps": [
+        0.2,
+        0.15,
+        0.75,
+        0.85
+      ]
+    },
+    "tatou": {
+      "corps": [
+        0.25,
+        0.05,
+        0.8,
+        0.9
+      ]
+    },
+    "taupe": {
+      "corps": [
+        0.35,
+        0.3,
+        0.75,
+        0.65
+      ]
+    },
+    "termite": {
+      "corps": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "thon-rouge": {
+      "corps": [
+        0.15,
+        0.1,
+        0.85,
+        0.75
+      ]
+    },
+    "tigre": {
+      "corps": [
+        0.25,
+        0.08,
+        0.85,
+        0.97
+      ]
+    },
+    "torpille": {
+      "corps": [
+        0.05,
+        0.1,
+        0.95,
+        0.95
+      ]
+    },
+    "tortue-alligator": {
+      "corps": [
+        0.1,
+        0.2,
+        0.95,
+        0.8
+      ]
+    },
+    "tortue-d-hermann": {
+      "corps": [
+        0.2,
+        0.35,
+        0.75,
+        0.9
+      ]
+    },
+    "tortue-geante": {
+      "corps": [
+        0,
+        0,
+        0.95,
+        0.98
+      ]
+    },
+    "toucan": {
+      "corps": [
+        0.05,
+        0.05,
+        0.95,
+        0.98
+      ]
+    },
+    "tourte-voyageuse": {
+      "corps": [
+        0.05,
+        0.25,
+        0.95,
+        0.95
+      ]
+    },
+    "trilobite": {
+      "corps": [
+        0,
+        0.05,
+        1,
+        0.95
+      ]
+    },
+    "triton-crete": {
+      "corps": [
+        0,
+        0.3,
+        0.95,
+        0.7
+      ]
+    },
+    "tuatara": {
+      "corps": [
+        0.05,
+        0.05,
+        0.95,
+        0.85
+      ]
+    },
+    "vache": {
+      "corps": [
+        0.1,
+        0.55,
+        0.85,
+        0.92
+      ]
+    },
+    "vampire": {
+      "corps": [
+        0.2,
+        0.05,
+        0.85,
+        0.75
+      ]
+    },
+    "vaquita": {
+      "corps": [
+        0.15,
+        0.25,
+        0.75,
+        0.75
+      ]
+    },
+    "vautour-fauve": {
+      "corps": [
+        0.25,
+        0.1,
+        0.75,
+        0.92
+      ]
+    },
+    "ver-a-soie": {
+      "corps": [
+        0,
+        0.2,
+        1,
+        0.9
+      ]
+    },
+    "veuve-noire": {
+      "corps": [
+        0.15,
+        0.15,
+        0.85,
+        0.95
+      ]
+    },
+    "vipere-aspic": {
+      "corps": [
+        0.15,
+        0.05,
+        0.85,
+        0.95
+      ]
+    },
+    "voilier": {
+      "corps": [
+        0,
+        0.2,
+        1,
+        1
+      ]
+    },
+    "wallaby": {
+      "corps": [
+        0.2,
+        0,
+        0.8,
+        0.97
+      ]
+    },
+    "wombat": {
+      "corps": [
+        0.1,
+        0.15,
+        0.75,
+        0.92
+      ]
+    },
+    "yak": {
+      "corps": [
+        0.3,
+        0.3,
+        0.75,
+        0.9
+      ]
+    },
+    "zebre": {
+      "corps": [
+        0.15,
+        0.15,
+        0.9,
+        0.97
+      ]
+    }
   }
 }

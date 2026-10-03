@@ -123,30 +123,89 @@
   --hill-near: #2a132e;
 }
 
-/* Icônes (espèces disparues) : blanc de musée, comme un moulage en plâtre ou une salle de muséum.
-   Cadre blanc, ciel gris perle, textes et pastille anthracite. */
+/* Icônes (espèces disparues) : marbre blanc et or, comme une pièce de musée. Le cadre reste blanc ivoire,
+   veiné de gris et d'or ; liserés, ruban et médaillon dorés ; bordure et plaque champagne ; textes bronze foncé.
+   Un voile nacré glisse lentement sur le marbre. */
 .card.is-icon {
   --foil:
-    radial-gradient(45% 20% at 80% 8%, #ffffff, transparent 70%),
-    linear-gradient(172deg, #ffffff 0%, #f1f3f5 40%, #e2e6ea 78%, #d3d9df 100%);
-  --panel: #fbfbf9;
-  --trim: #8f99a5;
-  --metal: linear-gradient(180deg, #232931 0%, #353d47 55%, #535c67 100%);
-  --metal-edge: rgba(255, 255, 255, 0.9);
-  --plate-ink: #2a3038;
-  --tier-bg: linear-gradient(90deg, #2a3038, #4b5560);
-  --tier-ink: #ffffff;
-  --hill-far: #e6eaee;
-  --hill-near: #f0f2f4;
+    radial-gradient(40% 18% at 78% 6%, rgba(255, 255, 255, 0.95), transparent 70%),
+    linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.55) 48%, transparent 60%),
+    linear-gradient(172deg, #fbf3df 0%, #ecd9ab 30%, #d9b874 55%, #f0dfb4 78%, #c99f55 100%);
+  --panel: #fbf7ee;
+  --trim: #c39a4b;
+  --metal: linear-gradient(180deg, #3d2c16 0%, #22180b 55%, #5f4320 100%);
+  --metal-edge: rgba(255, 252, 242, 0.95);
+  --plate-ink: #3b2a14;
+  --tier-bg: linear-gradient(90deg, #b8862c, #f3d98f 50%, #c4943a);
+  --tier-ink: #2a1c09;
+  --hill-far: #eadcbc;
+  --hill-near: #f6eedc;
 }
 
-/* textes anthracite sur blanc : un liseré blanc au lieu de l'ombre sombre */
+/* textes bronze sur ivoire : un liseré clair au lieu de l'ombre sombre */
 .card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .metal-text {
-  filter: drop-shadow(0 0.05em 0 rgba(255, 255, 255, 0.9));
+  filter: drop-shadow(0 0.05em 0 rgba(255, 252, 242, 0.95));
 }
 
+/* filet doré tout autour de la carte */
 .card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .card__body {
-  box-shadow: inset 0 0 0 0.06em rgba(40, 48, 56, 0.25);
+  box-shadow: inset 0 0 0 0.07em rgba(150, 110, 40, 0.55);
+}
+
+/* veines du marbre et voile nacré, sur le cadre seulement : la fenêtre de la photo est découpée du masque
+   (même rectangle que .card__window : 9,4 % / 3,3 % / 5,8 % / 17,1 %) */
+.card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .card__body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140' preserveAspectRatio='none'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M-4 22C12 30 9 46 24 52S40 70 38 88 52 112 70 118 86 134 104 132' stroke='%23a89a82' stroke-width='.45' opacity='.55'/%3E%3Cpath d='M-4 96C10 92 16 104 30 106S48 122 46 144' stroke='%23b99a5c' stroke-width='.35' opacity='.6'/%3E%3Cpath d='M60 -4C66 10 80 12 84 26S98 44 104 46' stroke='%23a89a82' stroke-width='.3' opacity='.5'/%3E%3Cpath d='M70 140C74 128 88 126 92 114S100 100 104 98' stroke='%23c4a466' stroke-width='.4' opacity='.55'/%3E%3Cpath d='M-4 60C4 62 6 70 2 78' stroke='%23b0a28a' stroke-width='.25' opacity='.5'/%3E%3C/g%3E%3C/svg%3E")
+      0 0 / 100% 100% no-repeat,
+    linear-gradient(125deg, rgba(255, 214, 236, 0.18), rgba(214, 246, 236, 0.16) 35%, rgba(222, 220, 255, 0.18) 65%, rgba(255, 238, 200, 0.2))
+      0 0 / 200% 200%;
+  mix-blend-mode: multiply;
+  -webkit-mask:
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0) 61.84% 16.18% / 84.8% 79.6% no-repeat;
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0) 61.84% 16.18% / 84.8% 79.6% no-repeat;
+  mask-composite: exclude;
+  animation: icon-pearl 12s ease-in-out infinite alternate;
+}
+
+@keyframes icon-pearl {
+  to {
+    background-position: 0 0, 100% 100%;
+  }
+}
+
+/* reflet doré qui passe de temps en temps sur la carte */
+.card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .card__holo {
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 236, 180, 0.9) 50%, transparent 60%) 0 0 / 300% 100%;
+  animation: icon-glint 6s ease-in-out infinite;
+}
+
+@keyframes icon-glint {
+  0%,
+  55% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -20% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.is-icon .card__body::after,
+  .card.is-icon .card__holo {
+    animation: none;
+  }
 }
 
 /* Prime : océan pastel, rose et pervenche, semé de nacre (pack Prime) */
@@ -1009,7 +1068,7 @@
     animation: none !important;
   }
 }
-/* ───────────── Cartes Mythe : créatures légendaires, sanctuaires, divinités ─────────────
+/* ───────────── Cartes Mythe : créatures fantastiques ─────────────
    Même structure que les animaux, palette propre : nuit de pleine lune bleutée et étoilée, comme le pack des canidés. */
 .card.is-mythe {
   --foil:

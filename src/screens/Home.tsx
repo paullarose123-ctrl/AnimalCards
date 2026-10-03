@@ -251,7 +251,7 @@ export function HomeScreen() {
       <MarketNewsPanel />
       <p className="footnote">
         Les notes et stats sont une interprétation de jeu. {ATHLETES.filter((a) => !a.mythe).length} espèces, dont {ATHLETES.filter((a) => a.retired).length} Icônes (espèces disparues),
-        et {ATHLETES.filter((a) => a.mythe).length} cartes Mythe. Photos libres de Wikimedia Commons, auteurs crédités dans la fiche de chaque carte.
+        et {ATHLETES.filter((a) => a.mythe).length} cartes Mythe. Photos libres de Wikimedia Commons et de Pixabay (dont des illustrations réalistes pour les espèces disparues et les créatures), auteurs crédités dans la fiche de chaque carte.
       </p>
     </div>
   );

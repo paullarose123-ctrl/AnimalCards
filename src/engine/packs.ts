@@ -148,7 +148,7 @@ function cardOf(athlete: Athlete, variant: Variant): CardFace {
   return { athleteId: athlete.id, variant, ...(record ? { record: variant === 'prime' ? record + 4 : record } : {}) };
 }
 
-/** Mythes (créatures, sanctuaires, divinités) qui peuvent sortir dans ce booster. */
+/** Mythes (créatures fantastiques) qui peuvent sortir dans ce booster. */
 export function mythePool(pack: PackDef): Athlete[] {
   return ATHLETES.filter((athlete) => isMythe(athlete) && (!pack.filter || pack.filter(athlete)));
 }

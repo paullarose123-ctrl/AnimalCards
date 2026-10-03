@@ -24,6 +24,29 @@ export const START_BALLES = 5_000;
 export const UNLIMITED_BALLES = 99_999_999_999;
 const DIVISION_POINTS_TO_PROMOTE = 7;
 
+/** Anciennes cartes Mythe (sanctuaires, divinités…) → créature fantastique qui les remplace (sauvegardes < v3). */
+const MYTHES_REMPLACES: Record<string, string> = {
+  sphinx: 'lion-aile',
+  sirene: 'long',
+  'arche-de-noe': 'tortue-monde',
+  serengeti: 'cerf-blanc',
+  galapagos: 'quetzalcoatl',
+  'grande-barriere': 'kitsune',
+  yellowstone: 'grande-ourse',
+  amazonie: 'salamandre',
+  madagascar: 'hydre',
+  kruger: 'behemoth',
+  antarctique: 'jormungand',
+  'ile-kangourou': 'bunyip',
+  ganesh: 'simurgh',
+  bastet: 'tigre-blanc',
+  anubis: 'cerbere',
+  horus: 'oiseau-tonnerre',
+  sobek: 'fenrir',
+  apis: 'taureau-de-crete',
+  khepri: 'jorogumo',
+};
+
 export type ToastKind = 'success' | 'info' | 'warn' | 'error' | 'gold';
 export interface Toast {
   id: string;
@@ -595,10 +618,19 @@ export const useGame = create<GameState>()(
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
       name: 'animalcards-save',
-      version: 2,
+      version: 3,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
-        const state = persisted as GameState;
+        let state = persisted as GameState;
+        if (version < 3) {
+          // version 3 : les cartes Mythe ne sont plus que des créatures fantastiques. Chaque sanctuaire ou divinité
+          // déjà obtenu devient la créature de la même famille (identifiants remplacés partout dans la sauvegarde).
+          let text = JSON.stringify(state);
+          for (const [from, to] of Object.entries(MYTHES_REMPLACES)) text = text.replaceAll(`"mythe-${from}"`, `"mythe-${to}"`);
+          state = JSON.parse(text) as GameState;
+          // un match en cours avec d'anciens Mythes est abandonné
+          state.match = null;
+        }
         if (version < 2) {
           // avant la version 2, n'importe quelle carte pouvait sortir en Prime :
           // seules les espèces vedettes gardent la leur

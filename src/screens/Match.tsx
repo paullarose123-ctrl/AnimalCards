@@ -54,7 +54,7 @@ function Picker({ onPick, onClose, exclude, mythes = false }: { onPick: (uid: st
         {cards.length === 0 ? (
           <p className="muted">
             {mythes
-              ? 'Aucune carte Mythe pour l’instant. Elles sortent rarement des boosters : créatures légendaires, sanctuaires et divinités.'
+              ? 'Aucune carte Mythe pour l’instant. Elles sortent rarement des boosters : dragons, griffons, phénix et autres créatures fantastiques.'
               : 'Aucune carte disponible. Ouvre des boosters pour agrandir ta réserve.'}
           </p>
         ) : (
@@ -145,7 +145,7 @@ function TeamBuilder() {
             </div>
           ))}
         </div>
-        {/* emplacement Mythe : une créature légendaire, un sanctuaire ou une divinité qui booste sa famille */}
+        {/* emplacement Mythe : une créature fantastique qui booste sa famille */}
         <div className="mythe-slot">
           <div className="mythe-slot__card">
             {mytheCard ? (
@@ -169,7 +169,7 @@ function TeamBuilder() {
                 . <span className="muted">{boosted ? `${boosted} anima${boosted > 1 ? 'ux' : 'l'} en profite${boosted > 1 ? 'nt' : ''}.` : 'Aucun animal de ton équipe n’en profite.'}</span>
               </p>
             ) : (
-              <p className="muted">Ajoute une créature légendaire, un sanctuaire ou une divinité : la carte donne un bonus à tous les animaux de sa famille.</p>
+              <p className="muted">Ajoute une créature fantastique : la carte donne un bonus à tous les animaux de sa famille.</p>
             )}
             <div className="team-slot__actions">
               <button type="button" className="btn btn--ghost btn--xs" onClick={() => setPickingMythe(true)}>

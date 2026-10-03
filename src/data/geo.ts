@@ -46,7 +46,7 @@ export const REGIONS: Region[] = [
   { key: 'CM', codes: ['CM'], iso: '120', at: [12.5, 5.7] },
   { key: 'ES', codes: ['ES'], iso: '724', at: [-3.7, 40.2] },
   { key: 'AQ', codes: ['AQ'], iso: '010', at: [20, -78] },
-  { key: 'GB', codes: ['GB-ENG', 'GB-SCT'], iso: '826', at: [-2.5, 54], name: 'Royaume-Uni' },
+  { key: 'GB', codes: ['GB-ENG', 'GB-SCT', 'GB-WLS'], iso: '826', at: [-2.5, 54], name: 'Royaume-Uni' },
   { key: 'NA', codes: ['NA'], iso: '516', at: [17.5, -22.5] },
   { key: 'GA', codes: ['GA'], iso: '266', at: [11.6, -0.8] },
   { key: 'ET', codes: ['ET'], iso: '231', at: [39.5, 8.6] },
@@ -85,6 +85,7 @@ export const REGIONS: Region[] = [
   { key: 'IL', codes: ['IL'], iso: '376', at: [34.9, 31.4] },
   { key: 'DK', codes: ['DK'], iso: '208', at: [9.5, 56] },
   { key: 'TR', codes: ['TR'], iso: '792', at: [35, 39] },
+  { key: 'IR', codes: ['IR'], iso: '364', at: [53.7, 32.4] },
   // sans contour : les espèces des océans (au milieu du Pacifique) et celles présentes partout (Atlantique Sud)
   { key: 'XO', codes: ['XO'], at: [-150, -12] },
   { key: 'XW', codes: ['XW'], at: [-28, -32] },

@@ -59,7 +59,7 @@ export const REVERSE_CHANCE = 0.05;
 export const REVERSE_VALUE_MULTIPLIER = 2.5;
 
 // ───────────── Mythes ─────────────
-// Créatures légendaires, sanctuaires et divinités : environ 1 carte sur 40 dans les boosters.
+// Créatures fantastiques des mythes et légendes : environ 1 carte sur 40 dans les boosters.
 export const MYTHE_CHANCE = 0.025;
 
 export function isMythe(athlete: Athlete): boolean {
