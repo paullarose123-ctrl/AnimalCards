@@ -37,17 +37,128 @@ const CHOIX = readJson('./choix.json');
 /**
  * Photo choisie à la main : un nom de fichier Commons, ou { fichier, recadrage: [x, y, largeur, hauteur] } en fractions
  * de l'image, ou une image hors Commons { url, page, auteur } (Pixabay, licence Pixabay : réutilisation libre).
+ * Options : "rotation" (degrés, après le recadrage) ; "fond" { url, page, auteur } = un paysage Pixabay sur lequel
+ * l'animal est posé, détouré selon "detourer" : "alpha" (PNG déjà transparent), "blanc" ou "noir" (fond uni retiré).
  */
 const PIXABAY_LICENSE = { license: 'Licence Pixabay', licenseUrl: 'https://pixabay.com/fr/service/license-summary/' };
 const choiceOf = (id) => {
   const choice = CHOIX[id];
   if (!choice) return null;
   if (typeof choice === 'string') return { file: choice };
+  const extra = { crop: choice.recadrage, rotation: choice.rotation, fond: choice.fond, detourer: choice.detourer };
   if (choice.url) {
-    return { file: choice.page, crop: choice.recadrage, direct: { thumb: choice.url, page: choice.page, author: choice.auteur, ...PIXABAY_LICENSE } };
+    return { file: choice.page, ...extra, direct: { thumb: choice.url, page: choice.page, author: choice.auteur, ...PIXABAY_LICENSE } };
   }
-  return { file: choice.fichier, crop: choice.recadrage };
+  return { file: choice.fichier, ...extra };
 };
+
+/**
+ * Pose un animal détouré sur un paysage (image 1200 × 1600, au format des cartes) : fond légèrement flou, animal
+ * entier posé au sol aux deux tiers du bas, ombre douce sous ses pattes, luminosité accordée au paysage.
+ */
+async function composeOnLandscape(animalBuffer, fond, detourer = 'alpha') {
+  const [W, H] = [1200, 1600];
+  const response = await request(fond.url);
+  if (!response) throw new Error(`décor introuvable : ${fond.url}`);
+  const landscape = await sharp(Buffer.from(await response.arrayBuffer()))
+    .rotate()
+    .resize(W, H, { fit: 'cover', position: 'centre' })
+    .blur(1.6)
+    .toBuffer();
+  const { channels: bgStats } = await sharp(landscape).stats();
+  const bgLum = (0.3 * bgStats[0].mean + 0.59 * bgStats[1].mean + 0.11 * bgStats[2].mean) / 255;
+
+  // détourage : transparence existante, ou distance au blanc / au noir du fond uni
+  const { data, info } = await sharp(animalBuffer)
+    .resize({ width: 1800, height: 1800, fit: 'inside', withoutEnlargement: true })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const px = info.width * info.height;
+  if (detourer === 'blanc' || detourer === 'blanc-ombre' || detourer === 'noir') {
+    // le fond uni est la zone presque blanche (ou noire) reliée aux bords de l'image : remplissage depuis les bords,
+    // pour ne pas trouer les parties claires (ou sombres) de l'animal. « blanc-ombre » : l'ombre grise dessinée sous
+    // l'animal devient une ombre noire translucide, qui se fond dans le sol du décor.
+    const target = detourer === 'noir' ? 0 : 255;
+    const shadows = detourer === 'blanc-ombre';
+    const distance = (i) => {
+      const o = i * 4;
+      return Math.max(Math.abs(data[o] - target), Math.abs(data[o + 1] - target), Math.abs(data[o + 2] - target));
+    };
+    const TOL = 34;
+    const seen = new Uint8Array(px);
+    const stack = [];
+    for (let x = 0; x < info.width; x++) stack.push(x, (info.height - 1) * info.width + x);
+    for (let y = 0; y < info.height; y++) stack.push(y * info.width, y * info.width + info.width - 1);
+    while (stack.length) {
+      const i = stack.pop();
+      if (seen[i]) continue;
+      seen[i] = 1;
+      const d = distance(i);
+      if (d > TOL) {
+        const o = i * 4;
+        const [r, g, b] = [data[o], data[o + 1], data[o + 2]];
+        const lum = 0.3 * r + 0.59 * g + 0.11 * b;
+        if (!shadows || Math.max(r, g, b) - Math.min(r, g, b) > 16 || lum < 110) continue;
+        data[o] = data[o + 1] = data[o + 2] = 0;
+        data[o + 3] = Math.min(data[o + 3], Math.round((255 - lum) * 0.9));
+      } else {
+        // fondu : plus le pixel est proche du fond, plus il est transparent
+        data[i * 4 + 3] = Math.min(data[i * 4 + 3], Math.round(255 * Math.max(0, (d - 12) / (TOL - 12))));
+      }
+      const [x, y] = [i % info.width, Math.floor(i / info.width)];
+      if (x > 0) stack.push(i - 1);
+      if (x < info.width - 1) stack.push(i + 1);
+      if (y > 0) stack.push(i - info.width);
+      if (y < info.height - 1) stack.push(i + info.width);
+    }
+    // fond blanc enfermé entre les pattes, la queue et l'ombre : retiré aussi quand il est vraiment blanc
+    if (shadows) {
+      for (let i = 0; i < px; i++) {
+        const d = distance(i);
+        if (d <= 22) data[i * 4 + 3] = Math.min(data[i * 4 + 3], Math.round(255 * Math.max(0, (d - 12) / (TOL - 12))));
+      }
+    }
+  }
+  let [x0, y0, x1, y1] = [info.width, info.height, 0, 0];
+  let lumSum = 0;
+  let lumN = 0;
+  for (let i = 0; i < px; i++) {
+    const o = i * 4;
+    const [r, g, b] = [data[o], data[o + 1], data[o + 2]];
+    const a = data[o + 3];
+    if (a > 60) {
+      const [x, y] = [i % info.width, Math.floor(i / info.width)];
+      if (x < x0) x0 = x;
+      if (x > x1) x1 = x;
+      if (y < y0) y0 = y;
+      if (y > y1) y1 = y;
+      lumSum += (0.3 * r + 0.59 * g + 0.11 * b) / 255;
+      lumN += 1;
+    }
+  }
+  if (!lumN) throw new Error('animal introuvable après détourage');
+  const cut = await sharp(data, { raw: { width: info.width, height: info.height, channels: 4 } })
+    .extract({ left: x0, top: y0, width: x1 - x0 + 1, height: y1 - y0 + 1 })
+    .png()
+    .toBuffer();
+  // l'animal tient dans 88 % de la largeur et 58 % de la hauteur, les pattes à 84 % de la hauteur
+  const [aw, ah] = [x1 - x0 + 1, y1 - y0 + 1];
+  const scale = Math.min((0.88 * W) / aw, (0.58 * H) / ah);
+  const [sw, sh] = [Math.round(aw * scale), Math.round(ah * scale)];
+  const left = Math.round((W - sw) / 2);
+  const top = Math.round(0.84 * H - sh);
+  const brightness = Math.min(1.12, Math.max(0.88, 1 + (bgLum - lumSum / lumN) * 0.35));
+  const animal = await sharp(cut).resize(sw, sh).modulate({ brightness }).png().toBuffer();
+  const shadow = Buffer.from(
+    `<svg width="${W}" height="${H}"><defs><filter id="f"><feGaussianBlur stdDeviation="${Math.round(sh * 0.035) + 6}"/></filter></defs>` +
+      `<ellipse cx="${W / 2}" cy="${top + sh - sh * 0.015}" rx="${sw * 0.42}" ry="${Math.max(10, sh * 0.045)}" fill="#000" fill-opacity="0.5" filter="url(#f)"/></svg>`,
+  );
+  return sharp(landscape)
+    .composite([{ input: shadow }, { input: animal, left, top }])
+    .jpeg({ quality: 92 })
+    .toBuffer();
+}
 const EXPLORE_DIR = path('scripts/photos/explorer');
 const REPO = process.env.GITHUB_REPOSITORY ?? 'paullarose123-ctrl/AnimalCards';
 const USER_AGENT = `AnimalCardsPhotos/1.0 (https://github.com/${REPO}; jeu de fan non commercial)`;
@@ -151,7 +262,7 @@ async function* candidates(animal, log) {
   const choice = choiceOf(animal.id);
   if (choice) {
     seen.add(choice.file);
-    yield { file: choice.file, source: choice.direct ? 'pixabay' : 'choix', crop: choice.crop, direct: choice.direct };
+    yield { ...choice, source: choice.direct ? 'pixabay' : 'choix' };
   }
   let item = null;
   let enTitle = null;
@@ -301,7 +412,7 @@ async function download() {
       const animal = animals[next++];
       const log = [];
       try {
-        for await (const { file, source, crop, direct } of candidates(animal, log)) {
+        for await (const { file, source, crop, direct, rotation, fond, detourer } of candidates(animal, log)) {
           if (refused(animal.id, file)) {
             log.push(`« ${file} » refusée`);
             continue;
@@ -324,8 +435,11 @@ async function download() {
             const top = Math.round(crop[1] * height);
             image = image.extract({ left, top, width: Math.min(width - left, Math.round(crop[2] * width)), height: Math.min(height - top, Math.round(crop[3] * height)) });
           }
+          if (rotation) image = sharp(await image.rotate(rotation).toBuffer());
+          if (fond) image = sharp(await composeOnLandscape(await image.png().toBuffer(), fond, detourer));
           await image.resize({ width: 1800, withoutEnlargement: true }).jpeg({ quality: 90 }).toFile(join(RAW_DIR, `${animal.id}.jpg`));
-          photos[animal.id] = { file, source, ...(crop ? { crop } : {}), ...info };
+          const credit = fond ? { author: `${info.author} ; décor : ${fond.auteur}`, license: `${info.license} ; décor : Licence Pixabay` } : {};
+          photos[animal.id] = { file, source, ...(crop ? { crop } : {}), ...info, ...credit };
           break;
         }
         if (!photos[animal.id]) {
@@ -365,6 +479,9 @@ async function renderCard(id) {
   const [W, H] = [600, 800];
   if (spec && !Array.isArray(spec) && typeof spec === 'object' && spec.corps) {
     return renderBody(raw, target, spec.corps, W, H);
+  }
+  if (spec && !Array.isArray(spec) && typeof spec === 'object' && spec.scene) {
+    return renderScene(raw, target, spec.scene, W, H);
   }
   if (spec === 'etendre') {
     const front = await sharp(raw).resize(W, H, { fit: 'inside' }).toBuffer();
@@ -452,6 +569,52 @@ async function renderBody(raw, target, [x0, y0, x1, y1], W, H) {
     .webp({ quality: 84 })
     .toFile(target);
   return Math.min(1, cw / bw, ch / bh);
+}
+
+/**
+ * Cadrage « scène » : { "scene": [x0, y0, x1, y1] } = boîte de l'animal, pour les animaux trop allongés pour un cadre
+ * 3:4 (requins, ptérosaures, reptiles marins). L'image garde l'animal entier sur toute la largeur de la carte ; au-dessus
+ * et en dessous, le décor est prolongé par la même image très floue, avec un fondu, comme une faible profondeur de champ.
+ * Renvoie 1 : l'animal est toujours entier.
+ */
+async function renderScene(raw, target, [x0, y0, x1, y1], W, H) {
+  const { width: PW, height: PH } = await sharp(raw).metadata();
+  const [bw, bh] = [(x1 - x0) * PW, (y1 - y0) * PH];
+  const s = Math.min((0.94 * W) / bw, (0.8 * H) / bh);
+  const [SW, SH] = [Math.round(PW * s), Math.round(PH * s)];
+  const clampPos = (pos, size, frame) => (size >= frame ? Math.min(0, Math.max(frame - size, pos)) : pos);
+  const left = Math.round(clampPos(W / 2 - (x0 + (x1 - x0) / 2) * PW * s, SW, W));
+  const top = Math.round(clampPos(0.53 * H - (y0 + (y1 - y0) / 2) * PH * s, SH, H));
+  const background = await sharp(raw).resize(W, H, { fit: 'cover' }).blur(28).modulate({ brightness: 0.9 }).toBuffer();
+  // partie de l'image nette visible dans la carte, avec un fondu sur chaque bord qui tombe dans la carte
+  const vx = Math.max(0, left);
+  const vy = Math.max(0, top);
+  const vw = Math.min(W, left + SW) - vx;
+  const vh = Math.min(H, top + SH) - vy;
+  const { data, info } = await sharp(raw)
+    .resize(SW, SH)
+    .extract({ left: vx - left, top: vy - top, width: vw, height: vh })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const fade = Math.round(0.07 * H);
+  const edges = { top: top > 0, bottom: top + SH < H, left: left > 0, right: left + SW < W };
+  for (let y = 0; y < info.height; y++) {
+    for (let x = 0; x < info.width; x++) {
+      let a = 1;
+      if (edges.top) a = Math.min(a, y / fade);
+      if (edges.bottom) a = Math.min(a, (info.height - 1 - y) / fade);
+      if (edges.left) a = Math.min(a, x / fade);
+      if (edges.right) a = Math.min(a, (info.width - 1 - x) / fade);
+      data[(y * info.width + x) * 4 + 3] = Math.round(255 * Math.max(0, Math.min(1, a)));
+    }
+  }
+  const sharpPart = await sharp(data, { raw: { width: info.width, height: info.height, channels: 4 } }).png().toBuffer();
+  await sharp(background)
+    .composite([{ input: sharpPart, left: vx, top: vy }])
+    .webp({ quality: 84 })
+    .toFile(target);
+  return 1;
 }
 
 /** Enregistre les photos téléchargées (meta.json), produit leurs images de carte et met à jour les crédits. */

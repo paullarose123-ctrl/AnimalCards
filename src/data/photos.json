@@ -466,10 +466,10 @@
  "carnotaure": {
   "file": "carnotaure.webp",
   "cutout": false,
-  "author": "Kyraxys",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-t-rex-tyrannosaurus-rex-9276419/"
+  "author": "Fred Wierum ; décor : PDPhotos",
+  "license": "CC BY-SA 4.0 ; décor : Licence Pixabay",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Carnotaurus_Reconstruction_(2022).png"
  },
  "carpe-koi": {
   "file": "carpe-koi.webp",
@@ -762,10 +762,10 @@
  "compsognathus": {
   "file": "compsognathus.webp",
   "cutout": false,
-  "author": "DinoTeam",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:DinoPark_Plze%C5%88_Compsognathus.jpg"
+  "author": "TotalDino ; décor : Kanenori",
+  "license": "CC BY 4.0 ; décor : Licence Pixabay",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Compsognathus_TD.png"
  },
  "condor": {
   "file": "condor.webp",
@@ -962,10 +962,16 @@
  "dimetrodon": {
   "file": "dimetrodon.webp",
   "cutout": false,
-  "author": "丘崈",
-  "license": "CC0",
-  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:%E9%95%B7%E6%A3%98%E9%BE%8D%E6%A8%A1%E5%9E%8B.jpg"
+  "author": "PrehistoryByLiam ; décor : babylass",
+  "license": "CC BY-SA 4.0 ; décor : Licence Pixabay",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Dimetrodon_grandis_in_%22high_walk%22_pose.png",
+  "crop": [
+   0,
+   0,
+   1,
+   0.84
+  ]
  },
  "dindon": {
   "file": "dindon.webp",
@@ -1026,10 +1032,10 @@
  "dunkleosteus": {
   "file": "dunkleosteus.webp",
   "cutout": false,
-  "author": "Ghedo",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dunkleosteus_terrelli_recon.jpg"
+  "author": "LiterallyMiguel",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Dunkleosteus_closed_mouth.png"
  },
  "dynaste-hercule": {
   "file": "dynaste-hercule.webp",
@@ -1290,10 +1296,10 @@
  "giganotosaure": {
   "file": "giganotosaure.webp",
   "cutout": false,
-  "author": "popmelon",
+  "author": "Artie_Navarre",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-dinosaur-t-rex-dino-8985587/"
+  "page": "https://pixabay.com/illustrations/ai-generated-tyrannosaurus-t-rex-8738055/"
  },
  "girafe": {
   "file": "girafe.webp",
@@ -1314,10 +1320,10 @@
  "glyptodon": {
   "file": "glyptodon.webp",
   "cutout": false,
-  "author": "Tiia Monto",
-  "license": "CC BY-SA 4.0",
+  "author": "Luca Mendieta https://biopicturestudio.blogspot.com/ ; décor : rottonara",
+  "license": "CC BY-SA 4.0 ; décor : Licence Pixabay",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Museum_Mensch_und_Natur_-_Glyptodon.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:GLYPTODON.jpg"
  },
  "gnou": {
   "file": "gnou.webp",
@@ -1986,10 +1992,10 @@
  "megaloceros": {
   "file": "megaloceros.webp",
   "cutout": false,
-  "author": "Wolfgang Sauber",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:MNP_-_Megaceros.jpg"
+  "author": "jcoope12",
+  "license": "Licence Pixabay",
+  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
+  "page": "https://pixabay.com/illustrations/ai-generated-buck-deer-animal-8986719/"
  },
  "megalodon": {
   "file": "megalodon.webp",
@@ -2002,18 +2008,18 @@
  "meganeura": {
   "file": "meganeura.webp",
   "cutout": false,
-  "author": "Yinan Chen",
-  "license": "Public Domain",
-  "licenseUrl": "https://web.archive.org/web/20230926203737/https://creativecommons.org/licenses/publicdomain/",
-  "page": "https://commons.wikimedia.org/wiki/File:Gfp-giant-dragonfly-meganeura.jpg"
+  "author": "myshoun",
+  "license": "Licence Pixabay",
+  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
+  "page": "https://pixabay.com/illustrations/ai-generated-dragonfly-insect-8689898/"
  },
  "megatherium": {
   "file": "megatherium.webp",
   "cutout": false,
-  "author": "Boris Dimitrov",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Megatherium_model.jpg"
+  "author": "ДиБгд at Russian Wikipedia ; décor : Kinimod1",
+  "license": "Public domain ; décor : Licence Pixabay",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Megatherum_DB.jpg"
  },
  "menure": {
   "file": "menure.webp",
@@ -2610,10 +2616,10 @@
  "pachycephalosaure": {
   "file": "pachycephalosaure.webp",
   "cutout": false,
-  "author": "Boris Dimitrov",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Pachycephalosaurus_model.jpg"
+  "author": "DataBase Center for Life Science (DBCLS) ; décor : ArtTower",
+  "license": "CC BY 4.0 ; décor : Licence Pixabay",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:202004_Pachycephalosaurus_wyomingensis.png"
  },
  "panda": {
   "file": "panda.webp",
@@ -2690,10 +2696,10 @@
  "parasaurolophus": {
   "file": "parasaurolophus.webp",
   "cutout": false,
-  "author": "DinoTeam",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Parasaurolophus,_DinoPark_Ko%C5%A1ice.jpg"
+  "author": "flutie8211 ; décor : Tim_HD",
+  "license": "Licence Pixabay ; décor : Licence Pixabay",
+  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
+  "page": "https://pixabay.com/illustrations/dinosaur-parasaurolophus-dino-9152284/"
  },
  "paresseux": {
   "file": "paresseux.webp",
@@ -3274,10 +3280,10 @@
  "rhinoceros-laineux": {
   "file": "rhinoceros-laineux.webp",
   "cutout": false,
-  "author": "AIduck",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-rhinoceros-fantasy-8933070/"
+  "author": "ДиБгд ; décor : digikomm",
+  "license": "CC BY-SA 4.0 ; décor : Licence Pixabay",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Wooly_Rhino15.jpg"
  },
  "rhinoceros-noir": {
   "file": "rhinoceros-noir.webp",
@@ -3426,10 +3432,10 @@
  "smilodon": {
   "file": "smilodon.webp",
   "cutout": false,
-  "author": "tony241969",
-  "license": "Licence Pixabay",
+  "author": "Barroa_Artworks ; décor : PublicDomainPictures",
+  "license": "Licence Pixabay ; décor : Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/smilodon-saber-toothed-cat-extinct-7540040/"
+  "page": "https://pixabay.com/illustrations/saber-toothed-tiger-saber-tooth-3279938/"
  },
  "souris": {
   "file": "souris.webp",
@@ -3661,7 +3667,13 @@
   "author": "Moussa Direct Ltd.",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Kainops_invius_lateral_and_ventral.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Kainops_invius_lateral_and_ventral.JPG",
+  "crop": [
+   0.34,
+   0.48,
+   0.66,
+   0.51
+  ]
  },
  "triton-crete": {
   "file": "triton-crete.webp",

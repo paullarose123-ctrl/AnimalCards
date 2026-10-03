@@ -89,9 +89,13 @@
   "capybara": "Hydrochoerus hydrochaeris 188912237.jpg",
   "caracal": "Caracal caracal caracal 186538043.jpg",
   "carnotaure": {
-    "url": "https://cdn.pixabay.com/photo/2024/12/19/00/54/ai-generated-9276419_1280.png",
-    "page": "https://pixabay.com/illustrations/ai-generated-t-rex-tyrannosaurus-rex-9276419/",
-    "auteur": "Kyraxys"
+    "fichier": "Carnotaurus Reconstruction (2022).png",
+    "detourer": "blanc-ombre",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2010/12/17/00/20/petrified-tree-3682_1280.jpg",
+      "page": "https://pixabay.com/photos/petrified-tree-arizona-petrification-3682/",
+      "auteur": "PDPhotos"
+    }
   },
   "carpe-koi": "Fish pond in Sun World Halong Park. Ha Long Town, Vietnam, 20240129 1534 4200.jpg",
   "casoar": "Casuarius casuarius 452632030.jpg",
@@ -123,7 +127,15 @@
   "cochon": "Black-African-Piglet.jpg",
   "cochon-d-inde": "220620 - guinea pig - Laura Pernigoni.jpg",
   "colibri": "Buff-tailed coronet (Boissonneaua flavescens flavescens) Caldas.jpg",
-  "compsognathus": "DinoPark Plzeň Compsognathus.jpg",
+  "compsognathus": {
+    "fichier": "Compsognathus TD.png",
+    "detourer": "alpha",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2023/07/10/06/52/trail-8117575_1280.jpg",
+      "page": "https://pixabay.com/photos/trail-foliage-woods-forest-8117575/",
+      "auteur": "Kanenori"
+    }
+  },
   "condor": "Andean condor (Vultur gryphus) male Farellones.jpg",
   "corail": "Brain coral.jpg",
   "corbeau": "Towerrabe.png",
@@ -156,7 +168,21 @@
   "dhole": "Dhole Stroll at Pench National Park, India.jpg",
   "diable-de-tasmanie": "Tassy Devil.jpg",
   "dik-dik": "Tarangire Kirk-Dikdik3.jpg",
-  "dimetrodon": "長棘龍模型.jpg",
+  "dimetrodon": {
+    "fichier": "Dimetrodon grandis in \"high walk\" pose.png",
+    "detourer": "blanc",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2013/09/20/20/44/mountain-184363_1280.jpg",
+      "page": "https://pixabay.com/photos/mountain-lake-natural-water-184363/",
+      "auteur": "babylass"
+    },
+    "recadrage": [
+      0,
+      0,
+      1,
+      0.84
+    ]
+  },
   "dindon": "Male wild turkey (Meleagris gallopavo) strutting.jpg",
   "dingo": "Dingo (Canis lupus dingo) Kakadu.jpg",
   "diplodocus": {
@@ -172,7 +198,7 @@
   "dragon-de-komodo": "Komodo Dragons in the wild on Rinca island Indonesia..jpg",
   "dromadaire": "Pair of dromedaries.jpg",
   "dugong": "Dugong in Andaman Islands.jpg",
-  "dunkleosteus": "Dunkleosteus terrelli recon.jpg",
+  "dunkleosteus": "Dunkleosteus closed mouth.png",
   "dynaste-hercule": "Dynastes hercules (female).jpg",
   "echidne": "Tachyglossus aculeatus – Short-beaked echidna – Kolczatka australijska.jpg",
   "ecureuil-roux": "Wiewiórka w Parku Bednarskiego w Krakowie, 20241117 0903 2747.jpg",
@@ -205,13 +231,21 @@
   "gerenuk": "Litocranius walleri walleri 388183522.jpg",
   "gibbon": "Hylobates lar - Kaeng Krachan WB.jpg",
   "giganotosaure": {
-    "url": "https://cdn.pixabay.com/photo/2024/08/21/09/30/ai-generated-8985587_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-dinosaur-t-rex-dino-8985587/",
-    "auteur": "popmelon"
+    "url": "https://cdn.pixabay.com/photo/2024/05/03/23/00/ai-generated-8738055_1280.jpg",
+    "page": "https://pixabay.com/illustrations/ai-generated-tyrannosaurus-t-rex-8738055/",
+    "auteur": "Artie_Navarre"
   },
   "girafe": "Giraffa camelopardalis angolensis (mating).jpg",
   "glouton": "The wolverine in the wilderness (48112068898).jpg",
-  "glyptodon": "Museum Mensch und Natur - Glyptodon.jpg",
+  "glyptodon": {
+    "fichier": "GLYPTODON.jpg",
+    "detourer": "blanc",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2019/11/18/18/29/mountain-4635428_1280.jpg",
+      "page": "https://pixabay.com/photos/mountain-landscape-alps-dolomites-4635428/",
+      "auteur": "rottonara"
+    }
+  },
   "gnou": "Ñu común (Connochaetes taurinus), parque nacional de Amboseli, Kenia, 2024-05-23, DD 16.jpg",
   "goliath": "Goliathus goliatus ventre.jpg",
   "gorille": "Mountain gorilla (Gorilla beringei beringei) 2-year-old 2.jpg",
@@ -318,14 +352,30 @@
   "marmotte": "Marmot-edit1.jpg",
   "marsouin": "Phocoena phocoena.2.jpg",
   "martin-pecheur": "04--Martin-Pecheur-20-01-24-Halois-Belgium-Luc viatour.jpg",
-  "megaloceros": "MNP - Megaceros.jpg",
+  "megaloceros": {
+    "url": "https://cdn.pixabay.com/photo/2024/08/21/16/25/ai-generated-8986719_1280.jpg",
+    "page": "https://pixabay.com/illustrations/ai-generated-buck-deer-animal-8986719/",
+    "auteur": "jcoope12"
+  },
   "megalodon": {
     "url": "https://cdn.pixabay.com/photo/2023/12/28/01/50/megalodon-8473071_1280.png",
     "page": "https://pixabay.com/illustrations/megalodon-shark-ocean-sea-nature-8473071/",
     "auteur": "AI-Stuff"
   },
-  "meganeura": "Gfp-giant-dragonfly-meganeura.jpg",
-  "megatherium": "Megatherium model.jpg",
+  "meganeura": {
+    "url": "https://cdn.pixabay.com/photo/2024/04/11/13/53/ai-generated-8689898_1280.jpg",
+    "page": "https://pixabay.com/illustrations/ai-generated-dragonfly-insect-8689898/",
+    "auteur": "myshoun"
+  },
+  "megatherium": {
+    "fichier": "Megatherum DB.jpg",
+    "detourer": "blanc",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2019/06/16/09/34/laugavegur-4277379_1280.jpg",
+      "page": "https://pixabay.com/photos/laugavegur-colorful-mountains-tundra-4277379/",
+      "auteur": "Kinimod1"
+    }
+  },
   "milan-royal": "Milvus milvus (RPS 27-08-2023) milano real en contraluz.png",
   "moa": "Dinornis robustus (AM LB4361).jpg",
   "moineau": "2016.10.04.-04-Mannheim Vogelstang--Haussperling-Maennchen.jpg",
@@ -531,7 +581,15 @@
   "ours-malais": "Sun-bear.jpg",
   "ours-noir": "Black bear alligator river nwr 10.4.24 DSC 9929-topaz-rawdenoise.jpg",
   "ours-polaire": "Arth wen Ursus maritimus.jpg",
-  "pachycephalosaure": "Pachycephalosaurus model.jpg",
+  "pachycephalosaure": {
+    "fichier": "202004 Pachycephalosaurus wyomingensis.png",
+    "detourer": "alpha",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2020/05/07/21/40/denali-5143349_1280.jpg",
+      "page": "https://pixabay.com/photos/denali-national-park-alaska-usa-5143349/",
+      "auteur": "ArtTower"
+    }
+  },
   "panda-roux": "Curious Red Panda in Langtang National Park.jpg",
   "pangolin": "Manis temminckii MHNT PHOL 1.jpg",
   "panthere-des-neiges": "A snow leopard wild Ladakh DSCN4780 02.jpg",
@@ -540,7 +598,17 @@
   "paon": "012 Indian peafowl in Keoladeo National Park Photo by Giles Laurent.jpg",
   "paradisier": "Red Bird-of-Paradise 0A2A2853.jpg",
   "paraponera": "Paraponera clavata.jpg",
-  "parasaurolophus": "Parasaurolophus, DinoPark Košice.jpg",
+  "parasaurolophus": {
+    "url": "https://cdn.pixabay.com/photo/2024/10/26/23/06/dinosaur-9152284_1280.png",
+    "page": "https://pixabay.com/illustrations/dinosaur-parasaurolophus-dino-9152284/",
+    "auteur": "flutie8211",
+    "detourer": "alpha",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2024/08/14/15/40/swamp-8968853_1280.jpg",
+      "page": "https://pixabay.com/illustrations/swamp-nature-forest-trees-lake-8968853/",
+      "auteur": "Tim_HD"
+    }
+  },
   "paresseux": "Bradypus.jpg",
   "pastenague": "Raya pelágica (Pteroplatytrygon violacea), Cabo de Palos, España, 2022-07-16, DD 69.jpg",
   "peau-bleue": "Tiburón azul (Prionace glauca), canal Fayal-Pico, islas Azores, Portugal, 2020-07-27, DD 21.jpg",
@@ -619,9 +687,13 @@
   "rhinoceros-de-sumatra": "Sumatran rhinoceros and juvenile.jpg",
   "rhinoceros-indien": "Indian rhinoceros (Rhinoceros unicornis) 1.jpg",
   "rhinoceros-laineux": {
-    "url": "https://cdn.pixabay.com/photo/2024/07/30/19/59/ai-generated-8933070_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-rhinoceros-fantasy-8933070/",
-    "auteur": "AIduck"
+    "fichier": "Wooly Rhino15.jpg",
+    "detourer": "blanc",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2018/03/21/21/06/snow-3248206_1280.jpg",
+      "page": "https://pixabay.com/photos/snow-ice-cream-winter-mountain-3248206/",
+      "auteur": "digikomm"
+    }
   },
   "rhinoceros-noir": "Ngorongoro Spitzmaulnashorn edit1crop.jpg",
   "rhinoceros-noir-de-l-ouest": {
@@ -647,9 +719,15 @@
   "sifaka": "Propithecus verreauxi 002.jpg",
   "singe-hurleur": "Mantled howler monkey and baby (81337)2.jpg",
   "smilodon": {
-    "url": "https://cdn.pixabay.com/photo/2022/10/22/21/00/smilodon-7540040_1280.png",
-    "page": "https://pixabay.com/illustrations/smilodon-saber-toothed-cat-extinct-7540040/",
-    "auteur": "tony241969"
+    "url": "https://cdn.pixabay.com/photo/2018/04/01/03/40/saber-toothed-tiger-3279938_1280.png",
+    "page": "https://pixabay.com/illustrations/saber-toothed-tiger-saber-tooth-3279938/",
+    "auteur": "Barroa_Artworks",
+    "detourer": "alpha",
+    "fond": {
+      "url": "https://cdn.pixabay.com/photo/2012/02/25/19/09/safari-16951_1280.jpg",
+      "page": "https://pixabay.com/photos/safari-landscape-holiday-kenya-16951/",
+      "auteur": "PublicDomainPictures"
+    }
   },
   "souris": "Maus außer Haus.JPG",
   "spinosaure": {
@@ -704,6 +782,16 @@
     "url": "https://cdn.pixabay.com/photo/2025/04/02/19/31/ai-generated-9509933_1280.png",
     "page": "https://pixabay.com/illustrations/ai-generated-triceratops-dinosaur-9509933/",
     "auteur": "soundset"
+  },
+  "trilobite": {
+    "fichier": "Kainops invius lateral and ventral.JPG",
+    "recadrage": [
+      0.34,
+      0.48,
+      0.66,
+      0.51
+    ],
+    "rotation": 90
   },
   "tuatara": "Sphenodon punctatus 106894916.jpg",
   "vaquita": "Vaquita4 Olson NOAA.jpg",
