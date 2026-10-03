@@ -2248,6 +2248,8 @@
   place-items: center;
   overflow-y: auto;
   color: var(--text);
+  /* deux touchers rapides (retourner puis suivante) ne doivent pas déclencher le zoom du téléphone */
+  touch-action: manipulation;
 }
 
 /* le paysage du booster ouvert, en grand et voilé pour que le sachet et les cartes ressortent */
@@ -3250,6 +3252,45 @@
   }
   100% {
     transform: translateZ(0) rotateY(180deg);
+  }
+}
+
+/* Safari (iPhone, iPad) ignore souvent backface-visibility quand une face contient des calques animés ou filtrés :
+   la face de dos restait affichée par-dessus. On échange donc les faces nous-mêmes, quand la carte passe par la
+   tranche (90°, atteint à 24,5 % de flip3d avec sa courbe). */
+.stage-card .flip__front {
+  visibility: hidden;
+}
+
+.stage-card.is-flipped .flip__front {
+  visibility: visible;
+  animation: face-in 1s both;
+}
+
+.stage-card.is-flipped .flip__back {
+  visibility: hidden;
+  animation: face-out 1s both;
+}
+
+@keyframes face-in {
+  0%,
+  24.5% {
+    visibility: hidden;
+  }
+  24.6%,
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes face-out {
+  0%,
+  24.5% {
+    visibility: visible;
+  }
+  24.6%,
+  100% {
+    visibility: hidden;
   }
 }
 

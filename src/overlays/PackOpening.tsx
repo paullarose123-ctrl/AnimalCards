@@ -90,6 +90,8 @@ const DUST = Array.from({ length: 16 }, (_, i) => ({
 
 /** Inclinaison 3D qui suit le pointeur : pilote --tx / --ty sur l'élément .tilt3d du conteneur. */
 function tilt3d(event: PointerEvent<HTMLElement>) {
+  // à la souris seulement : au doigt, l'inclinaison resterait figée après chaque toucher
+  if (event.pointerType !== 'mouse') return;
   const el = event.currentTarget.querySelector<HTMLElement>('.tilt3d');
   if (!el) return;
   const rect = event.currentTarget.getBoundingClientRect();
