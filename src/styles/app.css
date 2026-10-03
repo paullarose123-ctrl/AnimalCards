@@ -1046,6 +1046,7 @@
 }
 
 .pack-art__sachet {
+  --tooth: 1.3cqw;
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -1053,7 +1054,21 @@
   color: var(--cream);
   text-align: left;
   background: var(--near);
-  border-radius: 3cqw;
+  border-radius: 0.8cqw;
+}
+
+/* bords haut et bas découpés en dents de scie, comme la soudure d'un vrai sachet
+   (--tooth : hauteur d'une dent ; chaque dent est deux fois plus large que haute) */
+.pack-art__sachet,
+.pack3d__back {
+  -webkit-mask:
+    conic-gradient(from 135deg at 50% 0, #0000, #000 1deg 89deg, #0000 90deg) 0 0 / calc(var(--tooth) * 2) var(--tooth) round no-repeat,
+    linear-gradient(#000 0 0) 0 var(--tooth) / 100% calc(100% - var(--tooth) * 2) no-repeat,
+    conic-gradient(from -45deg at 50% 100%, #0000, #000 1deg 89deg, #0000 90deg) 0 100% / calc(var(--tooth) * 2) var(--tooth) round no-repeat;
+  mask:
+    conic-gradient(from 135deg at 50% 0, #0000, #000 1deg 89deg, #0000 90deg) 0 0 / calc(var(--tooth) * 2) var(--tooth) round no-repeat,
+    linear-gradient(#000 0 0) 0 var(--tooth) / 100% calc(100% - var(--tooth) * 2) no-repeat,
+    conic-gradient(from -45deg at 50% 100%, #0000, #000 1deg 89deg, #0000 90deg) 0 100% / calc(var(--tooth) * 2) var(--tooth) round no-repeat;
 }
 
 .pack-art__sachet > * {
@@ -1068,21 +1083,24 @@
 }
 
 .pack-art__grain,
+.pack-art__pillow,
+.pack-art__plastic,
+.pack-art__gloss,
 .pack-art__shine {
   inset: 0;
   pointer-events: none;
 }
 
-/* grain d'impression, pour l'effet papier d'affiche */
+/* grain d'impression, sous le plastique */
 .pack-art__grain {
   background: var(--grain);
-  opacity: 0.7;
+  opacity: 0.5;
   mix-blend-mode: soft-light;
 }
 
-/* filet de cadre, comme une marge d'estampe */
+/* filet de cadre, comme une marge d'estampe, entre les deux soudures */
 .pack-art__frame {
-  inset: 3.4cqw;
+  inset: 9.6cqw 3.4cqw;
   border: 0.45cqw solid var(--frame);
   border-radius: 1.6cqw;
   pointer-events: none;
@@ -1100,7 +1118,7 @@
 .pack-art__logo {
   left: 0;
   right: 0;
-  top: 13.5%;
+  top: 14%;
   text-align: center;
   z-index: 3;
 }
@@ -1114,7 +1132,7 @@
 .pack-art__series {
   left: 0;
   right: 0;
-  top: 22%;
+  top: 22.5%;
   text-align: center;
   font-family: var(--font-body);
   font-weight: 600;
@@ -1128,7 +1146,7 @@
 
 .pack-art__kicker {
   left: 10%;
-  bottom: 23%;
+  bottom: 25.4%;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 3.2cqw;
@@ -1141,7 +1159,7 @@
 .pack-art__name {
   left: 10%;
   right: 7%;
-  bottom: 13%;
+  bottom: 15.4%;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
@@ -1155,7 +1173,7 @@
 
 .pack-art__line {
   left: 10%;
-  bottom: 6.6%;
+  bottom: 9.2%;
   z-index: 3;
 }
 
@@ -1174,45 +1192,96 @@
   white-space: nowrap;
 }
 
-/* soudures du sachet, fines et discrètes */
+/* bombé du sachet : le plastique gonfle entre les soudures. Ombre et liseré clair juste sous la soudure du
+   haut et au-dessus de celle du bas, côtés qui s'arrondissent vers l'arrière, fin reflet le long de chaque bord. */
+.pack-art__pillow {
+  z-index: 4;
+  background:
+    linear-gradient(to bottom, transparent 7.6cqw, rgba(0, 0, 0, 0.3) 7.9cqw, rgba(255, 255, 255, 0.14) 9.8cqw, transparent 15cqw),
+    linear-gradient(to top, transparent 7.6cqw, rgba(0, 0, 0, 0.32) 7.9cqw, rgba(255, 255, 255, 0.1) 9.8cqw, transparent 15cqw),
+    linear-gradient(90deg, transparent 1.5%, rgba(255, 255, 255, 0.34) 2.5%, transparent 3.8%, transparent 96.6%, rgba(255, 255, 255, 0.2) 97.6%, transparent 98.7%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.34), transparent 6%, transparent 93%, rgba(0, 0, 0, 0.4));
+}
+
+/* petits plis du plastique (tracés dans PackArt.tsx) */
+.pack-art__plastic {
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+}
+
+/* soudures crantées : le plastique écrasé à chaud, strié de fines nervures verticales */
 .pack-art__seal {
   left: 0;
   right: 0;
-  height: 3cqw;
-  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 0.3cqw, rgba(0, 0, 0, 0.25) 0.3cqw 1.1cqw);
-  opacity: 0.4;
-  mix-blend-mode: overlay;
-  z-index: 4;
+  height: 7.6cqw;
+  z-index: 5;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.22) 0 0.35cqw,
+      rgba(255, 255, 255, 0) 0.35cqw 0.6cqw,
+      rgba(0, 0, 0, 0.24) 0.6cqw 0.95cqw,
+      rgba(0, 0, 0, 0) 0.95cqw 1.3cqw
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 45%, rgba(0, 0, 0, 0.16));
+  box-shadow: inset 0 -0.3cqw 0 rgba(0, 0, 0, 0.3);
 }
 
 .pack-art__seal--top {
   top: 0;
 }
 
+/* même soudure, retournée */
 .pack-art__seal--bottom {
   bottom: 0;
+  transform: scaleY(-1);
 }
 
-/* reflet de vernis qui glisse sur l'affiche */
+/* vernis brillant du plastique : un large reflet doux en haut à gauche et un reflet net, fin, en diagonale.
+   Dans l'ouverture, il glisse avec l'inclinaison du sachet (--gloss-x, posé par PackOpening). */
+.pack-art__gloss {
+  z-index: 6;
+  background:
+    radial-gradient(70% 38% at 26% 24%, rgba(255, 255, 255, 0.2), transparent 70%),
+    linear-gradient(116deg, transparent 30%, rgba(255, 255, 255, 0.13) 36%, rgba(255, 255, 255, 0.04) 45%, transparent 50%) var(--gloss-x, 40%) 0 / 200% 100% no-repeat,
+    linear-gradient(116deg, transparent 51.2%, rgba(255, 255, 255, 0.38) 52%, rgba(255, 255, 255, 0.1) 53%, transparent 54.2%) var(--gloss-x, 40%) 0 / 200% 100% no-repeat;
+  mix-blend-mode: screen;
+  transition: background-position 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* au survol, le reflet glisse comme si on bougeait le sachet sous la lumière */
+@media (hover: hover) {
+  .pack-art:hover .pack-art__gloss {
+    --gloss-x: 64%;
+  }
+
+  /* dans l'ouverture, c'est l'inclinaison qui le déplace */
+  .pack3d .pack-art:hover .pack-art__gloss {
+    --gloss-x: inherit;
+  }
+}
+
+/* éclat de lumière qui traverse le plastique de temps en temps */
 .pack-art__shine {
-  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.5) 48%, transparent 58%);
+  background: linear-gradient(110deg, transparent 42%, rgba(255, 255, 255, 0.1) 46%, rgba(255, 255, 255, 0.55) 49.5%, rgba(255, 255, 255, 0.1) 53%, transparent 57%);
   background-size: 250% 100%;
   animation: pack-shine 5s ease-in-out infinite;
   mix-blend-mode: soft-light;
-  z-index: 5;
+  z-index: 7;
 }
 
-/* prime : vernis nacré irisé */
+/* prime : plastique nacré irisé */
 .pack-art--prime .pack-art__shine {
   background:
-    linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.6) 48%, transparent 58%) 0 0 / 250% 100%,
+    linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.65) 49.5%, transparent 59%) 0 0 / 250% 100%,
     linear-gradient(125deg, rgba(255, 180, 220, 0.3), rgba(170, 240, 225, 0.3) 35%, rgba(200, 190, 255, 0.3) 65%, rgba(255, 235, 180, 0.3));
   mix-blend-mode: overlay;
 }
 
 /* légende : dorure qui accroche la lumière */
 .pack-art--black .pack-art__shine {
-  background: linear-gradient(105deg, transparent 40%, rgba(255, 220, 140, 0.55) 48%, transparent 56%) 0 0 / 250% 100%;
+  background: linear-gradient(110deg, transparent 42%, rgba(255, 220, 140, 0.55) 49.5%, transparent 57%) 0 0 / 250% 100%;
   mix-blend-mode: screen;
 }
 
@@ -2377,13 +2446,22 @@
   animation: pack3d-sway 6s 1.2s ease-in-out infinite;
 }
 
+/* le reflet du plastique suit le balancement (propriété déclarée pour pouvoir l'animer) */
+@property --gloss-x {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 40%;
+}
+
 @keyframes pack3d-sway {
   0%,
   100% {
     transform: rotateY(-12deg) rotateX(4deg) translateY(0);
+    --gloss-x: 24%;
   }
   50% {
     transform: rotateY(12deg) rotateX(-3deg) translateY(-10px);
+    --gloss-x: 58%;
   }
 }
 
@@ -2419,19 +2497,33 @@
   transform-origin: 0% 11.5%;
 }
 
+/* dos du sachet : soudures crantées en haut et en bas, et la soudure verticale au milieu (la « nageoire »
+   où le film plastique est refermé), comme au dos d'un vrai booster */
 .pack3d__back {
+  --tooth: 3px;
+  --crimp: 5.3%;
   transform: rotateY(180deg) translateZ(6px);
   display: grid;
   place-content: center;
   justify-items: center;
   gap: 8px;
-  border-radius: 3%;
+  border-radius: 0.8%;
   color: #fff8ec;
   background:
+    /* soudures du haut et du bas */
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0 1px, transparent 1px 1.6px, rgba(0, 0, 0, 0.26) 1.6px 2.5px, transparent 2.5px 3.2px) 0 0 / 100% var(--crimp) no-repeat,
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0 1px, transparent 1px 1.6px, rgba(0, 0, 0, 0.26) 1.6px 2.5px, transparent 2.5px 3.2px) 0 100% / 100% var(--crimp) no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.16), rgba(0, 0, 0, 0.3)) 0 0 / 100% var(--crimp) no-repeat,
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.16)) 0 100% / 100% var(--crimp) no-repeat,
+    /* soudure verticale : fines nervures horizontales, bordée d'une ombre de chaque côté */
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 1.6px, rgba(0, 0, 0, 0.22) 1.6px 2.5px, transparent 2.5px 3.2px) 50% 0 / 9% 100% no-repeat,
+    linear-gradient(90deg, rgba(0, 0, 0, 0.35), rgba(255, 255, 255, 0.12) 18%, rgba(255, 255, 255, 0.05) 80%, rgba(0, 0, 0, 0.35)) 50% 0 / 9% 100% no-repeat,
+    linear-gradient(90deg, transparent 40%, rgba(0, 0, 0, 0.25) 45.5%, transparent 46.5%, transparent 53.5%, rgba(0, 0, 0, 0.25) 54.5%, transparent 60%),
+    /* bombé : côtés plus sombres */
+    linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 7%, transparent 93%, rgba(0, 0, 0, 0.35)),
     var(--grain),
     radial-gradient(120% 80% at 50% 20%, color-mix(in srgb, var(--pack-far, #2c4a38) 45%, transparent), transparent 70%),
     var(--pack-near, #0d1611);
-  box-shadow: inset 0 0 0 6px var(--pack-near, #0d1611), inset 0 0 0 7.5px rgba(255, 248, 236, 0.45);
 }
 
 .pack3d__back .logo {

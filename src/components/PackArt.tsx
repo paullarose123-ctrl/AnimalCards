@@ -1,12 +1,14 @@
-import type { CSSProperties } from 'react';
+import { useMemo, type CSSProperties } from 'react';
+import { hashString, mulberry32 } from '../art/kit';
 import type { PackDef } from '../engine/packs';
 import type { SportId } from '../engine/types';
 import { Logo } from './Logo';
 import { PackScene, isLight, type SceneDef } from './PackScene';
 
-// Booster en affiche illustrée : un paysage peint propre à chaque pack (PackScene), un filet de cadre,
-// le logo dans le ciel et le nom en serif italique sur le premier plan sombre.
-// 1 cqw = 1 % de la largeur du sachet.
+// Booster en affiche illustrée, imprimée sur un sachet plastique : un paysage peint propre à chaque pack
+// (PackScene), un filet de cadre, le logo dans le ciel et le nom en serif italique sur le premier plan sombre.
+// Par-dessus, la matière du sachet : soudures crantées en haut et en bas, bombé du plastique, petits plis
+// (différents pour chaque pack) et reflets brillants. 1 cqw = 1 % de la largeur du sachet.
 
 type Tone = PackDef['tone'];
 
@@ -61,6 +63,84 @@ export function packScene(tone: Tone, sport?: SportId): SceneDef {
   return PACK_SCENES[tone];
 }
 
+// Plis du plastique, dans le repère du sachet (120 × 172) : ils partent des soudures (dont le bord est à
+// SEAL unités du haut et du bas) et des côtés, là où un vrai sachet se froisse.
+const W = 120;
+const H = 172;
+const SEAL = 9.1;
+
+interface Crease {
+  light: string;
+  shadow: string;
+  alpha: number;
+}
+
+/** Un pli effilé : un éclat clair (le pli accroche la lumière) doublé d'une ombre décalée. */
+function crease(x0: number, y0: number, angle: number, length: number, bend: number, width: number, alpha: number): Crease {
+  const dx = Math.cos(angle);
+  const dy = Math.sin(angle);
+  const nx = -dy;
+  const ny = dx;
+  const x1 = x0 + dx * length;
+  const y1 = y0 + dy * length;
+  const cx = (x0 + x1) / 2 + nx * bend;
+  const cy = (y0 + y1) / 2 + ny * bend;
+  const shape = (o: number) => {
+    const ax = x0 + nx * (width / 2 + o);
+    const ay = y0 + ny * (width / 2 + o);
+    const bx = x0 - nx * (width / 2 - o);
+    const by = y0 - ny * (width / 2 - o);
+    const f = (n: number) => n.toFixed(2);
+    return `M${f(ax)} ${f(ay)}Q${f(cx + nx * o)} ${f(cy + ny * o)} ${f(x1 + nx * o)} ${f(y1 + ny * o)}Q${f(cx + nx * o)} ${f(cy + ny * o)} ${f(bx)} ${f(by)}Z`;
+  };
+  return { light: shape(0), shadow: shape(width * 0.9), alpha };
+}
+
+function creases(seed: string): Crease[] {
+  const rng = mulberry32(hashString(`plis ${seed}`));
+  const list: Crease[] = [];
+  // éventails aux quatre coins des soudures
+  for (const [side, top] of [
+    [0, true],
+    [1, true],
+    [0, false],
+    [1, false],
+  ] as const) {
+    const count = 1 + Math.floor(rng() * 3);
+    for (let i = 0; i < count; i++) {
+      const x = 1.5 + rng() * 16;
+      const slope = (0.45 + rng() * 0.6) * (top ? 1 : -1);
+      const angle = side === 0 ? slope : Math.PI - slope;
+      list.push(
+        crease(side === 0 ? x : W - x, top ? SEAL + 0.3 : H - SEAL - 0.3, angle, 6 + rng() * 11, (rng() - 0.5) * 3, 0.7 + rng() * 0.5, 0.5 + rng() * 0.4),
+      );
+    }
+  }
+  // quelques plis courts sur les côtés, là où le sachet bombe
+  const sides = 1 + Math.floor(rng() * 3);
+  for (let i = 0; i < sides; i++) {
+    const left = rng() < 0.5;
+    const y = 34 + rng() * 104;
+    const angle = (rng() - 0.5) * 0.7;
+    list.push(crease(left ? 0.4 : W - 0.4, y, left ? angle : Math.PI + angle, 4 + rng() * 7, (rng() - 0.5) * 1.6, 0.6 + rng() * 0.4, 0.35 + rng() * 0.3));
+  }
+  return list;
+}
+
+function Plastic({ seed }: { seed: string }) {
+  const list = useMemo(() => creases(seed), [seed]);
+  return (
+    <svg className="pack-art__plastic" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" aria-hidden="true">
+      {list.map((c, i) => (
+        <g key={i} opacity={c.alpha}>
+          <path d={c.shadow} fill="rgba(0, 0, 0, 0.32)" />
+          <path d={c.light} fill="rgba(255, 255, 255, 0.55)" />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 interface PackArtProps {
   tone: Tone;
   name: string;
@@ -98,8 +178,11 @@ export function PackArt({ tone, name, sport, size = 5, guarantee, className = ''
         <div className="pack-art__line">
           <span>{guarantee ?? `${size} cartes`}</span>
         </div>
+        <div className="pack-art__pillow" />
+        <Plastic seed={name} />
         <div className="pack-art__seal pack-art__seal--top" />
         <div className="pack-art__seal pack-art__seal--bottom" />
+        <div className="pack-art__gloss" />
         <div className="pack-art__shine" />
       </div>
     </div>

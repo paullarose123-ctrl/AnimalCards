@@ -99,12 +99,15 @@ function tilt3d(event: PointerEvent<HTMLElement>) {
   const y = (event.clientY - rect.top) / rect.height - 0.5;
   el.style.setProperty('--tx', `${(-y * 18).toFixed(2)}deg`);
   el.style.setProperty('--ty', `${(x * 26).toFixed(2)}deg`);
+  // le reflet du plastique glisse avec l'inclinaison
+  el.style.setProperty('--gloss-x', `${(40 + x * 60).toFixed(1)}%`);
 }
 
 function untilt3d(event: PointerEvent<HTMLElement>) {
   const el = event.currentTarget.querySelector<HTMLElement>('.tilt3d');
   el?.style.setProperty('--tx', '0deg');
   el?.style.setProperty('--ty', '0deg');
+  el?.style.removeProperty('--gloss-x');
 }
 
 /** Étiquette sous une carte révélée : Reverse, sinon Nouveau ou Doublon. */
