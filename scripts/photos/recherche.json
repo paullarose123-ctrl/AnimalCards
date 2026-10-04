@@ -1,6 +1,6 @@
 {
   "beagle": "Beagle dog portrait",
-  "greyhound": "Greyhound dog standing",
+  "greyhound": "Greyhound racing dog",
   "habitat-antarctique": "Antarctica iceberg landscape",
   "habitat-borneo": "Danum Valley rainforest Borneo",
   "habitat-galapagos": "Bartolome island Galapagos",
@@ -8,11 +8,13 @@
   "habitat-grande-barriere": "Great Barrier Reef coral underwater",
   "habitat-himalaya": "Himalaya mountains landscape",
   "habitat-madagascar": "Avenue of the Baobabs",
-  "habitat-mariannes": "deep sea anglerfish",
+  "habitat-mariannes": "Okeanos Explorer Marianas deep sea",
   "habitat-okavango": "Okavango Delta elephants",
   "habitat-patagonie": "Torres del Paine",
-  "habitat-sahara": "Sahara desert dunes",
+  "habitat-sahara": "Erg Chebbi dunes Sahara",
   "habitat-taiga": "taiga forest Siberia",
   "habitat-serengeti": "Serengeti wildebeest migration",
-  "habitat-monteverde": "Monteverde cloud forest"
+  "habitat-monteverde": "Monteverde cloud forest hanging bridge",
+  "habitat-everglades": "Everglades sawgrass alligator",
+  "habitat-sundarbans": "Sundarbans mangrove forest"
 }

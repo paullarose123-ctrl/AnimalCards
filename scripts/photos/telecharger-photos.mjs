@@ -250,7 +250,7 @@ async function resolve(lang, animal, log, hint) {
 const isPhoto = (file) => /\.(jpe?g|png|webp)$/i.test(file);
 
 /** Cartes, vues satellites, reliefs, montages, panneaux : pas une photo de l'animal ou du lieu. */
-const NOT_A_PHOTO = /map|carte|satellite|topograph|annotated|\bDEM|relief|location|locator|blue[ _]marble|\bEO\b|-EO\.|assemblage|montage|collage|sign\b|panneau|logo|diagram|\bplan\b/i;
+const NOT_A_PHOTO = /map|carte|satellite|topograph|annotated|\bDEM|relief|location|locator|copernicus|landsat|sentinel|astronaut|\bISS\b|blue[ _]marble|\bEO\b|-EO\.|assemblage|montage|collage|sign\b|panneau|logo|diagram|\bplan\b/i;
 
 /** Premières photos libres d'une recherche Commons. */
 async function searchCommons(query) {
