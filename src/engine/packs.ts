@@ -247,9 +247,12 @@ export function primePool(pack: PackDef): Athlete[] {
   return pool;
 }
 
-/** Poids de tirage de la Prime garantie : le lion ou le T. rex sortent plus rarement que le mouton. */
+/**
+ * Poids de tirage de la Prime garantie : les individus des espèces vedettes (Épiques et Légendaires : Elsa la
+ * lionne, Knut, Keiko, Sue le T. rex…) sortent bien plus souvent que ceux des espèces communes (Dolly, les chiens).
+ */
 export function primeWeight(athlete: Athlete): number {
-  return Math.exp(-(rarityScore(athlete) - 58) / 14);
+  return [1, 1.5, 3, 4, 4][rarityOf(athlete).order];
 }
 
 /** Probabilité qu'une carte ordinaire du booster sorte en version Prime (affichée en boutique). */
@@ -294,7 +297,8 @@ export function openPack(pack: PackDef, rng: Rng, avoid: ReadonlySet<string> = n
 
 export function cardRank(card: CardFace): number {
   const athlete = ATHLETES_BY_ID[card.athleteId];
-  return rarityOf(athlete).order * 10 + (card.variant === 'prime' ? 5 : card.variant === 'reverse' ? 2 : 0) + rarityScore(athlete) / 100;
+  // une Prime est toujours révélée en dernier, quelle que soit la rareté de son espèce
+  return (card.variant === 'prime' ? 100 : 0) + rarityOf(athlete).order * 10 + (card.variant === 'reverse' ? 2 : 0) + rarityScore(athlete) / 100;
 }
 
 export function sortByRarity(cards: CardFace[]): CardFace[] {

@@ -6,7 +6,7 @@ import { useNow } from '../hooks/useNow';
 import { ATHLETES_BY_ID } from '../data/athletes';
 import { displayName, rarityOf } from '../engine/cards';
 import type { CardFace, OwnedCard } from '../engine/types';
-import { MIN_PASSWORD, accountsEnabled, findProfile, pseudoProblem, type PublicProfile } from '../account/supabase';
+import { MIN_PASSWORD, accountsEnabled, pseudoProblem, type PublicProfile } from '../account/supabase';
 import { Card } from '../components/Card';
 import { Avatar } from '../components/Avatar';
 import { photoCredit } from '../photos';
@@ -14,7 +14,7 @@ import { Landscape } from '../components/PackScene';
 import { SCREEN_SCENES } from '../art/scenes';
 
 // Écran Profil : le compte du joueur (création, connexion, sauvegarde), sa vitrine de cartes préférées,
-// et ses amis, retrouvés par leur pseudo : leur photo, leur vitrine et un duel contre elle.
+// et ses amis (demandes d'ami à accepter) : leur photo, leur vitrine et un duel contre elle.
 
 function normalize(text: string): string {
   return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -271,68 +271,46 @@ function Showcase() {
 }
 
 /** Un ami : sa photo, son pseudo, sa vitrine (à déplier), et un défi en duel contre les animaux de sa vitrine. */
-function FriendRow({ pseudo }: { pseudo: string }) {
-  const removeFriend = useGame((s) => s.removeFriend);
+function FriendRow({ profile, onRemove }: { profile: PublicProfile; onRemove: () => void }) {
   const startMatch = useGame((s) => s.startMatch);
   const match = useGame((s) => s.match);
   const setTab = useUi((s) => s.setTab);
-  const [profile, setProfile] = useState<PublicProfile | null | 'loading' | 'error'>('loading');
   const [open, setOpen] = useState(false);
   const [confirmRemove, setConfirmRemove] = useState(false);
-
-  useEffect(() => {
-    let alive = true;
-    findProfile(pseudo)
-      .then((p) => alive && setProfile(p))
-      .catch(() => alive && setProfile('error'));
-    return () => {
-      alive = false;
-    };
-  }, [pseudo]);
-
-  const data = profile && typeof profile === 'object' ? profile : null;
-  const faces: CardFace[] = data ? data.favorites.filter((face) => ATHLETES_BY_ID[face?.athleteId]).slice(0, FAVORITES_SIZE) : [];
+  const faces: CardFace[] = profile.favorites.filter((face) => ATHLETES_BY_ID[face?.athleteId]).slice(0, FAVORITES_SIZE);
   const challenge = () => {
     if (match) {
       setTab('matchs');
       return;
     }
-    if (startMatch({ pseudo: data?.pseudo ?? pseudo, cards: faces })) setTab('matchs');
+    if (startMatch({ pseudo: profile.pseudo, cards: faces })) setTab('matchs');
   };
 
   return (
     <li className="friend">
       <div className="friend__head">
-        <Avatar athleteId={data?.avatar} pseudo={data?.pseudo ?? pseudo} className="avatar--player" />
+        <Avatar athleteId={profile.avatar} pseudo={profile.pseudo} className="avatar--player" />
         <div className="friend__who">
-          <b>{data?.pseudo ?? pseudo}</b>
+          <b>{profile.pseudo}</b>
           <span className="muted small">
-            {profile === 'loading'
-              ? 'Chargement…'
-              : profile === 'error'
-                ? 'Profil indisponible pour le moment'
-                : !data
-                  ? 'Ce joueur n’existe plus'
-                  : `${faces.length} carte${faces.length > 1 ? 's' : ''} dans sa vitrine`}
+            {faces.length} carte{faces.length > 1 ? 's' : ''} dans sa vitrine
           </span>
         </div>
         <div className="friend__actions">
-          {data && faces.length > 0 && (
+          {faces.length > 0 && (
             <button type="button" className="btn btn--ghost btn--sm" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
               {open ? 'Cacher' : 'Sa vitrine'}
             </button>
           )}
-          {data && (
-            <button type="button" className="btn btn--primary btn--sm" onClick={challenge} title="Un duel contre les animaux de sa vitrine (complétée au hasard)">
-              {match ? 'Duel en cours' : 'Défier'}
-            </button>
-          )}
+          <button type="button" className="btn btn--primary btn--sm" onClick={challenge} title="Un duel contre les animaux de sa vitrine (complétée au hasard)">
+            {match ? 'Duel en cours' : 'Défier'}
+          </button>
           {confirmRemove ? (
-            <button type="button" className="btn btn--danger btn--sm" onClick={() => removeFriend(pseudo)}>
+            <button type="button" className="btn btn--danger btn--sm" onClick={onRemove}>
               Retirer ?
             </button>
           ) : (
-            <button type="button" className="btn btn--ghost btn--sm" onClick={() => setConfirmRemove(true)} aria-label={`Retirer ${pseudo} de mes amis`}>
+            <button type="button" className="btn btn--ghost btn--sm" onClick={() => setConfirmRemove(true)} aria-label={`Retirer ${profile.pseudo} de mes amis`}>
               ×
             </button>
           )}
@@ -349,41 +327,80 @@ function FriendRow({ pseudo }: { pseudo: string }) {
   );
 }
 
+/** Demande d'ami reçue ou envoyée : le joueur et les boutons pour répondre ou annuler. */
+function RequestRow({ profile, received, onAccept, onRemove }: { profile?: PublicProfile; received: boolean; onAccept: () => void; onRemove: () => void }) {
+  const pseudo = profile?.pseudo ?? 'Joueur';
+  return (
+    <li className="friend">
+      <div className="friend__head">
+        <Avatar athleteId={profile?.avatar} pseudo={pseudo} className="avatar--player" />
+        <div className="friend__who">
+          <b>{pseudo}</b>
+          <span className="muted small">{received ? 'veut être ton ami' : 'n’a pas encore répondu'}</span>
+        </div>
+        <div className="friend__actions">
+          {received ? (
+            <>
+              <button type="button" className="btn btn--primary btn--sm" onClick={onAccept}>
+                Accepter
+              </button>
+              <button type="button" className="btn btn--ghost btn--sm" onClick={onRemove}>
+                Refuser
+              </button>
+            </>
+          ) : (
+            <button type="button" className="btn btn--ghost btn--sm" onClick={onRemove}>
+              Annuler
+            </button>
+          )}
+        </div>
+      </div>
+    </li>
+  );
+}
+
 function Friends() {
-  const friends = useGame((s) => s.friends);
-  const addFriend = useGame((s) => s.addFriend);
-  const me = useAccount((s) => s.session?.pseudo);
+  const session = useAccount((s) => s.session);
+  const friendships = useAccount((s) => s.friendships);
+  const profiles = useAccount((s) => s.friendProfiles);
+  const error = useAccount((s) => s.friendsError);
+  const refreshFriends = useAccount((s) => s.refreshFriends);
+  const requestFriend = useAccount((s) => s.requestFriend);
+  const acceptFriend = useAccount((s) => s.acceptFriend);
+  const removeFriend = useAccount((s) => s.removeFriend);
   const [pseudo, setPseudo] = useState('');
   const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState<{ kind: 'error' | 'ok'; text: string } | null>(null);
+  const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
+
+  useEffect(() => {
+    if (session) void refreshFriends();
+  }, [session, refreshFriends]);
+
+  if (!session) {
+    return (
+      <section className="panel">
+        <h2>Mes amis</h2>
+        <p className="muted">Crée ton compte ou connecte-toi pour envoyer des demandes d’ami.</p>
+      </section>
+    );
+  }
+
+  const me = session.userId;
+  const other = (f: { fromId: string; toId: string }) => (f.fromId === me ? f.toId : f.fromId);
+  const received = friendships.filter((f) => f.status === 'pending' && f.toId === me);
+  const sent = friendships.filter((f) => f.status === 'pending' && f.fromId === me);
+  const friends = friendships.filter((f) => f.status === 'accepted' && profiles[other(f)]);
 
   const add = async (event: FormEvent) => {
     event.preventDefault();
     const name = pseudo.trim();
     if (!name) return;
-    if (me && name.toLowerCase() === me.toLowerCase()) {
-      setMessage({ kind: 'error', text: 'C’est ton propre pseudo !' });
-      return;
-    }
-    if (friends.some((f) => f.toLowerCase() === name.toLowerCase())) {
-      setMessage({ kind: 'error', text: 'Ce joueur est déjà dans tes amis.' });
-      return;
-    }
     setBusy(true);
     setMessage(null);
-    try {
-      const found = await findProfile(name);
-      if (!found) setMessage({ kind: 'error', text: 'Aucun joueur ne porte ce pseudo.' });
-      else {
-        addFriend(found.pseudo);
-        setPseudo('');
-        setMessage({ kind: 'ok', text: `${found.pseudo} est maintenant dans tes amis.` });
-      }
-    } catch (e) {
-      setMessage({ kind: 'error', text: e instanceof Error ? e.message : 'Recherche impossible.' });
-    } finally {
-      setBusy(false);
-    }
+    const result = await requestFriend(name);
+    setMessage(result);
+    if (result.ok) setPseudo('');
+    setBusy(false);
   };
 
   return (
@@ -391,25 +408,49 @@ function Friends() {
       <h2>
         Mes amis <small>· {friends.length}</small>
       </h2>
-      <p className="muted small">Ajoute un ami avec son pseudo : tu vois sa photo et sa vitrine, et tu peux le défier en duel contre les animaux de sa vitrine.</p>
+      <p className="muted small">Envoie une demande d’ami avec un pseudo. Une fois acceptée, tu vois sa photo et sa vitrine, et tu peux le défier en duel.</p>
       <form className="search-player" onSubmit={add}>
         <label className="field field--grow">
           <span className="visually-hidden">Pseudo de l’ami</span>
           <input value={pseudo} onChange={(e) => setPseudo(e.target.value)} placeholder="Pseudo de ton ami" autoCapitalize="none" spellCheck={false} maxLength={20} />
         </label>
         <button type="submit" className="btn btn--primary" disabled={busy}>
-          Ajouter
+          Envoyer une demande
         </button>
       </form>
-      {message && <p className={message.kind === 'error' ? 'account__error' : 'muted'}>{message.text}</p>}
+      {message && <p className={message.ok ? 'muted' : 'account__error'}>{message.text}</p>}
+      {error && <p className="account__error">{error}</p>}
+
+      {received.length > 0 && (
+        <>
+          <h3 className="friends__title">Demandes reçues</h3>
+          <ul className="friends">
+            {received.map((f) => (
+              <RequestRow key={f.fromId} profile={profiles[f.fromId]} received onAccept={() => void acceptFriend(f.fromId)} onRemove={() => void removeFriend(f.fromId, f.toId)} />
+            ))}
+          </ul>
+        </>
+      )}
+
       {friends.length > 0 ? (
         <ul className="friends">
           {friends.map((f) => (
-            <FriendRow key={f} pseudo={f} />
+            <FriendRow key={other(f)} profile={profiles[other(f)]} onRemove={() => void removeFriend(f.fromId, f.toId)} />
           ))}
         </ul>
       ) : (
         <p className="muted">Pas encore d’amis : demande leur pseudo à tes copains !</p>
+      )}
+
+      {sent.length > 0 && (
+        <>
+          <h3 className="friends__title">Demandes envoyées</h3>
+          <ul className="friends">
+            {sent.map((f) => (
+              <RequestRow key={f.toId} profile={profiles[f.toId]} received={false} onAccept={() => undefined} onRemove={() => void removeFriend(f.fromId, f.toId)} />
+            ))}
+          </ul>
+        </>
       )}
     </section>
   );

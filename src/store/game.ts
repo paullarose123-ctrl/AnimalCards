@@ -162,8 +162,6 @@ export interface GameState {
   favorites: string[];
   /** photo de profil : l'espèce dont la photo est affichée (chaîne vide : l'initiale du pseudo) */
   avatar: string;
-  /** pseudos des amis du joueur */
-  friends: string[];
   opening: Opening | null;
   toasts: Toast[];
 
@@ -188,8 +186,6 @@ export interface GameState {
   toggleLock: (uid: string) => void;
   setFavorite: (slot: number, uid: string | null) => void;
   setAvatar: (athleteId: string) => void;
-  addFriend: (pseudo: string) => void;
-  removeFriend: (pseudo: string) => void;
   claimObjective: (id: string) => void;
   toggleMute: () => void;
   toggleMusic: () => void;
@@ -267,7 +263,6 @@ function initialState(now: number) {
     recentPacks: [] as string[][],
     favorites: [] as string[],
     avatar: '',
-    friends: [] as string[],
     opening: null as Opening | null,
     toasts: [] as Toast[],
   };
@@ -658,9 +653,6 @@ export const useGame = create<GameState>()(
         toggleLock: (uid) => set((s) => ({ collection: s.collection.map((c) => (c.uid === uid ? { ...c, locked: !c.locked } : c)) })),
 
         setAvatar: (athleteId) => set({ avatar: athleteId }),
-        addFriend: (pseudo) =>
-          set((s) => (s.friends.some((f) => f.toLowerCase() === pseudo.toLowerCase()) ? s : { friends: [...s.friends, pseudo] })),
-        removeFriend: (pseudo) => set((s) => ({ friends: s.friends.filter((f) => f !== pseudo) })),
 
         setFavorite: (slot, uid) =>
           set((s) => {

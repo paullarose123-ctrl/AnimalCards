@@ -95,7 +95,7 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 Un jeu de culture générale sur les animaux.
 
 - Équipe de 5 animaux, toutes familles mélangées (pas de carte Habitat).
-- 5 manches, chacune une question tirée au sort parmi 17 et annoncée dès le début. Des records : le plus lourd, le plus léger, le plus grand, le plus petit, vit le plus longtemps, vit le moins longtemps, le plus nombreux, le plus rare (une espèce éteinte n’a plus aucun individu). Et au plus deux questions oui/non : vient d’Afrique, d’Asie, d’Amérique, d’Europe ou d’Océanie ; est un mammifère, un oiseau, un reptile ou un poisson.
+- 5 manches, chacune une question tirée au sort parmi 17 et annoncée dès le début. Des records : le plus lourd, le plus léger, le plus grand, le plus petit, vit le plus longtemps, vit le moins longtemps, le plus nombreux, le plus rare (une espèce éteinte n’a plus aucun individu). Et au plus deux questions oui/non : vit en Afrique, en Asie, en Amérique, en Europe ou en Océanie (les espèces de plusieurs continents, comme le chat ou le loup, sont listées dans `src/data/repartition.ts` et portent le logo « Plusieurs continents ») ; est un mammifère, un oiseau, un reptile ou un poisson.
 - Les mesures sont cachées sur toutes les cartes pendant le duel : on choisit quel animal envoyer d’après ce qu’on sait. Chaque animal ne joue qu’une fois. Ce sont les vraies mesures de l’espèce qui décident (une mesure inconnue perd la manche) ; pour une question, oui bat non.
 - Plus la division est haute, plus l’adversaire joue juste. Ligue de la division 10 à la division 1 : victoire +3 points, nul +1, promotion à 7 points.
 - On peut aussi défier un ami : son équipe est faite des animaux de sa vitrine (complétée au hasard), joués par l’ordinateur. Ce duel rapporte des graines mais ne compte pas pour la ligue.
@@ -104,7 +104,7 @@ Un jeu de culture générale sur les animaux.
 
 - Un compte se crée avec un pseudo et un mot de passe (écran Profil, bouton en haut à droite). Toute la progression est alors sauvegardée dans le compte (au plus toutes les 30 secondes quand elle change, et à la fermeture de l’onglet) et rechargée à la connexion, sur n’importe quel appareil. Sans compte, la partie reste dans le navigateur.
 - Le profil montre une photo de profil (la photo d’un animal déjà découvert) et une vitrine de 5 cartes préférées.
-- Amis : on ajoute un ami avec son pseudo, on voit sa photo et sa vitrine, et on peut le défier en duel. La liste d’amis est gardée dans la sauvegarde du joueur.
+- Amis : on envoie une demande d’ami avec un pseudo ; l’autre joueur la voit (pastille sur son bouton Profil) et l’accepte ou la refuse. Entre amis, on voit la photo et la vitrine de l’autre, et on peut le défier en duel. Table `friendships` dans `supabase/schema.sql`.
 - Les comptes passent par Supabase (`src/account`) : tables et règles de sécurité dans `supabase/schema.sql` (chaque joueur ne lit et ne modifie que sa propre sauvegarde), adresse du projet et clé publique dans `src/account/config.ts`. Le pseudo devient une adresse fictive (`pseudo@joueurs.animalcards.app`), d’où la confirmation par e-mail coupée dans le projet Supabase.
 
 ## Organisation du code

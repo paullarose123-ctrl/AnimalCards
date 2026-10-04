@@ -5388,3 +5388,16 @@
   gap: 6px;
   flex-wrap: wrap;
 }
+
+.friends__title {
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  text-transform: none;
+  color: var(--text-dim);
+}
+
+.chip__badge {
+  top: -6px;
+  left: auto;
+  right: -6px;
+}
