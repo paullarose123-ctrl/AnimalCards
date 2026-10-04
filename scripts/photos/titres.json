@@ -1,14 +1,13 @@
 {
-  "mythe-dragon": "Dragon",
-  "mythe-phenix": "Phénix",
-  "mythe-licorne": "Licorne",
-  "mythe-kraken": "Kraken",
-  "mythe-pegase": "Pégase",
-  "mythe-yeti": "Yéti",
-  "mythe-nessie": "Monstre du loch Ness",
-  "mythe-griffon": "Griffon (mythologie)",
-  "mythe-leviathan": "Léviathan",
-  "mythe-gevaudan": "Bête du Gévaudan",
-  "mythe-lapin-de-jade": "Lapin de jade",
-  "mythe-dakuwaqa": "Dakuwaqa"
+  "berger-allemand": "Berger allemand",
+  "labrador": "Labrador retriever",
+  "husky": "Husky de Sibérie",
+  "akita": "Akita inu",
+  "saint-bernard": "Saint-bernard (chien)",
+  "border-collie": "Border collie",
+  "chihuahua": "Chihuahua (chien)",
+  "dalmatien": "Dalmatien",
+  "caniche": "Caniche",
+  "beagle": "Beagle",
+  "greyhound": "Greyhound"
 }

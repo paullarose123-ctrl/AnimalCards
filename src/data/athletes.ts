@@ -1,5 +1,5 @@
 import type { Athlete, ArchetypeId, SportId } from '../engine/types';
-import { HABITATS } from './habitats';
+import { HABITATS } from './habitats.ts';
 
 // Base des espèces animales (le fichier garde son nom d'AthletiCards).
 // - fame (0-100) : célébrité de l'espèce. Elle fixe la rareté.
