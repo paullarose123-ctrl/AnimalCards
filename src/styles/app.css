@@ -2355,6 +2355,12 @@
   animation: fade-in 1.2s ease-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .opening__rays {
+    animation: none;
+  }
+}
+
 .opening__stage {
   position: relative;
   display: grid;
@@ -3502,8 +3508,8 @@
   }
 }
 
-/* Dos des cartes, même langage que les boosters : une petite affiche (pleine lune et constellations),
-   le logo sur le premier plan sombre, un filet doré. 1 cqw = 1 % de la largeur de la carte. */
+/* Dos des cartes, même langage que les boosters : une petite affiche de crépuscule (CardBack.tsx),
+   le logo dans le ciel, un filet crème. 1 cqw = 1 % de la largeur de la carte. */
 .card-back {
   position: relative;
   width: 100%;
@@ -3512,6 +3518,7 @@
   border-radius: 8% / 5.7%;
   overflow: hidden;
   isolation: isolate;
+  background: #0b170f;
   box-shadow: 0 10px 16px rgba(0, 0, 0, 0.5);
 }
 
@@ -3524,36 +3531,28 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: #06110d;
 }
 
-/* reflets holographiques : rayons irisés qui changent lentement de couleur */
-.card-back__holo {
+/* grain d'impression, comme sur les sachets */
+.card-back__grain {
+  pointer-events: none;
+  background: var(--grain);
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+}
+
+/* vernis : un reflet doux en haut à gauche et une large bande claire en diagonale */
+.card-back__gloss {
   pointer-events: none;
   background:
-    repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12) 0 0.4cqw, transparent 0.4cqw 5cqw),
-    repeating-conic-gradient(from 0deg at 50% 50%, #e7a0bf 0 5deg, #f0cf6a 5deg 10deg, #9fe0b8 10deg 15deg, #9cc4e8 15deg 20deg, #c09ae6 20deg 25deg);
-  mix-blend-mode: color-dodge;
-  opacity: 0.07;
-  animation: back-holo 8s linear infinite;
-}
-
-@keyframes back-holo {
-  to {
-    filter: hue-rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card-back__holo,
-  .opening__rays {
-    animation: none;
-  }
+    radial-gradient(70% 38% at 26% 20%, rgba(255, 255, 255, 0.1), transparent 70%),
+    linear-gradient(116deg, transparent 46%, rgba(255, 255, 255, 0.05) 52%, transparent 58%);
+  mix-blend-mode: screen;
 }
 
 .card-back__crest {
-  top: auto;
-  bottom: 9%;
+  top: 11%;
+  bottom: auto;
   display: grid;
   justify-items: center;
   gap: 1.6cqw;
@@ -3561,7 +3560,7 @@
 }
 
 .card-back__crest .logo {
-  --logo-card: #e9c77b;
+  --logo-card: #fff0cf;
   font-size: 12cqw;
   color: #fff8ec;
   text-shadow: 0 0.6cqw 2.4cqw rgba(0, 0, 0, 0.5);
@@ -3570,19 +3569,11 @@
 .card-back__crest small {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 3.4cqw;
+  font-size: 3cqw;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: #e9c77b;
-  opacity: 0.85;
-}
-
-.card-back__frame {
-  inset: 3.5cqw;
-  border: 0.6cqw solid rgba(233, 199, 123, 0.75);
-  border-radius: 5cqw;
-  pointer-events: none;
-  z-index: 3;
+  color: #efe1b8;
+  opacity: 0.75;
 }
 
 .tag {
