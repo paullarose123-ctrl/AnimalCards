@@ -16,6 +16,16 @@ import { Flag, countryName } from '../components/Flag';
 import { Balles } from '../components/Balles';
 import { photoCredit } from '../photos';
 
+/** Site d'où vient la photo, d'après l'adresse de sa page. */
+const PHOTO_SITES: Array<[string, string]> = [
+  ['pixabay.com', 'Pixabay'],
+  ['inaturalist.org', 'iNaturalist'],
+  ['unsplash.com', 'Unsplash'],
+  ['flickr.com', 'Flickr'],
+  ['stockcake.com', 'StockCake'],
+];
+const photoSite = (page: string) => `, ${PHOTO_SITES.find(([host]) => page.includes(host))?.[1] ?? 'Wikimedia Commons'}`;
+
 function Sparkline({ points }: { points: Array<{ t: number; price: number }> }) {
   const w = 280;
   const h = 64;
@@ -242,13 +252,7 @@ export function CardDetail() {
                 {photoCredit(face.athleteId)!.author}
               </a>
               , {photoCredit(face.athleteId)!.license}
-              {photoCredit(face.athleteId)!.page.includes('pixabay.com')
-                ? ', Pixabay'
-                : photoCredit(face.athleteId)!.page.includes('flickr.com')
-                  ? ', Flickr'
-                  : photoCredit(face.athleteId)!.page.includes('stockcake.com')
-                    ? ', StockCake'
-                    : ', Wikimedia Commons'}
+              {photoSite(photoCredit(face.athleteId)!.page)}
               {photoCredit(face.athleteId)!.cutout ? ' (détourée)' : ''}
             </p>
           )}

@@ -164,7 +164,7 @@ Pour ajouter une espèce : une ligne `x('id', 'Nom', 'famille', 'profil', 'Milie
 
 ## Photos des animaux
 
-Les photos viennent de Wikimedia Commons (licences libres : CC BY, CC BY-SA, domaine public…) et de Pixabay (licence Pixabay, réutilisation libre), avec l’auteur et la licence affichés dans la fiche de chaque carte. Les espèces disparues et les créatures Mythe sont des illustrations réalistes de Pixabay (souvent générées par IA), l’animal en entier dans son décor, comme une photo de documentaire.
+Les photos viennent de Wikimedia Commons (licences libres : CC BY, CC BY-SA, domaine public…), d’iNaturalist (photos d’observations dans la nature, sous licence Creative Commons, y compris « pas d’utilisation commerciale » : le jeu est gratuit et sans publicité), d’Unsplash (licence Unsplash) et de Pixabay (licence Pixabay, réutilisation libre), avec l’auteur et la licence affichés dans la fiche de chaque carte. Les espèces disparues et les créatures Mythe sont des illustrations réalistes de Pixabay (souvent générées par IA), l’animal en entier dans son décor, comme une photo de documentaire.
 
 ```bash
 node scripts/photos/telecharger-photos.mjs telecharger   # cherche et télécharge (Node 22.18 ou plus récent)
