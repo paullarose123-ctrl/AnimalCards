@@ -15,6 +15,8 @@ export interface Session {
 }
 
 export interface PublicProfile {
+  /** identifiant du compte */
+  id: string;
   pseudo: string;
   /** espèce dont la photo sert de photo de profil (vide : l'initiale du pseudo) */
   avatar: string;
@@ -84,6 +86,7 @@ function explain(status: number, data: unknown): string {
   if (code === 'email_not_confirmed') return 'Ce compte attend une confirmation par e-mail : la confirmation doit être coupée dans Supabase.';
   if (code === 'over_request_rate_limit' || code === 'over_email_send_rate_limit' || status === 429) return 'Trop d’essais d’un coup. Attends une minute et réessaie.';
   if (code === 'signup_disabled') return 'Les inscriptions sont fermées pour le moment.';
+  if (code === 'PGRST205' || code === '42P01') return 'Cette fonction n’est pas encore activée sur le serveur du jeu.';
   if (code === '23505') return 'Ce pseudo est déjà pris. Choisis-en un autre.';
   if (status === 401 || status === 403) return 'Ta session a expiré. Reconnecte-toi.';
   return 'Le serveur a répondu par une erreur. Réessaie dans un moment.';
@@ -166,9 +169,78 @@ export async function storeProfile(session: Session, favorites: CardFace[], avat
 export async function findProfile(pseudo: string): Promise<PublicProfile | null> {
   if (pseudoProblem(pseudo)) return null;
   // ilike ignore les majuscules ; « _ » y est un joker, d'où la vérification exacte ensuite
-  const rows = await call<Array<{ pseudo: string; favorites: CardFace[]; avatar?: string | null; updated_at: string }>>(
+  const rows = await call<ProfileRow[]>(
     `/rest/v1/profiles?select=*&pseudo=ilike.${encodeURIComponent(pseudo)}&limit=10`,
   );
   const row = rows.find((r) => r.pseudo.toLowerCase() === pseudo.toLowerCase());
-  return row ? { pseudo: row.pseudo, avatar: row.avatar ?? '', favorites: Array.isArray(row.favorites) ? row.favorites : [], updatedAt: row.updated_at } : null;
+  return row ? toProfile(row) : null;
+}
+
+interface ProfileRow {
+  id: string;
+  pseudo: string;
+  favorites: CardFace[];
+  avatar?: string | null;
+  updated_at: string;
+}
+
+const toProfile = (row: ProfileRow): PublicProfile => ({
+  id: row.id,
+  pseudo: row.pseudo,
+  avatar: row.avatar ?? '',
+  favorites: Array.isArray(row.favorites) ? row.favorites : [],
+  updatedAt: row.updated_at,
+});
+
+/** Profils publics de plusieurs comptes. */
+export async function profilesByIds(ids: string[]): Promise<PublicProfile[]> {
+  if (!ids.length) return [];
+  const rows = await call<ProfileRow[]>(`/rest/v1/profiles?select=*&id=in.(${ids.join(',')})`);
+  return rows.map(toProfile);
+}
+
+// ───────────── Amis ─────────────
+// Table friendships : une demande (pending) de from_id à to_id, qui devient une amitié (accepted) quand to_id
+// l'accepte. Chacun ne voit que les lignes qui le concernent (règles dans supabase/schema.sql).
+
+export interface Friendship {
+  fromId: string;
+  toId: string;
+  status: 'pending' | 'accepted';
+}
+
+export async function listFriendships(session: Session): Promise<Friendship[]> {
+  const me = session.userId;
+  const rows = await call<Array<{ from_id: string; to_id: string; status: 'pending' | 'accepted' }>>(
+    `/rest/v1/friendships?select=from_id,to_id,status&or=(from_id.eq.${me},to_id.eq.${me})`,
+    { token: session.accessToken },
+  );
+  return rows.map((r) => ({ fromId: r.from_id, toId: r.to_id, status: r.status }));
+}
+
+export async function sendFriendRequest(session: Session, toId: string): Promise<void> {
+  await call('/rest/v1/friendships', {
+    method: 'POST',
+    token: session.accessToken,
+    prefer: 'return=minimal',
+    body: { from_id: session.userId, to_id: toId, status: 'pending' },
+  });
+}
+
+export async function acceptFriendRequest(session: Session, fromId: string): Promise<void> {
+  await call(`/rest/v1/friendships?from_id=eq.${fromId}&to_id=eq.${session.userId}`, {
+    method: 'PATCH',
+    token: session.accessToken,
+    prefer: 'return=minimal',
+    body: { status: 'accepted' },
+  });
+}
+
+/** Retire une amitié, refuse une demande reçue ou annule une demande envoyée. */
+export async function deleteFriendship(session: Session, fromId: string, toId: string): Promise<void> {
+  await call(`/rest/v1/friendships?from_id=eq.${fromId}&to_id=eq.${toId}`, {
+    method: 'DELETE',
+    token: session.accessToken,
+    prefer: 'return=minimal',
+  });
 }

@@ -2,7 +2,13 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import {
   AccountError,
+  acceptFriendRequest,
   accountsEnabled,
+  deleteFriendship,
+  findProfile,
+  listFriendships,
+  profilesByIds,
+  sendFriendRequest,
   loadSave,
   refresh,
   signIn,
@@ -10,6 +16,8 @@ import {
   signUp,
   storeProfile,
   storeSave,
+  type Friendship,
+  type PublicProfile,
   type Session,
 } from '../account/supabase';
 import type { CardFace } from '../engine/types';
@@ -34,6 +42,15 @@ interface AccountState {
   login: (pseudo: string, password: string) => Promise<boolean>;
   logout: () => Promise<void>;
   saveNow: () => Promise<boolean>;
+  /** demandes d'ami et amitiés du joueur, avec le profil public de chaque autre joueur */
+  friendships: Friendship[];
+  friendProfiles: Record<string, PublicProfile>;
+  friendsError: string | null;
+  refreshFriends: () => Promise<void>;
+  /** envoie une demande (ou accepte celle que ce joueur nous a déjà envoyée) ; renvoie un message à afficher */
+  requestFriend: (pseudo: string) => Promise<{ ok: boolean; text: string }>;
+  acceptFriend: (fromId: string) => Promise<void>;
+  removeFriend: (fromId: string, toId: string) => Promise<void>;
 }
 
 /** dernière sauvegarde envoyée (pour ne pas renvoyer la même) */
@@ -95,12 +112,14 @@ async function adopt(session: Session, fresh: boolean): Promise<void> {
       useAccount.setState({ status: 'saved', lastSavedAt: Date.parse(remote.updatedAt) || Date.now() });
       useGame.getState().toast('success', `Bon retour ${session.pseudo} ! Ta progression est rechargée.`);
       await storeProfile(session, favoriteFaces(), useGame.getState().avatar).catch(() => undefined);
+      void useAccount.getState().refreshFriends();
       return;
     }
   }
   lastSent = null;
   await upload();
   await storeProfile(session, favoriteFaces(), useGame.getState().avatar).catch(() => undefined);
+  void useAccount.getState().refreshFriends();
   useGame.getState().toast('gold', fresh ? `Compte créé : bienvenue ${session.pseudo} ! Ta progression est sauvegardée.` : `Connecté : ta progression est sauvegardée dans ton compte.`);
 }
 
@@ -149,7 +168,7 @@ export const useAccount = create<AccountState>()(
         const saved = await upload();
         await signOut(session);
         lastSent = null;
-        set({ session: null, status: 'idle', lastSavedAt: null, error: null, busy: false });
+        set({ session: null, status: 'idle', lastSavedAt: null, error: null, busy: false, friendships: [], friendProfiles: {}, friendsError: null });
         if (saved) {
           // la progression part avec le compte : le navigateur repart d'une partie neuve
           useGame.getState().resetGame();
@@ -157,6 +176,61 @@ export const useAccount = create<AccountState>()(
         } else {
           useGame.getState().toast('warn', 'Déconnecté, mais la dernière sauvegarde n’a pas pu partir : ta partie reste dans ce navigateur.');
         }
+      },
+
+      friendships: [],
+      friendProfiles: {},
+      friendsError: null,
+
+      refreshFriends: async () => {
+        try {
+          const session = await freshSession();
+          if (!session) return;
+          const friendships = await listFriendships(session);
+          const others = [...new Set(friendships.map((f) => (f.fromId === session.userId ? f.toId : f.fromId)))];
+          const profiles = await profilesByIds(others);
+          set({ friendships, friendProfiles: Object.fromEntries(profiles.map((p) => [p.id, p])), friendsError: null });
+        } catch (error) {
+          set({ friendsError: error instanceof Error ? error.message : 'Amis indisponibles pour le moment.' });
+        }
+      },
+
+      requestFriend: async (pseudo) => {
+        try {
+          const session = await freshSession();
+          if (!session) return { ok: false, text: 'Connecte-toi pour ajouter des amis.' };
+          const profile = await findProfile(pseudo);
+          if (!profile) return { ok: false, text: 'Aucun joueur ne porte ce pseudo.' };
+          if (profile.id === session.userId) return { ok: false, text: 'C’est ton propre pseudo !' };
+          const existing = get().friendships.find((f) => (f.fromId === profile.id && f.toId === session.userId) || (f.toId === profile.id && f.fromId === session.userId));
+          if (existing?.status === 'accepted') return { ok: false, text: `${profile.pseudo} est déjà ton ami.` };
+          if (existing && existing.fromId === session.userId) return { ok: false, text: `Ta demande à ${profile.pseudo} attend sa réponse.` };
+          if (existing) {
+            // il nous avait déjà demandé : on accepte
+            await acceptFriendRequest(session, profile.id);
+            await get().refreshFriends();
+            return { ok: true, text: `${profile.pseudo} et toi êtes maintenant amis !` };
+          }
+          await sendFriendRequest(session, profile.id);
+          await get().refreshFriends();
+          return { ok: true, text: `Demande envoyée à ${profile.pseudo}. Vous serez amis dès que ta demande sera acceptée.` };
+        } catch (error) {
+          return { ok: false, text: error instanceof Error ? error.message : 'Demande impossible.' };
+        }
+      },
+
+      acceptFriend: async (fromId) => {
+        const session = await freshSession().catch(() => null);
+        if (!session) return;
+        await acceptFriendRequest(session, fromId).catch((e) => set({ friendsError: e instanceof Error ? e.message : 'Impossible d’accepter.' }));
+        await get().refreshFriends();
+      },
+
+      removeFriend: async (fromId, toId) => {
+        const session = await freshSession().catch(() => null);
+        if (!session) return;
+        await deleteFriendship(session, fromId, toId).catch((e) => set({ friendsError: e instanceof Error ? e.message : 'Impossible de retirer.' }));
+        await get().refreshFriends();
       },
 
       saveNow: async () => {
@@ -204,6 +278,13 @@ export function startAutoSave(): void {
   };
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') flush();
+    else if (useAccount.getState().session) void useAccount.getState().refreshFriends();
   });
+  // les demandes d'ami reçues arrivent toutes seules (pastille sur le bouton Profil)
+  const pollFriends = () => {
+    if (useAccount.getState().session && document.visibilityState === 'visible') void useAccount.getState().refreshFriends();
+  };
+  pollFriends();
+  window.setInterval(pollFriends, 90_000);
   window.addEventListener('pagehide', flush);
 }

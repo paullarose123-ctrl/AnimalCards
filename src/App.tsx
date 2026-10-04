@@ -61,6 +61,8 @@ function Topbar() {
   const pseudo = useAccount((s) => s.session?.pseudo);
   const syncError = useAccount((s) => s.status === 'error');
   const avatar = useGame((s) => s.avatar);
+  // demandes d'ami en attente de réponse
+  const requests = useAccount((s) => (s.session ? s.friendships.filter((f) => f.status === 'pending' && f.toId === s.session!.userId).length : 0));
   const now = useNow(1000);
   const full = freePacks >= MAX_FREE_PACKS;
 
@@ -83,12 +85,17 @@ function Topbar() {
           type="button"
           className={`chip chip--profile${tab === 'profil' ? ' is-active' : ''}${pseudo ? '' : ' is-guest'}`}
           onClick={() => setTab('profil')}
-          aria-label={pseudo ? `Profil de ${pseudo}` : 'Profil : crée ton compte'}
+          aria-label={pseudo ? `Profil de ${pseudo}${requests ? `, ${requests} demande${requests > 1 ? 's' : ''} d’ami` : ''}` : 'Profil : crée ton compte'}
           title={syncError ? 'La dernière sauvegarde n’est pas partie' : pseudo ? `Profil de ${pseudo}` : 'Crée ton compte pour sauvegarder ta progression'}
         >
           <Avatar athleteId={avatar} pseudo={pseudo} />
           <span className="chip__pseudo">{pseudo ?? 'Profil'}</span>
           {syncError && <i className="chip__alert" aria-hidden="true" />}
+          {requests > 0 && (
+            <i className="badge chip__badge" title={`${requests} demande${requests > 1 ? 's' : ''} d’ami`}>
+              {requests}
+            </i>
+          )}
         </button>
         <button
           type="button"
