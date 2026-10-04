@@ -473,12 +473,24 @@ async function download() {
  * flou de la même photo ; "etendre" = la photo entière, dont le fond uni (rendus 3D et maquettes photographiées en
  * studio) est prolongé en haut et en bas jusqu'à remplir la fenêtre : l'animal reste entier, sans raccord visible.
  * Sans cadrage, sharp choisit la zone la plus intéressante.
+ * { "miroir": true, … } retourne la photo de gauche à droite (pour sortir la tête de sous la pastille de note, en haut
+ * à gauche de la carte) ; les coordonnées de « corps », « scene » ou « cadre » ([x, y, zoom]) se lisent alors sur
+ * l'image retournée.
  */
 async function renderCard(id) {
-  const raw = join(RAW_DIR, `${id}.jpg`);
+  let raw = join(RAW_DIR, `${id}.jpg`);
   const target = join(OUT_DIR, `${id}.webp`);
-  const spec = CONFIG.cadrage?.[id];
+  let spec = CONFIG.cadrage?.[id];
   const [W, H] = [600, 800];
+  if (spec && !Array.isArray(spec) && typeof spec === 'object' && (spec.miroir || spec.cadre)) {
+    if (spec.miroir) {
+      const mirrored = join(RAW_DIR, '..', 'miroir', `${id}.jpg`);
+      mkdirSync(join(RAW_DIR, '..', 'miroir'), { recursive: true });
+      await sharp(raw).flop().jpeg({ quality: 92 }).toFile(mirrored);
+      raw = mirrored;
+    }
+    spec = spec.corps ? { corps: spec.corps } : spec.scene ? { scene: spec.scene } : spec.cadre;
+  }
   if (spec && !Array.isArray(spec) && typeof spec === 'object' && spec.corps) {
     return renderBody(raw, target, spec.corps, W, H);
   }

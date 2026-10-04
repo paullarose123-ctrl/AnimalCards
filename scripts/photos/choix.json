@@ -1,18 +1,47 @@
 {
-  "abeille": "Succisa pratensis - Apis mellifera mellifera - Keila2.jpg",
+  "abeille": {
+    "url": "https://cdn.pixabay.com/photo/2013/07/26/16/23/bee-167789_1280.jpg",
+    "page": "https://pixabay.com/photos/bee-insect-lavender-honey-bee-167789/",
+    "auteur": "Hans"
+  },
   "aepyornis": "Aepyornis maximus.tif",
   "aigle-royal": "016 Wild Golden Eagle in flight at Pfyn-Finges (Switzerland) Photo by Giles Laurent.jpg",
-  "albatros": "Wanderer - Christopher Watson.jpg",
-  "alligator": "Mississippi alligator lying with mouth open - DPLA - 6b7074b0b4044a535f5f27f6ad2adf39.jpg",
+  "albatros": {
+    "url": "https://cdn.pixabay.com/photo/2017/04/18/14/23/albatross-2239254_1280.jpg",
+    "page": "https://pixabay.com/photos/albatross-bird-beak-2239254/",
+    "auteur": "angelicabest"
+  },
+  "alligator": {
+    "url": "https://cdn.pixabay.com/photo/2019/02/24/16/31/alligator-4017962_1280.jpg",
+    "page": "https://pixabay.com/photos/alligator-danger-wild-creature-4017962/",
+    "auteur": "kdigitalpro"
+  },
   "allosaure": {
     "url": "https://cdn.pixabay.com/photo/2023/12/10/10/45/ai-generated-8441049_1280.jpg",
     "page": "https://pixabay.com/illustrations/ai-generated-dinosaur-8441049/",
     "auteur": "Jimbo457"
   },
-  "alpaga": "Dülmen, Börnste, Alpakas -- 2020 -- 5465.jpg",
+  "alpaga": {
+    "url": "https://cdn.pixabay.com/photo/2019/11/25/09/28/alpaca-4651426_1280.jpg",
+    "page": "https://pixabay.com/photos/alpaca-farm-mammal-cattle-nature-4651426/",
+    "auteur": "Elsemargriet"
+  },
   "anaconda": "Sucuri verde.jpg",
-  "ane": "Donkey (Equus africanus asinus) at Devín Castle (Bratislava, Slovakia) julesvernex2.jpg",
-  "anemone": "Peces payaso (Amphiprion bicinctus) en una anémona magnífica (Heteractis magnifica), mar Rojo, Egipto, 2023-04-17, DD 44.jpg",
+  "ane": {
+    "url": "https://cdn.pixabay.com/photo/2020/04/13/12/20/donkey-5038112_1280.jpg",
+    "page": "https://pixabay.com/photos/donkey-equine-herbivorous-5038112/",
+    "auteur": "JACLOU-DL"
+  },
+  "anemone": {
+    "url": "https://cdn.pixabay.com/photo/2015/02/13/13/24/anemone-635164_1280.jpg",
+    "page": "https://pixabay.com/photos/anemone-water-aquarium-sea-reef-635164/",
+    "auteur": "Tomasz_Mikolajczyk"
+  },
+  "anguille": {
+    "url": "https://cdn.pixabay.com/photo/2026/03/29/13/17/13-17-09-151_1280.jpg",
+    "page": "https://pixabay.com/photos/eel-electric-fish-underwater-dark-10198425/",
+    "auteur": "GabruPawPixels"
+  },
   "ankylosaure": {
     "url": "https://cdn.pixabay.com/photo/2024/02/08/22/14/ai-generated-8561926_1280.jpg",
     "page": "https://pixabay.com/illustrations/ai-generated-ankylosaurus-dinosaurs-8561926/",
@@ -31,7 +60,11 @@
     "page": "https://pixabay.com/illustrations/ai-generated-sauropod-dinosaur-9082674/",
     "auteur": "AiArtista"
   },
-  "atele": "Geoffroy's spider monkey (Ateles geoffroyi yucatanensis) male Peten.jpg",
+  "atele": {
+    "url": "https://cdn.pixabay.com/photo/2019/10/13/15/52/spider-monkey-4546438_1280.jpg",
+    "page": "https://pixabay.com/photos/spider-monkey-monkey-primate-ape-4546438/",
+    "auteur": "Pixabay"
+  },
   "aurochs": {
     "url": "https://cdn.pixabay.com/photo/2021/11/13/20/57/aurochs-6792372_1280.jpg",
     "page": "https://pixabay.com/photos/aurochs-ox-aurochsen-urus-ure-6792372/",
@@ -39,41 +72,86 @@
   },
   "autour": "Poiana interessata.jpg",
   "autruche": "Avestruz de cuello azul (Struthio camelus australis), cabo de Buena Esparanza, Sudáfrica, 2018-07-23, DD 87.jpg",
-  "axolotl": "MAC axolotl.webp",
+  "axolotl": {
+    "url": "https://cdn.pixabay.com/photo/2025/11/10/13/00/axolotl-9947992_1280.png",
+    "page": "https://pixabay.com/illustrations/axolotl-nature-animal-amphibian-9947992/",
+    "auteur": "AlmaSelvagem"
+  },
   "babouin": "Chacma baboon (Papio ursinus griseipes) female head 2.jpg",
   "baiji": {
     "url": "https://cdn.pixabay.com/photo/2026/04/18/13/01/13-01-19-468_1280.jpg",
     "page": "https://pixabay.com/photos/dolphin-irrawaddy-dolphin-river-10233824/",
     "auteur": "GabruPawPixels"
   },
-  "balbuzard": "Balbuzard pecheur Lac de Tunis.jpg",
-  "baleine-a-bosse": "Baleine à bosse et son baleineau 2.jpg",
+  "balbuzard": {
+    "url": "https://cdn.pixabay.com/photo/2021/06/22/20/10/osprey-6357148_1280.jpg",
+    "page": "https://pixabay.com/photos/osprey-bird-raptor-flying-animal-6357148/",
+    "auteur": "GregSabin"
+  },
+  "baleine-a-bosse": {
+    "url": "https://cdn.pixabay.com/photo/2022/10/25/20/18/humpback-whale-7546810_1280.jpg",
+    "page": "https://pixabay.com/photos/humpback-whale-whale-ocean-sea-7546810/",
+    "auteur": "DesignScape"
+  },
   "baleine-bleue": "Blue Whale 001 body bw.jpg",
-  "barracuda": "Barracuda see from Underwater Tunnel Atlantis 2.jpg",
+  "barracuda": {
+    "url": "https://cdn.pixabay.com/photo/2026/09/26/12/55/12-55-34-82_1280.jpg",
+    "page": "https://pixabay.com/photos/barracuda-school-fish-silver-10493422/",
+    "auteur": "BuchArena"
+  },
   "basilic": "Female common basilisk, Costa Rica.JPG",
   "baudroie": "Melanocetus johnsonii1.jpg",
   "belette": "Mustela nivalis 355302903.jpg",
   "beluga": "Beluga 1 1999-07-03 cropped.jpg",
   "bernard-l-ermite": "Hermit crab - Long Island - Mahe - Seychelles - 03.jpg",
   "bilby": "Greater bilby at its burrow, Astrebla Downs National Park, 2024.jpg",
-  "bison": "American bison k5680-1.jpg",
-  "bison-d-europe": "European bison (Bison bonasus) male Białowieza.jpg",
+  "bison": {
+    "url": "https://cdn.pixabay.com/photo/2019/05/06/22/00/bison-4184433_1280.jpg",
+    "page": "https://pixabay.com/photos/bison-american-big-majestic-4184433/",
+    "auteur": "veverkolog"
+  },
+  "bison-d-europe": {
+    "url": "https://cdn.pixabay.com/photo/2021/04/14/14/19/animal-6178537_1280.jpg",
+    "page": "https://pixabay.com/photos/animal-pasture-european-bison-bison-6178537/",
+    "auteur": "Georg_Wietschorke"
+  },
   "blaireau": "European badger (Meles meles taxus) Drenthe 2.jpg",
-  "bongo": "Mountain bongo mount kenya.jpg",
-  "bonobo": "Pan paniscus (female).jpg",
+  "bongo": {
+    "url": "https://cdn.pixabay.com/photo/2016/11/23/01/03/animal-1851591_1280.jpg",
+    "page": "https://pixabay.com/photos/animal-antelope-bongo-endangered-1851591/",
+    "auteur": "Pexels"
+  },
+  "bonobo": {
+    "url": "https://cdn.pixabay.com/photo/2026/02/07/12/51/erwinbosman-bonobo-10109690_1280.jpg",
+    "page": "https://pixabay.com/photos/bonobo-primate-chimpanzee-great-ape-10109690/",
+    "auteur": "erwinbosman"
+  },
   "bouquetin": "Israel-2013-Makhtesh Ramon 02 (Ibex).jpg",
   "bouquetin-des-pyrenees": {
     "url": "https://cdn.pixabay.com/photo/2025/06/05/14/26/ibex-9643122_1280.jpg",
     "page": "https://pixabay.com/photos/ibex-capra-ibex-horns-alps-animal-9643122/",
     "auteur": "Adrien_Stachowiak"
   },
-  "bourdon": "Abeja (Bombus terrestris) en un Ptilotus exaltatus, jardín botánico de Tallin, Estonia, 2012-08-12, DD 01.JPG",
+  "bourdon": {
+    "url": "https://cdn.pixabay.com/photo/2017/05/23/22/09/hummel-2338763_1280.jpg",
+    "page": "https://pixabay.com/photos/bumblebee-insect-pollen-pollination-2338763/",
+    "auteur": "adege"
+  },
+  "bousier": {
+    "url": "https://cdn.pixabay.com/photo/2021/03/02/14/02/beetle-6062572_1280.jpg",
+    "page": "https://pixabay.com/photos/beetle-insect-leaf-dung-beetle-6062572/",
+    "auteur": "Gab-Rysia"
+  },
   "brachiosaure": {
     "url": "https://cdn.pixabay.com/photo/2025/12/16/18/40/dinosaur-10018990_1280.png",
     "page": "https://pixabay.com/illustrations/dinosaur-sauropod-brachiosaurus-10018990/",
     "auteur": "skystars78"
   },
-  "brochet": "Northern pike fish underwater esox lucius linnaeus.jpg",
+  "brochet": {
+    "url": "https://cdn.pixabay.com/photo/2020/06/22/10/54/pike-5328779_1280.jpg",
+    "page": "https://pixabay.com/photos/pike-fish-water-plants-5328779/",
+    "auteur": "MartinPhotography"
+  },
   "buffle": {
     "url": "https://cdn.pixabay.com/photo/2013/02/24/14/31/water-buffalo-85662_1280.jpg",
     "page": "https://pixabay.com/photos/water-buffalo-africa-animal-buffalo-85662/",
@@ -83,11 +161,19 @@
   "buse": "Steppe buzzard (Buteo buteo vulpinus).jpg",
   "cachalot": "Destination Kaikoura-514081-sperm-whale.jpg",
   "calao": "Great Hornbill Goa.jpg",
-  "calmar-geant": "Giant squid Ranheim.jpg",
+  "calmar-geant": {
+    "url": "https://cdn.pixabay.com/photo/2016/07/30/07/19/squid-1556512_1280.jpg",
+    "page": "https://pixabay.com/photos/squid-creature-fish-ocean-life-1556512/",
+    "auteur": "whitelily"
+  },
   "cameleon": "Furcifer pardalis 004.jpg",
   "capucin": "Black-striped capuchin (Cebus libidinosus) Pantanal.jpg",
   "capybara": "Hydrochoerus hydrochaeris 188912237.jpg",
-  "caracal": "Caracal caracal caracal 186538043.jpg",
+  "caracal": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/14/00/54/ray_shrewsberry-caracal-10225436_1280.png",
+    "page": "https://pixabay.com/photos/caracal-animal-nature-cat-wildcat-10225436/",
+    "auteur": "Ray_Shrewsberry"
+  },
   "carpe-koi": "Fish pond in Sun World Halong Park. Ha Long Town, Vietnam, 20240129 1534 4200.jpg",
   "casoar": "Casuarius casuarius 452632030.jpg",
   "cecilie": "Presumed Microcaecilia dermatophaga mother with two hatchlings - journal.pone.0057756.g006-right.png",
@@ -95,34 +181,80 @@
   "chacal-a-chabraque": "136 Black-backed jackal hunting for food at Cape cross Photo by Giles Laurent.jpg",
   "chacal-dore": "Canis aureus - golden jackal.jpg",
   "chamois": "Gämse (Rupicapra rupicapra) auf dem Ornach 07.jpg",
-  "chat": "Cat in Efremov, Russia1.jpg",
+  "chat": {
+    "url": "https://cdn.pixabay.com/photo/2012/10/12/17/12/cat-61079_1280.jpg",
+    "page": "https://pixabay.com/photos/cat-pet-animal-mackerel-cat-61079/",
+    "auteur": "LoggaWiggler"
+  },
   "chat-des-sables": "Sand cat (Kuwait).jpg",
   "chat-forestier": "Cat November 2010-1a.jpg",
   "chat-rubigineux": "Rusty spotted cat, crop.jpg",
   "chat-viverrin": "Close-up of fishing cat.jpg",
   "cheval": "White horse in field.jpg",
+  "cheval-de-przewalski": {
+    "url": "https://cdn.pixabay.com/photo/2022/05/16/19/18/horse-7201032_1280.jpg",
+    "page": "https://pixabay.com/photos/horse-brown-horse-farm-animal-7201032/",
+    "auteur": "dendoktoor"
+  },
   "cheveche": "Athene cunicularia -near Goiania, Goias, Brazil-8 edit.jpg",
-  "chevre": "Capra aegagrus hircus, Moers.jpg",
+  "chevre": {
+    "url": "https://cdn.pixabay.com/photo/2013/10/20/17/11/goat-in-austria-198455_1280.jpg",
+    "page": "https://pixabay.com/photos/goat-in-austria-austria-goat-198455/",
+    "auteur": "Pixel-Sepp"
+  },
   "chevreuil": "Capriolo maschio.jpg",
   "chien": "2-BerneseMountainDogInGrass.jpg",
   "chien-de-prairie": "Cynomys ludovicianus GNP 21.jpg",
-  "chien-viverrin": "Nyctereutes procyonoides viverrinus.jpg",
+  "chien-viverrin": {
+    "url": "https://cdn.pixabay.com/photo/2015/08/02/19/57/raccoon-dog-871608_1280.jpg",
+    "page": "https://pixabay.com/photos/raccoon-dog-tanuki-enok-fruit-fuchs-871608/",
+    "auteur": "Bru-nO"
+  },
   "chimpanze": "016 Alpha male chimpanzee walking at Kibale forest National Park Photo by Giles Laurent.jpg",
-  "chinchilla": "Chinchilla-Patchouli.jpg",
+  "chinchilla": {
+    "url": "https://cdn.pixabay.com/photo/2017/09/30/15/52/chinchilla-2802457_1280.jpg",
+    "page": "https://pixabay.com/photos/chinchilla-grey-standing-2802457/",
+    "auteur": "thefly25"
+  },
   "chirurgien-bleu": "Paracanthurus hepatus 354753703.jpg",
   "cigale": "Purana-Kadavoor-2017-06-03-002.jpg",
   "cigogne": "Bocian biały, Grocholice w województwie świętokrzyskim, 20250419 1013 3879.jpg",
   "circaete": "Short-toed Snake-Eagle in Bhigwan August 2025 by Tisha Mukherjee 01.jpg",
-  "cobra-royal": "Ophiophagus-hannah-kaeng-krachan-national-park.jpg",
+  "cobra-royal": {
+    "url": "https://cdn.pixabay.com/photo/2026/08/09/19/41/19-41-39-48_1280.jpg",
+    "page": "https://pixabay.com/photos/king-cobra-snake-reptile-dangerous-10419614/",
+    "auteur": "flutie8211"
+  },
   "coccinelle": "Coccinella d'autunno.jpg",
-  "cochon": "Black-African-Piglet.jpg",
+  "cochon": {
+    "url": "https://cdn.pixabay.com/photo/2016/02/05/11/55/pig-1180787_1280.jpg",
+    "page": "https://pixabay.com/photos/pig-breeding-pink-1180787/",
+    "auteur": "DESPIERRES"
+  },
   "cochon-d-inde": "220620 - guinea pig - Laura Pernigoni.jpg",
   "colibri": "Buff-tailed coronet (Boissonneaua flavescens flavescens) Caldas.jpg",
+  "colobe": {
+    "url": "https://cdn.pixabay.com/photo/2014/03/06/10/14/colobus-280706_1280.jpg",
+    "page": "https://pixabay.com/photos/colobus-ape-mantle-monkey-africa-280706/",
+    "auteur": "RoDobby"
+  },
   "condor": "Andean condor (Vultur gryphus) male Farellones.jpg",
-  "corail": "Brain coral.jpg",
+  "corail": {
+    "url": "https://cdn.pixabay.com/photo/2018/08/24/17/33/coral-3628406_1280.jpg",
+    "page": "https://pixabay.com/photos/coral-reef-sea-nature-wildlife-3628406/",
+    "auteur": "marcelokato"
+  },
   "corbeau": "Towerrabe.png",
-  "couleuvre": "086 Wild Grass snake at Lake Geneva Photo by Giles Laurent.jpg",
-  "coyote": "Urban Coyote, Bernal Heights.jpg",
+  "couleuvre": {
+    "url": "https://cdn.pixabay.com/photo/2013/11/19/07/10/snake-213120_1280.jpg",
+    "page": "https://pixabay.com/photos/line-creature-snakehead-213120/",
+    "auteur": "Michi8989"
+  },
+  "coyote": {
+    "url": "https://cdn.pixabay.com/photo/2021/07/30/15/33/coyote-6510080_1280.jpg",
+    "page": "https://pixabay.com/photos/coyote-animal-wildlife-predator-6510080/",
+    "auteur": "MargSkogland"
+  },
   "crabe-de-cocotier": "Crabe cocotiers Birgus latro (Linnaeus 1777).jpg",
   "crabe-royal": "Paralithodes camtschaticus running on Kola Bay seafloor.jpg",
   "crapaud-buffle": "Rhinella marina near rainwater pools 7th Brigade Park Chermside P1090820.jpg",
@@ -135,11 +267,27 @@
   "crecerelle": "Common kestrel on a tree in Kraków, 20250412 1051 3635.jpg",
   "crevette-mante": "Odontodactylus scyllarus 60094688.jpg",
   "criquet-pelerin": "Locusts - Pappliaman Malai.jpg",
-  "crocodile-du-nil": "Nile crocodile in Chobe National Park 01.jpg",
-  "crocodile-marin": "Krokodil Adelaide River.JPG",
-  "crotale": "Crotalus adamanteus 153494033.jpg",
+  "crocodile-du-nil": {
+    "url": "https://cdn.pixabay.com/photo/2026/02/10/21/09/zlapane_chwile-crocodile-10116116_1280.jpg",
+    "page": "https://pixabay.com/photos/crocodile-nile-crocodile-reptile-10116116/",
+    "auteur": "Złapane_Chwile"
+  },
+  "crocodile-marin": {
+    "url": "https://cdn.pixabay.com/photo/2018/09/28/03/15/crocodile-3708384_1280.jpg",
+    "page": "https://pixabay.com/photos/crocodile-australia-reptile-3708384/",
+    "auteur": "Ponypaparazzi"
+  },
+  "crotale": {
+    "url": "https://cdn.pixabay.com/photo/2024/04/12/05/03/ai-generated-8691121_1280.jpg",
+    "page": "https://pixabay.com/illustrations/ai-generated-rattlesnake-snake-8691121/",
+    "auteur": "Ray_Shrewsberry"
+  },
   "cygne": "Cygnus olor, Brzeźnica, 20230729 0809 7268.jpg",
-  "dauphin": "010 Atlantic bottlenose dolphin jumping at Pelican point Photo by Giles Laurent.jpg",
+  "dauphin": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/08/16/34/ashika006-ocean-10216107_1280.jpg",
+    "page": "https://pixabay.com/photos/ocean-sea-dolphin-ai-generated-10216107/",
+    "auteur": "Ashika006"
+  },
   "dauphin-rose": "Inia geoffrensis 175141085.jpg",
   "deinosuchus": {
     "url": "https://cdn.pixabay.com/photo/2025/04/07/05/14/ai-generated-9518268_1280.jpg",
@@ -152,20 +300,28 @@
   "dik-dik": "Tarangire Kirk-Dikdik3.jpg",
   "dimetrodon": "Dimetrodon loomisi DB.jpg",
   "dindon": "Male wild turkey (Meleagris gallopavo) strutting.jpg",
-  "dingo": "Dingo (Canis lupus dingo) Kakadu.jpg",
+  "dingo": {
+    "url": "https://cdn.pixabay.com/photo/2022/11/21/08/28/canine-7606263_1280.jpg",
+    "page": "https://pixabay.com/photos/canine-dingo-australian-dingo-7606263/",
+    "auteur": "Pixabay"
+  },
   "diplodocus": {
     "url": "https://cdn.pixabay.com/photo/2023/10/25/17/45/dinosaur-8340972_1280.png",
     "page": "https://pixabay.com/illustrations/dinosaur-diplodocus-drinks-8340972/",
     "auteur": "a_scarcy"
   },
   "dodo": {
-    "url": "https://cdn.pixabay.com/photo/2025/05/02/15/39/ai-generated-9574145_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-bird-dodo-dinosaur-9574145/",
-    "auteur": "38632863"
+    "url": "https://cdn.pixabay.com/photo/2023/11/06/07/24/ai-generated-8369006_1280.png",
+    "page": "https://pixabay.com/illustrations/ai-generated-dodo-bird-animal-8369006/",
+    "auteur": "Pixabay"
   },
   "dragon-de-komodo": "Komodo Dragons in the wild on Rinca island Indonesia..jpg",
   "dromadaire": "Pair of dromedaries.jpg",
-  "dugong": "Dugong in Andaman Islands.jpg",
+  "dugong": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/06/17/34/17-34-36-431_1280.jpg",
+    "page": "https://pixabay.com/photos/dugong-sea-underwater-seagrass-10212406/",
+    "auteur": "GabruPawPixels"
+  },
   "dunkleosteus": {
     "url": "https://live.staticflickr.com/65535/54024954589_5d6daa2f51_b.jpg",
     "page": "https://www.flickr.com/photos/130140542@N03/54024954589",
@@ -175,33 +331,94 @@
   },
   "dynaste-hercule": "Dynastes hercules (female).jpg",
   "echidne": "Tachyglossus aculeatus – Short-beaked echidna – Kolczatka australijska.jpg",
-  "ecureuil-roux": "Wiewiórka w Parku Bednarskiego w Krakowie, 20241117 0903 2747.jpg",
+  "ecureuil-roux": {
+    "url": "https://cdn.pixabay.com/photo/2021/12/12/22/12/red-squirrel-6867099_1280.jpg",
+    "page": "https://pixabay.com/photos/red-squirrel-squirrel-animal-rodent-6867099/",
+    "auteur": "brigitteJ"
+  },
   "effraie": "Tyto alba tylluan wen.jpg",
   "elan": "Bull moose with reflection.jpg",
   "elephant": "Elefante africano de sabana (Loxodonta africana), parque nacional de Amboseli, Kenia, 2024-05-22, DD 07.jpg",
-  "elephant-d-asie": "Front view of an Asian elephant walking in Tad Lo river at golden hour, Bolaven Plateau, Laos.jpg",
-  "elephant-de-foret": "African forest elephant displaying defensive posture at Dzanga Bai.jpg",
+  "elephant-d-asie": {
+    "url": "https://cdn.pixabay.com/photo/2019/09/18/16/30/elephant-4487095_1280.jpg",
+    "page": "https://pixabay.com/photos/elephant-itch-tree-trunk-wild-4487095/",
+    "auteur": "thestorychef"
+  },
+  "elephant-de-foret": {
+    "url": "https://cdn.pixabay.com/photo/2022/02/04/08/53/elephant-6992329_1280.jpg",
+    "page": "https://pixabay.com/photos/elephant-animal-forest-wildlife-6992329/",
+    "auteur": "PavanPrasad_IND"
+  },
   "elephant-de-mer": "2020-11 Kerguelen Islands - Southern elephant seal 30.jpg",
-  "epeire": "Araneus diadematus, Livorno 1.JPG",
-  "escargot": "Helix pomatia 2021 G4.jpg",
+  "emeu": {
+    "url": "https://cdn.pixabay.com/photo/2015/02/08/20/46/ostrich-629050_1280.jpg",
+    "page": "https://pixabay.com/photos/ostrich-emu-fauna-australia-629050/",
+    "auteur": "IsabelVdN"
+  },
+  "epeire": {
+    "url": "https://cdn.pixabay.com/photo/2017/06/12/08/52/spider-2394870_1280.jpg",
+    "page": "https://pixabay.com/photos/spider-garden-spider-araneus-nature-2394870/",
+    "auteur": "Kathy_Büscher"
+  },
+  "escargot": {
+    "url": "https://cdn.pixabay.com/photo/2023/05/07/17/25/snail-7976786_1280.jpg",
+    "page": "https://pixabay.com/photos/snail-shell-mollusk-gastropod-7976786/",
+    "auteur": "jbooba"
+  },
   "espadon": "Espadon (Xiphias gladius) (Ifremer 00764-87622).jpg",
-  "esturgeon": "Stör - Sturgeon.jpg",
-  "etoile-de-mer": "Fromia indica Landaagiraavaru.JPG",
+  "esturgeon": {
+    "url": "https://cdn.pixabay.com/photo/2016/11/15/22/50/kapitaler-stoer-1827761_1280.jpg",
+    "page": "https://pixabay.com/photos/kapitaler-sturgeon-large-aquarium-1827761/",
+    "auteur": "hpgruesen"
+  },
+  "etoile-de-mer": {
+    "url": "https://cdn.pixabay.com/photo/2014/09/19/19/21/starfish-452927_1280.jpg",
+    "page": "https://pixabay.com/photos/starfish-red-aquarium-red-starfish-452927/",
+    "auteur": "Hans"
+  },
   "exocet": "Pink-wing flying fish.jpg",
   "faucon-pelerin": "Peregrine Falcon (male) cropped.jpg",
-  "fennec": "Algerie Blida Chiffa Source de Singes (73) Fenec.jpg",
+  "fennec": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/08/11/44/11-44-02-815_1280.jpg",
+    "page": "https://pixabay.com/photos/fennec-desert-sand-sunset-ears-10215590/",
+    "auteur": "GabruPawPixels"
+  },
   "flamant-rose": "017 Greater flamingo drinking in the Camargue Photo by Giles Laurent.jpg",
   "fossa": "Cryptoprocta ferox.jpg",
   "fourmi": "Camponotus herculeanus queen high res.jpg",
   "fourmilier": "Myrmecophaga tridactyla, Pantanal region, Brazil.jpg",
-  "frelon": "Vespa crabro ventral 03.jpg",
-  "frelon-geant": "Vespa mandarinia japonica2.jpg",
+  "frelon": {
+    "url": "https://cdn.pixabay.com/photo/2023/10/01/14/13/hornet-8287485_1280.jpg",
+    "page": "https://pixabay.com/photos/hornet-wasp-insect-entomology-8287485/",
+    "auteur": "Lesbains39"
+  },
+  "frelon-geant": {
+    "url": "https://cdn.pixabay.com/photo/2023/10/23/08/17/asian-giant-hornet-8335576_1280.jpg",
+    "page": "https://pixabay.com/photos/asian-giant-hornet-insect-leaf-8335576/",
+    "auteur": "DerWeg"
+  },
   "fugu": "Takifugu rubripes juvenile 1.jpg",
-  "furet": "Iltisfrettchen.jpg",
-  "gavial": "Gharial (Gavialis gangeticus) female.jpg",
+  "furet": {
+    "url": "https://cdn.pixabay.com/photo/2022/05/03/16/27/ferret-7172135_1280.jpg",
+    "page": "https://pixabay.com/photos/ferret-pet-animal-mustelidae-field-7172135/",
+    "auteur": "Darya-Greengrey"
+  },
+  "gavial": {
+    "url": "https://cdn.pixabay.com/photo/2014/02/27/16/09/gavial-275959_1280.jpg",
+    "page": "https://pixabay.com/photos/gavial-gharial-alligator-animal-275959/",
+    "auteur": "PublicDomainPictures"
+  },
   "gazelle": "Serengeti Thomson-Gazelle3.jpg",
-  "gecko": "Gekko gecko 14168715.jpg",
-  "gelada": "Southern gelada (Theropithecus gelada obscurus) male.jpg",
+  "gecko": {
+    "url": "https://cdn.pixabay.com/photo/2020/10/13/18/18/gecko-5652518_1280.jpg",
+    "page": "https://pixabay.com/photos/gecko-animal-wildlife-tokay-gecko-5652518/",
+    "auteur": "SharkLin"
+  },
+  "gelada": {
+    "url": "https://cdn.pixabay.com/photo/2026/05/21/10/41/10-41-12-442_1280.jpg",
+    "page": "https://pixabay.com/photos/gelada-primate-baboon-nature-10291267/",
+    "auteur": "IQSPhotography"
+  },
   "gerenuk": "Litocranius walleri walleri 388183522.jpg",
   "gibbon": "Hylobates lar - Kaeng Krachan WB.jpg",
   "giganotosaure": {
@@ -209,11 +426,19 @@
     "page": "https://pixabay.com/illustrations/ai-generated-tyrannosaurus-t-rex-8738055/",
     "auteur": "Artie_Navarre"
   },
-  "girafe": "Giraffa camelopardalis angolensis (mating).jpg",
+  "girafe": {
+    "url": "https://cdn.pixabay.com/photo/2023/01/09/22/08/giraffe-7708387_1280.jpg",
+    "page": "https://pixabay.com/photos/giraffe-animal-safari-wildlife-7708387/",
+    "auteur": "NRay91"
+  },
   "glouton": "The wolverine in the wilderness (48112068898).jpg",
   "gnou": "Ñu común (Connochaetes taurinus), parque nacional de Amboseli, Kenia, 2024-05-23, DD 16.jpg",
   "goliath": "Goliathus goliatus ventre.jpg",
-  "gorille": "Mountain gorilla (Gorilla beringei beringei) 2-year-old 2.jpg",
+  "gorille": {
+    "url": "https://cdn.pixabay.com/photo/2015/01/24/18/18/gorilla-610457_1280.jpg",
+    "page": "https://pixabay.com/photos/gorilla-silverback-monkey-primate-610457/",
+    "auteur": "Sponchia"
+  },
   "grand-duc": "Flaco (86944).jpg",
   "grand-pingouin": {
     "url": "https://cdn.pixabay.com/photo/2025/01/16/17/31/great-auk-9338054_1280.jpg",
@@ -222,22 +447,47 @@
   },
   "grenouille-de-verre": "Glass frog (Centrolenidae) in Mindo (Ecuador) (21090206496).jpg",
   "grenouille-goliath": "Conraua goliath photo from iNaturalist 539752953.jpg",
-  "grenouille-verte": "Rana esculenta on Nymphaea edit.JPG",
+  "grenouille-verte": {
+    "url": "https://cdn.pixabay.com/photo/2023/12/05/15/36/frog-8431942_1280.jpg",
+    "page": "https://pixabay.com/photos/frog-green-frog-amphibian-nature-8431942/",
+    "auteur": "IndigoBunting"
+  },
   "grizzly-de-californie": {
-    "url": "https://cdn.pixabay.com/photo/2014/08/20/17/21/bear-422682_1280.jpg",
-    "page": "https://pixabay.com/photos/bear-brown-bear-mammal-animal-422682/",
-    "auteur": "Bergadder"
+    "url": "https://cdn.pixabay.com/photo/2022/09/17/10/57/brown-bear-7460699_1280.jpg",
+    "page": "https://pixabay.com/photos/brown-bear-bear-predator-animal-7460699/",
+    "auteur": "ambquinn"
   },
   "grue": "Crane (Grus grus) Slimbridge.jpg",
-  "guepe": "Vespula rufa on bupleurum falcatum Richard Bartz.jpg",
-  "gypaete": "Bartgeier Gypaetus barbatus front Richard Bartz.jpg",
+  "guepe": {
+    "url": "https://cdn.pixabay.com/photo/2020/09/15/06/56/paper-wasps-5572866_1280.jpg",
+    "page": "https://pixabay.com/photos/paper-wasps-wasps-wasp-nest-nest-5572866/",
+    "auteur": "makamuki0"
+  },
+  "gymnote": {
+    "url": "https://cdn.pixabay.com/photo/2026/03/29/13/17/13-17-09-151_1280.jpg",
+    "page": "https://pixabay.com/photos/eel-electric-fish-underwater-dark-10198425/",
+    "auteur": "GabruPawPixels"
+  },
+  "gypaete": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/24/14/53/14-53-32-950_1280.jpg",
+    "page": "https://pixabay.com/photos/vulture-bird-bearded-raptor-10244835/",
+    "auteur": "GabruPawPixels"
+  },
   "hamster": "Juvenile Female Mesocricetus auratus in Pet Store enclosure, Illinois, USA.jpg",
   "harpie": "Gavião-real - FLONA de Carajás - Luiz Fernando Matos(001).jpg",
   "heloderme": "Gila monster (16093662778).jpg",
   "herisson": "Erinaceus europaeus 3.JPG",
   "hermine": "035 Stoat in winter coat in Parc naturel régional Jura vaudois Photo by Giles Laurent.jpg",
-  "hippocampe": "Hippocampus hippocampus (on Ascophyllum nodosum).jpg",
-  "hippopotame": "Chobe River Front, Botswana (2625496300).jpg",
+  "hippocampe": {
+    "url": "https://cdn.pixabay.com/photo/2022/06/29/12/09/seahorse-7291590_1280.jpg",
+    "page": "https://pixabay.com/photos/seahorse-bony-fish-sea-water-ocean-7291590/",
+    "auteur": "Wildfaces"
+  },
+  "hippopotame": {
+    "url": "https://cdn.pixabay.com/photo/2017/08/14/20/38/hippopotamus-2641870_1280.jpg",
+    "page": "https://pixabay.com/photos/hippopotamus-hippo-zoo-mammal-2641870/",
+    "auteur": "onkelramirez1"
+  },
   "hippopotame-nain": {
     "url": "https://cdn.pixabay.com/photo/2026/03/26/11/22/gabrupawpixels-pygmy-10194168_1280.jpg",
     "page": "https://pixabay.com/photos/pygmy-hippo-hippopotamus-stream-10194168/",
@@ -261,7 +511,11 @@
   "jaguar": "Jaguar in the Pantanal.jpg",
   "jaguarondi": "Herpailurus yagouaroundi 98473168.jpg",
   "kangourou": "Red Kangaroos at Sturt National Park NSW.jpg",
-  "kea": "Kea by Mueller Hut, Aoraki - Mount Cook National Park, New Zealand 22.jpg",
+  "kea": {
+    "url": "https://cdn.pixabay.com/photo/2020/02/20/18/58/kea-4865533_1280.jpg",
+    "page": "https://pixabay.com/photos/kea-bird-animal-mountain-parrot-4865533/",
+    "auteur": "Makalu"
+  },
   "kiwi": {
     "url": "https://cdn.pixabay.com/photo/2024/02/26/13/45/kiwi-bird-8597995_1280.jpg",
     "page": "https://pixabay.com/illustrations/kiwi-bird-kiwi-cute-kiwi-bird-8597995/",
@@ -270,38 +524,84 @@
   "koala": "Black Hill Conservation Park on 27 June 2025 08.jpg",
   "kodiak": "2010-brown-bear.jpg",
   "koudou": "Tragelaphus strepsiceros ♂ (head).jpg",
-  "lama": "Lama 1 Luc Viatour.jpg",
+  "lama": {
+    "url": "https://cdn.pixabay.com/photo/2022/09/01/19/13/llama-7426074_1280.jpg",
+    "page": "https://pixabay.com/photos/llama-animal-mammal-wildlife-7426074/",
+    "auteur": "Pezibear"
+  },
+  "lamantin": {
+    "url": "https://cdn.pixabay.com/photo/2025/02/13/00/22/manatee-9402685_1280.jpg",
+    "page": "https://pixabay.com/illustrations/manatee-nature-underwater-marine-9402685/",
+    "auteur": "flutie8211"
+  },
   "lapin": "Oryctolagus cuniculus Rcdo.jpg",
   "lemming": "Tunturisopuli Lemmus Lemmus.jpg",
-  "lemur-catta": "Ring-tailed lemur (Lemur catta) Vakona.jpg",
-  "leopard": "Leopard (Panthera pardus pardus) Kruger 3.jpg",
+  "lemur-catta": {
+    "url": "https://cdn.pixabay.com/photo/2018/05/12/20/15/lemur-3394482_1280.jpg",
+    "page": "https://pixabay.com/photos/lemur-ring-tailed-lemur-wildlife-3394482/",
+    "auteur": "RoyBuri"
+  },
+  "leopard": {
+    "url": "https://cdn.pixabay.com/photo/2023/07/08/11/30/leopard-8114254_1280.jpg",
+    "page": "https://pixabay.com/photos/leopard-animal-mammal-feline-beast-8114254/",
+    "auteur": "katerinavulcova"
+  },
   "leopard-de-mer": "Hydrurga leptonyx on ice.jpg",
-  "lezard-vert": "Young Lacerta bilineata 03.jpg",
+  "lezard-vert": {
+    "url": "https://cdn.pixabay.com/photo/2022/03/10/17/58/western-green-lizard-7060414_1280.jpg",
+    "page": "https://pixabay.com/photos/western-green-lizard-lizard-animal-7060414/",
+    "auteur": "AmayaArt"
+  },
   "libellule": "2015.08.07.-02-Anglersee Huettenfeld-Lampertheim--Grosse Koenigslibelle-Maennchen.jpg",
   "lievre": "Zając szarak na polu w Grocholicach w gminie Sadowie w województwie świętokrzyskim, 20260419 0913 5163.jpg",
   "lion": "Lion (Panthera leo) male 6y.jpg",
-  "lion-d-asie": "Asiatic Lion Royal Walk at Gir National Park, Gujrat, India.jpg",
+  "lion-d-asie": {
+    "url": "https://cdn.pixabay.com/photo/2023/06/29/10/33/lion-8096155_1280.png",
+    "page": "https://pixabay.com/photos/lion-feline-mane-barbary-lion-8096155/",
+    "auteur": "ambquinn"
+  },
   "lion-des-cavernes": {
     "url": "https://cdn.pixabay.com/photo/2024/12/05/20/38/ai-generated-9247445_1280.png",
     "page": "https://pixabay.com/illustrations/ai-generated-lion-animal-nature-9247445/",
     "auteur": "AiCreatorImage"
   },
+  "loir": {
+    "url": "https://cdn.pixabay.com/photo/2012/10/01/18/59/rodent-58762_1280.jpg",
+    "page": "https://pixabay.com/photos/rodent-dormouse-glis-glis-58762/",
+    "auteur": "Hans"
+  },
   "loris-lent": "Coucang.jpg",
   "loup": "Front view of a resting Canis lupus ssp.jpg",
-  "loup-a-criniere": "Lobo-guará-PARNA da Chapada dos Veadeiros-Max Raffi(002).jpg",
+  "loup-a-criniere": {
+    "url": "https://cdn.pixabay.com/photo/2018/04/09/10/14/animal-world-3303717_1280.jpg",
+    "page": "https://pixabay.com/photos/wildlife-wolf-maned-wolf-mammal-3303717/",
+    "auteur": "garten-gg"
+  },
   "loup-arctique": {
-    "url": "https://cdn.pixabay.com/photo/2025/01/15/21/06/arctic-wolf-9335783_1280.jpg",
-    "page": "https://pixabay.com/photos/arctic-wolf-white-wolf-wildlife-9335783/",
+    "url": "https://cdn.pixabay.com/photo/2025/01/15/21/08/arctic-tundra-9335786_1280.jpg",
+    "page": "https://pixabay.com/photos/arctic-tundra-snow-dawn-landscape-9335786/",
     "auteur": "Z_KALI1"
   },
   "loup-d-ethiopie": "Canis simensis.jpg",
   "loutre": "Видра.jpg",
   "loutre-de-mer": "Sea Otter (37795898225).jpg",
   "lucane": "Lucanus cervus male 2017 G1.jpg",
-  "luciole": "Cantharis livida.jpg",
-  "lycaon": "African wild dog (Lycaon pictus), Okavango River; December 2012 (02).jpg",
+  "luciole": {
+    "url": "https://cdn.pixabay.com/photo/2020/05/10/01/20/insect-5151913_1280.jpg",
+    "page": "https://pixabay.com/photos/insect-nature-yard-firefly-5151913/",
+    "auteur": "FranciscoJavierCoradoR"
+  },
+  "lycaon": {
+    "url": "https://cdn.pixabay.com/photo/2025/03/30/15/19/wild-dog-9503012_1280.jpg",
+    "page": "https://pixabay.com/photos/wild-dog-african-painted-dog-animal-9503012/",
+    "auteur": "greatplaces360"
+  },
   "lynx": "Lince ibérico (Lynx pardinus), Almuradiel, Ciudad Real, España, 2021-12-19, DD 07.jpg",
-  "lynx-roux": "Kitty Cat (20967805).jpeg",
+  "lynx-roux": {
+    "url": "https://cdn.pixabay.com/photo/2024/10/03/11/31/ai-generated-9093462_1280.jpg",
+    "page": "https://pixabay.com/illustrations/ai-generated-bobcat-river-feline-9093462/",
+    "auteur": "jcoope12"
+  },
   "macaque-japonais": "Juveniler Japanmakak (Macaca fuscata) im Jigokudani Yaen Kōen.jpg",
   "macareux": "Puffin (Fratercula arctica).jpg",
   "mammouth": {
@@ -311,7 +611,11 @@
   },
   "mandrill": "Mandrillus sphinx 339428057.jpg",
   "mangouste": "Indian grey mongoose in Rabindra Sarobar June 2024 by Tisha Mukherjee 04.jpg",
-  "mante-religieuse": "Europäische Gottesanbeterin (Mantis religiosa) 04.jpg",
+  "mante-religieuse": {
+    "url": "https://cdn.pixabay.com/photo/2025/05/24/07/27/insect-9619206_1280.jpg",
+    "page": "https://pixabay.com/photos/insect-mantis-animal-entomology-9619206/",
+    "auteur": "sanek10"
+  },
   "manul": "Otocolobus manul ( Felis manul) Kobe Animal Kingdom hdsr S5 15.jpg",
   "margay": "Margay in Costa Rica.jpg",
   "marmotte": "Marmot-edit1.jpg",
@@ -332,9 +636,22 @@
     "page": "https://pixabay.com/photos/dragonfly-insect-macro-wings-6536606/",
     "auteur": "DjordjeR1982"
   },
-  "milan-royal": "Milvus milvus (RPS 27-08-2023) milano real en contraluz.png",
+  "milan-royal": {
+    "url": "https://cdn.pixabay.com/photo/2021/01/26/02/09/red-kite-5950159_1280.jpg",
+    "page": "https://pixabay.com/photos/red-kite-bird-flying-sky-5950159/",
+    "auteur": "TheOtherKev"
+  },
+  "mille-pattes": {
+    "url": "https://cdn.pixabay.com/photo/2017/03/06/08/32/worms-2120866_1280.jpg",
+    "page": "https://pixabay.com/photos/worms-millipede-centipede-2120866/",
+    "auteur": "makamuki0"
+  },
   "moa": "Dinornis robustus (AM LB4361).jpg",
-  "moineau": "2016.10.04.-04-Mannheim Vogelstang--Haussperling-Maennchen.jpg",
+  "moineau": {
+    "url": "https://cdn.pixabay.com/photo/2017/06/15/10/43/sparrow-2404824_1280.jpg",
+    "page": "https://pixabay.com/photos/sparrow-sperling-house-sparrow-bird-2404824/",
+    "auteur": "Kathy_Büscher"
+  },
   "moloch": "Moloch defence pose - Christopher Watson.jpg",
   "monarque": "Monarch Butterfly Pink Zinnia 1800px.jpg",
   "morpho": "Morpho peleides qtl3.jpg",
@@ -348,8 +665,21 @@
     "page": "https://pixabay.com/illustrations/ai-generated-pterosaur-plesiosaur-8336920/",
     "auteur": "a_scarcy"
   },
-  "mouflon": "Cyprus mouflon (Ovis gmelini ophion).jpg",
-  "mouton": "20240704 Regentenwiese 01.jpg",
+  "mouflon": {
+    "url": "https://cdn.pixabay.com/photo/2014/10/21/20/51/mouflon-497150_1280.jpg",
+    "page": "https://pixabay.com/photos/mouflon-desire-horns-horn-animal-497150/",
+    "auteur": "Myagi"
+  },
+  "moustique": {
+    "url": "https://cdn.pixabay.com/photo/2020/04/03/09/39/mosquito-4998148_1280.jpg",
+    "page": "https://pixabay.com/photos/mosquito-nature-insect-malaria-4998148/",
+    "auteur": "shammiknr"
+  },
+  "mouton": {
+    "url": "https://cdn.pixabay.com/photo/2015/10/01/09/26/sheep-966749_1280.jpg",
+    "page": "https://pixabay.com/photos/sheep-lamb-texel-sheep-texel-dike-966749/",
+    "auteur": "Pixabay"
+  },
   "musaraigne": "Etruscan shrew 02.JPG",
   "mythe-behemoth": {
     "url": "https://cdn.pixabay.com/photo/2025/04/28/02/41/ai-generated-9564084_1280.png",
@@ -507,14 +837,34 @@
     "auteur": "Tim_HD"
   },
   "nasique": "Chill bekantan.jpg",
-  "nautile": "Nautilus belauensis - side view.jpg",
-  "numbat": "Myrmecobius fasciatus 259629687.jpg",
+  "nautile": {
+    "url": "https://cdn.pixabay.com/photo/2020/04/17/10/26/nautilus-5054128_1280.jpg",
+    "page": "https://pixabay.com/photos/nautilus-aquarium-sea-mollusk-5054128/",
+    "auteur": "margencero"
+  },
+  "numbat": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/06/17/34/gabrupawpixels-numbat-10212411_1280.jpg",
+    "page": "https://pixabay.com/photos/numbat-marsupial-wildlife-forest-10212411/",
+    "auteur": "GabruPawPixels"
+  },
   "ocelot": "081 Ocelot in Encontro das Águas State Park Photo by Giles Laurent.jpg",
   "oie": "Domestic Goose.jpg",
-  "okapi": "Okapia johnstoni4.jpg",
-  "orang-outan": "Bornean orangutan (Pongo pygmaeus), Tanjung Putting National Park 07.jpg",
+  "okapi": {
+    "url": "https://cdn.pixabay.com/photo/2026/03/23/03/11/gabrupawpixels-okapi-10187607_1280.jpg",
+    "page": "https://pixabay.com/photos/okapi-wildlife-animal-mammal-10187607/",
+    "auteur": "GabruPawPixels"
+  },
+  "orang-outan": {
+    "url": "https://cdn.pixabay.com/photo/2023/02/01/09/40/orangutan-7760085_1280.jpg",
+    "page": "https://pixabay.com/photos/orangutan-ape-primate-7760085/",
+    "auteur": "ambquinn"
+  },
   "ornithorynque": "Duck-billed platypus (Ornithorhynchus anatinus) diving Scottsdale.jpg",
-  "orque": "091201 south georgia orca 5293 (4172634657).jpg",
+  "orque": {
+    "url": "https://cdn.pixabay.com/photo/2023/06/18/21/46/killer-whale-8072814_1280.jpg",
+    "page": "https://pixabay.com/photos/killer-whale-orca-mammal-animal-8072814/",
+    "auteur": "u_og3i9t052b"
+  },
   "oryx": "Gemsbok (Oryx gazella) male.jpg",
   "otarie": {
     "url": "https://cdn.pixabay.com/photo/2016/07/16/14/11/sea-lion-1521993_1280.jpg",
@@ -523,25 +873,71 @@
   },
   "otocyon": "Bat-eared fox, Kgalagadi Transfrontier Park (38065016606).jpg",
   "ouaouaron": "American bullfrog huntley meadows 7.20.24 DSC 3172-topaz-denoiseraw.jpg",
-  "ouistiti-pygmee": "倭狨標本.jpg",
+  "ouistiti-pygmee": {
+    "url": "https://cdn.pixabay.com/photo/2023/02/24/13/05/pygmy-marmoset-7811041_1280.jpg",
+    "page": "https://pixabay.com/photos/pygmy-marmoset-monkey-animal-7811041/",
+    "auteur": "jbooba"
+  },
   "ours-a-collier": "Asian Black Bear Ursus thibetanus by Dr. Raju Kasambe 04.jpg",
-  "ours-a-lunettes": "Tremarctos ornatus 289948384.jpg",
-  "ours-brun": "2010-kodiak-bear-1.jpg",
+  "ours-a-lunettes": {
+    "url": "https://cdn.pixabay.com/photo/2026/05/01/17/05/17-05-38-854_1280.jpg",
+    "page": "https://pixabay.com/photos/bear-cub-spectacled-bear-nature-10256241/",
+    "auteur": "GabruPawPixels"
+  },
+  "ours-brun": {
+    "url": "https://cdn.pixabay.com/photo/2024/11/16/09/56/bear-9201157_1280.jpg",
+    "page": "https://pixabay.com/photos/bear-brown-bear-hokkaido-brown-bear-9201157/",
+    "auteur": "pen_ash"
+  },
+  "ours-de-gobi": {
+    "url": "https://cdn.pixabay.com/photo/2024/07/23/19/57/bear-8916279_1280.jpg",
+    "page": "https://pixabay.com/photos/bear-tree-animal-nature-game-8916279/",
+    "auteur": "Anders_Mejlvang"
+  },
   "ours-des-cavernes": {
     "url": "https://cdn.pixabay.com/photo/2024/11/18/01/16/brown-bear-9205026_1280.jpg",
     "page": "https://pixabay.com/illustrations/brown-bear-bear-hibernation-fall-9205026/",
     "auteur": "Terranaut"
   },
-  "ours-isabelle": "Himalayan brown bear.jpg",
+  "ours-isabelle": {
+    "url": "https://cdn.pixabay.com/photo/2022/12/21/14/46/brown-bear-7670224_1280.jpg",
+    "page": "https://pixabay.com/photos/brown-bear-bear-sitting-nature-fur-7670224/",
+    "auteur": "Antranias"
+  },
   "ours-lippu": "Sloth bear at Simliguda, Koraput, Odisha.jpg",
   "ours-malais": "Sun-bear.jpg",
-  "ours-noir": "Black bear alligator river nwr 10.4.24 DSC 9929-topaz-rawdenoise.jpg",
-  "ours-polaire": "Arth wen Ursus maritimus.jpg",
+  "ours-noir": {
+    "url": "https://cdn.pixabay.com/photo/2019/03/17/19/51/black-bear-in-tree-4061807_1280.jpg",
+    "page": "https://pixabay.com/photos/black-bear-in-tree-bear-wildlife-4061807/",
+    "auteur": "LocoLocal"
+  },
+  "ours-polaire": {
+    "url": "https://cdn.pixabay.com/photo/2023/06/15/11/05/polar-bear-8065104_1280.jpg",
+    "page": "https://pixabay.com/photos/polar-bear-bear-mammal-animal-8065104/",
+    "auteur": "MonicaMaxWest"
+  },
+  "oursin": {
+    "url": "https://cdn.pixabay.com/photo/2019/04/17/11/38/sea-4133999_1280.jpg",
+    "page": "https://pixabay.com/photos/sea-sea-food-urchin-beach-water-4133999/",
+    "auteur": "Justine007"
+  },
   "panda-roux": "Curious Red Panda in Langtang National Park.jpg",
-  "pangolin": "Manis temminckii MHNT PHOL 1.jpg",
-  "panthere-des-neiges": "A snow leopard wild Ladakh DSCN4780 02.jpg",
+  "pangolin": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/16/09/42/09-42-48-111_1280.jpg",
+    "page": "https://pixabay.com/photos/pangolin-wildlife-nature-forest-10229812/",
+    "auteur": "GabruPawPixels"
+  },
+  "panthere-des-neiges": {
+    "url": "https://cdn.pixabay.com/photo/2015/08/19/20/27/snow-leopard-896603_1280.jpg",
+    "page": "https://pixabay.com/photos/snow-leopard-dormant-predator-896603/",
+    "auteur": "Pixel-mixer"
+  },
   "panthere-nebuleuse": "Neofelis nebulosa, Clouded leopard.jpg",
-  "panthere-noire": "Tryst with Black Panther.jpg",
+  "panthere-noire": {
+    "url": "https://cdn.pixabay.com/photo/2025/02/02/13/03/panther-9376689_1280.jpg",
+    "page": "https://pixabay.com/photos/panther-feline-animal-predator-9376689/",
+    "auteur": "Carla_Manneh"
+  },
   "paon": "012 Indian peafowl in Keoladeo National Park Photo by Giles Laurent.jpg",
   "paradisier": "Red Bird-of-Paradise 0A2A2853.jpg",
   "paraponera": "Paraponera clavata.jpg",
@@ -549,11 +945,15 @@
   "pastenague": "Raya pelágica (Pteroplatytrygon violacea), Cabo de Palos, España, 2022-07-16, DD 69.jpg",
   "peau-bleue": "Tiburón azul (Prionace glauca), canal Fayal-Pico, islas Azores, Portugal, 2020-07-27, DD 21.jpg",
   "pelican": "Great white pelican (Pelecanus onocrotalus).jpg",
-  "perruche": "Wellensittich maennchen wildfarben.jpg",
+  "perruche": {
+    "url": "https://cdn.pixabay.com/photo/2026/08/01/11/40/11-40-56-159_1280.jpg",
+    "page": "https://pixabay.com/photos/budgerigars-fence-post-desert-10407090/",
+    "auteur": "photowoods"
+  },
   "phacochere": {
-    "url": "https://cdn.pixabay.com/photo/2020/08/08/23/07/warthog-5474171_1280.jpg",
-    "page": "https://pixabay.com/photos/warthog-africa-wild-wildlife-5474171/",
-    "auteur": "grattey"
+    "url": "https://cdn.pixabay.com/photo/2013/12/29/19/28/warthog-235380_1280.jpg",
+    "page": "https://pixabay.com/photos/warthog-south-africa-savannah-235380/",
+    "auteur": "jpussin"
   },
   "phalanger-volant": "Petaurus breviceps 119464446.jpg",
   "phasme": "Stick insect (Phasmatodea sp.) Las Tangaras.jpg",
@@ -566,7 +966,11 @@
   },
   "pic-vert": "Жовна зелена (Picus viridis).jpg",
   "pie": "Urraca (Pica pica), Almuradiel, Ciudad Real, España, 2021-12-19, DD 04.jpg",
-  "pieuvre": "Pulpo común (Octopus vulgaris), Parque natural de la Arrábida, Portugal, 2020-07-21, DD 33.jpg",
+  "pieuvre": {
+    "url": "https://cdn.pixabay.com/photo/2018/03/16/22/58/octopus-3232758_1280.jpg",
+    "page": "https://pixabay.com/photos/octopus-sea-life-underwater-ocean-3232758/",
+    "auteur": "ErikTanghe"
+  },
   "pipa": "Pipa pipa juillet 2007 - 3.jpg",
   "piranha": "Gregory Moine - Red bellied Piranha (by).jpg",
   "pithecophage": "Pamarayeg IIIx2.jpg",
@@ -577,23 +981,57 @@
   },
   "poisson-archer": "Toxotes jaculatrix, (banded archerfish or riflefish) - Museon - Omniversum, the Hague, the Netherlands.jpg",
   "poisson-clown": "Anemone purple anemonefish.jpg",
-  "poisson-lune": "Mola-mola-Lisboa-20051020.jpg",
+  "poisson-lune": {
+    "url": "https://cdn.pixabay.com/photo/2022/10/27/13/35/sunfish-7550893_1280.jpg",
+    "page": "https://pixabay.com/photos/sunfish-fish-sea-ocean-underwater-7550893/",
+    "auteur": "makabera"
+  },
   "poisson-perroquet": "Scarus vetula (queen parrotfish) (San Salvador Island, Bahamas) (15548372734).jpg",
-  "poisson-pierre": "Synanceia verrucosa 399823383.jpg",
+  "poisson-pierre": {
+    "url": "https://cdn.pixabay.com/photo/2024/08/02/08/36/stonefish-8939204_1280.jpg",
+    "page": "https://pixabay.com/photos/stonefish-scorpionfish-fish-8939204/",
+    "auteur": "Franziska_Stier"
+  },
+  "poisson-rouge": {
+    "url": "https://cdn.pixabay.com/photo/2020/01/09/14/35/fish-4752920_1280.jpg",
+    "page": "https://pixabay.com/photos/fish-goldfish-red-aquarium-blue-4752920/",
+    "auteur": "Asteroide_B612"
+  },
   "poisson-scie": "Pristis pristis townsville.jpg",
   "polatouche": "Ezo flying squirrel（Pteromys volans orii）エゾモモンガ.jpg",
-  "porc-epic": "Hystrix cristata 67414289.jpg",
-  "protee": "Proteus anguinus in postojna cave IMG 7978.JPG",
-  "protele": "Aardwolf, Buffalo Springs National Park, Kenya 1 (cropped).jpg",
+  "porc-epic": {
+    "url": "https://cdn.pixabay.com/photo/2019/06/11/20/03/porcupine-4267795_1280.jpg",
+    "page": "https://pixabay.com/photos/porcupine-zoo-quills-danger-cute-4267795/",
+    "auteur": "eliza28diamonds"
+  },
+  "protee": {
+    "url": "https://cdn.pixabay.com/photo/2026/03/29/13/17/13-17-15-782_1280.jpg",
+    "page": "https://pixabay.com/photos/olm-proteus-cave-amphibian-aquatic-10198429/",
+    "auteur": "GabruPawPixels"
+  },
+  "protele": {
+    "url": "https://cdn.pixabay.com/photo/2026/05/01/17/05/17-05-38-698_1280.jpg",
+    "page": "https://pixabay.com/photos/aardwolf-proteles-cristata-10256240/",
+    "auteur": "GabruPawPixels"
+  },
   "pteranodon": {
     "url": "https://cdn.pixabay.com/photo/2017/09/10/13/06/pterosaur-2735500_1280.jpg",
     "page": "https://pixabay.com/photos/pterosaur-reptile-extinct-2735500/",
     "auteur": "mrganso"
   },
-  "puma": "Puma (Puma concolor concolor) female Leona Amarga 5.jpg",
+  "puce": {
+    "url": "https://cdn.pixabay.com/photo/2012/10/26/01/41/flea-63043_1280.jpg",
+    "page": "https://pixabay.com/photos/flea-siphonaptera-insect-parasite-63043/",
+    "auteur": "WikiImages"
+  },
+  "puma": {
+    "url": "https://cdn.pixabay.com/photo/2014/02/27/16/08/cougar-275945_1280.jpg",
+    "page": "https://pixabay.com/photos/cougar-mountain-lion-puma-concolor-275945/",
+    "auteur": "No-longer-here"
+  },
   "pygargue": "20250116 bald eagle hockanum reservoir PD202495.jpg",
   "python-reticule": "Malayopython reticulatus, Reticulated python - Kaeng Krachan District, Phetchaburi Province (47924282891).jpg",
-  "quagga": "Equus quagga quagga MUSE.jpg",
+  "quagga": "Quagga HIFI.jpg",
   "quetzal": "056 Male Resplendent quetzal in Los Quetzales National Park Photo by Giles Laurent.jpg",
   "quetzalcoatlus": {
     "url": "https://cdn.pixabay.com/photo/2024/06/08/02/38/quetzalcoatlus-8815659_1280.png",
@@ -605,44 +1043,81 @@
   "raie-manta": "2015 01 Koh Lanta 27 entering cleaning station (16422545698).jpg",
   "rainette-aux-yeux-rouges": "Agalychnis callidryas (eye detail).jpg",
   "rainette-verte": "European tree frog (Hyla arborea) Extremadura.jpg",
-  "rat-taupe-nu": "Blueish-Naked-Mole-Rat extracted-on-white-background.jpg",
+  "rat": {
+    "url": "https://cdn.pixabay.com/photo/2026/01/20/21/58/rodent-10079153_1280.jpg",
+    "page": "https://pixabay.com/photos/rodent-rat-rats-nature-animal-10079153/",
+    "auteur": "jimmykphotos"
+  },
+  "rat-taupe-nu": {
+    "url": "https://cdn.pixabay.com/photo/2026/03/29/13/17/13-17-15-200_1280.jpg",
+    "page": "https://pixabay.com/photos/mole-rat-naked-rodent-subterranean-10198428/",
+    "auteur": "GabruPawPixels"
+  },
   "raton-laveur": "Racoon clinging to a tree.JPG",
   "renard-roux": "20181006 Lis rudy Tatrzański Park Narodowy 1440 7492 DxO.jpg",
-  "renne": "Reindeer in Ljungdalen 2012 02.jpg",
+  "renne": {
+    "url": "https://cdn.pixabay.com/photo/2020/04/05/08/43/reindeer-5005123_1280.jpg",
+    "page": "https://pixabay.com/photos/reindeer-norway-winter-nature-5005123/",
+    "auteur": "Waschdel"
+  },
   "requin-a-pointes-noires": "Carcharhinus melanopterus 59687195.jpg",
-  "requin-baleine": "Whale10.jpg",
+  "requin-baleine": {
+    "url": "https://cdn.pixabay.com/photo/2026/03/29/13/17/13-17-25-945_1280.jpg",
+    "page": "https://pixabay.com/photos/whale-shark-ocean-underwater-10198443/",
+    "auteur": "GabruPawPixels"
+  },
   "requin-blanc": "Great White Shark (14730719119).jpg",
   "requin-du-groenland": "Somniosus microcephalus okeanos.jpg",
   "requin-mako": "Shortfin mako (Isurus oxyrinchus).jpg",
-  "requin-marteau": "Great Hammerhead Feeding, Bimini, Bahamas.jpg",
+  "requin-marteau": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/18/13/01/13-01-10-129_1280.jpg",
+    "page": "https://pixabay.com/photos/hammerhead-shark-underwater-ocean-10233816/",
+    "auteur": "GabruPawPixels"
+  },
   "requin-nourrice": "Tiburón nodriza o tiburón gato (Ginglymostoma cirratum).jpg",
   "requin-pelerin": "Basking Shark.jpg",
   "requin-tigre": "Caribbean Reef Shark School Tiger Beach Bahamas.jpg",
   "rhacophore": "Rhacophorus nigropalmatus 227261158.jpg",
   "rhinoceros-blanc": "White Rhinoceros Alert 2019-07-27.jpg",
-  "rhinoceros-de-sumatra": "Sumatran rhinoceros and juvenile.jpg",
+  "rhinoceros-de-sumatra": {
+    "url": "https://cdn.pixabay.com/photo/2019/09/05/14/58/animals-4454252_1280.jpg",
+    "page": "https://pixabay.com/photos/animals-rhino-pachyderm-africa-4454252/",
+    "auteur": "garten-gg"
+  },
   "rhinoceros-indien": "Indian rhinoceros (Rhinoceros unicornis) 1.jpg",
-  "rhinoceros-noir": "Ngorongoro Spitzmaulnashorn edit1crop.jpg",
+  "rhinoceros-noir": {
+    "url": "https://cdn.pixabay.com/photo/2020/05/22/11/22/africa-5205025_1280.jpg",
+    "page": "https://pixabay.com/photos/africa-rhino-tree-savannah-5205025/",
+    "auteur": "DimaDim_art"
+  },
   "rhinoceros-noir-de-l-ouest": {
-    "url": "https://cdn.pixabay.com/photo/2025/11/20/04/06/rhino-9966467_1280.jpg",
-    "page": "https://pixabay.com/photos/rhino-black-rhino-rhino-mum-9966467/",
-    "auteur": "DavidClode"
+    "url": "https://cdn.pixabay.com/photo/2022/05/05/20/24/animal-7177008_1280.jpg",
+    "page": "https://pixabay.com/photos/animal-rhinoceros-mammal-species-7177008/",
+    "auteur": "garethdoc"
   },
   "rhytine-de-steller": "The Model of Steller's sea cow (Hydrodamalis gigas).jpg",
   "rougegorge": "Erithacus rubecula -Netherlands-8.jpg",
   "saimiri": "Ecuadorian squirrel monkey (Saimiri macrodon) head Rio Napo.jpg",
-  "salamandre": "Feuersalamander an einer Straße im LSG-Rurtal und Seitenhaenge zwischen Blens und Hasenfeld 01.jpg",
-  "salamandre-geante": "A giant salamander. Colour lithograph after A. Weczerzick. Wellcome V0021183ER.jpg",
-  "sanglier": "Dzik na ulicy Basistówka w Krakowie, 20250301 1043 3398.jpg",
-  "saumon": {
-    "url": "https://cdn.pixabay.com/photo/2020/04/07/20/53/salmon-5014892_1280.jpg",
-    "page": "https://pixabay.com/photos/salmon-salmon-run-adams-river-5014892/",
-    "auteur": "ArtTower"
+  "salamandre": {
+    "url": "https://cdn.pixabay.com/photo/2018/05/16/11/07/fire-salamander-3405501_1280.jpg",
+    "page": "https://pixabay.com/photos/fire-salamander-salamander-lurch-3405501/",
+    "auteur": "Tawnyowl"
   },
+  "salamandre-geante": "A giant salamander. Colour lithograph after A. Weczerzick. Wellcome V0021183ER.jpg",
+  "sanglier": {
+    "url": "https://cdn.pixabay.com/photo/2018/03/19/15/04/boar-3240210_1280.jpg",
+    "page": "https://pixabay.com/photos/wild-boar-boar-animal-forest-3240210/",
+    "auteur": "Wildfaces"
+  },
+  "saumon": "Oak Orchard Salmon Jumping Waterfall - panoramio (7).jpg",
   "scorpion": "Pandinus-imperator-6609.jpg",
   "seiche": "Sepia común (Sepia officinalis), Parque natural de la Arrábida, Portugal, 2021-09-09, DD 33.jpg",
   "serpentaire": "Secretario (Sagittarius serpentarius), parque nacional de Amboseli, Kenia, 2024-05-23, DD 13.jpg",
-  "serval": "Serval (Leptailurus serval), parque nacional de Tarangire, Tanzania, 2024-05-25, DD 56.jpg",
+  "serval": {
+    "url": "https://cdn.pixabay.com/photo/2024/07/21/01/41/ai-generated-8909377_1280.jpg",
+    "page": "https://pixabay.com/illustrations/ai-generated-cat-feline-serval-8909377/",
+    "auteur": "DavidClode"
+  },
   "sifaka": "Propithecus verreauxi 002.jpg",
   "singe-hurleur": "Mantled howler monkey and baby (81337)2.jpg",
   "smilodon": {
@@ -662,16 +1137,33 @@
     "page": "https://pixabay.com/illustrations/ai-generated-stegosaurus-dinosaur-8561927/",
     "auteur": "DigitalRoo"
   },
-  "sterne-arctique": "2009 07 02 - Arctic tern on Farne Islands - The blue rope demarcates the visitors' path.JPG",
+  "sterne-arctique": {
+    "url": "https://cdn.pixabay.com/photo/2023/01/05/17/24/bird-7699431_1280.jpg",
+    "page": "https://pixabay.com/photos/bird-seabird-nature-wildlife-tern-7699431/",
+    "auteur": "AidanSemmens"
+  },
   "suricate": "Meerkat (Suricata suricatta) with 3 young.jpg",
   "t-rex": {
     "url": "https://cdn.pixabay.com/photo/2024/07/24/19/37/ai-generated-8919371_1280.jpg",
     "page": "https://pixabay.com/illustrations/ai-generated-t-rex-dinosaur-8919371/",
     "auteur": "jcoope12"
   },
-  "taipan": "Oxyuranus microlepidotus in Queensland, Australia.jpg",
+  "taipan": {
+    "url": "https://cdn.pixabay.com/photo/2023/02/12/23/32/snake-7786205_1280.jpg",
+    "page": "https://pixabay.com/photos/snake-reptile-scales-7786205/",
+    "auteur": "Storme22k"
+  },
   "tamarin-lion": "Leontopithecus rosalia 56711057.jpg",
-  "tapir": "036 South American tapir in Encontro das Águas State Park Photo by Giles Laurent.jpg",
+  "tapir": {
+    "url": "https://cdn.pixabay.com/photo/2019/03/16/10/38/tapir-4058785_1280.jpg",
+    "page": "https://pixabay.com/photos/tapir-the-south-american-4058785/",
+    "auteur": "veverkolog"
+  },
+  "tardigrade": {
+    "url": "https://cdn.pixabay.com/photo/2026/03/23/03/11/gabrupawpixels-tardigrade-10187598_1280.jpg",
+    "page": "https://pixabay.com/photos/tardigrade-waterbear-microscopic-10187598/",
+    "auteur": "GabruPawPixels"
+  },
   "tatou": "Nine-banded armadillo (13594).jpg",
   "thon-rouge": "Group of tuna.jpg",
   "thylacine": {
@@ -679,7 +1171,11 @@
     "page": "https://pixabay.com/illustrations/thylacine-tasmanian-tiger-9295283/",
     "auteur": "Badashphilosophy"
   },
-  "tigre": "Karmazari Pench National Park 13.jpg",
+  "tigre": {
+    "url": "https://cdn.pixabay.com/photo/2016/11/23/01/15/tiger-1851653_1280.jpg",
+    "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/",
+    "auteur": "Pexels"
+  },
   "titanoboa": {
     "url": "https://cdn.pixabay.com/photo/2024/04/16/16/53/ai-generated-8700431_1280.jpg",
     "page": "https://pixabay.com/illustrations/ai-generated-snake-reptile-animal-8700431/",
@@ -687,15 +1183,19 @@
   },
   "tortue-alligator": "Alligator Snapping Turtle (Macrochelys temminckii) (35856633000).jpg",
   "tortue-de-pinta": {
-    "url": "https://cdn.pixabay.com/photo/2018/07/22/19/39/turtle-3555358_1280.jpg",
-    "page": "https://pixabay.com/photos/tortoise-animal-wildlife-nature-3555358/",
-    "auteur": "minka2507"
+    "url": "https://cdn.pixabay.com/photo/2019/03/20/16/39/galapagos-tortoises-4068937_1280.jpg",
+    "page": "https://pixabay.com/photos/galapagos-tortoises-tortoise-turtle-4068937/",
+    "auteur": "epearsoncreations"
   },
-  "tortue-geante": "Aldabra Female on Curieuse.JPG",
+  "tortue-geante": {
+    "url": "https://cdn.pixabay.com/photo/2021/08/07/01/04/giant-turtle-6527490_1280.jpg",
+    "page": "https://pixabay.com/photos/giant-turtle-animal-tortoise-6527490/",
+    "auteur": "ignartonosbg"
+  },
   "tortue-luth": {
-    "url": "https://cdn.pixabay.com/photo/2023/10/20/14/11/turtle-8329558_1280.jpg",
-    "page": "https://pixabay.com/photos/turtle-tortoise-sand-beach-8329558/",
-    "auteur": "39984885"
+    "url": "https://cdn.pixabay.com/photo/2017/07/27/22/55/sea-turtle-2547084_1280.jpg",
+    "page": "https://pixabay.com/photos/sea-turtle-is-animals-2547084/",
+    "auteur": "andresfho"
   },
   "toucan": "Ramphastos toco -Birdworld, Farnham, Surrey, England-8a.jpg",
   "tourte-voyageuse": "Ectopistes migratorius - Fairbanks Museum and Planetarium - DSC04222.JPG",
@@ -714,7 +1214,11 @@
     ],
     "rotation": 90
   },
-  "tuatara": "Sphenodon punctatus 106894916.jpg",
+  "tuatara": {
+    "url": "https://cdn.pixabay.com/photo/2017/03/31/10/06/tuatara-2190866_1280.jpg",
+    "page": "https://pixabay.com/photos/tuatara-reptile-new-zealand-nz-2190866/",
+    "auteur": "Successful4"
+  },
   "vaquita": "Vaquita4 Olson NOAA.jpg",
   "vautour-fauve": "Buitre Leonado (98727731).jpeg",
   "velociraptor": {
@@ -722,9 +1226,22 @@
     "page": "https://pixabay.com/illustrations/velociraptor-raptor-dinosaur-8727661/",
     "auteur": "EDU012"
   },
+  "ver-a-soie": {
+    "url": "https://cdn.pixabay.com/photo/2020/07/04/20/07/silkworm-5370807_1280.jpg",
+    "page": "https://pixabay.com/photos/silkworm-mulberry-silk-insect-worm-5370807/",
+    "auteur": "ivabalk"
+  },
   "veuve-noire": "Latrodectus mactans 2.jpg",
-  "vipere-aspic": "Escurçó pirinenc 02.jpg",
-  "voilier": "Istiophorus platypterus 313572306.jpg",
+  "vipere-aspic": {
+    "url": "https://cdn.pixabay.com/photo/2021/04/22/12/22/adder-6198889_1280.jpg",
+    "page": "https://pixabay.com/photos/adder-viper-reptile-snake-scales-6198889/",
+    "auteur": "Photorama"
+  },
+  "voilier": {
+    "url": "https://cdn.pixabay.com/photo/2026/04/16/09/42/09-42-57-382_1280.jpg",
+    "page": "https://pixabay.com/photos/sailfish-ocean-underwater-bait-ball-10229819/",
+    "auteur": "GabruPawPixels"
+  },
   "wallaby": "Young red necked wallaby.jpg",
   "wombat": "Common wombat (Vombatus ursinus tasmaniensis) juvenile Maria Island.jpg",
   "yak": "Bos grunniens at Letdar on Annapurna Circuit.jpg",
