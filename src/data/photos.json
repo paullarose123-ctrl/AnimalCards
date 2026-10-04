@@ -266,10 +266,10 @@
  "beagle": {
   "file": "beagle.webp",
   "cutout": false,
-  "author": "AngMoKio U.S. Navy photo by Photographer's Mate 1st Class Arlo K. Abrahamson U.S. Army pho",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Assemblage_chien.jpg"
+  "author": "M. Rehemtulla",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Huskiesatrest.jpg"
  },
  "belette": {
   "file": "belette.webp",
@@ -1418,10 +1418,10 @@
  "greyhound": {
   "file": "greyhound.webp",
   "cutout": false,
-  "author": "AngMoKio U.S. Navy photo by Photographer's Mate 1st Class Arlo K. Abrahamson U.S. Army pho",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Assemblage_chien.jpg"
+  "author": "M. Rehemtulla",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Huskiesatrest.jpg"
  },
  "grizzly-de-californie": {
   "file": "grizzly-de-californie.webp",
@@ -1470,6 +1470,206 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/vulture-bird-bearded-raptor-10244835/"
+ },
+ "habitat-amazonie": {
+  "file": "habitat-amazonie.webp",
+  "cutout": false,
+  "author": "CIAT",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Amazon17_(5641020319).jpg"
+ },
+ "habitat-antarctique": {
+  "file": "habitat-antarctique.webp",
+  "cutout": false,
+  "author": "Dave Pape",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Antarctica_6400px_from_Blue_Marble.jpg"
+ },
+ "habitat-banquise": {
+  "file": "habitat-banquise.webp",
+  "cutout": false,
+  "author": "Auteur inconnu",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Greenland_East_Coast_7.jpg"
+ },
+ "habitat-bialowieza": {
+  "file": "habitat-bialowieza.webp",
+  "cutout": false,
+  "author": "WildberryPassion",
+  "license": "CC BY-SA 3.0 pl",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/pl/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:Bialowieza04.jpg"
+ },
+ "habitat-borneo": {
+  "file": "habitat-borneo.webp",
+  "cutout": false,
+  "author": "Sadalmelik",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Borneo_Topography.png"
+ },
+ "habitat-camargue": {
+  "file": "habitat-camargue.webp",
+  "cutout": false,
+  "author": "Pia Parolin",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Portrait_de_flamant_rose_dans_la_r%C3%A9serve_nationale_de_Camargue.jpg"
+ },
+ "habitat-congo": {
+  "file": "habitat-congo.webp",
+  "cutout": false,
+  "author": "Axel Rouvin [2]",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Rainforest_Gabon.jpg"
+ },
+ "habitat-everglades": {
+  "file": "habitat-everglades.webp",
+  "cutout": false,
+  "author": "Totenkopf",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Everglades_National_Park_31_ao%C3%BBt.jpg"
+ },
+ "habitat-galapagos": {
+  "file": "habitat-galapagos.webp",
+  "cutout": false,
+  "author": "Jacques Descloitres, MODIS Rapid Response Project at NASA/GSFC",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Galapagos-satellite-2002.jpg"
+ },
+ "habitat-gobi": {
+  "file": "habitat-gobi.webp",
+  "cutout": false,
+  "author": "NASA",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Gobi_106.49229E_41.93582N_annotated.png"
+ },
+ "habitat-grande-barriere": {
+  "file": "habitat-grande-barriere.webp",
+  "cutout": false,
+  "author": "NASA, by MISR",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:GreatBarrierReef-EO.JPG"
+ },
+ "habitat-himalaya": {
+  "file": "habitat-himalaya.webp",
+  "cutout": false,
+  "author": "Gemini1980 based on User:Jide~commonswiki",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:DEMTibet_annotated.png"
+ },
+ "habitat-madagascar": {
+  "file": "habitat-madagascar.webp",
+  "cutout": false,
+  "author": "Unknown author Unknown author",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Satellite_image_of_Madagascar_in_September_2003.jpg"
+ },
+ "habitat-mariannes": {
+  "file": "habitat-mariannes.webp",
+  "cutout": false,
+  "author": "wallace",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "page": "https://commons.wikimedia.org/wiki/File:Marianatrenchmap.png"
+ },
+ "habitat-okavango": {
+  "file": "habitat-okavango.webp",
+  "cutout": false,
+  "author": "NASA",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:OkavangoDelta.png"
+ },
+ "habitat-outback": {
+  "file": "habitat-outback.webp",
+  "cutout": false,
+  "author": "Gabriele Delhey",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Mount_Conner,_August_2003.jpg"
+ },
+ "habitat-pantanal": {
+  "file": "habitat-pantanal.webp",
+  "cutout": false,
+  "author": "Alicia Yo",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Pantanal,_south-central_South_America_5170.jpg"
+ },
+ "habitat-patagonie": {
+  "file": "habitat-patagonie.webp",
+  "cutout": false,
+  "author": "Auteur inconnu",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Pat_map.PNG"
+ },
+ "habitat-sahara": {
+  "file": "habitat-sahara.webp",
+  "cutout": false,
+  "author": "NASA",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Sahara_satellite_hires.jpg"
+ },
+ "habitat-sargasses": {
+  "file": "habitat-sargasses.webp",
+  "cutout": false,
+  "author": "Unknown author Unknown author",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Sargassum_weeds_closeup.jpg"
+ },
+ "habitat-serengeti": {
+  "file": "habitat-serengeti.webp",
+  "cutout": false,
+  "author": "Photo by Thomas Huston",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Serengeti-Sign.jpg"
+ },
+ "habitat-sundarbans": {
+  "file": "habitat-sundarbans.webp",
+  "cutout": false,
+  "author": "NASA image created by Jesse Allen, Earth Observatory, using data obtained from the Univers",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Sundarbans.jpg"
+ },
+ "habitat-taiga": {
+  "file": "habitat-taiga.webp",
+  "cutout": false,
+  "author": "Monsieur Fou Teemu Vehkaoja (TeVe) Photoglob AG Zürich Frank Kovalchek, Hagerty Ryan U.S. ",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Taiga_assemblage.png"
+ },
+ "habitat-tasmanie": {
+  "file": "habitat-tasmanie.webp",
+  "cutout": false,
+  "author": "Jörn Brauns",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:CradleMountain.jpg"
+ },
+ "habitat-yellowstone": {
+  "file": "habitat-yellowstone.webp",
+  "cutout": false,
+  "author": "James St. John from Newark, Ohio",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Grand_Prismatic_Spring_2013.jpg"
  },
  "hamster": {
   "file": "hamster.webp",
