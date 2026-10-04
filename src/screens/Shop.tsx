@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useGame } from '../store/game';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
 import { RARITIES, RARITY_ORDER } from '../engine/cards';
-import { SHOP_PACKS, iconOdds, mytheOdds, primeOdds, primePool, reverseOdds, sportPack, type PackDef } from '../engine/packs';
+import { SHOP_PACKS, iconOdds, habitatOdds, primeOdds, primePool, reverseOdds, sportPack, type PackDef } from '../engine/packs';
 import type { SportId } from '../engine/types';
 import { PackArt } from '../components/PackArt';
 import { Balles } from '../components/Balles';
@@ -45,11 +45,11 @@ function Odds({ pack }: { pack: PackDef }) {
           <span>Version Reverse</span>
           <b>{percent(reverseOdds(pack))}</b>
         </li>
-        {mytheOdds(pack) > 0 && (
-          <li className="rarity-row rarity-row--mythe">
+        {habitatOdds(pack) > 0 && (
+          <li className="rarity-row rarity-row--habitat">
             <span className="rarity-dot" />
-            <span>Carte Mythe</span>
-            <b>{percent(mytheOdds(pack))}</b>
+            <span>Carte Habitat</span>
+            <b>{percent(habitatOdds(pack))}</b>
           </li>
         )}
         {iconOdds(pack) > 0 && iconOdds(pack) < 1 && (
@@ -116,7 +116,7 @@ export function ShopScreen() {
           <p className="eyebrow">Boutique</p>
           <h1>Packs</h1>
           <p className="muted">
-            Tu as <Balles value={balles} />. Gagne des graines en vendant sur le marché, en jouant des matchs et en remplissant les objectifs.
+            Tu as <Balles value={balles} />. Gagne des graines en vendant sur le marché, en jouant des duels de records et en remplissant les objectifs.
           </p>
         </div>
       </header>

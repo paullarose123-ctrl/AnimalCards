@@ -1,13 +1,15 @@
 import type { ReactNode } from 'react';
 import type { CardFace } from '../engine/types';
-import { displayName, getAthlete, isIcon, overallOf, rarityOf, statsOf, ultiOf } from '../engine/cards';
-import { EVENTS, SPORTS, STAT_LABELS } from '../data/sports';
+import { collectionNumber, displayName, getAthlete, isIcon, rarityOf } from '../engine/cards';
+import { ATHLETES_BY_ID } from '../data/athletes';
+import { SPORTS } from '../data/sports';
+import { mesuresOf } from '../data/mesures';
+import { populationOf } from '../data/populations';
 import { Flag, countryName } from './Flag';
-import { topStats } from './Card';
 
-// Fiche express d'une carte : nom, pays, famille, note, ses trois meilleures stats et l'ulti.
-// Elle accompagne l'ouverture des boosters ; la fiche complète garde les six stats.
-// Une carte Mythe n'a pas de stats : la fiche montre son bonus d'équipe à la place.
+// Fiche express d'une carte, à l'ouverture des boosters : de vraies informations sur l'espèce.
+// Nom scientifique, mesures d'un adulte, population restante, une anecdote, et l'histoire de l'individu
+// célèbre pour une version Prime. Une carte Habitat montre son lieu, sa superficie et les animaux qui y vivent.
 
 interface CardStatsProps {
   card: CardFace;
@@ -19,18 +21,23 @@ interface CardStatsProps {
 export function CardStats({ card, children, className = '' }: CardStatsProps) {
   const athlete = getAthlete(card.athleteId);
   const rarity = rarityOf(athlete);
-  const stats = statsOf(athlete, card.variant);
-  const best = topStats(stats, 3);
-  const ulti = ultiOf(athlete, card.variant);
   const prime = card.variant === 'prime';
   const reverse = card.variant === 'reverse';
-  const mythe = athlete.mythe;
-  const overall = overallOf(athlete, card.variant);
+  const habitat = athlete.habitat;
+  const mesures = habitat ? null : mesuresOf(athlete.id);
+  const population = populationOf(athlete);
+  const facts: Array<[string, string]> = [];
+  if (mesures?.poids) facts.push(['Poids', mesures.poids]);
+  if (mesures?.taille) facts.push([mesures.tailleLabel, mesures.taille]);
+  if (mesures?.longevite) facts.push(['Longévité', mesures.longevite]);
+  if (population) facts.push([population.extinct ? 'Statut' : population.label, population.extinct ? 'Espèce éteinte' : population.value]);
+  if (habitat) facts.push(['Superficie', habitat.superficie]);
+  const inhabitants = habitat?.especes.map((id) => ATHLETES_BY_ID[id]).filter(Boolean) ?? [];
 
   return (
     <section
       key={`${card.athleteId}-${card.variant}`}
-      className={`card-stats card-stats--${mythe ? 'mythe' : prime ? 'prime' : rarity.id} ${className}`}
+      className={`card-stats card-stats--${habitat ? 'habitat' : prime ? 'prime' : rarity.id} ${className}`}
       aria-live="polite"
       aria-label={displayName(athlete)}
     >
@@ -40,54 +47,55 @@ export function CardStats({ card, children, className = '' }: CardStatsProps) {
             <span className={`chip-rarity chip-rarity--${rarity.id}`}>{rarity.name}</span>
             {prime && <span className="chip-rarity chip-rarity--prime">Prime{athlete.prime ? ` ${athlete.prime.year}` : ''}</span>}
             {reverse && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
-            {mythe && <span className="chip-rarity chip-rarity--mythe">Mythe · {athlete.role}</span>}
+            {habitat && <span className="chip-rarity chip-rarity--habitat">Habitat</span>}
             {isIcon(athlete) && <span className="chip-rarity chip-rarity--icon">Icône</span>}
           </div>
           <h3 className="card-stats__name">{displayName(athlete)}</h3>
+          {athlete.latin && <p className="card-stats__latin">{athlete.latin}</p>}
           <p className="card-stats__meta">
             <Flag code={athlete.country} className="card-stats__flag" />
-            <span>{[countryName(athlete.country), SPORTS[athlete.sport].name, athlete.role !== SPORTS[athlete.sport].name && athlete.role].filter(Boolean).join(' · ')}</span>
+            <span>
+              {habitat
+                ? athlete.role
+                : [countryName(athlete.country), SPORTS[athlete.sport].name, athlete.role !== SPORTS[athlete.sport].name && athlete.role].filter(Boolean).join(' · ')}
+            </span>
           </p>
         </div>
         <div className="card-stats__ovr">
-          <b>{mythe ? `+${mythe.bonus.value}` : overall}</b>
-          <span>{mythe ? 'Bonus' : 'Note'}</span>
+          <b>{collectionNumber(athlete)}</b>
+          <span>N°</span>
         </div>
       </header>
 
-      {mythe ? (
-        <p className="card-stats__ulti">
-          <span className="card-stats__ulti-label">Bonus d’équipe en match</span>
-          <b>
-            +{mythe.bonus.value}{' '}
-            {mythe.bonus.sport === 'all' ? 'pour tous les animaux' : `pour ${SPORTS[mythe.bonus.sport].group}`}
-          </b>
-          <small>
-            {mythe.bonus.events?.length ? `+${mythe.bonus.eventBonus} de plus en ${mythe.bonus.events.map((e) => EVENTS[e].name).join(', ')}. ` : ''}
-            À savoir : {mythe.palmares}.
-          </small>
-        </p>
-      ) : (
-        <>
-          <ul className="card-stats__grid" aria-label="Ses trois meilleures stats">
-            {best.map((key) => (
-              <li key={key} className={`card-stats__stat card-stats__stat--${key}`} title={STAT_LABELS[key].desc}>
-                <span className="card-stats__label">
-                  <span className="card-stats__long">{STAT_LABELS[key].name}</span>
-                  <span className="card-stats__short">{STAT_LABELS[key].short}</span>
-                </span>
-                <b>{stats[key]}</b>
-                <span className="card-stats__track">
-                  <span style={{ width: `${stats[key]}%` }} />
-                </span>
-              </li>
-            ))}
-          </ul>
+      {facts.length > 0 && (
+        <dl className="card-stats__facts">
+          {facts.map(([label, value]) => (
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
 
-          <p className="card-stats__ulti">
-            <span className="card-stats__ulti-label">{ulti.signature ? 'Ulti signature' : 'Ulti'}</span>
-            <b>{ulti.name}</b>
-            <small>{ulti.desc}</small>
+      {prime && athlete.prime && (
+        <p className="card-stats__story">
+          <span className="card-stats__label">Prime {athlete.prime.year}</span>
+          {athlete.prime.note}
+        </p>
+      )}
+
+      <p className="card-stats__story">
+        <span className="card-stats__label">Le savais-tu ?</span>
+        {athlete.fact}
+      </p>
+
+      {habitat && (
+        <>
+          {habitat.protection && <p className="muted small card-stats__protection">{habitat.protection}</p>}
+          <p className="card-stats__story">
+            <span className="card-stats__label">Ils y vivent</span>
+            {inhabitants.map((a) => a.last).join(', ')}.
           </p>
         </>
       )}

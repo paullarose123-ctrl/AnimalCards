@@ -143,18 +143,18 @@
 }
 
 /* textes bronze sur ivoire : un liseré clair au lieu de l'ombre sombre */
-.card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .metal-text {
+.card.is-icon:not(.is-prime, .is-reverse, .is-habitat) .metal-text {
   filter: drop-shadow(0 0.05em 0 rgba(255, 252, 242, 0.95));
 }
 
 /* filet doré tout autour de la carte */
-.card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .card__body {
+.card.is-icon:not(.is-prime, .is-reverse, .is-habitat) .card__body {
   box-shadow: inset 0 0 0 0.07em rgba(150, 110, 40, 0.55);
 }
 
 /* veines du marbre et voile nacré, sur le cadre seulement : la fenêtre de la photo est découpée du masque
    (même rectangle que .card__window : 9,4 % / 3,3 % / 5,8 % / 17,1 %) */
-.card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .card__body::after {
+.card.is-icon:not(.is-prime, .is-reverse, .is-habitat) .card__body::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -184,7 +184,7 @@
 }
 
 /* reflet doré qui passe de temps en temps sur la carte */
-.card.is-icon:not(.is-prime, .is-reverse, .is-mythe) .card__holo {
+.card.is-icon:not(.is-prime, .is-reverse, .is-habitat) .card__holo {
   opacity: 0.22;
   mix-blend-mode: soft-light;
   background: linear-gradient(115deg, transparent 40%, rgba(255, 236, 180, 0.9) 50%, transparent 60%) 0 0 / 300% 100%;
@@ -735,9 +735,9 @@
   margin-top: 0.12em;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 2.15em;
+  font-size: 1.62em;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   font-variant-numeric: lining-nums;
 }
 
@@ -1027,7 +1027,7 @@
 }
 
 .card.is-compact .card__rating b {
-  font-size: 2.4em;
+  font-size: 1.8em;
 }
 
 .card.is-compact .card__subtitle span {
@@ -1047,7 +1047,7 @@
 }
 
 .card.is-tiny .card__rating b {
-  font-size: 2.7em;
+  font-size: 2em;
 }
 
 .card.is-tiny .card__code {
@@ -1068,57 +1068,67 @@
     animation: none !important;
   }
 }
-/* ───────────── Cartes Mythe : créatures fantastiques ─────────────
-   Même structure que les animaux, palette propre : nuit de pleine lune bleutée et étoilée, comme le pack des canidés. */
-.card.is-mythe {
+/* ───────────── Cartes Habitat : grands lieux de la planète ─────────────
+   Même structure que les animaux : le lieu en paysage peint dans la fenêtre, un cadre vert mousse et miel. */
+.card.is-habitat {
   --foil:
-    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 0.035em, transparent 0.08em) 0 0 / 1.2em 1.4em,
-    radial-gradient(circle, rgba(207, 224, 255, 0.6) 0 0.03em, transparent 0.07em) 0.5em 0.6em / 1.7em 1.5em,
-    radial-gradient(34% 18% at 72% 10%, rgba(241, 246, 255, 0.85), transparent 70%),
-    linear-gradient(172deg, #0d1a3a 0%, #22396a 45%, #4c74ab 85%, #6f93c4 100%);
-  --panel: #080f1f;
-  --trim: #cfe0ff;
-  --metal: linear-gradient(180deg, #ffffff 0%, #eaf2ff 50%, #b9cff2 100%);
-  --metal-edge: #030712;
-  --plate-ink: #f1f6ff;
-  --tier-bg: linear-gradient(90deg, #6f93c4, #dbe8ff);
-  --tier-ink: #080f1f;
-  --hill-far: #16284a;
-  --hill-near: #101e3a;
+    radial-gradient(34% 18% at 72% 10%, rgba(255, 240, 207, 0.7), transparent 70%),
+    linear-gradient(172deg, #14273f 0%, #2f5a45 50%, #6b8f5a 85%, #c9a35a 100%);
+  --panel: #0b170f;
+  --trim: #e9c77b;
+  --metal: linear-gradient(180deg, #fff8e6 0%, #f3dca0 50%, #c9a35a 100%);
+  --metal-edge: #1a1206;
+  --plate-ink: #fff3d6;
+  --tier-bg: linear-gradient(90deg, #6b8f5a, #e9c77b);
+  --tier-ink: #0b170f;
+  --hill-far: #1d3a2a;
+  --hill-near: #12261b;
 }
 
-.is-mythe .card__scene {
-  background:
-    radial-gradient(55% 45% at 50% 45%, rgba(207, 224, 255, 0.3), transparent 72%),
-    linear-gradient(180deg, #13213f, #070d1c);
-}
-
-.is-mythe .card__scene::before {
+.is-habitat .card__scene::before {
   display: none;
 }
 
-/* sans photo : l'emblème de la famille, couleur de lune */
-.card__emblem {
-  display: grid;
-  place-items: center;
+/* le paysage peint remplit toute la fenêtre */
+.card__landscape {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
-  color: #cfe0ff;
 }
 
-.card__emblem svg {
-  width: 48%;
-  height: 48%;
-  stroke-width: 1.2;
-  filter: drop-shadow(0 0 0.6em rgba(207, 224, 255, 0.55));
-}
-
-.is-mythe .card__photo {
-  filter: saturate(0.92) contrast(1.06);
-}
-
-.is-mythe .card__holo {
-  opacity: 0.12;
+.is-habitat .card__holo {
+  opacity: 0.08;
   mix-blend-mode: color-dodge;
   animation: holo-drift 9s linear infinite;
+}
+
+/* nom scientifique, discret, en bas de la photo */
+.card__latin {
+  position: absolute;
+  left: 27%;
+  right: 7.6%;
+  bottom: 24.4%;
+  z-index: 2;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.68em;
+  letter-spacing: 0.02em;
+  color: rgba(255, 250, 240, 0.86);
+  text-shadow: 0 0.06em 0.3em rgba(0, 0, 0, 0.85), 0 0 0.12em rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.is-reverse .card__latin {
+  color: #5b4380;
+  text-shadow: 0 0 0.3em rgba(255, 255, 255, 0.9);
+}
+
+.has-landscape .card__player {
+  inset: 0;
 }

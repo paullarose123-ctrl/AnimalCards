@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { ATHLETES, ATHLETES_BY_ID } from '../../data/athletes';
-import { RECORD_START, baseValueOf, canBePrime, overallOf, rarityOf, primeRecordStart } from '../cards';
+import { baseValueOf, canBePrime, rarityOf } from '../cards';
 import { FREE_ODDS, FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, primeOdds, sportPack } from '../packs';
 import { advanceMarket, createAiListing, createMarket, createMyListing, marketPrice, netAfterTax, TARGET_LISTINGS, type MarketState } from '../market';
-import { computePower, createMatch, matchResult, mytheBonus, playRound, ROUNDS, takenMalus, type MatchCard } from '../match';
+import { ROUNDS, aiSkill, autoTeamFrom, compare, createDuel, duelResult, formatRecordValue, playDuelRound, recordValue, type DuelCard } from '../duel';
 import { mulberry32 } from '../random';
 
 const MINUTE = 60_000;
@@ -60,26 +60,25 @@ describe('boosters', () => {
     expect(reverse / total).toBeLessThan(0.06);
     const zebre = ATHLETES_BY_ID.zebre;
     expect(baseValueOf(zebre, 'reverse')).toBeGreaterThan(baseValueOf(zebre));
-    expect(overallOf(zebre, 'reverse')).toBe(overallOf(zebre));
   });
 
-  it('sort une carte Mythe environ une fois sur 40, sans toucher à la carte garantie', () => {
+  it('sort une carte Habitat environ une fois sur 40, sans toucher à la carte garantie', () => {
     const rng = mulberry32(99);
-    let mythes = 0;
+    let habitats = 0;
     let total = 0;
     for (let i = 0; i < 4000; i++) {
       for (const card of openPack(FREE_PACK, rng)) {
         total += 1;
-        if (ATHLETES_BY_ID[card.athleteId].mythe) mythes += 1;
+        if (ATHLETES_BY_ID[card.athleteId].habitat) habitats += 1;
       }
     }
-    expect(mythes / total).toBeGreaterThan(0.018);
-    expect(mythes / total).toBeLessThan(0.032);
-    // la carte garantie reste un animal Légendaire ; un Mythe tiré en plus peut être classé après elle
+    expect(habitats / total).toBeGreaterThan(0.018);
+    expect(habitats / total).toBeLessThan(0.032);
+    // la carte garantie reste un animal Légendaire ; un Habitat tiré en plus peut être classé après elle
     const legende = SHOP_PACKS.find((p) => p.id === 'legende')!;
     for (let i = 0; i < 300; i++) {
       const athletes = openPack(legende, rng).map((card) => ATHLETES_BY_ID[card.athleteId]);
-      expect(athletes.some((athlete) => !athlete.mythe && rarityOf(athlete).id === 'legendaire')).toBe(true);
+      expect(athletes.some((athlete) => !athlete.habitat && rarityOf(athlete).id === 'legendaire')).toBe(true);
     }
   });
 
@@ -87,7 +86,7 @@ describe('boosters', () => {
     const rng = mulberry32(7);
     const isIconCard = (card: { athleteId: string }) => {
       const athlete = ATHLETES_BY_ID[card.athleteId];
-      return !!athlete.retired && !athlete.mythe;
+      return !!athlete.retired && !athlete.habitat;
     };
     let icons = 0;
     let total = 0;
@@ -99,23 +98,14 @@ describe('boosters', () => {
     }
     expect(icons / total).toBeGreaterThan(0.003);
     expect(icons / total).toBeLessThan(0.008);
-    // le Pack Icônes et le Pack Préhistoire, eux, ne contiennent que des Icônes (ou un Mythe)
+    // le Pack Icônes et le Pack Préhistoire, eux, ne contiennent que des Icônes (ou un Habitat)
     const iconPack = SHOP_PACKS.find((p) => p.id === 'icones')!;
     const prehistoire = sportPack('prehistoire', 'Préhistoire');
     for (let i = 0; i < 300; i++) {
       for (const pack of [iconPack, prehistoire]) {
-        for (const card of openPack(pack, rng)) expect(isIconCard(card) || !!ATHLETES_BY_ID[card.athleteId].mythe).toBe(true);
+        for (const card of openPack(pack, rng)) expect(isIconCard(card) || !!ATHLETES_BY_ID[card.athleteId].habitat).toBe(true);
       }
     }
-  });
-
-  it('ne donne le bonus d’une carte Mythe qu’aux animaux de sa famille', () => {
-    const side = { mythe: { uid: 'm', athleteId: 'mythe-lion-aile', variant: 'base' as const } };
-    expect(mytheBonus(side, { athleteId: 'lion', variant: 'base' }, 'sprint')?.value).toBe(4);
-    expect(mytheBonus(side, { athleteId: 'lion', variant: 'base' }, 'coup-de-genie')?.value).toBe(8);
-    expect(mytheBonus(side, { athleteId: 'loup', variant: 'base' }, 'sprint')).toBeNull();
-    const tortue = { mythe: { uid: 'j', athleteId: 'mythe-tortue-monde', variant: 'base' as const } };
-    expect(mytheBonus(tortue, { athleteId: 'loup', variant: 'base' }, 'sprint')?.value).toBe(2);
   });
 
   it('ne donne une version Prime qu’aux espèces vedettes', () => {
@@ -150,11 +140,6 @@ describe('boosters', () => {
     expect(share).toBeLessThan(0.011);
     // plus une espèce est célèbre, plus sa carte est rare : le lion sort bien moins souvent que le crocodile du Nil
     expect(lion).toBeLessThan(crocodile);
-  });
-
-  it('inscrit le record de vitesse du guépard sur sa carte', () => {
-    expect(primeRecordStart(ATHLETES_BY_ID.guepard)).toBe(RECORD_START);
-    expect(primeRecordStart(ATHLETES_BY_ID.lion)).toBeUndefined();
   });
 });
 
@@ -205,65 +190,48 @@ describe('marché des transferts', () => {
   });
 });
 
-describe('matchs', () => {
-  const team = (ids: string[]): MatchCard[] => ids.map((id, i) => ({ uid: `u${i}`, athleteId: id, variant: 'base' }));
+describe('duel de records', () => {
+  const team = (ids: string[]): DuelCard[] => ids.map((id, i) => ({ uid: `u${i}`, athleteId: id, variant: 'base' }));
 
-  it('se joue en 5 manches et désigne un résultat', () => {
+  it('se joue en 5 manches, chaque animal une seule fois, et désigne un résultat', () => {
     const rng = mulberry32(3);
-    let match = createMatch(team(['herisson', 'zebre', 'gnou', 'castor', 'lapin']), 10, rng);
+    let duel = createDuel(team(['herisson', 'zebre', 'gnou', 'castor', 'lapin']), 10, rng);
+    expect(new Set(duel.records).size).toBe(ROUNDS);
     for (let round = 0; round < ROUNDS; round++) {
-      expect(match.finished).toBe(false);
-      match = playRound(match, round, false, rng).state;
+      expect(duel.finished).toBe(false);
+      duel = playDuelRound(duel, round, rng).state;
     }
-    expect(match.finished).toBe(true);
-    expect(match.log).toHaveLength(ROUNDS);
-    expect(['win', 'draw', 'loss']).toContain(matchResult(match));
+    expect(duel.finished).toBe(true);
+    expect(duel.me.used).toEqual([0, 1, 2, 3, 4]);
+    expect(new Set(duel.opp.used).size).toBe(ROUNDS);
+    expect(duel.me.score + duel.opp.score).toBeLessThanOrEqual(ROUNDS);
+    expect(['win', 'draw', 'loss']).toContain(duelResult(duel));
   });
 
-  it('consomme de l’énergie pour un ulti et interdit de rejouer un animal', () => {
-    const rng = mulberry32(8);
-    const match = createMatch(team(['lion', 'tigre', 'elephant', 'orque', 'requin-blanc']), 5, rng);
-    const { state } = playRound(match, 0, true, rng);
-    expect(state.me.energy).toBeLessThanOrEqual(match.me.energy);
-    expect(() => playRound(state, 0, false, rng)).toThrow();
+  it('compare les vraies mesures : l’éléphant est plus lourd que la souris, qui est plus légère', () => {
+    const elephant = { athleteId: 'elephant', variant: 'base' as const };
+    const souris = { athleteId: 'souris', variant: 'base' as const };
+    expect(compare('lourd', recordValue(elephant, 'lourd'), recordValue(souris, 'lourd'))).toBe('me');
+    expect(compare('leger', recordValue(elephant, 'leger'), recordValue(souris, 'leger'))).toBe('opp');
+    expect(compare('rare', recordValue(elephant, 'rare'), recordValue(souris, 'rare'))).toBe('me');
+    // une mesure inconnue perd la manche
+    expect(compare('vieux', null, 3)).toBe('opp');
+    expect(compare('vieux', null, null)).toBe('draw');
+    expect(formatRecordValue({ athleteId: 'dodo', variant: 'base' }, 'rare')).toBe('Éteint');
   });
 
-  it('fait grimper le record du guépard d’un km/h à chaque ulti', () => {
-    const rng = mulberry32(11);
-    const cards = team(['guepard', 'zebre', 'gnou', 'castor', 'herisson']);
-    cards[0].record = RECORD_START;
-    const match = createMatch(cards, 8, rng);
-    const { state, log } = playRound(match, 0, true, rng);
-    expect(log.records).toEqual(['u0']);
-    expect(state.me.cards[0].record).toBe(RECORD_START + 1);
+  it('rend l’adversaire plus malin dans les hautes divisions', () => {
+    expect(aiSkill(10)).toBeLessThan(aiSkill(1));
+    expect(aiSkill(1)).toBeLessThanOrEqual(0.95);
   });
 
-  it('donne à chaque famille sa particularité : Intelligence, Insaisissable et Dernier rugissement', () => {
-    const rng = mulberry32(21);
-    // primates : un point d'énergie de plus au coup d'envoi, une seule fois par équipe
-    expect(createMatch(team(['gorille', 'chimpanze', 'lion', 'tigre', 'elephant']), 8, rng).me.energy).toBe(3);
-    expect(createMatch(team(['lion', 'tigre', 'elephant', 'orque', 'requin-blanc']), 8, rng).me.energy).toBe(2);
-    // invertébrés : ils ne subissent rien et renvoient ce qu'on leur envoie
-    expect(takenMalus('invertebres', 'canides', 10, 0)).toEqual({ direct: 0, returned: 0 });
-    expect(takenMalus('canides', 'invertebres', 4, 10)).toEqual({ direct: 4, returned: 10 });
-    expect(takenMalus('invertebres', 'invertebres', 8, 8)).toEqual({ direct: 0, returned: 0 });
-    expect(takenMalus('marins', 'invertebres', 3, 9)).toEqual({ direct: 0, returned: 0 });
-    expect(takenMalus('canides', 'marsupiaux', 6, 9)).toEqual({ direct: 6, returned: 0 });
-    // préhistoire : +8 à la dernière manche seulement
-    const match = createMatch(team(['t-rex', 'velociraptor', 'lion', 'tigre', 'elephant']), 8, rng);
-    const clutch = (round: number) => computePower(match.me, match.opp, 0, 'sprint', round, false, false).parts.find((part) => part.label === 'Dernier rugissement');
-    expect(clutch(ROUNDS - 1)?.value).toBe(8);
-    expect(clutch(0)).toBeUndefined();
-  });
-
-  it('donne l’avantage à une équipe de légendes contre une division faible', () => {
-    let wins = 0;
-    for (let seed = 0; seed < 40; seed++) {
-      const rng = mulberry32(seed);
-      let match = createMatch(team(['lion', 'tigre', 'elephant', 'orque', 'requin-blanc']), 10, rng);
-      for (let round = 0; round < ROUNDS; round++) match = playRound(match, round, round >= 3, rng).state;
-      if (matchResult(match) === 'win') wins += 1;
-    }
-    expect(wins).toBeGreaterThan(32);
+  it('compose une équipe auto de cinq espèces différentes, sans carte Habitat', () => {
+    const cards = team(['elephant', 'elephant', 'souris', 'tortue-geante', 'loup-d-ethiopie', 'baleine-bleue', 'habitat-amazonie', 'lion']);
+    const uids = autoTeamFrom(cards);
+    expect(uids).toHaveLength(5);
+    const ids = uids.map((uid) => cards.find((c) => c.uid === uid)!.athleteId);
+    expect(new Set(ids).size).toBe(5);
+    expect(ids).not.toContain('habitat-amazonie');
+    expect(ids).toEqual(expect.arrayContaining(['baleine-bleue', 'souris']));
   });
 });

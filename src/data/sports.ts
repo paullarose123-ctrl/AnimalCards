@@ -1,18 +1,6 @@
-import type { SportDef, SportId, StatKey, MatchEvent, EventId } from '../engine/types';
+import type { SportDef, SportId } from '../engine/types';
 
-export const STAT_KEYS: StatKey[] = ['vit', 'for', 'end', 'tec', 'int', 'aur'];
-
-export const STAT_LABELS: Record<StatKey, { short: string; name: string; desc: string }> = {
-  vit: { short: 'VIT', name: 'Vitesse', desc: 'Pointe de vitesse, réactivité.' },
-  for: { short: 'FOR', name: 'Force', desc: 'Puissance physique, morsure, poids.' },
-  end: { short: 'END', name: 'Endurance', desc: 'Tenir la distance, résister au froid et à la faim.' },
-  tec: { short: 'AGI', name: 'Agilité', desc: 'Adresse, souplesse, précision du geste.' },
-  int: { short: 'INT', name: 'Intelligence', desc: 'Ruse, mémoire, résolution de problèmes.' },
-  aur: { short: 'AUR', name: 'Aura', desc: 'Prestance, intimidation, charisme.' },
-};
-
-// Chaque famille d'animaux a une particularité (passif en match) et une réserve d'ultis
-// attribués aux cartes qui n'ont pas d'ulti signature.
+// Les familles d'animaux : nom, couleur et emblème (src/components/SportIcon.tsx).
 export const SPORTS: Record<SportId, SportDef> = {
   felins: {
     id: 'felins',
@@ -21,13 +9,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les félins',
     of: 'des félins',
     color: '#f6a623',
-    passive: { name: 'Chasseur solitaire', desc: '+5 dans les épreuves Face-à-face et Instinct de survie.' },
-    ultis: [
-      { name: 'Embuscade', desc: 'Surgit des hautes herbes. +{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Morsure à la gorge', desc: 'La manche compte double si elle est gagnée. +{v}.', effect: { kind: 'double', value: 0 } },
-      { name: 'Regard hypnotique', desc: 'L’adversaire se fige : il perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Bond fulgurant', desc: 'VIT devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'vit', value: 0 } },
-    ],
   },
   canides: {
     id: 'canides',
@@ -36,13 +17,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les canidés et les hyènes',
     of: 'des canidés',
     color: '#90a4ae',
-    passive: { name: 'Meute', desc: '+2 de puissance par autre membre de la meute (canidé ou hyène) dans l’équipe (max +8).' },
-    ultis: [
-      { name: 'Hurlement', desc: 'Rassemble la meute : +{v} maintenant, puis +3 pour toute l’équipe.', effect: { kind: 'team-buff', value: 0, boost: 3 } },
-      { name: 'Traque', desc: 'Suit la piste pendant des heures : END devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'end', value: 0 } },
-      { name: 'Encerclement', desc: 'L’adversaire est cerné : il perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Flair', desc: 'Utilise sa meilleure stat pour l’épreuve, +{v}.', effect: { kind: 'best-stat', value: 0 } },
-    ],
   },
   ours: {
     id: 'ours',
@@ -51,12 +25,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les ours',
     of: 'des ours',
     color: '#8d6e63',
-    passive: { name: 'Colère de l’ours', desc: '+7 quand son équipe est menée au score.' },
-    ultis: [
-      { name: 'Charge', desc: 'Plus de 50 km/h en pleine course. +{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Coup de patte', desc: 'FOR devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'for', value: 0 } },
-      { name: 'Réveil d’hibernation', desc: '+{v}, et +8 de plus si l’équipe est menée.', effect: { kind: 'comeback', value: 0, bonus: 8 } },
-    ],
   },
   primates: {
     id: 'primates',
@@ -65,13 +33,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les primates',
     of: 'des primates',
     color: '#e57373',
-    passive: { name: 'Intelligence', desc: 'Son équipe commence le match avec 3 points d’énergie au lieu de 2.' },
-    ultis: [
-      { name: 'Outil improvisé', desc: 'Un bâton, une pierre, et le problème est réglé : INT devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'int', value: 0 } },
-      { name: 'Cri d’alerte', desc: 'Prévient toute la troupe : annule l’ulti adverse, +{v}.', effect: { kind: 'cancel', value: 0 } },
-      { name: 'Démonstration de force', desc: 'L’adversaire perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Voltige', desc: 'De liane en liane : utilise sa meilleure stat, +{v}.', effect: { kind: 'best-stat', value: 0 } },
-    ],
   },
   geants: {
     id: 'geants',
@@ -80,12 +41,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les géants',
     of: 'des géants',
     color: '#9575cd',
-    passive: { name: 'Masse', desc: '+6 dans les épreuves Corps à corps et Loi de la jungle.' },
-    ultis: [
-      { name: 'Charge massive', desc: 'Plusieurs tonnes lancées droit devant. +{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Barrissement', desc: 'La manche compte double si elle est gagnée. +{v}.', effect: { kind: 'double', value: 0 } },
-      { name: 'Piétinement', desc: 'FOR devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'for', value: 0 } },
-    ],
   },
   ongules: {
     id: 'ongules',
@@ -94,13 +49,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les ongulés',
     of: 'des ongulés',
     color: '#c8a165',
-    passive: { name: 'Démarrage', desc: '+6 à la première manche et dans l’épreuve Sprint.' },
-    ultis: [
-      { name: 'Fuite éclair', desc: 'VIT devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'vit', value: 0 } },
-      { name: 'Coup de corne', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Grande migration', desc: 'END devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'end', value: 0 } },
-      { name: 'Ruade', desc: 'L’adversaire perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-    ],
   },
   petits: {
     id: 'petits',
@@ -109,12 +57,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les petits mammifères',
     of: 'des petits mammifères',
     color: '#f48fb1',
-    passive: { name: 'Frimousse', desc: '+6 dans les épreuves Adresse et Coup de cœur.' },
-    ultis: [
-      { name: 'Terrier secret', desc: 'Utilise sa meilleure stat, +{v}.', effect: { kind: 'best-stat', value: 0 } },
-      { name: 'Réserve de noisettes', desc: '+{v} maintenant, puis +3 pour toute l’équipe.', effect: { kind: 'team-buff', value: 0, boost: 3 } },
-      { name: 'Esquive', desc: 'Il se faufile : annule l’ulti adverse, +{v}.', effect: { kind: 'cancel', value: 0 } },
-    ],
   },
   marsupiaux: {
     id: 'marsupiaux',
@@ -123,13 +65,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les marsupiaux et leurs cousins',
     of: 'des marsupiaux',
     color: '#e8590c',
-    passive: { name: 'Bonds', desc: 'Sur sa lancée : +6 si son équipe a gagné la manche précédente.' },
-    ultis: [
-      { name: 'Coup de pied sauté', desc: 'Appuyé sur la queue, il frappe des deux pattes. +{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Poche surprise', desc: '+{v}, +8 à la dernière manche.', effect: { kind: 'last-round', value: 0, bonus: 8 } },
-      { name: 'Boxe australienne', desc: 'L’adversaire perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Sieste de 20 heures', desc: 'Repos total : +{v} maintenant, puis +3 pour toute l’équipe.', effect: { kind: 'team-buff', value: 0, boost: 3 } },
-    ],
   },
   marins: {
     id: 'marins',
@@ -138,13 +73,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les mammifères marins',
     of: 'des mammifères marins',
     color: '#1e66d0',
-    passive: { name: 'Hydrodynamique', desc: 'Insensible aux malus adverses.' },
-    ultis: [
-      { name: 'Saut hors de l’eau', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Écholocation', desc: 'INT devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'int', value: 0 } },
-      { name: 'Chant des profondeurs', desc: '+{v} maintenant, puis +3 pour toute l’équipe.', effect: { kind: 'team-buff', value: 0, boost: 3 } },
-      { name: 'Plongée record', desc: 'END devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'end', value: 0 } },
-    ],
   },
   requins: {
     id: 'requins',
@@ -153,12 +81,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les requins et les raies',
     of: 'des requins',
     color: '#26a69a',
-    passive: { name: 'Frénésie', desc: 'Une manche gagnée de 10 points ou plus rapporte +1 énergie.' },
-    ultis: [
-      { name: 'Attaque par en dessous', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Odeur du sang', desc: 'La manche compte double si elle est gagnée. +{v}.', effect: { kind: 'double', value: 0 } },
-      { name: 'Rangées de dents', desc: 'L’adversaire perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-    ],
   },
   poissons: {
     id: 'poissons',
@@ -167,12 +89,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les poissons',
     of: 'des poissons',
     color: '#29b6f6',
-    passive: { name: 'Remontée du courant', desc: '+5 dans les épreuves Migration et Instinct de survie.' },
-    ultis: [
-      { name: 'Coup de nageoire', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Banc compact', desc: '+{v} maintenant, puis +3 pour toute l’équipe.', effect: { kind: 'team-buff', value: 0, boost: 3 } },
-      { name: 'Camouflage', desc: 'Utilise sa meilleure stat, +{v}.', effect: { kind: 'best-stat', value: 0 } },
-    ],
   },
   rapaces: {
     id: 'rapaces',
@@ -181,13 +97,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les rapaces',
     of: 'des rapaces',
     color: '#b5651d',
-    passive: { name: 'Vue perçante', desc: 'Presque aucune part de hasard dans ses résultats.' },
-    ultis: [
-      { name: 'Piqué', desc: 'VIT devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'vit', value: 0 } },
-      { name: 'Serres d’acier', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Repérage en altitude', desc: 'AGI devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'tec', value: 0 } },
-      { name: 'Ombre planante', desc: '+{v}, +8 à la dernière manche.', effect: { kind: 'last-round', value: 0, bonus: 8 } },
-    ],
   },
   oiseaux: {
     id: 'oiseaux',
@@ -196,13 +105,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les oiseaux',
     of: 'des oiseaux',
     color: '#ab47bc',
-    passive: { name: 'Vol en V', desc: '+5 si son équipe a gagné la manche précédente.' },
-    ultis: [
-      { name: 'Envol', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Parade nuptiale', desc: 'Plumes déployées : +{v}, +8 de plus en Coup de cœur.', effect: { kind: 'event', value: 0, events: ['bain-de-foule'], bonus: 8 } },
-      { name: 'Imitation', desc: 'Copie le cri adverse : annule l’ulti adverse, +{v}.', effect: { kind: 'cancel', value: 0 } },
-      { name: 'Long-courrier', desc: 'END devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'end', value: 0 } },
-    ],
   },
   reptiles: {
     id: 'reptiles',
@@ -211,13 +113,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les reptiles',
     of: 'des reptiles',
     color: '#43a047',
-    passive: { name: 'Sang-froid', desc: 'Il se réchauffe au fil du match : +2 de puissance par numéro de manche (+10 à la 5e).' },
-    ultis: [
-      { name: 'Venin', desc: 'L’adversaire perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Roulade de la mort', desc: 'La manche compte double si elle est gagnée. +{v}.', effect: { kind: 'double', value: 0 } },
-      { name: 'Mue', desc: 'Fait peau neuve : +{v}, et +8 de plus si l’équipe est menée.', effect: { kind: 'comeback', value: 0, bonus: 8 } },
-      { name: 'Attente immobile', desc: '+{v}, +8 à la dernière manche.', effect: { kind: 'last-round', value: 0, bonus: 8 } },
-    ],
   },
   amphibiens: {
     id: 'amphibiens',
@@ -227,12 +122,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     of: 'des amphibiens',
     color: '#9ccc65',
     ink: '#16260a',
-    passive: { name: 'Peau toxique', desc: 'L’adversaire perd 4 de puissance.' },
-    ultis: [
-      { name: 'Langue collante', desc: 'AGI devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'tec', value: 0 } },
-      { name: 'Coassement', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Régénération', desc: '+{v}, et +8 de plus si l’équipe est menée.', effect: { kind: 'comeback', value: 0, bonus: 8 } },
-    ],
   },
   insectes: {
     id: 'insectes',
@@ -242,13 +131,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     of: 'des insectes',
     color: '#fdd835',
     ink: '#2b2300',
-    passive: { name: 'Instinct', desc: '+6 dans l’épreuve Adresse. Résultats très réguliers.' },
-    ultis: [
-      { name: 'Essaim', desc: '+{v} maintenant, puis +3 pour toute l’équipe.', effect: { kind: 'team-buff', value: 0, boost: 3 } },
-      { name: 'Dard', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Toile', desc: 'L’adversaire est piégé : il perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Métamorphose', desc: 'Utilise sa meilleure stat, +{v}.', effect: { kind: 'best-stat', value: 0 } },
-    ],
   },
   invertebres: {
     id: 'invertebres',
@@ -257,13 +139,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les invertébrés marins',
     of: 'des invertébrés marins',
     color: '#ec407a',
-    passive: { name: 'Insaisissable', desc: 'Renvoie les malus : c’est l’adversaire qui les prend (entre deux invertébrés, ils s’annulent).' },
-    ultis: [
-      { name: 'Nuage d’encre', desc: 'Disparaît dans l’encre : annule l’ulti adverse, +{v}.', effect: { kind: 'cancel', value: 0 } },
-      { name: 'Pince', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Piqûre', desc: 'L’adversaire perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Huit bras', desc: 'AGI devient la stat principale, +{v}.', effect: { kind: 'stat-swap', stat: 'tec', value: 0 } },
-    ],
   },
   ferme: {
     id: 'ferme',
@@ -272,13 +147,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     group: 'les animaux de la ferme et de compagnie',
     of: 'de la ferme',
     color: '#d84343',
-    passive: { name: 'Meilleur ami', desc: '+5 dans les épreuves Coup de cœur et Face-à-face.' },
-    ultis: [
-      { name: 'Câlin', desc: 'Fait fondre l’adversaire : il perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Coup de sabot', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Retour à la maison', desc: '+{v}, +8 à la dernière manche.', effect: { kind: 'last-round', value: 0, bonus: 8 } },
-      { name: 'Chant du coq', desc: 'Réveille tout le monde : +{v} maintenant, puis +3 pour toute l’équipe.', effect: { kind: 'team-buff', value: 0, boost: 3 } },
-    ],
   },
   prehistoire: {
     id: 'prehistoire',
@@ -288,13 +156,6 @@ export const SPORTS: Record<SportId, SportDef> = {
     of: 'de la préhistoire',
     color: '#d9c8a3',
     ink: '#2a1f12',
-    passive: { name: 'Dernier rugissement', desc: '+8 à la dernière manche : la légende se réveille.' },
-    ultis: [
-      { name: 'Morsure fossile', desc: '+{v} de puissance.', effect: { kind: 'boost', value: 0 } },
-      { name: 'Extinction', desc: 'La manche compte double si elle est gagnée. +{v}.', effect: { kind: 'double', value: 0 } },
-      { name: 'Pluie de météorites', desc: 'L’adversaire perd {v} de puissance.', effect: { kind: 'debuff', value: 0 } },
-      { name: 'Ère des géants', desc: '+{v} maintenant, puis +3 pour toute l’équipe.', effect: { kind: 'team-buff', value: 0, boost: 3 } },
-    ],
   },
 };
 
@@ -302,21 +163,4 @@ export const SPORT_ORDER: SportId[] = [
   'felins', 'canides', 'ours', 'primates', 'geants', 'ongules', 'petits', 'marsupiaux',
   'marins', 'requins', 'poissons', 'rapaces', 'oiseaux', 'reptiles', 'amphibiens', 'insectes',
   'invertebres', 'ferme', 'prehistoire',
-];
-
-export const EVENTS: Record<EventId, MatchEvent> = {
-  sprint: { id: 'sprint', name: 'Sprint', desc: 'Le plus rapide l’emporte.', primary: 'vit', secondary: 'aur' },
-  'bras-de-fer': { id: 'bras-de-fer', name: 'Corps à corps', desc: 'La force brute.', primary: 'for', secondary: 'aur' },
-  marathon: { id: 'marathon', name: 'Migration', desc: 'Tenir la distance.', primary: 'end', secondary: 'aur' },
-  'coup-de-genie': { id: 'coup-de-genie', name: 'Ruse', desc: 'Voir avant les autres.', primary: 'int', secondary: 'tec' },
-  'geste-technique': { id: 'geste-technique', name: 'Adresse', desc: 'Le geste parfait, la précision absolue.', primary: 'tec', secondary: 'int' },
-  'money-time': { id: 'money-time', name: 'Instinct de survie', desc: 'Dernière seconde, tout se joue.', primary: 'aur', secondary: 'int' },
-  'face-a-face': { id: 'face-a-face', name: 'Face-à-face', desc: 'Les yeux dans les yeux : qui baissera le regard ?', primary: 'aur', secondary: 'for' },
-  'bain-de-foule': { id: 'bain-de-foule', name: 'Coup de cœur', desc: 'Le public choisit son favori : la popularité compte.', primary: 'aur', secondary: 'aur', popularity: true },
-  decathlon: { id: 'decathlon', name: 'Loi de la jungle', desc: 'Le plus complet survit.', primary: 'for', secondary: 'end', blend: ['vit', 'for', 'end', 'tec'] },
-};
-
-export const EVENT_ORDER: EventId[] = [
-  'sprint', 'bras-de-fer', 'marathon', 'coup-de-genie', 'geste-technique',
-  'money-time', 'face-a-face', 'bain-de-foule', 'decathlon',
 ];

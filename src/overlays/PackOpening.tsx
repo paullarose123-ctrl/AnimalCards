@@ -3,7 +3,7 @@ import { useGame, formatBalles } from '../store/game';
 import { useUi } from '../store/ui';
 import { ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS } from '../data/sports';
-import { isIcon, overallOf, quickSellValue, rarityOf } from '../engine/cards';
+import { collectionNumber, isIcon, quickSellValue, rarityOf } from '../engine/cards';
 import type { CardFace } from '../engine/types';
 import { Card } from '../components/Card';
 import { ALL_PACK_SCENES, PackArt, packScene } from '../components/PackArt';
@@ -62,15 +62,15 @@ function tierOf(card: CardFace): number {
 }
 
 function isSpecial(card: CardFace): boolean {
-  // les Mythes n'ont pas de révélation « animal » (drapeau, note) : ils se retournent sur place
-  if (ATHLETES_BY_ID[card.athleteId].mythe) return false;
+  // les Habitats n'ont pas de révélation « animal » (drapeau, numéro) : ils se retournent sur place
+  if (ATHLETES_BY_ID[card.athleteId].habitat) return false;
   return tierOf(card) >= 3 || card.variant === 'prime';
 }
 
 function glowOf(card: CardFace): string {
   if (card.variant === 'prime') return '#f2b8cf';
   if (card.variant === 'reverse') return '#e3c6ff';
-  if (ATHLETES_BY_ID[card.athleteId].mythe) return '#e0b85a';
+  if (ATHLETES_BY_ID[card.athleteId].habitat) return '#e9c77b';
   return RARITY_GLOW[rarityOf(ATHLETES_BY_ID[card.athleteId]).id];
 }
 
@@ -112,7 +112,7 @@ function untilt3d(event: PointerEvent<HTMLElement>) {
 
 /** Étiquette sous une carte révélée : Reverse, sinon Nouveau ou Doublon. */
 function CardTag({ card }: { card: CardFace & { isNew?: boolean } }) {
-  if (ATHLETES_BY_ID[card.athleteId].mythe) return <span className="tag tag--mythe">{card.isNew ? 'Nouveau mythe' : 'Mythe'}</span>;
+  if (ATHLETES_BY_ID[card.athleteId].habitat) return <span className="tag tag--habitat">{card.isNew ? 'Nouvel habitat' : 'Habitat'}</span>;
   if (card.variant === 'reverse') return <span className="tag tag--reverse">Reverse</span>;
   return <span className={`tag ${card.isNew ? 'tag--new' : 'tag--dupe'}`}>{card.isNew ? 'Nouveau' : 'Doublon'}</span>;
 }
@@ -195,7 +195,7 @@ function Walkout({ card, onDone }: { card: CardFace; onDone: () => void }) {
           )}
           {step === 2 && !shadow && (
             <>
-              <span className="walkout__ovr">{overallOf(athlete, card.variant)}</span>
+              <span className="walkout__ovr">{collectionNumber(athlete)}</span>
               <span className="walkout__label">{isIcon(athlete) ? 'Icône' : athlete.role}</span>
             </>
           )}

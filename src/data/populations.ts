@@ -464,9 +464,9 @@ export interface PopulationAffichee {
   extinct: boolean;
 }
 
-/** Population restante d'une espèce, ou null (carte Mythe, espèce sans estimation). */
+/** Population restante d'une espèce, ou null (carte Habitat, race de chien, espèce sans estimation). */
 export function populationOf(athlete: Athlete): PopulationAffichee | null {
-  if (athlete.mythe || athlete.race) return null;
+  if (athlete.habitat || athlete.race) return null;
   if (athlete.retired || athlete.sport === 'prehistoire') return { value: 'Éteint', label: 'Population', extinct: true };
   const n = POPULATIONS[athlete.id];
   if (n == null) return null;
