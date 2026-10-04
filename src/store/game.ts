@@ -18,6 +18,10 @@ import { createMatch, matchResult, mytheBonus, playRound, rewardFor, TEAM_SIZE, 
 import { makeUid } from '../engine/random';
 
 export const FREE_PACK_INTERVAL = 10 * 60_000;
+/** nombre de cartes de la vitrine du profil */
+export const FAVORITES_SIZE = 5;
+/** nom de la sauvegarde dans le stockage du navigateur */
+const SAVE_NAME = 'animalcards-save';
 export const MAX_FREE_PACKS = 10;
 export const START_BALLES = 5_000;
 /** solde affiché « ∞ » quand les graines illimitées sont activées */
@@ -115,6 +119,8 @@ export interface GameState {
   unlimited: boolean;
   /** espèces des derniers boosters ouverts : elles ne ressortent pas avant NO_DUPE_WINDOW boosters */
   recentPacks: string[][];
+  /** vitrine du profil : les cartes préférées du joueur (uid), FAVORITES_SIZE emplacements, chaîne vide si libre */
+  favorites: string[];
   opening: Opening | null;
   toasts: Toast[];
 
@@ -137,6 +143,7 @@ export interface GameState {
   finishMatch: () => void;
   abandonMatch: () => void;
   toggleLock: (uid: string) => void;
+  setFavorite: (slot: number, uid: string | null) => void;
   claimObjective: (id: string) => void;
   toggleMute: () => void;
   toggleMusic: () => void;
@@ -203,6 +210,7 @@ function initialState(now: number) {
     musicOff: false,
     unlimited: false,
     recentPacks: [] as string[][],
+    favorites: [] as string[],
     opening: null as Opening | null,
     toasts: [] as Toast[],
   };
@@ -605,6 +613,15 @@ export const useGame = create<GameState>()(
 
         toggleLock: (uid) => set((s) => ({ collection: s.collection.map((c) => (c.uid === uid ? { ...c, locked: !c.locked } : c)) })),
 
+        setFavorite: (slot, uid) =>
+          set((s) => {
+            const favorites = Array.from({ length: FAVORITES_SIZE }, (_, i) => s.favorites[i] ?? '');
+            // une carte n'occupe qu'un emplacement : elle quitte l'ancien si on la place ailleurs
+            const next = favorites.map((current) => (uid && current === uid ? '' : current));
+            next[slot] = uid ?? '';
+            return { favorites: next };
+          }),
+
         claimObjective: (id) => {
           const state = get();
           const objective = OBJECTIVES.find((o) => o.id === id);
@@ -629,7 +646,7 @@ export const useGame = create<GameState>()(
     },
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
-      name: 'animalcards-save',
+      name: SAVE_NAME,
       version: 5,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
@@ -747,6 +764,17 @@ if (typeof window !== 'undefined') {
       }
     }
   }
+}
+
+/** La sauvegarde telle qu'elle est stockée (« { state, version } » en JSON), pour l'envoyer au compte du joueur. */
+export function readSave(): string | null {
+  return safeStorage.getItem(SAVE_NAME) as string | null;
+}
+
+/** Remplace la partie par une sauvegarde venue du compte du joueur (migrée si elle vient d'une ancienne version). */
+export async function writeSave(raw: string): Promise<void> {
+  safeStorage.setItem(SAVE_NAME, raw);
+  await useGame.persist.rehydrate();
 }
 
 export { formatBalles };

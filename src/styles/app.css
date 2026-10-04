@@ -5348,3 +5348,229 @@
   border-radius: 3px;
   overflow: hidden;
 }
+
+/* ───────────── Profil et compte ───────────── */
+.chip--profile {
+  position: relative;
+  padding: 0 12px 0 4px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chip--profile.is-active {
+  border-color: var(--accent);
+}
+
+.chip__avatar {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: var(--accent-ink);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+}
+
+.chip--profile.is-guest .chip__avatar {
+  background: var(--bg-4);
+  color: var(--accent-text);
+}
+
+.chip__pseudo {
+  max-width: 12ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.chip__alert {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bad);
+  box-shadow: 0 0 0 2px var(--bg);
+}
+
+@media (max-width: 640px) {
+  .chip--profile {
+    padding: 0 4px;
+  }
+  .chip__pseudo {
+    display: none;
+  }
+}
+
+.account {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.account h2,
+.account p {
+  margin: 0;
+}
+
+.account__form {
+  display: grid;
+  gap: 12px;
+  width: min(100%, 420px);
+}
+
+.account__form .btn {
+  justify-self: start;
+}
+
+.account__error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 134, 107, 0.4);
+  background: rgba(232, 134, 107, 0.1);
+  color: #f3b5a2;
+  font-size: 0.92rem;
+}
+
+.account__sync {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dim);
+}
+
+.account__sync i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--good);
+}
+
+.account__sync--saving i {
+  background: var(--honey);
+  animation: pulse-dot 1s ease-in-out infinite alternate;
+}
+
+.account__sync--error i {
+  background: var(--bad);
+}
+
+.account__sync--idle i {
+  background: var(--text-faint);
+}
+
+@keyframes pulse-dot {
+  to {
+    opacity: 0.3;
+  }
+}
+
+.vitrine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.vitrine__slot {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.vitrine__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.vitrine__empty {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 6px;
+  width: 140px;
+  aspect-ratio: 100 / 140;
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1.5px dashed var(--line-2);
+  background: rgba(232, 222, 196, 0.03);
+  color: var(--text-dim);
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.vitrine__empty span {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--accent-text);
+}
+
+.vitrine__empty:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.picker {
+  display: grid;
+  gap: 14px;
+}
+
+.picker h2 {
+  margin: 0 40px 0 0;
+  font-size: 1.4rem;
+  text-transform: none;
+}
+
+.picker__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  justify-items: center;
+  gap: 12px;
+}
+
+.search-player {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  max-width: 480px;
+}
+
+.player {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.player h3 {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+/* invitation à créer un compte, sur l'accueil */
+.invite {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+}
+
+.invite h2 {
+  margin: 0 0 4px;
+}
+
+.invite p {
+  margin: 0;
+}

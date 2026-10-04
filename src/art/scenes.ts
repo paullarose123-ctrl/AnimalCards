@@ -36,6 +36,11 @@ export const SCREEN_SCENES = {
     creature: 'pteros',
     palette: { sky: ['#2a0e1e', '#e2574c'], sun: '#ffd7a0', far: '#8a3a3e', near: '#160709', accent: '#ffb347' },
   },
+  // profil : forêt au crépuscule, comme le dos des cartes
+  profil: {
+    kind: 'foret',
+    palette: { sky: ['#14273f', '#f0a468'], sun: '#fff0cf', far: '#6b7f6a', near: '#0b170f', accent: '#ffffff' },
+  },
   // boutique : aurore boréale
   boutique: {
     kind: 'aurore',
