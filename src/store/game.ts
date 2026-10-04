@@ -160,6 +160,8 @@ export interface GameState {
   recentPacks: string[][];
   /** vitrine du profil : les cartes préférées du joueur (uid), FAVORITES_SIZE emplacements, chaîne vide si libre */
   favorites: string[];
+  /** photo de profil : l'espèce dont la photo est affichée (chaîne vide : l'initiale du pseudo) */
+  avatar: string;
   opening: Opening | null;
   toasts: Toast[];
 
@@ -182,6 +184,7 @@ export interface GameState {
   abandonMatch: () => void;
   toggleLock: (uid: string) => void;
   setFavorite: (slot: number, uid: string | null) => void;
+  setAvatar: (athleteId: string) => void;
   claimObjective: (id: string) => void;
   toggleMute: () => void;
   toggleMusic: () => void;
@@ -258,6 +261,7 @@ function initialState(now: number) {
     unlimited: false,
     recentPacks: [] as string[][],
     favorites: [] as string[],
+    avatar: '',
     opening: null as Opening | null,
     toasts: [] as Toast[],
   };
@@ -644,6 +648,8 @@ export const useGame = create<GameState>()(
         abandonMatch: () => set({ match: null }),
 
         toggleLock: (uid) => set((s) => ({ collection: s.collection.map((c) => (c.uid === uid ? { ...c, locked: !c.locked } : c)) })),
+
+        setAvatar: (athleteId) => set({ avatar: athleteId }),
 
         setFavorite: (slot, uid) =>
           set((s) => {

@@ -94,13 +94,13 @@ async function adopt(session: Session, fresh: boolean): Promise<void> {
       lastSent = readSave();
       useAccount.setState({ status: 'saved', lastSavedAt: Date.parse(remote.updatedAt) || Date.now() });
       useGame.getState().toast('success', `Bon retour ${session.pseudo} ! Ta progression est rechargée.`);
-      await storeProfile(session, favoriteFaces()).catch(() => undefined);
+      await storeProfile(session, favoriteFaces(), useGame.getState().avatar).catch(() => undefined);
       return;
     }
   }
   lastSent = null;
   await upload();
-  await storeProfile(session, favoriteFaces()).catch(() => undefined);
+  await storeProfile(session, favoriteFaces(), useGame.getState().avatar).catch(() => undefined);
   useGame.getState().toast('gold', fresh ? `Compte créé : bienvenue ${session.pseudo} ! Ta progression est sauvegardée.` : `Connecté : ta progression est sauvegardée dans ton compte.`);
 }
 
@@ -162,7 +162,7 @@ export const useAccount = create<AccountState>()(
       saveNow: async () => {
         const ok = await upload();
         const session = get().session;
-        if (ok && session) await storeProfile(session, favoriteFaces()).catch(() => undefined);
+        if (ok && session) await storeProfile(session, favoriteFaces(), useGame.getState().avatar).catch(() => undefined);
         return ok;
       },
     }),
@@ -186,13 +186,15 @@ export function startAutoSave(): void {
       void upload();
     }, SAVE_EVERY);
   });
-  // la vitrine est publique : elle est envoyée dès qu'elle change
+  // la vitrine et la photo de profil sont publiques : elles sont envoyées dès qu'elles changent
   let favorites = useGame.getState().favorites;
+  let avatar = useGame.getState().avatar;
   useGame.subscribe((state) => {
-    if (state.favorites === favorites) return;
+    if (state.favorites === favorites && state.avatar === avatar) return;
     favorites = state.favorites;
+    avatar = state.avatar;
     const session = useAccount.getState().session;
-    if (session) void freshSession().then((s) => s && storeProfile(s, favoriteFaces())).catch(() => undefined);
+    if (session) void freshSession().then((s) => s && storeProfile(s, favoriteFaces(), useGame.getState().avatar)).catch(() => undefined);
   });
   const flush = () => {
     if (!useAccount.getState().session) return;

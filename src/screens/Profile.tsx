@@ -8,6 +8,8 @@ import { displayName, rarityOf } from '../engine/cards';
 import type { CardFace, OwnedCard } from '../engine/types';
 import { MIN_PASSWORD, accountsEnabled, findProfile, pseudoProblem, type PublicProfile } from '../account/supabase';
 import { Card } from '../components/Card';
+import { Avatar } from '../components/Avatar';
+import { photoCredit } from '../photos';
 import { Landscape } from '../components/PackScene';
 import { SCREEN_SCENES } from '../art/scenes';
 
@@ -304,7 +306,10 @@ function PlayerSearch() {
       {result === 'none' && <p className="muted">Aucun joueur ne porte ce pseudo.</p>}
       {result && typeof result === 'object' && (
         <div className="player">
-          <h3>{result.pseudo}</h3>
+          <div className="player__head">
+            <Avatar athleteId={result.avatar} pseudo={result.pseudo} className="avatar--player" />
+            <h3>{result.pseudo}</h3>
+          </div>
           {faces.length ? (
             <div className="vitrine vitrine--public">
               {faces.map((face, i) => (
@@ -320,26 +325,86 @@ function PlayerSearch() {
   );
 }
 
+/** Choix de la photo de profil : la photo d'un des animaux découverts. */
+function AvatarPicker({ onClose }: { onClose: () => void }) {
+  const discovered = useGame((s) => s.discovered);
+  const avatar = useGame((s) => s.avatar);
+  const pseudo = useAccount((s) => s.session?.pseudo);
+  const setAvatar = useGame((s) => s.setAvatar);
+  const [query, setQuery] = useState('');
+  const choices = useMemo(() => {
+    const q = normalize(query.trim());
+    return Object.keys(discovered)
+      .map((id) => ATHLETES_BY_ID[id])
+      .filter((a) => a && photoCredit(a.id) && (!q || normalize(a.last).includes(q)))
+      .sort((a, b) => a.last.localeCompare(b.last, 'fr'));
+  }, [discovered, query]);
+  const choose = (id: string) => {
+    setAvatar(id);
+    onClose();
+  };
+
+  return (
+    <div className="modal" role="dialog" aria-modal="true" aria-labelledby="avatar-title" onClick={onClose}>
+      <div className="modal__panel picker" onClick={(event) => event.stopPropagation()}>
+        <button type="button" className="modal__close" onClick={onClose} aria-label="Fermer">
+          ×
+        </button>
+        <h2 id="avatar-title">Choisis ta photo de profil</h2>
+        <p className="muted small">Parmi les animaux que tu as découverts : plus ta collection grandit, plus tu as de choix.</p>
+        <label className="field">
+          <span className="visually-hidden">Chercher</span>
+          <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Chercher un animal…" />
+        </label>
+        <div className="avatar-grid">
+          <button type="button" className={avatar ? '' : 'is-active'} onClick={() => choose('')}>
+            <Avatar pseudo={pseudo} />
+            Mon initiale
+          </button>
+          {choices.map((a) => (
+            <button key={a.id} type="button" className={avatar === a.id ? 'is-active' : ''} onClick={() => choose(a.id)}>
+              <Avatar athleteId={a.id} pseudo={pseudo} />
+              {a.last}
+            </button>
+          ))}
+        </div>
+        {!choices.length && <p className="muted">Ouvre des boosters pour découvrir des animaux : leurs photos apparaîtront ici.</p>}
+      </div>
+    </div>
+  );
+}
+
 export function ProfileScreen() {
   const session = useAccount((s) => s.session);
   const discovered = useGame((s) => Object.keys(s.discovered).length);
   const cards = useGame((s) => s.collection.length);
   const packs = useGame((s) => s.stats.packsOpened);
   const enabled = accountsEnabled();
+  const avatar = useGame((s) => s.avatar);
+  const [picking, setPicking] = useState(false);
 
   return (
     <div className="screen">
       <header className="screen__head screen__head--art">
         <Landscape className="screen__art" scene={SCREEN_SCENES.profil} seed="profil" />
-        <div>
-          <p className="eyebrow">Profil</p>
-          <h1>{session ? session.pseudo : 'Invité'}</h1>
-          <p className="muted">
-            {discovered.toLocaleString('fr-FR')} espèce{discovered > 1 ? 's' : ''} découverte{discovered > 1 ? 's' : ''} · {cards.toLocaleString('fr-FR')} carte
-            {cards > 1 ? 's' : ''} · {packs.toLocaleString('fr-FR')} booster{packs > 1 ? 's' : ''} ouvert{packs > 1 ? 's' : ''}
-          </p>
+        <div className="profile-id">
+          <button type="button" className="profile-id__photo" onClick={() => setPicking(true)} aria-label="Changer ma photo de profil">
+            <Avatar athleteId={avatar} pseudo={session?.pseudo} className="avatar--big" />
+            <span className="profile-id__edit" aria-hidden="true">
+              ✎
+            </span>
+          </button>
+          <div>
+            <p className="eyebrow">Profil</p>
+            <h1>{session ? session.pseudo : 'Invité'}</h1>
+            <p className="muted">
+              {discovered.toLocaleString('fr-FR')} espèce{discovered > 1 ? 's' : ''} découverte{discovered > 1 ? 's' : ''} · {cards.toLocaleString('fr-FR')} carte
+              {cards > 1 ? 's' : ''} · {packs.toLocaleString('fr-FR')} booster{packs > 1 ? 's' : ''} ouvert{packs > 1 ? 's' : ''}
+            </p>
+          </div>
         </div>
       </header>
+      {picking && <AvatarPicker onClose={() => setPicking(false)} />}
       {enabled ? (
         session ? (
           <AccountStatus />
