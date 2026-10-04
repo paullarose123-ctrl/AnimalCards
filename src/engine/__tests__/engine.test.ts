@@ -3,7 +3,7 @@ import { ATHLETES, ATHLETES_BY_ID } from '../../data/athletes';
 import { baseValueOf, canBePrime, rarityOf } from '../cards';
 import { FREE_ODDS, FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, primeOdds, sportPack } from '../packs';
 import { advanceMarket, createAiListing, createMarket, createMyListing, marketPrice, netAfterTax, TARGET_LISTINGS, type MarketState } from '../market';
-import { ROUNDS, aiSkill, autoTeamFrom, compare, createDuel, duelResult, formatRecordValue, playDuelRound, recordValue, type DuelCard } from '../duel';
+import { MAX_QUESTIONS, RECORDS, ROUNDS, aiSkill, autoTeamFrom, classeOf, compare, createDuel, drawRecords, duelResult, formatRecordValue, playDuelRound, recordValue, type DuelCard } from '../duel';
 import { mulberry32 } from '../random';
 
 const MINUTE = 60_000;
@@ -218,6 +218,44 @@ describe('duel de records', () => {
     expect(compare('vieux', null, 3)).toBe('opp');
     expect(compare('vieux', null, null)).toBe('draw');
     expect(formatRecordValue({ athleteId: 'dodo', variant: 'base' }, 'rare')).toBe('Éteint');
+  });
+
+  it('varie les questions : 5 différentes, dont au plus deux questions oui/non', () => {
+    const rng = mulberry32(12);
+    for (let i = 0; i < 200; i++) {
+      const records = drawRecords(rng);
+      expect(new Set(records).size).toBe(ROUNDS);
+      expect(records.filter((id) => RECORDS[id].question).length).toBeLessThanOrEqual(MAX_QUESTIONS);
+    }
+  });
+
+  it('répond juste aux questions de continent et de classe', () => {
+    const face = (id: string) => ({ athleteId: id, variant: 'base' as const });
+    expect(recordValue(face('lion'), 'afrique')).toBe(1);
+    expect(recordValue(face('lion'), 'asie')).toBe(0);
+    expect(recordValue(face('kangourou'), 'oceanie')).toBe(1);
+    expect(recordValue(face('panda'), 'asie')).toBe(1);
+    expect(recordValue(face('bison'), 'amerique')).toBe(1);
+    expect(recordValue(face('orque'), 'afrique')).toBe(0);
+    expect(classeOf(ATHLETES_BY_ID.dauphin)).toBe('mammifere');
+    expect(classeOf(ATHLETES_BY_ID.poule)).toBe('oiseau');
+    expect(classeOf(ATHLETES_BY_ID['requin-blanc'])).toBe('poisson');
+    expect(classeOf(ATHLETES_BY_ID.mammouth)).toBe('mammifere');
+    expect(classeOf(ATHLETES_BY_ID['t-rex'])).toBe('reptile');
+    expect(formatRecordValue(face('aigle-royal'), 'oiseau')).toBe('Oui');
+  });
+
+  it('fait jouer un ami avec les animaux de sa vitrine', () => {
+    const rng = mulberry32(5);
+    const duel = createDuel(team(['herisson', 'zebre', 'gnou', 'castor', 'lapin']), 10, rng, 'Moi', {
+      pseudo: 'Ami',
+      cards: [{ athleteId: 'lion', variant: 'prime' }, { athleteId: 'habitat-amazonie', variant: 'base' }, { athleteId: 'koala', variant: 'base' }],
+    });
+    expect(duel.friend).toBe('Ami');
+    expect(duel.opp.name).toBe('Ami');
+    expect(duel.opp.cards).toHaveLength(5);
+    expect(duel.opp.cards.slice(0, 2).map((c) => c.athleteId)).toEqual(['lion', 'koala']);
+    expect(duel.opp.cards.some((c) => c.athleteId === 'habitat-amazonie')).toBe(false);
   });
 
   it('rend l’adversaire plus malin dans les hautes divisions', () => {

@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { FAVORITES_SIZE, useGame } from '../store/game';
 import { useAccount } from '../store/account';
 import { useUi } from '../store/ui';
@@ -14,7 +14,7 @@ import { Landscape } from '../components/PackScene';
 import { SCREEN_SCENES } from '../art/scenes';
 
 // Écran Profil : le compte du joueur (création, connexion, sauvegarde), sa vitrine de cartes préférées,
-// et la vitrine des autres joueurs, retrouvés par leur pseudo.
+// et ses amis, retrouvés par leur pseudo : leur photo, leur vitrine et un duel contre elle.
 
 function normalize(text: string): string {
   return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -270,56 +270,146 @@ function Showcase() {
   );
 }
 
-function PlayerSearch() {
-  const [pseudo, setPseudo] = useState('');
-  const [result, setResult] = useState<PublicProfile | null | 'none' | 'loading'>(null);
-  const [error, setError] = useState<string | null>(null);
+/** Un ami : sa photo, son pseudo, sa vitrine (à déplier), et un défi en duel contre les animaux de sa vitrine. */
+function FriendRow({ pseudo }: { pseudo: string }) {
+  const removeFriend = useGame((s) => s.removeFriend);
+  const startMatch = useGame((s) => s.startMatch);
+  const match = useGame((s) => s.match);
+  const setTab = useUi((s) => s.setTab);
+  const [profile, setProfile] = useState<PublicProfile | null | 'loading' | 'error'>('loading');
+  const [open, setOpen] = useState(false);
+  const [confirmRemove, setConfirmRemove] = useState(false);
 
-  const search = async (event: FormEvent) => {
+  useEffect(() => {
+    let alive = true;
+    findProfile(pseudo)
+      .then((p) => alive && setProfile(p))
+      .catch(() => alive && setProfile('error'));
+    return () => {
+      alive = false;
+    };
+  }, [pseudo]);
+
+  const data = profile && typeof profile === 'object' ? profile : null;
+  const faces: CardFace[] = data ? data.favorites.filter((face) => ATHLETES_BY_ID[face?.athleteId]).slice(0, FAVORITES_SIZE) : [];
+  const challenge = () => {
+    if (match) {
+      setTab('matchs');
+      return;
+    }
+    if (startMatch({ pseudo: data?.pseudo ?? pseudo, cards: faces })) setTab('matchs');
+  };
+
+  return (
+    <li className="friend">
+      <div className="friend__head">
+        <Avatar athleteId={data?.avatar} pseudo={data?.pseudo ?? pseudo} className="avatar--player" />
+        <div className="friend__who">
+          <b>{data?.pseudo ?? pseudo}</b>
+          <span className="muted small">
+            {profile === 'loading'
+              ? 'Chargement…'
+              : profile === 'error'
+                ? 'Profil indisponible pour le moment'
+                : !data
+                  ? 'Ce joueur n’existe plus'
+                  : `${faces.length} carte${faces.length > 1 ? 's' : ''} dans sa vitrine`}
+          </span>
+        </div>
+        <div className="friend__actions">
+          {data && faces.length > 0 && (
+            <button type="button" className="btn btn--ghost btn--sm" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+              {open ? 'Cacher' : 'Sa vitrine'}
+            </button>
+          )}
+          {data && (
+            <button type="button" className="btn btn--primary btn--sm" onClick={challenge} title="Un duel contre les animaux de sa vitrine (complétée au hasard)">
+              {match ? 'Duel en cours' : 'Défier'}
+            </button>
+          )}
+          {confirmRemove ? (
+            <button type="button" className="btn btn--danger btn--sm" onClick={() => removeFriend(pseudo)}>
+              Retirer ?
+            </button>
+          ) : (
+            <button type="button" className="btn btn--ghost btn--sm" onClick={() => setConfirmRemove(true)} aria-label={`Retirer ${pseudo} de mes amis`}>
+              ×
+            </button>
+          )}
+        </div>
+      </div>
+      {open && faces.length > 0 && (
+        <div className="vitrine vitrine--public">
+          {faces.map((face, i) => (
+            <Card key={i} card={face} size="sm" />
+          ))}
+        </div>
+      )}
+    </li>
+  );
+}
+
+function Friends() {
+  const friends = useGame((s) => s.friends);
+  const addFriend = useGame((s) => s.addFriend);
+  const me = useAccount((s) => s.session?.pseudo);
+  const [pseudo, setPseudo] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState<{ kind: 'error' | 'ok'; text: string } | null>(null);
+
+  const add = async (event: FormEvent) => {
     event.preventDefault();
     const name = pseudo.trim();
     if (!name) return;
-    setError(null);
-    setResult('loading');
+    if (me && name.toLowerCase() === me.toLowerCase()) {
+      setMessage({ kind: 'error', text: 'C’est ton propre pseudo !' });
+      return;
+    }
+    if (friends.some((f) => f.toLowerCase() === name.toLowerCase())) {
+      setMessage({ kind: 'error', text: 'Ce joueur est déjà dans tes amis.' });
+      return;
+    }
+    setBusy(true);
+    setMessage(null);
     try {
-      setResult((await findProfile(name)) ?? 'none');
+      const found = await findProfile(name);
+      if (!found) setMessage({ kind: 'error', text: 'Aucun joueur ne porte ce pseudo.' });
+      else {
+        addFriend(found.pseudo);
+        setPseudo('');
+        setMessage({ kind: 'ok', text: `${found.pseudo} est maintenant dans tes amis.` });
+      }
     } catch (e) {
-      setResult(null);
-      setError(e instanceof Error ? e.message : 'Recherche impossible.');
+      setMessage({ kind: 'error', text: e instanceof Error ? e.message : 'Recherche impossible.' });
+    } finally {
+      setBusy(false);
     }
   };
 
-  const faces: CardFace[] = result && typeof result === 'object' ? result.favorites.filter((face) => ATHLETES_BY_ID[face?.athleteId]).slice(0, FAVORITES_SIZE) : [];
   return (
     <section className="panel">
-      <h2>La vitrine d’un autre joueur</h2>
-      <form className="search-player" onSubmit={search}>
+      <h2>
+        Mes amis <small>· {friends.length}</small>
+      </h2>
+      <p className="muted small">Ajoute un ami avec son pseudo : tu vois sa photo et sa vitrine, et tu peux le défier en duel contre les animaux de sa vitrine.</p>
+      <form className="search-player" onSubmit={add}>
         <label className="field field--grow">
-          <span className="visually-hidden">Pseudo du joueur</span>
-          <input value={pseudo} onChange={(e) => setPseudo(e.target.value)} placeholder="Pseudo du joueur" autoCapitalize="none" spellCheck={false} maxLength={20} />
+          <span className="visually-hidden">Pseudo de l’ami</span>
+          <input value={pseudo} onChange={(e) => setPseudo(e.target.value)} placeholder="Pseudo de ton ami" autoCapitalize="none" spellCheck={false} maxLength={20} />
         </label>
-        <button type="submit" className="btn btn--primary" disabled={result === 'loading'}>
-          Voir
+        <button type="submit" className="btn btn--primary" disabled={busy}>
+          Ajouter
         </button>
       </form>
-      {error && <p className="account__error">{error}</p>}
-      {result === 'none' && <p className="muted">Aucun joueur ne porte ce pseudo.</p>}
-      {result && typeof result === 'object' && (
-        <div className="player">
-          <div className="player__head">
-            <Avatar athleteId={result.avatar} pseudo={result.pseudo} className="avatar--player" />
-            <h3>{result.pseudo}</h3>
-          </div>
-          {faces.length ? (
-            <div className="vitrine vitrine--public">
-              {faces.map((face, i) => (
-                <Card key={i} card={face} size="sm" />
-              ))}
-            </div>
-          ) : (
-            <p className="muted">Sa vitrine est encore vide.</p>
-          )}
-        </div>
+      {message && <p className={message.kind === 'error' ? 'account__error' : 'muted'}>{message.text}</p>}
+      {friends.length > 0 ? (
+        <ul className="friends">
+          {friends.map((f) => (
+            <FriendRow key={f} pseudo={f} />
+          ))}
+        </ul>
+      ) : (
+        <p className="muted">Pas encore d’amis : demande leur pseudo à tes copains !</p>
       )}
     </section>
   );
@@ -418,7 +508,7 @@ export function ProfileScreen() {
         </section>
       )}
       <Showcase />
-      {enabled && <PlayerSearch />}
+      {enabled && <Friends />}
     </div>
   );
 }
