@@ -23,6 +23,14 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg"
  },
+ "akita": {
+  "file": "akita.webp",
+  "cutout": false,
+  "author": "Azurfrog",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Male_Akita_Inu.jpg"
+ },
  "albatros": {
   "file": "albatros.webp",
   "cutout": false,
@@ -255,6 +263,14 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
   "page": "https://commons.wikimedia.org/wiki/File:Melanocetus_johnsonii1.jpg"
  },
+ "beagle": {
+  "file": "beagle.webp",
+  "cutout": false,
+  "author": "AngMoKio U.S. Navy photo by Photographer's Mate 1st Class Arlo K. Abrahamson U.S. Army pho",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Assemblage_chien.jpg"
+ },
  "belette": {
   "file": "belette.webp",
   "cutout": false,
@@ -270,6 +286,14 @@
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/561462803"
+ },
+ "berger-allemand": {
+  "file": "berger-allemand.webp",
+  "cutout": false,
+  "author": "Flaurentine",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Berger_allemand_en_montagne.jpg"
  },
  "bernard-l-ermite": {
   "file": "bernard-l-ermite.webp",
@@ -327,6 +351,14 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/bonobo-primate-chimpanzee-great-ape-10109690/"
  },
+ "border-collie": {
+  "file": "border-collie.webp",
+  "cutout": false,
+  "author": "IketaniDaisei",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Border_collie_taking_break_at_park.jpg"
+ },
  "bouquetin": {
   "file": "bouquetin.webp",
   "cutout": false,
@@ -358,6 +390,14 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/beetle-insect-leaf-dung-beetle-6062572/"
+ },
+ "bouvier-bernois": {
+  "file": "chien.webp",
+  "cutout": false,
+  "author": "FriendlyToaster",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:2-BerneseMountainDogInGrass.jpg"
  },
  "brachiosaure": {
   "file": "brachiosaure.webp",
@@ -438,6 +478,14 @@
   "license": "CC BY-SA 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
   "page": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_male_female_quadrat.jpg"
+ },
+ "caniche": {
+  "file": "caniche.webp",
+  "cutout": false,
+  "author": "John Leslie from London, UK",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Standard_poodle_apricot.jpg"
  },
  "capucin": {
   "file": "capucin.webp",
@@ -615,14 +663,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Capriolo_maschio.jpg"
  },
- "bouvier-bernois": {
-  "file": "chien.webp",
-  "cutout": false,
-  "author": "FriendlyToaster",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:2-BerneseMountainDogInGrass.jpg"
- },
  "chien-de-prairie": {
   "file": "chien-de-prairie.webp",
   "cutout": false,
@@ -638,6 +678,14 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/raccoon-dog-tanuki-enok-fruit-fuchs-871608/"
+ },
+ "chihuahua": {
+  "file": "chihuahua.webp",
+  "cutout": false,
+  "author": "Caterinarufo",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Chihuahuas-_Holly,_Nina,_Doralice.jpg"
  },
  "chimpanze": {
   "file": "chimpanze.webp",
@@ -878,6 +926,14 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Cygnus_olor,_Brze%C5%BAnica,_20230729_0809_7268.jpg"
+ },
+ "dalmatien": {
+  "file": "dalmatien.webp",
+  "cutout": false,
+  "author": "Jeffarson",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Nova-zembla.jpg"
  },
  "dauphin": {
   "file": "dauphin.webp",
@@ -1359,6 +1415,14 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/frog-green-frog-amphibian-nature-8431942/"
  },
+ "greyhound": {
+  "file": "greyhound.webp",
+  "cutout": false,
+  "author": "AngMoKio U.S. Navy photo by Photographer's Mate 1st Class Arlo K. Abrahamson U.S. Army pho",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Assemblage_chien.jpg"
+ },
  "grizzly-de-californie": {
   "file": "grizzly-de-californie.webp",
   "cutout": false,
@@ -1495,6 +1559,14 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Homarus_gammarus_03.JPG"
  },
+ "husky": {
+  "file": "husky.webp",
+  "cutout": false,
+  "author": "Klmw",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Moscow_et_Owana_de_l%E2%80%99%C3%A9levage_Of_Kolyma_Wolves.jpg"
+ },
  "hyene": {
   "file": "hyene.webp",
   "cutout": false,
@@ -1622,6 +1694,14 @@
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/593455917"
+ },
+ "labrador": {
+  "file": "labrador.webp",
+  "cutout": false,
+  "author": "Original author Hand , edit by Pharaoh Hound",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "page": "https://commons.wikimedia.org/wiki/File:Labrador_Retriever_snow.jpg"
  },
  "lama": {
   "file": "lama.webp",
@@ -3038,6 +3118,14 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Ecuadorian_squirrel_monkey_(Saimiri_macrodon)_head_Rio_Napo.jpg"
+ },
+ "saint-bernard": {
+  "file": "saint-bernard.webp",
+  "cutout": false,
+  "author": "DoggenClub",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:Saint_Bernard.png"
  },
  "salamandre": {
   "file": "salamandre.webp",
