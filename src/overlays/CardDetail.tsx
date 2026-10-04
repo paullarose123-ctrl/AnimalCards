@@ -3,10 +3,11 @@ import { useGame, formatBalles } from '../store/game';
 import { useUi } from '../store/ui';
 import { useNow, formatDuration } from '../hooks/useNow';
 import { ATHLETES_BY_ID } from '../data/athletes';
-import { EVENTS, SPORTS, STAT_KEYS, STAT_LABELS } from '../data/sports';
+import { SPORTS } from '../data/sports';
 import { mesuresOf } from '../data/mesures';
 import { populationOf } from '../data/populations';
-import { displayName, extinctionLabel, formatRecord, isIcon, overallOf, popularityOf, quickSellValue, rarityOf, statsOf, ultiOf } from '../engine/cards';
+import { collectionNumber, displayName, extinctionLabel, isIcon, quickSellValue, rarityOf } from '../engine/cards';
+import { canDuel } from '../engine/duel';
 import { MARKET_TAX, marketPrice, netAfterTax, nextMinBid, priceBounds, priceHistory, suggestedPrices } from '../engine/market';
 import type { CardFace, OwnedCard } from '../engine/types';
 import { Card } from '../components/Card';
@@ -191,6 +192,7 @@ export function CardDetail() {
   const close = useUi((s) => s.closeDetail);
   const searchMarketFor = useUi((s) => s.searchMarketFor);
   const collection = useGame((s) => s.collection);
+  const discovered = useGame((s) => s.discovered);
   const news = useGame((s) => s.market.news);
   const toggleLock = useGame((s) => s.toggleLock);
   const quickSell = useGame((s) => s.quickSell);
@@ -220,10 +222,9 @@ export function CardDetail() {
   const face: CardFace = detail.card;
   const athlete = ATHLETES_BY_ID[face.athleteId];
   const rarity = rarityOf(athlete);
-  const stats = statsOf(athlete, face.variant);
-  const ulti = ultiOf(athlete, face.variant);
   const sport = SPORTS[athlete.sport];
-  const mesures = athlete.mythe ? null : mesuresOf(athlete.id);
+  const habitat = athlete.habitat;
+  const mesures = habitat ? null : mesuresOf(athlete.id);
   const population = populationOf(athlete);
   const owned = 'uid' in detail.card && !detail.listingId ? collection.find((c) => c.uid === (detail.card as OwnedCard).uid) : undefined;
   const copies = collection.filter((c) => c.athleteId === face.athleteId && c.variant === face.variant);
@@ -241,7 +242,7 @@ export function CardDetail() {
         <div className="detail__card">
           {/* la carte posée sur le paysage de sa famille */}
           <div className="detail__stage">
-            <Landscape className="detail__scene" scene={packScene('sport', athlete.sport)} seed={`Pack ${sport.name}`} />
+            <Landscape className="detail__scene" scene={habitat ? habitat.scene : packScene('sport', athlete.sport)} seed={habitat ? athlete.id : `Pack ${sport.name}`} />
             <Card card={detail.card} size="lg" tilt />
           </div>
           <p className="detail__tip">Bouge la carte avec le doigt ou la souris</p>
@@ -262,7 +263,8 @@ export function CardDetail() {
             <span className={`chip-rarity chip-rarity--${rarity.id}`}>{rarity.name}</span>
             {face.variant === 'prime' && <span className="chip-rarity chip-rarity--prime">Prime{athlete.prime ? ` ${athlete.prime.year}` : ''}</span>}
             {face.variant === 'reverse' && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
-            {athlete.mythe && <span className="chip-rarity chip-rarity--mythe">Mythe · {athlete.role}</span>}
+            {habitat && <span className="chip-rarity chip-rarity--habitat">Habitat</span>}
+            <span className="chip-rarity">N° {collectionNumber(athlete)}</span>
             {isIcon(athlete) && <span className="chip-rarity chip-rarity--icon">Icône</span>}
           </div>
           <h2 id="detail-title">
@@ -271,7 +273,7 @@ export function CardDetail() {
           </h2>
           {athlete.latin && <p className="detail__latin">{athlete.latin}</p>}
           <p className="detail__meta">
-            <Flag code={athlete.country} className="detail__flag" /> {countryName(athlete.country)} · {sport.name} · {athlete.role}
+            <Flag code={athlete.country} className="detail__flag" /> {habitat ? athlete.role : `${countryName(athlete.country)} · ${sport.name} · ${athlete.role}`}
             {athlete.died ? ` · ${extinctionLabel(athlete)}` : ''}
           </p>
           {mesures && (
@@ -308,70 +310,39 @@ export function CardDetail() {
               <b>Version Prime {athlete.prime.year}</b> : {athlete.prime.note}
             </p>
           )}
-          {face.variant === 'prime' && !athlete.prime && (
-            <p className="detail__prime">
-              <b>Version Prime</b> : un individu d’exception, +{overallOf(athlete, 'prime') - overallOf(athlete)} de note et des stats boostées.
-            </p>
-          )}
+
           {face.variant === 'reverse' && (
             <p className="detail__prime">
-              <b>Version Reverse</b> : finition holographique, environ 1 carte sur 20. Mêmes stats que la version classique, mais une cote bien plus élevée au marché.
+              <b>Version Reverse</b> : finition holographique, environ 1 carte sur 20. La même carte que la classique, mais une cote bien plus élevée au marché.
             </p>
           )}
 
-          {athlete.mythe ? (
-            // une carte Mythe n'a pas de stats : elle donne un bonus à l'équipe
-            <div className="ulti-box is-signature">
-              <p className="ulti-box__label">Carte Mythe · bonus d’équipe en match</p>
-              <p className="ulti-box__name">
-                +{athlete.mythe.bonus.value}{' '}
-                {athlete.mythe.bonus.sport === 'all' ? 'pour tous les animaux' : `pour ${SPORTS[athlete.mythe.bonus.sport].group}`}
-              </p>
-              <p className="ulti-box__desc">
-                {athlete.mythe.bonus.events?.length
-                  ? `+${athlete.mythe.bonus.eventBonus} de plus en ${athlete.mythe.bonus.events.map((e) => EVENTS[e].name).join(', ')}. `
-                  : ''}
-                Place-la dans l’emplacement Mythe de ton équipe, dans l’écran Arène. À savoir : {athlete.mythe.palmares}.
-              </p>
+          {habitat && (
+            <div className="habitat-box">
+              <dl className="detail__mesures">
+                <div>
+                  <dt>Superficie</dt>
+                  <dd>{habitat.superficie}</dd>
+                </div>
+                <div>
+                  <dt>Espèces du jeu</dt>
+                  <dd>{habitat.especes.length}</dd>
+                </div>
+              </dl>
+              {habitat.protection && <p className="muted small">{habitat.protection}</p>}
+              <p className="box-label">Ils y vivent</p>
+              <ul className="habitat-box__list">
+                {habitat.especes
+                  .map((id) => ATHLETES_BY_ID[id])
+                  .filter(Boolean)
+                  .map((a) => (
+                    <li key={a.id} className={discovered[a.id] ? 'is-found' : ''}>
+                      {a.last}
+                    </li>
+                  ))}
+              </ul>
+              <p className="muted small">En vert, les espèces que tu as déjà trouvées.</p>
             </div>
-          ) : (
-          <>
-          <div className="detail__stats">
-            {STAT_KEYS.map((key) => (
-              <div key={key} className="statbar" title={STAT_LABELS[key].desc}>
-                <span className="statbar__label">{STAT_LABELS[key].name}</span>
-                <span className="statbar__track">
-                  <span className="statbar__fill" style={{ width: `${stats[key]}%` }} data-level={stats[key] >= 90 ? 'elite' : stats[key] >= 80 ? 'good' : stats[key] >= 65 ? 'mid' : 'low'} />
-                </span>
-                <b className="statbar__value">{stats[key]}</b>
-              </div>
-            ))}
-            <div className="statbar statbar--pop" title="Célébrité : c’est elle qui fixe la rareté de la carte">
-              <span className="statbar__label">Popularité</span>
-              <span className="statbar__track">
-                <span className="statbar__fill" style={{ width: `${popularityOf(athlete)}%` }} />
-              </span>
-              <b className="statbar__value">{popularityOf(athlete)}</b>
-            </div>
-          </div>
-
-          <div className={`ulti-box${ulti.signature ? ' is-signature' : ''}`}>
-            <p className="ulti-box__label">{ulti.signature ? 'Ulti signature' : `Ulti · ${sport.name}`}</p>
-            <p className="ulti-box__name">{ulti.name}</p>
-            <p className="ulti-box__desc">{ulti.desc}</p>
-            {'record' in face && face.record ? (
-              <p className="ulti-box__record">
-                Record de vitesse de cette carte : {formatRecord(face.record)}
-              </p>
-            ) : null}
-          </div>
-          <div className="passive-box">
-            <p className="ulti-box__label">Particularité · {sport.name}</p>
-            <p>
-              <b>{sport.passive.name}</b> : {sport.passive.desc}
-            </p>
-          </div>
-          </>
           )}
 
           <div className="market-box">
@@ -416,7 +387,7 @@ export function CardDetail() {
                 <button type="button" className="btn btn--ghost" onClick={() => toggleLock(owned.uid)} aria-pressed={!!owned.locked}>
                   {owned.locked ? 'Déverrouiller' : 'Verrouiller'}
                 </button>
-                {!inTeam && (
+                {!inTeam && canDuel(athlete) && (
                   <button
                     type="button"
                     className="btn btn--ghost"
@@ -427,7 +398,7 @@ export function CardDetail() {
                       setTeamSlot(empty === -1 ? 4 : empty, owned.uid);
                     }}
                   >
-                    Ajouter à l’équipe
+                    Ajouter à l’équipe de duel
                   </button>
                 )}
               </div>

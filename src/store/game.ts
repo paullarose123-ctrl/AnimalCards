@@ -3,7 +3,7 @@ import { createJSONStorage, persist, type StateStorage } from 'zustand/middlewar
 import type { CardFace, OwnedCard } from '../engine/types';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { canBePrime, isMythe, overallOf, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
+import { canBePrime, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import { FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, sportPack, type PackDef } from '../engine/packs';
 import {
   MAX_MY_LISTINGS,
@@ -14,7 +14,7 @@ import {
   type MarketEvent,
   type MarketState,
 } from '../engine/market';
-import { createMatch, matchResult, mytheBonus, playRound, rewardFor, TEAM_SIZE, type MatchState } from '../engine/match';
+import { TEAM_SIZE, autoTeamFrom, canDuel, createDuel, duelResult, playDuelRound, rewardFor, type DuelState } from '../engine/duel';
 import { makeUid } from '../engine/random';
 
 export const FREE_PACK_INTERVAL = 10 * 60_000;
@@ -55,11 +55,43 @@ const MYTHES_REMPLACES: Record<string, string> = {
 };
 
 /**
- * Version 6 : la carte Chien devient une race (le bouvier bernois, dont c'était la photo). Les cartes Prime de
- * Laïka deviennent des cartes classiques, puisque le bouvier bernois n'a pas de version Prime.
+ * Version 6 : la carte Chien devient une race (le bouvier bernois, dont c'était la photo) ; les cartes Mythe
+ * deviennent des cartes Habitat de même rareté. Les cartes Prime devenues impossibles (Laïka) redeviennent des
+ * cartes classiques.
  */
 const CARTES_REMPLACEES_V6: Record<string, string> = {
   chien: 'bouvier-bernois',
+  'mythe-dragon': 'habitat-galapagos',
+  'mythe-phenix': 'habitat-amazonie',
+  'mythe-licorne': 'habitat-serengeti',
+  'mythe-griffon': 'habitat-antarctique',
+  'mythe-pegase': 'habitat-grande-barriere',
+  'mythe-kraken': 'habitat-mariannes',
+  'mythe-yeti': 'habitat-himalaya',
+  'mythe-nessie': 'habitat-borneo',
+  'mythe-hydre': 'habitat-sundarbans',
+  'mythe-cerbere': 'habitat-yellowstone',
+  'mythe-leviathan': 'habitat-banquise',
+  'mythe-fenrir': 'habitat-banquise',
+  'mythe-kitsune': 'habitat-madagascar',
+  'mythe-quetzalcoatl': 'habitat-congo',
+  'mythe-long': 'habitat-borneo',
+  'mythe-gevaudan': 'habitat-yellowstone',
+  'mythe-oiseau-tonnerre': 'habitat-himalaya',
+  'mythe-simurgh': 'habitat-sahara',
+  'mythe-tigre-blanc': 'habitat-taiga',
+  'mythe-lion-aile': 'habitat-okavango',
+  'mythe-jormungand': 'habitat-sargasses',
+  'mythe-grande-ourse': 'habitat-taiga',
+  'mythe-lapin-de-jade': 'habitat-gobi',
+  'mythe-salamandre': 'habitat-camargue',
+  'mythe-tortue-monde': 'habitat-everglades',
+  'mythe-behemoth': 'habitat-pantanal',
+  'mythe-cerf-blanc': 'habitat-bialowieza',
+  'mythe-dakuwaqa': 'habitat-patagonie',
+  'mythe-jorogumo': 'habitat-monteverde',
+  'mythe-taureau-de-crete': 'habitat-camargue',
+  'mythe-bunyip': 'habitat-outback',
 };
 
 /** Espèces sans photo correcte → espèce de la même famille qui les remplace (sauvegardes < v5). */
@@ -113,11 +145,10 @@ export interface GameState {
   market: MarketState;
   watchlist: string[];
   team: string[];
-  /** carte Mythe de l'équipe (uid), ou chaîne vide */
-  mythe: string;
   division: number;
   divisionPoints: number;
-  match: MatchState | null;
+  /** duel de records en cours */
+  match: DuelState | null;
   stats: GameStats;
   claimed: string[];
   muted: boolean;
@@ -144,10 +175,9 @@ export interface GameState {
   placeBid: (listingId: string, amount: number) => boolean;
   toggleWatch: (listingId: string) => void;
   setTeamSlot: (slot: number, uid: string | null) => void;
-  setMythe: (uid: string | null) => void;
   autoTeam: () => void;
   startMatch: () => boolean;
-  playMatchRound: (index: number, ulti: boolean) => void;
+  playMatchRound: (index: number) => void;
   finishMatch: () => void;
   abandonMatch: () => void;
   toggleLock: (uid: string) => void;
@@ -193,6 +223,16 @@ function toOwned(face: CardFace, now: number): OwnedCard {
   return { uid: makeUid('c'), athleteId: face.athleteId, variant: face.variant, obtainedAt: now, ...(face.record ? { record: face.record } : {}) };
 }
 
+/** Nom de l'équipe en duel : le pseudo du joueur connecté (lu dans la session gardée par store/account.ts). */
+function playerName(): string {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem('animalcards-compte') ?? 'null') as { state?: { session?: { pseudo?: string } } } | null;
+    return saved?.state?.session?.pseudo ?? 'Mon équipe';
+  } catch {
+    return 'Mon équipe';
+  }
+}
+
 function formatBalles(value: number): string {
   return `${value.toLocaleString('fr-FR')} graines`;
 }
@@ -208,10 +248,9 @@ function initialState(now: number) {
     market: createMarket(now, Math.random),
     watchlist: [] as string[],
     team: [] as string[],
-    mythe: '',
     division: 10,
     divisionPoints: 0,
-    match: null as MatchState | null,
+    match: null as DuelState | null,
     stats: { packsOpened: 0, cardsSold: 0, cardsBought: 0, matchesPlayed: 0, matchesWon: 0 } as GameStats,
     claimed: [] as string[],
     muted: false,
@@ -235,7 +274,7 @@ function hasRarity(state: Pick<GameState, 'discovered'>, order: number): boolean
 function bestSportCompletion(state: Pick<GameState, 'discovered'>): [number, number] {
   let best: [number, number] = [0, 1];
   for (const sport of SPORT_ORDER) {
-    const all = ATHLETES.filter((a) => a.sport === sport);
+    const all = ATHLETES.filter((a) => a.sport === sport && !a.habitat);
     const owned = all.filter((a) => state.discovered[a.id]).length;
     if (owned / all.length > best[0] / best[1]) best = [owned, all.length];
   }
@@ -247,7 +286,7 @@ export const OBJECTIVES: Objective[] = [
   { id: 'collect-25', title: 'Obtenir 25 espèces différentes', reward: 2_000, progress: (s) => [Math.min(25, uniqueCount(s)), 25] },
   { id: 'first-sale', title: 'Vendre une carte sur le marché', reward: 1_000, progress: (s) => [Math.min(1, s.stats.cardsSold), 1] },
   { id: 'first-buy', title: 'Acheter une carte sur le marché', reward: 1_000, progress: (s) => [Math.min(1, s.stats.cardsBought), 1] },
-  { id: 'first-win', title: 'Gagner un match', reward: 1_500, progress: (s) => [Math.min(1, s.stats.matchesWon), 1] },
+  { id: 'first-win', title: 'Gagner un duel de records', reward: 1_500, progress: (s) => [Math.min(1, s.stats.matchesWon), 1] },
   { id: 'first-epic', title: 'Obtenir une carte Épique', reward: 2_500, progress: (s) => [hasRarity(s, 3) ? 1 : 0, 1] },
   { id: 'collect-100', title: 'Obtenir 100 espèces différentes', reward: 10_000, progress: (s) => [Math.min(100, uniqueCount(s)), 100] },
   { id: 'division-5', title: 'Atteindre la division 5', reward: 8_000, progress: (s) => [Math.min(5, 10 - s.division), 5] },
@@ -431,7 +470,6 @@ export const useGame = create<GameState>()(
             balles: s.balles + total,
             collection: s.collection.filter((c) => !sold.has(c.uid)),
             team: s.team.filter((uid) => !sold.has(uid)),
-            mythe: sold.has(s.mythe) ? '' : s.mythe,
           }));
           pushToast('success', `${sellable.length} carte${sellable.length > 1 ? 's' : ''} vendue${sellable.length > 1 ? 's' : ''} au comptoir pour ${formatBalles(total)}`);
           return total;
@@ -454,7 +492,6 @@ export const useGame = create<GameState>()(
           set((s) => ({
             collection: s.collection.filter((c) => c.uid !== uid),
             team: s.team.filter((t) => t !== uid),
-            mythe: s.mythe === uid ? '' : s.mythe,
             market: { ...s.market, myListings: [listing, ...s.market.myListings] },
           }));
           pushToast('info', `${ATHLETES_BY_ID[card.athleteId].last} est en vente sur le marché`);
@@ -552,70 +589,38 @@ export const useGame = create<GameState>()(
             return { team };
           }),
 
-        setMythe: (uid) => set({ mythe: uid ?? '' }),
-
-        autoTeam: () =>
-          set((s) => {
-            const seen = new Set<string>();
-            const athletes = s.collection.filter((c) => !isMythe(ATHLETES_BY_ID[c.athleteId]));
-            const best = athletes
-              .slice()
-              .sort((a, b) => {
-                const la = overallOf(ATHLETES_BY_ID[a.athleteId], a.variant);
-                const lb = overallOf(ATHLETES_BY_ID[b.athleteId], b.variant);
-                return lb - la;
-              })
-              .filter((c) => {
-                if (seen.has(c.athleteId)) return false;
-                seen.add(c.athleteId);
-                return true;
-              })
-              .slice(0, TEAM_SIZE)
-              .map((c) => c.uid);
-            // le Mythe qui donne le plus de bonus à cette équipe
-            const picked = best.map((uid) => s.collection.find((c) => c.uid === uid)!);
-            const gain = (card: OwnedCard) =>
-              picked.reduce((sum, c) => sum + (mytheBonus({ mythe: { ...card } }, c, 'sprint')?.value ?? 0), 0);
-            const mythes = s.collection.filter((c) => isMythe(ATHLETES_BY_ID[c.athleteId])).sort((a, b) => gain(b) - gain(a));
-            return { team: best, mythe: mythes[0] && gain(mythes[0]) > 0 ? mythes[0].uid : s.mythe };
-          }),
+        autoTeam: () => set((s) => ({ team: autoTeamFrom(s.collection) })),
 
         startMatch: () => {
           const state = get();
-          const cards = state.team.map((uid) => state.collection.find((c) => c.uid === uid)).filter((c): c is OwnedCard => !!c);
+          const cards = state.team
+            .map((uid) => state.collection.find((c) => c.uid === uid))
+            .filter((c): c is OwnedCard => !!c && canDuel(ATHLETES_BY_ID[c.athleteId]));
           if (cards.length < TEAM_SIZE) {
             pushToast('error', `Il faut ${TEAM_SIZE} animaux dans ton équipe pour jouer`);
             return false;
           }
-          const mythe = state.collection.find((c) => c.uid === state.mythe && isMythe(ATHLETES_BY_ID[c.athleteId]));
-          const match = createMatch(
-            cards.map((c) => ({ uid: c.uid, athleteId: c.athleteId, variant: c.variant, ...(c.record ? { record: c.record } : {}) })),
+          const match = createDuel(
+            cards.map((c) => ({ uid: c.uid, athleteId: c.athleteId, variant: c.variant })),
             state.division,
             Math.random,
-            undefined,
-            mythe ? { uid: mythe.uid, athleteId: mythe.athleteId, variant: 'base' } : undefined,
+            playerName(),
           );
           set({ match });
           return true;
         },
 
-        playMatchRound: (index, ulti) => {
+        playMatchRound: (index) => {
           const state = get();
           if (!state.match || state.match.finished) return;
-          const { state: match, log } = playRound(state.match, index, ulti, Math.random);
-          // le record du guépard est enregistré sur la carte possédée
-          const records = new Map(match.me.cards.filter((c) => log.records.includes(c.uid)).map((c) => [c.uid, c.record]));
-          set((s) => ({
-            match,
-            collection: records.size ? s.collection.map((c) => (records.has(c.uid) ? { ...c, record: records.get(c.uid) } : c)) : s.collection,
-          }));
+          set({ match: playDuelRound(state.match, index, Math.random).state });
         },
 
         finishMatch: () => {
           const state = get();
           const match = state.match;
           if (!match || !match.finished) return;
-          const result = matchResult(match);
+          const result = duelResult(match);
           const reward = rewardFor(result, match.division);
           let division = state.division;
           let points = state.divisionPoints + (result === 'win' ? 3 : result === 'draw' ? 1 : 0);
@@ -685,11 +690,6 @@ export const useGame = create<GameState>()(
           for (const [from, to] of Object.entries(ESPECES_REMPLACEES)) text = text.replaceAll(`"${from}"`, `"${to}"`);
           state = JSON.parse(text) as GameState;
         }
-        if (version < 6) {
-          let text = JSON.stringify(state);
-          for (const [from, to] of Object.entries(CARTES_REMPLACEES_V6)) text = text.replaceAll(`"${from}"`, `"${to}"`);
-          state = dropInvalidPrimes(JSON.parse(text) as GameState);
-        }
         if (version < 3) {
           // version 3 : les cartes Mythe ne sont plus que des créatures fantastiques. Chaque sanctuaire ou divinité
           // déjà obtenu devient la créature de la même famille (identifiants remplacés partout dans la sauvegarde).
@@ -698,6 +698,14 @@ export const useGame = create<GameState>()(
           state = JSON.parse(text) as GameState;
           // un match en cours avec d'anciens Mythes est abandonné
           state.match = null;
+        }
+        if (version < 6) {
+          let text = JSON.stringify(state);
+          for (const [from, to] of Object.entries(CARTES_REMPLACEES_V6)) text = text.replaceAll(`"${from}"`, `"${to}"`);
+          state = dropInvalidPrimes(JSON.parse(text) as GameState);
+          // l'Arène devient le Duel de records : un ancien match en cours est abandonné, l'emplacement Mythe disparaît
+          if (state.match && (state.match as { kind?: string }).kind !== 'duel') state.match = null;
+          delete (state as { mythe?: string }).mythe;
         }
         if (version < 2) {
           // avant la version 2, n'importe quelle carte pouvait sortir en Prime :

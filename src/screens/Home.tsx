@@ -4,7 +4,7 @@ import { useGame, OBJECTIVES, MAX_FREE_PACKS, FREE_PACK_INTERVAL } from '../stor
 import { useUi } from '../store/ui';
 import { useNow, formatDuration, timeAgo } from '../hooks/useNow';
 import { ATHLETES } from '../data/athletes';
-import { RARITIES, RARITY_ORDER, RECORD_START, rarityOf } from '../engine/cards';
+import { RARITIES, RARITY_ORDER, rarityOf } from '../engine/cards';
 import { FREE_PACK } from '../engine/packs';
 import { PackArt } from '../components/PackArt';
 import { Landscape } from '../components/PackScene';
@@ -15,9 +15,9 @@ import { sfx } from '../audio/sfx';
 import { useAccount } from '../store/account';
 import { accountsEnabled } from '../account/supabase';
 
-// Ce qu'on peut décrocher : une légende et son record, le roi des animaux, une Icône en version Prime.
+// Ce qu'on peut décrocher : une légende, le roi des animaux, une Icône en version Prime.
 const SHOWCASE: CardFace[] = [
-  { athleteId: 'guepard', variant: 'base', record: RECORD_START },
+  { athleteId: 'guepard', variant: 'base' },
   { athleteId: 'lion', variant: 'base' },
   { athleteId: 't-rex', variant: 'prime' },
 ];
@@ -276,8 +276,8 @@ export function HomeScreen() {
       <RecentPulls />
       <MarketNewsPanel />
       <p className="footnote">
-        Les notes et stats sont une interprétation de jeu. {ATHLETES.filter((a) => !a.mythe).length} espèces, dont {ATHLETES.filter((a) => a.retired).length} Icônes (espèces disparues),
-        et {ATHLETES.filter((a) => a.mythe).length} cartes Mythe. Photos libres de Wikimedia Commons, iNaturalist, Unsplash et Pixabay (dont des illustrations réalistes pour les espèces disparues et les créatures), auteurs crédités dans la fiche de chaque carte.
+        Mesures, populations et anecdotes réelles (estimations arrondies). {ATHLETES.filter((a) => !a.habitat).length} espèces, dont {ATHLETES.filter((a) => a.retired).length} Icônes (espèces disparues),
+        et {ATHLETES.filter((a) => a.habitat).length} cartes Habitat. Photos libres de Wikimedia Commons, iNaturalist, Unsplash et Pixabay (dont des illustrations réalistes pour les espèces disparues), auteurs crédités dans la fiche de chaque carte.
       </p>
     </div>
   );

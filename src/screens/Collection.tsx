@@ -3,7 +3,7 @@ import { useGame, formatBalles } from '../store/game';
 import { useUi } from '../store/ui';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { RARITIES, RARITY_ORDER, displayName, overallOf, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
+import { RARITIES, RARITY_ORDER, collectionNumber, displayName, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import type { OwnedCard, RarityId, SportId } from '../engine/types';
 import { Card } from '../components/Card';
 import { SportIcon } from '../components/SportIcon';
@@ -11,7 +11,7 @@ import { Landscape } from '../components/PackScene';
 import { WorldMap } from '../components/WorldMap';
 import { SCREEN_SCENES } from '../art/scenes';
 
-type Sort = 'rating' | 'rarity' | 'recent' | 'name';
+type Sort = 'number' | 'rarity' | 'recent' | 'name';
 
 // On n'affiche qu'une page de cartes à la fois : la base peut contenir des milliers d'espèces.
 const PAGE = 120;
@@ -44,7 +44,7 @@ function Club() {
   const [query, setQuery] = useState('');
   const [sport, setSport] = useState<SportId | ''>('');
   const [rarity, setRarity] = useState<RarityId | ''>('');
-  const [sort, setSort] = useState<Sort>('rating');
+  const [sort, setSort] = useState<Sort>('number');
   const [dupesOnly, setDupesOnly] = useState(false);
   const [confirmDupes, setConfirmDupes] = useState(false);
   const [limit, setLimit] = useState(PAGE);
@@ -68,10 +68,9 @@ function Club() {
       if (q && !normalize(`${displayName(athlete)} ${athlete.nick ?? ''} ${athlete.latin ?? ''}`).includes(q)) return false;
       return true;
     });
-    const level = (g: Group) => overallOf(ATHLETES_BY_ID[g.cards[0].athleteId], g.cards[0].variant);
-    const rank = (g: Group) => rarityOf(ATHLETES_BY_ID[g.cards[0].athleteId]).order * 1000 + (g.cards[0].variant === 'prime' ? 500 : g.cards[0].variant === 'reverse' ? 200 : 0) + level(g);
+    const rank = (g: Group) => rarityOf(ATHLETES_BY_ID[g.cards[0].athleteId]).order * 1000 + (g.cards[0].variant === 'prime' ? 500 : g.cards[0].variant === 'reverse' ? 200 : 0) + rarityScore(ATHLETES_BY_ID[g.cards[0].athleteId]);
     list = list.sort((a, b) => {
-      if (sort === 'rating') return level(b) - level(a);
+      if (sort === 'number') return collectionNumber(ATHLETES_BY_ID[a.cards[0].athleteId]).localeCompare(collectionNumber(ATHLETES_BY_ID[b.cards[0].athleteId]));
       if (sort === 'rarity') return rank(b) - rank(a);
       if (sort === 'recent') return Math.max(...b.cards.map((c) => c.obtainedAt)) - Math.max(...a.cards.map((c) => c.obtainedAt));
       return ATHLETES_BY_ID[a.cards[0].athleteId].last.localeCompare(ATHLETES_BY_ID[b.cards[0].athleteId].last, 'fr');
@@ -136,7 +135,7 @@ function Club() {
         <label className="field">
           <span className="visually-hidden">Trier</span>
           <select id="club-sort" value={sort} onChange={(e) => setSort(e.target.value as Sort)}>
-            <option value="rating">Meilleure note</option>
+            <option value="number">N° de collection</option>
             <option value="rarity">Plus rares</option>
             <option value="recent">Plus récentes</option>
             <option value="name">Nom</option>
@@ -204,19 +203,44 @@ function Club() {
   );
 }
 
+/** Onglet des cartes Habitat dans l'album, après les familles. */
+function HabitatTab({ active, done, onClick }: { active: boolean; done: number; onClick: () => void }) {
+  const total = ATHLETES.filter((a) => a.habitat).length;
+  return (
+    <button
+      type="button"
+      role="tab"
+      aria-selected={active}
+      className={`sport-tab${active ? ' is-active' : ''}${done === total ? ' is-complete' : ''}`}
+      onClick={onClick}
+      style={{ ['--sport' as string]: '#e9c77b' }}
+    >
+      <svg className="sport-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 19 L9 9 L13 15 L16 11 L21 19 Z M15.5 6.5 A2 2 0 1 1 15.49 6.5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinejoin="round" />
+      </svg>
+      <span>Habitats</span>
+      <small>
+        {done}/{total}
+      </small>
+    </button>
+  );
+}
+
 function Album() {
   const discovered = useGame((s) => s.discovered);
   const collection = useGame((s) => s.collection);
   const openDetail = useUi((s) => s.openDetail);
-  const [sport, setSport] = useState<SportId>('felins');
+  // une famille d'animaux, ou les cartes Habitat
+  const [sport, setSport] = useState<SportId | 'habitats'>('felins');
   const [limit, setLimit] = useState(PAGE);
 
   useEffect(() => setLimit(PAGE), [sport]);
 
   const athletes = useMemo(
     () =>
-      ATHLETES.filter((a) => a.sport === sport).sort(
-        (a, b) => rarityOf(b).order - rarityOf(a).order || rarityScore(b) - rarityScore(a) || a.last.localeCompare(b.last, 'fr'),
+      // dans l'ordre des numéros de collection
+      ATHLETES.filter((a) => (sport === 'habitats' ? !!a.habitat : a.sport === sport && !a.habitat)).sort((a, b) =>
+        collectionNumber(a).localeCompare(collectionNumber(b)),
       ),
     [sport],
   );
@@ -226,7 +250,7 @@ function Album() {
     <>
       <div className="sport-tabs" role="tablist" aria-label="Familles de l’album">
         {SPORT_ORDER.map((id) => {
-          const all = ATHLETES.filter((a) => a.sport === id);
+          const all = ATHLETES.filter((a) => a.sport === id && !a.habitat);
           const done = all.filter((a) => discovered[a.id]).length;
           return (
             <button
@@ -246,17 +270,15 @@ function Album() {
             </button>
           );
         })}
+        <HabitatTab active={sport === 'habitats'} done={ATHLETES.filter((a) => a.habitat && discovered[a.id]).length} onClick={() => setSport('habitats')} />
       </div>
       <div className="album-head">
         <h2>
-          {SPORTS[sport].name} <small>{owned}/{athletes.length}</small>
+          {sport === 'habitats' ? 'Habitats' : SPORTS[sport].name} <small>{owned}/{athletes.length}</small>
         </h2>
         <span className="meter">
           <span className="meter__fill" style={{ width: `${(owned / athletes.length) * 100}%` }} />
         </span>
-        <p className="muted small">
-          Particularité en match : <b>{SPORTS[sport].passive.name}</b>. {SPORTS[sport].passive.desc}
-        </p>
       </div>
       <div className="card-grid card-grid--album">
         {athletes.slice(0, limit).map((athlete) => {

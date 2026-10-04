@@ -38,7 +38,7 @@ const SHAPES = COUNTRIES.map((f, i) => ({ key: `${f.id ?? 'x'}-${i}`, id: f.id =
 const SPECIES_BY_REGION: Record<string, Athlete[]> = Object.fromEntries(
   REGIONS.map((region) => [
     region.key,
-    ATHLETES.filter((a) => region.codes.includes(a.country)).sort(
+    ATHLETES.filter((a) => !a.habitat && region.codes.includes(a.country)).sort(
       (a, b) => rarityOf(b).order - rarityOf(a).order || rarityScore(b) - rarityScore(a) || a.last.localeCompare(b.last, 'fr'),
     ),
   ]),

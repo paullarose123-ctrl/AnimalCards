@@ -1,16 +1,17 @@
 import { memo, useCallback, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
-import type { Athlete, CardFace, MytheKind, OwnedCard, RarityId, StatKey, Stats } from '../engine/types';
-import { displayName, extinctionLabel, formatRecord, getAthlete, isIcon, overallOf, rarityOf } from '../engine/cards';
-import { SPORTS, STAT_KEYS } from '../data/sports';
+import type { Athlete, CardFace, OwnedCard, RarityId } from '../engine/types';
+import { collectionNumber, displayName, extinctionLabel, getAthlete, isIcon, rarityOf } from '../engine/cards';
+import { SPORTS } from '../data/sports';
 import { mesuresOf, type MesuresAffichees } from '../data/mesures';
 import { populationOf, type PopulationAffichee } from '../data/populations';
 import { usePhoto } from '../photos';
 import { Flag } from './Flag';
 import { Bust } from './Bust';
 import { SportIcon } from './SportIcon';
+import { PackScene } from './PackScene';
 
 // Carte au style « cadre de naturaliste » : palette de booster selon le palier (forêt, cimes, savane…),
-// cadre sombre avec code de l'espèce en onglet, pastille de note, famille écrite à la verticale,
+// cadre sombre avec code de l'espèce en onglet, losange avec le numéro de collection, famille écrite à la verticale,
 // photo dans une fenêtre, médaillon de la famille, bandeau du nom et plaque du milieu de vie.
 // 1em = largeur de la carte / 24. Le cadre est un SVG en 100 × 140 (proportions de la carte).
 
@@ -18,7 +19,7 @@ export type CardSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 const WIDTHS: Record<CardSize, number> = { xs: 104, sm: 140, md: 196, lg: 250, xl: 300 };
 
-/** Nom du palier affiché au-dessus de la note : le paysage de sa palette (comme les boosters). */
+/** Nom du palier affiché au-dessus du numéro : le paysage de sa palette (comme les boosters). */
 const TIERS: Record<RarityId, string> = {
   commune: 'Forêt',
   'peu-commune': 'Cimes',
@@ -37,13 +38,6 @@ interface CardProps {
   onClick?: () => void;
   className?: string;
   style?: CSSProperties;
-}
-
-/** Les points forts de l'animal : deux par défaut, trois dans la fiche express de l'ouverture. */
-export function topStats(stats: Stats, count = 2): StatKey[] {
-  return STAT_KEYS.slice()
-    .sort((a, b) => stats[b] - stats[a] || STAT_KEYS.indexOf(a) - STAT_KEYS.indexOf(b))
-    .slice(0, count);
 }
 
 function plain(text: string): string {
@@ -107,25 +101,16 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
   const width = WIDTHS[size];
   const tiny = size === 'xs';
   const compact = size === 'xs' || size === 'sm';
-  const record = 'record' in card ? card.record : undefined;
   const photo = usePhoto(athlete);
   const showPhoto = !!photo.src && !photoFailed;
   const fullName = compact ? athlete.last : displayName(athlete);
-  const overall = overallOf(athlete, variant);
-  const mythe = athlete.mythe;
-  const mesures = mythe ? null : mesuresOf(athlete.id);
+  const habitat = athlete.habitat;
+  const mesures = habitat ? null : mesuresOf(athlete.id);
   const population = populationOf(athlete);
-  const tier = mythe ? 'Mythe' : prime ? 'Prime' : reverse ? 'Reverse' : icon ? 'Icône' : TIERS[rarity.id];
-  // une carte Mythe affiche son bonus de match à la place de la note
-  const rating = mythe ? `+${mythe.bonus.value}` : String(overall);
-  const subtitle = [
-    athlete.role,
-    mythe ? mytheYear(mythe.kind, mythe.year) : '',
-    record ? `Record ${formatRecord(record)}` : '',
-    extinctionLabel(athlete),
-  ]
-    .filter(Boolean)
-    .join(' · ');
+  const tier = habitat ? 'Habitat' : prime ? 'Prime' : reverse ? 'Reverse' : icon ? 'Icône' : TIERS[rarity.id];
+  // le losange porte le numéro de la carte dans l'album
+  const number = collectionNumber(athlete);
+  const subtitle = [athlete.role, extinctionLabel(athlete)].filter(Boolean).join(' · ');
 
   const handleMove = useCallback(
     (event: PointerEvent<HTMLDivElement>) => {
@@ -164,21 +149,21 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
     icon ? 'is-icon' : '',
     prime ? 'is-prime' : '',
     reverse ? 'is-reverse' : '',
-    athlete.mythe ? 'is-mythe' : '',
+    habitat ? 'is-habitat' : '',
     compact ? 'is-compact' : '',
     tiny ? 'is-tiny' : '',
     locked ? 'is-locked' : '',
     tilt ? 'has-tilt' : '',
     onClick ? 'is-clickable' : '',
-    showPhoto ? (photo.cutout ? 'has-cutout' : 'has-photo') : 'has-bust',
+    habitat ? 'has-landscape' : showPhoto ? (photo.cutout ? 'has-cutout' : 'has-photo') : 'has-bust',
     className,
   ]
     .filter(Boolean)
     .join(' ');
 
-  const ariaLabel = athlete.mythe
-    ? `${athlete.last}, carte Mythe, ${athlete.role}`
-    : `${displayName(athlete)}, ${rarity.name}${prime ? ' Prime' : ''}${reverse ? ' Reverse' : ''}${icon ? ', Icône' : ''}, note ${overall}`;
+  const ariaLabel = habitat
+    ? `${athlete.last}, carte Habitat n° ${number}, ${athlete.role}`
+    : `${displayName(athlete)}, ${rarity.name}${prime ? ' Prime' : ''}${reverse ? ' Reverse' : ''}${icon ? ', Icône' : ''}, n° ${number}`;
 
   return (
     <div
@@ -208,12 +193,10 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
         <div className="card__window">
           <div className="card__scene" />
           <div className="card__player">
-            {showPhoto ? (
+            {habitat ? (
+              <PackScene scene={habitat.scene} seed={athlete.id} className="card__landscape" shade={false} />
+            ) : showPhoto ? (
               <img className="card__photo" src={photo.src} alt="" loading="lazy" decoding="async" draggable={false} onError={() => setPhotoFailed(true)} />
-            ) : mythe ? (
-              <span className="card__emblem">
-                <SportIcon sport={athlete.sport} />
-              </span>
             ) : (
               <Bust color={sport.color} sport={athlete.sport} className="card__bust" />
             )}
@@ -229,8 +212,8 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
           <span className="card__tier">
             <i>{tier}</i>
           </span>
-          <span className="card__rating">
-            <b className="metal-text">{rating}</b>
+          <span className="card__rating" title={`Carte n° ${number}`}>
+            <b className="metal-text">{number}</b>
           </span>
         </div>
 
@@ -248,7 +231,8 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
           </span>
         </div>
 
-        {!tiny && (mesures || population) && <Facts mesures={mesures} population={population} compact={compact} />}
+        {!tiny && habitat && <HabitatFacts especes={habitat.especes.length} />}
+        {!tiny && !habitat && (mesures || population) && <Facts mesures={mesures} population={population} compact={compact} />}
 
         <div className="card__banner">
           <span className="card__name metal-text" style={{ fontSize: `${nameSize(fullName) * (compact ? 1.08 : 1)}em` }}>
@@ -261,6 +245,8 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
             <span>{subtitle}</span>
           </div>
         )}
+
+        {!compact && athlete.latin && <div className="card__latin">{athlete.latin}</div>}
 
         <div className="card__holo" aria-hidden="true" />
         <div className="card__shine" aria-hidden="true" />
@@ -285,6 +271,8 @@ const FACT_ICONS = {
   pop: 'M8 1.5 A6.5 6.5 0 1 1 7.99 1.5 Z M1.5 8 H14.5 M8 1.5 C5 4 5 12 8 14.5 C11 12 11 4 8 1.5',
   // espèce éteinte : une croix
   eteint: 'M4 4 L12 12 M12 4 L4 12',
+  // espèces d'un habitat : une empreinte de patte
+  especes: 'M8 9.5 C5 9.5 4 13.5 6 14 C7 14.2 7.5 13.4 8 13.4 C8.5 13.4 9 14.2 10 14 C12 13.5 11 9.5 8 9.5 Z M4 7 A1.3 1.6 0 1 1 4 7.01 M6.6 4.5 A1.3 1.6 0 1 1 6.6 4.51 M9.4 4.5 A1.3 1.6 0 1 1 9.4 4.51 M12 7 A1.3 1.6 0 1 1 12 7.01',
 } as const;
 
 function FactIcon({ d }: { d: string }) {
@@ -325,8 +313,14 @@ function Facts({ mesures, population, compact }: { mesures: MesuresAffichees | n
   );
 }
 
-/** Libellé de l'époque d'une carte Mythe : « Depuis l’Antiquité » pour une créature, tel quel sinon. */
-function mytheYear(kind: MytheKind, year: string): string {
-  if (kind === 'competition') return `Depuis ${year}`;
-  return year;
+/** Bandeau d'une carte Habitat : le nombre d'espèces du jeu qui y vivent (la superficie est dans la fiche). */
+function HabitatFacts({ especes }: { especes: number }) {
+  return (
+    <div className="card__facts" aria-label={`${especes} espèces du jeu y vivent`}>
+      <span className="card__fact" title="Espèces du jeu qui y vivent">
+        <FactIcon d={FACT_ICONS.especes} />
+        {especes} espèces
+      </span>
+    </div>
+  );
 }

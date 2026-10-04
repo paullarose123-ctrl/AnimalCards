@@ -4,7 +4,7 @@ import { useUi, DEFAULT_FILTERS } from '../store/ui';
 import { useNow, formatDuration, timeAgo } from '../hooks/useNow';
 import { ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { RARITIES, RARITY_ORDER, displayName, overallOf, rarityOf } from '../engine/cards';
+import { RARITIES, RARITY_ORDER, collectionNumber, displayName, rarityOf } from '../engine/cards';
 import { MARKET_TAX, MAX_MY_LISTINGS, marketPrice, netAfterTax, nextMinBid, type Listing, type MyListing } from '../engine/market';
 import type { RarityId, SportId } from '../engine/types';
 import { Card } from '../components/Card';
@@ -43,7 +43,7 @@ function ListingRow({ listing, now }: { listing: Listing; now: number }) {
           {listing.card.variant === 'reverse' && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
         </p>
         <p className="listing__meta">
-          <span className={`chip-rarity chip-rarity--${rarity.id}`}>{rarity.name}</span> {overallOf(athlete, listing.card.variant)} · {SPORTS[athlete.sport].name} ·{' '}
+          <span className={`chip-rarity chip-rarity--${rarity.id}`}>{rarity.name}</span> N° {collectionNumber(athlete)} · {SPORTS[athlete.sport].name} ·{' '}
           {listing.seller}
         </p>
         <p className="listing__market">
@@ -127,8 +127,8 @@ function BuyTab() {
           return a.buyNow - b.buyNow;
         case 'price-desc':
           return b.buyNow - a.buyNow;
-        case 'rating':
-          return overallOf(ATHLETES_BY_ID[b.card.athleteId], b.card.variant) - overallOf(ATHLETES_BY_ID[a.card.athleteId], a.card.variant);
+        case 'number':
+          return collectionNumber(ATHLETES_BY_ID[a.card.athleteId]).localeCompare(collectionNumber(ATHLETES_BY_ID[b.card.athleteId]));
         default:
           return a.expiresAt - b.expiresAt;
       }
@@ -181,7 +181,7 @@ function BuyTab() {
             <option value="ending">Fin la plus proche</option>
             <option value="price-asc">Prix croissant</option>
             <option value="price-desc">Prix décroissant</option>
-            <option value="rating">Meilleure note</option>
+            <option value="number">N° de collection</option>
           </select>
         </label>
         <label className="toggle">

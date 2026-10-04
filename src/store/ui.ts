@@ -16,7 +16,7 @@ export interface MarketFilters {
   prime: boolean;
   icons: boolean;
   maxPrice: number | null;
-  sort: 'ending' | 'price-asc' | 'price-desc' | 'rating';
+  sort: 'ending' | 'price-asc' | 'price-desc' | 'number';
 }
 
 interface UiState {

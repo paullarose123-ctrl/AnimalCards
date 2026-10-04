@@ -37,7 +37,7 @@ const NAV: Array<{ id: Tab; label: string; icon: ReactNode }> = [
   },
   {
     id: 'matchs',
-    label: 'Arène',
+    label: 'Duel',
     icon: <path d="M8,4 H16 V9 A4,4 0 0 1 8,9 Z M8,6 H5 A3,3 0 0 0 8,11 M16,6 H19 A3,3 0 0 1 16,11 M12,13 V17 M8,20 H16 M9,17 H15 V20 H9 Z" />,
   },
   {
