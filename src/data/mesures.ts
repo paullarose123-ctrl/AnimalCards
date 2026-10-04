@@ -31,7 +31,7 @@ export const MESURES: Record<string, Mesure> = {
   'chat-a-pieds-noirs': [1.9, 0.6, 'L', 10],
   'chat-viverrin': [12, 1.1, 'L', 10],
   jaguarondi: [6, 1.2, 'L', 10],
-  'chat-dore': [11, 1.1, 'L', 12],
+  'lynx-pardelle': [13, 1, 'L', 13],
   'chat-rubigineux': [1.4, 0.7, 'L', 12],
 
   // canidés et hyènes
@@ -176,7 +176,7 @@ export const MESURES: Record<string, Mesure> = {
   pipistrelle: [0.006, 0.22, 'E', 8],
   loir: [0.15, 0.3, 'L', 7],
   polatouche: [0.13, 0.3, 'L', 6],
-  musaraigne: [0.0018, 0.07, 'L', 1.5],
+  pika: [0.16, 0.2, 'L', 7],
 
   // marsupiaux et cousins
   kangourou: [85, 1.8, 'H', 20],
@@ -218,7 +218,7 @@ export const MESURES: Record<string, Mesure> = {
   baiji: [150, 2.4, 'L', 24],
   'baleine-boreale': [90000, 18, 'L', 200],
   'rhytine-de-steller': [8000, 8.5, 'L', null],
-  vaquita: [50, 1.5, 'L', 20],
+  'dauphin-de-commerson': [50, 1.5, 'L', 18],
   'phoque-moine-des-caraibes': [200, 2.4, 'L', 20],
 
   // requins et raies
@@ -231,8 +231,8 @@ export const MESURES: Record<string, Mesure> = {
   'requin-bouledogue': [230, 3, 'L', 25],
   'poisson-scie': [500, 7, 'L', 40],
   pastenague: [30, 2, 'L', 20],
-  'requin-du-groenland': [1000, 6, 'L', 400],
-  'requin-lutin': [210, 4, 'L', 60],
+  'requin-citron': [180, 3, 'L', 27],
+  'requin-oceanique': [150, 3, 'L', 22],
   'requin-pelerin': [5000, 10, 'L', 50],
   'peau-bleue': [200, 3, 'L', 20],
   'requin-a-pointes-noires': [20, 1.6, 'L', 12],

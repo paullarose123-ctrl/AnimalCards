@@ -29,7 +29,7 @@ export const POPULATIONS: Record<string, number> = {
   'chat-a-pieds-noirs': 10_000,
   'chat-viverrin': 10_000,
   jaguarondi: 100_000,
-  'chat-dore': 20_000,
+  'lynx-pardelle': 2_400,
   'chat-rubigineux': 10_000,
 
   // canidés et hyènes
@@ -169,7 +169,7 @@ export const POPULATIONS: Record<string, number> = {
   pipistrelle: 50_000_000,
   loir: 10_000_000,
   polatouche: 1_000_000,
-  musaraigne: 10_000_000,
+  pika: 1_000_000,
 
   // marsupiaux et cousins
   kangourou: 11_000_000,
@@ -208,7 +208,7 @@ export const POPULATIONS: Record<string, number> = {
   'rorqual-commun': 100_000,
   marsouin: 700_000,
   'baleine-boreale': 12_000,
-  vaquita: 10,
+  'dauphin-de-commerson': 40_000,
 
   // requins et raies
   'requin-blanc': 3_500,
@@ -220,8 +220,8 @@ export const POPULATIONS: Record<string, number> = {
   'requin-bouledogue': 100_000,
   'poisson-scie': 5_000,
   pastenague: 1_000_000,
-  'requin-du-groenland': 100_000,
-  'requin-lutin': 10_000,
+  'requin-citron': 100_000,
+  'requin-oceanique': 100_000,
   'requin-pelerin': 20_000,
   'peau-bleue': 20_000_000,
   'requin-a-pointes-noires': 1_000_000,

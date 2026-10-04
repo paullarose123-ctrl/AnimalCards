@@ -469,13 +469,14 @@ async function download() {
 /**
  * Image de la carte (600 × 800, format 3:4 de la fenêtre) à partir de la photo brute.
  * Cadrage dans config.json, « cadrage » : { "lion": [0.45, 0.4, 1.3] } = centre horizontal, centre vertical
- * (fractions de la photo) et zoom (1 = le plus grand cadre 3:4 possible) ; "entier" = la photo entière sur un fond
- * flou de la même photo ; "etendre" = la photo entière, dont le fond uni (rendus 3D et maquettes photographiées en
- * studio) est prolongé en haut et en bas jusqu'à remplir la fenêtre : l'animal reste entier, sans raccord visible.
+ * (fractions de la photo) et zoom (1 = le plus grand cadre 3:4 possible) ; "etendre" = la photo entière, dont le fond
+ * uni (rendus 3D et maquettes photographiées en studio) est prolongé en haut et en bas jusqu'à remplir la fenêtre :
+ * l'animal reste entier, sans raccord visible. Aucun mode n'ajoute de fond flou : un animal trop allongé pour la
+ * carte est recadré (sa tête gardée), ou mérite une autre photo.
  * Sans cadrage, sharp choisit la zone la plus intéressante.
  * { "miroir": true, … } retourne la photo de gauche à droite (pour sortir la tête de sous la pastille de note, en haut
- * à gauche de la carte) ; les coordonnées de « corps », « scene » ou « cadre » ([x, y, zoom]) se lisent alors sur
- * l'image retournée.
+ * à gauche de la carte) ; les coordonnées de « corps » ou de « cadre » ([x, y, zoom]) se lisent alors sur l'image
+ * retournée.
  */
 async function renderCard(id) {
   let raw = join(RAW_DIR, `${id}.jpg`);
@@ -489,13 +490,10 @@ async function renderCard(id) {
       await sharp(raw).flop().jpeg({ quality: 92 }).toFile(mirrored);
       raw = mirrored;
     }
-    spec = spec.corps ? { corps: spec.corps } : spec.scene ? { scene: spec.scene } : spec.cadre;
+    spec = spec.corps ? { corps: spec.corps } : spec.cadre;
   }
   if (spec && !Array.isArray(spec) && typeof spec === 'object' && spec.corps) {
     return renderBody(raw, target, spec.corps, W, H);
-  }
-  if (spec && !Array.isArray(spec) && typeof spec === 'object' && spec.scene) {
-    return renderScene(raw, target, spec.scene, W, H);
   }
   if (spec === 'etendre') {
     const front = await sharp(raw).resize(W, H, { fit: 'inside' }).toBuffer();
@@ -511,16 +509,6 @@ async function renderCard(id) {
     const left = Math.floor((W - width) / 2);
     await sharp(front)
       .extend({ top, bottom: free - top, left, right: W - width - left, extendWith: 'copy' })
-      .webp({ quality: 82 })
-      .toFile(target);
-    return;
-  }
-  if (spec === 'entier') {
-    const background = await sharp(raw).resize(W, H, { fit: 'cover' }).blur(26).modulate({ brightness: 0.62, saturation: 0.9 }).toBuffer();
-    const front = await sharp(raw).resize(W, H, { fit: 'inside' }).toBuffer();
-    const { width, height } = await sharp(front).metadata();
-    await sharp(background)
-      .composite([{ input: front, left: Math.round((W - width) / 2), top: Math.round((H - height) / 2) }])
       .webp({ quality: 82 })
       .toFile(target);
     return;
@@ -583,52 +571,6 @@ async function renderBody(raw, target, [x0, y0, x1, y1], W, H) {
     .webp({ quality: 84 })
     .toFile(target);
   return Math.min(1, cw / bw, ch / bh);
-}
-
-/**
- * Cadrage « scène » : { "scene": [x0, y0, x1, y1] } = boîte de l'animal, pour les animaux trop allongés pour un cadre
- * 3:4 (requins, ptérosaures, reptiles marins). L'image garde l'animal entier sur toute la largeur de la carte ; au-dessus
- * et en dessous, le décor est prolongé par la même image très floue, avec un fondu, comme une faible profondeur de champ.
- * Renvoie 1 : l'animal est toujours entier.
- */
-async function renderScene(raw, target, [x0, y0, x1, y1], W, H) {
-  const { width: PW, height: PH } = await sharp(raw).metadata();
-  const [bw, bh] = [(x1 - x0) * PW, (y1 - y0) * PH];
-  const s = Math.min((0.94 * W) / bw, (0.8 * H) / bh);
-  const [SW, SH] = [Math.round(PW * s), Math.round(PH * s)];
-  const clampPos = (pos, size, frame) => (size >= frame ? Math.min(0, Math.max(frame - size, pos)) : pos);
-  const left = Math.round(clampPos(W / 2 - (x0 + (x1 - x0) / 2) * PW * s, SW, W));
-  const top = Math.round(clampPos(0.53 * H - (y0 + (y1 - y0) / 2) * PH * s, SH, H));
-  const background = await sharp(raw).resize(W, H, { fit: 'cover' }).blur(28).modulate({ brightness: 0.9 }).toBuffer();
-  // partie de l'image nette visible dans la carte, avec un fondu sur chaque bord qui tombe dans la carte
-  const vx = Math.max(0, left);
-  const vy = Math.max(0, top);
-  const vw = Math.min(W, left + SW) - vx;
-  const vh = Math.min(H, top + SH) - vy;
-  const { data, info } = await sharp(raw)
-    .resize(SW, SH)
-    .extract({ left: vx - left, top: vy - top, width: vw, height: vh })
-    .ensureAlpha()
-    .raw()
-    .toBuffer({ resolveWithObject: true });
-  const fade = Math.round(0.07 * H);
-  const edges = { top: top > 0, bottom: top + SH < H, left: left > 0, right: left + SW < W };
-  for (let y = 0; y < info.height; y++) {
-    for (let x = 0; x < info.width; x++) {
-      let a = 1;
-      if (edges.top) a = Math.min(a, y / fade);
-      if (edges.bottom) a = Math.min(a, (info.height - 1 - y) / fade);
-      if (edges.left) a = Math.min(a, x / fade);
-      if (edges.right) a = Math.min(a, (info.width - 1 - x) / fade);
-      data[(y * info.width + x) * 4 + 3] = Math.round(255 * Math.max(0, Math.min(1, a)));
-    }
-  }
-  const sharpPart = await sharp(data, { raw: { width: info.width, height: info.height, channels: 4 } }).png().toBuffer();
-  await sharp(background)
-    .composite([{ input: sharpPart, left: vx, top: vy }])
-    .webp({ quality: 84 })
-    .toFile(target);
-  return 1;
 }
 
 /** Enregistre les photos téléchargées (meta.json), produit leurs images de carte et met à jour les crédits. */

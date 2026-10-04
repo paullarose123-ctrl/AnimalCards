@@ -116,7 +116,7 @@ const CURATED: Athlete[] = [
   x('chat-a-pieds-noirs', 'Chat à pieds noirs', 'felins', 'felin-agile', 'Savane sèche', 'ZA', 28, 70, 'Le plus petit félin d’Afrique est l’un des chasseurs les plus efficaces : une proie toutes les 50 minutes.', L('Felis nigripes')),
   x('chat-viverrin', 'Chat viverrin', 'felins', 'felin-agile', 'Marais', 'TH', 26, 66, 'Le chat pêcheur plonge dans l’eau pour attraper des poissons.', L('Prionailurus viverrinus')),
   x('jaguarondi', 'Jaguarondi', 'felins', 'felin-agile', 'Forêt', 'MX', 24, 63, 'Un corps de belette, une queue de loutre, et il chasse surtout de jour.', L('Herpailurus yagouaroundi')),
-  x('chat-dore', 'Chat doré africain', 'felins', 'felin-agile', 'Forêt tropicale', 'GA', 22, 62, 'L’un des félins les plus méconnus, rarement photographié dans les forêts d’Afrique centrale.', L('Caracal aurata')),
+  x('lynx-pardelle', 'Lynx pardelle', 'felins', 'felin-agile', 'Maquis andalou', 'ES', 22, 62, 'Le félin le plus menacé d’Europe : moins de 100 en 2002, plus de 2 000 aujourd’hui grâce à sa protection.', L('Lynx pardinus')),
   x('chat-rubigineux', 'Chat rubigineux', 'felins', 'felin-agile', 'Forêt', 'LK', 20, 60, 'L’un des plus petits félins du monde : à peine plus d’un kilo.', L('Prionailurus rubiginosus')),
 
   // ───────────────────────── CANIDÉS & HYÈNES ─────────────────────────
@@ -294,7 +294,7 @@ const CURATED: Athlete[] = [
   x('pipistrelle', 'Pipistrelle commune', 'petits', 'petit-nocturne', 'Villes et villages', 'FR', 34, 60, 'La plus petite chauve-souris de France, 5 g, avale des milliers de moustiques par nuit.', L('Pipistrellus pipistrellus')),
   x('loir', 'Loir', 'petits', 'petit-nocturne', 'Forêt', 'FR', 30, 54, 'Hiberne jusqu’à sept mois : d’où l’expression « dormir comme un loir ».', L('Glis glis')),
   x('polatouche', 'Polatouche', 'petits', 'petit-nocturne', 'Forêt boréale', 'FI', 30, 60, 'L’écureuil volant plane d’arbre en arbre sur plus de 50 m grâce à une membrane.', L('Pteromys volans')),
-  x('musaraigne', 'Musaraigne étrusque', 'petits', 'petit-nocturne', 'Garrigue', 'IT', 26, 54, 'L’un des plus petits mammifères du monde, environ 2 g ; son cœur bat plus de 1 000 fois par minute.', L('Suncus etruscus')),
+  x('pika', 'Pika d’Amérique', 'petits', 'petit-agile', 'Éboulis de montagne', 'US', 26, 54, 'Cousin du lapin, il fait sécher de l’herbe au soleil tout l’été pour se constituer des meules de foin pour l’hiver.', L('Ochotona princeps')),
 
   // ───────────────────────── MARSUPIAUX & CIE ─────────────────────────
   x('kangourou', 'Kangourou roux', 'marsupiaux', 'marsu-sauteur', 'Bush', 'AU', 87, 82, 'Le plus grand marsupial fait des bonds de 8 m et ne sait pas reculer.', { ...L('Osphranter rufus'), stats: { for: 88, end: 90 },
@@ -354,7 +354,7 @@ const CURATED: Athlete[] = [
   x('baiji', 'Baiji', 'marins', 'marin-chasseur', 'Yangzi Jiang', 'CN', 38, 70, 'Le dauphin du fleuve Yangzi, déclaré fonctionnellement éteint en 2006.', { ...L('Lipotes vexillifer'), ...D(2006) }),
   x('baleine-boreale', 'Baleine boréale', 'marins', 'marin-geant', 'Arctique', 'GL', 36, 88, 'Peut vivre plus de 200 ans, le record des mammifères.', L('Balaena mysticetus')),
   x('rhytine-de-steller', 'Rhytine de Steller', 'marins', 'marin-geant', 'Mer de Béring', 'RU', 34, 80, 'Une vache de mer de 8 m, exterminée 27 ans après sa découverte.', { ...L('Hydrodamalis gigas'), ...D(1768) }),
-  x('vaquita', 'Vaquita', 'marins', 'marin-chasseur', 'Golfe de Californie', 'MX', 30, 60, 'Le mammifère marin le plus menacé du monde : il n’en resterait qu’une dizaine.', L('Phocoena sinus')),
+  x('dauphin-de-commerson', 'Dauphin de Commerson', 'marins', 'marin-chasseur', 'Côtes de Patagonie', 'AR', 30, 60, 'Noir et blanc comme une petite orque, il ne mesure que 1,5 m et nage en bondissant près des côtes de Patagonie.', L('Cephalorhynchus commersonii')),
   x('phoque-moine-des-caraibes', 'Phoque moine des Caraïbes', 'marins', 'marin-pinnipede', 'Caraïbes', 'JM', 24, 70, 'Dernière observation confirmée en 1952 ; il a été déclaré éteint en 2008.', { ...L('Neomonachus tropicalis'), ...D(1952) }),
 
   // ───────────────────────── REQUINS & RAIES ─────────────────────────
@@ -372,8 +372,8 @@ const CURATED: Athlete[] = [
   x('requin-bouledogue', 'Requin-bouledogue', 'requins', 'requin-predateur', 'Fleuves et côtes', 'ZA', 60, 86, 'Remonte les fleuves en eau douce, parfois à des milliers de kilomètres de la mer.', L('Carcharhinus leucas')),
   x('poisson-scie', 'Poisson-scie', 'requins', 'requin-curieux', 'Estuaires', 'AU', 54, 70, 'C’est une raie, pas un requin : son rostre denté détecte et tranche ses proies.', L('Pristis')),
   x('pastenague', 'Pastenague', 'requins', 'requin-curieux', 'Fonds sableux', 'FR', 50, 64, 'Se cache dans le sable, avec un aiguillon venimeux sur la queue.', L('Dasyatis pastinaca')),
-  x('requin-du-groenland', 'Requin du Groenland', 'requins', 'requin-curieux', 'Arctique', 'GL', 46, 76, 'Le vertébré qui vit le plus longtemps : plusieurs siècles.', L('Somniosus microcephalus')),
-  x('requin-lutin', 'Requin-lutin', 'requins', 'requin-predateur', 'Abysses', 'JP', 44, 70, 'Ses mâchoires jaillissent vers l’avant pour happer ses proies.', L('Mitsukurina owstoni')),
+  x('requin-citron', 'Requin-citron', 'requins', 'requin-curieux', 'Mangroves', 'US', 46, 76, 'Sa peau jaunâtre le camoufle sur les fonds de sable ; ses petits grandissent à l’abri des mangroves.', L('Negaprion brevirostris')),
+  x('requin-oceanique', 'Requin océanique', 'requins', 'requin-predateur', 'Haute mer', 'XO', 44, 70, 'Ses longues nageoires arrondies, à pointe blanche, le rendent reconnaissable en pleine mer.', L('Carcharhinus longimanus')),
   x('requin-pelerin', 'Requin pèlerin', 'requins', 'requin-curieux', 'Côtes de Bretagne', 'FR', 40, 70, 'Le deuxième plus grand poisson du monde, observé l’été au large de la Bretagne.', L('Cetorhinus maximus')),
   x('peau-bleue', 'Peau bleue', 'requins', 'requin-rapide', 'Haute mer', 'XO', 34, 76, 'Grand voyageur, il traverse l’Atlantique au gré des courants.', L('Prionace glauca')),
   x('requin-a-pointes-noires', 'Requin à pointes noires', 'requins', 'requin-rapide', 'Lagons', 'FJ', 30, 72, 'Patrouille dans les lagons, l’aileron noir hors de l’eau.', L('Carcharhinus melanopterus')),

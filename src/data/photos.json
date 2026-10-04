@@ -34,10 +34,10 @@
  "alligator": {
   "file": "alligator.webp",
   "cutout": false,
-  "author": "Joe MDO",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/30009661"
+  "author": "David Clode",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/nGqJCrxN6dI"
  },
  "allosaure": {
   "file": "allosaure.webp",
@@ -58,10 +58,10 @@
  "anaconda": {
   "file": "anaconda.webp",
   "cutout": false,
-  "author": "David Torres",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/245544699"
+  "author": "Lingchor",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/-aTwPsTweJs"
  },
  "ane": {
   "file": "ane.webp",
@@ -218,18 +218,18 @@
  "baleine-bleue": {
   "file": "baleine-bleue.webp",
   "cutout": false,
-  "author": "azure27014",
+  "author": "steve3rivers",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/144016335"
+  "page": "https://www.inaturalist.org/photos/610949536"
  },
  "baleine-boreale": {
   "file": "baleine-boreale.webp",
   "cutout": false,
-  "author": "Royle Safaris",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/294664204"
+  "author": "Vicki Beaver, Alaska Fisheries Science Center, NOAA FIsheries, Marine Mammal Permit#14245",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Bowhead_Whale_NOAA_(cropped).jpg"
  },
  "barracuda": {
   "file": "barracuda.webp",
@@ -282,18 +282,18 @@
  "bilby": {
   "file": "bilby.webp",
   "cutout": false,
-  "author": "Mike Letnic",
+  "author": "semi-milker",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/72267459"
+  "page": "https://www.inaturalist.org/photos/723881839"
  },
  "bison": {
   "file": "bison.webp",
   "cutout": false,
-  "author": "Catherine C. Galley",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/91354425"
+  "author": "Cristofer Maximilian",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/eVZ8FdhdQzE"
  },
  "bison-d-europe": {
   "file": "bison-d-europe.webp",
@@ -402,10 +402,10 @@
  "cachalot": {
   "file": "cachalot.webp",
   "cutout": false,
-  "author": "azure27014",
+  "author": "Martin Holladay",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/285554297"
+  "page": "https://www.inaturalist.org/photos/649789156"
  },
  "calao": {
   "file": "calao.webp",
@@ -418,10 +418,10 @@
  "calmar-geant": {
   "file": "calmar-geant.webp",
   "cutout": false,
-  "author": "ali_paulus",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/192249145"
+  "author": "Auckland War Memorial Museum",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Architeuthis_dux_68146399.jpg"
  },
  "cameleon": {
   "file": "cameleon.webp",
@@ -551,14 +551,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Sand_cat_(Kuwait).jpg"
  },
- "chat-dore": {
-  "file": "chat-dore.webp",
-  "cutout": false,
-  "author": "Xavier Rufray",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/241653355"
- },
  "chat-forestier": {
   "file": "chat-forestier.webp",
   "cutout": false,
@@ -666,10 +658,10 @@
  "chirurgien-bleu": {
   "file": "chirurgien-bleu.webp",
   "cutout": false,
-  "author": "François Libert",
-  "license": "CC BY-NC-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-  "page": "https://www.inaturalist.org/photos/229806143"
+  "author": "Jonathan Hidalgo",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/Gy46uFdzdec"
  },
  "cigale": {
   "file": "cigale.webp",
@@ -858,18 +850,18 @@
  "crocodile-du-nil": {
   "file": "crocodile-du-nil.webp",
   "cutout": false,
-  "author": "Dmitrii Zhodzishskii",
+  "author": "Haim Charbit",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/un-crocodile-la-bouche-ouverte-sur-de-lherbe-verte-ZfQHGfIGglU"
+  "page": "https://unsplash.com/photos/KnaI2wDtbjw"
  },
  "crocodile-marin": {
   "file": "crocodile-marin.webp",
   "cutout": false,
-  "author": "Karim Imran",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/178025745"
+  "author": "David Clode",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/fYSEk1FaUCY"
  },
  "crotale": {
   "file": "crotale.webp",
@@ -894,6 +886,14 @@
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/203547729"
+ },
+ "dauphin-de-commerson": {
+  "file": "dauphin-de-commerson.webp",
+  "cutout": false,
+  "author": "Marco Silva",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/345903534"
  },
  "dauphin-rose": {
   "file": "dauphin-rose.webp",
@@ -962,10 +962,10 @@
  "dingo": {
   "file": "dingo.webp",
   "cutout": false,
-  "author": "Michael Hains",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/149063333"
+  "author": "Rae Wallis",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/XXRt2HPxMHg"
  },
  "diplodocus": {
   "file": "diplodocus.webp",
@@ -978,10 +978,10 @@
  "dodo": {
   "file": "dodo.webp",
   "cutout": false,
-  "author": "Emőke Dénes",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Ma_-_Raphus_cucullatus_-_2.jpg"
+  "author": "Bernard DUPONT",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Dodo_(Raphus_cucullatus),_model_with_egg.jpg"
  },
  "dragon-de-komodo": {
   "file": "dragon-de-komodo.webp",
@@ -1050,10 +1050,10 @@
  "elan": {
   "file": "elan.webp",
   "cutout": false,
-  "author": "cgbb2004",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/8106681"
+  "author": "Cora Leach",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/kowlD5rb9wE"
  },
  "elephant": {
   "file": "elephant.webp",
@@ -1114,18 +1114,18 @@
  "espadon": {
   "file": "espadon.webp",
   "cutout": false,
-  "author": "Павел Несмеянов",
+  "author": "Rinaldi Gotama",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/587362758"
+  "page": "https://www.inaturalist.org/photos/441927444"
  },
  "esturgeon": {
   "file": "esturgeon.webp",
   "cutout": false,
-  "author": "The Harbors Video Project",
+  "author": "Joshua Doby",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/158152770"
+  "page": "https://www.inaturalist.org/photos/41248575"
  },
  "etoile-de-mer": {
   "file": "etoile-de-mer.webp",
@@ -1154,10 +1154,10 @@
  "fennec": {
   "file": "fennec.webp",
   "cutout": false,
-  "author": "Tarek Nagah",
+  "author": "pfaucher",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/178694529"
+  "page": "https://www.inaturalist.org/photos/38258258"
  },
  "flamant-rose": {
   "file": "flamant-rose.webp",
@@ -1186,10 +1186,10 @@
  "fourmilier": {
   "file": "fourmilier.webp",
   "cutout": false,
-  "author": "David Martin",
+  "author": "Andy Jones",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/228086214"
+  "page": "https://www.inaturalist.org/photos/108811809"
  },
  "frelon": {
   "file": "frelon.webp",
@@ -1226,10 +1226,10 @@
  "gavial": {
   "file": "gavial.webp",
   "cutout": false,
-  "author": "Yuwaraj Gurjar",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/88170142"
+  "author": "Fábio Olmos",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/73811430"
  },
  "gazelle": {
   "file": "gazelle.webp",
@@ -1434,10 +1434,10 @@
  "heloderme": {
   "file": "heloderme.webp",
   "cutout": false,
-  "author": "Christian Schwarz",
+  "author": "Alvaro Monter Pozos",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/1841325"
+  "page": "https://www.inaturalist.org/photos/114066566"
  },
  "herisson": {
   "file": "herisson.webp",
@@ -1466,18 +1466,18 @@
  "hippopotame": {
   "file": "hippopotame.webp",
   "cutout": false,
-  "author": "onkelramirez1",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/hippopotamus-hippo-zoo-mammal-2641870/"
+  "author": "Emmy Shingiro",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/Fb0k8nC_6j4"
  },
  "hippopotame-nain": {
   "file": "hippopotame-nain.webp",
   "cutout": false,
-  "author": "Chuckupd",
-  "license": "Public domain",
+  "author": "壽山動物園 Shoushan Zoo",
+  "license": "Attribution",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Pygmy_hippopotamus_pair.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Pygmy_Hippopotamuses_in_Shoushan_Zoo.jpg"
  },
  "hirondelle": {
   "file": "hirondelle.webp",
@@ -1562,10 +1562,10 @@
  "jaguarondi": {
   "file": "jaguarondi.webp",
   "cutout": false,
-  "author": "gabriel_arroyo",
+  "author": "COMUNA LAS BALSAS",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/83401845"
+  "page": "https://www.inaturalist.org/photos/122416475"
  },
  "kangourou": {
   "file": "kangourou.webp",
@@ -1586,10 +1586,10 @@
  "kiwi": {
   "file": "kiwi.webp",
   "cutout": false,
-  "author": "jonoplant123",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/541973827"
+  "author": "Genevieve Early",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/473849812"
  },
  "koala": {
   "file": "koala.webp",
@@ -1770,10 +1770,10 @@
  "loup-arctique": {
   "file": "loup-arctique.webp",
   "cutout": false,
-  "author": "Lee E. Harding",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/57809803"
+  "author": "Noureddine BOUABDALLAH",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/40DNmazK7pQ"
  },
  "loup-d-ethiopie": {
   "file": "loup-d-ethiopie.webp",
@@ -1830,6 +1830,14 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Lince_ib%C3%A9rico_(Lynx_pardinus),_Almuradiel,_Ciudad_Real,_Espa%C3%B1a,_2021-12-19,_DD_07.jpg"
+ },
+ "lynx-pardelle": {
+  "file": "lynx-pardelle.webp",
+  "cutout": false,
+  "author": "Jose Luis Cano",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/504018056"
  },
  "lynx-roux": {
   "file": "lynx-roux.webp",
@@ -1922,18 +1930,18 @@
  "marmotte": {
   "file": "marmotte.webp",
   "cutout": false,
-  "author": "Original: Inklein ( talk · contribs ) Derivative work: jjron ( talk · contribs )",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Marmot-edit1.jpg"
+  "author": "Nils",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/395222440"
  },
  "marsouin": {
   "file": "marsouin.webp",
   "cutout": false,
-  "author": "Tobias S. Radmer",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/434344425"
+  "author": "Ecomare/Sytske Dijksen",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Phocoena_phocoena_Ecomare_4.jpg"
  },
  "martin-pecheur": {
   "file": "martin-pecheur.webp",
@@ -2094,14 +2102,6 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/sheep-lamb-texel-sheep-texel-dike-966749/"
- },
- "musaraigne": {
-  "file": "musaraigne.webp",
-  "cutout": false,
-  "author": "Ansil B.R.",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/47807491"
  },
  "mygale": {
   "file": "mygale.webp",
@@ -2362,10 +2362,10 @@
  "narval": {
   "file": "narval.webp",
   "cutout": false,
-  "author": "Ryan Woodrow",
+  "author": "azure27014",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/561832248"
+  "page": "https://www.inaturalist.org/photos/561463407"
  },
  "nasique": {
   "file": "nasique.webp",
@@ -2386,10 +2386,10 @@
  "numbat": {
   "file": "numbat.webp",
   "cutout": false,
-  "author": "Kym Nicolson",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/259629687"
+  "author": "Greg McKay",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/380430103"
  },
  "ocelot": {
   "file": "ocelot.webp",
@@ -2434,10 +2434,10 @@
  "ornithorynque": {
   "file": "ornithorynque.webp",
   "cutout": false,
-  "author": "Ruth Huckstepp",
+  "author": "Alex Slavenko",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/222848537"
+  "page": "https://www.inaturalist.org/photos/316930862"
  },
  "orque": {
   "file": "orque.webp",
@@ -2578,10 +2578,10 @@
  "panda": {
   "file": "panda.webp",
   "cutout": false,
-  "author": "Ahmet Yüksek ✪",
+  "author": "Smithsonian",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/un-panda-est-assis-dans-une-foret-en-train-de-manger-du-bambou-jONdVvLLxok"
+  "page": "https://unsplash.com/photos/T9Tqf2zq3A8"
  },
  "panda-roux": {
   "file": "panda-roux.webp",
@@ -2698,10 +2698,10 @@
  "phacochere": {
   "file": "phacochere.webp",
   "cutout": false,
-  "author": "Adedotun Ajibade",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/64033234"
+  "author": "Alex Kraft",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/Jlbr6RJ4ADk"
  },
  "phalanger-volant": {
   "file": "phalanger-volant.webp",
@@ -2778,10 +2778,10 @@
  "pieuvre": {
   "file": "pieuvre.webp",
   "cutout": false,
-  "author": "ErikTanghe",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/octopus-sea-life-underwater-ocean-3232758/"
+  "author": "Kostas Morfiris",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/qs1r3BWKLGs"
  },
  "pigeon": {
   "file": "pigeon.webp",
@@ -2790,6 +2790,14 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Paloma_brav%C3%ADa_(Columba_livia),_Palacio_de_Nymphenburg,_M%C3%BAnich,_Alemania01.JPG"
+ },
+ "pika": {
+  "file": "pika.webp",
+  "cutout": false,
+  "author": "csledge",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/175911614"
  },
  "pipa": {
   "file": "pipa.webp",
@@ -2882,10 +2890,10 @@
  "poisson-scie": {
   "file": "poisson-scie.webp",
   "cutout": false,
-  "author": "plawrynpx",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/407149066"
+  "author": "David Clode",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/fZu1iB6QxyQ"
  },
  "polatouche": {
   "file": "polatouche.webp",
@@ -2898,10 +2906,10 @@
  "porc-epic": {
   "file": "porc-epic.webp",
   "cutout": false,
-  "author": "Marco Baietto",
+  "author": "thierry_aebischer_chinko",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/695187462"
+  "page": "https://www.inaturalist.org/photos/335793264"
  },
  "poule": {
   "file": "poule.webp",
@@ -3066,10 +3074,10 @@
  "ratel": {
   "file": "ratel.webp",
   "cutout": false,
-  "author": "en:User:Jaganath",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Honey_badger.jpg"
+  "author": "copper",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/13703579"
  },
  "raton-laveur": {
   "file": "raton-laveur.webp",
@@ -3106,10 +3114,10 @@
  "requin-a-pointes-noires": {
   "file": "requin-a-pointes-noires.webp",
   "cutout": false,
-  "author": "Tobin Sparling (he/him)",
+  "author": "Ila France",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/332838461"
+  "page": "https://www.inaturalist.org/photos/112902911"
  },
  "requin-baleine": {
   "file": "requin-baleine.webp",
@@ -3122,10 +3130,10 @@
  "requin-blanc": {
   "file": "requin-blanc.webp",
   "cutout": false,
-  "author": "Royle Safaris",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/289899208"
+  "author": "Gerald Schömbs",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/8DO2XXCoB0Q"
  },
  "requin-bouledogue": {
   "file": "requin-bouledogue.webp",
@@ -3135,21 +3143,13 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Bullshark_Bahamas.jpg"
  },
- "requin-du-groenland": {
-  "file": "requin-du-groenland.webp",
+ "requin-citron": {
+  "file": "requin-citron.webp",
   "cutout": false,
-  "author": "NOAA Okeanos Explorer Program",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Somniosus_microcephalus_okeanos.jpg"
- },
- "requin-lutin": {
-  "file": "requin-lutin.webp",
-  "cutout": false,
-  "author": "Dianne Bray / Museum Victoria",
-  "license": "CC BY 3.0 au",
-  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Mistukurina_owstoni_museum_victoria_-_head_detail.jpg"
+  "author": "Fiona Ayerst",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/AhGS_FMEU0s"
  },
  "requin-mako": {
   "file": "requin-mako.webp",
@@ -3175,21 +3175,29 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
   "page": "https://www.inaturalist.org/photos/179498581"
  },
+ "requin-oceanique": {
+  "file": "requin-oceanique.webp",
+  "cutout": false,
+  "author": "Gerald Schömbs",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/pWSjdGBWyAo"
+ },
  "requin-pelerin": {
   "file": "requin-pelerin.webp",
   "cutout": false,
   "author": "azure27014",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/133393157"
+  "page": "https://www.inaturalist.org/photos/154156679"
  },
  "requin-tigre": {
   "file": "requin-tigre.webp",
   "cutout": false,
-  "author": "Malcolm Francis",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/503721722"
+  "author": "Maahid Photos",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/ELwhnMLRVSQ"
  },
  "rhacophore": {
   "file": "rhacophore.webp",
@@ -3210,10 +3218,10 @@
  "rhinoceros-de-sumatra": {
   "file": "rhinoceros-de-sumatra.webp",
   "cutout": false,
-  "author": "azriealliamat",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/147408908"
+  "author": "26Isabella",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sumatran_Rhinoceros_at_Sumatran_Rhino_Sanctuary_Lampung_Indonesia_2013.JPG"
  },
  "rhinoceros-indien": {
   "file": "rhinoceros-indien.webp",
@@ -3226,10 +3234,10 @@
  "rhinoceros-noir": {
   "file": "rhinoceros-noir.webp",
   "cutout": false,
-  "author": "Greg Lasley",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/27606599"
+  "author": "NIR HIMI",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/LOZfJ00eeUs"
  },
  "rhinoceros-noir-de-l-ouest": {
   "file": "rhinoceros-noir-de-l-ouest.webp",
@@ -3250,10 +3258,10 @@
  "rorqual-commun": {
   "file": "rorqual-commun.webp",
   "cutout": false,
-  "author": "xavierpiron",
+  "author": "Vuelve al Océano",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/406681235"
+  "page": "https://www.inaturalist.org/photos/214218386"
  },
  "rougegorge": {
   "file": "rougegorge.webp",
@@ -3282,18 +3290,18 @@
  "salamandre": {
   "file": "salamandre.webp",
   "cutout": false,
-  "author": "Thorsten Usée",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/44847169"
+  "author": "carnifex",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/186036678"
  },
  "salamandre-geante": {
   "file": "salamandre-geante.webp",
   "cutout": false,
-  "author": "mande010",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/145135071"
+  "author": "Petr Hamerník",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Velemlok_%C4%8D%C3%ADnsk%C3%BD_zoo_praha_1.jpg"
  },
  "sanglier": {
   "file": "sanglier.webp",
@@ -3314,10 +3322,10 @@
  "scorpion": {
   "file": "scorpion.webp",
   "cutout": false,
-  "author": "Tom JAMONNEAU",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/362962008"
+  "author": "Aristos Aristidou",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/3CETwKAWY_U"
  },
  "seiche": {
   "file": "seiche.webp",
@@ -3450,10 +3458,10 @@
  "tapir": {
   "file": "tapir.webp",
   "cutout": false,
-  "author": "KENNEDY BORGES",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/341654068"
+  "author": "Dušan veverkolog",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/tDKIWqedgh8"
  },
  "tardigrade": {
   "file": "tardigrade.webp",
@@ -3530,10 +3538,10 @@
  "torpille": {
   "file": "torpille.webp",
   "cutout": false,
-  "author": "Donald Davesne",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/458297067"
+  "author": "eduardmarques",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/172997484"
  },
  "tortue-alligator": {
   "file": "tortue-alligator.webp",
@@ -3645,14 +3653,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Desmo-Flug-01.jpg"
  },
- "vaquita": {
-  "file": "vaquita.webp",
-  "cutout": false,
-  "author": "Paula Olson , NOAA",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Vaquita4_Olson_NOAA.jpg"
- },
  "vautour-fauve": {
   "file": "vautour-fauve.webp",
   "cutout": false,
@@ -3696,10 +3696,10 @@
  "voilier": {
   "file": "voilier.webp",
   "cutout": false,
-  "author": "rudi-diesel",
+  "author": "Wayne and Pam Osborn",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/388539772"
+  "page": "https://www.inaturalist.org/photos/255463195"
  },
  "wallaby": {
   "file": "wallaby.webp",

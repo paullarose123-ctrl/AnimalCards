@@ -50,6 +50,15 @@ const MYTHES_REMPLACES: Record<string, string> = {
   khepri: 'jorogumo',
 };
 
+/** Espèces sans photo correcte → espèce de la même famille qui les remplace (sauvegardes < v5). */
+const ESPECES_REMPLACEES: Record<string, string> = {
+  'chat-dore': 'lynx-pardelle',
+  musaraigne: 'pika',
+  vaquita: 'dauphin-de-commerson',
+  'requin-du-groenland': 'requin-citron',
+  'requin-lutin': 'requin-oceanique',
+};
+
 export type ToastKind = 'success' | 'info' | 'warn' | 'error' | 'gold';
 export interface Toast {
   id: string;
@@ -621,10 +630,17 @@ export const useGame = create<GameState>()(
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
       name: 'animalcards-save',
-      version: 4,
+      version: 5,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
         let state = persisted as GameState;
+        if (version < 5) {
+          // version 5 : trois espèces sont remplacées par une espèce de la même famille ; les cartes déjà obtenues
+          // deviennent la nouvelle espèce (identifiants remplacés partout dans la sauvegarde)
+          let text = JSON.stringify(state);
+          for (const [from, to] of Object.entries(ESPECES_REMPLACEES)) text = text.replaceAll(`"${from}"`, `"${to}"`);
+          state = JSON.parse(text) as GameState;
+        }
         if (version < 3) {
           // version 3 : les cartes Mythe ne sont plus que des créatures fantastiques. Chaque sanctuaire ou divinité
           // déjà obtenu devient la créature de la même famille (identifiants remplacés partout dans la sauvegarde).
