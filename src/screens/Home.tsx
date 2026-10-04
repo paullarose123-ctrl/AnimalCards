@@ -12,6 +12,8 @@ import { HERO_SCENE } from '../art/scenes';
 import { Card } from '../components/Card';
 import { Balles } from '../components/Balles';
 import { sfx } from '../audio/sfx';
+import { useAccount } from '../store/account';
+import { accountsEnabled } from '../account/supabase';
 
 // Ce qu'on peut décrocher : une légende et son record, le roi des animaux, une Icône en version Prime.
 const SHOWCASE: CardFace[] = [
@@ -33,6 +35,29 @@ function Showcase() {
       </div>
       <figcaption>À décrocher : légendaires, Icônes et versions Prime</figcaption>
     </figure>
+  );
+}
+
+/** Invitation à créer un compte, tant que le joueur joue en invité. */
+function AccountInvite() {
+  const guest = useAccount((s) => !s.session);
+  const packsOpened = useGame((s) => s.stats.packsOpened);
+  const setTab = useUi((s) => s.setTab);
+  if (!guest || !accountsEnabled()) return null;
+  return (
+    <section className="panel invite" aria-labelledby="invite-title">
+      <div>
+        <h2 id="invite-title">Garde ta collection pour toujours</h2>
+        <p className="muted">
+          {packsOpened > 0
+            ? 'Crée un compte avec un pseudo et un mot de passe : ta progression sera sauvegardée et tu la retrouveras partout.'
+            : 'Un pseudo, un mot de passe, et ta progression est sauvegardée : tu la retrouves sur n’importe quel appareil.'}
+        </p>
+      </div>
+      <button type="button" className="btn btn--primary" onClick={() => setTab('profil')}>
+        Créer mon compte
+      </button>
+    </section>
   );
 }
 
@@ -243,6 +268,7 @@ export function HomeScreen() {
   return (
     <div className="screen screen--home">
       <FreePackHero />
+      <AccountInvite />
       <div className="grid-2">
         <CollectionSummary />
         <Objectives />

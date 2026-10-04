@@ -3,7 +3,7 @@ import { createJSONStorage, persist, type StateStorage } from 'zustand/middlewar
 import type { CardFace, OwnedCard } from '../engine/types';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { canBePrime, isMythe, overallOf, quickSellValue, rarityOf } from '../engine/cards';
+import { canBePrime, isMythe, overallOf, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import { FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, sportPack, type PackDef } from '../engine/packs';
 import {
   MAX_MY_LISTINGS,
@@ -18,6 +18,10 @@ import { createMatch, matchResult, mytheBonus, playRound, rewardFor, TEAM_SIZE, 
 import { makeUid } from '../engine/random';
 
 export const FREE_PACK_INTERVAL = 10 * 60_000;
+/** nombre de cartes de la vitrine du profil */
+export const FAVORITES_SIZE = 5;
+/** nom de la sauvegarde dans le stockage du navigateur */
+const SAVE_NAME = 'animalcards-save';
 export const MAX_FREE_PACKS = 10;
 export const START_BALLES = 5_000;
 /** solde affiché « ∞ » quand les graines illimitées sont activées */
@@ -48,6 +52,14 @@ const MYTHES_REMPLACES: Record<string, string> = {
   sobek: 'fenrir',
   apis: 'taureau-de-crete',
   khepri: 'jorogumo',
+};
+
+/**
+ * Version 6 : la carte Chien devient une race (le bouvier bernois, dont c'était la photo). Les cartes Prime de
+ * Laïka deviennent des cartes classiques, puisque le bouvier bernois n'a pas de version Prime.
+ */
+const CARTES_REMPLACEES_V6: Record<string, string> = {
+  chien: 'bouvier-bernois',
 };
 
 /** Espèces sans photo correcte → espèce de la même famille qui les remplace (sauvegardes < v5). */
@@ -115,6 +127,8 @@ export interface GameState {
   unlimited: boolean;
   /** espèces des derniers boosters ouverts : elles ne ressortent pas avant NO_DUPE_WINDOW boosters */
   recentPacks: string[][];
+  /** vitrine du profil : les cartes préférées du joueur (uid), FAVORITES_SIZE emplacements, chaîne vide si libre */
+  favorites: string[];
   opening: Opening | null;
   toasts: Toast[];
 
@@ -137,6 +151,7 @@ export interface GameState {
   finishMatch: () => void;
   abandonMatch: () => void;
   toggleLock: (uid: string) => void;
+  setFavorite: (slot: number, uid: string | null) => void;
   claimObjective: (id: string) => void;
   toggleMute: () => void;
   toggleMusic: () => void;
@@ -203,6 +218,7 @@ function initialState(now: number) {
     musicOff: false,
     unlimited: false,
     recentPacks: [] as string[][],
+    favorites: [] as string[],
     opening: null as Opening | null,
     toasts: [] as Toast[],
   };
@@ -249,6 +265,25 @@ export function packById(id: string): PackDef | undefined {
   return SHOP_PACKS.find((pack) => pack.id === id);
 }
 
+/** Les cartes Prime d'espèces qui n'ont pas (ou plus) de version Prime redeviennent des cartes classiques. */
+function dropInvalidPrimes(state: GameState): GameState {
+  const fix = <T extends CardFace>(card: T): T => {
+    const athlete = ATHLETES_BY_ID[card.athleteId];
+    return card.variant === 'prime' && athlete && !canBePrime(athlete) ? { ...card, variant: 'base' } : card;
+  };
+  state.collection = state.collection.map(fix);
+  state.market = {
+    ...state.market,
+    listings: state.market.listings.map((listing) => ({ ...listing, card: fix(listing.card) })),
+    myListings: state.market.myListings.map((listing) => ({ ...listing, card: fix(listing.card) })),
+  };
+  state.primesFound = Object.fromEntries(
+    Object.entries(state.primesFound ?? {}).filter(([id]) => ATHLETES_BY_ID[id] && canBePrime(ATHLETES_BY_ID[id])),
+  );
+  if (state.stats.bestPull) state.stats = { ...state.stats, bestPull: fix(state.stats.bestPull) };
+  return state;
+}
+
 export const useGame = create<GameState>()(
   persist(
     (set, get) => {
@@ -280,7 +315,7 @@ export const useGame = create<GameState>()(
           if (face.variant === 'prime') primesFound[face.athleteId] = (primesFound[face.athleteId] ?? 0) + 1;
           owned.push({ ...face, uid: card.uid, isNew });
           newCards.push(card);
-          const rank = (c: CardFace) => rarityOf(ATHLETES_BY_ID[c.athleteId]).order * 100 + (c.variant === 'prime' ? 50 : c.variant === 'reverse' ? 20 : 0) + ATHLETES_BY_ID[c.athleteId].fame;
+          const rank = (c: CardFace) => rarityOf(ATHLETES_BY_ID[c.athleteId]).order * 100 + (c.variant === 'prime' ? 50 : c.variant === 'reverse' ? 20 : 0) + rarityScore(ATHLETES_BY_ID[c.athleteId]);
           if (!best || rank(face) > rank(best)) best = face;
         }
         set((s) => ({
@@ -605,6 +640,15 @@ export const useGame = create<GameState>()(
 
         toggleLock: (uid) => set((s) => ({ collection: s.collection.map((c) => (c.uid === uid ? { ...c, locked: !c.locked } : c)) })),
 
+        setFavorite: (slot, uid) =>
+          set((s) => {
+            const favorites = Array.from({ length: FAVORITES_SIZE }, (_, i) => s.favorites[i] ?? '');
+            // une carte n'occupe qu'un emplacement : elle quitte l'ancien si on la place ailleurs
+            const next = favorites.map((current) => (uid && current === uid ? '' : current));
+            next[slot] = uid ?? '';
+            return { favorites: next };
+          }),
+
         claimObjective: (id) => {
           const state = get();
           const objective = OBJECTIVES.find((o) => o.id === id);
@@ -629,8 +673,8 @@ export const useGame = create<GameState>()(
     },
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
-      name: 'animalcards-save',
-      version: 5,
+      name: SAVE_NAME,
+      version: 6,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
         let state = persisted as GameState;
@@ -640,6 +684,11 @@ export const useGame = create<GameState>()(
           let text = JSON.stringify(state);
           for (const [from, to] of Object.entries(ESPECES_REMPLACEES)) text = text.replaceAll(`"${from}"`, `"${to}"`);
           state = JSON.parse(text) as GameState;
+        }
+        if (version < 6) {
+          let text = JSON.stringify(state);
+          for (const [from, to] of Object.entries(CARTES_REMPLACEES_V6)) text = text.replaceAll(`"${from}"`, `"${to}"`);
+          state = dropInvalidPrimes(JSON.parse(text) as GameState);
         }
         if (version < 3) {
           // version 3 : les cartes Mythe ne sont plus que des créatures fantastiques. Chaque sanctuaire ou divinité
@@ -653,20 +702,7 @@ export const useGame = create<GameState>()(
         if (version < 2) {
           // avant la version 2, n'importe quelle carte pouvait sortir en Prime :
           // seules les espèces vedettes gardent la leur
-          const fix = <T extends CardFace>(card: T): T => {
-            const athlete = ATHLETES_BY_ID[card.athleteId];
-            return card.variant === 'prime' && athlete && !canBePrime(athlete) ? { ...card, variant: 'base' } : card;
-          };
-          state.collection = state.collection.map(fix);
-          state.market = {
-            ...state.market,
-            listings: state.market.listings.map((listing) => ({ ...listing, card: fix(listing.card) })),
-            myListings: state.market.myListings.map((listing) => ({ ...listing, card: fix(listing.card) })),
-          };
-          state.primesFound = Object.fromEntries(
-            Object.entries(state.primesFound ?? {}).filter(([id]) => ATHLETES_BY_ID[id] && canBePrime(ATHLETES_BY_ID[id])),
-          );
-          if (state.stats.bestPull) state.stats = { ...state.stats, bestPull: fix(state.stats.bestPull) };
+          state = dropInvalidPrimes(state);
         }
         if (version < 4) {
           // version 4 : des espèces ont été retirées du jeu. Leurs cartes disparaissent de la réserve, du marché,
@@ -747,6 +783,17 @@ if (typeof window !== 'undefined') {
       }
     }
   }
+}
+
+/** La sauvegarde telle qu'elle est stockée (« { state, version } » en JSON), pour l'envoyer au compte du joueur. */
+export function readSave(): string | null {
+  return safeStorage.getItem(SAVE_NAME) as string | null;
+}
+
+/** Remplace la partie par une sauvegarde venue du compte du joueur (migrée si elle vient d'une ancienne version). */
+export async function writeSave(raw: string): Promise<void> {
+  safeStorage.setItem(SAVE_NAME, raw);
+  await useGame.persist.rehydrate();
 }
 
 export { formatBalles };

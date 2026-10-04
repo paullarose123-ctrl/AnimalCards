@@ -118,6 +118,8 @@ export interface Athlete {
   nick?: string;
   /** nom scientifique, affiché en italique dans la fiche */
   latin?: string;
+  /** race domestique (les races de chien) : pas d'estimation de population propre */
+  race?: true;
   /** famille d'animaux */
   sport: SportId;
   /** milieu de vie affiché sur la carte (période géologique pour la préhistoire) */
@@ -174,7 +176,8 @@ export interface MytheInfo {
 export interface Rarity {
   id: RarityId;
   name: string;
-  minFame: number;
+  /** score de rareté minimal (voir rarityScore) */
+  minScore: number;
   /** valeur marchande de base en graines */
   baseValue: number;
   /** puissance bonus des ultis génériques */

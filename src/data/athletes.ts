@@ -54,6 +54,9 @@ const D = (died?: number) => ({ retired: true as const, ...(died ? { died } : {}
 /** Nom scientifique. */
 const L = (latin: string) => ({ latin });
 
+/** Les races de chien partagent le même nom scientifique. */
+const C = { ...L('Canis lupus familiaris'), race: true as const };
+
 /** Profil de stats par défaut d'une carte Mythe (non utilisé en match, requis par le type Athlete). */
 const MYTHE_ARCHETYPE: Record<SportId, ArchetypeId> = {
   felins: 'felin-puissant', canides: 'canide-meute', ours: 'ours-colosse', primates: 'primate-malin', geants: 'geant-colosse',
@@ -616,10 +619,19 @@ const CURATED: Athlete[] = [
   x('anemone', 'Anémone de mer', 'invertebres', 'invertebre-etrange', 'Rochers', 'FR', 34, 40, 'Fixée sur son rocher, elle capture ses proies avec ses tentacules urticants.', L('Actiniaria')),
 
   // ───────────────────────── FERME & COMPAGNIE ─────────────────────────
-  x('chien', 'Chien', 'ferme', 'ferme-compagnon', 'Maison', 'XW', 89, 80, 'Le premier animal domestiqué, il y a plus de 15 000 ans ; son odorat est des milliers de fois plus fin que le nôtre.', { ...L('Canis familiaris'), ...P('1957', 'Laïka, le premier animal mis en orbite autour de la Terre.'),
-    nick: 'Meilleur ami de l’homme', stats: { aur: 96, end: 90 },
-    ulti: sig('chien', 'Fidélité', '+12 de puissance, +10 de plus en Coup de cœur et Face-à-face, puis +3 pour toute l’équipe.', [{ kind: 'event', value: 12, events: ['bain-de-foule', 'face-a-face'], bonus: 10 }, { kind: 'team-buff', value: 0, boost: 3 }]),
-  }),
+  // races de chien : une seule espèce (Canis familiaris), des centaines de races façonnées par l'élevage
+  x('berger-allemand', 'Berger allemand', 'ferme', 'ferme-compagnon', 'Police et secours', 'DE', 80, 82, 'Chien policier, de secours et guide d’aveugle : il apprend vite et adore travailler avec l’humain.', { ...C, ...P('1918', 'Rintintin, chiot sauvé d’un village bombardé en France en 1918, devenu une star du cinéma à Hollywood.') }),
+  x('labrador', 'Labrador retriever', 'ferme', 'ferme-compagnon', 'Maison', 'CA', 82, 74, 'Ses pattes palmées et sa grosse queue en gouvernail en font un excellent nageur : il vient de Terre-Neuve, au Canada.', C),
+  x('husky', 'Husky de Sibérie', 'ferme', 'ferme-trait', 'Neige', 'RU', 80, 80, 'Tire des traîneaux sur des centaines de kilomètres par grand froid ; ses yeux sont souvent bleus, parfois un de chaque couleur.', { ...C, ...P('1925', 'Balto, qui mena le dernier relais de la course du sérum contre la diphtérie jusqu’à Nome, en Alaska.') }),
+  x('akita', 'Akita inu', 'ferme', 'ferme-compagnon', 'Montagnes du Japon', 'JP', 66, 76, 'Monument naturel du Japon : on offre une statuette d’akita à la naissance d’un enfant pour lui souhaiter santé et bonheur.', { ...C, ...P('1925', 'Hachikō, qui attendit son maître à la gare de Shibuya chaque jour pendant près de dix ans après sa mort.') }),
+  x('saint-bernard', 'Saint-bernard', 'ferme', 'ferme-trait', 'Cols des Alpes', 'CH', 72, 74, 'Élevé par les moines de l’hospice du col du Grand-Saint-Bernard pour retrouver les voyageurs perdus dans la neige.', { ...C, ...P('1800', 'Barry, qui sauva plus de 40 personnes dans les Alpes ; il est exposé au musée d’histoire naturelle de Berne.') }),
+  x('border-collie', 'Border collie', 'ferme', 'ferme-trait', 'Pâturages', 'GB', 62, 78, 'Chien de berger réputé le plus doué pour apprendre : il mène un troupeau de moutons d’un simple coup d’œil.', { ...C, ...P('2011', 'Chaser, la border collie qui connaissait le nom de plus de 1 000 jouets différents.') }),
+  x('chihuahua', 'Chihuahua', 'ferme', 'ferme-compagnon', 'Maison', 'MX', 74, 52, 'La plus petite race de chien du monde : souvent moins de 3 kg. Elle porte le nom d’un État du Mexique.', C),
+  x('dalmatien', 'Dalmatien', 'ferme', 'ferme-compagnon', 'Maison', 'HR', 74, 70, 'Les chiots naissent tout blancs : leurs taches n’apparaissent qu’au bout de deux semaines.', C),
+  x('caniche', 'Caniche', 'ferme', 'ferme-compagnon', 'Maison', 'FR', 70, 66, 'Avant d’être un chien de salon, c’était un chien d’eau : sa coupe célèbre gardait au chaud ses articulations en nageant.', C),
+  x('beagle', 'Beagle', 'ferme', 'ferme-compagnon', 'Campagne', 'GB', 68, 68, 'Son flair est si fin qu’il travaille dans les aéroports pour repérer la viande et les fruits cachés dans les bagages.', C),
+  x('greyhound', 'Lévrier greyhound', 'ferme', 'ferme-compagnon', 'Cynodromes', 'GB', 60, 80, 'Le chien le plus rapide : il atteint 70 km/h en quelques foulées, mais adore dormir le reste de la journée.', C),
+  x('bouvier-bernois', 'Bouvier bernois', 'ferme', 'ferme-trait', 'Fermes suisses', 'CH', 58, 72, 'Chien de ferme suisse qui tirait de petites charrettes de lait et de fromage jusqu’au marché.', C),
   x('chat', 'Chat', 'ferme', 'ferme-compagnon', 'Maison', 'EG', 89, 72, 'Domestiqué il y a près de 10 000 ans, il dort environ 15 heures par jour.', { ...L('Felis catus'), ...P('1963', 'Félicette, la chatte française partie dans l’espace.'),
     stats: { tec: 97, aur: 95 },
     ulti: sig('chat', 'Retombe sur ses pattes', 'AGI devient la stat principale, +14, et +8 de plus si son équipe est menée.', [{ kind: 'stat-swap', stat: 'tec', value: 14 }, { kind: 'comeback', value: 0, bonus: 8 }]),

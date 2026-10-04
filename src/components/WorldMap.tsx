@@ -6,7 +6,7 @@ import type { GeometryCollection, Topology } from 'topojson-specification';
 import world from 'world-atlas/countries-110m.json';
 import { ATHLETES } from '../data/athletes';
 import { REGIONS, REGION_BY_ISO, type Region } from '../data/geo';
-import { rarityOf } from '../engine/cards';
+import { rarityOf, rarityScore } from '../engine/cards';
 import type { Athlete } from '../engine/types';
 import { useGame } from '../store/game';
 import { useUi } from '../store/ui';
@@ -39,7 +39,7 @@ const SPECIES_BY_REGION: Record<string, Athlete[]> = Object.fromEntries(
   REGIONS.map((region) => [
     region.key,
     ATHLETES.filter((a) => region.codes.includes(a.country)).sort(
-      (a, b) => rarityOf(b).order - rarityOf(a).order || b.fame - a.fame || a.last.localeCompare(b.last, 'fr'),
+      (a, b) => rarityOf(b).order - rarityOf(a).order || rarityScore(b) - rarityScore(a) || a.last.localeCompare(b.last, 'fr'),
     ),
   ]),
 );

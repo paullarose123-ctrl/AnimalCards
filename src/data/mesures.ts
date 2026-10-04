@@ -426,7 +426,19 @@ export const MESURES: Record<string, Mesure> = {
   anemone: [0.1, 0.1, 'L', 50],
 
   // ferme et compagnie
-  chien: [30, 0.6, 'H', 13],
+  // races de chien (hauteur au garrot)
+  'berger-allemand': [35, 0.62, 'H', 11],
+  labrador: [32, 0.57, 'H', 12],
+  husky: [23, 0.56, 'H', 13],
+  akita: [40, 0.67, 'H', 11],
+  'saint-bernard': [75, 0.75, 'H', 9],
+  'border-collie': [18, 0.53, 'H', 13],
+  chihuahua: [2, 0.2, 'H', 15],
+  dalmatien: [25, 0.58, 'H', 12],
+  caniche: [12, 0.4, 'H', 14],
+  beagle: [11, 0.38, 'H', 13],
+  greyhound: [30, 0.73, 'H', 11],
+  'bouvier-bernois': [45, 0.66, 'H', 8],
   chat: [4.5, 0.75, 'L', 15],
   cheval: [500, 1.6, 'H', 28],
   vache: [700, 1.45, 'H', 20],

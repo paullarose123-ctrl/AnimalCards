@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { ATHLETES, ATHLETES_BY_ID } from '../../data/athletes';
 import { POPULATIONS, formatPopulation, populationOf } from '../../data/populations';
 
-const living = ATHLETES.filter((a) => !a.mythe && !a.retired && a.sport !== 'prehistoire');
+// les races de chien n'ont pas de recensement propre
+const living = ATHLETES.filter((a) => !a.mythe && !a.race && !a.retired && a.sport !== 'prehistoire');
 
 describe('populations restantes', () => {
   it('chaque espèce vivante a une estimation, et seulement elles', () => {

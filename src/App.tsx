@@ -11,6 +11,8 @@ import { CollectionScreen } from './screens/Collection';
 import { MarketScreen } from './screens/Market';
 import { MatchScreen } from './screens/Match';
 import { ShopScreen } from './screens/Shop';
+import { ProfileScreen } from './screens/Profile';
+import { useAccount } from './store/account';
 import { PackOpening } from './overlays/PackOpening';
 import { CardDetail } from './overlays/CardDetail';
 import { Toasts } from './components/Toasts';
@@ -54,6 +56,9 @@ function Topbar() {
   const musicOff = useGame((s) => s.musicOff);
   const toggleMusic = useGame((s) => s.toggleMusic);
   const setTab = useUi((s) => s.setTab);
+  const tab = useUi((s) => s.tab);
+  const pseudo = useAccount((s) => s.session?.pseudo);
+  const syncError = useAccount((s) => s.status === 'error');
   const now = useNow(1000);
   const full = freePacks >= MAX_FREE_PACKS;
 
@@ -72,6 +77,26 @@ function Topbar() {
           <span className="chip__timer">{full ? 'plein' : formatDuration(nextFreePackAt - now)}</span>
         </button>
         <Balles value={balles} className="chip chip--balles" />
+        <button
+          type="button"
+          className={`chip chip--profile${tab === 'profil' ? ' is-active' : ''}${pseudo ? '' : ' is-guest'}`}
+          onClick={() => setTab('profil')}
+          aria-label={pseudo ? `Profil de ${pseudo}` : 'Profil : crée ton compte'}
+          title={syncError ? 'La dernière sauvegarde n’est pas partie' : pseudo ? `Profil de ${pseudo}` : 'Crée ton compte pour sauvegarder ta progression'}
+        >
+          <span className="chip__avatar" aria-hidden="true">
+            {pseudo ? (
+              pseudo.charAt(0).toUpperCase()
+            ) : (
+              <svg viewBox="0 0 24 24">
+                <circle cx={12} cy={8.5} r={3.6} />
+                <path d="M5,20 C6,15.5 9,14 12,14 C15,14 18,15.5 19,20" />
+              </svg>
+            )}
+          </span>
+          <span className="chip__pseudo">{pseudo ?? 'Profil'}</span>
+          {syncError && <i className="chip__alert" aria-hidden="true" />}
+        </button>
         <button
           type="button"
           className={`icon-btn${musicOff || muted ? ' is-off' : ''}`}
@@ -197,6 +222,7 @@ export function App() {
         {tab === 'mercato' && <MarketScreen />}
         {tab === 'matchs' && <MatchScreen />}
         {tab === 'boutique' && <ShopScreen />}
+        {tab === 'profil' && <ProfileScreen />}
       </main>
       <BottomNav />
       <CardDetail />

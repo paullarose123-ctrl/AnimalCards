@@ -15,6 +15,7 @@ import {
   mytheWeight,
   primeRecordStart,
   rarityOf,
+  rarityScore,
 } from './cards';
 import { weightedPick, weightedPickCached, type Rng } from './random';
 
@@ -250,7 +251,7 @@ export function primePool(pack: PackDef): Athlete[] {
 
 /** Poids de tirage de la Prime garantie : le lion ou le T. rex sortent plus rarement que le mouton. */
 export function primeWeight(athlete: Athlete): number {
-  return Math.exp(-(athlete.fame - 60) / 20);
+  return Math.exp(-(rarityScore(athlete) - 58) / 14);
 }
 
 /** Probabilité qu'une carte ordinaire du booster sorte en version Prime (affichée en boutique). */
@@ -295,7 +296,7 @@ export function openPack(pack: PackDef, rng: Rng, avoid: ReadonlySet<string> = n
 
 export function cardRank(card: CardFace): number {
   const athlete = ATHLETES_BY_ID[card.athleteId];
-  return rarityOf(athlete).order * 10 + (card.variant === 'prime' ? 5 : card.variant === 'reverse' ? 2 : 0) + athlete.fame / 100;
+  return rarityOf(athlete).order * 10 + (card.variant === 'prime' ? 5 : card.variant === 'reverse' ? 2 : 0) + rarityScore(athlete) / 100;
 }
 
 export function sortByRarity(cards: CardFace[]): CardFace[] {

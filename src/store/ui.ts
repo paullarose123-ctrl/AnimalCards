@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { CardFace, OwnedCard, RarityId, SportId } from '../engine/types';
 
-export type Tab = 'boosters' | 'collection' | 'mercato' | 'matchs' | 'boutique';
+export type Tab = 'boosters' | 'collection' | 'mercato' | 'matchs' | 'boutique' | 'profil';
 
 export interface DetailTarget {
   card: CardFace | OwnedCard;
@@ -32,7 +32,7 @@ interface UiState {
   searchMarketFor: (athleteName: string) => void;
 }
 
-const TABS: Tab[] = ['boosters', 'collection', 'mercato', 'matchs', 'boutique'];
+const TABS: Tab[] = ['boosters', 'collection', 'mercato', 'matchs', 'boutique', 'profil'];
 
 function tabFromHash(): Tab {
   try {
