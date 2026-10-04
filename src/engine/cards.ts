@@ -90,7 +90,7 @@ export function canBePrime(athlete: Athlete): boolean {
 }
 
 /** Chance qu'une de ces espèces vedettes, tirée dans un booster, sorte en version Prime. */
-export const PRIME_CHANCE = 0.08;
+export const PRIME_CHANCE = 0.05;
 export const PRIME_LEVEL_BOOST = 3;
 export const PRIME_STAT_BOOST = 4;
 export const PRIME_ULTI_BOOST = 4;
