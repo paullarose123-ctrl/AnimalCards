@@ -1418,10 +1418,10 @@
  "greyhound": {
   "file": "greyhound.webp",
   "cutout": false,
-  "author": "Supreme Chungus",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:A_greyhound_and_cane_corso_examining_each_other.jpg"
+  "author": "AngMoKio",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Greyhound_Racing_2_amk.jpg"
  },
  "grizzly-de-californie": {
   "file": "grizzly-de-californie.webp",
@@ -1530,10 +1530,10 @@
  "habitat-everglades": {
   "file": "habitat-everglades.webp",
   "cutout": false,
-  "author": "Totenkopf",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Everglades_National_Park_31_ao%C3%BBt.jpg"
+  "author": "Jonathan Palombo",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Everglades_(12561344465).jpg"
  },
  "habitat-galapagos": {
   "file": "habitat-galapagos.webp",
@@ -1578,18 +1578,18 @@
  "habitat-mariannes": {
   "file": "habitat-mariannes.webp",
   "cutout": false,
-  "author": "Canley",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Prickly_anglerfish.jpg"
+  "author": "NOAA Ocean Exploration, Deepwater Exploration of the Marianas",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Relicanthus_daphneae_2016.jpg"
  },
  "habitat-monteverde": {
   "file": "habitat-monteverde.webp",
   "cutout": false,
-  "author": "European Union, Copernicus Sentinel-2",
-  "license": "Attribution",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Monteverde_Cloud_Forest_Reserve_(Copernicus_2024-06-13).png"
+  "author": "Junebug2433",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:One_of_the_Skywalk_Hanging_Bridges_at_Sky_Monteverde_in_Costa_Rica.jpg"
  },
  "habitat-okavango": {
   "file": "habitat-okavango.webp",
@@ -1626,10 +1626,10 @@
  "habitat-sahara": {
   "file": "habitat-sahara.webp",
   "cutout": false,
-  "author": "Bureau of Land Management - Utah/Bob Wick",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Utah_Dunes_Landscape_-_West_Desert_District.jpg"
+  "author": "Rosa Cabecinhas and Alcino Cunha",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Morocco_Africa_Flickr_Rosino_December_2005_84514010_edited_by_Buchling.jpg"
  },
  "habitat-sargasses": {
   "file": "habitat-sargasses.webp",
@@ -1650,10 +1650,10 @@
  "habitat-sundarbans": {
   "file": "habitat-sundarbans.webp",
   "cutout": false,
-  "author": "NASA image created by Jesse Allen, Earth Observatory, using data obtained from the Univers",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Sundarbans.jpg"
+  "author": "Kingshuk Mondal",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Dense_Mangrove_Forest_of_the_Sundarban_Tiger_Reserve_during_High_Tide,_West_Bengal,_India_03.jpg"
  },
  "habitat-taiga": {
   "file": "habitat-taiga.webp",
