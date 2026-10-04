@@ -174,7 +174,8 @@ export interface MytheInfo {
 export interface Rarity {
   id: RarityId;
   name: string;
-  minFame: number;
+  /** score de rareté minimal (voir rarityScore) */
+  minScore: number;
   /** valeur marchande de base en graines */
   baseValue: number;
   /** puissance bonus des ultis génériques */

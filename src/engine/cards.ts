@@ -1,41 +1,85 @@
 import type { ArchetypeId, Athlete, Rarity, RarityId, StatKey, Stats, Ulti, UltiEffect, Variant } from './types';
 import { SPORTS } from '../data/sports';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
+import { POPULATIONS } from '../data/populations';
 import { clamp, hashString, hashUnit } from './random';
 
 // ───────────── Raretés ─────────────
-// La rareté vient uniquement de la célébrité (fame). Plus l'espèce est connue, plus sa carte est rare.
+// La rareté mélange deux choses : la célébrité de l'espèce (fame) et sa rareté dans la nature (le nombre
+// d'individus encore vivants). Le lion reste Légendaire parce qu'il est très connu ET en déclin ; le loup
+// d'Éthiopie, peu connu mais dont il reste 500 individus, monte ; le moineau, partout, reste commun.
 export const RARITIES: Record<RarityId, Rarity> = {
-  commune: { id: 'commune', name: 'Commune', minFame: 0, baseValue: 150, ultiPower: 8, order: 0 },
-  'peu-commune': { id: 'peu-commune', name: 'Peu commune', minFame: 44, baseValue: 450, ultiPower: 10, order: 1 },
-  rare: { id: 'rare', name: 'Rare', minFame: 60, baseValue: 1_500, ultiPower: 12, order: 2 },
-  epique: { id: 'epique', name: 'Épique', minFame: 75, baseValue: 6_000, ultiPower: 14, order: 3 },
-  legendaire: { id: 'legendaire', name: 'Légendaire', minFame: 90, baseValue: 25_000, ultiPower: 18, order: 4 },
+  commune: { id: 'commune', name: 'Commune', minScore: 0, baseValue: 150, ultiPower: 8, order: 0 },
+  'peu-commune': { id: 'peu-commune', name: 'Peu commune', minScore: 43, baseValue: 450, ultiPower: 10, order: 1 },
+  rare: { id: 'rare', name: 'Rare', minScore: 58, baseValue: 1_500, ultiPower: 12, order: 2 },
+  epique: { id: 'epique', name: 'Épique', minScore: 72, baseValue: 6_000, ultiPower: 14, order: 3 },
+  legendaire: { id: 'legendaire', name: 'Légendaire', minScore: 80, baseValue: 25_000, ultiPower: 18, order: 4 },
 };
 
 export const RARITY_ORDER: RarityId[] = ['commune', 'peu-commune', 'rare', 'epique', 'legendaire'];
 
+/**
+ * Rareté dans la nature (0-100), sur une échelle logarithmique : 1 000 individus → 100, 10 000 → 85,
+ * 100 000 → 70, un million → 55, un milliard → 10.
+ */
+export function scarcityOf(population: number): number {
+  return clamp(145 - 15 * Math.log10(Math.max(1, population)), 0, 100);
+}
+
+// Pour les cartes sans population (espèces éteintes, Habitats), la célébrité seule fixe la rareté : elle est
+// ramenée sur l'échelle du score (anciens seuils 44 / 60 / 75 / 90 → nouveaux seuils 43 / 58 / 72 / 80).
+const FAME_STEPS: Array<[number, number]> = [
+  [0, 0],
+  [44, 43],
+  [60, 58],
+  [75, 72],
+  [90, 80],
+  [100, 100],
+];
+
+function fameOnly(fame: number): number {
+  for (let i = 1; i < FAME_STEPS.length; i++) {
+    const [f0, s0] = FAME_STEPS[i - 1];
+    const [f1, s1] = FAME_STEPS[i];
+    if (fame <= f1) return s0 + ((fame - f0) / (f1 - f0)) * (s1 - s0);
+  }
+  return 100;
+}
+
+const scoreCache = new Map<string, number>();
+
+/** Score de rareté (0-100) : moitié célébrité, moitié rareté dans la nature. */
+export function rarityScore(athlete: Athlete): number {
+  const cached = scoreCache.get(athlete.id);
+  if (cached !== undefined) return cached;
+  const population = athlete.retired || athlete.sport === 'prehistoire' ? undefined : POPULATIONS[athlete.id];
+  const score = population === undefined ? fameOnly(athlete.fame) : (athlete.fame + scarcityOf(population)) / 2;
+  scoreCache.set(athlete.id, score);
+  return score;
+}
+
 export function rarityOf(athlete: Athlete): Rarity {
+  const score = rarityScore(athlete);
   for (let i = RARITY_ORDER.length - 1; i >= 0; i--) {
     const rarity = RARITIES[RARITY_ORDER[i]];
-    if (athlete.fame >= rarity.minFame) return rarity;
+    if (score >= rarity.minScore) return rarity;
   }
   return RARITIES.commune;
 }
 
-/** Plage de célébrité couverte par une rareté (pour graduer la rareté à l'intérieur d'un palier). */
-function fameSpan(rarity: Rarity): [number, number] {
+/** Plage de score couverte par une rareté (pour graduer la rareté à l'intérieur d'un palier). */
+function scoreSpan(rarity: Rarity): [number, number] {
   const next = RARITY_ORDER[rarity.order + 1];
-  return [rarity.minFame, next ? RARITIES[next].minFame : 101];
+  return [rarity.minScore, next ? RARITIES[next].minScore : 100];
 }
 
 /**
- * Poids de tirage d'une carte à l'intérieur de sa rareté : plus l'espèce est célèbre,
- * plus elle sort rarement. Le lion sort ~5 fois moins souvent que le crocodile du Nil.
+ * Poids de tirage d'une carte à l'intérieur de sa rareté : plus son score est haut, plus elle sort rarement.
+ * Le panda sort environ 6 fois moins souvent que le loup.
  */
 export function dropWeight(athlete: Athlete): number {
   const rarity = rarityOf(athlete);
-  return Math.exp(-(athlete.fame - rarity.minFame) / 6);
+  return Math.exp(-(rarityScore(athlete) - rarity.minScore) / 6);
 }
 
 // ───────────── Prime ─────────────
@@ -195,8 +239,8 @@ export function baseRating(athlete: Athlete): number {
   if (cached !== undefined) return cached;
   const rarity = rarityOf(athlete);
   const [lo, hi] = RATING_BANDS[rarity.id];
-  const [fameLo, fameHi] = fameSpan(rarity);
-  const fameScore = clamp((athlete.fame - fameLo) / (fameHi - fameLo), 0, 1);
+  const [scoreLo, scoreHi] = scoreSpan(rarity);
+  const fameScore = clamp((rarityScore(athlete) - scoreLo) / (scoreHi - scoreLo), 0, 1);
   const levelScore = clamp((athlete.level - 72) / 27, 0, 1);
   const rating = Math.round(lo + (0.6 * levelScore + 0.4 * fameScore) * (hi - lo));
   ratingCache.set(athlete.id, rating);
@@ -277,8 +321,8 @@ export function ultiOf(athlete: Athlete, variant: Variant = 'base'): Ulti {
 /** Valeur de référence d'une carte en graines (sans les fluctuations du marché). */
 export function baseValueOf(athlete: Athlete, variant: Variant = 'base'): number {
   const rarity = rarityOf(athlete);
-  const [lo, hi] = fameSpan(rarity);
-  const withinTier = (athlete.fame - lo) / (hi - lo); // 0 → 1
+  const [lo, hi] = scoreSpan(rarity);
+  const withinTier = clamp((rarityScore(athlete) - lo) / (hi - lo), 0, 1); // 0 → 1
   const fameFactor = 1 + withinTier * 1.5;
   const levelFactor = 0.7 + Math.max(0, baseRating(athlete) - 58) / 70;
   const multiplier = variant === 'prime' ? PRIME_VALUE_MULTIPLIER : variant === 'reverse' ? REVERSE_VALUE_MULTIPLIER : 1;

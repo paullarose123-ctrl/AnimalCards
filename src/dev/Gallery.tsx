@@ -3,7 +3,7 @@ import { SPORTS, SPORT_ORDER } from '../data/sports';
 import { Card } from '../components/Card';
 import { Flag, FLAG_CODES } from '../components/Flag';
 import { SportIcon } from '../components/SportIcon';
-import { RARITIES, RECORD_START, isIcon, rarityOf } from '../engine/cards';
+import { RARITIES, RECORD_START, isIcon, rarityOf, rarityScore } from '../engine/cards';
 import { FREE_PACK, SHOP_PACKS, sportPack } from '../engine/packs';
 import { PackArt } from '../components/PackArt';
 import { CardBack } from '../components/CardBack';
@@ -19,7 +19,7 @@ const FAMILIES = ['manul', 'fennec', 'ours-lippu', 'aye-aye', 'okapi', 'saiga', 
  */
 export function reviewOrder() {
   const byAlbum = (a: (typeof ATHLETES)[number], b: (typeof ATHLETES)[number]) =>
-    rarityOf(b).order - rarityOf(a).order || b.fame - a.fame || a.last.localeCompare(b.last, 'fr');
+    rarityOf(b).order - rarityOf(a).order || rarityScore(b) - rarityScore(a) || a.last.localeCompare(b.last, 'fr');
   return [
     ...SPORT_ORDER.flatMap((sport) => ATHLETES.filter((a) => a.sport === sport && !a.mythe).sort(byAlbum)),
     ...ATHLETES.filter((a) => a.mythe).sort(byAlbum),

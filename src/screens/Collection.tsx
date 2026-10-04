@@ -3,7 +3,7 @@ import { useGame, formatBalles } from '../store/game';
 import { useUi } from '../store/ui';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { RARITIES, RARITY_ORDER, displayName, overallOf, quickSellValue, rarityOf } from '../engine/cards';
+import { RARITIES, RARITY_ORDER, displayName, overallOf, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import type { OwnedCard, RarityId, SportId } from '../engine/types';
 import { Card } from '../components/Card';
 import { SportIcon } from '../components/SportIcon';
@@ -216,7 +216,7 @@ function Album() {
   const athletes = useMemo(
     () =>
       ATHLETES.filter((a) => a.sport === sport).sort(
-        (a, b) => rarityOf(b).order - rarityOf(a).order || b.fame - a.fame || a.last.localeCompare(b.last, 'fr'),
+        (a, b) => rarityOf(b).order - rarityOf(a).order || rarityScore(b) - rarityScore(a) || a.last.localeCompare(b.last, 'fr'),
       ),
     [sport],
   );

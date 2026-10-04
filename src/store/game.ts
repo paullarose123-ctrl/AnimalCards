@@ -3,7 +3,7 @@ import { createJSONStorage, persist, type StateStorage } from 'zustand/middlewar
 import type { CardFace, OwnedCard } from '../engine/types';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { canBePrime, isMythe, overallOf, quickSellValue, rarityOf } from '../engine/cards';
+import { canBePrime, isMythe, overallOf, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import { FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, sportPack, type PackDef } from '../engine/packs';
 import {
   MAX_MY_LISTINGS,
@@ -288,7 +288,7 @@ export const useGame = create<GameState>()(
           if (face.variant === 'prime') primesFound[face.athleteId] = (primesFound[face.athleteId] ?? 0) + 1;
           owned.push({ ...face, uid: card.uid, isNew });
           newCards.push(card);
-          const rank = (c: CardFace) => rarityOf(ATHLETES_BY_ID[c.athleteId]).order * 100 + (c.variant === 'prime' ? 50 : c.variant === 'reverse' ? 20 : 0) + ATHLETES_BY_ID[c.athleteId].fame;
+          const rank = (c: CardFace) => rarityOf(ATHLETES_BY_ID[c.athleteId]).order * 100 + (c.variant === 'prime' ? 50 : c.variant === 'reverse' ? 20 : 0) + rarityScore(ATHLETES_BY_ID[c.athleteId]);
           if (!best || rank(face) > rank(best)) best = face;
         }
         set((s) => ({
