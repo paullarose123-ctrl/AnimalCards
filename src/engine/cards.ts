@@ -1,7 +1,7 @@
 import type { ArchetypeId, Athlete, Rarity, RarityId, StatKey, Stats, Ulti, UltiEffect, Variant } from './types';
 import { SPORTS } from '../data/sports';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
-import { POPULATIONS } from '../data/populations';
+import { CHIENS_DANS_LE_MONDE, POPULATIONS } from '../data/populations';
 import { clamp, hashString, hashUnit } from './random';
 
 // ───────────── Raretés ─────────────
@@ -52,7 +52,7 @@ const scoreCache = new Map<string, number>();
 export function rarityScore(athlete: Athlete): number {
   const cached = scoreCache.get(athlete.id);
   if (cached !== undefined) return cached;
-  const population = athlete.retired || athlete.sport === 'prehistoire' ? undefined : POPULATIONS[athlete.id];
+  const population = athlete.retired || athlete.sport === 'prehistoire' ? undefined : athlete.race ? CHIENS_DANS_LE_MONDE : POPULATIONS[athlete.id];
   const score = population === undefined ? fameOnly(athlete.fame) : (athlete.fame + scarcityOf(population)) / 2;
   scoreCache.set(athlete.id, score);
   return score;

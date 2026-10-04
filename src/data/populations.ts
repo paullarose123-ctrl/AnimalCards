@@ -408,7 +408,6 @@ export const POPULATIONS: Record<string, number> = {
   anemone: 1e11,
 
   // ferme et compagnie (population mondiale, élevage compris)
-  chien: 900_000_000,
   chat: 600_000_000,
   cheval: 58_000_000,
   vache: 1_500_000_000,
@@ -433,6 +432,9 @@ export const POPULATIONS: Record<string, number> = {
 };
 
 /** Espèces surtout domestiques : on compte la population mondiale, élevage compris. */
+/** Chiens dans le monde, toutes races confondues : sert à la rareté des races, qui n'ont pas de recensement propre. */
+export const CHIENS_DANS_LE_MONDE = 900_000_000;
+
 const DOMESTIQUES = new Set(['dromadaire', 'lama', 'yak', 'alpaga']);
 
 // espace insécable ordinaire : l'espace fine de toLocaleString n'existe pas dans toutes les polices
@@ -464,7 +466,7 @@ export interface PopulationAffichee {
 
 /** Population restante d'une espèce, ou null (carte Mythe, espèce sans estimation). */
 export function populationOf(athlete: Athlete): PopulationAffichee | null {
-  if (athlete.mythe) return null;
+  if (athlete.mythe || athlete.race) return null;
   if (athlete.retired || athlete.sport === 'prehistoire') return { value: 'Éteint', label: 'Population', extinct: true };
   const n = POPULATIONS[athlete.id];
   if (n == null) return null;

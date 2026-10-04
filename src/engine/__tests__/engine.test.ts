@@ -121,7 +121,7 @@ describe('boosters', () => {
   it('ne donne une version Prime qu’aux espèces vedettes', () => {
     const rng = mulberry32(99);
     const legends = ATHLETES.filter(canBePrime).map((a) => a.id);
-    expect(legends).toEqual(expect.arrayContaining(['lion', 't-rex', 'loup', 'chien', 'guepard']));
+    expect(legends).toEqual(expect.arrayContaining(['lion', 't-rex', 'loup', 'husky', 'guepard']));
     expect(legends).not.toContain('fennec');
     const isLegendPrime = (card: { athleteId: string; variant: string }) => card.variant !== 'prime' || canBePrime(ATHLETES_BY_ID[card.athleteId]);
     const packs = [FREE_PACK, ...SHOP_PACKS];

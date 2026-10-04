@@ -9,7 +9,7 @@ import { PackArt } from '../components/PackArt';
 import { CardBack } from '../components/CardBack';
 
 // Page de contrôle visuel (#galerie) : un échantillon de cartes, les emblèmes des familles et tous les drapeaux.
-const SAMPLE = ['lion', 'tigre', 'elephant', 'loup', 'orque', 'requin-blanc', 'panda', 'gorille', 'aigle-royal', 'crocodile-du-nil', 'chien', 'chat', 'axolotl', 'pieuvre', 'kangourou', 'fourmi'];
+const SAMPLE = ['lion', 'tigre', 'elephant', 'loup', 'orque', 'requin-blanc', 'panda', 'gorille', 'aigle-royal', 'crocodile-du-nil', 'berger-allemand', 'chat', 'axolotl', 'pieuvre', 'kangourou', 'fourmi'];
 // une espèce par famille, pour vérifier les emblèmes et les noms longs
 const FAMILIES = ['manul', 'fennec', 'ours-lippu', 'aye-aye', 'okapi', 'saiga', 'rat-taupe-nu', 'ornithorynque', 'narval', 'raie-manta', 'coelacanthe', 'harfang', 'macareux', 'cameleon', 'phyllobate', 'mante-religieuse', 'crevette-mante', 'alpaga', 'rhinoceros-noir-de-l-ouest'];
 
@@ -68,7 +68,7 @@ export function Gallery() {
         ))}
       </section>
       <section id="apercu" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {['crocodile-du-nil', 'alligator', 'chien', 'requin-baleine', 't-rex', 'triceratops', 'mammouth', 'smilodon', 'mythe-dragon', 'mythe-pegase', 'mythe-griffon', 'mythe-nessie'].map((id) => (
+        {['crocodile-du-nil', 'alligator', 'husky', 'requin-baleine', 't-rex', 'triceratops', 'mammouth', 'smilodon', 'mythe-dragon', 'mythe-pegase', 'mythe-griffon', 'mythe-nessie'].map((id) => (
           <Card key={id} card={{ athleteId: id, variant: 'base' }} size="md" />
         ))}
       </section>
@@ -104,7 +104,7 @@ export function Gallery() {
         <Card card={{ athleteId: 'lion', variant: 'base' }} size="lg" />
         <Card card={{ athleteId: 'tigre', variant: 'base' }} size="lg" />
         <Card card={{ athleteId: 't-rex', variant: 'base' }} size="lg" />
-        <Card card={{ athleteId: 'chien', variant: 'prime' }} size="lg" />
+        <Card card={{ athleteId: 'akita', variant: 'prime' }} size="lg" />
         <Card card={{ athleteId: 'guepard', variant: 'base', record: RECORD_START }} size="lg" />
       </section>
       <section style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>

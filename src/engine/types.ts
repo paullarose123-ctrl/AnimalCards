@@ -118,6 +118,8 @@ export interface Athlete {
   nick?: string;
   /** nom scientifique, affiché en italique dans la fiche */
   latin?: string;
+  /** race domestique (les races de chien) : pas d'estimation de population propre */
+  race?: true;
   /** famille d'animaux */
   sport: SportId;
   /** milieu de vie affiché sur la carte (période géologique pour la préhistoire) */

@@ -54,6 +54,14 @@ const MYTHES_REMPLACES: Record<string, string> = {
   khepri: 'jorogumo',
 };
 
+/**
+ * Version 6 : la carte Chien devient une race (le bouvier bernois, dont c'était la photo). Les cartes Prime de
+ * Laïka deviennent des cartes classiques, puisque le bouvier bernois n'a pas de version Prime.
+ */
+const CARTES_REMPLACEES_V6: Record<string, string> = {
+  chien: 'bouvier-bernois',
+};
+
 /** Espèces sans photo correcte → espèce de la même famille qui les remplace (sauvegardes < v5). */
 const ESPECES_REMPLACEES: Record<string, string> = {
   'chat-dore': 'lynx-pardelle',
@@ -255,6 +263,25 @@ export function packById(id: string): PackDef | undefined {
     return sport ? sportPack(sport.id, sport.name) : undefined;
   }
   return SHOP_PACKS.find((pack) => pack.id === id);
+}
+
+/** Les cartes Prime d'espèces qui n'ont pas (ou plus) de version Prime redeviennent des cartes classiques. */
+function dropInvalidPrimes(state: GameState): GameState {
+  const fix = <T extends CardFace>(card: T): T => {
+    const athlete = ATHLETES_BY_ID[card.athleteId];
+    return card.variant === 'prime' && athlete && !canBePrime(athlete) ? { ...card, variant: 'base' } : card;
+  };
+  state.collection = state.collection.map(fix);
+  state.market = {
+    ...state.market,
+    listings: state.market.listings.map((listing) => ({ ...listing, card: fix(listing.card) })),
+    myListings: state.market.myListings.map((listing) => ({ ...listing, card: fix(listing.card) })),
+  };
+  state.primesFound = Object.fromEntries(
+    Object.entries(state.primesFound ?? {}).filter(([id]) => ATHLETES_BY_ID[id] && canBePrime(ATHLETES_BY_ID[id])),
+  );
+  if (state.stats.bestPull) state.stats = { ...state.stats, bestPull: fix(state.stats.bestPull) };
+  return state;
 }
 
 export const useGame = create<GameState>()(
@@ -647,7 +674,7 @@ export const useGame = create<GameState>()(
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
       name: SAVE_NAME,
-      version: 5,
+      version: 6,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
         let state = persisted as GameState;
@@ -657,6 +684,11 @@ export const useGame = create<GameState>()(
           let text = JSON.stringify(state);
           for (const [from, to] of Object.entries(ESPECES_REMPLACEES)) text = text.replaceAll(`"${from}"`, `"${to}"`);
           state = JSON.parse(text) as GameState;
+        }
+        if (version < 6) {
+          let text = JSON.stringify(state);
+          for (const [from, to] of Object.entries(CARTES_REMPLACEES_V6)) text = text.replaceAll(`"${from}"`, `"${to}"`);
+          state = dropInvalidPrimes(JSON.parse(text) as GameState);
         }
         if (version < 3) {
           // version 3 : les cartes Mythe ne sont plus que des créatures fantastiques. Chaque sanctuaire ou divinité
@@ -670,20 +702,7 @@ export const useGame = create<GameState>()(
         if (version < 2) {
           // avant la version 2, n'importe quelle carte pouvait sortir en Prime :
           // seules les espèces vedettes gardent la leur
-          const fix = <T extends CardFace>(card: T): T => {
-            const athlete = ATHLETES_BY_ID[card.athleteId];
-            return card.variant === 'prime' && athlete && !canBePrime(athlete) ? { ...card, variant: 'base' } : card;
-          };
-          state.collection = state.collection.map(fix);
-          state.market = {
-            ...state.market,
-            listings: state.market.listings.map((listing) => ({ ...listing, card: fix(listing.card) })),
-            myListings: state.market.myListings.map((listing) => ({ ...listing, card: fix(listing.card) })),
-          };
-          state.primesFound = Object.fromEntries(
-            Object.entries(state.primesFound ?? {}).filter(([id]) => ATHLETES_BY_ID[id] && canBePrime(ATHLETES_BY_ID[id])),
-          );
-          if (state.stats.bestPull) state.stats = { ...state.stats, bestPull: fix(state.stats.bestPull) };
+          state = dropInvalidPrimes(state);
         }
         if (version < 4) {
           // version 4 : des espèces ont été retirées du jeu. Leurs cartes disparaissent de la réserve, du marché,
