@@ -4,7 +4,7 @@
 // Ne jamais mettre ici la clé « service_role » ou « secret ».
 // Tant que ces codes sont vides, le jeu se joue en invité et l'écran Profil annonce les comptes pour bientôt.
 
-export const SUPABASE_URL: string = import.meta.env.VITE_SUPABASE_URL ?? '';
+export const SUPABASE_URL: string = import.meta.env.VITE_SUPABASE_URL ?? 'https://assuyijketdrmjbsqesb.supabase.co';
 export const SUPABASE_KEY: string = import.meta.env.VITE_SUPABASE_KEY ?? '';
 
 /**
