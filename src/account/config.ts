@@ -5,7 +5,7 @@
 // Tant que ces codes sont vides, le jeu se joue en invité et l'écran Profil annonce les comptes pour bientôt.
 
 export const SUPABASE_URL: string = import.meta.env.VITE_SUPABASE_URL ?? 'https://assuyijketdrmjbsqesb.supabase.co';
-export const SUPABASE_KEY: string = import.meta.env.VITE_SUPABASE_KEY ?? '';
+export const SUPABASE_KEY: string = import.meta.env.VITE_SUPABASE_KEY ?? 'sb_publishable_cPn4IHmVh1AhURfoV-72Vg_67U28eu2';
 
 /**
  * Supabase demande une adresse e-mail : le pseudo devient une adresse fictive (pseudo@ce-domaine), qui ne reçoit
