@@ -266,10 +266,10 @@
  "beagle": {
   "file": "beagle.webp",
   "cutout": false,
-  "author": "M. Rehemtulla",
+  "author": "Ruth Ellison",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Huskiesatrest.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Beagle_portrait_Camry.jpg"
  },
  "belette": {
   "file": "belette.webp",
@@ -1418,10 +1418,10 @@
  "greyhound": {
   "file": "greyhound.webp",
   "cutout": false,
-  "author": "M. Rehemtulla",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Huskiesatrest.jpg"
+  "author": "Supreme Chungus",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:A_greyhound_and_cane_corso_examining_each_other.jpg"
  },
  "grizzly-de-californie": {
   "file": "grizzly-de-californie.webp",
@@ -1482,10 +1482,10 @@
  "habitat-antarctique": {
   "file": "habitat-antarctique.webp",
   "cutout": false,
-  "author": "Dave Pape",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Antarctica_6400px_from_Blue_Marble.jpg"
+  "author": "Pedro Szekely from Los Angeles, USA",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Antarctica_iceberg_-_Flickr_-_szeke.jpg"
  },
  "habitat-banquise": {
   "file": "habitat-banquise.webp",
@@ -1506,10 +1506,10 @@
  "habitat-borneo": {
   "file": "habitat-borneo.webp",
   "cutout": false,
-  "author": "Sadalmelik",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Borneo_Topography.png"
+  "author": "Rob and Stephanie Levy",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sunrise_in_Danum_Valley,_Borneo.jpg"
  },
  "habitat-camargue": {
   "file": "habitat-camargue.webp",
@@ -1538,58 +1538,66 @@
  "habitat-galapagos": {
   "file": "habitat-galapagos.webp",
   "cutout": false,
-  "author": "Jacques Descloitres, MODIS Rapid Response Project at NASA/GSFC",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Galapagos-satellite-2002.jpg"
+  "author": "kuhnmi",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Bartolome_Island,_Galapagos_(50122421803).jpg"
  },
  "habitat-gobi": {
   "file": "habitat-gobi.webp",
   "cutout": false,
-  "author": "NASA",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Gobi_106.49229E_41.93582N_annotated.png"
+  "author": "Niek van Son from Eindhoven, Nederland",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Mongolia_-_Gobi_Desert_(49310228777).jpg"
  },
  "habitat-grande-barriere": {
   "file": "habitat-grande-barriere.webp",
   "cutout": false,
-  "author": "NASA, by MISR",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:GreatBarrierReef-EO.JPG"
+  "author": "Toby Hudson",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Coral_Outcrop_Flynn_Reef.jpg"
  },
  "habitat-himalaya": {
   "file": "habitat-himalaya.webp",
   "cutout": false,
-  "author": "Gemini1980 based on User:Jide~commonswiki",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:DEMTibet_annotated.png"
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Mountains_in_snow,_Mountain_lake,_Chola_Valley,_Nepal,_Himalayas.jpg"
  },
  "habitat-madagascar": {
   "file": "habitat-madagascar.webp",
   "cutout": false,
-  "author": "Unknown author Unknown author",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Satellite_image_of_Madagascar_in_September_2003.jpg"
+  "author": "Bernard Gagnon",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Adansonia_grandidieri04.jpg"
  },
  "habitat-mariannes": {
   "file": "habitat-mariannes.webp",
   "cutout": false,
-  "author": "wallace",
-  "license": "CC BY 2.5",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-  "page": "https://commons.wikimedia.org/wiki/File:Marianatrenchmap.png"
+  "author": "Canley",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Prickly_anglerfish.jpg"
+ },
+ "habitat-monteverde": {
+  "file": "habitat-monteverde.webp",
+  "cutout": false,
+  "author": "European Union, Copernicus Sentinel-2",
+  "license": "Attribution",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Monteverde_Cloud_Forest_Reserve_(Copernicus_2024-06-13).png"
  },
  "habitat-okavango": {
   "file": "habitat-okavango.webp",
   "cutout": false,
-  "author": "NASA",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:OkavangoDelta.png"
+  "author": "diego_cue",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Elephants_in_the_Okavango_Delta_-_Botswana_-_panoramio.jpg"
  },
  "habitat-outback": {
   "file": "habitat-outback.webp",
@@ -1610,18 +1618,18 @@
  "habitat-patagonie": {
   "file": "habitat-patagonie.webp",
   "cutout": false,
-  "author": "Auteur inconnu",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Pat_map.PNG"
+  "author": "Pedro Szekely from Los Angeles, USA",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Cuernos_del_Paine_in_Torres_del_Paine_National_Park.jpg"
  },
  "habitat-sahara": {
   "file": "habitat-sahara.webp",
   "cutout": false,
-  "author": "NASA",
+  "author": "Bureau of Land Management - Utah/Bob Wick",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Sahara_satellite_hires.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Utah_Dunes_Landscape_-_West_Desert_District.jpg"
  },
  "habitat-sargasses": {
   "file": "habitat-sargasses.webp",
@@ -1634,10 +1642,10 @@
  "habitat-serengeti": {
   "file": "habitat-serengeti.webp",
   "cutout": false,
-  "author": "Photo by Thomas Huston",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Serengeti-Sign.jpg"
+  "author": "Wolves201",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Serengeti_wildebeest_migration_JF.jpg"
  },
  "habitat-sundarbans": {
   "file": "habitat-sundarbans.webp",
@@ -1650,10 +1658,10 @@
  "habitat-taiga": {
   "file": "habitat-taiga.webp",
   "cutout": false,
-  "author": "Monsieur Fou Teemu Vehkaoja (TeVe) Photoglob AG Zürich Frank Kovalchek, Hagerty Ryan U.S. ",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Taiga_assemblage.png"
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Ergaki,_Taiga_in_Siberia,_Dark_coniferous_forest,_Sayan_Mountains,_Russia.jpg"
  },
  "habitat-tasmanie": {
   "file": "habitat-tasmanie.webp",
