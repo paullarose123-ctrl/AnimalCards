@@ -1,6 +1,7 @@
 # Télécharge des photos d'animaux depuis Wikimedia Commons (licences libres) et les ajoute au jeu.
 # À lancer à la main : onglet Actions → « Photos des animaux » → Run workflow. Par défaut, les races de chien
-# beagle et greyhound et les cartes Habitat. Le site est ensuite remis en ligne avec les nouvelles photos.
+# beagle et greyhound et les cartes Habitat dont la photo était une carte ou une vue satellite
+# (recherches dans scripts/photos/recherche.json). Le site est ensuite remis en ligne avec les nouvelles photos.
 name: Photos des animaux
 
 on:
@@ -8,7 +9,7 @@ on:
     inputs:
       seulement:
         description: Identifiants des animaux, séparés par des virgules
-        default: beagle,greyhound,habitat-amazonie,habitat-grande-barriere,habitat-galapagos,habitat-serengeti,habitat-antarctique,habitat-banquise,habitat-himalaya,habitat-madagascar,habitat-borneo,habitat-congo,habitat-yellowstone,habitat-sundarbans,habitat-mariannes,habitat-pantanal,habitat-okavango,habitat-outback,habitat-sahara,habitat-taiga,habitat-patagonie,habitat-camargue,habitat-bialowieza,habitat-everglades,habitat-monteverde,habitat-tasmanie,habitat-gobi,habitat-sargasses
+        default: beagle,greyhound,habitat-antarctique,habitat-borneo,habitat-galapagos,habitat-gobi,habitat-grande-barriere,habitat-himalaya,habitat-madagascar,habitat-mariannes,habitat-okavango,habitat-patagonie,habitat-sahara,habitat-taiga,habitat-serengeti,habitat-monteverde
 
 permissions:
   contents: write
