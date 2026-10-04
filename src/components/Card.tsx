@@ -35,6 +35,8 @@ interface CardProps {
   tilt?: boolean;
   /** carte non possédée (album) */
   locked?: boolean;
+  /** cache le bandeau des mesures (duel de culture générale) */
+  hideFacts?: boolean;
   onClick?: () => void;
   className?: string;
   style?: CSSProperties;
@@ -87,7 +89,7 @@ function Frame() {
   );
 }
 
-export const Card = memo(function Card({ card, size = 'md', tilt = false, locked = false, onClick, className = '', style }: CardProps) {
+export const Card = memo(function Card({ card, size = 'md', tilt = false, locked = false, hideFacts = false, onClick, className = '', style }: CardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const frame = useRef(0);
   const [photoFailed, setPhotoFailed] = useState(false);
@@ -232,8 +234,8 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
           </span>
         </div>
 
-        {!tiny && habitat && <HabitatFacts especes={habitat.especes.length} />}
-        {!tiny && !habitat && (mesures || population) && <Facts mesures={mesures} population={population} compact={compact} />}
+        {!tiny && !hideFacts && habitat && <HabitatFacts especes={habitat.especes.length} />}
+        {!tiny && !hideFacts && !habitat && (mesures || population) && <Facts mesures={mesures} population={population} compact={compact} />}
 
         <div className="card__banner">
           <span className="card__name metal-text" style={{ fontSize: `${nameSize(fullName) * (compact ? 1.08 : 1)}em` }}>

@@ -66,7 +66,7 @@ function Picker({ onPick, onClose, exclude }: { onPick: (uid: string) => void; o
         ) : (
           <div className="card-grid">
             {cards.map((card) => (
-              <Card key={card.uid} card={card} size="sm" onClick={() => onPick(card.uid)} />
+              <Card key={card.uid} card={card} size="sm" hideFacts onClick={() => onPick(card.uid)} />
             ))}
           </div>
         )}
@@ -121,13 +121,16 @@ function TeamBuilder() {
             Équipe auto
           </button>
         </div>
-        <p className="muted small">Varie les profils : un géant, un poids plume, un animal qui vit très vieux, une espèce très rare…</p>
+        <p className="muted small">
+          Varie les profils : un géant, un poids plume, un animal qui vit très vieux, une espèce très rare, des animaux de plusieurs continents… Pendant le
+          duel, les mesures sont cachées : à toi de savoir.
+        </p>
         <div className="team-slots">
           {slots.map((card, i) => (
             <div key={i} className="team-slot">
               {card ? (
                 <>
-                  <Card card={card} size="sm" onClick={() => openDetail({ card })} />
+                  <Card card={card} size="sm" hideFacts onClick={() => openDetail({ card })} />
                   <div className="team-slot__actions">
                     <button type="button" className="btn btn--ghost btn--xs" onClick={() => setPicking(i)}>
                       Changer
@@ -164,8 +167,10 @@ function TeamBuilder() {
           <h2>Règles du duel de records</h2>
         </summary>
         <p>
-          Un duel se joue en {ROUNDS} manches. Chaque manche est un record tiré au sort, annoncé dès le début. Tu choisis quel animal envoyer ; chacun ne joue
-          qu’une fois. Ce sont les vraies mesures de l’espèce qui comptent : un animal dont la mesure n’est pas connue perd la manche.
+          Un duel se joue en {ROUNDS} manches. Chaque manche est une question tirée au sort, annoncée dès le début : un record (le plus lourd, le plus petit…)
+          ou une question oui/non (« Vient d’Afrique ? », « Est un oiseau ? »). Tu choisis quel animal envoyer, sans voir ses mesures : c’est un jeu de culture
+          générale. Chaque animal ne joue qu’une fois. Ce sont les vraies mesures de l’espèce qui comptent ; un animal dont la mesure n’est pas connue perd la
+          manche, et pour une question, oui bat non.
         </p>
         <ul className="rules__events">
           {RECORD_ORDER.map((id) => (
@@ -209,7 +214,7 @@ function RoundResolution({ match, log, onNext }: { match: DuelState; log: DuelRo
     return (
       <div className={`clash__side clash__side--${who}${log.winner === who ? ' is-winner' : ''}`}>
         <p className="clash__team">{who === 'me' ? match.me.name : match.opp.name}</p>
-        <Card card={card} size="md" />
+        <Card card={card} size="md" hideFacts />
         <p className="clash__power clash__power--record">{formatRecordValue(card, log.record, value)}</p>
       </div>
     );
@@ -252,7 +257,7 @@ function DuelView({ match }: { match: DuelState }) {
     const result = duelResult(match);
     return (
       <section className={`panel final final--${result}`}>
-        <p className="eyebrow">Fin du duel · Division {match.division}</p>
+        <p className="eyebrow">Fin du duel · {match.friend ? `contre ton ami ${match.friend}` : `Division ${match.division}`}</p>
         <h1>{result === 'win' ? 'Victoire !' : result === 'draw' ? 'Match nul' : 'Défaite'}</h1>
         <p className="final__score">
           {match.me.name} {match.me.score} – {match.opp.score} {match.opp.name}
@@ -327,11 +332,11 @@ function DuelView({ match }: { match: DuelState }) {
 
       <section className="panel">
         <h3 className="panel__title">L’équipe adverse</h3>
-        <p className="muted small">Tu vois ses animaux, pas leurs mesures : à toi de deviner lequel elle va envoyer.</p>
+        <p className="muted small">Personne ne voit les mesures : c’est ta culture générale qui compte.</p>
         <div className="card-row card-row--tight">
           {match.opp.cards.map((card, i) => (
             <div key={card.uid} className={`opp-card${match.opp.used.includes(i) ? ' is-used' : ''}`}>
-              <Card card={card} size="xs" />
+              <Card card={card} size="xs" hideFacts />
             </div>
           ))}
         </div>
@@ -342,7 +347,6 @@ function DuelView({ match }: { match: DuelState }) {
         <div className="hand">
           {match.me.cards.map((card, i) => {
             const used = match.me.used.includes(i);
-            const value = recordId ? formatRecordValue(card, recordId) : '';
             return (
               <button
                 key={card.uid}
@@ -354,10 +358,9 @@ function DuelView({ match }: { match: DuelState }) {
                   setSelected(i);
                 }}
                 aria-pressed={selected === i}
-                aria-label={`${ATHLETES_BY_ID[card.athleteId].last} : ${value}`}
+                aria-label={ATHLETES_BY_ID[card.athleteId].last}
               >
-                <Card card={card} size="sm" />
-                {!used && <span className="hand__estimate">{value}</span>}
+                <Card card={card} size="sm" hideFacts />
               </button>
             );
           })}
@@ -401,7 +404,7 @@ export function MatchScreen() {
         <div>
           <p className="eyebrow">Duel de records</p>
           <h1>{match ? `${match.me.name} contre ${match.opp.name}` : 'Composer mon équipe'}</h1>
-          {!match && <p className="muted">5 animaux, 5 records : le plus lourd, le plus petit, celui qui vit le plus vieux… Les vraies mesures décident.</p>}
+          {!match && <p className="muted">5 animaux, 5 questions : le plus lourd, le plus petit, vient d’Afrique… Les mesures sont cachées : c’est ta culture générale qui compte.</p>}
         </div>
       </header>
       {match ? <DuelView key={match.id} match={match} /> : <TeamBuilder />}

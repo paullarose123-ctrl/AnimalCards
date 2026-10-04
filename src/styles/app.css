@@ -5177,17 +5177,7 @@
   max-width: 480px;
 }
 
-.player {
-  display: grid;
-  gap: 12px;
-  margin-top: 16px;
-}
 
-.player h3 {
-  margin: 0;
-  font-style: italic;
-  font-size: 1.5rem;
-}
 
 /* invitation à créer un compte, sur l'accueil */
 .invite {
@@ -5355,8 +5345,46 @@
   box-shadow: 0 0 0 3px var(--accent-text);
 }
 
-.player__head {
+
+/* ───────────── Amis ───────────── */
+.friends {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.friend {
+  display: grid;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(232, 222, 196, 0.03);
+}
+
+.friend__head {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
+}
+
+.friend__who {
+  display: grid;
+  gap: 2px;
+  flex: 1 1 140px;
+  min-width: 0;
+}
+
+.friend__who b {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.friend__actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
 }

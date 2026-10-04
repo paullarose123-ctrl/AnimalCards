@@ -162,6 +162,8 @@ export interface GameState {
   favorites: string[];
   /** photo de profil : l'espèce dont la photo est affichée (chaîne vide : l'initiale du pseudo) */
   avatar: string;
+  /** pseudos des amis du joueur */
+  friends: string[];
   opening: Opening | null;
   toasts: Toast[];
 
@@ -178,13 +180,16 @@ export interface GameState {
   toggleWatch: (listingId: string) => void;
   setTeamSlot: (slot: number, uid: string | null) => void;
   autoTeam: () => void;
-  startMatch: () => boolean;
+  /** lance un duel de la ligue, ou contre la vitrine d'un ami */
+  startMatch: (friend?: { pseudo: string; cards: CardFace[] }) => boolean;
   playMatchRound: (index: number) => void;
   finishMatch: () => void;
   abandonMatch: () => void;
   toggleLock: (uid: string) => void;
   setFavorite: (slot: number, uid: string | null) => void;
   setAvatar: (athleteId: string) => void;
+  addFriend: (pseudo: string) => void;
+  removeFriend: (pseudo: string) => void;
   claimObjective: (id: string) => void;
   toggleMute: () => void;
   toggleMusic: () => void;
@@ -262,6 +267,7 @@ function initialState(now: number) {
     recentPacks: [] as string[][],
     favorites: [] as string[],
     avatar: '',
+    friends: [] as string[],
     opening: null as Opening | null,
     toasts: [] as Toast[],
   };
@@ -595,7 +601,7 @@ export const useGame = create<GameState>()(
 
         autoTeam: () => set((s) => ({ team: autoTeamFrom(s.collection) })),
 
-        startMatch: () => {
+        startMatch: (friend) => {
           const state = get();
           const cards = state.team
             .map((uid) => state.collection.find((c) => c.uid === uid))
@@ -609,6 +615,7 @@ export const useGame = create<GameState>()(
             state.division,
             Math.random,
             playerName(),
+            friend,
           );
           set({ match });
           return true;
@@ -627,7 +634,8 @@ export const useGame = create<GameState>()(
           const result = duelResult(match);
           const reward = rewardFor(result, match.division);
           let division = state.division;
-          let points = state.divisionPoints + (result === 'win' ? 3 : result === 'draw' ? 1 : 0);
+          // un duel entre amis rapporte des graines mais ne compte pas pour la ligue
+          let points = state.divisionPoints + (match.friend ? 0 : result === 'win' ? 3 : result === 'draw' ? 1 : 0);
           let promoted = false;
           if (points >= DIVISION_POINTS_TO_PROMOTE && division > 1) {
             division -= 1;
@@ -650,6 +658,9 @@ export const useGame = create<GameState>()(
         toggleLock: (uid) => set((s) => ({ collection: s.collection.map((c) => (c.uid === uid ? { ...c, locked: !c.locked } : c)) })),
 
         setAvatar: (athleteId) => set({ avatar: athleteId }),
+        addFriend: (pseudo) =>
+          set((s) => (s.friends.some((f) => f.toLowerCase() === pseudo.toLowerCase()) ? s : { friends: [...s.friends, pseudo] })),
+        removeFriend: (pseudo) => set((s) => ({ friends: s.friends.filter((f) => f !== pseudo) })),
 
         setFavorite: (slot, uid) =>
           set((s) => {

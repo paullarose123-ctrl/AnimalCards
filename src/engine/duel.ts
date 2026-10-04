@@ -5,15 +5,33 @@ import { CHIENS_DANS_LE_MONDE, POPULATIONS, formatPopulation } from '../data/pop
 import { canBePrime, isHabitat } from './cards';
 import { makeUid, pick, shuffle, type Rng } from './random';
 
-// Duel de records : une bataille de vrais chiffres, comme un jeu de cartes des records.
-// Un duel se joue en 5 manches ; chaque manche est un record tiré au sort (le plus lourd, le plus petit,
-// celui qui vit le plus longtemps…). Chaque joueur envoie un de ses 5 animaux, pas encore joué :
-// la vraie mesure la plus forte (ou la plus faible, selon le record) gagne la manche.
+// Duel de records : un jeu de culture générale sur les animaux, avec leurs vraies mesures.
+// Un duel se joue en 5 manches ; chaque manche est une question tirée au sort : un record (le plus lourd, le plus
+// petit, celui qui vit le plus longtemps…) ou une question oui/non (« Vient d'Afrique ? », « Est un oiseau ? »).
+// Chaque joueur envoie un de ses 5 animaux, pas encore joué, sans voir ses mesures : il faut savoir.
+// La vraie mesure la plus forte (ou la plus faible, selon le record) gagne ; pour une question, un « oui » bat un « non ».
 
 export const TEAM_SIZE = 5;
 export const ROUNDS = 5;
 
-export type RecordId = 'lourd' | 'leger' | 'grand' | 'petit' | 'vieux' | 'nombreux' | 'rare';
+export type RecordId =
+  | 'lourd'
+  | 'leger'
+  | 'grand'
+  | 'petit'
+  | 'vieux'
+  | 'ephemere'
+  | 'nombreux'
+  | 'rare'
+  | 'afrique'
+  | 'asie'
+  | 'amerique'
+  | 'europe'
+  | 'oceanie'
+  | 'mammifere'
+  | 'oiseau'
+  | 'reptile'
+  | 'poisson';
 
 export interface RecordDef {
   id: RecordId;
@@ -21,6 +39,8 @@ export interface RecordDef {
   desc: string;
   /** le plus grand chiffre gagne (max) ou le plus petit (min) */
   best: 'max' | 'min';
+  /** question oui/non (valeur 1 ou 0) plutôt qu'un record chiffré */
+  question?: boolean;
   value: (athlete: Athlete) => number | null;
   format: (value: number, athlete: Athlete) => string;
 }
@@ -37,6 +57,66 @@ function population(a: Athlete): number | null {
 const poids = (a: Athlete) => MESURES[a.id]?.[0] ?? null;
 const taille = (a: Athlete) => MESURES[a.id]?.[1] ?? null;
 const formatPop = (n: number, a: Athlete) => (n === 0 && extinct(a) ? 'Éteint' : a.race ? `${formatPopulation(n)} (tous les chiens)` : formatPopulation(n));
+
+// ───── continents et classes, pour les questions oui/non ─────
+
+type Continent = 'afrique' | 'asie' | 'amerique' | 'europe' | 'oceanie';
+
+/** Continent du pays emblématique de l'espèce (la Russie compte pour l'Asie : ses espèces sont sibériennes). */
+const CONTINENT: Record<string, Continent> = Object.fromEntries(
+  (
+    [
+      ['afrique', 'BW CD CM DZ EG ET GA GH KE LR MA MG MU NA RW SC SD TZ ZA'],
+      ['asie', 'CN ID IN JP KZ LK MN MY NP PH SY TH RU'],
+      ['europe', 'BE CH DE ES FI FR GB GB-ENG GB-SCT GB-WLS GR HR IE IS IT NL NO PL RO SI SE'],
+      ['amerique', 'AR BR CA CL CO CR CU EC GT JM MX PE US GL'],
+      ['oceanie', 'AU FJ NZ PG'],
+    ] as Array<[Continent, string]>
+  ).flatMap(([continent, codes]) => codes.split(' ').map((code) => [code, continent])),
+);
+
+type Classe = 'mammifere' | 'oiseau' | 'reptile' | 'poisson' | 'autre';
+
+const CLASSE_DES_FAMILLES: Partial<Record<Athlete['sport'], Classe>> = {
+  felins: 'mammifere', canides: 'mammifere', ours: 'mammifere', primates: 'mammifere', geants: 'mammifere',
+  ongules: 'mammifere', petits: 'mammifere', marsupiaux: 'mammifere', marins: 'mammifere',
+  requins: 'poisson', poissons: 'poisson', rapaces: 'oiseau', oiseaux: 'oiseau', reptiles: 'reptile',
+};
+
+/** Exceptions des familles mélangées (ferme, préhistoire) ; le reste de la préhistoire est fait de reptiles. */
+const CLASSE_A_PART: Record<string, Classe> = {
+  poule: 'oiseau', canard: 'oiseau', oie: 'oiseau', dindon: 'oiseau', pigeon: 'oiseau', perruche: 'oiseau',
+  'poisson-rouge': 'poisson', escargot: 'autre', 'ver-a-soie': 'autre',
+  mammouth: 'mammifere', smilodon: 'mammifere', 'lion-des-cavernes': 'mammifere', 'ours-des-cavernes': 'mammifere',
+  megaloceros: 'mammifere', megalodon: 'poisson', dunkleosteus: 'poisson', archeopteryx: 'oiseau', trilobite: 'autre', meganeura: 'autre',
+};
+
+export function classeOf(a: Athlete): Classe {
+  if (CLASSE_A_PART[a.id]) return CLASSE_A_PART[a.id];
+  if (a.sport === 'ferme') return 'mammifere';
+  if (a.sport === 'prehistoire') return 'reptile';
+  return CLASSE_DES_FAMILLES[a.sport] ?? 'autre';
+}
+
+const yesNo = (v: number) => (v ? 'Oui' : 'Non');
+const continentQuestion = (id: Continent, from: string, where: string): RecordDef => ({
+  id,
+  name: `Vient ${from}`,
+  desc: `Le pays emblématique de l’animal est-il ${where} ? Oui bat non.`,
+  best: 'max',
+  question: true,
+  value: (a) => (CONTINENT[a.country] === id ? 1 : 0),
+  format: yesNo,
+});
+const classeQuestion = (id: Exclude<Classe, 'autre'>, name: string): RecordDef => ({
+  id,
+  name: `Est ${name}`,
+  desc: `L’animal est-il ${name} ? Oui bat non.`,
+  best: 'max',
+  question: true,
+  value: (a) => (classeOf(a) === id ? 1 : 0),
+  format: yesNo,
+});
 
 export const RECORDS: Record<RecordId, RecordDef> = {
   lourd: { id: 'lourd', name: 'Le plus lourd', desc: 'Le poids d’un adulte : le plus lourd gagne.', best: 'max', value: poids, format: (v) => formatPoids(v) },
@@ -65,6 +145,14 @@ export const RECORDS: Record<RecordId, RecordDef> = {
     value: (a) => MESURES[a.id]?.[3] ?? null,
     format: (v) => formatLongevite(v),
   },
+  ephemere: {
+    id: 'ephemere',
+    name: 'Vit le moins longtemps',
+    desc: 'La longévité dans la nature : celui qui vit le moins longtemps gagne.',
+    best: 'min',
+    value: (a) => MESURES[a.id]?.[3] ?? null,
+    format: (v) => formatLongevite(v),
+  },
   nombreux: {
     id: 'nombreux',
     name: 'Le plus nombreux',
@@ -81,9 +169,36 @@ export const RECORDS: Record<RecordId, RecordDef> = {
     value: population,
     format: formatPop,
   },
+  afrique: continentQuestion('afrique', 'd’Afrique', 'en Afrique'),
+  asie: continentQuestion('asie', 'd’Asie', 'en Asie'),
+  amerique: continentQuestion('amerique', 'd’Amérique', 'en Amérique'),
+  europe: continentQuestion('europe', 'd’Europe', 'en Europe'),
+  oceanie: continentQuestion('oceanie', 'd’Océanie', 'en Océanie'),
+  mammifere: classeQuestion('mammifere', 'un mammifère'),
+  oiseau: classeQuestion('oiseau', 'un oiseau'),
+  reptile: classeQuestion('reptile', 'un reptile'),
+  poisson: classeQuestion('poisson', 'un poisson'),
 };
 
-export const RECORD_ORDER: RecordId[] = ['lourd', 'leger', 'grand', 'petit', 'vieux', 'nombreux', 'rare'];
+export const RECORD_ORDER = Object.keys(RECORDS) as RecordId[];
+
+/** Au plus deux questions oui/non par duel : elles finissent souvent à égalité. */
+export const MAX_QUESTIONS = 2;
+
+/** Les 5 manches d'un duel : des records variés, dont au plus MAX_QUESTIONS questions oui/non. */
+export function drawRecords(rng: Rng): RecordId[] {
+  const out: RecordId[] = [];
+  let questions = 0;
+  for (const id of shuffle(rng, RECORD_ORDER)) {
+    if (out.length >= ROUNDS) break;
+    if (RECORDS[id].question) {
+      if (questions >= MAX_QUESTIONS) continue;
+      questions += 1;
+    }
+    out.push(id);
+  }
+  return out;
+}
 
 export interface DuelCard extends CardFace {
   uid: string;
@@ -111,6 +226,8 @@ export interface DuelState {
   id: string;
   /** distingue un duel d'un ancien match d'Arène dans les sauvegardes */
   kind: 'duel';
+  /** pseudo de l'ami défié (son équipe est sa vitrine) ; absent pour un duel de la ligue */
+  friend?: string;
   division: number;
   records: RecordId[];
   round: number;
@@ -140,22 +257,32 @@ export function aiSkill(division: number): number {
   return Math.min(0.95, 0.35 + (10 - division) * (0.6 / 9));
 }
 
-export function createDuel(myCards: DuelCard[], division: number, rng: Rng, myName = 'Mon équipe'): DuelState {
-  const pool = ATHLETES.filter(canDuel);
-  const chosen = shuffle(rng, pool).slice(0, TEAM_SIZE);
-  const oppCards = chosen.map((athlete) => ({
+export function createDuel(
+  myCards: DuelCard[],
+  division: number,
+  rng: Rng,
+  myName = 'Mon équipe',
+  friend?: { pseudo: string; cards: CardFace[] },
+): DuelState {
+  // contre un ami : les animaux de sa vitrine, complétés au hasard s'il en a moins de 5
+  const given = (friend?.cards ?? []).filter((c) => ATHLETES_BY_ID[c.athleteId] && canDuel(ATHLETES_BY_ID[c.athleteId])).slice(0, TEAM_SIZE);
+  const taken = new Set(given.map((c) => c.athleteId));
+  const pool = ATHLETES.filter((a) => canDuel(a) && !taken.has(a.id));
+  const chosen = shuffle(rng, pool).slice(0, TEAM_SIZE - given.length);
+  const oppCards = given.map((c) => ({ uid: makeUid('o'), athleteId: c.athleteId, variant: c.variant })).concat(chosen.map((athlete) => ({
     uid: makeUid('o'),
     athleteId: athlete.id,
     variant: division <= 3 && canBePrime(athlete) && rng() < 0.15 ? ('prime' as const) : ('base' as const),
-  }));
+  })));
   return {
     id: makeUid('duel'),
     kind: 'duel',
+    ...(friend ? { friend: friend.pseudo } : {}),
     division,
-    records: shuffle(rng, RECORD_ORDER).slice(0, ROUNDS),
+    records: drawRecords(rng),
     round: 0,
     me: { name: myName, cards: myCards, used: [], score: 0 },
-    opp: { name: pick(rng, RIVALS), cards: oppCards, used: [], score: 0 },
+    opp: { name: friend?.pseudo ?? pick(rng, RIVALS), cards: oppCards, used: [], score: 0 },
     log: [],
     finished: false,
   };
