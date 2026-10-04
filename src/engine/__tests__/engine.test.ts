@@ -38,11 +38,11 @@ describe('boosters', () => {
     const legende = SHOP_PACKS.find((p) => p.id === 'legende')!;
     const prime = SHOP_PACKS.find((p) => p.id === 'prime')!;
     for (let i = 0; i < 100; i++) {
-      const best = openPack(elite, rng).at(-1)!;
-      expect(rarityOf(ATHLETES_BY_ID[best.athleteId]).order).toBeGreaterThanOrEqual(3);
-      const legend = openPack(legende, rng).at(-1)!;
-      expect(rarityOf(ATHLETES_BY_ID[legend.athleteId]).id).toBe('legendaire');
-      expect(openPack(prime, rng).some((c) => c.variant === 'prime')).toBe(true);
+      // une Prime tirée en plus passe toujours en dernier : on cherche la garantie dans tout le pack
+      expect(openPack(elite, rng).some((c) => rarityOf(ATHLETES_BY_ID[c.athleteId]).order >= 3)).toBe(true);
+      expect(openPack(legende, rng).some((c) => rarityOf(ATHLETES_BY_ID[c.athleteId]).id === 'legendaire')).toBe(true);
+      const primePack = openPack(prime, rng);
+      expect(primePack.at(-1)!.variant).toBe('prime');
     }
   });
 
@@ -106,6 +106,18 @@ describe('boosters', () => {
         for (const card of openPack(pack, rng)) expect(isIconCard(card) || !!ATHLETES_BY_ID[card.athleteId].habitat).toBe(true);
       }
     }
+  });
+
+  it('donne surtout des individus d’espèces vedettes dans le Pack Prime', () => {
+    const rng = mulberry32(3);
+    const prime = SHOP_PACKS.find((p) => p.id === 'prime')!;
+    let famous = 0;
+    for (let i = 0; i < 1000; i++) {
+      const card = openPack(prime, rng).at(-1)!;
+      if (rarityOf(ATHLETES_BY_ID[card.athleteId]).order >= 3) famous += 1;
+    }
+    expect(famous / 1000).toBeGreaterThan(0.75);
+    expect(baseValueOf(ATHLETES_BY_ID.mouton, 'prime')).toBeGreaterThanOrEqual(50_000);
   });
 
   it('ne donne une version Prime qu’aux espèces vedettes', () => {
@@ -237,6 +249,11 @@ describe('duel de records', () => {
     expect(recordValue(face('panda'), 'asie')).toBe(1);
     expect(recordValue(face('bison'), 'amerique')).toBe(1);
     expect(recordValue(face('orque'), 'afrique')).toBe(0);
+    // espèces de plusieurs continents : le chat vit partout, le loup en Europe, en Asie et en Amérique
+    expect(ATHLETES_BY_ID.chat.country).toBe('XW');
+    expect(recordValue(face('chat'), 'oceanie')).toBe(1);
+    expect(recordValue(face('loup'), 'europe')).toBe(1);
+    expect(recordValue(face('loup'), 'afrique')).toBe(0);
     expect(classeOf(ATHLETES_BY_ID.dauphin)).toBe('mammifere');
     expect(classeOf(ATHLETES_BY_ID.poule)).toBe('oiseau');
     expect(classeOf(ATHLETES_BY_ID['requin-blanc'])).toBe('poisson');

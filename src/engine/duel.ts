@@ -3,6 +3,7 @@ import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { MESURES, formatLongevite, formatPoids, formatTaille } from '../data/mesures';
 import { CHIENS_DANS_LE_MONDE, POPULATIONS, formatPopulation } from '../data/populations';
 import { canBePrime, isHabitat } from './cards';
+import { CONTINENTS_MULTIPLES, type Continent } from '../data/repartition';
 import { makeUid, pick, shuffle, type Rng } from './random';
 
 // Duel de records : un jeu de culture générale sur les animaux, avec leurs vraies mesures.
@@ -60,9 +61,10 @@ const formatPop = (n: number, a: Athlete) => (n === 0 && extinct(a) ? 'Éteint' 
 
 // ───── continents et classes, pour les questions oui/non ─────
 
-type Continent = 'afrique' | 'asie' | 'amerique' | 'europe' | 'oceanie';
-
-/** Continent du pays emblématique de l'espèce (la Russie compte pour l'Asie : ses espèces sont sibériennes). */
+/**
+ * Continent du pays emblématique de l'espèce (la Russie compte pour l'Asie : ses espèces sont sibériennes).
+ * Les espèces de plusieurs continents sont dans src/data/repartition.ts.
+ */
 const CONTINENT: Record<string, Continent> = Object.fromEntries(
   (
     [
@@ -99,13 +101,13 @@ export function classeOf(a: Athlete): Classe {
 }
 
 const yesNo = (v: number) => (v ? 'Oui' : 'Non');
-const continentQuestion = (id: Continent, from: string, where: string): RecordDef => ({
+const continentQuestion = (id: Continent, where: string): RecordDef => ({
   id,
-  name: `Vient ${from}`,
-  desc: `Le pays emblématique de l’animal est-il ${where} ? Oui bat non.`,
+  name: `Vit ${where}`,
+  desc: `L’animal vit-il ${where} (à l’état sauvage, ou élevé partout pour un animal domestique) ? Oui bat non.`,
   best: 'max',
   question: true,
-  value: (a) => (CONTINENT[a.country] === id ? 1 : 0),
+  value: (a) => (CONTINENT[a.country] === id || CONTINENTS_MULTIPLES[a.id]?.includes(id) ? 1 : 0),
   format: yesNo,
 });
 const classeQuestion = (id: Exclude<Classe, 'autre'>, name: string): RecordDef => ({
@@ -169,11 +171,11 @@ export const RECORDS: Record<RecordId, RecordDef> = {
     value: population,
     format: formatPop,
   },
-  afrique: continentQuestion('afrique', 'd’Afrique', 'en Afrique'),
-  asie: continentQuestion('asie', 'd’Asie', 'en Asie'),
-  amerique: continentQuestion('amerique', 'd’Amérique', 'en Amérique'),
-  europe: continentQuestion('europe', 'd’Europe', 'en Europe'),
-  oceanie: continentQuestion('oceanie', 'd’Océanie', 'en Océanie'),
+  afrique: continentQuestion('afrique', 'en Afrique'),
+  asie: continentQuestion('asie', 'en Asie'),
+  amerique: continentQuestion('amerique', 'en Amérique'),
+  europe: continentQuestion('europe', 'en Europe'),
+  oceanie: continentQuestion('oceanie', 'en Océanie'),
   mammifere: classeQuestion('mammifere', 'un mammifère'),
   oiseau: classeQuestion('oiseau', 'un oiseau'),
   reptile: classeQuestion('reptile', 'un reptile'),

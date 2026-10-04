@@ -92,6 +92,8 @@ export function canBePrime(athlete: Athlete): boolean {
 /** Chance qu'une de ces espèces vedettes, tirée dans un booster, sorte en version Prime. */
 export const PRIME_CHANCE = 0.05;
 export const PRIME_VALUE_MULTIPLIER = 6;
+/** valeur minimale d'une carte Prime au marché */
+export const PRIME_MIN_VALUE = 50_000;
 
 // ───────────── Reverse ─────────────
 // Finition holographique : n'importe quelle carte peut sortir en Reverse (environ 1 carte sur 20),
@@ -131,7 +133,9 @@ export function baseValueOf(athlete: Athlete, variant: Variant = 'base'): number
   const [lo, hi] = scoreSpan(rarity);
   const withinTier = clamp((rarityScore(athlete) - lo) / (hi - lo), 0, 1); // 0 → 1
   const multiplier = variant === 'prime' ? PRIME_VALUE_MULTIPLIER : variant === 'reverse' ? REVERSE_VALUE_MULTIPLIER : 1;
-  return roundPrice(rarity.baseValue * (1 + withinTier * 1.5) * multiplier);
+  const value = rarity.baseValue * (1 + withinTier * 1.5) * multiplier;
+  // une Prime est un individu unique et célèbre (Hachikō, Dolly…) : elle vaut cher même si son espèce est commune
+  return roundPrice(variant === 'prime' ? Math.max(value, PRIME_MIN_VALUE) : value);
 }
 
 /** Arrondit un prix à une valeur "lisible" comme sur un vrai marché. */

@@ -1,5 +1,6 @@
 import type { Athlete, ArchetypeId, SportId } from '../engine/types';
 import { HABITATS } from './habitats.ts';
+import { CONTINENTS_MULTIPLES } from './repartition.ts';
 
 // Base des espèces animales (le fichier garde son nom d'AthletiCards).
 // - fame (0-100) : célébrité de l'espèce. Elle fixe la rareté.
@@ -601,6 +602,7 @@ const CURATED: Athlete[] = [
   x('deinosuchus', 'Deinosuchus', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'US', 34, 90, 'Un crocodile géant de plus de 10 m, qui s’attaquait peut-être aux dinosaures.', { ...L('Deinosuchus'), ...D() }),
 ];
 
-export const ATHLETES: Athlete[] = [...CURATED, ...HABITATS];
+// une espèce présente sur plusieurs continents porte le logo « Plusieurs continents » (XW) au lieu d'un drapeau
+export const ATHLETES: Athlete[] = [...CURATED, ...HABITATS].map((a) => (CONTINENTS_MULTIPLES[a.id] ? { ...a, country: 'XW' } : a));
 
 export const ATHLETES_BY_ID: Record<string, Athlete> = Object.fromEntries(ATHLETES.map((athlete) => [athlete.id, athlete]));

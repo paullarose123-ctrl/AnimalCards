@@ -16,7 +16,7 @@ export const COUNTRY_NAMES: Record<string, string> = {
   CZ: 'Tchéquie', BW: 'Botswana', BF: 'Burkina Faso', AT: 'Autriche',
   'GB-WLS': 'Pays de Galles', 'GB-NIR': 'Irlande du Nord', XK: 'Kosovo', HK: 'Hong Kong', TW: 'Taïwan',
   // AnimalCards : pays emblématiques des espèces, et deux « drapeaux » pour les espèces de partout
-  XO: 'Océans', XW: 'Monde entier', MG: 'Madagascar', ID: 'Indonésie', MY: 'Malaisie', PE: 'Pérou', TZ: 'Tanzanie',
+  XO: 'Océans', XW: 'Plusieurs continents', MG: 'Madagascar', ID: 'Indonésie', MY: 'Malaisie', PE: 'Pérou', TZ: 'Tanzanie',
   NP: 'Népal', PG: 'Papouasie-Nouvelle-Guinée', IS: 'Islande', AQ: 'Antarctique', NA: 'Namibie', RW: 'Rwanda',
   LK: 'Sri Lanka', MU: 'Maurice', SC: 'Seychelles', GL: 'Groenland', GT: 'Guatemala', CU: 'Cuba', CR: 'Costa Rica',
   TR: 'Turquie', SY: 'Syrie', SD: 'Soudan', LR: 'Liberia', FJ: 'Fidji', IL: 'Israël', CL: 'Chili', EC: 'Équateur',
@@ -899,7 +899,7 @@ const FLAGS: Record<string, () => ReactNode> = {
       <path d="M0,7.5 Q3.75,5 7.5,7.5 T15,7.5 T22.5,7.5 T30,7.5 M0,13.5 Q3.75,11 7.5,13.5 T15,13.5 T22.5,13.5 T30,13.5" stroke="#8FD3FF" strokeWidth={1.4} fill="none" />
     </>
   ),
-  // monde entier : les espèces présentes partout
+  // plusieurs continents : les espèces présentes sur plusieurs continents (le chat, le loup…)
   XW: () => (
     <>
       <rect width={30} height={20} fill="#123A5C" />
