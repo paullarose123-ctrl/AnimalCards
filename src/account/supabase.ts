@@ -16,6 +16,8 @@ export interface Session {
 
 export interface PublicProfile {
   pseudo: string;
+  /** espèce dont la photo sert de photo de profil (vide : l'initiale du pseudo) */
+  avatar: string;
   favorites: CardFace[];
   updatedAt: string;
 }
@@ -144,22 +146,29 @@ export async function storeSave(session: Session, data: unknown, keepalive = fal
   });
 }
 
-export async function storeProfile(session: Session, favorites: CardFace[]): Promise<void> {
-  await call('/rest/v1/profiles?on_conflict=id', {
-    method: 'POST',
-    token: session.accessToken,
-    prefer: 'resolution=merge-duplicates,return=minimal',
-    body: { id: session.userId, pseudo: session.pseudo, favorites, updated_at: new Date().toISOString() },
-  });
+export async function storeProfile(session: Session, favorites: CardFace[], avatar: string): Promise<void> {
+  const send = (extra: Record<string, unknown>) =>
+    call('/rest/v1/profiles?on_conflict=id', {
+      method: 'POST',
+      token: session.accessToken,
+      prefer: 'resolution=merge-duplicates,return=minimal',
+      body: { id: session.userId, pseudo: session.pseudo, favorites, updated_at: new Date().toISOString(), ...extra },
+    });
+  try {
+    await send({ avatar });
+  } catch {
+    // base créée avant la photo de profil (colonne « avatar » absente) : le reste du profil part quand même
+    await send({});
+  }
 }
 
 /** Le profil public d'un joueur, d'après son pseudo (sans tenir compte des majuscules). */
 export async function findProfile(pseudo: string): Promise<PublicProfile | null> {
   if (pseudoProblem(pseudo)) return null;
   // ilike ignore les majuscules ; « _ » y est un joker, d'où la vérification exacte ensuite
-  const rows = await call<Array<{ pseudo: string; favorites: CardFace[]; updated_at: string }>>(
-    `/rest/v1/profiles?select=pseudo,favorites,updated_at&pseudo=ilike.${encodeURIComponent(pseudo)}&limit=10`,
+  const rows = await call<Array<{ pseudo: string; favorites: CardFace[]; avatar?: string | null; updated_at: string }>>(
+    `/rest/v1/profiles?select=*&pseudo=ilike.${encodeURIComponent(pseudo)}&limit=10`,
   );
   const row = rows.find((r) => r.pseudo.toLowerCase() === pseudo.toLowerCase());
-  return row ? { pseudo: row.pseudo, favorites: Array.isArray(row.favorites) ? row.favorites : [], updatedAt: row.updated_at } : null;
+  return row ? { pseudo: row.pseudo, avatar: row.avatar ?? '', favorites: Array.isArray(row.favorites) ? row.favorites : [], updatedAt: row.updated_at } : null;
 }

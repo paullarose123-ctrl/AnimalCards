@@ -100,7 +100,7 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 ### Comptes et profil
 
 - Un compte se crée avec un pseudo et un mot de passe (écran Profil, bouton en haut à droite). Toute la progression est alors sauvegardée dans le compte (au plus toutes les 30 secondes quand elle change, et à la fermeture de l’onglet) et rechargée à la connexion, sur n’importe quel appareil. Sans compte, la partie reste dans le navigateur.
-- Le profil montre une vitrine de 5 cartes préférées, que les autres joueurs peuvent voir en cherchant le pseudo.
+- Le profil montre une photo de profil (la photo d’un animal déjà découvert) et une vitrine de 5 cartes préférées, que les autres joueurs peuvent voir en cherchant le pseudo.
 - Les comptes passent par Supabase (`src/account`) : tables et règles de sécurité dans `supabase/schema.sql` (chaque joueur ne lit et ne modifie que sa propre sauvegarde), adresse du projet et clé publique dans `src/account/config.ts`. Le pseudo devient une adresse fictive (`pseudo@joueurs.animalcards.app`), d’où la confirmation par e-mail coupée dans le projet Supabase.
 
 ## Organisation du code

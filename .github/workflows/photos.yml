@@ -1,6 +1,6 @@
 # Télécharge des photos d'animaux depuis Wikimedia Commons (licences libres) et les ajoute au jeu.
 # À lancer à la main : onglet Actions → « Photos des animaux » → Run workflow. Par défaut, les races de chien
-# qui n'ont pas encore de photo. Le site est ensuite remis en ligne avec les nouvelles photos.
+# beagle et greyhound et les cartes Habitat. Le site est ensuite remis en ligne avec les nouvelles photos.
 name: Photos des animaux
 
 on:
@@ -8,7 +8,7 @@ on:
     inputs:
       seulement:
         description: Identifiants des animaux, séparés par des virgules
-        default: berger-allemand,labrador,husky,akita,saint-bernard,border-collie,chihuahua,dalmatien,caniche,beagle,greyhound
+        default: beagle,greyhound,habitat-amazonie,habitat-grande-barriere,habitat-galapagos,habitat-serengeti,habitat-antarctique,habitat-banquise,habitat-himalaya,habitat-madagascar,habitat-borneo,habitat-congo,habitat-yellowstone,habitat-sundarbans,habitat-mariannes,habitat-pantanal,habitat-okavango,habitat-outback,habitat-sahara,habitat-taiga,habitat-patagonie,habitat-camargue,habitat-bialowieza,habitat-everglades,habitat-monteverde,habitat-tasmanie,habitat-gobi,habitat-sargasses
 
 permissions:
   contents: write
@@ -34,7 +34,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/photos src/data/photos.json
           if git diff --cached --quiet; then echo "Aucune nouvelle photo"; exit 0; fi
-          git commit -m "Photos : ${{ inputs.seulement }}"
+          git commit -m "Photos des animaux et des habitats"
           git push
           # un envoi fait par ce robot ne relance pas la mise en ligne tout seul : on la demande
           gh workflow run pages.yml --ref "${GITHUB_REF_NAME}"

@@ -155,7 +155,7 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
     locked ? 'is-locked' : '',
     tilt ? 'has-tilt' : '',
     onClick ? 'is-clickable' : '',
-    habitat ? 'has-landscape' : showPhoto ? (photo.cutout ? 'has-cutout' : 'has-photo') : 'has-bust',
+    showPhoto ? (photo.cutout ? 'has-cutout' : 'has-photo') : habitat ? 'has-landscape' : 'has-bust',
     className,
   ]
     .filter(Boolean)
@@ -193,7 +193,8 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
         <div className="card__window">
           <div className="card__scene" />
           <div className="card__player">
-            {habitat ? (
+            {habitat && !showPhoto ? (
+              // en attendant sa photo, un Habitat montre son paysage peint
               <PackScene scene={habitat.scene} seed={athlete.id} className="card__landscape" shade={false} />
             ) : showPhoto ? (
               <img className="card__photo" src={photo.src} alt="" loading="lazy" decoding="async" draggable={false} onError={() => setPhotoFailed(true)} />

@@ -5009,23 +5009,6 @@
   border-color: var(--accent);
 }
 
-.chip__avatar {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-2), var(--accent));
-  color: var(--accent-ink);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-}
-
-.chip--profile.is-guest .chip__avatar {
-  background: var(--bg-4);
-  color: var(--accent-text);
-}
-
 .chip__pseudo {
   max-width: 12ch;
   overflow: hidden;
@@ -5261,4 +5244,119 @@
 .clash__power--record {
   font-size: clamp(1.6rem, 6vw, 2.4rem);
   text-align: center;
+}
+
+/* ───────────── Photo de profil ───────────── */
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: var(--accent-ink);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  box-shadow: 0 0 0 1.5px rgba(255, 248, 236, 0.35);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar svg {
+  width: 62%;
+  height: 62%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.avatar--big {
+  width: 96px;
+  height: 96px;
+  font-size: 2.6rem;
+  box-shadow: 0 0 0 3px rgba(255, 248, 236, 0.6), 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.avatar--player {
+  width: 56px;
+  height: 56px;
+  font-size: 1.6rem;
+}
+
+.profile-id {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-id__photo {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-id__photo span.profile-id__edit {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 14px;
+}
+
+.avatar-grid button {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 6px 2px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  line-height: 1.15;
+  text-align: center;
+  cursor: pointer;
+}
+
+.avatar-grid button:hover,
+.avatar-grid button.is-active {
+  background: var(--bg-3);
+  color: var(--text);
+}
+
+.avatar-grid .avatar {
+  width: 64px;
+  height: 64px;
+}
+
+.avatar-grid button.is-active .avatar {
+  box-shadow: 0 0 0 3px var(--accent-text);
+}
+
+.player__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }

@@ -5,6 +5,8 @@ create table if not exists public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   pseudo text not null check (pseudo ~ '^[A-Za-z0-9_-]{3,20}$'),
   favorites jsonb not null default '[]'::jsonb,
+  -- photo de profil : identifiant de l'espèce choisie
+  avatar text,
   updated_at timestamptz not null default now()
 );
 create unique index if not exists profiles_pseudo_unique on public.profiles (lower(pseudo));
@@ -30,3 +32,6 @@ create policy "Chacun modifie sa sauvegarde" on public.saves for update using ((
 grant select on public.profiles to anon, authenticated;
 grant insert, update on public.profiles to authenticated;
 grant select, insert, update on public.saves to authenticated;
+
+-- Mise à jour pour une base créée avant la photo de profil :
+alter table public.profiles add column if not exists avatar text;

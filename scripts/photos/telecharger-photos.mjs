@@ -5,7 +5,7 @@
 //   node scripts/photos/telecharger-photos.mjs finaliser
 //   node scripts/photos/telecharger-photos.mjs recadrer [--seulement lion,tigre]   (après un changement de cadrage)
 //
-// Étape « telecharger » : pour chaque espèce (et chaque carte Mythe), prend la première photo libre de Commons
+// Étape « telecharger » : pour chaque espèce (et chaque carte Habitat), prend la première photo libre de Commons
 // parmi l'image principale de sa page Wikipédia en français (titre imposé dans titres.json, sinon nom scientifique,
 // sinon nom commun), celle de sa page en anglais, puis son image Wikidata. Une photo choisie à la main dans
 // choix.json (éventuellement recadrée) passe avant tout ; celles listées dans refus.json sont ignorées
@@ -203,7 +203,7 @@ async function json(url) {
 /** Espèces et cartes Mythe de la base (src/data/athletes.ts), les plus célèbres d'abord. */
 async function readAnimals() {
   const { ATHLETES } = await import(pathToFileURL(path('src/data/athletes.ts')).href);
-  return ATHLETES.map((a) => ({ id: a.id, name: a.last, latin: a.latin, sport: a.sport, fame: a.fame, mythe: !!a.mythe })).sort((a, b) => b.fame - a.fame);
+  return ATHLETES.map((a) => ({ id: a.id, name: a.last, latin: a.latin, sport: a.sport, fame: a.fame, mythe: false })).sort((a, b) => b.fame - a.fame);
 }
 
 /** Nom de fichier Commons d'une page de crédit (https://commons.wikimedia.org/wiki/File:…). */
