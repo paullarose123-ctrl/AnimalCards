@@ -10,7 +10,7 @@ import { PackArt } from '../components/PackArt';
 import { Landscape } from '../components/PackScene';
 import { HERO_SCENE } from '../art/scenes';
 import { Card } from '../components/Card';
-import { CardBack } from '../components/CardBack';
+import { CardBackMexique } from '../components/CardBackMexique';
 import { NEXT_SERIES, SERIES } from '../engine/packs';
 import { Balles } from '../components/Balles';
 import { sfx } from '../audio/sfx';
@@ -132,16 +132,16 @@ function ExpansionBanner() {
           ))}
         </ol>
       </div>
+      {/* les dos de cartes de la prochaine série : le Mexique */}
       <div className="expansion__teaser" aria-hidden="true">
         <div className="expansion__card expansion__card--1">
-          <CardBack />
+          <CardBackMexique />
         </div>
         <div className="expansion__card expansion__card--2">
-          <CardBack />
+          <CardBackMexique />
         </div>
         <div className="expansion__card expansion__card--3">
-          <CardBack />
-          <span className="expansion__mystery">?</span>
+          <CardBackMexique />
         </div>
       </div>
     </section>
