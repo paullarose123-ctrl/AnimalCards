@@ -29,7 +29,11 @@
   "author": "Azurfrog",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Male_Akita_Inu.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Male_Akita_Inu.jpg",
+  "brut": [
+   1800,
+   1343
+  ]
  },
  "albatros": {
   "file": "albatros.webp",
@@ -1421,7 +1425,11 @@
   "author": "AngMoKio",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Greyhound_Racing_2_amk.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Greyhound_Racing_2_amk.jpg",
+  "brut": [
+   1800,
+   1009
+  ]
  },
  "grizzly-de-californie": {
   "file": "grizzly-de-californie.webp",
@@ -3333,7 +3341,11 @@
   "author": "DoggenClub",
   "license": "CC0",
   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Saint_Bernard.png"
+  "page": "https://commons.wikimedia.org/wiki/File:Saint_Bernard.png",
+  "brut": [
+   926,
+   926
+  ]
  },
  "salamandre": {
   "file": "salamandre.webp",
