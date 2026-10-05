@@ -77,7 +77,7 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 
 - Séries : la Série 1 « Animaux du monde » (le booster gratuit porte ce nom) réunit des espèces de toute la planète ; les séries suivantes seront consacrées chacune à un pays. Une nouvelle extension chaque mois : l’accueil annonce la série en cours, la prochaine (le 1er du mois suivant, avec compte à rebours) et la suivante. Nom de la série en cours : `SERIES` dans `src/engine/packs.ts`.
 
-- Un booster gratuit toutes les 10 minutes, jusqu’à 10 en réserve.
+- Un booster gratuit toutes les 30 minutes, jusqu’à 5 en réserve.
 - Pas de doublon rapproché : une espèce sortie dans un booster ne peut pas ressortir avant 7 boosters (ni deux fois dans le même). Seuls les petits packs de famille relâchent cette règle quand il ne reste plus d’espèce disponible dans la rareté tirée.
 - Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (1 seule carte, toujours une Icône : le pack le plus cher, 600 000 crédits), Prime (1 individu célèbre garanti, 250 000 crédits), Légende (1 Légendaire garantie) et un pack par famille (4 000 crédits ; pas de pack Préhistoire, ses espèces sont des Icônes). Les chances sont affichées sur chaque pack.
 - Les Icônes sont les cartes les plus rares : hors du Pack Icônes, environ 1 carte sur 1 000 seulement (jamais à la place de la carte garantie), et elles passent très rarement sur le marché. Une Icône vaut au moins 100 000 crédits (dix fois la cote de sa rareté).

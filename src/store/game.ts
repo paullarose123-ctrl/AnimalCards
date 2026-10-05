@@ -19,12 +19,12 @@ import {
 import { TEAM_SIZE, autoTeamFrom, canDuel, createDuel, duelResult, playDuelRound, rewardFor, type DuelState } from '../engine/duel';
 import { makeUid } from '../engine/random';
 
-export const FREE_PACK_INTERVAL = 10 * 60_000;
+export const FREE_PACK_INTERVAL = 30 * 60_000;
 /** nombre de cartes de la vitrine du profil */
 export const FAVORITES_SIZE = 5;
 /** nom de la sauvegarde dans le stockage du navigateur */
 const SAVE_NAME = 'animalcards-save';
-export const MAX_FREE_PACKS = 10;
+export const MAX_FREE_PACKS = 5;
 export const START_BALLES = 5_000;
 /** solde affiché « ∞ » quand les crédits illimités sont activées */
 export const UNLIMITED_BALLES = 99_999_999_999;
