@@ -132,7 +132,7 @@ function ExpansionBanner() {
           ))}
         </ol>
       </div>
-      {/* les dos de cartes de la prochaine série : le Mexique */}
+      {/* les dos de cartes de la prochaine série (le Mexique) ; celle du milieu garde son mystère */}
       <div className="expansion__teaser" aria-hidden="true">
         <div className="expansion__card expansion__card--1">
           <CardBackMexique />
@@ -142,6 +142,7 @@ function ExpansionBanner() {
         </div>
         <div className="expansion__card expansion__card--3">
           <CardBackMexique />
+          <span className="expansion__mystery">?</span>
         </div>
       </div>
     </section>

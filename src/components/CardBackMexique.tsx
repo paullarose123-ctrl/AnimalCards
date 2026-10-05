@@ -6,11 +6,11 @@ import { Logo } from './Logo';
 // Dos des cartes de la Série 2 (Mexique), dans le langage du dos de la série 1 : la même affiche de crépuscule,
 // au Mexique. Le soleil se couche derrière la pyramide du Soleil de Teotihuacan, entre le Popocatépetl qui fume
 // et l'Iztaccíhuatl enneigé ; un aigle royal plane au-dessus de rangées d'agaves, de nopals et de cardons.
-// Couleurs du drapeau : ciel vert profond, soleil blanc, terres rouges.
+// Couleurs du drapeau : ciel du vert du drapeau mexicain, soleil blanc, terres rouges.
 // Repère 100 × 140 (les proportions de la carte). Le dessin ne change jamais : il est tracé une seule fois.
 
 const W = 100;
-const SKY = ['#0b3f2c', '#f7e3c2'];
+const SKY = ['#006847', '#f7e3c2'];
 const SUN = '#fff8ea';
 const FAR = '#c9473d';
 const NEAR = '#170807';

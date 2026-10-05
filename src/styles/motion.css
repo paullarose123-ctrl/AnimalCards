@@ -1052,7 +1052,7 @@ h3 {
   }
 }
 
-/* trois dos de cartes de la prochaine série ; celle du milieu flotte et accroche la lumière */
+/* trois dos de cartes de la prochaine série ; celle du milieu flotte, accroche la lumière et garde un « ? » */
 .expansion__teaser {
   position: relative;
   justify-self: center;
@@ -1096,6 +1096,17 @@ h3 {
   background-size: 250% 100%;
   animation: teaser-shine 3.2s ease-in-out infinite;
   pointer-events: none;
+}
+
+.expansion__mystery {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  color: #fff8ec;
+  text-shadow: 0 0 18px rgba(185, 139, 255, 0.95), 0 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 @keyframes teaser-float {
