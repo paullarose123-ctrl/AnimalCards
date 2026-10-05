@@ -1160,7 +1160,7 @@
   left: 10%;
   right: 7%;
   bottom: 15.4%;
-  font-family: var(--font-display);
+  font-family: var(--font-card);
   font-style: italic;
   font-weight: 600;
   font-size: var(--pk-title);
@@ -4570,7 +4570,7 @@
 
 .card-stats__latin {
   margin: -2px 0 0;
-  font-family: var(--font-display);
+  font-family: var(--font-card);
   font-style: italic;
   color: var(--text-dim);
 }

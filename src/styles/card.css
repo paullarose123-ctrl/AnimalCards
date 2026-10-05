@@ -651,7 +651,7 @@
   height: 5.6%;
   display: grid;
   place-items: center;
-  font-family: var(--font-display);
+  font-family: var(--font-card);
   font-weight: 700;
   font-size: 1.95em;
   line-height: 0.85;
@@ -733,7 +733,7 @@
 .card__rating b {
   position: relative;
   margin-top: 0.12em;
-  font-family: var(--font-display);
+  font-family: var(--font-card);
   font-weight: 700;
   font-size: 1.62em;
   line-height: 1;
@@ -904,7 +904,7 @@
 
 .card__name {
   max-width: 100%;
-  font-family: var(--font-display);
+  font-family: var(--font-card);
   font-weight: 600;
   line-height: 1.15;
   padding-right: 0.1em;
@@ -945,7 +945,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: var(--font-display);
+  font-family: var(--font-card);
   font-style: italic;
   font-weight: 600;
   font-size: 0.86em;
@@ -1115,7 +1115,7 @@
   text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-family: var(--font-display);
+  font-family: var(--font-card);
   font-style: italic;
   font-size: 0.68em;
   letter-spacing: 0.02em;

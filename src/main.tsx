@@ -4,6 +4,7 @@ import './styles/fonts.css';
 import './styles/base.css';
 import './styles/card.css';
 import './styles/app.css';
+import './styles/motion.css';
 import { App } from './App';
 import { AllCards, Gallery } from './dev/Gallery';
 import { useGame } from './store/game';
