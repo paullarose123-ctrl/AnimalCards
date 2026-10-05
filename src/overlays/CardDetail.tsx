@@ -43,7 +43,7 @@ function Sparkline({ points }: { points: Array<{ t: number; price: number }> }) 
   const [lx, ly] = coords[coords.length - 1];
   const up = prices[prices.length - 1] >= prices[0];
   return (
-    <svg className={`sparkline ${up ? 'is-up' : 'is-down'}`} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" role="img" aria-label={`Cote sur 24 heures, de ${min.toLocaleString('fr-FR')} à ${max.toLocaleString('fr-FR')} graines`}>
+    <svg className={`sparkline ${up ? 'is-up' : 'is-down'}`} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" role="img" aria-label={`Cote sur 24 heures, de ${min.toLocaleString('fr-FR')} à ${max.toLocaleString('fr-FR')} crédits`}>
       <line x1={0} y1={h - 6} x2={w} y2={h - 6} className="sparkline__base" />
       <path d={area} className="sparkline__area" />
       <path d={line} className="sparkline__line" />
@@ -106,7 +106,7 @@ function OnlineSellForm({ card, onDone }: { card: OwnedCard; onDone: () => void 
       </p>
       {invalid && (
         <p className="error-text" role="alert">
-          Choisis un prix entre 10 et 100 000 000 graines.
+          Choisis un prix entre 10 et 100 000 000 crédits.
         </p>
       )}
       <div className="sell-form__actions">
@@ -221,7 +221,7 @@ function SellForm({ card, onDone }: { card: OwnedCard; onDone: () => void }) {
         <p className="error-text" role="alert">
           {buyNow <= start
             ? 'Le prix d’achat immédiat doit être supérieur à l’enchère de départ.'
-            : `Choisis un prix entre ${bounds.min.toLocaleString('fr-FR')} et ${bounds.max.toLocaleString('fr-FR')} graines.`}
+            : `Choisis un prix entre ${bounds.min.toLocaleString('fr-FR')} et ${bounds.max.toLocaleString('fr-FR')} crédits.`}
         </p>
       )}
       <div className="sell-form__actions">

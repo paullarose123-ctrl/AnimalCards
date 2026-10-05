@@ -132,11 +132,11 @@ export const useOnline = create<OnlineState>()((set, get) => ({
       return false;
     }
     if (game.unlimited) {
-      game.toast('error', 'Les graines illimitées sont un mode de test : coupe-les pour acheter aux autres joueurs.');
+      game.toast('error', 'Les crédits illimités sont un mode de test : coupe-les pour acheter aux autres joueurs.');
       return false;
     }
     if (game.balles < listing.price) {
-      game.toast('error', `Il te manque ${(listing.price - game.balles).toLocaleString('fr-FR')} graines`);
+      game.toast('error', `Il te manque ${(listing.price - game.balles).toLocaleString('fr-FR')} crédits`);
       return false;
     }
     set({ pending: listing.id });

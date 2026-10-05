@@ -21,6 +21,7 @@ export const COUNTRY_NAMES: Record<string, string> = {
   LK: 'Sri Lanka', MU: 'Maurice', SC: 'Seychelles', GL: 'Groenland', GT: 'Guatemala', CU: 'Cuba', CR: 'Costa Rica',
   TR: 'Turquie', SY: 'Syrie', SD: 'Soudan', LR: 'Liberia', FJ: 'Fidji', IL: 'Israël', CL: 'Chili', EC: 'Équateur',
   GA: 'Gabon', CD: 'RD Congo', TH: 'Thaïlande', MN: 'Mongolie',
+  CG: 'Congo', BD: 'Bangladesh', BO: 'Bolivie', SO: 'Somalie', KM: 'Comores',
 };
 
 let regionNames: Intl.DisplayNames | null | undefined;
@@ -658,6 +659,30 @@ const FLAGS: Record<string, () => ReactNode> = {
       <polygon points="0,0 20,0 0,20" fill="#009543" />
       <polygon points="30,0 30,20 10,20" fill="#DC241F" />
       <path d="M0,20 L20,0 H30 L10,20 Z" fill="#FBDE4A" />
+    </>
+  ),
+  BD: () => (
+    <>
+      <rect width={30} height={20} fill="#006A4E" />
+      <circle cx={13.5} cy={10} r={6} fill="#F42A41" />
+    </>
+  ),
+  BO: () => hStripes(['#D52B1E', '#F9E300', '#007934']),
+  SO: () => (
+    <>
+      <rect width={30} height={20} fill="#4189DD" />
+      <Star cx={15} cy={10.4} r={5.2} fill="#ffffff" />
+    </>
+  ),
+  KM: () => (
+    <>
+      {hStripes(['#FFC61E', '#ffffff', '#CE1126', '#3A75C4'])}
+      <polygon points="0,0 13,10 0,20" fill="#3D8E33" />
+      <circle cx={4.6} cy={10} r={3.4} fill="#ffffff" />
+      <circle cx={5.9} cy={10} r={3} fill="#3D8E33" />
+      {[7, 8.8, 11.2, 13].map((y) => (
+        <Star key={y} cx={7.4} cy={y} r={0.75} fill="#ffffff" />
+      ))}
     </>
   ),
   AE: () => (

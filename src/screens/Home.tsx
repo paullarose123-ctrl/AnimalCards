@@ -88,6 +88,81 @@ function untiltHero(event: PointerEvent<HTMLElement>) {
   event.currentTarget.style.setProperty('--hy', '0deg');
 }
 
+/** Le 1er du mois prochain, à minuit (heure du joueur) : sortie de la prochaine extension. */
+function nextRelease(now: number): Date {
+  const d = new Date(now);
+  return new Date(d.getFullYear(), d.getMonth() + 1, 1);
+}
+
+const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+
+/** Une nouvelle extension chaque mois : la série en cours, la suivante en approche et son compte à rebours. */
+function ExpansionBanner() {
+  const now = useNow(1000);
+  const release = nextRelease(now);
+  const left = Math.max(0, release.getTime() - now);
+  const days = Math.floor(left / 86_400_000);
+  const hours = Math.floor((left % 86_400_000) / 3_600_000);
+  const minutes = Math.floor((left % 3_600_000) / 60_000);
+  const seconds = Math.floor((left % 60_000) / 1000);
+  const current = new Date(now);
+  const timeline = [0, 1, 2].map((offset) => {
+    const month = new Date(current.getFullYear(), current.getMonth() + offset, 1);
+    return { label: MONTHS[month.getMonth()], serie: offset + 1, state: offset === 0 ? 'live' : offset === 1 ? 'next' : 'later' };
+  });
+  const species = ATHLETES.filter((a) => !a.habitat).length;
+  return (
+    <section className="expansion" aria-labelledby="expansion-title">
+      <div className="expansion__glow" aria-hidden="true" />
+      <div className="expansion__text">
+        <p className="eyebrow">Extensions</p>
+        <h2 id="expansion-title">Une nouvelle extension chaque mois</h2>
+        <p className="expansion__sub">
+          La <b>Série 1</b> est disponible : {species} espèces, {ATHLETES.filter((a) => a.habitat).length} Habitats et {ATHLETES.filter((a) => a.retired).length} Icônes. Le 1er de chaque mois, une
+          nouvelle série arrive avec ses espèces, ses Habitats et son booster.
+        </p>
+        <div className="expansion__countdown" aria-label={`Série 2 dans ${days} jours et ${hours} heures`}>
+          <span className="expansion__next">Série 2 · le 1er {MONTHS[release.getMonth()]}</span>
+          <div className="countdown">
+            {[
+              [days, 'jours'],
+              [hours, 'h'],
+              [minutes, 'min'],
+              [seconds, 's'],
+            ].map(([value, unit]) => (
+              <span key={unit} className="countdown__cell">
+                <b>{String(value).padStart(2, '0')}</b>
+                <small>{unit}</small>
+              </span>
+            ))}
+          </div>
+        </div>
+        <ol className="expansion__timeline">
+          {timeline.map((step) => (
+            <li key={step.serie} className={`is-${step.state}`}>
+              <i aria-hidden="true" />
+              <b>Série {step.serie}</b>
+              <span>{step.state === 'live' ? 'disponible' : step.label}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div className="expansion__teaser" aria-hidden="true">
+        <div className="expansion__card expansion__card--1">
+          <CardBack />
+        </div>
+        <div className="expansion__card expansion__card--2">
+          <CardBack />
+        </div>
+        <div className="expansion__card expansion__card--3">
+          <CardBack />
+          <span className="expansion__mystery">?</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FreePackHero() {
   const freePacks = useGame((s) => s.freePacks);
   const nextFreePackAt = useGame((s) => s.nextFreePackAt);
@@ -117,7 +192,7 @@ function FreePackHero() {
           )}
         </h1>
         <p className="hero__sub">
-          Un nouveau booster toutes les 10 minutes, jusqu’à {MAX_FREE_PACKS} en réserve. Plus une espèce est célèbre, plus sa carte est rare.
+          Un nouveau booster toutes les {FREE_PACK_INTERVAL / 60_000} minutes, jusqu’à {MAX_FREE_PACKS} en réserve. Plus une espèce est célèbre, plus sa carte est rare.
         </p>
         <div className="hero__timer" aria-label={full ? 'Réserve pleine' : `Prochain booster dans ${formatDuration(nextFreePackAt - now)}`}>
           <div className="meter">
@@ -297,6 +372,7 @@ export function HomeScreen() {
   return (
     <div className="screen screen--home">
       <FreePackHero />
+      <ExpansionBanner />
       <AccountInvite />
       <div className="grid-2">
         <CollectionSummary />

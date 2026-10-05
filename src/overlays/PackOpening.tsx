@@ -14,6 +14,7 @@ import { Logo } from '../components/Logo';
 import { Flag, countryName } from '../components/Flag';
 import { CardStats } from '../components/CardStats';
 import { SportIcon } from '../components/SportIcon';
+import { RevealFx } from '../components/RevealFx';
 import { Confetti, type ConfettiHandle } from '../components/Confetti';
 import { sfx } from '../audio/sfx';
 import { usePhoto } from '../photos';
@@ -64,19 +65,22 @@ function tierOf(card: CardFace): number {
 function isSpecial(card: CardFace): boolean {
   // les Habitats n'ont pas de révélation « animal » (drapeau, numéro) : ils se retournent sur place
   if (ATHLETES_BY_ID[card.athleteId].habitat) return false;
-  return tierOf(card) >= 3 || card.variant === 'prime';
+  // une Icône (espèce disparue) est la carte la plus rare du jeu : elle a toujours sa grande révélation
+  return tierOf(card) >= 3 || card.variant === 'prime' || isIcon(ATHLETES_BY_ID[card.athleteId]);
 }
 
 function glowOf(card: CardFace): string {
   if (card.variant === 'prime') return '#f2b8cf';
   if (card.variant === 'reverse') return '#e3c6ff';
   if (ATHLETES_BY_ID[card.athleteId].habitat) return '#e9c77b';
+  // Icône : marbre blanc et or
+  if (isIcon(ATHLETES_BY_ID[card.athleteId])) return '#f3dc9a';
   return RARITY_GLOW[rarityOf(ATHLETES_BY_ID[card.athleteId]).id];
 }
 
 function confettiColors(card: CardFace): string[] {
   if (card.variant === 'prime') return ['#f2b8cf', '#f6dc95', '#a8e6d4', '#a0cdd7', '#c9aee8', '#ffffff'];
-  if (tierOf(card) === 4) return ['#ffd76a', '#fff3c4', '#e0a93a', '#ffffff', '#f2b8cf', '#a0cdd7'];
+  if (tierOf(card) === 4 || isIcon(ATHLETES_BY_ID[card.athleteId])) return ['#ffd76a', '#fff3c4', '#e0a93a', '#ffffff', '#f2b8cf', '#a0cdd7'];
   return ['#b994ee', '#e3d2ff', '#f0cf6a', '#a9cf7e', '#ffffff'];
 }
 
@@ -123,11 +127,13 @@ function Walkout({ card, onDone }: { card: CardFace; onDone: () => void }) {
   const [step, setStep] = useState(0);
   const confetti = useRef<ConfettiHandle>(null);
   const prime = card.variant === 'prime';
-  const title = prime ? 'PRIME' : rarity.name.toUpperCase();
+  const icon = isIcon(athlete);
+  const title = prime ? 'PRIME' : icon ? 'ICÔNE' : rarity.name.toUpperCase();
   const photo = usePhoto(athlete);
   const silhouette = photo.src && photo.cutout ? photo.src : null;
   // étapes : 0 drapeau, 1 famille, 2 note, (2.5 silhouette si photo détourée), 3 carte
   const [shadow, setShadow] = useState(false);
+  const fxColors = useMemo(() => [glowOf(card), ...confettiColors(card)], [card]);
 
   useEffect(() => {
     if (step >= 3) return;
@@ -155,11 +161,11 @@ function Walkout({ card, onDone }: { card: CardFace; onDone: () => void }) {
   useEffect(() => {
     if (step === 3) {
       sfx.fanfare();
-      confetti.current?.burst(confettiColors(card), rarity.order === 4 || prime ? 70 : 40);
+      confetti.current?.burst(confettiColors(card), rarity.order === 4 || prime || icon ? 70 : 40);
     } else if (step > 0) {
       sfx.pulse();
     }
-  }, [step, card, prime, rarity.order]);
+  }, [step, card, prime, icon, rarity.order]);
 
   const skip = useCallback(() => {
     if (step < 3) setStep(3);
@@ -177,8 +183,13 @@ function Walkout({ card, onDone }: { card: CardFace; onDone: () => void }) {
     >
       {/* le paysage de la famille apparaît quand la famille est dévoilée */}
       <Landscape className="walkout__scene" scene={packScene('sport', athlete.sport)} seed={`Pack ${SPORTS[athlete.sport].name}`} />
-      <div className="walkout__beams" aria-hidden="true" />
+      {/* étincelles aspirées vers un cœur d'énergie, puis gerbe et braises à la révélation */}
+      <RevealFx phase={step === 3 ? 'burst' : 'charge'} colors={fxColors} intensity={rarity.order === 4 || prime || icon ? 1.5 : 1} />
       <div className="walkout__floor" aria-hidden="true" />
+      {/* à chaque indice, une onde ; à la révélation, un flash blanc et une onde de choc */}
+      <div className="walkout__wave" key={`wave-${step}-${shadow}`} aria-hidden="true" />
+      {step === 3 && <div className="walkout__flash" aria-hidden="true" />}
+      {step === 3 && <div className="walkout__streak" aria-hidden="true" />}
       {step < 3 && (
         <div className="walkout__clue" key={`${step}-${shadow}`}>
           {step === 0 && (
@@ -208,7 +219,10 @@ function Walkout({ card, onDone }: { card: CardFace; onDone: () => void }) {
             {title}
           </p>
           <div className="walkout__body">
-            <Card card={card} size="xl" tilt className="walkout__card" />
+            <div className="walkout__hero">
+              <div className="walkout__aura" aria-hidden="true" />
+              <Card card={card} size="xl" tilt className="walkout__card" />
+            </div>
             {/* lire la fiche ne ferme pas la révélation */}
             <div className="walkout__stats" onClick={(event) => event.stopPropagation()}>
               <CardStats card={card} />

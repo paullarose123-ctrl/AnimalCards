@@ -112,7 +112,10 @@ export function isHabitat(athlete: Athlete): boolean {
 // ───────────── Icônes ─────────────
 // Espèces disparues : un trésor, environ 1 carte sur 200 dans les boosters ordinaires. Seuls le Pack Icônes et le
 // Pack Préhistoire, bien plus chers, n'en contiennent que.
-export const ICON_CHANCE = 0.005;
+export const ICON_CHANCE = 0.001;
+/** Une Icône vaut au moins ICON_MIN_VALUE, et dix fois la valeur de sa rareté. */
+export const ICON_VALUE_MULTIPLIER = 10;
+export const ICON_MIN_VALUE = 100_000;
 
 /** Poids de tirage d'une Icône : le T. rex ou le mammouth (Légende) sortent huit fois moins qu'une Icône commune. */
 export function iconWeight(athlete: Athlete): number {
@@ -133,7 +136,10 @@ export function baseValueOf(athlete: Athlete, variant: Variant = 'base'): number
   const [lo, hi] = scoreSpan(rarity);
   const withinTier = clamp((rarityScore(athlete) - lo) / (hi - lo), 0, 1); // 0 → 1
   const multiplier = variant === 'prime' ? PRIME_VALUE_MULTIPLIER : variant === 'reverse' ? REVERSE_VALUE_MULTIPLIER : 1;
-  const value = rarity.baseValue * (1 + withinTier * 1.5) * multiplier;
+  let value = rarity.baseValue * (1 + withinTier * 1.5);
+  // une Icône (espèce disparue) est la carte la plus rare du jeu : elle vaut une fortune
+  if (isIcon(athlete)) value = Math.max(value * ICON_VALUE_MULTIPLIER, ICON_MIN_VALUE);
+  value *= multiplier;
   // une Prime est un individu unique et célèbre (Hachikō, Dolly…) : elle vaut cher même si son espèce est commune
   return roundPrice(variant === 'prime' ? Math.max(value, PRIME_MIN_VALUE) : value);
 }

@@ -96,7 +96,7 @@ function explain(status: number, data: unknown): string {
     return 'Cette annonce n’est pas valable.';
   }
   if (code === 'PGRST202') return 'Le marché en ligne n’est pas encore activé sur le serveur du jeu.';
-  if (code === '23514') return 'Le prix doit être compris entre 10 et 100 000 000 graines.';
+  if (code === '23514') return 'Le prix doit être compris entre 10 et 100 000 000 crédits.';
   if (code === '23505') return 'Ce pseudo est déjà pris. Choisis-en un autre.';
   if (status === 401 || status === 403) return 'Ta session a expiré. Reconnecte-toi.';
   return 'Le serveur a répondu par une erreur. Réessaie dans un moment.';
