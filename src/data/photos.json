@@ -7,14 +7,6 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/bee-insect-lavender-honey-bee-167789/"
  },
- "aepyornis": {
-  "file": "aepyornis.webp",
-  "cutout": false,
-  "author": "Aepyorner",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Aepyornis_maximus.tif"
- },
  "aigle-royal": {
   "file": "aigle-royal.webp",
   "cutout": false,
@@ -135,6 +127,14 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/illustrations/ai-generated-sauropod-dinosaur-9082674/"
  },
+ "arlequin-de-chiriqui": {
+  "file": "arlequin-de-chiriqui.webp",
+  "cutout": false,
+  "author": "Brian Gratwicke from DC, USA",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Chiriqui_harlequin_frog_-_Atelopus_chiriquiensis.jpg"
+ },
  "atele": {
   "file": "atele.webp",
   "cutout": false,
@@ -142,14 +142,6 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/spider-monkey-monkey-primate-ape-4546438/"
- },
- "aurochs": {
-  "file": "aurochs.webp",
-  "cutout": false,
-  "author": "VP68",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/aurochs-ox-aurochsen-urus-ure-6792372/"
  },
  "autour": {
   "file": "autour.webp",
@@ -191,14 +183,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Chacma_baboon_(Papio_ursinus_griseipes)_female_head_2.jpg"
  },
- "baiji": {
-  "file": "baiji.webp",
-  "cutout": false,
-  "author": "GabruPawPixels",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/dolphin-irrawaddy-dolphin-river-10233824/"
- },
  "balbuzard": {
   "file": "balbuzard.webp",
   "cutout": false,
@@ -229,7 +213,7 @@
   "author": "Vicki Beaver, Alaska Fisheries Science Center, NOAA FIsheries, Marine Mammal Permit#14245",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Bowhead_Whale_NOAA_(cropped).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bowhead_Whale_NOAA.jpg"
  },
  "barracuda": {
   "file": "barracuda.webp",
@@ -338,10 +322,10 @@
  "bouquetin-des-pyrenees": {
   "file": "bouquetin-des-pyrenees.webp",
   "cutout": false,
-  "author": "Adrien_Stachowiak",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/ibex-capra-ibex-horns-alps-animal-9643122/"
+  "author": "raul.iquitos",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Capra-pyrenaica-01-gredos-raul.iquitos.jpg"
  },
  "bourdon": {
   "file": "bourdon.webp",
@@ -438,6 +422,14 @@
   "license": "CC BY-SA 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
   "page": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_male_female_quadrat.jpg"
+ },
+ "canard-des-mariannes": {
+  "file": "canard-des-mariannes.webp",
+  "cutout": false,
+  "author": "Eugene Kridler",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_oustaleti_last_male.jpg"
  },
  "capucin": {
   "file": "capucin.webp",
@@ -879,6 +871,14 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Cygnus_olor,_Brze%C5%BAnica,_20230729_0809_7268.jpg"
  },
+ "cyprinodon-de-catarina": {
+  "file": "cyprinodon-de-catarina.webp",
+  "cutout": false,
+  "author": "Fishspeciation",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Megupsilon_aporus_-_last_male.tif"
+ },
  "dauphin": {
   "file": "dauphin.webp",
   "cutout": false,
@@ -974,14 +974,6 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/illustrations/dinosaur-diplodocus-drinks-8340972/"
- },
- "dodo": {
-  "file": "dodo.webp",
-  "cutout": false,
-  "author": "Bernard DUPONT",
-  "license": "CC BY-SA 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dodo_(Raphus_cucullatus),_model_with_egg.jpg"
  },
  "dragon-de-komodo": {
   "file": "dragon-de-komodo.webp",
@@ -1327,14 +1319,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Flaco_(86944).jpg"
  },
- "grand-pingouin": {
-  "file": "grand-pingouin.webp",
-  "cutout": false,
-  "author": "HeckiMG",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/great-auk-penguin-garefowl-bird-9338054/"
- },
  "grenouille-de-verre": {
   "file": "grenouille-de-verre.webp",
   "cutout": false,
@@ -1474,10 +1458,10 @@
  "hippopotame-nain": {
   "file": "hippopotame-nain.webp",
   "cutout": false,
-  "author": "壽山動物園 Shoushan Zoo",
-  "license": "Attribution",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Pygmy_Hippopotamuses_in_Shoushan_Zoo.jpg"
+  "author": "leekelai",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604021616"
  },
  "hirondelle": {
   "file": "hirondelle.webp",
@@ -1991,6 +1975,14 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/dragonfly-insect-macro-wings-6536606/"
  },
+ "melomys": {
+  "file": "melomys.webp",
+  "cutout": false,
+  "author": "I. Bell",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Melomys_rubicola_2.jpg"
+ },
  "menure": {
   "file": "menure.webp",
   "cutout": false,
@@ -2014,14 +2006,6 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/worms-millipede-centipede-2120866/"
- },
- "moa": {
-  "file": "moa.webp",
-  "cutout": false,
-  "author": "Auteur inconnu",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dinornis_robustus_(AM_LB4361).jpg"
  },
  "moineau": {
   "file": "moineau.webp",
@@ -2378,18 +2362,18 @@
  "nautile": {
   "file": "nautile.webp",
   "cutout": false,
-  "author": "margencero",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/nautilus-aquarium-sea-mollusk-5054128/"
+  "author": "Shaun Low",
+  "license": "Licence Unsplash",
+  "licenseUrl": "https://unsplash.com/license",
+  "page": "https://unsplash.com/photos/Yy2cBOqUN_o"
  },
  "numbat": {
   "file": "numbat.webp",
   "cutout": false,
-  "author": "Greg McKay",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/380430103"
+  "author": "Seashalia",
+  "license": "Licence Pixabay",
+  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
+  "page": "https://pixabay.com/photos/animal-numbat-mammal-species-fauna-4070485/"
  },
  "ocelot": {
   "file": "ocelot.webp",
@@ -2655,6 +2639,14 @@
   "licenseUrl": "",
   "page": "https://commons.wikimedia.org/wiki/File:Bradypus.jpg"
  },
+ "paruline-de-bachman": {
+  "file": "paruline-de-bachman.webp",
+  "cutout": false,
+  "author": "Jerry A. Payne",
+  "license": "CC BY 3.0 us",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:Vermivora_bachmanii.jpg"
+ },
  "pastenague": {
   "file": "pastenague.webp",
   "cutout": false,
@@ -2734,14 +2726,6 @@
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/450633309"
- },
- "phoque-moine-des-caraibes": {
-  "file": "phoque-moine-des-caraibes.webp",
-  "cutout": false,
-  "author": "nicotamari",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/hawaiian-monk-seal-seal-marine-life-5183952/"
  },
  "phyllobate": {
   "file": "phyllobate.webp",
@@ -3047,6 +3031,14 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Agalychnis_callidryas_(eye_detail).jpg"
  },
+ "rainette-de-rabb": {
+  "file": "rainette-de-rabb.webp",
+  "cutout": false,
+  "author": "Brian Gratwicke from DC, USA",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Ecnomiohyla_rabborum.jpg"
+ },
  "rainette-verte": {
   "file": "rainette-verte.webp",
   "cutout": false,
@@ -3247,14 +3239,6 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/animal-rhinoceros-mammal-species-7177008/"
  },
- "rhytine-de-steller": {
-  "file": "rhytine-de-steller.webp",
-  "cutout": false,
-  "author": "KKPCW",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:The_Model_of_Steller%27s_sea_cow_(Hydrodamalis_gigas).jpg"
- },
  "rorqual-commun": {
   "file": "rorqual-commun.webp",
   "cutout": false,
@@ -3318,6 +3302,14 @@
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/555838239"
+ },
+ "scinque-de-christmas": {
+  "file": "scinque-de-christmas.webp",
+  "cutout": false,
+  "author": "Dion Maple",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/67834735"
  },
  "scorpion": {
   "file": "scorpion.webp",
@@ -3514,10 +3506,10 @@
  "thylacine": {
   "file": "thylacine.webp",
   "cutout": false,
-  "author": "Badashphilosophy",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/thylacine-tasmanian-tiger-9295283/"
+  "author": "Unknown author Unknown author",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Thylacine_in_Hobart_Zoo_Australia.webp"
  },
  "tigre": {
   "file": "tigre.webp",
@@ -3526,6 +3518,14 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/"
+ },
+ "tigre-de-java": {
+  "file": "tigre-de-java.webp",
+  "cutout": false,
+  "author": "Andries Hoogerwerf (29 August 1906 – 5 February 1977)",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Panthera_tigris_sondaica_01.jpg"
  },
  "titanoboa": {
   "file": "titanoboa.webp",
@@ -3562,10 +3562,10 @@
  "tortue-de-pinta": {
   "file": "tortue-de-pinta.webp",
   "cutout": false,
-  "author": "epearsoncreations",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/galapagos-tortoises-tortoise-turtle-4068937/"
+  "author": "Peter Wilton",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Lonesome_George_(2009).jpg"
  },
  "tortue-geante": {
   "file": "tortue-geante.webp",
@@ -3594,10 +3594,10 @@
  "tourte-voyageuse": {
   "file": "tourte-voyageuse.webp",
   "cutout": false,
-  "author": "Daderot",
-  "license": "CC0",
-  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Ectopistes_migratorius_-_Fairbanks_Museum_and_Planetarium_-_DSC04222.JPG"
+  "author": "J.G. Hubbard",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Passenger_Pigeon_Profile_View_with_Shadow.jpg"
  },
  "triceratops": {
   "file": "triceratops.webp",

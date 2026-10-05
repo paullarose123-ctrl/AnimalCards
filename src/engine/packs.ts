@@ -85,7 +85,7 @@ export const SHOP_PACKS: PackDef[] = [
   {
     id: 'icones',
     name: 'Pack Icônes',
-    tagline: '3 espèces disparues (dinosaures, dodo, thylacine…), 1 Rare ou mieux garantie',
+    tagline: '3 espèces disparues (dinosaures, thylacine, tigre de Java…), 1 Rare ou mieux garantie',
     price: 60_000,
     size: 3,
     odds: { commune: 25, 'peu-commune': 35, rare: 27, epique: 10, legendaire: 3 },

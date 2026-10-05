@@ -33,6 +33,7 @@ export const MESURES: Record<string, Mesure> = {
   jaguarondi: [6, 1.2, 'L', 10],
   'lynx-pardelle': [13, 1, 'L', 13],
   'chat-rubigineux': [1.4, 0.7, 'L', 12],
+  'tigre-de-java': [120, 2.45, 'L', 15],
 
   // canidés et hyènes
   loup: [45, 1.8, 'L', 13],
@@ -126,7 +127,6 @@ export const MESURES: Record<string, Mesure> = {
   impala: [60, 1.5, 'L', 15],
   chamois: [40, 1.3, 'L', 18],
   springbok: [40, 1.4, 'L', 15],
-  aurochs: [1000, 3, 'L', 20],
   antilocapre: [55, 1.4, 'L', 12],
   'cheval-de-przewalski': [300, 2.2, 'L', 25],
   mouflon: [50, 1.3, 'L', 15],
@@ -177,6 +177,7 @@ export const MESURES: Record<string, Mesure> = {
   loir: [0.15, 0.3, 'L', 7],
   polatouche: [0.13, 0.3, 'L', 6],
   pika: [0.16, 0.2, 'L', 7],
+  melomys: [0.12, 0.32, 'L', null],
 
   // marsupiaux et cousins
   kangourou: [85, 1.8, 'H', 20],
@@ -215,11 +216,8 @@ export const MESURES: Record<string, Mesure> = {
   'phoque-du-groenland': [135, 1.8, 'L', 30],
   'rorqual-commun': [60000, 22, 'L', 90],
   marsouin: [60, 1.7, 'L', 15],
-  baiji: [150, 2.4, 'L', 24],
   'baleine-boreale': [90000, 18, 'L', 200],
-  'rhytine-de-steller': [8000, 8.5, 'L', null],
   'dauphin-de-commerson': [50, 1.5, 'L', 18],
-  'phoque-moine-des-caraibes': [200, 2.4, 'L', 20],
 
   // requins et raies
   'requin-blanc': [1500, 5, 'L', 70],
@@ -264,6 +262,7 @@ export const MESURES: Record<string, Mesure> = {
   'poisson-pierre': [2, 0.4, 'L', 10],
   'poisson-archer': [0.1, 0.25, 'L', 5],
   esturgeon: [300, 3.5, 'L', 100],
+  'cyprinodon-de-catarina': [null, 0.04, 'L', null],
 
   // rapaces
   'aigle-royal': [5, 2.2, 'E', 30],
@@ -295,7 +294,6 @@ export const MESURES: Record<string, Mesure> = {
   corbeau: [1.2, 1.3, 'E', 20],
   paon: [5, 2.2, 'L', 20],
   toucan: [0.7, 0.6, 'L', 20],
-  dodo: [15, 1, 'H', null],
   kiwi: [2.8, 0.45, 'L', 30],
   albatros: [9, 3.5, 'E', 60],
   cygne: [12, 2.3, 'E', 20],
@@ -318,10 +316,9 @@ export const MESURES: Record<string, Mesure> = {
   calao: [3, 1.1, 'L', 40],
   grue: [5.5, 2.2, 'E', 30],
   'tourte-voyageuse': [0.33, 0.4, 'L', null],
-  moa: [230, 3.6, 'H', null],
-  'grand-pingouin': [5, 0.85, 'H', null],
+  'paruline-de-bachman': [0.008, 0.19, 'E', null],
+  'canard-des-mariannes': [1, 0.85, 'E', null],
   menure: [1, 1, 'L', 25],
-  aepyornis: [700, 3, 'H', null],
 
   // reptiles
   'crocodile-du-nil': [500, 4.5, 'L', 70],
@@ -347,6 +344,7 @@ export const MESURES: Record<string, Mesure> = {
   heloderme: [1.5, 0.5, 'L', 20],
   tuatara: [0.5, 0.6, 'L', 100],
   'tortue-de-pinta': [200, 1, 'L', 100],
+  'scinque-de-christmas': [null, 0.17, 'L', null],
   moloch: [0.05, 0.2, 'L', 20],
   'lezard-vert': [0.04, 0.4, 'L', 10],
   couleuvre: [0.24, 1.2, 'L', 20],
@@ -365,6 +363,8 @@ export const MESURES: Record<string, Mesure> = {
   'crapaud-commun': [0.08, 0.15, 'L', 12],
   'grenouille-de-verre': [0.002, 0.03, 'L', 10],
   'crapaud-dore': [0.01, 0.05, 'L', null],
+  'rainette-de-rabb': [null, 0.1, 'L', null],
+  'arlequin-de-chiriqui': [null, 0.05, 'L', null],
   'triton-crete': [0.01, 0.16, 'L', 15],
   protee: [0.02, 0.3, 'L', 100],
   rhacophore: [0.04, 0.1, 'L', 5],

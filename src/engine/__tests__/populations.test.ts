@@ -23,7 +23,7 @@ describe('populations restantes', () => {
   });
 
   it('les espèces disparues sont « Éteint », les Mythes n’ont pas de population', () => {
-    expect(populationOf(ATHLETES_BY_ID['dodo'])).toMatchObject({ value: 'Éteint', extinct: true });
+    expect(populationOf(ATHLETES_BY_ID['thylacine'])).toMatchObject({ value: 'Éteint', extinct: true });
     expect(populationOf(ATHLETES_BY_ID['t-rex'])?.extinct).toBe(true);
     expect(populationOf(ATHLETES_BY_ID['mythe-dragon'])).toBeNull();
     expect(plain(populationOf(ATHLETES_BY_ID['lion'])?.value)).toBe('23 000');

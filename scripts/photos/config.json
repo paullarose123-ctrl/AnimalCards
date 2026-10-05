@@ -3,14 +3,6 @@
   "tout": false,
   "explorer": {},
   "cadrage": {
-    "aepyornis": {
-      "corps": [
-        0.1,
-        0.05,
-        0.95,
-        0.95
-      ]
-    },
     "aigle-royal": {
       "corps": [
         0.3,
@@ -56,6 +48,12 @@
         0.92
       ]
     },
+    "arlequin-de-chiriqui": {
+      "etendre": true,
+      "miroir": true,
+      "fond": "#ffffff",
+      "marge": 0.05
+    },
     "autour": {
       "corps": [
         0.1,
@@ -100,10 +98,10 @@
     },
     "baleine-boreale": {
       "corps": [
-        0.12,
-        0.08,
-        0.75,
-        0.9
+        0.5,
+        0.35,
+        0.85,
+        0.82
       ]
     },
     "basilic": {
@@ -158,6 +156,15 @@
         0.8,
         0.65
       ]
+    },
+    "bouquetin-des-pyrenees": {
+      "corps": [
+        0.27,
+        0.18,
+        0.76,
+        0.75
+      ],
+      "miroir": true
     },
     "brochet": [
       0.62,
@@ -219,6 +226,14 @@
         0.85,
         0.9
       ]
+    },
+    "canard-des-mariannes": {
+      "cadre": [
+        0.53,
+        0.5,
+        1
+      ],
+      "miroir": true
     },
     "capucin": {
       "corps": [
@@ -545,6 +560,11 @@
         0.85
       ]
     },
+    "cyprinodon-de-catarina": {
+      "etendre": true,
+      "fond": "auto",
+      "marge": 0.03
+    },
     "dauphin-de-commerson": {
       "corps": [
         0.25,
@@ -611,14 +631,6 @@
       0.5,
       1
     ],
-    "dodo": {
-      "corps": [
-        0.33,
-        0.1,
-        0.86,
-        0.9
-      ]
-    },
     "dromadaire": {
       "corps": [
         0.1,
@@ -920,10 +932,10 @@
     },
     "hippopotame-nain": {
       "corps": [
-        0.05,
-        0.2,
-        0.95,
-        0.98
+        0.38,
+        0.06,
+        0.72,
+        0.96
       ]
     },
     "hirondelle": {
@@ -1323,19 +1335,16 @@
       0.5,
       1
     ],
+    "melomys": [
+      0.52,
+      0.5,
+      1
+    ],
     "menure": [
       0.72,
       0.5,
       1
     ],
-    "moa": {
-      "corps": [
-        0,
-        0,
-        1,
-        1
-      ]
-    },
     "moloch": {
       "corps": [
         0.1,
@@ -1389,22 +1398,16 @@
         1
       ]
     },
-    "nautile": {
-      "corps": [
-        0.18,
-        0.05,
-        0.7,
-        0.98
-      ]
-    },
-    "numbat": {
-      "corps": [
-        0.18,
-        0.3,
-        0.76,
-        0.82
-      ]
-    },
+    "nautile": [
+      0.47,
+      0.45,
+      1.15
+    ],
+    "numbat": [
+      0.55,
+      0.5,
+      1
+    ],
     "ocelot": {
       "corps": [
         0.05,
@@ -1530,6 +1533,11 @@
         0.75
       ]
     },
+    "paruline-de-bachman": [
+      0.47,
+      0.49,
+      2
+    ],
     "pastenague": {
       "cadre": [
         0.48,
@@ -1591,11 +1599,6 @@
         0.7
       ]
     },
-    "phoque-moine-des-caraibes": [
-      0.42,
-      0.5,
-      1
-    ],
     "phyllobate": {
       "corps": [
         0.25,
@@ -1825,6 +1828,11 @@
         0.97
       ]
     },
+    "rainette-de-rabb": [
+      0.555,
+      0.5,
+      1
+    ],
     "rainette-verte": {
       "corps": [
         0.2,
@@ -1944,14 +1952,11 @@
         0.82
       ]
     },
-    "rhinoceros-de-sumatra": {
-      "corps": [
-        0.26,
-        0.28,
-        0.82,
-        0.95
-      ]
-    },
+    "rhinoceros-de-sumatra": [
+      0.44,
+      0.5,
+      1
+    ],
     "rhinoceros-indien": {
       "corps": [
         0.2,
@@ -1967,15 +1972,6 @@
         0.82,
         0.78
       ]
-    },
-    "rhytine-de-steller": {
-      "corps": [
-        0.3,
-        0.1,
-        0.86,
-        0.95
-      ],
-      "miroir": true
     },
     "rorqual-commun": {
       "corps": [
@@ -2031,6 +2027,14 @@
         0.38,
         0.64,
         0.78
+      ]
+    },
+    "scinque-de-christmas": {
+      "corps": [
+        0.24,
+        0.18,
+        0.67,
+        0.74
       ]
     },
     "scorpion": {
@@ -2163,6 +2167,19 @@
         0.75
       ]
     },
+    "thylacine": [
+      0.66,
+      0.5,
+      1
+    ],
+    "tigre-de-java": {
+      "cadre": [
+        0.63,
+        0.5,
+        1
+      ],
+      "miroir": true
+    },
     "torpille": {
       "corps": [
         0.18,
@@ -2185,12 +2202,12 @@
       ]
     },
     "tortue-de-pinta": {
-      "corps": [
-        0.1,
-        0.02,
-        0.98,
-        0.45
-      ]
+      "cadre": [
+        0.75,
+        0.5,
+        1
+      ],
+      "miroir": true
     },
     "toucan": {
       "corps": [
@@ -2200,14 +2217,11 @@
         0.98
       ]
     },
-    "tourte-voyageuse": {
-      "corps": [
-        0.05,
-        0.25,
-        0.95,
-        0.95
-      ]
-    },
+    "tourte-voyageuse": [
+      0.52,
+      0.52,
+      1.6
+    ],
     "triton-crete": {
       "cadre": [
         0.7,

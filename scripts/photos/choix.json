@@ -4,7 +4,6 @@
     "page": "https://pixabay.com/photos/bee-insect-lavender-honey-bee-167789/",
     "auteur": "Hans"
   },
-  "aepyornis": "Aepyornis maximus.tif",
   "aigle-royal": "016 Wild Golden Eagle in flight at Pfyn-Finges (Switzerland) Photo by Giles Laurent.jpg",
   "albatros": {
     "url": "https://cdn.pixabay.com/photo/2017/04/18/14/23/albatross-2239254_1280.jpg",
@@ -76,15 +75,11 @@
     "page": "https://pixabay.com/illustrations/ai-generated-sauropod-dinosaur-9082674/",
     "auteur": "AiArtista"
   },
+  "arlequin-de-chiriqui": "Chiriqui harlequin frog - Atelopus chiriquiensis.jpg",
   "atele": {
     "url": "https://cdn.pixabay.com/photo/2019/10/13/15/52/spider-monkey-4546438_1280.jpg",
     "page": "https://pixabay.com/photos/spider-monkey-monkey-primate-ape-4546438/",
     "auteur": "Pixabay"
-  },
-  "aurochs": {
-    "url": "https://cdn.pixabay.com/photo/2021/11/13/20/57/aurochs-6792372_1280.jpg",
-    "page": "https://pixabay.com/photos/aurochs-ox-aurochsen-urus-ure-6792372/",
-    "auteur": "VP68"
   },
   "autour": "Poiana interessata.jpg",
   "autruche": {
@@ -102,11 +97,6 @@
     "licenceUrl": "https://unsplash.com/license"
   },
   "babouin": "Chacma baboon (Papio ursinus griseipes) female head 2.jpg",
-  "baiji": {
-    "url": "https://cdn.pixabay.com/photo/2026/04/18/13/01/13-01-19-468_1280.jpg",
-    "page": "https://pixabay.com/photos/dolphin-irrawaddy-dolphin-river-10233824/",
-    "auteur": "GabruPawPixels"
-  },
   "balbuzard": {
     "url": "https://cdn.pixabay.com/photo/2021/06/22/20/10/osprey-6357148_1280.jpg",
     "page": "https://pixabay.com/photos/osprey-bird-raptor-flying-animal-6357148/",
@@ -124,7 +114,7 @@
     "licence": "CC BY-NC 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
-  "baleine-boreale": "Bowhead Whale NOAA (cropped).jpg",
+  "baleine-boreale": "Bowhead Whale NOAA.jpg",
   "barracuda": {
     "url": "https://cdn.pixabay.com/photo/2026/09/26/12/55/12-55-34-82_1280.jpg",
     "page": "https://pixabay.com/photos/barracuda-school-fish-silver-10493422/",
@@ -178,11 +168,7 @@
     "auteur": "erwinbosman"
   },
   "bouquetin": "Israel-2013-Makhtesh Ramon 02 (Ibex).jpg",
-  "bouquetin-des-pyrenees": {
-    "url": "https://cdn.pixabay.com/photo/2025/06/05/14/26/ibex-9643122_1280.jpg",
-    "page": "https://pixabay.com/photos/ibex-capra-ibex-horns-alps-animal-9643122/",
-    "auteur": "Adrien_Stachowiak"
-  },
+  "bouquetin-des-pyrenees": "Capra-pyrenaica-01-gredos-raul.iquitos.jpg",
   "bourdon": {
     "url": "https://cdn.pixabay.com/photo/2017/05/23/22/09/hummel-2338763_1280.jpg",
     "page": "https://pixabay.com/photos/bumblebee-insect-pollen-pollination-2338763/",
@@ -220,6 +206,7 @@
   "calao": "Great Hornbill Goa.jpg",
   "calmar-geant": "Architeuthis dux 68146399.jpg",
   "cameleon": "Furcifer pardalis 004.jpg",
+  "canard-des-mariannes": "Anas platyrhynchos oustaleti last male.jpg",
   "capucin": "Black-striped capuchin (Cebus libidinosus) Pantanal.jpg",
   "capybara": "Hydrochoerus hydrochaeris 188912237.jpg",
   "caracal": {
@@ -383,6 +370,7 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "cygne": "Cygnus olor, Brzeźnica, 20230729 0809 7268.jpg",
+  "cyprinodon-de-catarina": "Megupsilon aporus - last male.tif",
   "dauphin": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/203547729/original.jpg",
     "page": "https://www.inaturalist.org/photos/203547729",
@@ -427,7 +415,6 @@
     "page": "https://pixabay.com/illustrations/dinosaur-diplodocus-drinks-8340972/",
     "auteur": "a_scarcy"
   },
-  "dodo": "Dodo (Raphus cucullatus), model with egg.jpg",
   "dragon-de-komodo": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1892238/original.jpg",
     "page": "https://www.inaturalist.org/photos/1892238",
@@ -599,11 +586,6 @@
     "auteur": "Sponchia"
   },
   "grand-duc": "Flaco (86944).jpg",
-  "grand-pingouin": {
-    "url": "https://cdn.pixabay.com/photo/2025/01/16/17/31/great-auk-9338054_1280.jpg",
-    "page": "https://pixabay.com/illustrations/great-auk-penguin-garefowl-bird-9338054/",
-    "auteur": "HeckiMG"
-  },
   "grenouille-de-verre": "Glass frog (Centrolenidae) in Mindo (Ecuador) (21090206496).jpg",
   "grenouille-goliath": "Conraua goliath photo from iNaturalist 539752953.jpg",
   "grenouille-verte": {
@@ -655,7 +637,13 @@
     "licence": "Licence Unsplash",
     "licenceUrl": "https://unsplash.com/license"
   },
-  "hippopotame-nain": "Pygmy Hippopotamuses in Shoushan Zoo.jpg",
+  "hippopotame-nain": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/604021616/original.jpg",
+    "page": "https://www.inaturalist.org/photos/604021616",
+    "auteur": "leekelai",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
   "hirondelle": "Barn swallow in Montezuma (14460).jpg",
   "homard": "Homarus gammarus 03.JPG",
   "hyene": "Hiena manchada (Crocuta crocuta), parque nacional de Tarangire, Tanzania, 2024-05-25, DD 24.jpg",
@@ -856,6 +844,7 @@
     "page": "https://pixabay.com/photos/dragonfly-insect-macro-wings-6536606/",
     "auteur": "DjordjeR1982"
   },
+  "melomys": "Melomys rubicola 2.jpg",
   "menure": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/108961003/original.jpg",
     "page": "https://www.inaturalist.org/photos/108961003",
@@ -873,7 +862,6 @@
     "page": "https://pixabay.com/photos/worms-millipede-centipede-2120866/",
     "auteur": "makamuki0"
   },
-  "moa": "Dinornis robustus (AM LB4361).jpg",
   "moineau": {
     "url": "https://cdn.pixabay.com/photo/2017/06/15/10/43/sparrow-2404824_1280.jpg",
     "page": "https://pixabay.com/photos/sparrow-sperling-house-sparrow-bird-2404824/",
@@ -1073,16 +1061,16 @@
   },
   "nasique": "Chill bekantan.jpg",
   "nautile": {
-    "url": "https://cdn.pixabay.com/photo/2020/04/17/10/26/nautilus-5054128_1280.jpg",
-    "page": "https://pixabay.com/photos/nautilus-aquarium-sea-mollusk-5054128/",
-    "auteur": "margencero"
+    "url": "https://images.unsplash.com/photo-1514906438676-20da14bb8dad?ixlib=rb-4.1.0&w=2400&q=90&fm=jpg",
+    "page": "https://unsplash.com/photos/Yy2cBOqUN_o",
+    "auteur": "Shaun Low",
+    "licence": "Licence Unsplash",
+    "licenceUrl": "https://unsplash.com/license"
   },
   "numbat": {
-    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/380430103/original.jpg",
-    "page": "https://www.inaturalist.org/photos/380430103",
-    "auteur": "Greg McKay",
-    "licence": "CC BY-NC 4.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
+    "url": "https://cdn.pixabay.com/photo/2019/03/21/08/32/animal-4070485_1280.jpg",
+    "page": "https://pixabay.com/photos/animal-numbat-mammal-species-fauna-4070485/",
+    "auteur": "Seashalia"
   },
   "ocelot": "081 Ocelot in Encontro das Águas State Park Photo by Giles Laurent.jpg",
   "oie": "Domestic Goose.jpg",
@@ -1209,6 +1197,7 @@
   "paradisier": "Red Bird-of-Paradise 0A2A2853.jpg",
   "paraponera": "Paraponera clavata.jpg",
   "paresseux": "Bradypus.jpg",
+  "paruline-de-bachman": "Vermivora bachmanii.jpg",
   "pastenague": "Raya pelágica (Pteroplatytrygon violacea), Cabo de Palos, España, 2022-07-16, DD 69.jpg",
   "peau-bleue": "Tiburón azul (Prionace glauca), canal Fayal-Pico, islas Azores, Portugal, 2020-07-27, DD 21.jpg",
   "pelican": "Great white pelican (Pelecanus onocrotalus).jpg",
@@ -1240,11 +1229,6 @@
     "auteur": "IanLJones",
     "licence": "CC BY-NC 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
-  },
-  "phoque-moine-des-caraibes": {
-    "url": "https://cdn.pixabay.com/photo/2020/05/18/00/17/hawaiian-monk-seal-5183952_1280.jpg",
-    "page": "https://pixabay.com/photos/hawaiian-monk-seal-seal-marine-life-5183952/",
-    "auteur": "nicotamari"
   },
   "pic-vert": "Жовна зелена (Picus viridis).jpg",
   "pie": "Urraca (Pica pica), Almuradiel, Ciudad Real, España, 2021-12-19, DD 04.jpg",
@@ -1351,6 +1335,7 @@
   "quoll": "Tiger Quoll 6178.jpg",
   "raie-manta": "2015 01 Koh Lanta 27 entering cleaning station (16422545698).jpg",
   "rainette-aux-yeux-rouges": "Agalychnis callidryas (eye detail).jpg",
+  "rainette-de-rabb": "Ecnomiohyla rabborum.jpg",
   "rainette-verte": "European tree frog (Hyla arborea) Extremadura.jpg",
   "rat": {
     "url": "https://cdn.pixabay.com/photo/2026/01/20/21/58/rodent-10079153_1280.jpg",
@@ -1456,7 +1441,6 @@
     "page": "https://pixabay.com/photos/animal-rhinoceros-mammal-species-7177008/",
     "auteur": "garethdoc"
   },
-  "rhytine-de-steller": "The Model of Steller's sea cow (Hydrodamalis gigas).jpg",
   "rorqual-commun": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/214218386/original.jpg",
     "page": "https://www.inaturalist.org/photos/214218386",
@@ -1483,6 +1467,13 @@
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/555838239/original.jpg",
     "page": "https://www.inaturalist.org/photos/555838239",
     "auteur": "v_moss",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  "scinque-de-christmas": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67834735/original.jpeg",
+    "page": "https://www.inaturalist.org/photos/67834735",
+    "auteur": "Dion Maple",
     "licence": "CC BY-NC 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
@@ -1565,16 +1556,13 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "thon-rouge": "Group of tuna.jpg",
-  "thylacine": {
-    "url": "https://cdn.pixabay.com/photo/2024/12/28/06/17/thylacine-9295283_1280.png",
-    "page": "https://pixabay.com/illustrations/thylacine-tasmanian-tiger-9295283/",
-    "auteur": "Badashphilosophy"
-  },
+  "thylacine": "Thylacine in Hobart Zoo Australia.webp",
   "tigre": {
     "url": "https://cdn.pixabay.com/photo/2016/11/23/01/15/tiger-1851653_1280.jpg",
     "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/",
     "auteur": "Pexels"
   },
+  "tigre-de-java": "Panthera tigris sondaica 01.jpg",
   "titanoboa": {
     "url": "https://cdn.pixabay.com/photo/2024/04/16/16/53/ai-generated-8700431_1280.jpg",
     "page": "https://pixabay.com/illustrations/ai-generated-snake-reptile-animal-8700431/",
@@ -1588,11 +1576,7 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "tortue-alligator": "Alligator Snapping Turtle (Macrochelys temminckii) (35856633000).jpg",
-  "tortue-de-pinta": {
-    "url": "https://cdn.pixabay.com/photo/2019/03/20/16/39/galapagos-tortoises-4068937_1280.jpg",
-    "page": "https://pixabay.com/photos/galapagos-tortoises-tortoise-turtle-4068937/",
-    "auteur": "epearsoncreations"
-  },
+  "tortue-de-pinta": "Lonesome George (2009).jpg",
   "tortue-geante": {
     "url": "https://cdn.pixabay.com/photo/2021/08/07/01/04/giant-turtle-6527490_1280.jpg",
     "page": "https://pixabay.com/photos/giant-turtle-animal-tortoise-6527490/",
@@ -1604,7 +1588,7 @@
     "auteur": "andresfho"
   },
   "toucan": "Ramphastos toco -Birdworld, Farnham, Surrey, England-8a.jpg",
-  "tourte-voyageuse": "Ectopistes migratorius - Fairbanks Museum and Planetarium - DSC04222.JPG",
+  "tourte-voyageuse": "Passenger Pigeon Profile View with Shadow.jpg",
   "triceratops": {
     "url": "https://cdn.pixabay.com/photo/2025/04/02/19/31/ai-generated-9509933_1280.png",
     "page": "https://pixabay.com/illustrations/ai-generated-triceratops-dinosaur-9509933/",

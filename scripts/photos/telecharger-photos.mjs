@@ -476,21 +476,24 @@ async function download() {
  * Sans cadrage, sharp choisit la zone la plus intéressante.
  * { "miroir": true, … } retourne la photo de gauche à droite (pour sortir la tête de sous la pastille de note, en haut
  * à gauche de la carte) ; les coordonnées de « corps » ou de « cadre » ([x, y, zoom]) se lisent alors sur l'image
- * retournée.
+ * retournée, et { "etendre": true, "miroir": true } retourne la photo avant de prolonger son fond uni.
+ * { "etendre": true, "fond": "auto" | "#rrggbb", "marge": 0.05 } : la photo entière (animal photographié en studio sur
+ * un fond uni qu'il touche), réduite d'une marge et centrée sur ce fond ("auto" = la couleur de son bord supérieur).
  */
 async function renderCard(id) {
   let raw = join(RAW_DIR, `${id}.jpg`);
   const target = join(OUT_DIR, `${id}.webp`);
   let spec = CONFIG.cadrage?.[id];
   const [W, H] = [600, 800];
-  if (spec && !Array.isArray(spec) && typeof spec === 'object' && (spec.miroir || spec.cadre)) {
+  if (spec && !Array.isArray(spec) && typeof spec === 'object' && (spec.miroir || spec.cadre || spec.etendre)) {
     if (spec.miroir) {
       const mirrored = join(RAW_DIR, '..', 'miroir', `${id}.jpg`);
       mkdirSync(join(RAW_DIR, '..', 'miroir'), { recursive: true });
       await sharp(raw).flop().jpeg({ quality: 92 }).toFile(mirrored);
       raw = mirrored;
     }
-    spec = spec.corps ? { corps: spec.corps } : spec.cadre;
+    if (spec.etendre && spec.fond) return renderOnPlainBackground(raw, target, spec.fond, spec.marge ?? 0.05, W, H);
+    spec = spec.corps ? { corps: spec.corps } : spec.etendre ? 'etendre' : spec.cadre;
   }
   if (spec && !Array.isArray(spec) && typeof spec === 'object' && spec.corps) {
     return renderBody(raw, target, spec.corps, W, H);
@@ -530,6 +533,49 @@ async function renderCard(id) {
   await sharp(raw)
     .extract({ left, top, width: Math.round(Math.min(cw, width - left)), height: Math.round(Math.min(ch, height - top)) })
     .resize(W, H, { fit: 'cover' })
+    .webp({ quality: 82 })
+    .toFile(target);
+}
+
+/**
+ * La photo entière, réduite d'une marge, centrée sur un fond uni de la couleur de son propre fond ("auto" : couleur
+ * moyenne de son pourtour) ; ses bords se fondent dans ce fond, sans raccord visible.
+ */
+async function renderOnPlainBackground(raw, target, fond, marge, W, H) {
+  const { data, info } = await sharp(raw)
+    .resize(Math.round(W * (1 - 2 * marge)), Math.round(H * (1 - 2 * marge)), { fit: 'inside' })
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const { width, height } = info;
+  let background = fond;
+  if (fond === 'auto') {
+    const sum = [0, 0, 0];
+    let n = 0;
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        if (x > 3 && x < width - 4 && y > 3 && y < height - 4) continue;
+        for (let c = 0; c < 3; c++) sum[c] += data[(y * width + x) * 3 + c];
+        n += 1;
+      }
+    }
+    background = { r: Math.round(sum[0] / n), g: Math.round(sum[1] / n), b: Math.round(sum[2] / n) };
+  }
+  const fade = Math.max(1, Math.round(Math.min(width, height) * 0.1));
+  const rgba = Buffer.alloc(width * height * 4);
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const i = y * width + x;
+      const a = Math.min(1, x / fade, (width - 1 - x) / fade, y / fade, (height - 1 - y) / fade);
+      rgba[i * 4] = data[i * 3];
+      rgba[i * 4 + 1] = data[i * 3 + 1];
+      rgba[i * 4 + 2] = data[i * 3 + 2];
+      rgba[i * 4 + 3] = Math.round(255 * a);
+    }
+  }
+  const photo = await sharp(rgba, { raw: { width, height, channels: 4 } }).png().toBuffer();
+  await sharp({ create: { width: W, height: H, channels: 3, background } })
+    .composite([{ input: photo, left: Math.floor((W - width) / 2), top: Math.floor((H - height) / 2) }])
     .webp({ quality: 82 })
     .toFile(target);
 }

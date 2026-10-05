@@ -232,7 +232,9 @@ describe('matchs', () => {
     const rng = mulberry32(11);
     const cards = team(['guepard', 'zebre', 'gnou', 'castor', 'herisson']);
     cards[0].record = RECORD_START;
-    const match = createMatch(cards, 8, rng);
+    const created = createMatch(cards, 8, rng);
+    // l'adversaire, tiré au hasard, n'a pas d'énergie : aucun contre ne peut annuler l'ulti du guépard
+    const match = { ...created, opp: { ...created.opp, energy: 0 } };
     const { state, log } = playRound(match, 0, true, rng);
     expect(log.records).toEqual(['u0']);
     expect(state.me.cards[0].record).toBe(RECORD_START + 1);

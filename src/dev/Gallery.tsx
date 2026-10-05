@@ -73,7 +73,7 @@ export function Gallery() {
         ))}
       </section>
       <section id="reverse" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {['guepard', 'herisson', 'requin-marteau', 'dodo', 'abeille'].map((id) => (
+        {['guepard', 'herisson', 'requin-marteau', 'thylacine', 'abeille'].map((id) => (
           <Card key={id} card={{ athleteId: id, variant: 'reverse' }} size="lg" />
         ))}
       </section>

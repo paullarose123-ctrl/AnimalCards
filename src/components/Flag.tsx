@@ -20,7 +20,7 @@ export const COUNTRY_NAMES: Record<string, string> = {
   NP: 'Népal', PG: 'Papouasie-Nouvelle-Guinée', IS: 'Islande', AQ: 'Antarctique', NA: 'Namibie', RW: 'Rwanda',
   LK: 'Sri Lanka', MU: 'Maurice', SC: 'Seychelles', GL: 'Groenland', GT: 'Guatemala', CU: 'Cuba', CR: 'Costa Rica',
   TR: 'Turquie', SY: 'Syrie', SD: 'Soudan', LR: 'Liberia', FJ: 'Fidji', IL: 'Israël', CL: 'Chili', EC: 'Équateur',
-  GA: 'Gabon', CD: 'RD Congo', TH: 'Thaïlande', MN: 'Mongolie',
+  GA: 'Gabon', CD: 'RD Congo', TH: 'Thaïlande', MN: 'Mongolie', PA: 'Panama', MP: 'Îles Mariannes du Nord',
 };
 
 let regionNames: Intl.DisplayNames | null | undefined;
@@ -520,6 +520,24 @@ const FLAGS: Record<string, () => ReactNode> = {
   BG: () => hStripes(['#ffffff', '#00966E', '#D62612']),
   AM: () => hStripes(['#D90012', '#0033A0', '#F2A800']),
   CR: () => hStripes(['#002B7F', '#ffffff', '#CE1126', '#ffffff', '#002B7F'], [1, 1, 2, 1, 1]),
+  PA: () => (
+    <>
+      <rect width={30} height={20} fill="#ffffff" />
+      <rect x={15} y={0} width={15} height={10} fill="#DA121A" />
+      <rect x={0} y={10} width={15} height={10} fill="#072357" />
+      <Star cx={7.5} cy={5} r={2.6} fill="#072357" />
+      <Star cx={22.5} cy={15} r={2.6} fill="#DA121A" />
+    </>
+  ),
+  // îles Mariannes du Nord : pierre latte grise et étoile blanche dans une couronne, sur fond bleu
+  MP: () => (
+    <>
+      <rect width={30} height={20} fill="#0071BC" />
+      <circle cx={15} cy={10} r={7} fill="none" stroke="#5E9732" strokeWidth={1.3} />
+      <path d="M13.6,9 H16.4 V15.5 H13.6 Z M11.8,7 H18.2 C18.2,8.3 17.2,9 15,9 C12.8,9 11.8,8.3 11.8,7 Z" fill="#A7A9AC" />
+      <Star cx={15} cy={10.2} r={2.7} fill="#ffffff" />
+    </>
+  ),
   EC: () => (
     <>
       {hStripes(['#FFDD00', '#034EA2', '#ED1C24'], [2, 1, 1])}

@@ -118,6 +118,9 @@ const CURATED: Athlete[] = [
   x('jaguarondi', 'Jaguarondi', 'felins', 'felin-agile', 'Forêt', 'MX', 24, 63, 'Un corps de belette, une queue de loutre, et il chasse surtout de jour.', L('Herpailurus yagouaroundi')),
   x('lynx-pardelle', 'Lynx pardelle', 'felins', 'felin-agile', 'Maquis andalou', 'ES', 22, 62, 'Le félin le plus menacé d’Europe : moins de 100 en 2002, plus de 2 000 aujourd’hui grâce à sa protection.', L('Lynx pardinus')),
   x('chat-rubigineux', 'Chat rubigineux', 'felins', 'felin-agile', 'Forêt', 'LK', 20, 60, 'L’un des plus petits félins du monde : à peine plus d’un kilo.', L('Prionailurus rubiginosus')),
+  x('tigre-de-java', 'Tigre de Java', 'felins', 'felin-puissant', 'Jungle', 'ID', 70, 90, 'Les derniers ont été aperçus en 1976 dans l’est de Java ; il a été déclaré éteint en 2008.', { ...L('Panthera tigris sondaica'), ...D(1976),
+    ulti: sig('tigre-de-java', 'Dernières empreintes', '+12 de puissance, et +10 de plus si son équipe est menée.', { kind: 'comeback', value: 12, bonus: 10 }),
+  }),
 
   // ───────────────────────── CANIDÉS & HYÈNES ─────────────────────────
   x('loup', 'Loup gris', 'canides', 'canide-meute', 'Forêt et toundra', 'CA', 95, 90, 'Vit en meute familiale menée par un couple ; son hurlement porte à plus de 10 km.', { ...L('Canis lupus'), ...P('2011', 'OR-7, le loup qui a parcouru plus de 1 600 km jusqu’en Californie.'),
@@ -240,7 +243,6 @@ const CURATED: Athlete[] = [
   x('impala', 'Impala', 'ongules', 'ongule-sprinteur', 'Savane', 'KE', 50, 74, 'Bondit jusqu’à 3 m de haut et 10 m de long pour semer ses poursuivants.', L('Aepyceros melampus')),
   x('chamois', 'Chamois', 'ongules', 'ongule-sprinteur', 'Montagne', 'FR', 48, 74, 'Grimpe des pentes vertigineuses et saute plus de 2 m de haut.', L('Rupicapra rupicapra')),
   x('springbok', 'Springbok', 'ongules', 'ongule-sprinteur', 'Savane sèche', 'ZA', 46, 74, 'Emblème de l’Afrique du Sud, célèbre pour ses bonds verticaux, le « pronking ».', L('Antidorcas marsupialis')),
-  x('aurochs', 'Aurochs', 'ongules', 'ongule-costaud', 'Forêt et prairie', 'PL', 46, 90, 'L’ancêtre sauvage des vaches ; la dernière femelle est morte en Pologne en 1627.', { ...L('Bos primigenius'), ...D(1627) }),
   x('antilocapre', 'Antilocapre', 'ongules', 'ongule-sprinteur', 'Prairie', 'US', 44, 80, 'Le meilleur coureur de fond des mammifères : 55 km/h pendant plusieurs kilomètres.', { ...L('Antilocapra americana'), stats: { vit: 95, end: 92 } }),
   x('cheval-de-przewalski', 'Cheval de Przewalski', 'ongules', 'ongule-endurant', 'Steppe', 'MN', 42, 76, 'Le dernier cheval vraiment sauvage, réintroduit en Mongolie après avoir disparu de la nature.', L('Equus ferus przewalskii')),
   x('mouflon', 'Mouflon', 'ongules', 'ongule-costaud', 'Montagne', 'FR', 40, 72, 'Ancêtre probable du mouton domestique, il vit en Corse.', L('Ovis gmelini')),
@@ -295,6 +297,7 @@ const CURATED: Athlete[] = [
   x('loir', 'Loir', 'petits', 'petit-nocturne', 'Forêt', 'FR', 30, 54, 'Hiberne jusqu’à sept mois : d’où l’expression « dormir comme un loir ».', L('Glis glis')),
   x('polatouche', 'Polatouche', 'petits', 'petit-nocturne', 'Forêt boréale', 'FI', 30, 60, 'L’écureuil volant plane d’arbre en arbre sur plus de 50 m grâce à une membrane.', L('Pteromys volans')),
   x('pika', 'Pika d’Amérique', 'petits', 'petit-agile', 'Éboulis de montagne', 'US', 26, 54, 'Cousin du lapin, il fait sécher de l’herbe au soleil tout l’été pour se constituer des meules de foin pour l’hiver.', L('Ochotona princeps')),
+  x('melomys', 'Mélomys de Bramble Cay', 'petits', 'petit-nocturne', 'Îlot corallien', 'AU', 46, 50, 'La montée de la mer et les tempêtes ont détruit la végétation de son unique îlot : c’est le premier mammifère éteint à cause du réchauffement climatique.', { ...L('Melomys rubicola'), ...D(2009) }),
 
   // ───────────────────────── MARSUPIAUX & CIE ─────────────────────────
   x('kangourou', 'Kangourou roux', 'marsupiaux', 'marsu-sauteur', 'Bush', 'AU', 87, 82, 'Le plus grand marsupial fait des bonds de 8 m et ne sait pas reculer.', { ...L('Osphranter rufus'), stats: { for: 88, end: 90 },
@@ -351,11 +354,8 @@ const CURATED: Athlete[] = [
   x('phoque-du-groenland', 'Phoque du Groenland', 'marins', 'marin-pinnipede', 'Banquise', 'CA', 46, 66, 'Ses bébés naissent avec un pelage blanc qui les camoufle sur la glace.', L('Pagophilus groenlandicus')),
   x('rorqual-commun', 'Rorqual commun', 'marins', 'marin-geant', 'Haute mer', 'XO', 40, 88, 'Le deuxième plus grand animal du monde, surnommé le « lévrier des mers » pour sa vitesse.', L('Balaenoptera physalus')),
   x('marsouin', 'Marsouin commun', 'marins', 'marin-chasseur', 'Côtes', 'NL', 38, 70, 'Le plus petit cétacé des côtes européennes, souvent observé en Manche et en mer du Nord.', L('Phocoena phocoena')),
-  x('baiji', 'Baiji', 'marins', 'marin-chasseur', 'Yangzi Jiang', 'CN', 38, 70, 'Le dauphin du fleuve Yangzi, déclaré fonctionnellement éteint en 2006.', { ...L('Lipotes vexillifer'), ...D(2006) }),
   x('baleine-boreale', 'Baleine boréale', 'marins', 'marin-geant', 'Arctique', 'GL', 36, 88, 'Peut vivre plus de 200 ans, le record des mammifères.', L('Balaena mysticetus')),
-  x('rhytine-de-steller', 'Rhytine de Steller', 'marins', 'marin-geant', 'Mer de Béring', 'RU', 34, 80, 'Une vache de mer de 8 m, exterminée 27 ans après sa découverte.', { ...L('Hydrodamalis gigas'), ...D(1768) }),
   x('dauphin-de-commerson', 'Dauphin de Commerson', 'marins', 'marin-chasseur', 'Côtes de Patagonie', 'AR', 30, 60, 'Noir et blanc comme une petite orque, il ne mesure que 1,5 m et nage en bondissant près des côtes de Patagonie.', L('Cephalorhynchus commersonii')),
-  x('phoque-moine-des-caraibes', 'Phoque moine des Caraïbes', 'marins', 'marin-pinnipede', 'Caraïbes', 'JM', 24, 70, 'Dernière observation confirmée en 1952 ; il a été déclaré éteint en 2008.', { ...L('Neomonachus tropicalis'), ...D(1952) }),
 
   // ───────────────────────── REQUINS & RAIES ─────────────────────────
   x('requin-blanc', 'Grand requin blanc', 'requins', 'requin-predateur', 'Océans', 'ZA', 95, 94, 'Environ 300 dents en plusieurs rangées, et des capteurs qui sentent les champs électriques de ses proies.', { ...L('Carcharodon carcharias'), ...P('2013', 'Deep Blue, l’un des plus grands requins blancs jamais filmés : plus de 6 m.'),
@@ -409,6 +409,7 @@ const CURATED: Athlete[] = [
   x('poisson-pierre', 'Poisson-pierre', 'poissons', 'poisson-etrange', 'Récif corallien', 'AU', 38, 66, 'Le poisson le plus venimeux du monde, camouflé en caillou.', L('Synanceia verrucosa')),
   x('poisson-archer', 'Poisson-archer', 'poissons', 'poisson-etrange', 'Mangroves', 'TH', 36, 62, 'Abat les insectes posés sur les feuilles en leur crachant un jet d’eau.', L('Toxotes')),
   x('esturgeon', 'Esturgeon européen', 'poissons', 'poisson-coriace', 'Estuaire de la Gironde', 'FR', 34, 72, 'Ses œufs donnent le caviar ; il peut vivre plus de 100 ans.', L('Acipenser sturio')),
+  x('cyprinodon-de-catarina', 'Cyprinodon de Catarina', 'poissons', 'poisson-etrange', 'Source', 'MX', 32, 46, 'Minuscule poisson d’une seule source du Mexique ; le dernier mâle, élevé en aquarium, est mort en 2014.', { ...L('Megupsilon aporus'), ...D(2014) }),
 
   // ───────────────────────── RAPACES ─────────────────────────
   x('aigle-royal', 'Aigle royal', 'rapaces', 'rapace-aigle', 'Montagne', 'MX', 91, 92, 'Fond sur ses proies à près de 300 km/h ; il figure sur le drapeau du Mexique.', { ...L('Aquila chrysaetos'), stats: { aur: 98, tec: 94 },
@@ -452,9 +453,6 @@ const CURATED: Athlete[] = [
     ulti: sig('paon', 'La roue', 'Plumes déployées : +10 de puissance, +16 de plus en Coup de cœur.', { kind: 'event', value: 10, events: ['bain-de-foule'], bonus: 16 }),
   }),
   x('toucan', 'Toucan toco', 'oiseaux', 'oiseau-paradeur', 'Forêt tropicale', 'BR', 72, 58, 'Son bec énorme est creux et léger, et lui sert de radiateur.', L('Ramphastos toco')),
-  x('dodo', 'Dodo', 'oiseaux', 'oiseau-coureur', 'Île Maurice', 'MU', 70, 60, 'Incapable de voler, il a été exterminé moins d’un siècle après l’arrivée des Hollandais sur l’île Maurice.', { ...L('Raphus cucullatus'), ...D(1681),
-    ulti: sig('dodo', 'Disparu trop tôt', '+12 de puissance, et +10 de plus si son équipe est menée.', { kind: 'comeback', value: 12, bonus: 10 }),
-  }),
   x('kiwi', 'Kiwi', 'oiseaux', 'oiseau-coureur', 'Forêt', 'NZ', 68, 58, 'Pond l’œuf le plus gros du monde par rapport à sa taille.', L('Apteryx')),
   x('albatros', 'Albatros hurleur', 'oiseaux', 'oiseau-voyageur', 'Océans austraux', 'NZ', 66, 80, 'La plus grande envergure des oiseaux, jusqu’à 3,5 m : il peut faire le tour de la Terre.', L('Diomedea exulans')),
   x('cygne', 'Cygne tuberculé', 'oiseaux', 'oiseau-paradeur', 'Lacs', 'GB-ENG', 66, 66, 'Au Royaume-Uni, les cygnes sauvages sans marque appartiennent au souverain.', L('Cygnus olor')),
@@ -476,11 +474,10 @@ const CURATED: Athlete[] = [
   x('martinet', 'Martinet noir', 'oiseaux', 'oiseau-voyageur', 'Ciel des villes', 'FR', 40, 70, 'Peut rester en vol dix mois sans se poser.', L('Apus apus')),
   x('calao', 'Calao bicorne', 'oiseaux', 'oiseau-paradeur', 'Forêt', 'IN', 40, 62, 'La femelle s’emmure dans un arbre creux pendant la couvaison, nourrie par le mâle.', L('Buceros bicornis')),
   x('grue', 'Grue cendrée', 'oiseaux', 'oiseau-voyageur', 'Marais', 'FR', 40, 72, 'Des dizaines de milliers font étape chaque automne au lac du Der.', L('Grus grus')),
-  x('tourte-voyageuse', 'Tourte voyageuse', 'oiseaux', 'oiseau-voyageur', 'Forêts d’Amérique du Nord', 'US', 40, 64, 'Des milliards au XIXe siècle ; la dernière, Martha, est morte au zoo de Cincinnati en 1914.', { ...L('Ectopistes migratorius'), ...D(1914) }),
-  x('moa', 'Moa géant', 'oiseaux', 'oiseau-coureur', 'Forêt', 'NZ', 38, 80, 'Un oiseau de plus de 3 m de haut, chassé jusqu’à l’extinction vers le XVe siècle.', { ...L('Dinornis'), ...D() }),
-  x('grand-pingouin', 'Grand pingouin', 'oiseaux', 'oiseau-voyageur', 'Atlantique Nord', 'IS', 36, 70, 'Le vrai « pingouin » ; les deux derniers ont été tués en Islande en 1844.', { ...L('Pinguinus impennis'), ...D(1844) }),
+  x('tourte-voyageuse', 'Tourte voyageuse', 'oiseaux', 'oiseau-voyageur', 'Forêts', 'US', 40, 64, 'Des milliards au XIXe siècle ; la dernière, Martha, est morte au zoo de Cincinnati en 1914.', { ...L('Ectopistes migratorius'), ...D(1914) }),
+  x('paruline-de-bachman', 'Paruline de Bachman', 'oiseaux', 'oiseau-voyageur', 'Marais boisés', 'US', 38, 52, 'Petit oiseau migrateur qui hivernait à Cuba ; les États-Unis l’ont déclarée éteinte en 2023.', { ...L('Vermivora bachmanii'), ...D() }),
+  x('canard-des-mariannes', 'Canard des Mariannes', 'oiseaux', 'oiseau-voyageur', 'Marais', 'MP', 36, 56, 'Les derniers ont été capturés pour tenter de sauver l’espèce ; le dernier est mort en captivité en 1981.', { ...L('Anas oustaleti'), ...D(1981) }),
   x('menure', 'Ménure superbe', 'oiseaux', 'oiseau-malin', 'Forêt', 'AU', 34, 60, 'Imite tous les sons, jusqu’aux appareils photo et aux tronçonneuses.', L('Menura novaehollandiae')),
-  x('aepyornis', 'Oiseau-éléphant', 'oiseaux', 'oiseau-coureur', 'Forêt', 'MG', 32, 82, 'Il pondait des œufs de plus de 30 cm, les plus gros connus.', { ...L('Aepyornis maximus'), ...D() }),
 
   // ───────────────────────── REPTILES ─────────────────────────
   x('crocodile-du-nil', 'Crocodile du Nil', 'reptiles', 'reptile-mastodonte', 'Fleuves', 'EG', 90, 94, 'Sa mâchoire se referme avec l’une des morsures les plus puissantes du règne animal.', { ...L('Crocodylus niloticus'), stats: { for: 97 },
@@ -518,6 +515,7 @@ const CURATED: Athlete[] = [
   x('heloderme', 'Monstre de Gila', 'reptiles', 'reptile-venimeux', 'Désert', 'US', 42, 68, 'L’un des rares lézards venimeux ; un médicament contre le diabète vient de sa salive.', L('Heloderma suspectum')),
   x('tuatara', 'Tuatara', 'reptiles', 'reptile-lezard', 'Îles', 'NZ', 40, 62, 'Dernier survivant d’un groupe de reptiles apparu avec les dinosaures.', L('Sphenodon punctatus')),
   x('tortue-de-pinta', 'Tortue de Pinta', 'reptiles', 'reptile-tortue', 'Galápagos', 'EC', 40, 68, 'Son dernier représentant, Lonesome George, est mort en 2012.', { ...L('Chelonoidis abingdonii'), ...D(2012), nick: 'Lonesome George' }),
+  x('scinque-de-christmas', 'Scinque de l’île Christmas', 'reptiles', 'reptile-lezard', 'Forêt', 'AU', 24, 50, 'Le dernier individu connu, surnommé Gump, est mort en captivité en 2014.', { ...L('Emoia nativitatis'), ...D(2014), nick: 'Gump' }),
   x('moloch', 'Diable cornu', 'reptiles', 'reptile-lezard', 'Désert', 'AU', 36, 58, 'Ses écailles guident l’eau de la rosée jusqu’à sa bouche.', L('Moloch horridus')),
   x('lezard-vert', 'Lézard vert', 'reptiles', 'reptile-lezard', 'Haies et talus', 'FR', 34, 58, 'Au printemps, le mâle prend une gorge bleu vif.', L('Lacerta bilineata')),
   x('couleuvre', 'Couleuvre à collier', 'reptiles', 'reptile-lezard', 'Mares', 'FR', 30, 56, 'Inoffensive, elle fait la morte en cas de danger.', L('Natrix helvetica')),
@@ -539,7 +537,9 @@ const CURATED: Athlete[] = [
   x('ouaouaron', 'Ouaouaron', 'amphibiens', 'amphibien-sauteur', 'Étangs', 'US', 44, 62, 'La « grenouille-taureau » saute près de dix fois la longueur de son corps.', L('Lithobates catesbeianus')),
   x('crapaud-commun', 'Crapaud commun', 'amphibiens', 'amphibien-toxique', 'Jardins et forêts', 'FR', 40, 54, 'Revient chaque printemps pondre dans la mare où il est né.', L('Bufo bufo')),
   x('grenouille-de-verre', 'Grenouille de verre', 'amphibiens', 'amphibien-sauteur', 'Forêt tropicale', 'EC', 40, 50, 'Sa peau transparente laisse voir son cœur battre.', L('Centrolenidae')),
-  x('crapaud-dore', 'Crapaud doré', 'amphibiens', 'amphibien-toxique', 'Forêt de Monteverde', 'CR', 38, 52, 'Vu pour la dernière fois en 1989 dans la forêt de nuages de Monteverde.', { ...L('Incilius periglenes'), ...D(1989) }),
+  x('crapaud-dore', 'Crapaud doré', 'amphibiens', 'amphibien-toxique', 'Monteverde', 'CR', 38, 52, 'Vu pour la dernière fois en 1989 dans la forêt de nuages de Monteverde.', { ...L('Incilius periglenes'), ...D(1989) }),
+  x('rainette-de-rabb', 'Rainette de Rabb', 'amphibiens', 'amphibien-sauteur', 'Canopée', 'PA', 38, 58, 'Elle planait d’arbre en arbre ; le dernier individu connu, surnommé Toughie, est mort en 2016.', { ...L('Ecnomiohyla rabborum'), ...D(2016), nick: 'Toughie' }),
+  x('arlequin-de-chiriqui', 'Arlequin de Chiriquí', 'amphibiens', 'amphibien-toxique', 'Torrents', 'CR', 34, 54, 'Cette grenouille arlequin, décimée par un champignon mortel, n’a plus été vue au Costa Rica depuis 1996.', { ...L('Atelopus chiriquiensis'), ...D(1996) }),
   x('triton-crete', 'Triton crêté', 'amphibiens', 'amphibien-etrange', 'Mares', 'FR', 36, 52, 'Au printemps, le mâle arbore une crête dentelée.', L('Triturus cristatus')),
   x('protee', 'Protée anguillard', 'amphibiens', 'amphibien-etrange', 'Grottes', 'SI', 30, 56, 'Aveugle, il vit dans les grottes et peut rester des années sans manger.', L('Proteus anguinus')),
   x('rhacophore', 'Grenouille volante', 'amphibiens', 'amphibien-sauteur', 'Forêt tropicale', 'MY', 26, 56, 'Plane d’arbre en arbre grâce à ses grandes pattes palmées.', L('Rhacophorus nigropalmatus')),

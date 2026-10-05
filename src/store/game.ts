@@ -59,6 +59,21 @@ const ESPECES_REMPLACEES: Record<string, string> = {
   'requin-lutin': 'requin-oceanique',
 };
 
+/**
+ * Icônes sans aucune vraie photo possible (disparues avant la photographie, ou jamais photographiées vivantes)
+ * → espèce disparue récemment, photographiée vivante (sauvegardes < v6).
+ */
+const ICONES_REMPLACEES: Record<string, string> = {
+  dodo: 'tigre-de-java',
+  aurochs: 'melomys',
+  moa: 'paruline-de-bachman',
+  'grand-pingouin': 'canard-des-mariannes',
+  aepyornis: 'cyprinodon-de-catarina',
+  baiji: 'rainette-de-rabb',
+  'rhytine-de-steller': 'arlequin-de-chiriqui',
+  'phoque-moine-des-caraibes': 'scinque-de-christmas',
+};
+
 export type ToastKind = 'success' | 'info' | 'warn' | 'error' | 'gold';
 export interface Toast {
   id: string;
@@ -630,15 +645,16 @@ export const useGame = create<GameState>()(
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
       name: 'animalcards-save',
-      version: 5,
+      version: 6,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
         let state = persisted as GameState;
-        if (version < 5) {
-          // version 5 : trois espèces sont remplacées par une espèce de la même famille ; les cartes déjà obtenues
-          // deviennent la nouvelle espèce (identifiants remplacés partout dans la sauvegarde)
+        // versions 5 et 6 : des espèces sont remplacées par une autre ; les cartes déjà obtenues deviennent la
+        // nouvelle espèce (identifiants remplacés partout dans la sauvegarde)
+        const replacements = { ...(version < 5 ? ESPECES_REMPLACEES : {}), ...(version < 6 ? ICONES_REMPLACEES : {}) };
+        if (Object.keys(replacements).length) {
           let text = JSON.stringify(state);
-          for (const [from, to] of Object.entries(ESPECES_REMPLACEES)) text = text.replaceAll(`"${from}"`, `"${to}"`);
+          for (const [from, to] of Object.entries(replacements)) text = text.replaceAll(`"${from}"`, `"${to}"`);
           state = JSON.parse(text) as GameState;
         }
         if (version < 3) {

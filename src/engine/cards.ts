@@ -305,7 +305,7 @@ export function getAthlete(id: string): Athlete {
   return athlete;
 }
 
-/** Icône : une espèce disparue (dodo, thylacine, dinosaures…). */
+/** Icône : une espèce disparue (thylacine, tigre de Java, dinosaures…). */
 export function isIcon(athlete: Athlete): boolean {
   return !!athlete.retired;
 }
