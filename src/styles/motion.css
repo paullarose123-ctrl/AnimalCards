@@ -359,58 +359,6 @@ h3 {
   transform-style: preserve-3d;
 }
 
-/* manège 3D des cartes à décrocher */
-.carousel3d {
-  position: relative;
-  width: 400px;
-  height: 250px;
-  perspective: 1000px;
-  perspective-origin: 50% 30%;
-}
-
-.carousel3d__ring {
-  position: absolute;
-  left: 50%;
-  top: 22px;
-  width: 140px;
-  height: 196px;
-  margin-left: -70px;
-  transform-style: preserve-3d;
-  animation: ring-spin 36s linear infinite;
-}
-
-.carousel3d:hover .carousel3d__ring {
-  animation-play-state: paused;
-}
-
-.carousel3d__item {
-  position: absolute;
-  inset: 0;
-  transform: rotateY(var(--angle)) translateZ(140px);
-  transform-style: preserve-3d;
-}
-
-.carousel3d__face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.carousel3d__back {
-  transform: rotateY(180deg);
-  filter: brightness(0.75);
-}
-
-@keyframes ring-spin {
-  from {
-    transform: rotateX(-6deg) rotateY(0deg);
-  }
-  to {
-    transform: rotateX(-6deg) rotateY(-360deg);
-  }
-}
-
 /* ───────────── Jauges : reflet qui défile ───────────── */
 .meter__fill {
   position: relative;
@@ -678,7 +626,6 @@ h3 {
   .hero__pack::before,
   .hero__count,
   .hero .btn--primary,
-  .carousel3d__ring,
   .meter__fill::after,
   .btn--primary::after,
   .btn--gold::after,

@@ -147,16 +147,18 @@ interface PackArtProps {
   sport?: SportId;
   /** nombre de cartes */
   size?: number;
+  /** grand titre du sachet, s'il diffère du nom du pack (ex. « Animaux du monde » pour le booster de la série) */
+  title?: string;
   /** mention de la pastille, ex. « 1 Épique garantie » ; sinon le nombre de cartes */
   guarantee?: string;
   className?: string;
 }
 
-export function PackArt({ tone, name, sport, size = 5, guarantee, className = '' }: PackArtProps) {
+export function PackArt({ tone, name, title: customTitle, sport, size = 5, guarantee, className = '' }: PackArtProps) {
   const scene = packScene(tone, sport);
   const kicker = name.startsWith('Booster') ? 'Booster' : 'Pack';
   const short = name.replace(/^Pack /, '').replace(/^Booster /, '');
-  const title = short.charAt(0).toUpperCase() + short.slice(1);
+  const title = customTitle ?? short.charAt(0).toUpperCase() + short.slice(1);
   const style = {
     '--near': scene.palette.near,
     '--ink': isLight(scene.palette.sky[0]) ? scene.palette.near : '#fff8ec',

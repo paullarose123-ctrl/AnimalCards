@@ -8,6 +8,7 @@ import type { CardFace } from '../engine/types';
 import { Card } from '../components/Card';
 import { ALL_PACK_SCENES, PackArt, packScene } from '../components/PackArt';
 import { CardBack } from '../components/CardBack';
+import { SERIES } from '../engine/packs';
 import { Landscape, type SceneDef } from '../components/PackScene';
 import { HERO_SCENE, SCREEN_SCENES } from '../art/scenes';
 import { Logo } from '../components/Logo';
@@ -428,10 +429,10 @@ export function PackOpening() {
                 </span>
                 <span className="pack3d__face pack3d__front">
                   <span className="pack3d__body" style={{ clipPath: BODY_CLIP }}>
-                    <PackArt tone={opening.tone} name={opening.packName} sport={opening.sport} size={cards.length} />
+                    <PackArt tone={opening.tone} name={opening.packName} title={isFree ? SERIES.name : undefined} sport={opening.sport} size={cards.length} />
                   </span>
                   <span className="pack3d__strip" aria-hidden="true" style={{ clipPath: STRIP_CLIP }}>
-                    <PackArt tone={opening.tone} name={opening.packName} sport={opening.sport} size={cards.length} />
+                    <PackArt tone={opening.tone} name={opening.packName} title={isFree ? SERIES.name : undefined} sport={opening.sport} size={cards.length} />
                   </span>
                   {/* couture qui s'illumine pendant la charge */}
                   <span className="pack3d__seam" aria-hidden="true" />

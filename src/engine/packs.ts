@@ -36,6 +36,9 @@ export interface PackDef {
   sport?: SportId;
 }
 
+/** La série en cours : tous les animaux du monde. Les suivantes seront consacrées chacune à un pays. */
+export const SERIES = { number: 1, name: 'Animaux du monde' } as const;
+
 export const FREE_ODDS: Odds = { commune: 60, 'peu-commune': 26, rare: 10, epique: 3.2, legendaire: 0.8 };
 
 export const FREE_PACK: PackDef = {
