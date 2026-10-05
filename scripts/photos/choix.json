@@ -6,6 +6,7 @@
   },
   "aepyornis": "Aepyornis maximus.tif",
   "aigle-royal": "016 Wild Golden Eagle in flight at Pfyn-Finges (Switzerland) Photo by Giles Laurent.jpg",
+  "akita": "Male Akita Inu.jpg",
   "albatros": {
     "url": "https://cdn.pixabay.com/photo/2017/04/18/14/23/albatross-2239254_1280.jpg",
     "page": "https://pixabay.com/photos/albatross-bird-beak-2239254/",
@@ -193,6 +194,7 @@
     "page": "https://pixabay.com/photos/beetle-insect-leaf-dung-beetle-6062572/",
     "auteur": "Gab-Rysia"
   },
+  "bouvier-bernois": "2-BerneseMountainDogInGrass.jpg",
   "brachiosaure": {
     "url": "https://cdn.pixabay.com/photo/2025/12/16/18/40/dinosaur-10018990_1280.png",
     "page": "https://pixabay.com/illustrations/dinosaur-sauropod-brachiosaurus-10018990/",
@@ -270,7 +272,6 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "chevreuil": "Capriolo maschio.jpg",
-  "bouvier-bernois": "2-BerneseMountainDogInGrass.jpg",
   "chien-de-prairie": "Cynomys ludovicianus GNP 21.jpg",
   "chien-viverrin": {
     "url": "https://cdn.pixabay.com/photo/2015/08/02/19/57/raccoon-dog-871608_1280.jpg",
@@ -611,6 +612,7 @@
     "page": "https://pixabay.com/photos/frog-green-frog-amphibian-nature-8431942/",
     "auteur": "IndigoBunting"
   },
+  "greyhound": "Greyhound Racing 2 amk.jpg",
   "grizzly-de-californie": {
     "url": "https://cdn.pixabay.com/photo/2022/09/17/10/57/brown-bear-7460699_1280.jpg",
     "page": "https://pixabay.com/photos/brown-bear-bear-predator-animal-7460699/",
@@ -1466,6 +1468,7 @@
   },
   "rougegorge": "Erithacus rubecula -Netherlands-8.jpg",
   "saimiri": "Ecuadorian squirrel monkey (Saimiri macrodon) head Rio Napo.jpg",
+  "saint-bernard": "Saint Bernard.png",
   "salamandre": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/186036678/original.jpg",
     "page": "https://www.inaturalist.org/photos/186036678",
