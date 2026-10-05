@@ -1,6 +1,6 @@
 import type { Athlete, ArchetypeId, SportId } from '../engine/types';
 import { HABITATS } from './habitats.ts';
-import { CONTINENTS_MULTIPLES } from './repartition.ts';
+import { CONTINENTS_MULTIPLES, MILIEU_CORRIGE, PAYS_PRINCIPAL } from './repartition.ts';
 
 // Base des espèces animales (le fichier garde son nom d'AthletiCards).
 // - fame (0-100) : célébrité de l'espèce. Elle fixe la rareté.
@@ -603,6 +603,11 @@ const CURATED: Athlete[] = [
 ];
 
 // une espèce présente sur plusieurs continents porte le logo « Plusieurs continents » (XW) au lieu d'un drapeau
-export const ATHLETES: Athlete[] = [...CURATED, ...HABITATS].map((a) => (CONTINENTS_MULTIPLES[a.id] ? { ...a, country: 'XW' } : a));
+export const ATHLETES: Athlete[] = [...CURATED, ...HABITATS].map((a) => ({
+  ...a,
+  // drapeau : un globe si l'espèce vit sur plusieurs continents, sinon le pays où elle est la plus présente
+  country: CONTINENTS_MULTIPLES[a.id] ? 'XW' : (PAYS_PRINCIPAL[a.id] ?? a.country),
+  role: MILIEU_CORRIGE[a.id] ?? a.role,
+}));
 
 export const ATHLETES_BY_ID: Record<string, Athlete> = Object.fromEntries(ATHLETES.map((athlete) => [athlete.id, athlete]));

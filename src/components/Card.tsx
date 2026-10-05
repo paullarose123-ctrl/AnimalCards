@@ -35,7 +35,7 @@ interface CardProps {
   tilt?: boolean;
   /** carte non possédée (album) */
   locked?: boolean;
-  /** cache le bandeau des mesures (duel de culture générale) */
+  /** cache le bandeau des mesures et le drapeau (duel de culture générale) */
   hideFacts?: boolean;
   onClick?: () => void;
   className?: string;
@@ -225,7 +225,8 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
           </span>
         </div>
 
-        {!tiny && <Flag code={athlete.country} className="card__flag" />}
+        {/* en duel, le drapeau donnerait la réponse aux questions de continent */}
+        {!tiny && !hideFacts && <Flag code={athlete.country} className="card__flag" />}
 
         {!tiny && (
           <div className="card__sport" aria-hidden="true" style={{ fontSize: `${sport.name.length > 12 ? 0.62 : 0.8}em` }}>

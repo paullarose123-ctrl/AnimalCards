@@ -25,7 +25,7 @@ export const FAVORITES_SIZE = 5;
 const SAVE_NAME = 'animalcards-save';
 export const MAX_FREE_PACKS = 10;
 export const START_BALLES = 5_000;
-/** solde affiché « ∞ » quand les graines illimitées sont activées */
+/** solde affiché « ∞ » quand les crédits illimités sont activées */
 export const UNLIMITED_BALLES = 99_999_999_999;
 const DIVISION_POINTS_TO_PROMOTE = 7;
 
@@ -155,7 +155,7 @@ export interface GameState {
   muted: boolean;
   /** musique de fond coupée (les effets sonores restent) */
   musicOff: boolean;
-  /** graines illimitées (commande de triche ?graines=illimite) */
+  /** crédits illimités (commande de triche ?graines=illimite) */
   unlimited: boolean;
   /** espèces des derniers boosters ouverts : elles ne ressortent pas avant NO_DUPE_WINDOW boosters */
   recentPacks: string[][];
@@ -247,7 +247,7 @@ function playerName(): string {
 }
 
 function formatBalles(value: number): string {
-  return `${value.toLocaleString('fr-FR')} graines`;
+  return `${value.toLocaleString('fr-FR')} crédits`;
 }
 
 function initialState(now: number) {
@@ -688,7 +688,7 @@ export const useGame = create<GameState>()(
         setUnlimited: (on) => {
           if (on === get().unlimited) return;
           set(on ? { unlimited: true, balles: UNLIMITED_BALLES } : { unlimited: false, balles: START_BALLES });
-          pushToast(on ? 'gold' : 'info', on ? 'Graines illimitées activées' : 'Graines illimitées désactivées');
+          pushToast(on ? 'gold' : 'info', on ? 'Crédits illimités activés' : 'Crédits illimités désactivés');
         },
         toast: pushToast,
         dismissToast: (id) => set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })),
@@ -829,7 +829,7 @@ function setSolde(amount: number) {
 
 // Commandes de triche, dans l'adresse ou dans la console du navigateur (sauvegardées avec la partie) :
 //   ?graines=1000000000          → solde fixé à ce montant        (console : animalcards.solde(1000000000))
-//   ?graines=illimite            → graines illimitées              (console : animalcards.graines())
+//   ?graines=illimite            → crédits illimités              (console : animalcards.graines())
 //   ?graines=normal              → retour au jeu normal            (console : animalcards.graines(false))
 if (typeof window !== 'undefined' && CHEATS) {
   const flag = new URLSearchParams(window.location.search).get('graines');

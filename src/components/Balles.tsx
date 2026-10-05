@@ -1,17 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 
-// La monnaie du jeu : les « graines » (le composant garde son nom d'AthletiCards).
-// Une pièce couleur miel frappée d'une jeune pousse.
+// La monnaie du jeu : les « crédits » (le composant garde son nom d'AthletiCards).
+// Une pièce couleur miel frappée d'une empreinte de patte.
 export function BallIcon({ className = '' }: { className?: string }) {
   return (
     <svg className={`ball-icon ${className}`} viewBox="0 0 20 20" aria-hidden="true">
       <circle cx={10} cy={10} r={9} fill="#d9a441" />
       <circle cx={10} cy={10} r={9} fill="url(#ball-shade)" />
       <circle cx={10} cy={10} r={7.4} fill="none" stroke="#fff3d1" strokeOpacity={0.45} strokeWidth={0.7} />
+      {/* empreinte de patte frappée sur la pièce */}
       <g fill="#fff6dc">
-        <path d="M10 15.2 V9.6" stroke="#fff6dc" strokeWidth={1.3} strokeLinecap="round" fill="none" />
-        <path d="M10 10.2 C 9.6 7.4, 7.6 6.2, 5.2 6.6 C 5.4 9, 7.4 10.4, 10 10.2 Z" />
-        <path d="M10 9.4 C 10.4 6.6, 12.4 5.2, 14.9 5.6 C 14.7 8, 12.7 9.6, 10 9.4 Z" />
+        <ellipse cx={10} cy={12.2} rx={3.1} ry={2.6} />
+        <ellipse cx={6.3} cy={8.6} rx={1.25} ry={1.6} transform="rotate(-20 6.3 8.6)" />
+        <ellipse cx={8.6} cy={6.6} rx={1.25} ry={1.65} transform="rotate(-6 8.6 6.6)" />
+        <ellipse cx={11.4} cy={6.6} rx={1.25} ry={1.65} transform="rotate(6 11.4 6.6)" />
+        <ellipse cx={13.7} cy={8.6} rx={1.25} ry={1.6} transform="rotate(20 13.7 8.6)" />
       </g>
       <defs>
         <radialGradient id="ball-shade" cx="0.35" cy="0.3" r="0.8">
@@ -23,7 +26,7 @@ export function BallIcon({ className = '' }: { className?: string }) {
   );
 }
 
-/** au-delà, le solde est celui des graines illimitées (voir UNLIMITED_BALLES dans store/game.ts) */
+/** au-delà, le solde est celui des crédits illimités (voir UNLIMITED_BALLES dans store/game.ts) */
 const INFINITE = 99_999_999_999;
 
 export function Balles({ value, className = '' }: { value: number; className?: string }) {
@@ -42,7 +45,7 @@ export function Balles({ value, className = '' }: { value: number; className?: s
     <span className={`balles ${className}${move ? ` is-${move.dir}` : ''}`} key={move?.key}>
       <BallIcon />
       <span className="balles__value">{infinite ? '∞' : value.toLocaleString('fr-FR')}</span>
-      <span className="visually-hidden">{infinite ? ' graines illimitées' : ' graines'}</span>
+      <span className="visually-hidden">{infinite ? ' crédits illimités' : ' crédits'}</span>
     </span>
   );
 }

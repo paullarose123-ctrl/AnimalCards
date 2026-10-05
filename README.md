@@ -11,14 +11,14 @@ Le logo (`src/components/Logo.tsx`) écrit « animalcards » en serif (police Fr
 Seulement en développement (`npm run dev`) et dans la version de test (`npm run build:single`) : elles n’existent pas sur le site public, où les joueurs échangent au marché en ligne. Dans l’adresse du jeu (ou dans la console du navigateur) :
 
 - `?graines=1000000000` fixe le solde à ce montant (`animalcards.solde(1000000000)`) ;
-- `?graines=illimite` donne des graines illimitées, affichées « ∞ » (`animalcards.graines()`) ;
+- `?graines=illimite` donne des crédits illimités, affichées « ∞ » (`animalcards.graines()`) ;
 - `?graines=normal` revient au jeu normal (`animalcards.graines(false)`).
 
-Pour une version à envoyer (téléphone, page claude.ai), compiler avec des graines offertes : `VITE_GRAINES=100000000 npm run build:single`. Le solde est fixé une seule fois par navigateur, au premier lancement, puis les graines se dépensent normalement. Le résultat est dans `artifact/` (`animalcards.html` et ses paquets de photos `photos/*.json`).
+Pour une version à envoyer (téléphone, page claude.ai), compiler avec des crédits offerts : `VITE_GRAINES=100000000 npm run build:single`. Le solde est fixé une seule fois par navigateur, au premier lancement, puis les crédits se dépensent normalement. Le résultat est dans `artifact/` (`animalcards.html` et ses paquets de photos `photos/*.json`).
 
 ## Carte du monde
 
-Dans l’écran Collection, l’onglet « Carte du monde » place chaque espèce dans son pays emblématique (le drapeau de sa carte). Les pays se colorent selon la part de leurs espèces déjà découvertes (à découvrir, en cours, complet) et un repère donne leur nombre, avec un anneau de progression ; « Océans » et « Monde entier » ont leur propre repère. Survol : nom et progression ; clic : zoom sur le pays et ses cartes (grisées tant qu’elles ne sont pas découvertes). Molette ou boutons pour zoomer, glisser pour se déplacer. Tracé des pays : world-atlas (Natural Earth, domaine public), projection d3-geo ; positions et rattachements dans `src/data/geo.ts`.
+Dans l’écran Collection, l’onglet « Carte du monde » place chaque espèce dans le pays de son drapeau. Les pays se colorent selon la part de leurs espèces déjà découvertes (à découvrir, en cours, complet) et un repère donne leur nombre, avec un anneau de progression ; « Océans » et « Monde entier » ont leur propre repère. Survol : nom et progression ; clic : zoom sur le pays et ses cartes (grisées tant qu’elles ne sont pas découvertes). Molette ou boutons pour zoomer, glisser pour se déplacer. Tracé des pays : world-atlas (Natural Earth, domaine public), projection d3-geo ; positions et rattachements dans `src/data/geo.ts`.
 
 ## Direction artistique
 
@@ -67,7 +67,7 @@ Le jeu compte 446 espèces dans 19 familles, dont 46 Icônes (espèces disparues
 
 ### La carte
 
-Style « cadre de naturaliste » : chaque palier reprend la palette d’un booster (Forêt au lever du jour = Commune, Cimes au matin bleu = Peu commune, Savane au couchant = Rare, Aurore boréale = Épique, Crépuscule flamboyant = Légende, marbre blanc et or = Icône, Océan pastel = Prime, mousse et miel = Habitat, aquarelle pastel = Reverse). Cadre sombre avec le code de l’espèce en onglet (« LIO », « REQ »), losange avec le palier et le **numéro de collection** (N° 001 à 446, famille par famille dans l’ordre de l’album ; H01 à H26 pour les Habitats), famille écrite à la verticale, photo dans une fenêtre, drapeau du pays emblématique de l’espèce, médaillon de la famille, nom dans un bandeau et milieu de vie sur la plaque du bas. Le nom scientifique est écrit en petit, en italique, en bas de la photo, et une réglette donne le poids, la taille (longueur, hauteur ou envergure) et la population restante sur Terre (« Éteint » pour les espèces disparues). Mesures dans `src/data/mesures.ts` (valeurs typiques d’un adulte), populations dans `src/data/populations.ts` (estimations arrondies : population sauvage, ou mondiale élevage compris pour les animaux domestiques).
+Style « cadre de naturaliste » : chaque palier reprend la palette d’un booster (Forêt au lever du jour = Commune, Cimes au matin bleu = Peu commune, Savane au couchant = Rare, Aurore boréale = Épique, Crépuscule flamboyant = Légende, marbre blanc et or = Icône, Océan pastel = Prime, mousse et miel = Habitat, aquarelle pastel = Reverse). Cadre sombre avec le code de l’espèce en onglet (« LIO », « REQ »), losange avec le palier et le **numéro de collection** (N° 001 à 446, famille par famille dans l’ordre de l’album ; H01 à H26 pour les Habitats), famille écrite à la verticale, photo dans une fenêtre, drapeau du pays où l’espèce est la plus présente aujourd’hui (un globe si elle vit sur plusieurs continents, « Océans » pour les espèces marines de tous les océans ; corrections dans `src/data/repartition.ts`, cachés pendant les duels), médaillon de la famille, nom dans un bandeau et milieu de vie sur la plaque du bas. Le nom scientifique est écrit en petit, en italique, en bas de la photo, et une réglette donne le poids, la taille (longueur, hauteur ou envergure) et la population restante sur Terre (« Éteint » pour les espèces disparues). Mesures dans `src/data/mesures.ts` (valeurs typiques d’un adulte), populations dans `src/data/populations.ts` (estimations arrondies : population sauvage, ou mondiale élevage compris pour les animaux domestiques).
 
 À l’ouverture d’un booster, chaque carte révélée s’accompagne d’une fiche avec de vraies informations : nom scientifique, pays, famille, milieu, poids, taille, longévité, population, une anecdote (« Le savais-tu ? ») et l’histoire de l’individu célèbre pour une version Prime.
 
@@ -75,16 +75,18 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 
 ### Boosters et boutique
 
+- Une nouvelle extension chaque mois : l’accueil annonce la série en cours (Série 1), la prochaine (le 1er du mois suivant, avec compte à rebours) et la suivante.
+
 - Un booster gratuit toutes les 10 minutes, jusqu’à 10 en réserve.
 - Pas de doublon rapproché : une espèce sortie dans un booster ne peut pas ressortir avant 7 boosters (ni deux fois dans le même). Seuls les petits packs de famille relâchent cette règle quand il ne reste plus d’espèce disponible dans la rareté tirée.
-- Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (espèces disparues, 60 000 graines), Prime (1 individu célèbre garanti, 250 000 graines), Légende (1 Légendaire garantie) et un pack par famille (1 500 graines, 100 000 pour la Préhistoire, qui ne contient que des Icônes). Les chances sont affichées sur chaque pack.
-- Les Icônes sont des trésors : hors du Pack Icônes et du Pack Préhistoire, environ 1 carte sur 200 seulement (jamais à la place de la carte garantie), et elles passent très rarement sur le marché.
-- La monnaie du jeu : les graines.
-- Les Épiques, Légendaires et Prime ont droit à leur révélation : drapeau, puis famille, puis numéro, puis la carte avec confettis et fanfare.
+- Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (1 seule carte, toujours une Icône : le pack le plus cher, 600 000 crédits), Prime (1 individu célèbre garanti, 250 000 crédits), Légende (1 Légendaire garantie) et un pack par famille (1 500 crédits ; pas de pack Préhistoire, ses espèces sont des Icônes). Les chances sont affichées sur chaque pack.
+- Les Icônes sont les cartes les plus rares : hors du Pack Icônes, environ 1 carte sur 1 000 seulement (jamais à la place de la carte garantie), et elles passent très rarement sur le marché. Une Icône vaut au moins 100 000 crédits (dix fois la cote de sa rareté).
+- La monnaie du jeu : les crédits.
+- Les Épiques, Légendaires, Prime et Icônes ont droit à leur révélation : drapeau, puis famille, puis numéro, pendant que des étincelles sont aspirées vers un cœur d’énergie ; puis flash, onde de choc, gerbe d’étincelles et la carte qui jaillit dans un halo de sa couleur, avec confettis et fanfare.
 
 ### Marché
 
-- **Entre joueurs, en ligne** (avec un compte) : on met une carte en vente à prix fixe pour 1 h, 6 h, 1 jour ou 3 jours ; tous les joueurs la voient et le premier qui l’achète l’emporte. Le serveur (fonctions `market_*` de `supabase/schema.sql`) garantit qu’une carte n’est vendue qu’une fois, jamais à son vendeur. L’acheteur reçoit la carte tout de suite, le vendeur ses graines (moins 5 %) dès que son jeu est ouvert ; une carte invendue revient dans la réserve. 15 annonces en ligne au plus par joueur.
+- **Entre joueurs, en ligne** (avec un compte) : on met une carte en vente à prix fixe pour 1 h, 6 h, 1 jour ou 3 jours ; tous les joueurs la voient et le premier qui l’achète l’emporte. Le serveur (fonctions `market_*` de `supabase/schema.sql`) garantit qu’une carte n’est vendue qu’une fois, jamais à son vendeur. L’acheteur reçoit la carte tout de suite, le vendeur ses crédits (moins 5 %) dès que son jeu est ouvert ; une carte invendue revient dans la réserve. 15 annonces en ligne au plus par joueur.
 - Des collectionneurs IA mettent des cartes en vente, enchérissent et achètent les tiennes.
 - Achat immédiat ou enchères (remboursement automatique si quelqu’un surenchérit).
 - Vente : enchère de départ, prix d’achat immédiat, durée de 5 min à 3 h. Taxe de 5 % sur chaque vente.
@@ -99,7 +101,7 @@ Un jeu de culture générale sur les animaux.
 - 5 manches, chacune une question tirée au sort parmi 17 et annoncée dès le début. Des records : le plus lourd, le plus léger, le plus grand, le plus petit, vit le plus longtemps, vit le moins longtemps, le plus nombreux, le plus rare (une espèce éteinte n’a plus aucun individu). Et au plus deux questions oui/non : vit en Afrique, en Asie, en Amérique, en Europe ou en Océanie (les espèces de plusieurs continents, comme le chat ou le loup, sont listées dans `src/data/repartition.ts` et portent le logo « Plusieurs continents ») ; est un mammifère, un oiseau, un reptile ou un poisson.
 - Les mesures sont cachées sur toutes les cartes pendant le duel : on choisit quel animal envoyer d’après ce qu’on sait. Chaque animal ne joue qu’une fois. Ce sont les vraies mesures de l’espèce qui décident (une mesure inconnue perd la manche) ; pour une question, oui bat non.
 - Plus la division est haute, plus l’adversaire joue juste. Ligue de la division 10 à la division 1 : victoire +3 points, nul +1, promotion à 7 points.
-- On peut aussi défier un ami : son équipe est faite des animaux de sa vitrine (complétée au hasard), joués par l’ordinateur. Ce duel rapporte des graines mais ne compte pas pour la ligue.
+- On peut aussi défier un ami : son équipe est faite des animaux de sa vitrine (complétée au hasard), joués par l’ordinateur. Ce duel rapporte des crédits mais ne compte pas pour la ligue.
 
 ### Comptes et profil
 
@@ -151,6 +153,6 @@ Dans la version en un seul fichier (`npm run build:single`), les photos sont reg
 
 - Plus d’espèces (le moteur a été testé avec 10 000 cartes).
 - Photos des races de chien (onze d’entre elles affichent encore le médaillon de leur famille).
-- Économie côté serveur : les ventes en ligne sont garanties par le serveur, mais les graines et l’ouverture des boosters restent calculées dans le jeu de chaque joueur.
+- Économie côté serveur : les ventes en ligne sont garanties par le serveur, mais les crédits et l’ouverture des boosters restent calculées dans le jeu de chaque joueur.
 
 Mesures et populations sont des estimations arrondies. AnimalCards est un projet de fan non commercial.

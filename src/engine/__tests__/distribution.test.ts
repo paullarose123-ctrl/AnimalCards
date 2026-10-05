@@ -29,12 +29,16 @@ describe('base de données', () => {
   it('rend une carte plus rare plus chère, et les Prime et Reverse plus chères que la classique', () => {
     const byRarity = athletesByRarity();
     for (let i = 0; i < RARITY_ORDER.length - 1; i++) {
-      const lower = Math.min(...byRarity[RARITY_ORDER[i + 1]].map((a) => baseValueOf(a)));
-      const higher = Math.max(...byRarity[RARITY_ORDER[i]].map((a) => baseValueOf(a)));
+      // les Icônes (espèces disparues) ont leur propre cote, très au-dessus de leur rareté
+      const lower = Math.min(...byRarity[RARITY_ORDER[i + 1]].filter((a) => !a.retired).map((a) => baseValueOf(a)));
+      const higher = Math.max(...byRarity[RARITY_ORDER[i]].filter((a) => !a.retired).map((a) => baseValueOf(a)));
       expect(lower).toBeGreaterThan(higher * 0.9);
     }
     const lion = ATHLETES_BY_ID.lion;
     expect(baseValueOf(lion, 'prime')).toBeGreaterThan(baseValueOf(lion, 'reverse'));
     expect(baseValueOf(lion, 'reverse')).toBeGreaterThan(baseValueOf(lion));
+    // une Icône vaut une fortune, même la plus commune
+    expect(baseValueOf(ATHLETES_BY_ID.quagga)).toBeGreaterThanOrEqual(100_000);
+    expect(baseValueOf(ATHLETES_BY_ID['t-rex'])).toBeGreaterThan(baseValueOf(ATHLETES_BY_ID.lion) * 5);
   });
 });

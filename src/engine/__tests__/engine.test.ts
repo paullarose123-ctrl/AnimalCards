@@ -82,7 +82,7 @@ describe('boosters', () => {
     }
   });
 
-  it('rend les Icônes très rares hors de leurs packs (environ 1 carte sur 200)', () => {
+  it('rend les Icônes ultra rares hors de leur pack (environ 1 carte sur 1 000)', () => {
     const rng = mulberry32(7);
     const isIconCard = (card: { athleteId: string }) => {
       const athlete = ATHLETES_BY_ID[card.athleteId];
@@ -96,8 +96,16 @@ describe('boosters', () => {
         if (isIconCard(card)) icons += 1;
       }
     }
-    expect(icons / total).toBeGreaterThan(0.003);
-    expect(icons / total).toBeLessThan(0.008);
+    expect(icons / total).toBeGreaterThan(0.0004);
+    expect(icons / total).toBeLessThan(0.0018);
+    // le Pack Icônes contient une seule carte : toujours une Icône
+    const single = SHOP_PACKS.find((p) => p.id === 'icones')!;
+    for (let i = 0; i < 200; i++) {
+      const cards = openPack(single, rng);
+      expect(cards).toHaveLength(1);
+      expect(isIconCard(cards[0])).toBe(true);
+    }
+    expect(Math.max(...SHOP_PACKS.map((p) => p.price))).toBe(single.price);
     // le Pack Icônes et le Pack Préhistoire, eux, ne contiennent que des Icônes (ou un Habitat)
     const iconPack = SHOP_PACKS.find((p) => p.id === 'icones')!;
     const prehistoire = sportPack('prehistoire', 'Préhistoire');

@@ -68,10 +68,10 @@ const formatPop = (n: number, a: Athlete) => (n === 0 && extinct(a) ? 'Éteint' 
 const CONTINENT: Record<string, Continent> = Object.fromEntries(
   (
     [
-      ['afrique', 'BW CD CM DZ EG ET GA GH KE LR MA MG MU NA RW SC SD TZ ZA'],
-      ['asie', 'CN ID IN JP KZ LK MN MY NP PH SY TH RU'],
+      ['afrique', 'BW CD CG CM DZ EG ET GA GH KE KM LR MA MG MU NA RW SC SD SO TZ ZA'],
+      ['asie', 'BD CN ID IN JP KZ LK MN MY NP PH SY TH RU'],
       ['europe', 'BE CH DE ES FI FR GB GB-ENG GB-SCT GB-WLS GR HR IE IS IT NL NO PL RO SI SE'],
-      ['amerique', 'AR BR CA CL CO CR CU EC GT JM MX PE US GL'],
+      ['amerique', 'AR BO BR CA CL CO CR CU EC GT JM MX PE US GL'],
       ['oceanie', 'AU FJ NZ PG'],
     ] as Array<[Continent, string]>
   ).flatMap(([continent, codes]) => codes.split(' ').map((code) => [code, continent])),
