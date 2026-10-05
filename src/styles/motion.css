@@ -1,0 +1,663 @@
+/* ───────────── Habillage « jeu » et animations de l'interface ─────────────
+   Chargé après app.css : titres en Lilita One, boutons en relief qui s'enfoncent,
+   écrans qui entrent en cascade, lucioles dans le sous-bois, compteurs qui sautent. */
+
+:root {
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ───────────── Titres ───────────── */
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.02;
+}
+
+.screen__head--art h1 {
+  font-style: normal;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 8px 26px rgba(0, 0, 0, 0.45);
+}
+
+.hero h1 {
+  line-height: 0.95;
+  background: linear-gradient(180deg, #fffaf0 30%, #f3d79c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.35)) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+}
+
+/* sur-titre : petite étiquette en capitales, précédée d'un trait lumineux */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--honey), var(--accent-text));
+  box-shadow: 0 0 10px rgba(217, 164, 65, 0.6);
+}
+
+.worldmap__label,
+.worldmap__regionhead h3 {
+  font-style: normal;
+}
+
+.panel h2,
+.panel__title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+/* ───────────── Boutons en relief ───────────── */
+.btn {
+  position: relative;
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.16s var(--ease-out),
+    box-shadow 0.16s var(--ease-out),
+    background 0.2s,
+    filter 0.2s,
+    opacity 0.2s;
+}
+
+.btn--sm,
+.btn--xs,
+.btn--xl {
+  border-radius: 12px;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(3px);
+  transition-duration: 0.05s;
+}
+
+.btn--primary {
+  background: linear-gradient(180deg, #8cc463 0%, #5f9443 55%, #4d7a39 100%);
+  border-color: rgba(200, 236, 160, 0.45);
+  text-shadow: 0 1px 0 rgba(20, 45, 15, 0.55);
+  box-shadow:
+    0 4px 0 #2c4b20,
+    0 12px 24px rgba(20, 45, 22, 0.5),
+    inset 0 1px 0 rgba(255, 250, 220, 0.55),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #98d06e 0%, #68a04a 55%, #548541 100%);
+  box-shadow:
+    0 6px 0 #2c4b20,
+    0 16px 30px rgba(20, 45, 22, 0.55),
+    inset 0 1px 0 rgba(255, 250, 220, 0.6),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.btn--primary:active:not(:disabled) {
+  box-shadow: 0 1px 0 #2c4b20, 0 4px 10px rgba(20, 45, 22, 0.45), inset 0 1px 0 rgba(255, 250, 220, 0.4);
+}
+
+.btn--gold {
+  border-color: rgba(255, 240, 200, 0.6);
+  text-shadow: 0 1px 0 rgba(255, 245, 210, 0.6);
+  box-shadow:
+    0 4px 0 #8a5d17,
+    0 12px 24px rgba(60, 38, 6, 0.45),
+    inset 0 1px 0 rgba(255, 252, 230, 0.75);
+  overflow: hidden;
+}
+
+.btn--gold:active:not(:disabled) {
+  box-shadow: 0 1px 0 #8a5d17, 0 4px 10px rgba(60, 38, 6, 0.4), inset 0 1px 0 rgba(255, 252, 230, 0.6);
+}
+
+.btn--ghost {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 248, 230, 0.08);
+}
+
+.btn--ghost:active:not(:disabled) {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.35);
+}
+
+/* reflet qui balaie les boutons d'action toutes les quelques secondes */
+.btn--primary::after,
+.btn--gold::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 240, 0.45), transparent);
+  transform: skewX(-20deg);
+  animation: btn-shine 4.2s var(--ease-out) infinite;
+  pointer-events: none;
+}
+
+.btn--gold::after {
+  animation-delay: 1.6s;
+}
+
+.btn:disabled::after {
+  display: none;
+}
+
+@keyframes btn-shine {
+  0%,
+  62% {
+    left: -60%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+/* le gros bouton d'ouverture du booster respire pour attirer l'œil */
+.hero .btn--primary:not(:disabled) {
+  animation: cta-breathe 2.4s ease-in-out infinite;
+}
+
+.hero .btn--primary:hover:not(:disabled) {
+  animation: none;
+}
+
+@keyframes cta-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.035);
+  }
+}
+
+/* ───────────── Entrée des écrans en cascade ───────────── */
+.screen > * {
+  animation: rise-in 0.6s var(--ease-out) backwards;
+}
+
+.screen > *:nth-child(2) {
+  animation-delay: 0.06s;
+}
+.screen > *:nth-child(3) {
+  animation-delay: 0.12s;
+}
+.screen > *:nth-child(4) {
+  animation-delay: 0.18s;
+}
+.screen > *:nth-child(5) {
+  animation-delay: 0.24s;
+}
+.screen > *:nth-child(n + 6) {
+  animation-delay: 0.3s;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* les cartes des grilles arrivent une à une */
+.card-grid > * {
+  animation: card-deal 0.5s var(--ease-spring) backwards;
+}
+
+.card-grid > *:nth-child(1) { animation-delay: 0.05s; }
+.card-grid > *:nth-child(2) { animation-delay: 0.08s; }
+.card-grid > *:nth-child(3) { animation-delay: 0.11s; }
+.card-grid > *:nth-child(4) { animation-delay: 0.14s; }
+.card-grid > *:nth-child(5) { animation-delay: 0.17s; }
+.card-grid > *:nth-child(6) { animation-delay: 0.2s; }
+.card-grid > *:nth-child(7) { animation-delay: 0.23s; }
+.card-grid > *:nth-child(8) { animation-delay: 0.26s; }
+.card-grid > *:nth-child(9) { animation-delay: 0.29s; }
+.card-grid > *:nth-child(10) { animation-delay: 0.32s; }
+.card-grid > *:nth-child(11) { animation-delay: 0.35s; }
+.card-grid > *:nth-child(n + 12) { animation-delay: 0.38s; }
+
+@keyframes card-deal {
+  from {
+    opacity: 0;
+    transform: translateY(26px) rotate(-3deg) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* survol des cartes de la collection : elles se soulèvent et brillent */
+@media (hover: hover) {
+  .card-grid > * {
+    transition: transform 0.25s var(--ease-spring), filter 0.25s;
+  }
+  .card-grid > *:hover {
+    z-index: 2;
+    transform: translateY(-8px) scale(1.04);
+    filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.45)) brightness(1.05);
+  }
+}
+
+/* ───────────── Panneaux ───────────── */
+.panel {
+  position: relative;
+  border-color: rgba(232, 222, 196, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(232, 222, 196, 0.08),
+    0 1px 0 rgba(0, 0, 0, 0.3),
+    0 14px 30px rgba(3, 10, 6, 0.32);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+@media (hover: hover) {
+  .panel:hover {
+    border-color: rgba(232, 222, 196, 0.2);
+  }
+}
+
+/* ───────────── Accueil : booster qui flotte, cartes en éventail qui ondulent ───────────── */
+.hero__pack {
+  animation: hero-float 4.6s ease-in-out infinite;
+}
+
+.hero__pack::before {
+  content: '';
+  position: absolute;
+  inset: 8% -12% 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(169, 207, 126, 0.42), rgba(169, 207, 126, 0) 70%);
+  filter: blur(10px);
+  animation: hero-halo 4.6s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+@keyframes hero-halo {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.hero__count {
+  font-weight: 400;
+  border: 2px solid rgba(255, 248, 230, 0.7);
+  box-shadow: 0 3px 0 #2c4b20, 0 8px 20px rgba(77, 122, 57, 0.55);
+  animation: badge-pop 0.6s var(--ease-spring) 0.4s both, badge-beat 2.4s ease-in-out 1.2s infinite;
+}
+
+@keyframes badge-pop {
+  from {
+    transform: scale(0) rotate(-30deg);
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes badge-beat {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  10% {
+    transform: scale(1.18) rotate(-6deg);
+  }
+  20% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@media (min-width: 1100px) {
+  .showcase__slot > * {
+    animation: fan-bob 5s ease-in-out infinite;
+  }
+  .showcase__slot:nth-child(2) > * {
+    animation-delay: -1.6s;
+  }
+  .showcase__slot:nth-child(3) > * {
+    animation-delay: -3.2s;
+  }
+  .showcase__slot {
+    transition: transform 0.35s var(--ease-spring);
+  }
+}
+
+@keyframes fan-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ───────────── Jauges : reflet qui défile ───────────── */
+.meter__fill {
+  position: relative;
+  overflow: hidden;
+  transition: width 0.9s var(--ease-spring);
+}
+
+.meter__fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 240, 0.55) 50%, transparent 100%);
+  background-size: 60px 100%;
+  background-repeat: no-repeat;
+  animation: meter-glint 2.8s ease-in-out infinite;
+}
+
+@keyframes meter-glint {
+  from {
+    background-position: -60px 0;
+  }
+  to {
+    background-position: calc(100% + 60px) 0;
+  }
+}
+
+/* ───────────── Barre du haut ───────────── */
+.chip,
+.icon-btn {
+  transition: transform 0.18s var(--ease-spring), background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+@media (hover: hover) {
+  .chip:hover,
+  .icon-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+}
+
+.chip:active,
+.icon-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+/* le solde saute quand il change */
+.balles__value {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+.balles.is-up .balles__value {
+  animation: count-up 0.6s var(--ease-spring);
+  color: #ffe39a;
+}
+
+.balles.is-down .balles__value {
+  animation: count-down 0.45s var(--ease-out);
+}
+
+.balles.is-up .ball-icon {
+  animation: coin-spin 0.6s var(--ease-out);
+}
+
+@keyframes count-up {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.25) translateY(-2px);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes count-down {
+  0%,
+  100% {
+    transform: none;
+  }
+  30% {
+    transform: translateY(2px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes coin-spin {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* ───────────── Navigation du bas ───────────── */
+.bottomnav__item {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.bottomnav__item svg {
+  transition: transform 0.3s var(--ease-spring);
+}
+
+@media (hover: hover) {
+  .bottomnav__item:hover svg {
+    transform: translateY(-3px);
+  }
+}
+
+.bottomnav__item:active svg {
+  transform: scale(0.85);
+}
+
+.bottomnav__item.is-active svg {
+  animation: nav-pop 0.5s var(--ease-spring);
+  filter: drop-shadow(0 0 8px rgba(169, 207, 126, 0.6));
+}
+
+.bottomnav__item.is-active::before {
+  animation: nav-bar 0.4s var(--ease-spring);
+}
+
+/* halo derrière l'onglet actif */
+.bottomnav__item::after {
+  content: '';
+  position: absolute;
+  inset: 6px 14%;
+  z-index: -1;
+  border-radius: 14px;
+  background: radial-gradient(closest-side, rgba(169, 207, 126, 0.2), transparent);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s, transform 0.4s var(--ease-spring);
+}
+
+.bottomnav__item.is-active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes nav-pop {
+  0% {
+    transform: scale(0.7) translateY(4px);
+  }
+  60% {
+    transform: scale(1.2) translateY(-3px);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes nav-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* pastilles : elles apparaissent d'un bond et lancent une onde */
+.badge {
+  font-family: var(--font-display);
+  animation: badge-pop 0.5s var(--ease-spring) both;
+}
+
+.badge::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: badge-ring 2.6s ease-out 1s infinite;
+  color: var(--accent-text);
+}
+
+@keyframes badge-ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+/* ───────────── Notifications ───────────── */
+.toast {
+  animation: toast-in 0.5s var(--ease-spring) both;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ───────────── Lucioles du sous-bois ───────────── */
+.fireflies {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f4f0a8;
+  box-shadow: 0 0 6px 2px rgba(240, 236, 140, 0.8), 0 0 18px 6px rgba(200, 230, 110, 0.35);
+  opacity: 0;
+  animation:
+    firefly-drift var(--d, 14s) ease-in-out var(--delay, 0s) infinite alternate,
+    firefly-blink var(--b, 3.4s) ease-in-out var(--delay, 0s) infinite;
+}
+
+@keyframes firefly-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(var(--x1, 30px), var(--y1, -40px));
+  }
+  66% {
+    transform: translate(var(--x2, -20px), var(--y2, -70px));
+  }
+  100% {
+    transform: translate(var(--x3, 40px), var(--y3, -110px));
+  }
+}
+
+@keyframes firefly-blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  45%,
+  60% {
+    opacity: var(--o, 0.85);
+  }
+}
+
+/* ───────────── Mouvement réduit ───────────── */
+@media (prefers-reduced-motion: reduce) {
+  .screen > *,
+  .card-grid > *,
+  .hero__pack,
+  .hero__pack::before,
+  .hero__count,
+  .hero .btn--primary,
+  .showcase__slot > *,
+  .meter__fill::after,
+  .btn--primary::after,
+  .btn--gold::after,
+  .badge,
+  .badge::after,
+  .toast,
+  .bottomnav__item.is-active svg,
+  .bottomnav__item.is-active::before,
+  .balles.is-up .balles__value,
+  .balles.is-up .ball-icon {
+    animation: none !important;
+  }
+  .fireflies {
+    display: none;
+  }
+}

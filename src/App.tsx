@@ -17,6 +17,7 @@ import { Avatar } from './components/Avatar';
 import { PackOpening } from './overlays/PackOpening';
 import { CardDetail } from './overlays/CardDetail';
 import { Toasts } from './components/Toasts';
+import { Fireflies } from './components/Fireflies';
 import { Landscape } from './components/PackScene';
 import { SITE_SCENE } from './art/scenes';
 
@@ -215,6 +216,7 @@ export function App() {
     <div className="app">
       {/* fond de page : un sous-bois sous les étoiles, fixe derrière le contenu */}
       <Landscape className="backdrop" scene={SITE_SCENE} seed="sous-bois" maxWidth={600} />
+      <Fireflies />
       <Topbar />
       <main className="content" id="contenu">
         {tab === 'boosters' && <HomeScreen />}

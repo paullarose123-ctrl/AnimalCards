@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+
 // La monnaie du jeu : les « graines » (le composant garde son nom d'AthletiCards).
 // Une pièce couleur miel frappée d'une jeune pousse.
 export function BallIcon({ className = '' }: { className?: string }) {
@@ -26,8 +28,18 @@ const INFINITE = 99_999_999_999;
 
 export function Balles({ value, className = '' }: { value: number; className?: string }) {
   const infinite = value >= INFINITE;
+  // le solde saute vers le haut quand on gagne des graines, s'enfonce quand on en dépense
+  const previous = useRef(value);
+  const [move, setMove] = useState<{ dir: 'up' | 'down'; key: number } | null>(null);
+  useEffect(() => {
+    if (value === previous.current) return;
+    setMove((m) => ({ dir: value > previous.current ? 'up' : 'down', key: (m?.key ?? 0) + 1 }));
+    previous.current = value;
+    const id = window.setTimeout(() => setMove(null), 700);
+    return () => window.clearTimeout(id);
+  }, [value]);
   return (
-    <span className={`balles ${className}`}>
+    <span className={`balles ${className}${move ? ` is-${move.dir}` : ''}`} key={move?.key}>
       <BallIcon />
       <span className="balles__value">{infinite ? '∞' : value.toLocaleString('fr-FR')}</span>
       <span className="visually-hidden">{infinite ? ' graines illimitées' : ' graines'}</span>

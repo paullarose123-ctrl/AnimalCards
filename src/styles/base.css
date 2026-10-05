@@ -29,7 +29,9 @@
   --r-legendaire: #ff8f78;
   --prime: #f2c7d8;
 
-  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-display: 'Lilita One', 'Outfit', system-ui, sans-serif;
+  /* serif des cartes elles-mêmes (noms d'espèces, noms latins) */
+  --font-card: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   --font-body: 'Outfit', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --font-data: 'Outfit', 'Segoe UI', system-ui, sans-serif;
 
