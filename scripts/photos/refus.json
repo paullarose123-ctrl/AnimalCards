@@ -1,1 +1,26 @@
-{}
+{
+  "beagle": [
+    "Assemblage chien.jpg",
+    "Huskiesatrest.jpg"
+  ],
+  "greyhound": [
+    "Assemblage chien.jpg",
+    "Huskiesatrest.jpg",
+    "A greyhound and cane corso examining each other.jpg"
+  ],
+  "habitat-everglades": [
+    "Everglades National Park 31 août.jpg"
+  ],
+  "habitat-mariannes": [
+    "Prickly anglerfish.jpg"
+  ],
+  "habitat-monteverde": [
+    "Monteverde Cloud Forest Reserve (Copernicus 2024-06-13).png"
+  ],
+  "habitat-sahara": [
+    "Utah Dunes Landscape - West Desert District.jpg"
+  ],
+  "habitat-sundarbans": [
+    "Sundarbans.jpg"
+  ]
+}

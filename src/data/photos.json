@@ -15,6 +15,14 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg"
  },
+ "akita": {
+  "file": "akita.webp",
+  "cutout": false,
+  "author": "Azurfrog",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Male_Akita_Inu.jpg"
+ },
  "albatros": {
   "file": "albatros.webp",
   "cutout": false,
@@ -239,6 +247,14 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
   "page": "https://commons.wikimedia.org/wiki/File:Melanocetus_johnsonii1.jpg"
  },
+ "beagle": {
+  "file": "beagle.webp",
+  "cutout": false,
+  "author": "Ruth Ellison",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Beagle_portrait_Camry.jpg"
+ },
  "belette": {
   "file": "belette.webp",
   "cutout": false,
@@ -254,6 +270,14 @@
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/561462803"
+ },
+ "berger-allemand": {
+  "file": "berger-allemand.webp",
+  "cutout": false,
+  "author": "Flaurentine",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Berger_allemand_en_montagne.jpg"
  },
  "bernard-l-ermite": {
   "file": "bernard-l-ermite.webp",
@@ -311,6 +335,14 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/bonobo-primate-chimpanzee-great-ape-10109690/"
  },
+ "border-collie": {
+  "file": "border-collie.webp",
+  "cutout": false,
+  "author": "IketaniDaisei",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Border_collie_taking_break_at_park.jpg"
+ },
  "bouquetin": {
   "file": "bouquetin.webp",
   "cutout": false,
@@ -342,6 +374,14 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/beetle-insect-leaf-dung-beetle-6062572/"
+ },
+ "bouvier-bernois": {
+  "file": "chien.webp",
+  "cutout": false,
+  "author": "FriendlyToaster",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:2-BerneseMountainDogInGrass.jpg"
  },
  "brachiosaure": {
   "file": "brachiosaure.webp",
@@ -430,6 +470,14 @@
   "license": "Public domain",
   "licenseUrl": "",
   "page": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_oustaleti_last_male.jpg"
+ },
+ "caniche": {
+  "file": "caniche.webp",
+  "cutout": false,
+  "author": "John Leslie from London, UK",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Standard_poodle_apricot.jpg"
  },
  "capucin": {
   "file": "capucin.webp",
@@ -607,14 +655,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Capriolo_maschio.jpg"
  },
- "chien": {
-  "file": "chien.webp",
-  "cutout": false,
-  "author": "FriendlyToaster",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:2-BerneseMountainDogInGrass.jpg"
- },
  "chien-de-prairie": {
   "file": "chien-de-prairie.webp",
   "cutout": false,
@@ -630,6 +670,14 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/raccoon-dog-tanuki-enok-fruit-fuchs-871608/"
+ },
+ "chihuahua": {
+  "file": "chihuahua.webp",
+  "cutout": false,
+  "author": "Caterinarufo",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Chihuahuas-_Holly,_Nina,_Doralice.jpg"
  },
  "chimpanze": {
   "file": "chimpanze.webp",
@@ -878,6 +926,14 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Megupsilon_aporus_-_last_male.tif"
+ },
+ "dalmatien": {
+  "file": "dalmatien.webp",
+  "cutout": false,
+  "author": "Jeffarson",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Nova-zembla.jpg"
  },
  "dauphin": {
   "file": "dauphin.webp",
@@ -1343,6 +1399,14 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/frog-green-frog-amphibian-nature-8431942/"
  },
+ "greyhound": {
+  "file": "greyhound.webp",
+  "cutout": false,
+  "author": "AngMoKio",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Greyhound_Racing_2_amk.jpg"
+ },
  "grizzly-de-californie": {
   "file": "grizzly-de-californie.webp",
   "cutout": false,
@@ -1390,6 +1454,214 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/vulture-bird-bearded-raptor-10244835/"
+ },
+ "habitat-amazonie": {
+  "file": "habitat-amazonie.webp",
+  "cutout": false,
+  "author": "CIAT",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Amazon17_(5641020319).jpg"
+ },
+ "habitat-antarctique": {
+  "file": "habitat-antarctique.webp",
+  "cutout": false,
+  "author": "Pedro Szekely from Los Angeles, USA",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Antarctica_iceberg_-_Flickr_-_szeke.jpg"
+ },
+ "habitat-banquise": {
+  "file": "habitat-banquise.webp",
+  "cutout": false,
+  "author": "Auteur inconnu",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Greenland_East_Coast_7.jpg"
+ },
+ "habitat-bialowieza": {
+  "file": "habitat-bialowieza.webp",
+  "cutout": false,
+  "author": "WildberryPassion",
+  "license": "CC BY-SA 3.0 pl",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/pl/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:Bialowieza04.jpg"
+ },
+ "habitat-borneo": {
+  "file": "habitat-borneo.webp",
+  "cutout": false,
+  "author": "Rob and Stephanie Levy",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sunrise_in_Danum_Valley,_Borneo.jpg"
+ },
+ "habitat-camargue": {
+  "file": "habitat-camargue.webp",
+  "cutout": false,
+  "author": "Pia Parolin",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Portrait_de_flamant_rose_dans_la_r%C3%A9serve_nationale_de_Camargue.jpg"
+ },
+ "habitat-congo": {
+  "file": "habitat-congo.webp",
+  "cutout": false,
+  "author": "Axel Rouvin [2]",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Rainforest_Gabon.jpg"
+ },
+ "habitat-everglades": {
+  "file": "habitat-everglades.webp",
+  "cutout": false,
+  "author": "Jonathan Palombo",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Everglades_(12561344465).jpg"
+ },
+ "habitat-galapagos": {
+  "file": "habitat-galapagos.webp",
+  "cutout": false,
+  "author": "kuhnmi",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Bartolome_Island,_Galapagos_(50122421803).jpg"
+ },
+ "habitat-gobi": {
+  "file": "habitat-gobi.webp",
+  "cutout": false,
+  "author": "Niek van Son from Eindhoven, Nederland",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Mongolia_-_Gobi_Desert_(49310228777).jpg"
+ },
+ "habitat-grande-barriere": {
+  "file": "habitat-grande-barriere.webp",
+  "cutout": false,
+  "author": "Toby Hudson",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Coral_Outcrop_Flynn_Reef.jpg"
+ },
+ "habitat-himalaya": {
+  "file": "habitat-himalaya.webp",
+  "cutout": false,
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Mountains_in_snow,_Mountain_lake,_Chola_Valley,_Nepal,_Himalayas.jpg"
+ },
+ "habitat-madagascar": {
+  "file": "habitat-madagascar.webp",
+  "cutout": false,
+  "author": "Bernard Gagnon",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Adansonia_grandidieri04.jpg"
+ },
+ "habitat-mariannes": {
+  "file": "habitat-mariannes.webp",
+  "cutout": false,
+  "author": "NOAA Ocean Exploration, Deepwater Exploration of the Marianas",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Relicanthus_daphneae_2016.jpg"
+ },
+ "habitat-monteverde": {
+  "file": "habitat-monteverde.webp",
+  "cutout": false,
+  "author": "Junebug2433",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:One_of_the_Skywalk_Hanging_Bridges_at_Sky_Monteverde_in_Costa_Rica.jpg"
+ },
+ "habitat-okavango": {
+  "file": "habitat-okavango.webp",
+  "cutout": false,
+  "author": "diego_cue",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Elephants_in_the_Okavango_Delta_-_Botswana_-_panoramio.jpg"
+ },
+ "habitat-outback": {
+  "file": "habitat-outback.webp",
+  "cutout": false,
+  "author": "Gabriele Delhey",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Mount_Conner,_August_2003.jpg"
+ },
+ "habitat-pantanal": {
+  "file": "habitat-pantanal.webp",
+  "cutout": false,
+  "author": "Alicia Yo",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Pantanal,_south-central_South_America_5170.jpg"
+ },
+ "habitat-patagonie": {
+  "file": "habitat-patagonie.webp",
+  "cutout": false,
+  "author": "Pedro Szekely from Los Angeles, USA",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Cuernos_del_Paine_in_Torres_del_Paine_National_Park.jpg"
+ },
+ "habitat-sahara": {
+  "file": "habitat-sahara.webp",
+  "cutout": false,
+  "author": "Rosa Cabecinhas and Alcino Cunha",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Morocco_Africa_Flickr_Rosino_December_2005_84514010_edited_by_Buchling.jpg"
+ },
+ "habitat-sargasses": {
+  "file": "habitat-sargasses.webp",
+  "cutout": false,
+  "author": "Unknown author Unknown author",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Sargassum_weeds_closeup.jpg"
+ },
+ "habitat-serengeti": {
+  "file": "habitat-serengeti.webp",
+  "cutout": false,
+  "author": "Wolves201",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Serengeti_wildebeest_migration_JF.jpg"
+ },
+ "habitat-sundarbans": {
+  "file": "habitat-sundarbans.webp",
+  "cutout": false,
+  "author": "Kingshuk Mondal",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Dense_Mangrove_Forest_of_the_Sundarban_Tiger_Reserve_during_High_Tide,_West_Bengal,_India_03.jpg"
+ },
+ "habitat-taiga": {
+  "file": "habitat-taiga.webp",
+  "cutout": false,
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Ergaki,_Taiga_in_Siberia,_Dark_coniferous_forest,_Sayan_Mountains,_Russia.jpg"
+ },
+ "habitat-tasmanie": {
+  "file": "habitat-tasmanie.webp",
+  "cutout": false,
+  "author": "Jörn Brauns",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:CradleMountain.jpg"
+ },
+ "habitat-yellowstone": {
+  "file": "habitat-yellowstone.webp",
+  "cutout": false,
+  "author": "James St. John from Newark, Ohio",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Grand_Prismatic_Spring_2013.jpg"
  },
  "hamster": {
   "file": "hamster.webp",
@@ -1478,6 +1750,14 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Homarus_gammarus_03.JPG"
+ },
+ "husky": {
+  "file": "husky.webp",
+  "cutout": false,
+  "author": "Klmw",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Moscow_et_Owana_de_l%E2%80%99%C3%A9levage_Of_Kolyma_Wolves.jpg"
  },
  "hyene": {
   "file": "hyene.webp",
@@ -1606,6 +1886,14 @@
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/593455917"
+ },
+ "labrador": {
+  "file": "labrador.webp",
+  "cutout": false,
+  "author": "Original author Hand , edit by Pharaoh Hound",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "page": "https://commons.wikimedia.org/wiki/File:Labrador_Retriever_snow.jpg"
  },
  "lama": {
   "file": "lama.webp",
@@ -2094,254 +2382,6 @@
   "license": "Public domain",
   "licenseUrl": "",
   "page": "https://commons.wikimedia.org/wiki/File:Brachypelma_smithi_2009_G09.jpg"
- },
- "mythe-behemoth": {
-  "file": "mythe-behemoth.webp",
-  "cutout": false,
-  "author": "rcascoherrera",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-monster-bible-trials-9564084/"
- },
- "mythe-bunyip": {
-  "file": "mythe-bunyip.webp",
-  "cutout": false,
-  "author": "RuneSnow",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-swamp-monster-nature-9050011/"
- },
- "mythe-cerbere": {
-  "file": "mythe-cerbere.webp",
-  "cutout": false,
-  "author": "Pink_Angel",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/cerberus-mythology-greek-underworld-10135045/"
- },
- "mythe-cerf-blanc": {
-  "file": "mythe-cerf-blanc.webp",
-  "cutout": false,
-  "author": "JuliusH",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-deer-antlers-8998301/"
- },
- "mythe-dakuwaqa": {
-  "file": "mythe-dakuwaqa.webp",
-  "cutout": false,
-  "author": "RALPH_GERMANY",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-shark-fish-animal-sea-8383721/"
- },
- "mythe-dragon": {
-  "file": "mythe-dragon.webp",
-  "cutout": false,
-  "author": "AIArtKingdom",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/dragon-fantasy-art-fantasy-8840975/"
- },
- "mythe-fenrir": {
-  "file": "mythe-fenrir.webp",
-  "cutout": false,
-  "author": "anaterate",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-fenrir-wolf-moon-8223556/"
- },
- "mythe-gevaudan": {
-  "file": "mythe-gevaudan.webp",
-  "cutout": false,
-  "author": "jcoope12",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-werewolf-room-dark-8266687/"
- },
- "mythe-grande-ourse": {
-  "file": "mythe-grande-ourse.webp",
-  "cutout": false,
-  "author": "crocerossina",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-bear-animal-lights-8584309/"
- },
- "mythe-griffon": {
-  "file": "mythe-griffon.webp",
-  "cutout": false,
-  "author": "jcoope12",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-griffin-fire-mountains-8520905/"
- },
- "mythe-hydre": {
-  "file": "mythe-hydre.webp",
-  "cutout": false,
-  "author": "SilviaP_Design",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/monster-hydra-mythical-creatures-2255973/"
- },
- "mythe-jormungand": {
-  "file": "mythe-jormungand.webp",
-  "cutout": false,
-  "author": "varunanand93",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-dragon-sea-ocean-9448682/"
- },
- "mythe-jorogumo": {
-  "file": "mythe-jorogumo.webp",
-  "cutout": false,
-  "author": "Alexas_Fotos",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-spider-monster-face-8757458/"
- },
- "mythe-kitsune": {
-  "file": "mythe-kitsune.webp",
-  "cutout": false,
-  "author": "jcoope12",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-fox-white-fox-8577409/"
- },
- "mythe-kraken": {
-  "file": "mythe-kraken.webp",
-  "cutout": false,
-  "author": "Iffany",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-monster-octopus-kraken-8918887/"
- },
- "mythe-lapin-de-jade": {
-  "file": "mythe-lapin-de-jade.webp",
-  "cutout": false,
-  "author": "nokono",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-rabbit-bunny-hare-8844372/"
- },
- "mythe-leviathan": {
-  "file": "mythe-leviathan.webp",
-  "cutout": false,
-  "author": "Steinfadt",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/leviathan-monster-fantasy-sea-10048809/"
- },
- "mythe-licorne": {
-  "file": "mythe-licorne.webp",
-  "cutout": false,
-  "author": "GoddessofGoodFortune",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-unicorn-horse-valley-8516875/"
- },
- "mythe-lion-aile": {
-  "file": "mythe-lion-aile.webp",
-  "cutout": false,
-  "author": "deeznutz1",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-lion-wings-background-8536272/"
- },
- "mythe-long": {
-  "file": "mythe-long.webp",
-  "cutout": false,
-  "author": "Hydesim",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/chinese-dragon-jade-dragon-year-sky-8534076/"
- },
- "mythe-nessie": {
-  "file": "mythe-nessie.webp",
-  "cutout": false,
-  "author": "pictavio",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-loch-ness-monster-8898465/"
- },
- "mythe-oiseau-tonnerre": {
-  "file": "mythe-oiseau-tonnerre.webp",
-  "cutout": false,
-  "author": "AIduck",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-eagle-glowing-fantasy-8925253/"
- },
- "mythe-pegase": {
-  "file": "mythe-pegase.webp",
-  "cutout": false,
-  "author": "1tamara2",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-unicorn-fantasy-9033991/"
- },
- "mythe-phenix": {
-  "file": "mythe-phenix.webp",
-  "cutout": false,
-  "author": "jcoope12",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-phoenix-mythical-8592509/"
- },
- "mythe-quetzalcoatl": {
-  "file": "mythe-quetzalcoatl.webp",
-  "cutout": false,
-  "author": "jcoope12",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-forest-serpent-jungle-8608863/"
- },
- "mythe-salamandre": {
-  "file": "mythe-salamandre.webp",
-  "cutout": false,
-  "author": "baranova_n",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-lizard-salamander-9234939/"
- },
- "mythe-simurgh": {
-  "file": "mythe-simurgh.webp",
-  "cutout": false,
-  "author": "13342248",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-phoenix-bird-mystic-8525660/"
- },
- "mythe-taureau-de-crete": {
-  "file": "mythe-taureau-de-crete.webp",
-  "cutout": false,
-  "author": "FriedeDia",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-bull-monster-creature-9343404/"
- },
- "mythe-tigre-blanc": {
-  "file": "mythe-tigre-blanc.webp",
-  "cutout": false,
-  "author": "RALPH_GERMANY",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-tiger-animal-8321310/"
- },
- "mythe-tortue-monde": {
-  "file": "mythe-tortue-monde.webp",
-  "cutout": false,
-  "author": "ElephantSoup",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-frog-amphibian-house-8742717/"
- },
- "mythe-yeti": {
-  "file": "mythe-yeti.webp",
-  "cutout": false,
-  "author": "Tim_HD",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-yeti-bigfoot-creature-8948929/"
  },
  "narval": {
   "file": "narval.webp",
@@ -3270,6 +3310,14 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Ecuadorian_squirrel_monkey_(Saimiri_macrodon)_head_Rio_Napo.jpg"
+ },
+ "saint-bernard": {
+  "file": "saint-bernard.webp",
+  "cutout": false,
+  "author": "DoggenClub",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:Saint_Bernard.png"
  },
  "salamandre": {
   "file": "salamandre.webp",

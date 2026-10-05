@@ -3,26 +3,26 @@ import { SPORTS, SPORT_ORDER } from '../data/sports';
 import { Card } from '../components/Card';
 import { Flag, FLAG_CODES } from '../components/Flag';
 import { SportIcon } from '../components/SportIcon';
-import { RARITIES, RECORD_START, isIcon, rarityOf } from '../engine/cards';
+import { RARITIES, isIcon, rarityOf, rarityScore } from '../engine/cards';
 import { FREE_PACK, SHOP_PACKS, sportPack } from '../engine/packs';
 import { PackArt } from '../components/PackArt';
 import { CardBack } from '../components/CardBack';
 
 // Page de contrôle visuel (#galerie) : un échantillon de cartes, les emblèmes des familles et tous les drapeaux.
-const SAMPLE = ['lion', 'tigre', 'elephant', 'loup', 'orque', 'requin-blanc', 'panda', 'gorille', 'aigle-royal', 'crocodile-du-nil', 'chien', 'chat', 'axolotl', 'pieuvre', 'kangourou', 'fourmi'];
+const SAMPLE = ['lion', 'tigre', 'elephant', 'loup', 'orque', 'requin-blanc', 'panda', 'gorille', 'aigle-royal', 'crocodile-du-nil', 'berger-allemand', 'chat', 'axolotl', 'pieuvre', 'kangourou', 'fourmi'];
 // une espèce par famille, pour vérifier les emblèmes et les noms longs
 const FAMILIES = ['manul', 'fennec', 'ours-lippu', 'aye-aye', 'okapi', 'saiga', 'rat-taupe-nu', 'ornithorynque', 'narval', 'raie-manta', 'coelacanthe', 'harfang', 'macareux', 'cameleon', 'phyllobate', 'mante-religieuse', 'crevette-mante', 'alpaga', 'rhinoceros-noir-de-l-ouest'];
 
 /**
  * Ordre de revue des cartes : famille par famille (ordre du jeu), de la plus rare à la plus commune comme dans l'album,
- * puis les Mythes. Sert à la planche de revue (#toutes-les-cartes).
+ * puis les Habitats. Sert à la planche de revue (#toutes-les-cartes).
  */
 export function reviewOrder() {
   const byAlbum = (a: (typeof ATHLETES)[number], b: (typeof ATHLETES)[number]) =>
-    rarityOf(b).order - rarityOf(a).order || b.fame - a.fame || a.last.localeCompare(b.last, 'fr');
+    rarityOf(b).order - rarityOf(a).order || rarityScore(b) - rarityScore(a) || a.last.localeCompare(b.last, 'fr');
   return [
-    ...SPORT_ORDER.flatMap((sport) => ATHLETES.filter((a) => a.sport === sport && !a.mythe).sort(byAlbum)),
-    ...ATHLETES.filter((a) => a.mythe).sort(byAlbum),
+    ...SPORT_ORDER.flatMap((sport) => ATHLETES.filter((a) => a.sport === sport && !a.habitat).sort(byAlbum)),
+    ...ATHLETES.filter((a) => a.habitat).sort(byAlbum),
   ];
 }
 
@@ -41,7 +41,7 @@ export function Gallery() {
   const sample = SAMPLE.map((id) => ATHLETES.find((a) => a.id === id)!).filter(Boolean);
   // une espèce actuelle par rareté (bronze → légende), pour comparer les matières
   const tiers = (['commune', 'peu-commune', 'rare', 'epique', 'legendaire'] as const)
-    .map((id) => ATHLETES.find((a) => !isIcon(a) && !a.mythe && rarityOf(a).id === id))
+    .map((id) => ATHLETES.find((a) => !isIcon(a) && !a.habitat && rarityOf(a).id === id))
     .filter((a) => a !== undefined);
   return (
     <div style={{ padding: 24, display: 'grid', gap: 32 }}>
@@ -62,13 +62,13 @@ export function Gallery() {
       <div style={{ width: 210, aspectRatio: '100 / 140' }}>
         <CardBack />
       </div>
-      <section id="mythes" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {ATHLETES.filter((a) => a.mythe).map((a) => (
+      <section id="habitats" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+        {ATHLETES.filter((a) => a.habitat).map((a) => (
           <Card key={a.id} card={{ athleteId: a.id, variant: 'base' }} size="md" />
         ))}
       </section>
       <section id="apercu" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {['crocodile-du-nil', 'alligator', 'chien', 'requin-baleine', 't-rex', 'triceratops', 'mammouth', 'smilodon', 'mythe-dragon', 'mythe-pegase', 'mythe-griffon', 'mythe-nessie'].map((id) => (
+        {['crocodile-du-nil', 'alligator', 'husky', 'requin-baleine', 't-rex', 'triceratops', 'mammouth', 'smilodon', 'habitat-amazonie', 'habitat-grande-barriere', 'habitat-banquise', 'habitat-camargue'].map((id) => (
           <Card key={id} card={{ athleteId: id, variant: 'base' }} size="md" />
         ))}
       </section>
@@ -78,7 +78,7 @@ export function Gallery() {
         ))}
       </section>
       <section id="icones" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {ATHLETES.filter((a) => a.retired && !a.mythe).map((a) => (
+        {ATHLETES.filter((a) => a.retired && !a.habitat).map((a) => (
           <Card key={a.id} card={{ athleteId: a.id, variant: 'base' }} size="md" />
         ))}
       </section>
@@ -104,8 +104,8 @@ export function Gallery() {
         <Card card={{ athleteId: 'lion', variant: 'base' }} size="lg" />
         <Card card={{ athleteId: 'tigre', variant: 'base' }} size="lg" />
         <Card card={{ athleteId: 't-rex', variant: 'base' }} size="lg" />
-        <Card card={{ athleteId: 'chien', variant: 'prime' }} size="lg" />
-        <Card card={{ athleteId: 'guepard', variant: 'base', record: RECORD_START }} size="lg" />
+        <Card card={{ athleteId: 'akita', variant: 'prime' }} size="lg" />
+        <Card card={{ athleteId: 'guepard', variant: 'base' }} size="lg" />
       </section>
       <section style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
         {sample.map((a) => (

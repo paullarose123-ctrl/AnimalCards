@@ -4,16 +4,136 @@ import { useUi, DEFAULT_FILTERS } from '../store/ui';
 import { useNow, formatDuration, timeAgo } from '../hooks/useNow';
 import { ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { RARITIES, RARITY_ORDER, displayName, overallOf, rarityOf } from '../engine/cards';
+import { RARITIES, RARITY_ORDER, collectionNumber, displayName, rarityOf } from '../engine/cards';
 import { MARKET_TAX, MAX_MY_LISTINGS, marketPrice, netAfterTax, nextMinBid, type Listing, type MyListing } from '../engine/market';
 import type { RarityId, SportId } from '../engine/types';
 import { Card } from '../components/Card';
 import { Balles } from '../components/Balles';
 import { Landscape } from '../components/PackScene';
 import { SCREEN_SCENES } from '../art/scenes';
+import { useOnline } from '../store/online';
+import { useAccount } from '../store/account';
+import { accountsEnabled } from '../account/supabase';
+import type { OnlineListing } from '../account/market';
+import type { CardFace } from '../engine/types';
+import type { MarketFilters } from '../store/ui';
 
 function normalize(text: string): string {
   return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+}
+
+/** La carte correspond-elle aux filtres de recherche du marché ? */
+function matchesFilters(card: CardFace, price: number, filters: MarketFilters, q: string): boolean {
+  const athlete = ATHLETES_BY_ID[card.athleteId];
+  if (!athlete) return false;
+  if (filters.sport && athlete.sport !== filters.sport) return false;
+  if (filters.rarity && rarityOf(athlete).id !== filters.rarity) return false;
+  if (filters.prime && card.variant !== 'prime') return false;
+  if (filters.icons && !athlete.retired) return false;
+  if (filters.maxPrice && price > filters.maxPrice) return false;
+  if (q && !normalize(`${displayName(athlete)} ${athlete.nick ?? ''} ${athlete.latin ?? ''}`).includes(q)) return false;
+  return true;
+}
+
+/** Une annonce d'un vrai joueur : prix fixe, achat immédiat. */
+function OnlineRow({ listing, now, mine = false }: { listing: OnlineListing; now: number; mine?: boolean }) {
+  const athlete = ATHLETES_BY_ID[listing.card.athleteId];
+  const news = useGame((s) => s.market.news);
+  const balles = useGame((s) => s.balles);
+  const openDetail = useUi((s) => s.openDetail);
+  const buy = useOnline((s) => s.buy);
+  const cancel = useOnline((s) => s.cancel);
+  const busy = useOnline((s) => s.pending === listing.id);
+  const connected = useAccount((s) => !!s.session);
+  if (!athlete) return null;
+  const price = marketPrice(listing.card, now, news);
+  const left = listing.expiresAt - now;
+  const deal = listing.price < price * 0.97;
+  const rarity = rarityOf(athlete);
+  return (
+    <li className="listing listing--online">
+      <Card card={listing.card} size="xs" onClick={() => openDetail({ card: listing.card })} />
+      <div className="listing__info">
+        <p className="listing__name">
+          <b>{displayName(athlete)}</b>
+          {listing.card.variant === 'prime' && <span className="chip-rarity chip-rarity--prime">Prime</span>}
+          {listing.card.variant === 'reverse' && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
+        </p>
+        <p className="listing__meta">
+          <span className={`chip-rarity chip-rarity--${rarity.id}`}>{rarity.name}</span> N° {collectionNumber(athlete)} ·{' '}
+          <span className="player-tag">{mine ? 'Toi' : listing.seller}</span>
+        </p>
+        <p className="listing__market">
+          Cote <Balles value={price} />
+          {deal && !mine && <span className="deal">Bonne affaire</span>}
+        </p>
+      </div>
+      <div className="listing__prices">
+        <span className={`listing__time${left < 10 * 60_000 ? ' is-urgent' : ''}`}>{left > 0 ? formatDuration(left) : 'Terminée'}</span>
+        <span className="listing__bid">
+          Prix <Balles value={listing.price} />
+        </span>
+      </div>
+      <div className="listing__actions">
+        {mine ? (
+          <button type="button" className="btn btn--ghost btn--sm" disabled={busy} onClick={() => cancel(listing)}>
+            {busy ? 'Retrait…' : 'Retirer'}
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn--primary btn--sm"
+            disabled={busy || !connected || balles < listing.price}
+            title={connected ? undefined : 'Connecte-toi pour acheter aux autres joueurs'}
+            onClick={() => buy(listing)}
+          >
+            {busy ? 'Achat…' : <>Acheter <Balles value={listing.price} /></>}
+          </button>
+        )}
+      </div>
+    </li>
+  );
+}
+
+/** Les annonces des joueurs, en tête de l'onglet Acheter. */
+function OnlineSection({ filters, now }: { filters: MarketFilters; now: number }) {
+  const active = useOnline((s) => s.active);
+  const loaded = useOnline((s) => s.loaded);
+  const error = useOnline((s) => s.error);
+  const me = useAccount((s) => s.session?.userId);
+  const setTab = useUi((s) => s.setTab);
+  const q = normalize(filters.query.trim());
+  const results = active
+    .filter((l) => l.sellerId !== me && l.expiresAt > now && matchesFilters(l.card, l.price, filters, q))
+    .sort((a, b) => (filters.sort === 'price-asc' ? a.price - b.price : filters.sort === 'price-desc' ? b.price - a.price : b.createdAt - a.createdAt));
+  return (
+    <section className="market-section" aria-labelledby="online-title">
+      <h2 id="online-title" className="market-section__title">
+        <span className="live-dot" aria-hidden="true" /> Annonces des joueurs
+        <small>{active.length ? `${active.length} en ligne` : ''}</small>
+      </h2>
+      {!me && (
+        <p className="info-bar">
+          <span>Connecte-toi pour acheter et vendre aux autres joueurs.</span>
+          <button type="button" className="btn btn--primary btn--sm" onClick={() => setTab('profil')}>
+            Se connecter
+          </button>
+        </p>
+      )}
+      {error && <p className="error-text">{error}</p>}
+      {!loaded ? (
+        <p className="muted">Chargement des annonces…</p>
+      ) : results.length === 0 ? (
+        <p className="muted">{active.length ? 'Aucune annonce de joueur ne correspond à ta recherche.' : 'Aucun joueur ne vend de carte pour l’instant. Sois le premier : ouvre une carte de ta réserve et choisis « Mettre en vente ».'}</p>
+      ) : (
+        <ul className="listings">
+          {results.slice(0, 60).map((listing) => (
+            <OnlineRow key={listing.id} listing={listing} now={now} />
+          ))}
+        </ul>
+      )}
+    </section>
+  );
 }
 
 function ListingRow({ listing, now }: { listing: Listing; now: number }) {
@@ -43,7 +163,7 @@ function ListingRow({ listing, now }: { listing: Listing; now: number }) {
           {listing.card.variant === 'reverse' && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
         </p>
         <p className="listing__meta">
-          <span className={`chip-rarity chip-rarity--${rarity.id}`}>{rarity.name}</span> {overallOf(athlete, listing.card.variant)} · {SPORTS[athlete.sport].name} ·{' '}
+          <span className={`chip-rarity chip-rarity--${rarity.id}`}>{rarity.name}</span> N° {collectionNumber(athlete)} · {SPORTS[athlete.sport].name} ·{' '}
           {listing.seller}
         </p>
         <p className="listing__market">
@@ -111,24 +231,15 @@ function BuyTab() {
 
   const results = useMemo(() => {
     const q = normalize(filters.query.trim());
-    const list = listings.filter((listing) => {
-      const athlete = ATHLETES_BY_ID[listing.card.athleteId];
-      if (filters.sport && athlete.sport !== filters.sport) return false;
-      if (filters.rarity && rarityOf(athlete).id !== filters.rarity) return false;
-      if (filters.prime && listing.card.variant !== 'prime') return false;
-      if (filters.icons && !athlete.retired) return false;
-      if (filters.maxPrice && listing.buyNow > filters.maxPrice) return false;
-      if (q && !normalize(`${displayName(athlete)} ${athlete.nick ?? ''} ${athlete.latin ?? ''}`).includes(q)) return false;
-      return listing.expiresAt > now;
-    });
+    const list = listings.filter((listing) => matchesFilters(listing.card, listing.buyNow, filters, q) && listing.expiresAt > now);
     return list.sort((a, b) => {
       switch (filters.sort) {
         case 'price-asc':
           return a.buyNow - b.buyNow;
         case 'price-desc':
           return b.buyNow - a.buyNow;
-        case 'rating':
-          return overallOf(ATHLETES_BY_ID[b.card.athleteId], b.card.variant) - overallOf(ATHLETES_BY_ID[a.card.athleteId], a.card.variant);
+        case 'number':
+          return collectionNumber(ATHLETES_BY_ID[a.card.athleteId]).localeCompare(collectionNumber(ATHLETES_BY_ID[b.card.athleteId]));
         default:
           return a.expiresAt - b.expiresAt;
       }
@@ -181,7 +292,7 @@ function BuyTab() {
             <option value="ending">Fin la plus proche</option>
             <option value="price-asc">Prix croissant</option>
             <option value="price-desc">Prix décroissant</option>
-            <option value="rating">Meilleure note</option>
+            <option value="number">N° de collection</option>
           </select>
         </label>
         <label className="toggle">
@@ -200,6 +311,10 @@ function BuyTab() {
           </span>
         ))}
       </div>
+      {accountsEnabled() && <OnlineSection filters={filters} now={now} />}
+      <h2 className="market-section__title">
+        Collectionneurs du jeu <small>enchères et achat immédiat</small>
+      </h2>
       {results.length === 0 ? (
         <div className="empty">
           <p>Aucune carte ne correspond à ta recherche en ce moment.</p>
@@ -261,6 +376,54 @@ function MyListingRow({ listing, now }: { listing: MyListing; now: number }) {
   );
 }
 
+/** Mes ventes en ligne : annonces en cours et dernières ventes conclues. */
+function OnlineMine({ now }: { now: number }) {
+  const me = useAccount((s) => s.session?.userId);
+  const mine = useOnline((s) => s.mine);
+  const history = useOnline((s) => s.history);
+  if (!me) return null;
+  const active = mine.filter((l) => l.sellerId === me && l.status === 'active');
+  const recent = history.slice(0, 10);
+  return (
+    <section className="market-section" aria-labelledby="online-mine-title">
+      <h2 id="online-mine-title" className="market-section__title">
+        <span className="live-dot" aria-hidden="true" /> En vente aux joueurs <small>{active.length}/15</small>
+      </h2>
+      {active.length === 0 ? (
+        <p className="muted">Aucune carte en vente en ligne. Ouvre une carte de ta réserve et choisis « Aux joueurs ».</p>
+      ) : (
+        <ul className="listings">
+          {active.map((listing) => (
+            <OnlineRow key={listing.id} listing={listing} now={now} mine />
+          ))}
+        </ul>
+      )}
+      {recent.length > 0 && (
+        <ul className="trade-log" aria-label="Dernières transactions">
+          {recent.map((l) => {
+            const sold = l.sellerId === me;
+            const athlete = ATHLETES_BY_ID[l.card.athleteId];
+            return (
+              <li key={l.id} className={sold ? 'is-sold' : 'is-bought'}>
+                {sold ? (
+                  <>
+                    <b>{l.buyer}</b> a acheté ton {athlete?.last} · +<Balles value={netAfterTax(l.price)} />
+                  </>
+                ) : (
+                  <>
+                    Tu as acheté {athlete?.last} à <b>{l.seller}</b> · −<Balles value={l.price} />
+                  </>
+                )}
+                <time>{timeAgo(l.soldAt ?? l.createdAt, now)}</time>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
+  );
+}
+
 function MineTab() {
   const myListings = useGame((s) => s.market.myListings);
   const clear = useGame((s) => s.clearFinishedListings);
@@ -270,6 +433,10 @@ function MineTab() {
   const finished = myListings.filter((l) => l.status !== 'active');
   return (
     <>
+      {accountsEnabled() && <OnlineMine now={now} />}
+      <h2 className="market-section__title">
+        Ventes aux collectionneurs du jeu
+      </h2>
       <div className="info-bar">
         <span>
           {active.length}/{MAX_MY_LISTINGS} cartes en vente. Taxe du marché : {Math.round(MARKET_TAX * 100)} % sur chaque vente.
@@ -333,7 +500,7 @@ export function MarketScreen() {
         <div>
           <p className="eyebrow">Bourse d’échange</p>
           <h1>Marché</h1>
-          <p className="muted">Achète au prix immédiat, enchéris, ou vends tes cartes aux autres collectionneurs.</p>
+          <p className="muted">Achète et vends tes cartes aux autres joueurs, en direct, ou aux collectionneurs du jeu.</p>
         </div>
         <div className="segmented" role="tablist" aria-label="Sections du marché">
           <button type="button" role="tab" aria-selected={tab === 'buy'} className={tab === 'buy' ? 'is-active' : ''} onClick={() => setTab('buy')}>

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ATHLETES } from '../../data/athletes';
-import { athletesByRarity, baseValueOf, statsOf, overallOf, ultiOf, dropWeight, RARITY_ORDER } from '../cards';
+import { ATHLETES_BY_ID } from '../../data/athletes';
+import { athletesByRarity, baseValueOf, collectionNumber, dropWeight, RARITY_ORDER } from '../cards';
 
 describe('base de données', () => {
   it('a des identifiants uniques', () => {
@@ -17,26 +18,27 @@ describe('base de données', () => {
     for (const legend of byRarity.legendaire) console.log(legend.id, legend.fame, baseValueOf(legend), baseValueOf(legend, 'prime'), dropWeight(legend).toFixed(2));
   });
 
-  it('calcule des stats valides', () => {
-    for (const athlete of ATHLETES) {
-      const stats = statsOf(athlete);
-      for (const value of Object.values(stats)) {
-        expect(value).toBeGreaterThanOrEqual(20);
-        expect(value).toBeLessThanOrEqual(99);
-      }
-      expect(overallOf(athlete, 'prime')).toBeGreaterThanOrEqual(overallOf(athlete));
-      expect(ultiOf(athlete).effects.length).toBeGreaterThan(0);
-    }
+  it('donne à chaque carte un numéro de collection unique', () => {
+    const numbers = ATHLETES.map(collectionNumber);
+    expect(numbers.every(Boolean)).toBe(true);
+    expect(new Set(numbers).size).toBe(numbers.length);
+    expect(collectionNumber(ATHLETES_BY_ID.lion)).toBe('001');
+    expect(collectionNumber(ATHLETES_BY_ID['habitat-amazonie'])).toBe('H01');
   });
 
-  it('rend toujours plus forte une carte plus rare', () => {
+  it('rend une carte plus rare plus chère, et les Prime et Reverse plus chères que la classique', () => {
     const byRarity = athletesByRarity();
     for (let i = 0; i < RARITY_ORDER.length - 1; i++) {
-      const lower = byRarity[RARITY_ORDER[i]].map((a) => overallOf(a));
-      const higher = byRarity[RARITY_ORDER[i + 1]].map((a) => overallOf(a));
-      expect(Math.max(...lower)).toBeLessThan(Math.min(...higher));
+      // les Icônes (espèces disparues) ont leur propre cote, très au-dessus de leur rareté
+      const lower = Math.min(...byRarity[RARITY_ORDER[i + 1]].filter((a) => !a.retired).map((a) => baseValueOf(a)));
+      const higher = Math.max(...byRarity[RARITY_ORDER[i]].filter((a) => !a.retired).map((a) => baseValueOf(a)));
+      expect(lower).toBeGreaterThan(higher * 0.9);
     }
-    const top = ATHLETES.slice().sort((a, b) => overallOf(b) - overallOf(a)).slice(0, 5).map((a) => `${a.id} ${overallOf(a)}`);
-    console.log('meilleures notes', top.join(', '), '| Guépard', overallOf(ATHLETES.find((a) => a.id === 'guepard')!));
+    const lion = ATHLETES_BY_ID.lion;
+    expect(baseValueOf(lion, 'prime')).toBeGreaterThan(baseValueOf(lion, 'reverse'));
+    expect(baseValueOf(lion, 'reverse')).toBeGreaterThan(baseValueOf(lion));
+    // une Icône vaut une fortune, même la plus commune
+    expect(baseValueOf(ATHLETES_BY_ID.quagga)).toBeGreaterThanOrEqual(100_000);
+    expect(baseValueOf(ATHLETES_BY_ID['t-rex'])).toBeGreaterThan(baseValueOf(ATHLETES_BY_ID.lion) * 5);
   });
 });

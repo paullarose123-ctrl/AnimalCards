@@ -2,25 +2,31 @@ import { create } from 'zustand';
 import { createJSONStorage, persist, type StateStorage } from 'zustand/middleware';
 import type { CardFace, OwnedCard } from '../engine/types';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
+import { ICONES_REMPLACEES } from '../data/remplacements';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { canBePrime, isMythe, overallOf, quickSellValue, rarityOf } from '../engine/cards';
+import { canBePrime, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import { FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, sportPack, type PackDef } from '../engine/packs';
 import {
   MAX_MY_LISTINGS,
   advanceMarket,
   createMarket,
   createMyListing,
+  netAfterTax,
   nextMinBid,
   type MarketEvent,
   type MarketState,
 } from '../engine/market';
-import { createMatch, matchResult, mytheBonus, playRound, rewardFor, TEAM_SIZE, type MatchState } from '../engine/match';
+import { TEAM_SIZE, autoTeamFrom, canDuel, createDuel, duelResult, playDuelRound, rewardFor, type DuelState } from '../engine/duel';
 import { makeUid } from '../engine/random';
 
 export const FREE_PACK_INTERVAL = 10 * 60_000;
+/** nombre de cartes de la vitrine du profil */
+export const FAVORITES_SIZE = 5;
+/** nom de la sauvegarde dans le stockage du navigateur */
+const SAVE_NAME = 'animalcards-save';
 export const MAX_FREE_PACKS = 10;
 export const START_BALLES = 5_000;
-/** solde affiché « ∞ » quand les graines illimitées sont activées */
+/** solde affiché « ∞ » quand les crédits illimités sont activées */
 export const UNLIMITED_BALLES = 99_999_999_999;
 const DIVISION_POINTS_TO_PROMOTE = 7;
 
@@ -50,6 +56,46 @@ const MYTHES_REMPLACES: Record<string, string> = {
   khepri: 'jorogumo',
 };
 
+/**
+ * Version 6 : la carte Chien devient une race (le bouvier bernois, dont c'était la photo) ; les cartes Mythe
+ * deviennent des cartes Habitat de même rareté. Les cartes Prime devenues impossibles (Laïka) redeviennent des
+ * cartes classiques.
+ */
+const CARTES_REMPLACEES_V6: Record<string, string> = {
+  chien: 'bouvier-bernois',
+  'mythe-dragon': 'habitat-galapagos',
+  'mythe-phenix': 'habitat-amazonie',
+  'mythe-licorne': 'habitat-serengeti',
+  'mythe-griffon': 'habitat-antarctique',
+  'mythe-pegase': 'habitat-grande-barriere',
+  'mythe-kraken': 'habitat-mariannes',
+  'mythe-yeti': 'habitat-himalaya',
+  'mythe-nessie': 'habitat-borneo',
+  'mythe-hydre': 'habitat-sundarbans',
+  'mythe-cerbere': 'habitat-yellowstone',
+  'mythe-leviathan': 'habitat-banquise',
+  'mythe-fenrir': 'habitat-banquise',
+  'mythe-kitsune': 'habitat-madagascar',
+  'mythe-quetzalcoatl': 'habitat-congo',
+  'mythe-long': 'habitat-borneo',
+  'mythe-gevaudan': 'habitat-yellowstone',
+  'mythe-oiseau-tonnerre': 'habitat-himalaya',
+  'mythe-simurgh': 'habitat-sahara',
+  'mythe-tigre-blanc': 'habitat-taiga',
+  'mythe-lion-aile': 'habitat-okavango',
+  'mythe-jormungand': 'habitat-sargasses',
+  'mythe-grande-ourse': 'habitat-taiga',
+  'mythe-lapin-de-jade': 'habitat-gobi',
+  'mythe-salamandre': 'habitat-camargue',
+  'mythe-tortue-monde': 'habitat-everglades',
+  'mythe-behemoth': 'habitat-pantanal',
+  'mythe-cerf-blanc': 'habitat-bialowieza',
+  'mythe-dakuwaqa': 'habitat-patagonie',
+  'mythe-jorogumo': 'habitat-monteverde',
+  'mythe-taureau-de-crete': 'habitat-camargue',
+  'mythe-bunyip': 'habitat-outback',
+};
+
 /** Espèces sans photo correcte → espèce de la même famille qui les remplace (sauvegardes < v5). */
 const ESPECES_REMPLACEES: Record<string, string> = {
   'chat-dore': 'lynx-pardelle',
@@ -57,21 +103,6 @@ const ESPECES_REMPLACEES: Record<string, string> = {
   vaquita: 'dauphin-de-commerson',
   'requin-du-groenland': 'requin-citron',
   'requin-lutin': 'requin-oceanique',
-};
-
-/**
- * Icônes sans aucune vraie photo possible (disparues avant la photographie, ou jamais photographiées vivantes)
- * → espèce disparue récemment, photographiée vivante (sauvegardes < v6).
- */
-const ICONES_REMPLACEES: Record<string, string> = {
-  dodo: 'tigre-de-java',
-  aurochs: 'melomys',
-  moa: 'paruline-de-bachman',
-  'grand-pingouin': 'canard-des-mariannes',
-  aepyornis: 'cyprinodon-de-catarina',
-  baiji: 'rainette-de-rabb',
-  'rhytine-de-steller': 'arlequin-de-chiriqui',
-  'phoque-moine-des-caraibes': 'scinque-de-christmas',
 };
 
 export type ToastKind = 'success' | 'info' | 'warn' | 'error' | 'gold';
@@ -116,20 +147,23 @@ export interface GameState {
   market: MarketState;
   watchlist: string[];
   team: string[];
-  /** carte Mythe de l'équipe (uid), ou chaîne vide */
-  mythe: string;
   division: number;
   divisionPoints: number;
-  match: MatchState | null;
+  /** duel de records en cours */
+  match: DuelState | null;
   stats: GameStats;
   claimed: string[];
   muted: boolean;
   /** musique de fond coupée (les effets sonores restent) */
   musicOff: boolean;
-  /** graines illimitées (commande de triche ?graines=illimite) */
+  /** crédits illimités (commande de triche ?graines=illimite) */
   unlimited: boolean;
   /** espèces des derniers boosters ouverts : elles ne ressortent pas avant NO_DUPE_WINDOW boosters */
   recentPacks: string[][];
+  /** vitrine du profil : les cartes préférées du joueur (uid), FAVORITES_SIZE emplacements, chaîne vide si libre */
+  favorites: string[];
+  /** photo de profil : l'espèce dont la photo est affichée (chaîne vide : l'initiale du pseudo) */
+  avatar: string;
   opening: Opening | null;
   toasts: Toast[];
 
@@ -145,13 +179,15 @@ export interface GameState {
   placeBid: (listingId: string, amount: number) => boolean;
   toggleWatch: (listingId: string) => void;
   setTeamSlot: (slot: number, uid: string | null) => void;
-  setMythe: (uid: string | null) => void;
   autoTeam: () => void;
-  startMatch: () => boolean;
-  playMatchRound: (index: number, ulti: boolean) => void;
+  /** lance un duel de la ligue, ou contre la vitrine d'un ami */
+  startMatch: (friend?: { pseudo: string; cards: CardFace[] }) => boolean;
+  playMatchRound: (index: number) => void;
   finishMatch: () => void;
   abandonMatch: () => void;
   toggleLock: (uid: string) => void;
+  setFavorite: (slot: number, uid: string | null) => void;
+  setAvatar: (athleteId: string) => void;
   claimObjective: (id: string) => void;
   toggleMute: () => void;
   toggleMusic: () => void;
@@ -159,6 +195,16 @@ export interface GameState {
   toast: (kind: ToastKind, text: string) => void;
   dismissToast: (id: string) => void;
   resetGame: () => void;
+  /** marché en ligne : ventes, achats et retours déjà réglés dans cette partie (clé « rôle:id ») */
+  onlineDone: string[];
+  /** retire une carte de la réserve pour la mettre en vente en ligne (null si elle n'est pas vendable) */
+  escrowCard: (uid: string) => OwnedCard | null;
+  /** rend une carte retirée par escrowCard (la mise en vente a échoué) */
+  restoreCard: (card: OwnedCard) => void;
+  /** règle une annonce en ligne dans la partie, une seule fois : carte achetée, graines d'une vente ou carte rendue */
+  /** reçoit une carte une seule fois (clé déjà réglée : rien), avec une notification */
+  receiveOnce: (key: string, card: CardFace, toast: string) => boolean;
+  settleOnline: (role: 'buy' | 'sell' | 'back', listing: { id: string; card: CardFace; price: number; buyer?: string | null; expired?: boolean }) => boolean;
 }
 
 // Le stockage du navigateur peut être indisponible (navigation privée, aperçu) : on retombe sur la mémoire.
@@ -193,8 +239,18 @@ function toOwned(face: CardFace, now: number): OwnedCard {
   return { uid: makeUid('c'), athleteId: face.athleteId, variant: face.variant, obtainedAt: now, ...(face.record ? { record: face.record } : {}) };
 }
 
+/** Nom de l'équipe en duel : le pseudo du joueur connecté (lu dans la session gardée par store/account.ts). */
+function playerName(): string {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem('animalcards-compte') ?? 'null') as { state?: { session?: { pseudo?: string } } } | null;
+    return saved?.state?.session?.pseudo ?? 'Mon équipe';
+  } catch {
+    return 'Mon équipe';
+  }
+}
+
 function formatBalles(value: number): string {
-  return `${value.toLocaleString('fr-FR')} graines`;
+  return `${value.toLocaleString('fr-FR')} crédits`;
 }
 
 function initialState(now: number) {
@@ -208,16 +264,18 @@ function initialState(now: number) {
     market: createMarket(now, Math.random),
     watchlist: [] as string[],
     team: [] as string[],
-    mythe: '',
     division: 10,
     divisionPoints: 0,
-    match: null as MatchState | null,
+    match: null as DuelState | null,
     stats: { packsOpened: 0, cardsSold: 0, cardsBought: 0, matchesPlayed: 0, matchesWon: 0 } as GameStats,
     claimed: [] as string[],
+    onlineDone: [] as string[],
     muted: false,
     musicOff: false,
     unlimited: false,
     recentPacks: [] as string[][],
+    favorites: [] as string[],
+    avatar: '',
     opening: null as Opening | null,
     toasts: [] as Toast[],
   };
@@ -234,7 +292,7 @@ function hasRarity(state: Pick<GameState, 'discovered'>, order: number): boolean
 function bestSportCompletion(state: Pick<GameState, 'discovered'>): [number, number] {
   let best: [number, number] = [0, 1];
   for (const sport of SPORT_ORDER) {
-    const all = ATHLETES.filter((a) => a.sport === sport);
+    const all = ATHLETES.filter((a) => a.sport === sport && !a.habitat);
     const owned = all.filter((a) => state.discovered[a.id]).length;
     if (owned / all.length > best[0] / best[1]) best = [owned, all.length];
   }
@@ -246,7 +304,7 @@ export const OBJECTIVES: Objective[] = [
   { id: 'collect-25', title: 'Obtenir 25 espèces différentes', reward: 2_000, progress: (s) => [Math.min(25, uniqueCount(s)), 25] },
   { id: 'first-sale', title: 'Vendre une carte sur le marché', reward: 1_000, progress: (s) => [Math.min(1, s.stats.cardsSold), 1] },
   { id: 'first-buy', title: 'Acheter une carte sur le marché', reward: 1_000, progress: (s) => [Math.min(1, s.stats.cardsBought), 1] },
-  { id: 'first-win', title: 'Gagner un match', reward: 1_500, progress: (s) => [Math.min(1, s.stats.matchesWon), 1] },
+  { id: 'first-win', title: 'Gagner un duel de records', reward: 1_500, progress: (s) => [Math.min(1, s.stats.matchesWon), 1] },
   { id: 'first-epic', title: 'Obtenir une carte Épique', reward: 2_500, progress: (s) => [hasRarity(s, 3) ? 1 : 0, 1] },
   { id: 'collect-100', title: 'Obtenir 100 espèces différentes', reward: 10_000, progress: (s) => [Math.min(100, uniqueCount(s)), 100] },
   { id: 'division-5', title: 'Atteindre la division 5', reward: 8_000, progress: (s) => [Math.min(5, 10 - s.division), 5] },
@@ -262,6 +320,25 @@ export function packById(id: string): PackDef | undefined {
     return sport ? sportPack(sport.id, sport.name) : undefined;
   }
   return SHOP_PACKS.find((pack) => pack.id === id);
+}
+
+/** Les cartes Prime d'espèces qui n'ont pas (ou plus) de version Prime redeviennent des cartes classiques. */
+function dropInvalidPrimes(state: GameState): GameState {
+  const fix = <T extends CardFace>(card: T): T => {
+    const athlete = ATHLETES_BY_ID[card.athleteId];
+    return card.variant === 'prime' && athlete && !canBePrime(athlete) ? { ...card, variant: 'base' } : card;
+  };
+  state.collection = state.collection.map(fix);
+  state.market = {
+    ...state.market,
+    listings: state.market.listings.map((listing) => ({ ...listing, card: fix(listing.card) })),
+    myListings: state.market.myListings.map((listing) => ({ ...listing, card: fix(listing.card) })),
+  };
+  state.primesFound = Object.fromEntries(
+    Object.entries(state.primesFound ?? {}).filter(([id]) => ATHLETES_BY_ID[id] && canBePrime(ATHLETES_BY_ID[id])),
+  );
+  if (state.stats.bestPull) state.stats = { ...state.stats, bestPull: fix(state.stats.bestPull) };
+  return state;
 }
 
 export const useGame = create<GameState>()(
@@ -295,7 +372,7 @@ export const useGame = create<GameState>()(
           if (face.variant === 'prime') primesFound[face.athleteId] = (primesFound[face.athleteId] ?? 0) + 1;
           owned.push({ ...face, uid: card.uid, isNew });
           newCards.push(card);
-          const rank = (c: CardFace) => rarityOf(ATHLETES_BY_ID[c.athleteId]).order * 100 + (c.variant === 'prime' ? 50 : c.variant === 'reverse' ? 20 : 0) + ATHLETES_BY_ID[c.athleteId].fame;
+          const rank = (c: CardFace) => rarityOf(ATHLETES_BY_ID[c.athleteId]).order * 100 + (c.variant === 'prime' ? 50 : c.variant === 'reverse' ? 20 : 0) + rarityScore(ATHLETES_BY_ID[c.athleteId]);
           if (!best || rank(face) > rank(best)) best = face;
         }
         set((s) => ({
@@ -411,7 +488,6 @@ export const useGame = create<GameState>()(
             balles: s.balles + total,
             collection: s.collection.filter((c) => !sold.has(c.uid)),
             team: s.team.filter((uid) => !sold.has(uid)),
-            mythe: sold.has(s.mythe) ? '' : s.mythe,
           }));
           pushToast('success', `${sellable.length} carte${sellable.length > 1 ? 's' : ''} vendue${sellable.length > 1 ? 's' : ''} au comptoir pour ${formatBalles(total)}`);
           return total;
@@ -434,7 +510,6 @@ export const useGame = create<GameState>()(
           set((s) => ({
             collection: s.collection.filter((c) => c.uid !== uid),
             team: s.team.filter((t) => t !== uid),
-            mythe: s.mythe === uid ? '' : s.mythe,
             market: { ...s.market, myListings: [listing, ...s.market.myListings] },
           }));
           pushToast('info', `${ATHLETES_BY_ID[card.athleteId].last} est en vente sur le marché`);
@@ -532,73 +607,43 @@ export const useGame = create<GameState>()(
             return { team };
           }),
 
-        setMythe: (uid) => set({ mythe: uid ?? '' }),
+        autoTeam: () => set((s) => ({ team: autoTeamFrom(s.collection) })),
 
-        autoTeam: () =>
-          set((s) => {
-            const seen = new Set<string>();
-            const athletes = s.collection.filter((c) => !isMythe(ATHLETES_BY_ID[c.athleteId]));
-            const best = athletes
-              .slice()
-              .sort((a, b) => {
-                const la = overallOf(ATHLETES_BY_ID[a.athleteId], a.variant);
-                const lb = overallOf(ATHLETES_BY_ID[b.athleteId], b.variant);
-                return lb - la;
-              })
-              .filter((c) => {
-                if (seen.has(c.athleteId)) return false;
-                seen.add(c.athleteId);
-                return true;
-              })
-              .slice(0, TEAM_SIZE)
-              .map((c) => c.uid);
-            // le Mythe qui donne le plus de bonus à cette équipe
-            const picked = best.map((uid) => s.collection.find((c) => c.uid === uid)!);
-            const gain = (card: OwnedCard) =>
-              picked.reduce((sum, c) => sum + (mytheBonus({ mythe: { ...card } }, c, 'sprint')?.value ?? 0), 0);
-            const mythes = s.collection.filter((c) => isMythe(ATHLETES_BY_ID[c.athleteId])).sort((a, b) => gain(b) - gain(a));
-            return { team: best, mythe: mythes[0] && gain(mythes[0]) > 0 ? mythes[0].uid : s.mythe };
-          }),
-
-        startMatch: () => {
+        startMatch: (friend) => {
           const state = get();
-          const cards = state.team.map((uid) => state.collection.find((c) => c.uid === uid)).filter((c): c is OwnedCard => !!c);
+          const cards = state.team
+            .map((uid) => state.collection.find((c) => c.uid === uid))
+            .filter((c): c is OwnedCard => !!c && canDuel(ATHLETES_BY_ID[c.athleteId]));
           if (cards.length < TEAM_SIZE) {
             pushToast('error', `Il faut ${TEAM_SIZE} animaux dans ton équipe pour jouer`);
             return false;
           }
-          const mythe = state.collection.find((c) => c.uid === state.mythe && isMythe(ATHLETES_BY_ID[c.athleteId]));
-          const match = createMatch(
-            cards.map((c) => ({ uid: c.uid, athleteId: c.athleteId, variant: c.variant, ...(c.record ? { record: c.record } : {}) })),
+          const match = createDuel(
+            cards.map((c) => ({ uid: c.uid, athleteId: c.athleteId, variant: c.variant })),
             state.division,
             Math.random,
-            undefined,
-            mythe ? { uid: mythe.uid, athleteId: mythe.athleteId, variant: 'base' } : undefined,
+            playerName(),
+            friend,
           );
           set({ match });
           return true;
         },
 
-        playMatchRound: (index, ulti) => {
+        playMatchRound: (index) => {
           const state = get();
           if (!state.match || state.match.finished) return;
-          const { state: match, log } = playRound(state.match, index, ulti, Math.random);
-          // le record du guépard est enregistré sur la carte possédée
-          const records = new Map(match.me.cards.filter((c) => log.records.includes(c.uid)).map((c) => [c.uid, c.record]));
-          set((s) => ({
-            match,
-            collection: records.size ? s.collection.map((c) => (records.has(c.uid) ? { ...c, record: records.get(c.uid) } : c)) : s.collection,
-          }));
+          set({ match: playDuelRound(state.match, index, Math.random).state });
         },
 
         finishMatch: () => {
           const state = get();
           const match = state.match;
           if (!match || !match.finished) return;
-          const result = matchResult(match);
+          const result = duelResult(match);
           const reward = rewardFor(result, match.division);
           let division = state.division;
-          let points = state.divisionPoints + (result === 'win' ? 3 : result === 'draw' ? 1 : 0);
+          // un duel entre amis rapporte des graines mais ne compte pas pour la ligue
+          let points = state.divisionPoints + (match.friend ? 0 : result === 'win' ? 3 : result === 'draw' ? 1 : 0);
           let promoted = false;
           if (points >= DIVISION_POINTS_TO_PROMOTE && division > 1) {
             division -= 1;
@@ -620,6 +665,17 @@ export const useGame = create<GameState>()(
 
         toggleLock: (uid) => set((s) => ({ collection: s.collection.map((c) => (c.uid === uid ? { ...c, locked: !c.locked } : c)) })),
 
+        setAvatar: (athleteId) => set({ avatar: athleteId }),
+
+        setFavorite: (slot, uid) =>
+          set((s) => {
+            const favorites = Array.from({ length: FAVORITES_SIZE }, (_, i) => s.favorites[i] ?? '');
+            // une carte n'occupe qu'un emplacement : elle quitte l'ancien si on la place ailleurs
+            const next = favorites.map((current) => (uid && current === uid ? '' : current));
+            next[slot] = uid ?? '';
+            return { favorites: next };
+          }),
+
         claimObjective: (id) => {
           const state = get();
           const objective = OBJECTIVES.find((o) => o.id === id);
@@ -635,23 +691,80 @@ export const useGame = create<GameState>()(
         setUnlimited: (on) => {
           if (on === get().unlimited) return;
           set(on ? { unlimited: true, balles: UNLIMITED_BALLES } : { unlimited: false, balles: START_BALLES });
-          pushToast(on ? 'gold' : 'info', on ? 'Graines illimitées activées' : 'Graines illimitées désactivées');
+          pushToast(on ? 'gold' : 'info', on ? 'Crédits illimités activés' : 'Crédits illimités désactivés');
         },
         toast: pushToast,
         dismissToast: (id) => set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })),
         resetGame: () => set({ ...initialState(Date.now()) }),
+
+        escrowCard: (uid) => {
+          const card = get().collection.find((c) => c.uid === uid);
+          if (!card || card.locked) return null;
+          set((s) => ({
+            collection: s.collection.filter((c) => c.uid !== uid),
+            team: s.team.map((t) => (t === uid ? '' : t)),
+            favorites: s.favorites.map((f) => (f === uid ? '' : f)),
+          }));
+          return card;
+        },
+
+        restoreCard: (card) => set((s) => ({ collection: s.collection.some((c) => c.uid === card.uid) ? s.collection : [...s.collection, card] })),
+
+        receiveOnce: (key, face, text) => {
+          if (get().onlineDone.includes(key) || !ATHLETES_BY_ID[face.athleteId]) return false;
+          const card = toOwned(face, Date.now());
+          set((s) => ({
+            collection: [...s.collection, card],
+            discovered: { ...s.discovered, [card.athleteId]: (s.discovered[card.athleteId] ?? 0) + 1 },
+            primesFound: card.variant === 'prime' ? { ...s.primesFound, [card.athleteId]: (s.primesFound[card.athleteId] ?? 0) + 1 } : s.primesFound,
+            onlineDone: [key, ...s.onlineDone].slice(0, 400),
+          }));
+          pushToast('gold', text);
+          return true;
+        },
+
+        settleOnline: (role, listing) => {
+          const key = `${role}:${listing.id}`;
+          if (get().onlineDone.includes(key)) return false;
+          const athlete = ATHLETES_BY_ID[listing.card.athleteId];
+          if (!athlete) return false;
+          const done = (s: GameState) => [key, ...s.onlineDone].slice(0, 400);
+          if (role === 'sell') {
+            const net = netAfterTax(listing.price);
+            set((s) => ({ balles: s.balles + net, onlineDone: done(s), stats: { ...s.stats, cardsSold: s.stats.cardsSold + 1 } }));
+            pushToast('gold', `${listing.buyer ?? 'Un joueur'} a acheté ton ${athlete.last} : +${formatBalles(net)}`);
+            return true;
+          }
+          const card = toOwned(listing.card, Date.now());
+          if (role === 'buy') {
+            set((s) => ({
+              balles: Math.max(0, s.balles - listing.price),
+              collection: [...s.collection, card],
+              discovered: { ...s.discovered, [card.athleteId]: (s.discovered[card.athleteId] ?? 0) + 1 },
+              primesFound: card.variant === 'prime' ? { ...s.primesFound, [card.athleteId]: (s.primesFound[card.athleteId] ?? 0) + 1 } : s.primesFound,
+              onlineDone: done(s),
+              stats: { ...s.stats, cardsBought: s.stats.cardsBought + 1 },
+            }));
+            pushToast('gold', `${athlete.last} rejoint ta réserve pour ${formatBalles(listing.price)}`);
+            return true;
+          }
+          set((s) => ({ collection: [...s.collection, card], onlineDone: done(s) }));
+          pushToast('info', listing.expired ? `${athlete.last} n’a pas trouvé preneur : la carte revient dans ta réserve` : `${athlete.last} est retiré du marché et revient dans ta réserve`);
+          return true;
+        },
       };
     },
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
-      name: 'animalcards-save',
-      version: 6,
+      name: SAVE_NAME,
+      version: 7,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
         let state = persisted as GameState;
-        // versions 5 et 6 : des espèces sont remplacées par une autre ; les cartes déjà obtenues deviennent la
-        // nouvelle espèce (identifiants remplacés partout dans la sauvegarde)
-        const replacements = { ...(version < 5 ? ESPECES_REMPLACEES : {}), ...(version < 6 ? ICONES_REMPLACEES : {}) };
+        // versions 5 et 7 : des espèces sont remplacées par une autre ; les cartes déjà obtenues deviennent la
+        // nouvelle espèce (identifiants remplacés partout dans la sauvegarde). Avant le nettoyage de la version 4,
+        // qui retire les cartes d'espèces inconnues.
+        const replacements = { ...(version < 5 ? ESPECES_REMPLACEES : {}), ...(version < 7 ? ICONES_REMPLACEES : {}) };
         if (Object.keys(replacements).length) {
           let text = JSON.stringify(state);
           for (const [from, to] of Object.entries(replacements)) text = text.replaceAll(`"${from}"`, `"${to}"`);
@@ -666,23 +779,18 @@ export const useGame = create<GameState>()(
           // un match en cours avec d'anciens Mythes est abandonné
           state.match = null;
         }
+        if (version < 6) {
+          let text = JSON.stringify(state);
+          for (const [from, to] of Object.entries(CARTES_REMPLACEES_V6)) text = text.replaceAll(`"${from}"`, `"${to}"`);
+          state = dropInvalidPrimes(JSON.parse(text) as GameState);
+          // l'Arène devient le Duel de records : un ancien match en cours est abandonné, l'emplacement Mythe disparaît
+          if (state.match && (state.match as { kind?: string }).kind !== 'duel') state.match = null;
+          delete (state as { mythe?: string }).mythe;
+        }
         if (version < 2) {
           // avant la version 2, n'importe quelle carte pouvait sortir en Prime :
           // seules les espèces vedettes gardent la leur
-          const fix = <T extends CardFace>(card: T): T => {
-            const athlete = ATHLETES_BY_ID[card.athleteId];
-            return card.variant === 'prime' && athlete && !canBePrime(athlete) ? { ...card, variant: 'base' } : card;
-          };
-          state.collection = state.collection.map(fix);
-          state.market = {
-            ...state.market,
-            listings: state.market.listings.map((listing) => ({ ...listing, card: fix(listing.card) })),
-            myListings: state.market.myListings.map((listing) => ({ ...listing, card: fix(listing.card) })),
-          };
-          state.primesFound = Object.fromEntries(
-            Object.entries(state.primesFound ?? {}).filter(([id]) => ATHLETES_BY_ID[id] && canBePrime(ATHLETES_BY_ID[id])),
-          );
-          if (state.stats.bestPull) state.stats = { ...state.stats, bestPull: fix(state.stats.bestPull) };
+          state = dropInvalidPrimes(state);
         }
         if (version < 4) {
           // version 4 : des espèces ont été retirées du jeu. Leurs cartes disparaissent de la réserve, du marché,
@@ -717,9 +825,17 @@ export const useGame = create<GameState>()(
   ),
 );
 
+/**
+ * Commandes de triche (graines) : seulement en développement et dans la version de test (mode « single »).
+ * Sur le site public, les joueurs échangent au marché en ligne : personne ne doit pouvoir se donner des graines.
+ */
+const CHEATS = import.meta.env.DEV || import.meta.env.MODE === 'single';
+
 // Graines illimitées : le solde est remis au plafond dès qu'une dépense le fait baisser.
+// Sur le site public, une partie restée en mode illimité (ancienne triche) repart au solde de départ.
 useGame.subscribe((state) => {
-  if (state.unlimited && state.balles < UNLIMITED_BALLES) useGame.setState({ balles: UNLIMITED_BALLES });
+  if (state.unlimited && !CHEATS) useGame.setState({ unlimited: false, balles: START_BALLES });
+  else if (state.unlimited && state.balles < UNLIMITED_BALLES) useGame.setState({ balles: UNLIMITED_BALLES });
 });
 
 /** Fixe le solde à un montant précis (commande de triche). */
@@ -731,9 +847,9 @@ function setSolde(amount: number) {
 
 // Commandes de triche, dans l'adresse ou dans la console du navigateur (sauvegardées avec la partie) :
 //   ?graines=1000000000          → solde fixé à ce montant        (console : animalcards.solde(1000000000))
-//   ?graines=illimite            → graines illimitées              (console : animalcards.graines())
+//   ?graines=illimite            → crédits illimités              (console : animalcards.graines())
 //   ?graines=normal              → retour au jeu normal            (console : animalcards.graines(false))
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && CHEATS) {
   const flag = new URLSearchParams(window.location.search).get('graines');
   if (flag === 'illimite' || flag === 'illimité' || flag === 'infini') useGame.getState().setUnlimited(true);
   else if (flag === 'normal') useGame.getState().setUnlimited(false);
@@ -763,6 +879,17 @@ if (typeof window !== 'undefined') {
       }
     }
   }
+}
+
+/** La sauvegarde telle qu'elle est stockée (« { state, version } » en JSON), pour l'envoyer au compte du joueur. */
+export function readSave(): string | null {
+  return safeStorage.getItem(SAVE_NAME) as string | null;
+}
+
+/** Remplace la partie par une sauvegarde venue du compte du joueur (migrée si elle vient d'une ancienne version). */
+export async function writeSave(raw: string): Promise<void> {
+  safeStorage.setItem(SAVE_NAME, raw);
+  await useGame.persist.rehydrate();
 }
 
 export { formatBalles };

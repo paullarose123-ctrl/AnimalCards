@@ -1,0 +1,43 @@
+# Télécharge des photos d'animaux depuis Wikimedia Commons (licences libres) et les ajoute au jeu.
+# À lancer à la main : onglet Actions → « Photos des animaux » → Run workflow. Par défaut, les cartes dont la
+# photo est à refaire (recherches dans scripts/photos/recherche.json, photos refusées dans refus.json).
+# Le site est ensuite remis en ligne avec les nouvelles photos.
+name: Photos des animaux
+
+on:
+  workflow_dispatch:
+    inputs:
+      seulement:
+        description: Identifiants des animaux, séparés par des virgules
+        default: greyhound,habitat-everglades,habitat-mariannes,habitat-monteverde,habitat-sahara,habitat-sundarbans
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - run: node scripts/photos/telecharger-photos.mjs telecharger --seulement "${{ inputs.seulement }}"
+      - run: node scripts/photos/telecharger-photos.mjs finaliser
+      - name: Enregistrer les photos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/photos src/data/photos.json
+          if git diff --cached --quiet; then echo "Aucune nouvelle photo"; exit 0; fi
+          git commit -m "Photos des animaux et des habitats"
+          git push
+          # un envoi fait par ce robot ne relance pas la mise en ligne tout seul : on la demande
+          gh workflow run pages.yml --ref "${GITHUB_REF_NAME}"
+        env:
+          GH_TOKEN: ${{ github.token }}

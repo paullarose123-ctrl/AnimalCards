@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useGame } from '../store/game';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
 import { RARITIES, RARITY_ORDER } from '../engine/cards';
-import { SHOP_PACKS, iconOdds, mytheOdds, primeOdds, primePool, reverseOdds, sportPack, type PackDef } from '../engine/packs';
+import { SHOP_PACKS, iconOdds, habitatOdds, primeOdds, primePool, reverseOdds, sportPack, type PackDef } from '../engine/packs';
 import type { SportId } from '../engine/types';
 import { PackArt } from '../components/PackArt';
 import { Balles } from '../components/Balles';
@@ -45,11 +45,11 @@ function Odds({ pack }: { pack: PackDef }) {
           <span>Version Reverse</span>
           <b>{percent(reverseOdds(pack))}</b>
         </li>
-        {mytheOdds(pack) > 0 && (
-          <li className="rarity-row rarity-row--mythe">
+        {habitatOdds(pack) > 0 && (
+          <li className="rarity-row rarity-row--habitat">
             <span className="rarity-dot" />
-            <span>Carte Mythe</span>
-            <b>{percent(mytheOdds(pack))}</b>
+            <span>Carte Habitat</span>
+            <b>{percent(habitatOdds(pack))}</b>
           </li>
         )}
         {iconOdds(pack) > 0 && iconOdds(pack) < 1 && (
@@ -64,7 +64,9 @@ function Odds({ pack }: { pack: PackDef }) {
         <p className="small muted">
           {pack.guaranteed.prime
             ? `Dernière carte : une version Prime garantie, parmi les ${primePool(pack).length} individus célèbres.`
-            : `Dernière carte : ${RARITIES[pack.guaranteed.min].name} ou mieux garantie.`}
+            : pack.tone === 'icon'
+              ? 'Une seule carte, toujours une Icône : une espèce disparue, la carte la plus rare du jeu.'
+              : `Dernière carte : ${RARITIES[pack.guaranteed.min].name} ou mieux garantie.`}
         </p>
       )}
       <p className="small muted">Seules les espèces vedettes existent en version Prime : un individu célèbre (Laïka, Keiko, Sue…).</p>
@@ -83,7 +85,7 @@ function PackTile({ pack }: { pack: PackDef }) {
         name={pack.name}
         sport={pack.sport}
         size={pack.size}
-        guarantee={pack.guaranteed && (pack.guaranteed.prime ? '1 Prime garantie' : `1 ${RARITIES[pack.guaranteed.min].name} garantie`)}
+        guarantee={pack.guaranteed && (pack.tone === 'icon' ? '1 Icône garantie' : pack.guaranteed.prime ? '1 Prime garantie' : `1 ${RARITIES[pack.guaranteed.min].name} garantie`)}
       />
       <div className="pack-tile__body">
         <h3>{pack.name}</h3>
@@ -99,7 +101,7 @@ function PackTile({ pack }: { pack: PackDef }) {
         >
           Acheter <Balles value={pack.price} />
         </button>
-        {!affordable && <p className="small muted">Il te manque {(pack.price - balles).toLocaleString('fr-FR')} graines.</p>}
+        {!affordable && <p className="small muted">Il te manque {(pack.price - balles).toLocaleString('fr-FR')} crédits.</p>}
       </div>
     </article>
   );
@@ -116,7 +118,7 @@ export function ShopScreen() {
           <p className="eyebrow">Boutique</p>
           <h1>Packs</h1>
           <p className="muted">
-            Tu as <Balles value={balles} />. Gagne des graines en vendant sur le marché, en jouant des matchs et en remplissant les objectifs.
+            Tu as <Balles value={balles} />. Gagne des crédits en vendant sur le marché, en jouant des duels de records et en remplissant les objectifs.
           </p>
         </div>
       </header>
@@ -127,9 +129,9 @@ export function ShopScreen() {
       </div>
       <section className="panel">
         <h2>Packs par famille</h2>
-        <p className="muted small">5 cartes d’une seule famille, pour compléter ton album plus vite.</p>
+        <p className="muted small">5 cartes d’une seule famille, pour compléter ton album plus vite. Les espèces disparues (Préhistoire comprise) sont des Icônes : à chercher dans le Pack Icônes.</p>
         <div className="sport-tabs" role="tablist" aria-label="Choisir une famille">
-          {SPORT_ORDER.map((id) => (
+          {SPORT_ORDER.filter((id) => id !== 'prehistoire').map((id) => (
             <button
               key={id}
               type="button"

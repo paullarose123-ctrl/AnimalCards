@@ -1,112 +1,91 @@
-import { sharedAudio } from './sfx';
+import { bass, bird, createBus, kalimba, midi, pluck, sharedAudio, strings, type Bus } from './engine';
 
 // Musique de fond composée en direct avec Web Audio : aucun fichier, aucun droit d'auteur.
-// Une boucle calme de 24 secondes (4 accords de 2 mesures à 80 bpm) : nappe douce, basse ronde,
-// petites notes pincées avec écho et un souffle de charleston. Volume volontairement bas.
+// Une pièce calme en ré majeur à 76 bpm, façon documentaire nature : arpèges de harpe (corde pincée),
+// mélodie de kalimba qui respire, nappe de cordes, contrebasse et quelques chants d'oiseaux au loin.
 
-const BPM = 80;
+const BPM = 76;
 const BEAT = 60 / BPM;
 const BAR = BEAT * 4;
-const VOLUME = 0.55;
+const VOLUME = 0.42;
 
-// La mineur 9 → Fa majeur 7 → Do majeur 7 → Sol 6 (fréquences en Hz)
-const CHORDS: Array<{ bass: number; pad: number[]; arp: number[] }> = [
-  { bass: 55, pad: [220, 261.63, 329.63, 493.88], arp: [440, 523.25, 659.25, 493.88, 587.33] },
-  { bass: 43.65, pad: [174.61, 220, 261.63, 329.63], arp: [349.23, 440, 523.25, 659.25, 523.25] },
-  { bass: 65.41, pad: [196, 261.63, 329.63, 392], arp: [523.25, 659.25, 783.99, 493.88, 659.25] },
-  { bass: 49, pad: [196, 246.94, 293.66, 329.63], arp: [392, 493.88, 587.33, 659.25, 587.33] },
+// 16 mesures : Ré – Si m – Sol – La, puis Ré – Fa# m – Sol – La (notes MIDI)
+const PROGRESSION: Array<{ root: number; chord: number[] }> = [
+  { root: 38, chord: [62, 66, 69] }, // Ré
+  { root: 35, chord: [59, 62, 66] }, // Si m
+  { root: 43, chord: [59, 62, 67] }, // Sol
+  { root: 45, chord: [61, 64, 69] }, // La
+  { root: 38, chord: [62, 66, 69] }, // Ré
+  { root: 42, chord: [61, 66, 69] }, // Fa# m
+  { root: 43, chord: [59, 62, 67] }, // Sol
+  { root: 45, chord: [61, 64, 69] }, // La
 ];
 
-let master: GainNode | null = null;
-let echo: GainNode | null = null;
+// Ré majeur pentatonique, octave de la mélodie
+const MELODY = [74, 76, 78, 81, 83, 86];
+// motifs d'arpège (indices dans l'accord étalé sur deux octaves)
+const ARPEGGIOS = [
+  [0, 1, 2, 3, 4, 3, 2, 1],
+  [0, 2, 1, 3, 2, 4, 3, 5],
+  [0, 1, 2, 4, 5, 4, 2, 1],
+];
+
+let bus: Bus | null = null;
 let timer: number | undefined;
 let nextBar = 0;
 let barIndex = 0;
+let nextBird = 0;
+let melodyNote = 2;
 let enabled = true;
 let started = false;
 
-function setup(ac: AudioContext) {
-  if (master) return;
-  master = ac.createGain();
-  master.gain.value = 0;
-  const lowpass = ac.createBiquadFilter();
-  lowpass.type = 'lowpass';
-  lowpass.frequency.value = 2400;
-  master.connect(lowpass).connect(ac.destination);
-  // écho doux pour les notes pincées
-  const delay = ac.createDelay(1);
-  delay.delayTime.value = BEAT * 0.75;
-  const feedback = ac.createGain();
-  feedback.gain.value = 0.32;
-  echo = ac.createGain();
-  echo.gain.value = 0.35;
-  echo.connect(delay);
-  delay.connect(feedback).connect(delay);
-  delay.connect(master);
-}
-
-function voice(ac: AudioContext, freq: number, t0: number, duration: number, opts: { type: OscillatorType; gain: number; attack: number; detune?: number; toEcho?: boolean }) {
-  if (!master) return;
-  const osc = ac.createOscillator();
-  const gain = ac.createGain();
-  osc.type = opts.type;
-  osc.frequency.value = freq;
-  if (opts.detune) osc.detune.value = opts.detune;
-  gain.gain.setValueAtTime(0.0001, t0);
-  gain.gain.exponentialRampToValueAtTime(opts.gain, t0 + opts.attack);
-  gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
-  osc.connect(gain).connect(master);
-  if (opts.toEcho && echo) gain.connect(echo);
-  osc.start(t0);
-  osc.stop(t0 + duration + 0.1);
-}
-
-function hat(ac: AudioContext, t0: number) {
-  if (!master) return;
-  const length = Math.floor(ac.sampleRate * 0.05);
-  const buffer = ac.createBuffer(1, length, ac.sampleRate);
-  const data = buffer.getChannelData(0);
-  for (let i = 0; i < length; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / length);
-  const src = ac.createBufferSource();
-  src.buffer = buffer;
-  const filter = ac.createBiquadFilter();
-  filter.type = 'highpass';
-  filter.frequency.value = 7000;
-  const gain = ac.createGain();
-  gain.gain.value = 0.012;
-  src.connect(filter).connect(gain).connect(master);
-  src.start(t0);
-}
-
-/** Programme une mesure : l'accord change toutes les deux mesures. */
-function scheduleBar(ac: AudioContext, t0: number, index: number) {
-  const chord = CHORDS[Math.floor(index / 2) % CHORDS.length];
+/** Programme une mesure entière. Chaque accord dure deux mesures. */
+function scheduleBar(ac: AudioContext, out: Bus, t0: number, index: number) {
+  const section = Math.floor(index / 16) % 2; // la deuxième fois, la mélodie est plus présente
+  const step = Math.floor(index / 2) % PROGRESSION.length;
+  const { root, chord } = PROGRESSION[step];
   const firstOfChord = index % 2 === 0;
-  if (firstOfChord) {
-    for (const f of chord.pad) {
-      voice(ac, f, t0, BAR * 2 + 0.6, { type: 'sine', gain: 0.022, attack: 1.4 });
-      voice(ac, f, t0, BAR * 2 + 0.6, { type: 'triangle', gain: 0.008, attack: 1.6, detune: 7 });
-    }
+
+  // nappe de cordes, tenue sur les deux mesures
+  if (firstOfChord) strings(ac, out, chord.map(midi), t0, BAR * 2 - 0.4, 0.032, { attack: 1.6, release: 2.2, open: 1400 });
+
+  // contrebasse sur les temps 1 et 3 (quinte au temps 3 une fois sur deux)
+  bass(ac, out, midi(root), t0, BEAT * 1.7, 0.15);
+  bass(ac, out, midi(root + (index % 2 ? 7 : 0)), t0 + BEAT * 2, BEAT * 1.5, 0.11);
+
+  // arpège de harpe en croches
+  const spread = [...chord, ...chord.map((n) => n + 12)];
+  const pattern = ARPEGGIOS[(Math.floor(index / 4) + section) % ARPEGGIOS.length];
+  pattern.forEach((k, i) => {
+    if (i === 7 && index % 4 === 3) return; // une respiration en fin de phrase
+    const swing = i % 2 ? 0.012 : 0;
+    const accent = i % 4 === 0 ? 0.2 : 0.13;
+    pluck(ac, out, midi(spread[k]), t0 + i * (BEAT / 2) + swing, accent, ((i % 4) - 1.5) * 0.18, 0.4);
+  });
+
+  // mélodie de kalimba : quelques notes qui se promènent dans la gamme, jamais trop chargée
+  const density = section ? 0.55 : 0.35;
+  for (let beat = 0; beat < 4; beat++) {
+    if (Math.random() > density || (beat === 3 && index % 2)) continue;
+    melodyNote = Math.max(0, Math.min(MELODY.length - 1, melodyNote + [-2, -1, -1, 1, 1, 2][Math.floor(Math.random() * 6)]));
+    const t = t0 + beat * BEAT + (Math.random() < 0.3 ? BEAT / 2 : 0);
+    kalimba(ac, out, midi(MELODY[melodyNote]), t, 0.11, 0.25);
   }
-  // basse ronde sur les temps 1 et 3
-  voice(ac, chord.bass, t0, BEAT * 1.8, { type: 'sine', gain: 0.07, attack: 0.03 });
-  voice(ac, chord.bass, t0 + BEAT * 2, BEAT * 1.6, { type: 'sine', gain: 0.05, attack: 0.03 });
-  // notes pincées en croches, avec quelques silences pour respirer
-  for (let step = 0; step < 8; step++) {
-    if ((step + index) % 3 === 2) continue;
-    const note = chord.arp[(step + index * 3) % chord.arp.length];
-    voice(ac, note, t0 + step * (BEAT / 2), 0.5, { type: 'triangle', gain: 0.018, attack: 0.01, toEcho: true });
+
+  // oiseaux au loin, de temps en temps
+  if (t0 >= nextBird) {
+    bird(ac, out, t0 + Math.random() * BAR, 0.012);
+    nextBird = t0 + 6 + Math.random() * 6;
   }
-  // souffle de charleston sur les contretemps
-  for (let beat = 0; beat < 4; beat++) hat(ac, t0 + beat * BEAT + BEAT / 2);
 }
 
 function loop() {
   const ac = sharedAudio();
-  if (!ac || !enabled) return;
+  if (!ac || !enabled || !bus) return;
   // on programme toujours un peu d'avance, sans jamais prendre de retard
-  while (nextBar < ac.currentTime + BAR * 1.5) {
-    scheduleBar(ac, nextBar, barIndex);
+  if (nextBar < ac.currentTime) nextBar = ac.currentTime + 0.1;
+  while (nextBar < ac.currentTime + BAR * 1.2) {
+    scheduleBar(ac, bus, nextBar, barIndex);
     nextBar += BAR;
     barIndex += 1;
   }
@@ -114,22 +93,27 @@ function loop() {
 
 function fadeTo(value: number, seconds: number) {
   const ac = sharedAudio();
-  if (!ac || !master) return;
-  master.gain.cancelScheduledValues(ac.currentTime);
-  master.gain.setValueAtTime(master.gain.value, ac.currentTime);
-  master.gain.linearRampToValueAtTime(value, ac.currentTime + seconds);
+  if (!ac || !bus) return;
+  for (const [node, level] of [[bus.dry, value], [bus.wet, value * 0.55]] as const) {
+    node.gain.cancelScheduledValues(ac.currentTime);
+    node.gain.setValueAtTime(node.gain.value, ac.currentTime);
+    node.gain.linearRampToValueAtTime(level, ac.currentTime + seconds);
+  }
 }
 
 function play() {
   const ac = sharedAudio();
   if (!ac) return;
-  setup(ac);
+  if (!bus) {
+    bus = createBus(ac, 0, 0);
+  }
   if (timer === undefined) {
     nextBar = Math.max(nextBar, ac.currentTime + 0.1);
+    nextBird = Math.max(nextBird, ac.currentTime + 5);
     timer = window.setInterval(loop, 250);
     loop();
   }
-  fadeTo(VOLUME, 2.5);
+  fadeTo(VOLUME, 3);
 }
 
 function stop() {

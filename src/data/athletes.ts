@@ -1,4 +1,6 @@
-import type { Athlete, ArchetypeId, MytheBonus, MytheKind, SportId, Ulti, UltiEffect } from '../engine/types';
+import type { Athlete, ArchetypeId, SportId } from '../engine/types';
+import { HABITATS } from './habitats.ts';
+import { CONTINENTS_MULTIPLES, MILIEU_CORRIGE, PAYS_PRINCIPAL } from './repartition.ts';
 
 // Base des espèces animales (le fichier garde son nom d'AthletiCards).
 // - fame (0-100) : célébrité de l'espèce. Elle fixe la rareté.
@@ -41,10 +43,6 @@ function x(
   return a(id, '', name, sport, archetype, role, country, fame, level, fact, extra);
 }
 
-function sig(id: string, name: string, desc: string, effect: UltiEffect | UltiEffect[]): Ulti {
-  return { id: `sig-${id}`, name, desc, effects: Array.isArray(effect) ? effect : [effect], signature: true };
-}
-
 /** Version Prime : un individu célèbre de l'espèce. */
 const P = (year: string, note: string) => ({ prime: { year, note } });
 
@@ -54,57 +52,27 @@ const D = (died?: number) => ({ retired: true as const, ...(died ? { died } : {}
 /** Nom scientifique. */
 const L = (latin: string) => ({ latin });
 
-/** Profil de stats par défaut d'une carte Mythe (non utilisé en match, requis par le type Athlete). */
-const MYTHE_ARCHETYPE: Record<SportId, ArchetypeId> = {
-  felins: 'felin-puissant', canides: 'canide-meute', ours: 'ours-colosse', primates: 'primate-malin', geants: 'geant-colosse',
-  ongules: 'ongule-endurant', petits: 'petit-agile', marsupiaux: 'marsu-sauteur', marins: 'marin-geant', requins: 'requin-predateur',
-  poissons: 'poisson-rapide', rapaces: 'rapace-aigle', oiseaux: 'oiseau-paradeur', reptiles: 'reptile-mastodonte',
-  amphibiens: 'amphibien-toxique', insectes: 'insecte-colonie', invertebres: 'cephalopode', ferme: 'ferme-compagnon',
-  prehistoire: 'dino-predateur',
-};
-
-const MYTHE_ROLE: Record<MytheKind, string> = { competition: 'Créature légendaire', equipe: 'Sanctuaire', club: 'Divinité' };
-
-/** Carte Mythe : créature fantastique (identifiant préfixé par « mythe- »). */
-function M(
-  id: string,
-  name: string,
-  sport: SportId,
-  kind: MytheKind,
-  country: string,
-  fame: number,
-  year: string,
-  palmares: string,
-  fact: string,
-  bonus: MytheBonus,
-): Athlete {
-  return a(`mythe-${id}`, '', name, sport, MYTHE_ARCHETYPE[sport], MYTHE_ROLE[kind], country, fame, 85, fact, { mythe: { kind, year, palmares, bonus } });
-}
+/** Les races de chien partagent le même nom scientifique. */
+const C = { ...L('Canis lupus familiaris'), race: true as const };
 
 const CURATED: Athlete[] = [
   // ───────────────────────── FÉLINS ─────────────────────────
   x('lion', 'Lion', 'felins', 'felin-puissant', 'Savane', 'KE', 100, 95, 'Le seul félin qui vit en groupe, la troupe. Son rugissement s’entend à 8 km.', { ...L('Panthera leo'), ...P('1960', 'Elsa, la lionne du livre « Vivre libre », élevée puis relâchée dans la nature au Kenya.'),
-    nick: 'Roi des animaux', stats: { aur: 99, for: 94 },
-    ulti: sig('lion', 'Roi de la savane', '+14 de puissance (+8 en Face-à-face et Coup de cœur), puis +3 pour toute la troupe jusqu’à la fin du match.', [{ kind: 'event', value: 14, events: ['face-a-face', 'bain-de-foule'], bonus: 8 }, { kind: 'team-buff', value: 0, boost: 3 }]),
+    nick: 'Roi des animaux',
   }),
   x('tigre', 'Tigre', 'felins', 'felin-puissant', 'Jungle', 'IN', 98, 96, 'Le plus grand des félins : le tigre de Sibérie peut approcher 300 kg. Ses rayures sont uniques, comme une empreinte digitale.', { ...L('Panthera tigris'), ...P('1997', 'Machli, la tigresse de Ranthambore, la plus photographiée du monde.'),
-    stats: { for: 97, aur: 96 },
-    ulti: sig('tigre', 'Bond du tigre', 'Jaillit de l’ombre : FOR devient la stat principale, +16, et l’adversaire perd 4.', [{ kind: 'stat-swap', stat: 'for', value: 16 }, { kind: 'debuff', value: 4 }]),
   }),
   x('guepard', 'Guépard', 'felins', 'felin-sprinteur', 'Savane', 'NA', 94, 90, 'L’animal terrestre le plus rapide : il dépasse 100 km/h en quelques secondes.', { ...L('Acinonyx jubatus'), ...P('2012', 'Sarah, la guépard du zoo de Cincinnati, chronométrée en 5"95 sur 100 m.'),
-    stats: { vit: 99, tec: 90 },
-    ulti: sig('guepard', 'Pointe de vitesse', '+16 de puissance. Il bat son propre record : chaque utilisation ajoute 1 km/h au record inscrit sur la carte, et +1 de puissance par tranche de 5 km/h gagnés.', { kind: 'record', value: 16 }),
   }),
-  x('jaguar', 'Jaguar', 'felins', 'felin-puissant', 'Forêt amazonienne', 'BR', 86, 92, 'Rapportée à sa taille, sa morsure est la plus puissante des félins : elle perce la carapace des tortues.', { ...L('Panthera onca'), stats: { for: 95 },
-    ulti: sig('jaguar', 'Morsure crânienne', '+12 de puissance, et l’adversaire perd 8.', [{ kind: 'boost', value: 12 }, { kind: 'debuff', value: 8 }]),
+  x('jaguar', 'Jaguar', 'felins', 'felin-puissant', 'Forêt amazonienne', 'BR', 86, 92, 'Rapportée à sa taille, sa morsure est la plus puissante des félins : elle perce la carapace des tortues.', { ...L('Panthera onca'),
   }),
-  x('leopard', 'Léopard', 'felins', 'felin-agile', 'Savane', 'ZA', 86, 90, 'Hisse dans les arbres des proies plus lourdes que lui pour les mettre à l’abri.', { ...L('Panthera pardus'), stats: { for: 90 } }),
-  x('panthere-des-neiges', 'Panthère des neiges', 'felins', 'felin-agile', 'Haute montagne', 'MN', 82, 88, 'Sa longue queue lui sert d’écharpe et de balancier sur les falaises d’Asie centrale.', { ...L('Panthera uncia'), stats: { tec: 94, end: 86 } }),
+  x('leopard', 'Léopard', 'felins', 'felin-agile', 'Savane', 'ZA', 86, 90, 'Hisse dans les arbres des proies plus lourdes que lui pour les mettre à l’abri.', { ...L('Panthera pardus') }),
+  x('panthere-des-neiges', 'Panthère des neiges', 'felins', 'felin-agile', 'Haute montagne', 'MN', 82, 88, 'Sa longue queue lui sert d’écharpe et de balancier sur les falaises d’Asie centrale.', { ...L('Panthera uncia') }),
   x('lynx', 'Lynx boréal', 'felins', 'felin-agile', 'Forêt', 'FR', 74, 80, 'Le plus grand félin d’Europe, reconnaissable aux pinceaux de poils de ses oreilles.', L('Lynx lynx')),
   x('puma', 'Puma', 'felins', 'felin-agile', 'Montagne', 'US', 72, 85, 'Record du nombre de noms : plus de 40 en anglais, de cougar à lion des montagnes.', L('Puma concolor')),
   x('panthere-noire', 'Panthère noire', 'felins', 'felin-agile', 'Jungle', 'IN', 74, 86, 'Un léopard ou un jaguar au pelage noir : au soleil, ses taches restent visibles.', L('Panthera pardus (forme noire)')),
   x('ocelot', 'Ocelot', 'felins', 'felin-agile', 'Forêt tropicale', 'BR', 62, 76, 'Chaque ocelot porte son propre motif de taches et de rosettes.', L('Leopardus pardalis')),
-  x('caracal', 'Caracal', 'felins', 'felin-agile', 'Savane sèche', 'ZA', 58, 76, 'Bondit à plus de 3 m de haut pour attraper des oiseaux en plein vol.', { ...L('Caracal caracal'), stats: { tec: 90 } }),
+  x('caracal', 'Caracal', 'felins', 'felin-agile', 'Savane sèche', 'ZA', 58, 76, 'Bondit à plus de 3 m de haut pour attraper des oiseaux en plein vol.', { ...L('Caracal caracal') }),
   x('serval', 'Serval', 'felins', 'felin-agile', 'Savane humide', 'KE', 56, 75, 'Ses grandes oreilles entendent les rongeurs qui bougent sous terre.', L('Leptailurus serval')),
   x('panthere-nebuleuse', 'Panthère nébuleuse', 'felins', 'felin-agile', 'Jungle', 'TH', 52, 78, 'Rapportées à sa taille, les plus longues canines de tous les félins actuels.', L('Neofelis nebulosa')),
   x('lion-d-asie', 'Lion d’Asie', 'felins', 'felin-puissant', 'Forêt sèche', 'IN', 50, 82, 'Ne survit plus à l’état sauvage que dans la forêt de Gir, en Inde.', L('Panthera leo persica')),
@@ -118,19 +86,14 @@ const CURATED: Athlete[] = [
   x('jaguarondi', 'Jaguarondi', 'felins', 'felin-agile', 'Forêt', 'MX', 24, 63, 'Un corps de belette, une queue de loutre, et il chasse surtout de jour.', L('Herpailurus yagouaroundi')),
   x('lynx-pardelle', 'Lynx pardelle', 'felins', 'felin-agile', 'Maquis andalou', 'ES', 22, 62, 'Le félin le plus menacé d’Europe : moins de 100 en 2002, plus de 2 000 aujourd’hui grâce à sa protection.', L('Lynx pardinus')),
   x('chat-rubigineux', 'Chat rubigineux', 'felins', 'felin-agile', 'Forêt', 'LK', 20, 60, 'L’un des plus petits félins du monde : à peine plus d’un kilo.', L('Prionailurus rubiginosus')),
-  x('tigre-de-java', 'Tigre de Java', 'felins', 'felin-puissant', 'Jungle', 'ID', 70, 90, 'Les derniers ont été aperçus en 1976 dans l’est de Java ; il a été déclaré éteint en 2008.', { ...L('Panthera tigris sondaica'), ...D(1976),
-    ulti: sig('tigre-de-java', 'Dernières empreintes', '+12 de puissance, et +10 de plus si son équipe est menée.', { kind: 'comeback', value: 12, bonus: 10 }),
-  }),
+  x('tigre-de-java', 'Tigre de Java', 'felins', 'felin-puissant', 'Jungle', 'ID', 70, 90, 'Les derniers ont été aperçus en 1976 dans l’est de Java ; il a été déclaré éteint en 2008.', { ...L('Panthera tigris sondaica'), ...D(1976) }),
 
   // ───────────────────────── CANIDÉS & HYÈNES ─────────────────────────
   x('loup', 'Loup gris', 'canides', 'canide-meute', 'Forêt et toundra', 'CA', 95, 90, 'Vit en meute familiale menée par un couple ; son hurlement porte à plus de 10 km.', { ...L('Canis lupus'), ...P('2011', 'OR-7, le loup qui a parcouru plus de 1 600 km jusqu’en Californie.'),
-    stats: { end: 96, int: 90 },
-    ulti: sig('loup', 'Appel de la meute', 'Toute la meute répond : +12 maintenant, puis +4 pour toute l’équipe jusqu’à la fin du match.', { kind: 'team-buff', value: 12, boost: 4 }),
   }),
-  x('renard-roux', 'Renard roux', 'canides', 'canide-ruse', 'Forêt et campagne', 'FR', 84, 74, 'Le carnivore sauvage le plus répandu au monde, jusque dans les grandes villes.', { ...L('Vulpes vulpes'), stats: { int: 92 },
-    ulti: sig('renard', 'Ruse de Goupil', 'INT devient la stat principale, +14, et il annule l’ulti adverse.', [{ kind: 'stat-swap', stat: 'int', value: 14 }, { kind: 'cancel', value: 0 }]),
+  x('renard-roux', 'Renard roux', 'canides', 'canide-ruse', 'Forêt et campagne', 'FR', 84, 74, 'Le carnivore sauvage le plus répandu au monde, jusque dans les grandes villes.', { ...L('Vulpes vulpes'),
   }),
-  x('hyene', 'Hyène tachetée', 'canides', 'canide-meute', 'Savane', 'KE', 78, 86, 'Sa mâchoire broie les os ; son « rire » sert à communiquer dans un clan dirigé par les femelles.', { ...L('Crocuta crocuta'), stats: { for: 90, end: 92 } }),
+  x('hyene', 'Hyène tachetée', 'canides', 'canide-meute', 'Savane', 'KE', 78, 86, 'Sa mâchoire broie les os ; son « rire » sert à communiquer dans un clan dirigé par les femelles.', { ...L('Crocuta crocuta') }),
   x('fennec', 'Fennec', 'canides', 'canide-ruse', 'Désert', 'DZ', 74, 68, 'Ses oreilles de 15 cm, les plus grandes des canidés par rapport à sa taille, évacuent la chaleur.', L('Vulpes zerda')),
   x('loup-arctique', 'Loup arctique', 'canides', 'canide-meute', 'Toundra', 'CA', 70, 86, 'Supporte des mois de nuit polaire et des températures sous −40 °C.', L('Canis lupus arctos')),
   x('coyote', 'Coyote', 'canides', 'canide-ruse', 'Prairie et villes', 'US', 66, 78, 'S’est installé jusque dans Los Angeles et Chicago.', L('Canis latrans')),
@@ -149,19 +112,13 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── OURS ─────────────────────────
   x('panda', 'Panda géant', 'ours', 'ours-grimpeur', 'Forêt de bambous', 'CN', 96, 70, 'Passe jusqu’à 14 heures par jour à manger du bambou.', { ...L('Ailuropoda melanoleuca'), ...P('1958', 'Chi Chi, la femelle du zoo de Londres qui a inspiré le logo du WWF.'),
-    stats: { aur: 99 },
-    ulti: sig('panda', 'Ambassadeur du WWF', 'Personne ne lui résiste : +12 de puissance, +12 de plus en Coup de cœur, et l’adversaire perd 4.', [{ kind: 'event', value: 12, events: ['bain-de-foule'], bonus: 12 }, { kind: 'debuff', value: 4 }]),
   }),
   x('ours-polaire', 'Ours polaire', 'ours', 'ours-colosse', 'Banquise', 'NO', 94, 94, 'Le plus grand carnivore terrestre ; sa peau est noire sous une fourrure transparente.', { ...L('Ursus maritimus'), ...P('2006', 'Knut, l’ourson du zoo de Berlin devenu star mondiale.'),
-    stats: { for: 96, end: 94 },
-    ulti: sig('ours-polaire', 'Seigneur de la banquise', 'FOR devient la stat principale, +16, et +8 de plus si son équipe est menée.', [{ kind: 'stat-swap', stat: 'for', value: 16 }, { kind: 'comeback', value: 0, bonus: 8 }]),
   }),
   x('ours-brun', 'Ours brun', 'ours', 'ours-colosse', 'Forêt et montagne', 'US', 88, 92, 'Le grizzly et le kodiak sont des ours bruns ; il sent une odeur à plusieurs kilomètres.', { ...L('Ursus arctos'), ...P('1942', 'Wojtek, l’ours adopté par des soldats polonais, qui portait des caisses d’obus.'),
-    stats: { for: 95 },
-    ulti: sig('ours-brun', 'Grizzly', '+14 de puissance, +10 de plus si son équipe est menée.', { kind: 'comeback', value: 14, bonus: 10 }),
   }),
   x('ours-noir', 'Ours noir', 'ours', 'ours-grimpeur', 'Forêt', 'CA', 66, 82, 'Le « Teddy bear » doit son nom à un ours noir épargné par le président Theodore Roosevelt en 1902.', L('Ursus americanus')),
-  x('kodiak', 'Ours kodiak', 'ours', 'ours-colosse', 'Île Kodiak', 'US', 62, 96, 'La plus grande sous-espèce d’ours brun : les grands mâles dépassent 600 kg.', { ...L('Ursus arctos middendorffi'), stats: { for: 99 } }),
+  x('kodiak', 'Ours kodiak', 'ours', 'ours-colosse', 'Île Kodiak', 'US', 62, 96, 'La plus grande sous-espèce d’ours brun : les grands mâles dépassent 600 kg.', { ...L('Ursus arctos middendorffi') }),
   x('ours-a-lunettes', 'Ours à lunettes', 'ours', 'ours-grimpeur', 'Andes', 'PE', 52, 76, 'Le seul ours d’Amérique du Sud, qui a inspiré Paddington.', L('Tremarctos ornatus')),
   x('grizzly-de-californie', 'Grizzly de Californie', 'ours', 'ours-colosse', 'Californie', 'US', 50, 90, 'Il figure sur le drapeau de la Californie ; le dernier a été vu en 1924.', { ...L('Ursus arctos californicus'), ...D(1924) }),
   x('ours-malais', 'Ours malais', 'ours', 'ours-grimpeur', 'Forêt tropicale', 'MY', 44, 72, 'Le plus petit des ours, avec une langue de 25 cm pour récolter le miel.', L('Helarctos malayanus')),
@@ -172,14 +129,10 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── PRIMATES ─────────────────────────
   x('gorille', 'Gorille', 'primates', 'primate-force', 'Forêt de montagne', 'RW', 92, 94, 'Le plus grand des primates : un mâle à dos argenté peut dépasser 200 kg.', { ...L('Gorilla'), ...P('1972', 'Koko, la femelle gorille qui communiquait en langue des signes.'),
-    stats: { for: 97, int: 88 },
-    ulti: sig('gorille', 'Dos argenté', 'Il se frappe la poitrine : FOR devient la stat principale, +14, et l’adversaire perd 6.', [{ kind: 'stat-swap', stat: 'for', value: 14 }, { kind: 'debuff', value: 6 }]),
   }),
   x('chimpanze', 'Chimpanzé', 'primates', 'primate-malin', 'Forêt tropicale', 'TZ', 87, 86, 'Partage environ 98 % de son ADN avec nous et fabrique des outils pour pêcher les termites.', { ...L('Pan troglodytes'), ...P('1961', 'Ham, le premier hominidé envoyé dans l’espace.'),
-    stats: { int: 96 },
-    ulti: sig('chimpanze', 'Pêche aux termites', 'Son outil fétiche : INT devient la stat principale, +16.', { kind: 'stat-swap', stat: 'int', value: 16 }),
   }),
-  x('orang-outan', 'Orang-outan', 'primates', 'primate-malin', 'Forêt de Bornéo', 'ID', 82, 84, 'Son nom signifie « homme de la forêt » en malais ; il se fabrique des parapluies avec des feuilles.', { ...L('Pongo pygmaeus'), ...P('2014', 'Sandra, l’orang-outan reconnue « personne non humaine » par la justice argentine.'), stats: { int: 94 } }),
+  x('orang-outan', 'Orang-outan', 'primates', 'primate-malin', 'Forêt de Bornéo', 'ID', 82, 84, 'Son nom signifie « homme de la forêt » en malais ; il se fabrique des parapluies avec des feuilles.', { ...L('Pongo pygmaeus'), ...P('2014', 'Sandra, l’orang-outan reconnue « personne non humaine » par la justice argentine.') }),
   x('lemur-catta', 'Maki catta', 'primates', 'primate-acrobate', 'Forêt sèche', 'MG', 70, 66, 'Prend un bain de soleil chaque matin, bras écartés, queue rayée dressée comme un drapeau.', L('Lemur catta')),
   x('mandrill', 'Mandrill', 'primates', 'primate-force', 'Forêt équatoriale', 'GA', 68, 80, 'Le plus grand des singes, et le visage bleu et rouge le plus coloré des mammifères.', L('Mandrillus sphinx')),
   x('macaque-japonais', 'Macaque japonais', 'primates', 'primate-malin', 'Montagnes enneigées', 'JP', 66, 72, 'Le « singe des neiges » se prélasse dans les sources chaudes en hiver.', L('Macaca fuscata')),
@@ -202,17 +155,12 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── GÉANTS ─────────────────────────
   x('elephant', 'Éléphant d’Afrique', 'geants', 'geant-colosse', 'Savane', 'BW', 97, 97, 'Le plus grand animal terrestre : jusqu’à 6 tonnes. Sa trompe compte environ 40 000 muscles.', { ...L('Loxodonta africana'), ...P('1882', 'Jumbo, l’éléphant géant du zoo de Londres, vendu au cirque Barnum.'),
-    stats: { for: 99, int: 90, aur: 97 },
-    ulti: sig('elephant', 'Mémoire d’éléphant', 'Il n’oublie rien : utilise sa meilleure stat, +16, puis +3 pour tout le troupeau.', [{ kind: 'best-stat', value: 16 }, { kind: 'team-buff', value: 0, boost: 3 }]),
   }),
   x('girafe', 'Girafe', 'geants', 'geant-elance', 'Savane', 'KE', 88, 80, 'Le plus grand animal du monde, jusqu’à 5,5 m. Son cou compte sept vertèbres, comme le nôtre.', { ...L('Giraffa camelopardalis'),
-    ulti: sig('girafe', 'Coup de cou', 'Les mâles s’affrontent à coups de tête : +14 de puissance, +10 de plus en Corps à corps.', { kind: 'event', value: 14, events: ['bras-de-fer'], bonus: 10 }),
   }),
   x('hippopotame', 'Hippopotame', 'geants', 'geant-colosse', 'Fleuves', 'TZ', 86, 92, 'Passe ses journées dans l’eau ; malgré ses 3 tonnes, il court plus vite qu’un humain.', { ...L('Hippopotamus amphibius'), ...P('2017', 'Fiona, née prématurée au zoo de Cincinnati, devenue star d’Internet.'),
-    ulti: sig('hippopotame', 'Bâillement', 'Gueule ouverte à 150° : +12 de puissance, et l’adversaire perd 8.', [{ kind: 'boost', value: 12 }, { kind: 'debuff', value: 8 }]),
   }),
   x('rhinoceros-blanc', 'Rhinocéros blanc', 'geants', 'geant-colosse', 'Savane', 'ZA', 85, 94, 'Jusqu’à 3,5 tonnes ; sa corne est faite de kératine, comme nos ongles.', { ...L('Ceratotherium simum'),
-    ulti: sig('rhinoceros', 'Charge du rhino', 'Rien ne l’arrête : FOR devient la stat principale, +16.', { kind: 'stat-swap', stat: 'for', value: 16 }),
   }),
   x('elephant-d-asie', 'Éléphant d’Asie', 'geants', 'geant-colosse', 'Forêt', 'TH', 78, 92, 'Plus petit que son cousin d’Afrique, avec des oreilles plus rondes ; animal national de la Thaïlande.', L('Elephas maximus')),
   x('okapi', 'Okapi', 'geants', 'geant-elance', 'Forêt de l’Ituri', 'CD', 64, 72, 'Rayé comme un zèbre, c’est pourtant le seul proche parent vivant de la girafe.', L('Okapia johnstoni')),
@@ -226,7 +174,7 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── ONGULÉS ─────────────────────────
   x('zebre', 'Zèbre', 'ongules', 'ongule-endurant', 'Savane', 'BW', 85, 76, 'Ses rayures sont uniques à chaque individu et brouillent la vue des prédateurs et des mouches.', L('Equus quagga')),
-  x('dromadaire', 'Dromadaire', 'ongules', 'ongule-endurant', 'Désert', 'MA', 78, 72, 'Peut boire plus de 100 litres d’eau en quelques minutes ; sa bosse est une réserve de graisse.', { ...L('Camelus dromedarius'), stats: { end: 97 } }),
+  x('dromadaire', 'Dromadaire', 'ongules', 'ongule-endurant', 'Désert', 'MA', 78, 72, 'Peut boire plus de 100 litres d’eau en quelques minutes ; sa bosse est une réserve de graisse.', { ...L('Camelus dromedarius') }),
   x('bison', 'Bison d’Amérique', 'ongules', 'ongule-costaud', 'Grandes Plaines', 'US', 76, 88, 'Le plus lourd mammifère terrestre d’Amérique, et pourtant il court à 55 km/h.', L('Bison bison')),
   x('renne', 'Renne', 'ongules', 'ongule-endurant', 'Toundra', 'FI', 74, 76, 'Le seul cervidé dont les femelles portent aussi des bois ; certains troupeaux migrent sur des milliers de kilomètres.', L('Rangifer tarandus')),
   x('cerf', 'Cerf élaphe', 'ongules', 'ongule-costaud', 'Forêt', 'FR', 70, 80, 'Ses bois tombent et repoussent chaque année ; il brame à l’automne.', L('Cervus elaphus')),
@@ -243,7 +191,7 @@ const CURATED: Athlete[] = [
   x('impala', 'Impala', 'ongules', 'ongule-sprinteur', 'Savane', 'KE', 50, 74, 'Bondit jusqu’à 3 m de haut et 10 m de long pour semer ses poursuivants.', L('Aepyceros melampus')),
   x('chamois', 'Chamois', 'ongules', 'ongule-sprinteur', 'Montagne', 'FR', 48, 74, 'Grimpe des pentes vertigineuses et saute plus de 2 m de haut.', L('Rupicapra rupicapra')),
   x('springbok', 'Springbok', 'ongules', 'ongule-sprinteur', 'Savane sèche', 'ZA', 46, 74, 'Emblème de l’Afrique du Sud, célèbre pour ses bonds verticaux, le « pronking ».', L('Antidorcas marsupialis')),
-  x('antilocapre', 'Antilocapre', 'ongules', 'ongule-sprinteur', 'Prairie', 'US', 44, 80, 'Le meilleur coureur de fond des mammifères : 55 km/h pendant plusieurs kilomètres.', { ...L('Antilocapra americana'), stats: { vit: 95, end: 92 } }),
+  x('antilocapre', 'Antilocapre', 'ongules', 'ongule-sprinteur', 'Prairie', 'US', 44, 80, 'Le meilleur coureur de fond des mammifères : 55 km/h pendant plusieurs kilomètres.', { ...L('Antilocapra americana') }),
   x('cheval-de-przewalski', 'Cheval de Przewalski', 'ongules', 'ongule-endurant', 'Steppe', 'MN', 42, 76, 'Le dernier cheval vraiment sauvage, réintroduit en Mongolie après avoir disparu de la nature.', L('Equus ferus przewalskii')),
   x('mouflon', 'Mouflon', 'ongules', 'ongule-costaud', 'Montagne', 'FR', 40, 72, 'Ancêtre probable du mouton domestique, il vit en Corse.', L('Ovis gmelini')),
   x('oryx', 'Oryx gazelle', 'ongules', 'ongule-endurant', 'Désert', 'NA', 40, 78, 'Ses cornes droites peuvent dépasser 1 m ; il survit des semaines sans boire.', L('Oryx gazella')),
@@ -257,20 +205,18 @@ const CURATED: Athlete[] = [
   x('bongo', 'Bongo', 'ongules', 'ongule-sprinteur', 'Forêt', 'KE', 26, 72, 'Grande antilope de forêt au pelage roux rayé de blanc.', L('Tragelaphus eurycerus')),
 
   // ───────────────────────── PETITS MAMMIFÈRES ─────────────────────────
-  x('suricate', 'Suricate', 'petits', 'petit-agile', 'Désert du Kalahari', 'BW', 80, 62, 'Une sentinelle monte toujours la garde, debout sur ses pattes arrière.', { ...L('Suricata suricatta'), stats: { aur: 90 },
-    ulti: sig('suricate', 'Sentinelle', 'Elle voit tout venir : annule l’ulti adverse, +12, puis +3 pour toute l’équipe.', [{ kind: 'cancel', value: 12 }, { kind: 'team-buff', value: 0, boost: 3 }]),
+  x('suricate', 'Suricate', 'petits', 'petit-agile', 'Désert du Kalahari', 'BW', 80, 62, 'Une sentinelle monte toujours la garde, debout sur ses pattes arrière.', { ...L('Suricata suricatta'),
   }),
   x('panda-roux', 'Panda roux', 'petits', 'petit-agile', 'Forêt himalayenne', 'NP', 78, 62, 'Le premier animal appelé « panda », bien avant le panda géant ; un faux pouce l’aide à tenir le bambou.', L('Ailurus fulgens')),
   x('paresseux', 'Paresseux à trois doigts', 'petits', 'petit-placide', 'Forêt tropicale', 'CR', 74, 52, 'Si lent que des algues poussent dans son pelage ; il descend de son arbre une fois par semaine.', L('Bradypus')),
   x('raton-laveur', 'Raton laveur', 'petits', 'petit-agile', 'Forêts et villes', 'US', 74, 66, 'Ses pattes avant très sensibles ouvrent les poubelles et même certains loquets.', L('Procyon lotor')),
   x('herisson', 'Hérisson', 'petits', 'petit-teigneux', 'Jardins', 'FR', 72, 56, 'Porte environ 6 000 piquants et se roule en boule au moindre danger.', L('Erinaceus europaeus')),
-  x('capybara', 'Capybara', 'petits', 'petit-placide', 'Marais', 'BR', 72, 60, 'Le plus grand rongeur du monde, d’un calme légendaire : les autres animaux s’assoient sur lui.', { ...L('Hydrochoerus hydrochaeris'), stats: { aur: 88 } }),
+  x('capybara', 'Capybara', 'petits', 'petit-placide', 'Marais', 'BR', 72, 60, 'Le plus grand rongeur du monde, d’un calme légendaire : les autres animaux s’assoient sur lui.', { ...L('Hydrochoerus hydrochaeris') }),
   x('ecureuil-roux', 'Écureuil roux', 'petits', 'petit-agile', 'Forêt', 'FR', 70, 58, 'Enterre des milliers de noisettes chaque automne ; celles qu’il oublie deviennent des arbres.', L('Sciurus vulgaris')),
   x('lapin', 'Lapin de garenne', 'petits', 'petit-agile', 'Prairie', 'ES', 66, 56, 'Selon une hypothèse, l’Espagne lui doit son nom : « Hispania », la terre des lapins.', L('Oryctolagus cuniculus')),
   x('loutre', 'Loutre d’Europe', 'petits', 'petit-agile', 'Rivières', 'FR', 64, 70, 'Revenue dans de nombreuses rivières françaises après avoir failli disparaître.', L('Lutra lutra')),
   x('castor', 'Castor', 'petits', 'petit-teigneux', 'Rivières', 'CA', 62, 66, 'Bâtisseur de barrages : le plus long, au Canada, mesure 850 m et se voit depuis l’espace.', L('Castor canadensis')),
-  x('ratel', 'Ratel', 'petits', 'petit-teigneux', 'Savane', 'ZA', 60, 80, 'Réputé l’animal le plus intrépide du monde : il tient tête aux lions et résiste au venin de cobra.', { ...L('Mellivora capensis'), stats: { aur: 95 },
-    ulti: sig('ratel', 'Peur de rien', '+12 de puissance, +10 de plus en Face-à-face.', { kind: 'event', value: 12, events: ['face-a-face'], bonus: 10 }),
+  x('ratel', 'Ratel', 'petits', 'petit-teigneux', 'Savane', 'ZA', 60, 80, 'Réputé l’animal le plus intrépide du monde : il tient tête aux lions et résiste au venin de cobra.', { ...L('Mellivora capensis'),
   }),
   x('vampire', 'Vampire commun', 'petits', 'petit-nocturne', 'Grottes', 'MX', 60, 66, 'Se nourrit de sang et partage ses repas avec les membres affamés de sa colonie.', L('Desmodus rotundus')),
   x('rat', 'Rat brun', 'petits', 'petit-agile', 'Partout', 'XW', 58, 62, 'Venu d’Asie, il a conquis toutes les villes du monde ; il rit quand on le chatouille.', L('Rattus norvegicus')),
@@ -281,7 +227,7 @@ const CURATED: Athlete[] = [
   x('souris', 'Souris grise', 'petits', 'petit-agile', 'Partout', 'XW', 54, 50, 'Se faufile dans un trou à peine plus large qu’un crayon.', L('Mus musculus')),
   x('glouton', 'Glouton', 'petits', 'petit-teigneux', 'Taïga', 'FI', 52, 78, 'Une force hors norme pour ses 15 kg : il s’attaque parfois à des rennes.', L('Gulo gulo')),
   x('porc-epic', 'Porc-épic', 'petits', 'petit-teigneux', 'Collines', 'IT', 52, 66, 'Ses piquants se détachent au contact, mais il ne peut pas les lancer.', L('Hystrix cristata')),
-  x('lievre', 'Lièvre d’Europe', 'petits', 'petit-agile', 'Plaines', 'FR', 50, 64, 'Dépasse 70 km/h et change de direction en un éclair.', { ...L('Lepus europaeus'), stats: { vit: 88 } }),
+  x('lievre', 'Lièvre d’Europe', 'petits', 'petit-agile', 'Plaines', 'FR', 50, 64, 'Dépasse 70 km/h et change de direction en un éclair.', { ...L('Lepus europaeus') }),
   x('moufette', 'Mouffette rayée', 'petits', 'petit-teigneux', 'Forêt', 'US', 50, 58, 'Projette un liquide nauséabond à plus de 3 m, avec précision.', L('Mephitis mephitis')),
   x('mangouste', 'Mangouste grise', 'petits', 'petit-teigneux', 'Brousse', 'IN', 48, 70, 'Célèbre pour affronter les cobras grâce à sa vitesse et à une résistance partielle au venin.', L('Urva edwardsii')),
   x('tatou', 'Tatou à neuf bandes', 'petits', 'petit-placide', 'Prairie', 'US', 48, 62, 'Sa carapace est faite de plaques osseuses ; il retient son souffle six minutes.', L('Dasypus novemcinctus')),
@@ -300,17 +246,14 @@ const CURATED: Athlete[] = [
   x('melomys', 'Mélomys de Bramble Cay', 'petits', 'petit-nocturne', 'Îlot corallien', 'AU', 46, 50, 'La montée de la mer et les tempêtes ont détruit la végétation de son unique îlot : c’est le premier mammifère éteint à cause du réchauffement climatique.', { ...L('Melomys rubicola'), ...D(2009) }),
 
   // ───────────────────────── MARSUPIAUX & CIE ─────────────────────────
-  x('kangourou', 'Kangourou roux', 'marsupiaux', 'marsu-sauteur', 'Bush', 'AU', 87, 82, 'Le plus grand marsupial fait des bonds de 8 m et ne sait pas reculer.', { ...L('Osphranter rufus'), stats: { for: 88, end: 90 },
-    ulti: sig('kangourou', 'Uppercut du bush', '+14 de puissance, puis +4 par manche déjà gagnée par son équipe.', { kind: 'streak', value: 14, perWin: 4 }),
+  x('kangourou', 'Kangourou roux', 'marsupiaux', 'marsu-sauteur', 'Bush', 'AU', 87, 82, 'Le plus grand marsupial fait des bonds de 8 m et ne sait pas reculer.', { ...L('Osphranter rufus'),
   }),
-  x('koala', 'Koala', 'marsupiaux', 'marsu-placide', 'Forêt d’eucalyptus', 'AU', 86, 52, 'Dort jusqu’à 20 heures par jour : les feuilles d’eucalyptus apportent très peu d’énergie.', { ...L('Phascolarctos cinereus'), stats: { aur: 96 },
-    ulti: sig('koala', 'Câlin d’eucalyptus', '+10 de puissance, +14 de plus en Coup de cœur, et l’adversaire perd 6.', [{ kind: 'event', value: 10, events: ['bain-de-foule'], bonus: 14 }, { kind: 'debuff', value: 6 }]),
+  x('koala', 'Koala', 'marsupiaux', 'marsu-placide', 'Forêt d’eucalyptus', 'AU', 86, 52, 'Dort jusqu’à 20 heures par jour : les feuilles d’eucalyptus apportent très peu d’énergie.', { ...L('Phascolarctos cinereus'),
   }),
   x('ornithorynque', 'Ornithorynque', 'marsupiaux', 'marsu-chasseur', 'Rivières', 'AU', 74, 62, 'Un mammifère qui pond des œufs, avec un bec de canard et un éperon venimeux chez le mâle.', L('Ornithorhynchus anatinus')),
   x('diable-de-tasmanie', 'Diable de Tasmanie', 'marsupiaux', 'marsu-chasseur', 'Tasmanie', 'AU', 68, 76, 'Le plus puissant des marsupiaux carnivores : il broie les os avec ses mâchoires.', L('Sarcophilus harrisii')),
-  x('quokka', 'Quokka', 'marsupiaux', 'marsu-placide', 'Île Rottnest', 'AU', 64, 52, 'Surnommé « l’animal le plus heureux du monde » pour son air souriant.', { ...L('Setonix brachyurus'), stats: { aur: 88 } }),
+  x('quokka', 'Quokka', 'marsupiaux', 'marsu-placide', 'Île Rottnest', 'AU', 64, 52, 'Surnommé « l’animal le plus heureux du monde » pour son air souriant.', { ...L('Setonix brachyurus') }),
   x('thylacine', 'Thylacine', 'marsupiaux', 'marsu-chasseur', 'Tasmanie', 'AU', 62, 82, 'Le « tigre de Tasmanie » ; le dernier connu est mort au zoo de Hobart en 1936.', { ...L('Thylacinus cynocephalus'), ...D(1936),
-    ulti: sig('thylacine', 'Fantôme de Tasmanie', 'On le croit disparu : il annule l’ulti adverse, +14.', { kind: 'cancel', value: 14 }),
   }),
   x('wombat', 'Wombat', 'marsupiaux', 'marsu-placide', 'Bush', 'AU', 62, 66, 'Le seul animal connu qui fait des crottes en forme de cube.', L('Vombatus ursinus')),
   x('wallaby', 'Wallaby de Bennett', 'marsupiaux', 'marsu-sauteur', 'Forêt', 'AU', 52, 70, 'Cousin plus petit du kangourou ; une colonie vit en liberté dans la forêt de Rambouillet.', L('Notamacropus rufogriseus')),
@@ -324,22 +267,15 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── MAMMIFÈRES MARINS ─────────────────────────
   x('orque', 'Orque', 'marins', 'marin-chasseur', 'Océans', 'NO', 93, 96, 'Super-prédateur des mers : ses techniques de chasse se transmettent de mère en fille.', { ...L('Orcinus orca'), ...P('1993', 'Keiko, la vedette du film « Sauvez Willy », relâchée en Islande.'),
-    stats: { int: 96, for: 95 },
-    ulti: sig('orque', 'Vague de la mort', 'Le groupe soulève une vague qui fait tomber la proie de la banquise : +16 de puissance, et l’adversaire perd 6.', [{ kind: 'boost', value: 16 }, { kind: 'debuff', value: 6 }]),
   }),
   x('dauphin', 'Grand dauphin', 'marins', 'marin-chasseur', 'Océans', 'XO', 93, 84, 'Chaque dauphin a son propre sifflement, comme un prénom, que les autres reconnaissent.', { ...L('Tursiops truncatus'), ...P('2005', 'Winter, la dauphine à la queue prothétique, héroïne du film « L’Incroyable Histoire de Winter ».'),
-    stats: { int: 97 },
-    ulti: sig('dauphin', 'Écholocation parfaite', 'INT devient la stat principale, +16, et il annule l’ulti adverse.', [{ kind: 'stat-swap', stat: 'int', value: 16 }, { kind: 'cancel', value: 0 }]),
   }),
-  x('baleine-bleue', 'Baleine bleue', 'marins', 'marin-geant', 'Océans', 'XO', 92, 88, 'Le plus grand animal ayant jamais vécu : jusqu’à 30 m et plus de 150 tonnes.', { ...L('Balaenoptera musculus'), stats: { for: 99, end: 98 },
-    ulti: sig('baleine-bleue', 'Chant de 188 décibels', 'Le cri le plus puissant du règne animal : +14 de puissance, +12 de plus en Migration.', { kind: 'event', value: 14, events: ['marathon'], bonus: 12 }),
+  x('baleine-bleue', 'Baleine bleue', 'marins', 'marin-geant', 'Océans', 'XO', 92, 88, 'Le plus grand animal ayant jamais vécu : jusqu’à 30 m et plus de 150 tonnes.', { ...L('Balaenoptera musculus'),
   }),
   x('cachalot', 'Cachalot', 'marins', 'marin-geant', 'Haute mer', 'XO', 82, 92, 'Le plus grand prédateur à dents : il plonge à plus de 2 000 m pour chasser le calmar géant.', { ...L('Physeter macrocephalus'),
-    ulti: sig('cachalot', 'Plongée abyssale', 'END devient la stat principale, +14, et la manche compte double.', [{ kind: 'stat-swap', stat: 'end', value: 14 }, { kind: 'double', value: 0 }]),
   }),
   x('baleine-a-bosse', 'Baleine à bosse', 'marins', 'marin-geant', 'Océans', 'AU', 82, 86, 'Ses chants peuvent durer plus de 20 minutes et changent d’une année à l’autre.', { ...L('Megaptera novaeangliae'), ...P('1991', 'Migaloo, la baleine à bosse toute blanche observée chaque hiver le long de l’Australie.') }),
-  x('loutre-de-mer', 'Loutre de mer', 'marins', 'marin-pinnipede', 'Côtes du Pacifique', 'US', 80, 62, 'Dort en tenant la patte de ses voisines pour ne pas dériver, et casse les coquillages avec des pierres.', { ...L('Enhydra lutris'), stats: { tec: 92, aur: 94 },
-    ulti: sig('loutre-de-mer', 'Main dans la main', 'Personne ne dérive : +10 maintenant, puis +4 pour toute l’équipe.', { kind: 'team-buff', value: 10, boost: 4 }),
+  x('loutre-de-mer', 'Loutre de mer', 'marins', 'marin-pinnipede', 'Côtes du Pacifique', 'US', 80, 62, 'Dort en tenant la patte de ses voisines pour ne pas dériver, et casse les coquillages avec des pierres.', { ...L('Enhydra lutris'),
   }),
   x('narval', 'Narval', 'marins', 'marin-chasseur', 'Arctique', 'GL', 74, 80, 'Sa « corne » est une dent de plus de 2 m ; elle aurait inspiré la légende de la licorne.', L('Monodon monoceros')),
   x('morse', 'Morse', 'marins', 'marin-pinnipede', 'Banquise', 'NO', 72, 84, 'Se sert de ses défenses pour se hisser sur la glace.', L('Odobenus rosmarus')),
@@ -359,16 +295,13 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── REQUINS & RAIES ─────────────────────────
   x('requin-blanc', 'Grand requin blanc', 'requins', 'requin-predateur', 'Océans', 'ZA', 95, 94, 'Environ 300 dents en plusieurs rangées, et des capteurs qui sentent les champs électriques de ses proies.', { ...L('Carcharodon carcharias'), ...P('2013', 'Deep Blue, l’un des plus grands requins blancs jamais filmés : plus de 6 m.'),
-    stats: { for: 97, aur: 98 },
-    ulti: sig('requin-blanc', 'Attaque verticale', 'Il surgit des profondeurs : +16 de puissance, et la manche compte double.', [{ kind: 'boost', value: 16 }, { kind: 'double', value: 0 }]),
   }),
   x('requin-marteau', 'Grand requin-marteau', 'requins', 'requin-curieux', 'Récifs', 'EC', 82, 86, 'Sa tête en marteau écarte ses yeux et lui offre une vision presque à 360°.', L('Sphyrna mokarran')),
   x('requin-baleine', 'Requin-baleine', 'requins', 'requin-curieux', 'Mers chaudes', 'PH', 82, 80, 'Le plus grand poisson du monde, jusqu’à 18 m, ne mange que du plancton.', { ...L('Rhincodon typus'),
-    ulti: sig('requin-baleine', 'Géant pacifique', '+12 de puissance, +10 de plus en Migration et Coup de cœur.', { kind: 'event', value: 12, events: ['marathon', 'bain-de-foule'], bonus: 10 }),
   }),
   x('raie-manta', 'Raie manta', 'requins', 'requin-curieux', 'Haute mer', 'MX', 74, 74, 'Jusqu’à 7 m d’envergure, et le plus gros cerveau des poissons.', L('Mobula birostris')),
   x('requin-tigre', 'Requin-tigre', 'requins', 'requin-predateur', 'Mers chaudes', 'XO', 74, 88, 'La « poubelle des mers » : on a trouvé de tout dans son estomac, jusqu’à des plaques d’immatriculation.', L('Galeocerdo cuvier')),
-  x('requin-mako', 'Requin-mako', 'requins', 'requin-rapide', 'Haute mer', 'XO', 62, 84, 'Le requin le plus rapide : il dépasserait 70 km/h et saute hors de l’eau.', { ...L('Isurus oxyrinchus'), stats: { vit: 96 } }),
+  x('requin-mako', 'Requin-mako', 'requins', 'requin-rapide', 'Haute mer', 'XO', 62, 84, 'Le requin le plus rapide : il dépasserait 70 km/h et saute hors de l’eau.', { ...L('Isurus oxyrinchus') }),
   x('requin-bouledogue', 'Requin-bouledogue', 'requins', 'requin-predateur', 'Fleuves et côtes', 'ZA', 60, 86, 'Remonte les fleuves en eau douce, parfois à des milliers de kilomètres de la mer.', L('Carcharhinus leucas')),
   x('poisson-scie', 'Poisson-scie', 'requins', 'requin-curieux', 'Estuaires', 'AU', 54, 70, 'C’est une raie, pas un requin : son rostre denté détecte et tranche ses proies.', L('Pristis')),
   x('pastenague', 'Pastenague', 'requins', 'requin-curieux', 'Fonds sableux', 'FR', 50, 64, 'Se cache dans le sable, avec un aiguillon venimeux sur la queue.', L('Dasyatis pastinaca')),
@@ -382,21 +315,19 @@ const CURATED: Athlete[] = [
   x('petite-roussette', 'Petite roussette', 'requins', 'requin-curieux', 'Côtes', 'FR', 24, 58, 'Le petit requin des côtes françaises pond des œufs en forme de bourse.', L('Scyliorhinus canicula')),
 
   // ───────────────────────── POISSONS ─────────────────────────
-  x('poisson-clown', 'Poisson-clown', 'poissons', 'poisson-etrange', 'Récif corallien', 'AU', 84, 56, 'Vit à l’abri des anémones ; tous naissent mâles, et le plus grand du groupe devient femelle.', { ...L('Amphiprion ocellaris'), stats: { aur: 92 },
-    ulti: sig('poisson-clown', 'Anémone', 'Bien à l’abri : +12 de puissance, +10 de plus en Coup de cœur, et il annule l’ulti adverse.', [{ kind: 'event', value: 12, events: ['bain-de-foule'], bonus: 10 }, { kind: 'cancel', value: 0 }]),
+  x('poisson-clown', 'Poisson-clown', 'poissons', 'poisson-etrange', 'Récif corallien', 'AU', 84, 56, 'Vit à l’abri des anémones ; tous naissent mâles, et le plus grand du groupe devient femelle.', { ...L('Amphiprion ocellaris'),
   }),
   x('piranha', 'Piranha', 'poissons', 'poisson-coriace', 'Amazone', 'BR', 78, 70, 'Ses dents triangulaires coupent comme des rasoirs, mais il se nourrit souvent de restes.', { ...L('Pygocentrus nattereri'),
-    ulti: sig('piranha', 'Banc affamé', '+10 de puissance, +4 par manche déjà gagnée par son équipe.', { kind: 'streak', value: 10, perWin: 4 }),
   }),
   x('hippocampe', 'Hippocampe', 'poissons', 'poisson-etrange', 'Herbiers', 'FR', 74, 52, 'C’est le mâle qui porte les œufs et donne naissance aux petits.', L('Hippocampus')),
   x('poisson-lune', 'Poisson-lune', 'poissons', 'poisson-etrange', 'Haute mer', 'XO', 70, 60, 'Le plus lourd des poissons osseux, plus de 2 tonnes ; une femelle pond des centaines de millions d’œufs.', L('Mola mola')),
-  x('saumon', 'Saumon atlantique', 'poissons', 'poisson-coriace', 'Rivières et mer', 'NO', 70, 72, 'Remonte la rivière où il est né, en sautant les cascades.', { ...L('Salmo salar'), stats: { end: 92 } }),
+  x('saumon', 'Saumon atlantique', 'poissons', 'poisson-coriace', 'Rivières et mer', 'NO', 70, 72, 'Remonte la rivière où il est né, en sautant les cascades.', { ...L('Salmo salar') }),
   x('espadon', 'Espadon', 'poissons', 'poisson-rapide', 'Haute mer', 'XO', 66, 84, 'Réchauffe ses yeux et son cerveau pour chasser dans les eaux froides.', L('Xiphias gladius')),
   x('fugu', 'Fugu', 'poissons', 'poisson-etrange', 'Mers chaudes', 'JP', 60, 56, 'Se gonfle comme un ballon ; sa tétrodotoxine est l’un des poisons les plus violents.', L('Takifugu rubripes')),
   x('silure', 'Silure glane', 'poissons', 'poisson-coriace', 'Fleuves', 'FR', 58, 80, 'Le plus grand poisson d’eau douce d’Europe : plus de 2,5 m.', L('Silurus glanis')),
   x('carpe-koi', 'Carpe koï', 'poissons', 'poisson-coriace', 'Bassins', 'JP', 56, 52, 'Sélectionnée au Japon pour ses couleurs, elle peut vivre plus d’un demi-siècle.', L('Cyprinus')),
   x('thon-rouge', 'Thon rouge', 'poissons', 'poisson-rapide', 'Haute mer', 'ES', 54, 88, 'Dépasse 70 km/h, traverse l’Atlantique et peut peser plus de 600 kg.', L('Thunnus thynnus')),
-  x('voilier', 'Voilier', 'poissons', 'poisson-rapide', 'Haute mer', 'XO', 52, 88, 'Souvent présenté comme le poisson le plus rapide du monde.', { ...L('Istiophorus platypterus'), stats: { vit: 98 } }),
+  x('voilier', 'Voilier', 'poissons', 'poisson-rapide', 'Haute mer', 'XO', 52, 88, 'Souvent présenté comme le poisson le plus rapide du monde.', { ...L('Istiophorus platypterus') }),
   x('baudroie', 'Baudroie abyssale', 'poissons', 'poisson-etrange', 'Abysses', 'XO', 52, 62, 'Agite un leurre lumineux au-dessus de sa bouche pour attirer ses proies dans le noir.', L('Melanocetus johnsonii')),
   x('gymnote', 'Gymnote', 'poissons', 'poisson-coriace', 'Amazone', 'BR', 52, 74, 'L’« anguille électrique » produit des décharges de plus de 800 volts.', L('Electrophorus electricus')),
   x('coelacanthe', 'Cœlacanthe', 'poissons', 'poisson-etrange', 'Grandes profondeurs', 'ZA', 50, 68, 'Fossile vivant : on le croyait disparu depuis 66 millions d’années, jusqu’en 1938.', L('Latimeria chalumnae')),
@@ -412,11 +343,9 @@ const CURATED: Athlete[] = [
   x('cyprinodon-de-catarina', 'Cyprinodon de Catarina', 'poissons', 'poisson-etrange', 'Source', 'MX', 32, 46, 'Minuscule poisson d’une seule source du Mexique ; le dernier mâle, élevé en aquarium, est mort en 2014.', { ...L('Megupsilon aporus'), ...D(2014) }),
 
   // ───────────────────────── RAPACES ─────────────────────────
-  x('aigle-royal', 'Aigle royal', 'rapaces', 'rapace-aigle', 'Montagne', 'MX', 91, 92, 'Fond sur ses proies à près de 300 km/h ; il figure sur le drapeau du Mexique.', { ...L('Aquila chrysaetos'), stats: { aur: 98, tec: 94 },
-    ulti: sig('aigle-royal', 'Serres royales', '+14 de puissance, +10 de plus en Face-à-face, et l’adversaire perd 4.', [{ kind: 'event', value: 14, events: ['face-a-face'], bonus: 10 }, { kind: 'debuff', value: 4 }]),
+  x('aigle-royal', 'Aigle royal', 'rapaces', 'rapace-aigle', 'Montagne', 'MX', 91, 92, 'Fond sur ses proies à près de 300 km/h ; il figure sur le drapeau du Mexique.', { ...L('Aquila chrysaetos'),
   }),
-  x('faucon-pelerin', 'Faucon pèlerin', 'rapaces', 'rapace-faucon', 'Falaises et cathédrales', 'FR', 84, 90, 'L’animal le plus rapide du monde : plus de 380 km/h en piqué.', { ...L('Falco peregrinus'), stats: { vit: 99 },
-    ulti: sig('faucon-pelerin', 'Piqué à 389 km/h', 'VIT devient la stat principale, +18.', { kind: 'stat-swap', stat: 'vit', value: 18 }),
+  x('faucon-pelerin', 'Faucon pèlerin', 'rapaces', 'rapace-faucon', 'Falaises et cathédrales', 'FR', 84, 90, 'L’animal le plus rapide du monde : plus de 380 km/h en piqué.', { ...L('Falco peregrinus'),
   }),
   x('pygargue', 'Pygargue à tête blanche', 'rapaces', 'rapace-aigle', 'Lacs et côtes', 'US', 84, 88, 'Emblème des États-Unis ; son nid peut peser plus d’une tonne.', L('Haliaeetus leucocephalus')),
   x('harfang', 'Harfang des neiges', 'rapaces', 'rapace-nocturne', 'Toundra', 'CA', 78, 80, 'La grande chouette blanche de la toundra, qui chasse aussi en plein jour.', L('Bubo scandiacus')),
@@ -437,20 +366,16 @@ const CURATED: Athlete[] = [
   x('circaete', 'Circaète Jean-le-Blanc', 'rapaces', 'rapace-aigle', 'Garrigue', 'FR', 24, 74, 'Spécialiste des serpents, qu’il avale en entier.', L('Circaetus gallicus')),
 
   // ───────────────────────── OISEAUX ─────────────────────────
-  x('manchot-empereur', 'Manchot empereur', 'oiseaux', 'oiseau-voyageur', 'Antarctique', 'AQ', 85, 78, 'Le mâle couve l’œuf sur ses pattes pendant deux mois d’hiver polaire, sans manger.', { ...L('Aptenodytes forsteri'), stats: { end: 97 },
-    ulti: sig('manchot-empereur', 'Tortue contre le blizzard', 'Les manchots se serrent les uns contre les autres : +10 maintenant, puis +4 pour toute l’équipe.', { kind: 'team-buff', value: 10, boost: 4 }),
+  x('manchot-empereur', 'Manchot empereur', 'oiseaux', 'oiseau-voyageur', 'Antarctique', 'AQ', 85, 78, 'Le mâle couve l’œuf sur ses pattes pendant deux mois d’hiver polaire, sans manger.', { ...L('Aptenodytes forsteri'),
   }),
-  x('autruche', 'Autruche', 'oiseaux', 'oiseau-coureur', 'Savane', 'KE', 80, 80, 'Le plus grand oiseau du monde court à 70 km/h et pond des œufs de 1,5 kg.', { ...L('Struthio camelus'), stats: { vit: 94 },
-    ulti: sig('autruche', 'Coup de patte', 'VIT devient la stat principale, +14, et l’adversaire perd 6.', [{ kind: 'stat-swap', stat: 'vit', value: 14 }, { kind: 'debuff', value: 6 }]),
+  x('autruche', 'Autruche', 'oiseaux', 'oiseau-coureur', 'Savane', 'KE', 80, 80, 'Le plus grand oiseau du monde court à 70 km/h et pond des œufs de 1,5 kg.', { ...L('Struthio camelus'),
   }),
   x('flamant-rose', 'Flamant rose', 'oiseaux', 'oiseau-paradeur', 'Camargue', 'FR', 80, 58, 'Sa couleur rose vient des petits crustacés et des algues qu’il mange.', L('Phoenicopterus roseus')),
-  x('ara', 'Ara macao', 'oiseaux', 'oiseau-malin', 'Forêt tropicale', 'BR', 78, 62, 'Son bec puissant casse les noix les plus dures, et il peut vivre plus de 50 ans.', { ...L('Ara macao'), stats: { int: 88 } }),
-  x('colibri', 'Colibri', 'oiseaux', 'oiseau-paradeur', 'Forêt tropicale', 'EC', 76, 60, 'Ses ailes battent jusqu’à 80 fois par seconde : il peut voler en arrière.', { ...L('Trochilidae'), stats: { vit: 90, tec: 97 } }),
-  x('corbeau', 'Grand corbeau', 'oiseaux', 'oiseau-malin', 'Falaises et villes', 'GB-ENG', 74, 74, 'Reconnaît les visages et résout des énigmes ; six corbeaux gardent la tour de Londres.', { ...L('Corvus corax'), stats: { int: 96 },
-    ulti: sig('corbeau', 'Mémoire des visages', 'INT devient la stat principale, +14, et il annule l’ulti adverse.', [{ kind: 'stat-swap', stat: 'int', value: 14 }, { kind: 'cancel', value: 0 }]),
+  x('ara', 'Ara macao', 'oiseaux', 'oiseau-malin', 'Forêt tropicale', 'BR', 78, 62, 'Son bec puissant casse les noix les plus dures, et il peut vivre plus de 50 ans.', { ...L('Ara macao') }),
+  x('colibri', 'Colibri', 'oiseaux', 'oiseau-paradeur', 'Forêt tropicale', 'EC', 76, 60, 'Ses ailes battent jusqu’à 80 fois par seconde : il peut voler en arrière.', { ...L('Trochilidae') }),
+  x('corbeau', 'Grand corbeau', 'oiseaux', 'oiseau-malin', 'Falaises et villes', 'GB-ENG', 74, 74, 'Reconnaît les visages et résout des énigmes ; six corbeaux gardent la tour de Londres.', { ...L('Corvus corax'),
   }),
-  x('paon', 'Paon bleu', 'oiseaux', 'oiseau-paradeur', 'Forêt', 'IN', 74, 56, 'Oiseau national de l’Inde ; sa traîne compte plus de 150 plumes ocellées.', { ...L('Pavo cristatus'), stats: { aur: 95 },
-    ulti: sig('paon', 'La roue', 'Plumes déployées : +10 de puissance, +16 de plus en Coup de cœur.', { kind: 'event', value: 10, events: ['bain-de-foule'], bonus: 16 }),
+  x('paon', 'Paon bleu', 'oiseaux', 'oiseau-paradeur', 'Forêt', 'IN', 74, 56, 'Oiseau national de l’Inde ; sa traîne compte plus de 150 plumes ocellées.', { ...L('Pavo cristatus'),
   }),
   x('toucan', 'Toucan toco', 'oiseaux', 'oiseau-paradeur', 'Forêt tropicale', 'BR', 72, 58, 'Son bec énorme est creux et léger, et lui sert de radiateur.', L('Ramphastos toco')),
   x('kiwi', 'Kiwi', 'oiseaux', 'oiseau-coureur', 'Forêt', 'NZ', 68, 58, 'Pond l’œuf le plus gros du monde par rapport à sa taille.', L('Apteryx')),
@@ -470,7 +395,7 @@ const CURATED: Athlete[] = [
   x('kea', 'Kéa', 'oiseaux', 'oiseau-malin', 'Montagnes', 'NZ', 44, 60, 'Le seul perroquet des montagnes, connu pour démonter les voitures.', L('Nestor notabilis')),
   x('quetzal', 'Quetzal resplendissant', 'oiseaux', 'oiseau-paradeur', 'Forêt de nuages', 'GT', 44, 58, 'Oiseau national du Guatemala, qui a donné son nom à la monnaie du pays.', L('Pharomachrus mocinno')),
   x('pic-vert', 'Pic vert', 'oiseaux', 'oiseau-malin', 'Forêt et parcs', 'FR', 42, 62, 'Sa très longue langue s’enroule autour de son crâne.', L('Picus viridis')),
-  x('sterne-arctique', 'Sterne arctique', 'oiseaux', 'oiseau-voyageur', 'D’un pôle à l’autre', 'IS', 42, 76, 'Le record de migration : environ 70 000 km par an, d’un pôle à l’autre.', { ...L('Sterna paradisaea'), stats: { end: 96 } }),
+  x('sterne-arctique', 'Sterne arctique', 'oiseaux', 'oiseau-voyageur', 'D’un pôle à l’autre', 'IS', 42, 76, 'Le record de migration : environ 70 000 km par an, d’un pôle à l’autre.', { ...L('Sterna paradisaea') }),
   x('martinet', 'Martinet noir', 'oiseaux', 'oiseau-voyageur', 'Ciel des villes', 'FR', 40, 70, 'Peut rester en vol dix mois sans se poser.', L('Apus apus')),
   x('calao', 'Calao bicorne', 'oiseaux', 'oiseau-paradeur', 'Forêt', 'IN', 40, 62, 'La femelle s’emmure dans un arbre creux pendant la couvaison, nourrie par le mâle.', L('Buceros bicornis')),
   x('grue', 'Grue cendrée', 'oiseaux', 'oiseau-voyageur', 'Marais', 'FR', 40, 72, 'Des dizaines de milliers font étape chaque automne au lac du Der.', L('Grus grus')),
@@ -480,27 +405,21 @@ const CURATED: Athlete[] = [
   x('menure', 'Ménure superbe', 'oiseaux', 'oiseau-malin', 'Forêt', 'AU', 34, 60, 'Imite tous les sons, jusqu’aux appareils photo et aux tronçonneuses.', L('Menura novaehollandiae')),
 
   // ───────────────────────── REPTILES ─────────────────────────
-  x('crocodile-du-nil', 'Crocodile du Nil', 'reptiles', 'reptile-mastodonte', 'Fleuves', 'EG', 90, 94, 'Sa mâchoire se referme avec l’une des morsures les plus puissantes du règne animal.', { ...L('Crocodylus niloticus'), stats: { for: 97 },
-    ulti: sig('crocodile', 'Roulade de la mort', 'La proie est entraînée sous l’eau : FOR devient la stat principale, +14, et la manche compte double.', [{ kind: 'stat-swap', stat: 'for', value: 14 }, { kind: 'double', value: 0 }]),
+  x('crocodile-du-nil', 'Crocodile du Nil', 'reptiles', 'reptile-mastodonte', 'Fleuves', 'EG', 90, 94, 'Sa mâchoire se referme avec l’une des morsures les plus puissantes du règne animal.', { ...L('Crocodylus niloticus'),
   }),
   x('dragon-de-komodo', 'Dragon de Komodo', 'reptiles', 'reptile-mastodonte', 'Îles de la Sonde', 'ID', 84, 88, 'Le plus grand lézard du monde, jusqu’à 3 m ; sa morsure contient du venin.', { ...L('Varanus komodoensis'),
-    ulti: sig('komodo', 'Morsure venimeuse', '+12 de puissance, et l’adversaire perd 8.', [{ kind: 'boost', value: 12 }, { kind: 'debuff', value: 8 }]),
   }),
-  x('cobra-royal', 'Cobra royal', 'reptiles', 'reptile-venimeux', 'Forêt', 'IN', 83, 84, 'Le plus long serpent venimeux du monde, jusqu’à 5,5 m ; il se dresse à hauteur d’homme.', { ...L('Ophiophagus hannah'), stats: { aur: 95 },
-    ulti: sig('cobra-royal', 'Capuchon dressé', '+14 de puissance, +10 de plus en Face-à-face.', { kind: 'event', value: 14, events: ['face-a-face'], bonus: 10 }),
+  x('cobra-royal', 'Cobra royal', 'reptiles', 'reptile-venimeux', 'Forêt', 'IN', 83, 84, 'Le plus long serpent venimeux du monde, jusqu’à 5,5 m ; il se dresse à hauteur d’homme.', { ...L('Ophiophagus hannah'),
   }),
   x('anaconda', 'Anaconda vert', 'reptiles', 'reptile-mastodonte', 'Marais d’Amazonie', 'BR', 80, 86, 'Le serpent le plus lourd du monde, plus de 200 kg ; il étouffe ses proies.', { ...L('Eunectes murinus'),
-    ulti: sig('anaconda', 'Étreinte', 'L’adversaire étouffe : +10 de puissance, et il perd 10.', [{ kind: 'boost', value: 10 }, { kind: 'debuff', value: 10 }]),
   }),
   x('tortue-geante', 'Tortue géante des Seychelles', 'reptiles', 'reptile-tortue', 'Îles', 'SC', 76, 70, 'Elle peut vivre bien plus de 150 ans.', { ...L('Aldabrachelys gigantea'), ...P('1832', 'Jonathan, éclos vers 1832, le plus vieil animal terrestre connu, à Sainte-Hélène.'),
-    ulti: sig('tortue-geante', 'Patience centenaire', '+10 de puissance, +12 à la dernière manche.', { kind: 'last-round', value: 10, bonus: 12 }),
   }),
-  x('cameleon', 'Caméléon panthère', 'reptiles', 'reptile-lezard', 'Forêt', 'MG', 76, 60, 'Change de couleur pour communiquer ; ses yeux bougent indépendamment l’un de l’autre.', { ...L('Furcifer pardalis'), stats: { tec: 94 },
-    ulti: sig('cameleon', 'Camouflage parfait', 'Il disparaît : il annule l’ulti adverse, +12.', { kind: 'cancel', value: 12 }),
+  x('cameleon', 'Caméléon panthère', 'reptiles', 'reptile-lezard', 'Forêt', 'MG', 76, 60, 'Change de couleur pour communiquer ; ses yeux bougent indépendamment l’un de l’autre.', { ...L('Furcifer pardalis'),
   }),
   x('tortue-luth', 'Tortue luth', 'reptiles', 'reptile-tortue', 'Haute mer', 'FR', 72, 80, 'La plus grande tortue du monde, jusqu’à 900 kg ; elle plonge à plus de 1 000 m.', L('Dermochelys coriacea')),
   x('alligator', 'Alligator d’Amérique', 'reptiles', 'reptile-mastodonte', 'Marais de Floride', 'US', 72, 88, 'Survit au gel en se laissant prendre dans la glace, le museau dehors pour respirer.', L('Alligator mississippiensis')),
-  x('crocodile-marin', 'Crocodile marin', 'reptiles', 'reptile-mastodonte', 'Estuaires', 'AU', 70, 96, 'Le plus grand reptile vivant, plus de 6 m et une tonne ; il nage en pleine mer.', { ...L('Crocodylus porosus'), stats: { for: 99 } }),
+  x('crocodile-marin', 'Crocodile marin', 'reptiles', 'reptile-mastodonte', 'Estuaires', 'AU', 70, 96, 'Le plus grand reptile vivant, plus de 6 m et une tonne ; il nage en pleine mer.', { ...L('Crocodylus porosus') }),
   x('mamba-noir', 'Mamba noir', 'reptiles', 'reptile-venimeux', 'Savane', 'ZA', 66, 84, 'L’un des serpents les plus rapides ; l’intérieur de sa bouche est noir.', L('Dendroaspis polylepis')),
   x('iguane-marin', 'Iguane marin', 'reptiles', 'reptile-lezard', 'Galápagos', 'EC', 60, 66, 'Le seul lézard au monde qui se nourrit en plongeant dans la mer.', L('Amblyrhynchus cristatus')),
   x('python-reticule', 'Python réticulé', 'reptiles', 'reptile-mastodonte', 'Forêt tropicale', 'ID', 60, 82, 'Le plus long serpent du monde : plus de 7 m.', L('Malayopython reticulatus')),
@@ -521,11 +440,9 @@ const CURATED: Athlete[] = [
   x('couleuvre', 'Couleuvre à collier', 'reptiles', 'reptile-lezard', 'Mares', 'FR', 30, 56, 'Inoffensive, elle fait la morte en cas de danger.', L('Natrix helvetica')),
 
   // ───────────────────────── AMPHIBIENS ─────────────────────────
-  x('axolotl', 'Axolotl', 'amphibiens', 'amphibien-etrange', 'Lacs de Mexico', 'MX', 82, 48, 'Reste toute sa vie à l’état de larve et régénère ses pattes, son cœur et une partie de son cerveau.', { ...L('Ambystoma mexicanum'), stats: { aur: 92 },
-    ulti: sig('axolotl', 'Régénération totale', '+12 de puissance, et +12 de plus si son équipe est menée.', { kind: 'comeback', value: 12, bonus: 12 }),
+  x('axolotl', 'Axolotl', 'amphibiens', 'amphibien-etrange', 'Lacs de Mexico', 'MX', 82, 48, 'Reste toute sa vie à l’état de larve et régénère ses pattes, son cœur et une partie de son cerveau.', { ...L('Ambystoma mexicanum'),
   }),
   x('phyllobate', 'Phyllobate terrible', 'amphibiens', 'amphibien-toxique', 'Forêt tropicale', 'CO', 74, 58, 'Une seule de ces petites grenouilles dorées contient de quoi tuer dix humains.', { ...L('Phyllobates terribilis'),
-    ulti: sig('phyllobate', 'Toucher mortel', '+8 de puissance, et l’adversaire perd 12.', [{ kind: 'boost', value: 8 }, { kind: 'debuff', value: 12 }]),
   }),
   x('rainette-aux-yeux-rouges', 'Rainette aux yeux rouges', 'amphibiens', 'amphibien-sauteur', 'Forêt tropicale', 'CR', 70, 56, 'Ouvre brusquement ses yeux rouges pour surprendre les prédateurs.', L('Agalychnis callidryas')),
   x('salamandre', 'Salamandre tachetée', 'amphibiens', 'amphibien-toxique', 'Forêt humide', 'FR', 60, 52, 'Au Moyen Âge, on la croyait capable de vivre dans le feu.', L('Salamandra salamandra')),
@@ -548,21 +465,18 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── INSECTES & ARAIGNÉES ─────────────────────────
   x('abeille', 'Abeille domestique', 'insectes', 'insecte-colonie', 'Ruches et prairies', 'FR', 83, 66, 'Une colonie visite des millions de fleurs pour faire son miel ; les abeilles communiquent en dansant.', { ...L('Apis mellifera'),
-    ulti: sig('abeille', 'Danse frétillante', 'Elle indique la route à toute la ruche : +10 maintenant, puis +4 pour toute l’équipe.', { kind: 'team-buff', value: 10, boost: 4 }),
   }),
-  x('fourmi', 'Fourmi', 'insectes', 'insecte-colonie', 'Partout', 'XW', 80, 62, 'Porte des charges bien plus lourdes qu’elle ; certaines colonies comptent des millions d’ouvrières.', { ...L('Formicidae'), stats: { for: 80 },
-    ulti: sig('fourmi', 'Super-colonie', '+8 de puissance, +4 par manche déjà gagnée par son équipe, puis +3 pour toute l’équipe.', [{ kind: 'streak', value: 8, perWin: 4 }, { kind: 'team-buff', value: 0, boost: 3 }]),
+  x('fourmi', 'Fourmi', 'insectes', 'insecte-colonie', 'Partout', 'XW', 80, 62, 'Porte des charges bien plus lourdes qu’elle ; certaines colonies comptent des millions d’ouvrières.', { ...L('Formicidae'),
   }),
-  x('mante-religieuse', 'Mante religieuse', 'insectes', 'insecte-guerrier', 'Prairies', 'FR', 78, 66, 'Tourne la tête à 180° et attrape ses proies en un éclair avec ses pattes ravisseuses.', { ...L('Mantis religiosa'), stats: { tec: 94 },
-    ulti: sig('mante', 'Pattes ravisseuses', 'AGI devient la stat principale, +14, et la manche compte double.', [{ kind: 'stat-swap', stat: 'tec', value: 14 }, { kind: 'double', value: 0 }]),
+  x('mante-religieuse', 'Mante religieuse', 'insectes', 'insecte-guerrier', 'Prairies', 'FR', 78, 66, 'Tourne la tête à 180° et attrape ses proies en un éclair avec ses pattes ravisseuses.', { ...L('Mantis religiosa'),
   }),
-  x('monarque', 'Monarque', 'insectes', 'insecte-voltigeur', 'Prairies', 'MX', 74, 56, 'Migre sur des milliers de kilomètres, du Canada aux forêts du Mexique.', { ...L('Danaus plexippus'), stats: { end: 92 } }),
+  x('monarque', 'Monarque', 'insectes', 'insecte-voltigeur', 'Prairies', 'MX', 74, 56, 'Migre sur des milliers de kilomètres, du Canada aux forêts du Mexique.', { ...L('Danaus plexippus') }),
   x('mygale', 'Mygale à genoux rouges', 'insectes', 'arachnide', 'Désert', 'MX', 74, 62, 'Peut vivre plus de 25 ans ; elle projette des poils urticants pour se défendre.', L('Brachypelma hamorii')),
   x('scorpion', 'Scorpion empereur', 'insectes', 'arachnide', 'Forêt tropicale', 'GH', 74, 70, 'Comme tous les scorpions, il brille d’un bleu-vert fluorescent sous la lumière ultraviolette.', L('Pandinus imperator')),
   x('coccinelle', 'Coccinelle à sept points', 'insectes', 'insecte-guerrier', 'Jardins', 'FR', 72, 48, 'Elle dévore des milliers de pucerons au cours de sa vie : l’alliée des jardiniers.', L('Coccinella septempunctata')),
   x('veuve-noire', 'Veuve noire', 'insectes', 'arachnide', 'Recoins sombres', 'US', 70, 62, 'Son venin est l’un des plus puissants des araignées ; la femelle mange parfois le mâle.', L('Latrodectus mactans')),
   x('moustique', 'Moustique', 'insectes', 'insecte-voltigeur', 'Partout', 'XW', 66, 54, 'L’animal le plus mortel pour l’homme, par les maladies qu’il transmet.', L('Culicidae')),
-  x('dynaste-hercule', 'Scarabée Hercule', 'insectes', 'insecte-guerrier', 'Forêt tropicale', 'FR', 64, 72, 'L’un des plus grands coléoptères du monde, jusqu’à 17 cm cornes comprises, en Guadeloupe et en Martinique.', { ...L('Dynastes hercules'), stats: { for: 92 } }),
+  x('dynaste-hercule', 'Scarabée Hercule', 'insectes', 'insecte-guerrier', 'Forêt tropicale', 'FR', 64, 72, 'L’un des plus grands coléoptères du monde, jusqu’à 17 cm cornes comprises, en Guadeloupe et en Martinique.', { ...L('Dynastes hercules') }),
   x('lucane', 'Lucane cerf-volant', 'insectes', 'insecte-guerrier', 'Forêt de chênes', 'FR', 62, 64, 'Le plus grand coléoptère d’Europe ; ses « bois » sont des mandibules.', L('Lucanus cervus')),
   x('libellule', 'Libellule', 'insectes', 'insecte-voltigeur', 'Étangs', 'FR', 62, 60, 'Une chasseuse redoutable : la grande majorité de ses attaques réussissent.', L('Anax imperator')),
   x('luciole', 'Luciole', 'insectes', 'insecte-voltigeur', 'Prairies humides', 'JP', 60, 46, 'Produit sa lumière par une réaction chimique, sans chaleur.', L('Lampyridae')),
@@ -585,19 +499,14 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── INVERTÉBRÉS MARINS ─────────────────────────
   x('pieuvre', 'Pieuvre', 'invertebres', 'cephalopode', 'Fonds rocheux', 'XO', 84, 68, 'Trois cœurs, du sang bleu et des neurones jusque dans ses huit bras.', { ...L('Octopus vulgaris'), ...P('2010', 'Paul, le poulpe d’Oberhausen qui a prédit huit résultats sur huit au Mondial 2010.'),
-    stats: { int: 96, tec: 97 },
-    ulti: sig('pieuvre', 'Huit bras, neuf cerveaux', 'INT devient la stat principale, +14, et elle annule l’ulti adverse.', [{ kind: 'stat-swap', stat: 'int', value: 14 }, { kind: 'cancel', value: 0 }]),
   }),
   x('calmar-geant', 'Calmar géant', 'invertebres', 'cephalopode', 'Abysses', 'XO', 78, 82, 'Ses yeux, gros comme des ballons de football, sont parmi les plus grands du règne animal.', { ...L('Architeuthis dux'),
-    ulti: sig('calmar-geant', 'Légende des abysses', '+14 de puissance, +10 de plus en Corps à corps.', { kind: 'event', value: 14, events: ['bras-de-fer'], bonus: 10 }),
   }),
   x('meduse', 'Méduse', 'invertebres', 'invertebre-etrange', 'Océans', 'XO', 76, 52, 'Sans cerveau ni cœur, les méduses dérivent dans les océans depuis plus de 500 millions d’années.', L('Medusozoa')),
   x('etoile-de-mer', 'Étoile de mer', 'invertebres', 'invertebre-etrange', 'Rochers', 'FR', 72, 46, 'Fait repousser un bras perdu ; chez certaines espèces, un bras peut redonner un animal entier.', L('Asteroidea')),
-  x('crevette-mante', 'Crevette-mante', 'invertebres', 'crustace', 'Récif corallien', 'AU', 66, 76, 'Son coup de massue est si rapide qu’il fait bouillir l’eau et brise les vitres d’aquarium.', { ...L('Odontodactylus scyllarus'), stats: { vit: 97, for: 92 },
-    ulti: sig('crevette-mante', 'Coup de massue', 'L’un des coups les plus rapides du règne animal : +16 de puissance.', { kind: 'boost', value: 16 }),
+  x('crevette-mante', 'Crevette-mante', 'invertebres', 'crustace', 'Récif corallien', 'AU', 66, 76, 'Son coup de massue est si rapide qu’il fait bouillir l’eau et brise les vitres d’aquarium.', { ...L('Odontodactylus scyllarus'),
   }),
-  x('tardigrade', 'Tardigrade', 'invertebres', 'invertebre-etrange', 'Partout, jusque dans l’espace', 'XW', 64, 60, 'Survit au vide spatial, au gel et à la chaleur extrême en se desséchant.', { ...L('Tardigrada'), stats: { end: 99 },
-    ulti: sig('tardigrade', 'Indestructible', '+12 de puissance, +8 de plus si son équipe est menée, et il annule l’ulti adverse.', [{ kind: 'comeback', value: 12, bonus: 8 }, { kind: 'cancel', value: 0 }]),
+  x('tardigrade', 'Tardigrade', 'invertebres', 'invertebre-etrange', 'Partout, jusque dans l’espace', 'XW', 64, 60, 'Survit au vide spatial, au gel et à la chaleur extrême en se desséchant.', { ...L('Tardigrada'),
   }),
   x('seiche', 'Seiche', 'invertebres', 'cephalopode', 'Côtes', 'FR', 62, 62, 'Change de couleur en une fraction de seconde pour hypnotiser ses proies.', L('Sepia officinalis')),
   x('homard', 'Homard européen', 'invertebres', 'crustace', 'Fonds rocheux', 'FR', 60, 66, 'Peut vivre plus de 50 ans et grandit toute sa vie.', L('Homarus gammarus')),
@@ -616,30 +525,35 @@ const CURATED: Athlete[] = [
   x('anemone', 'Anémone de mer', 'invertebres', 'invertebre-etrange', 'Rochers', 'FR', 34, 40, 'Fixée sur son rocher, elle capture ses proies avec ses tentacules urticants.', L('Actiniaria')),
 
   // ───────────────────────── FERME & COMPAGNIE ─────────────────────────
-  x('chien', 'Chien', 'ferme', 'ferme-compagnon', 'Maison', 'XW', 89, 80, 'Le premier animal domestiqué, il y a plus de 15 000 ans ; son odorat est des milliers de fois plus fin que le nôtre.', { ...L('Canis familiaris'), ...P('1957', 'Laïka, le premier animal mis en orbite autour de la Terre.'),
-    nick: 'Meilleur ami de l’homme', stats: { aur: 96, end: 90 },
-    ulti: sig('chien', 'Fidélité', '+12 de puissance, +10 de plus en Coup de cœur et Face-à-face, puis +3 pour toute l’équipe.', [{ kind: 'event', value: 12, events: ['bain-de-foule', 'face-a-face'], bonus: 10 }, { kind: 'team-buff', value: 0, boost: 3 }]),
-  }),
+  // races de chien : une seule espèce (Canis familiaris), des centaines de races façonnées par l'élevage
+  x('berger-allemand', 'Berger allemand', 'ferme', 'ferme-compagnon', 'Police et secours', 'DE', 80, 82, 'Chien policier, de secours et guide d’aveugle : il apprend vite et adore travailler avec l’humain.', { ...C, ...P('1918', 'Rintintin, chiot sauvé d’un village bombardé en France en 1918, devenu une star du cinéma à Hollywood.') }),
+  x('labrador', 'Labrador retriever', 'ferme', 'ferme-compagnon', 'Maison', 'CA', 82, 74, 'Ses pattes palmées et sa grosse queue en gouvernail en font un excellent nageur : il vient de Terre-Neuve, au Canada.', C),
+  x('husky', 'Husky de Sibérie', 'ferme', 'ferme-trait', 'Neige', 'RU', 80, 80, 'Tire des traîneaux sur des centaines de kilomètres par grand froid ; ses yeux sont souvent bleus, parfois un de chaque couleur.', { ...C, ...P('1925', 'Balto, qui mena le dernier relais de la course du sérum contre la diphtérie jusqu’à Nome, en Alaska.') }),
+  x('akita', 'Akita inu', 'ferme', 'ferme-compagnon', 'Montagnes du Japon', 'JP', 66, 76, 'Monument naturel du Japon : on offre une statuette d’akita à la naissance d’un enfant pour lui souhaiter santé et bonheur.', { ...C, ...P('1925', 'Hachikō, qui attendit son maître à la gare de Shibuya chaque jour pendant près de dix ans après sa mort.') }),
+  x('saint-bernard', 'Saint-bernard', 'ferme', 'ferme-trait', 'Cols des Alpes', 'CH', 72, 74, 'Élevé par les moines de l’hospice du col du Grand-Saint-Bernard pour retrouver les voyageurs perdus dans la neige.', { ...C, ...P('1800', 'Barry, qui sauva plus de 40 personnes dans les Alpes ; il est exposé au musée d’histoire naturelle de Berne.') }),
+  x('border-collie', 'Border collie', 'ferme', 'ferme-trait', 'Pâturages', 'GB', 62, 78, 'Chien de berger réputé le plus doué pour apprendre : il mène un troupeau de moutons d’un simple coup d’œil.', { ...C, ...P('2011', 'Chaser, la border collie qui connaissait le nom de plus de 1 000 jouets différents.') }),
+  x('chihuahua', 'Chihuahua', 'ferme', 'ferme-compagnon', 'Maison', 'MX', 74, 52, 'La plus petite race de chien du monde : souvent moins de 3 kg. Elle porte le nom d’un État du Mexique.', C),
+  x('dalmatien', 'Dalmatien', 'ferme', 'ferme-compagnon', 'Maison', 'HR', 74, 70, 'Les chiots naissent tout blancs : leurs taches n’apparaissent qu’au bout de deux semaines.', C),
+  x('caniche', 'Caniche', 'ferme', 'ferme-compagnon', 'Maison', 'FR', 70, 66, 'Avant d’être un chien de salon, c’était un chien d’eau : sa coupe célèbre gardait au chaud ses articulations en nageant.', C),
+  x('beagle', 'Beagle', 'ferme', 'ferme-compagnon', 'Campagne', 'GB', 68, 68, 'Son flair est si fin qu’il travaille dans les aéroports pour repérer la viande et les fruits cachés dans les bagages.', C),
+  x('greyhound', 'Lévrier greyhound', 'ferme', 'ferme-compagnon', 'Cynodromes', 'GB', 60, 80, 'Le chien le plus rapide : il atteint 70 km/h en quelques foulées, mais adore dormir le reste de la journée.', C),
+  x('bouvier-bernois', 'Bouvier bernois', 'ferme', 'ferme-trait', 'Fermes suisses', 'CH', 58, 72, 'Chien de ferme suisse qui tirait de petites charrettes de lait et de fromage jusqu’au marché.', C),
   x('chat', 'Chat', 'ferme', 'ferme-compagnon', 'Maison', 'EG', 89, 72, 'Domestiqué il y a près de 10 000 ans, il dort environ 15 heures par jour.', { ...L('Felis catus'), ...P('1963', 'Félicette, la chatte française partie dans l’espace.'),
-    stats: { tec: 97, aur: 95 },
-    ulti: sig('chat', 'Retombe sur ses pattes', 'AGI devient la stat principale, +14, et +8 de plus si son équipe est menée.', [{ kind: 'stat-swap', stat: 'tec', value: 14 }, { kind: 'comeback', value: 0, bonus: 8 }]),
   }),
   x('cheval', 'Cheval', 'ferme', 'ferme-trait', 'Prés', 'FR', 88, 86, 'Peut dormir debout grâce à un mécanisme qui bloque ses articulations.', { ...L('Equus caballus'), ...P('1988', 'Jappeloup, champion olympique de saut d’obstacles à Séoul avec Pierre Durand.'),
-    stats: { vit: 92 },
-    ulti: sig('cheval', 'Galop final', 'VIT devient la stat principale, +14, et +8 de plus à la dernière manche.', [{ kind: 'stat-swap', stat: 'vit', value: 14 }, { kind: 'last-round', value: 0, bonus: 8 }]),
   }),
   x('vache', 'Vache', 'ferme', 'ferme-trait', 'Prairie', 'FR', 76, 62, 'Son estomac a quatre compartiments ; une laitière peut donner plus de 30 litres de lait par jour.', L('Bos taurus')),
-  x('cochon', 'Cochon', 'ferme', 'ferme-basse-cour', 'Ferme', 'FR', 74, 62, 'Très intelligent, il se roule dans la boue pour se rafraîchir car il transpire très peu.', { ...L('Sus domesticus'), stats: { int: 86 } }),
+  x('cochon', 'Cochon', 'ferme', 'ferme-basse-cour', 'Ferme', 'FR', 74, 62, 'Très intelligent, il se roule dans la boue pour se rafraîchir car il transpire très peu.', { ...L('Sus domesticus') }),
   x('mouton', 'Mouton', 'ferme', 'ferme-basse-cour', 'Pâturages', 'NZ', 70, 56, 'En Nouvelle-Zélande, il y a plusieurs moutons pour chaque habitant.', { ...L('Ovis aries'), ...P('1996', 'Dolly, le premier mammifère cloné à partir d’une cellule adulte, en Écosse.') }),
   x('poule', 'Poule', 'ferme', 'ferme-basse-cour', 'Poulailler', 'FR', 70, 48, 'Descendante des dinosaures : ses protéines ressemblent à celles retrouvées sur un fossile de T. rex.', L('Gallus gallus domesticus')),
-  x('chevre', 'Chèvre', 'ferme', 'ferme-basse-cour', 'Montagne et ferme', 'FR', 66, 60, 'Au Maroc, elle grimpe jusque dans les arganiers pour en manger les fruits.', { ...L('Capra hircus'), stats: { tec: 84 } }),
+  x('chevre', 'Chèvre', 'ferme', 'ferme-basse-cour', 'Montagne et ferme', 'FR', 66, 60, 'Au Maroc, elle grimpe jusque dans les arganiers pour en manger les fruits.', { ...L('Capra hircus') }),
   x('poisson-rouge', 'Poisson rouge', 'ferme', 'ferme-compagnon', 'Bocal et bassin', 'CN', 66, 38, 'Sa mémoire dépasse largement trois secondes : il retient des choses pendant des mois.', L('Carassius auratus')),
   x('ane', 'Âne', 'ferme', 'ferme-trait', 'Prés', 'FR', 64, 66, 'Plus prudent qu’entêté : il refuse d’avancer quand il sent un danger.', L('Equus asinus')),
   x('hamster', 'Hamster doré', 'ferme', 'ferme-compagnon', 'Cage et champs', 'SY', 64, 44, 'La plupart des hamsters dorés de compagnie descendent de quelques animaux capturés en Syrie en 1930.', L('Mesocricetus auratus')),
   x('cochon-d-inde', 'Cochon d’Inde', 'ferme', 'ferme-compagnon', 'Maison', 'PE', 62, 42, 'Domestiqué dans les Andes il y a des milliers d’années ; il fait des petits bonds de joie.', L('Cavia porcellus')),
   x('alpaga', 'Alpaga', 'ferme', 'ferme-basse-cour', 'Andes', 'PE', 60, 56, 'Élevé pour sa laine, plus chaude et plus légère que celle du mouton.', L('Vicugna pacos')),
   x('canard', 'Canard colvert', 'ferme', 'ferme-basse-cour', 'Mares', 'FR', 60, 56, 'Ancêtre de presque tous les canards domestiques ; il peut dormir un œil ouvert.', L('Anas platyrhynchos')),
-  x('pigeon', 'Pigeon biset', 'ferme', 'ferme-compagnon', 'Villes', 'XW', 56, 62, 'Retrouve son chemin sur des centaines de kilomètres ; il a porté des messages pendant les guerres.', { ...L('Columba livia'), stats: { end: 86 } }),
+  x('pigeon', 'Pigeon biset', 'ferme', 'ferme-compagnon', 'Villes', 'XW', 56, 62, 'Retrouve son chemin sur des centaines de kilomètres ; il a porté des messages pendant les guerres.', { ...L('Columba livia') }),
   x('perruche', 'Perruche ondulée', 'ferme', 'ferme-compagnon', 'Volière', 'AU', 52, 48, 'Elle vient d’Australie, où elle vit en immenses volées vertes.', L('Melopsittacus undulatus')),
   x('oie', 'Oie', 'ferme', 'ferme-basse-cour', 'Ferme', 'FR', 50, 56, 'Selon la légende, les oies du Capitole auraient sauvé Rome d’une attaque surprise.', L('Anser anser domesticus')),
   x('dindon', 'Dindon', 'ferme', 'ferme-basse-cour', 'Ferme', 'MX', 50, 54, 'Domestiqué par les peuples du Mexique bien avant l’arrivée des Européens.', L('Meleagris gallopavo')),
@@ -650,21 +564,15 @@ const CURATED: Athlete[] = [
 
   // ───────────────────────── PRÉHISTOIRE (Icônes) ─────────────────────────
   x('t-rex', 'Tyrannosaure', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'US', 99, 99, 'La morsure la plus puissante de tous les animaux terrestres connus : plusieurs tonnes de force.', { ...L('Tyrannosaurus rex'), ...D(), ...P('1990', 'Sue, le squelette de T. rex le plus complet jamais découvert, dans le Dakota du Sud.'),
-    nick: 'T. rex', stats: { for: 99, aur: 99 },
-    ulti: sig('t-rex', 'Roi des tyrans', '+16 de puissance (+8 en Corps à corps et Face-à-face), et l’adversaire perd 6.', [{ kind: 'event', value: 16, events: ['bras-de-fer', 'face-a-face'], bonus: 8 }, { kind: 'debuff', value: 6 }]),
+    nick: 'T. rex',
   }),
   x('mammouth', 'Mammouth laineux', 'prehistoire', 'dino-colosse', 'Pléistocène', 'RU', 90, 92, 'Les derniers vivaient sur l’île Wrangel il y a 4 000 ans, quand les pyramides d’Égypte existaient déjà.', { ...L('Mammuthus primigenius'), ...D(), ...P('2007', 'Lyuba, bébé mammouth retrouvé presque intact dans le permafrost sibérien.'),
-    stats: { end: 95 },
-    ulti: sig('mammouth', 'Âge de glace', 'END devient la stat principale, +14, puis +3 pour toute l’équipe.', [{ kind: 'stat-swap', stat: 'end', value: 14 }, { kind: 'team-buff', value: 0, boost: 3 }]),
   }),
-  x('velociraptor', 'Vélociraptor', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'MN', 90, 84, 'Bien plus petit qu’au cinéma, de la taille d’une dinde, et couvert de plumes.', { ...L('Velociraptor mongoliensis'), ...D(), stats: { vit: 94, int: 92 },
-    ulti: sig('velociraptor', 'Griffe en faucille', 'Utilise sa meilleure stat, +14, et la manche compte double.', [{ kind: 'best-stat', value: 14 }, { kind: 'double', value: 0 }]),
+  x('velociraptor', 'Vélociraptor', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'MN', 90, 84, 'Bien plus petit qu’au cinéma, de la taille d’une dinde, et couvert de plumes.', { ...L('Velociraptor mongoliensis'), ...D(),
   }),
   x('triceratops', 'Tricératops', 'prehistoire', 'dino-colosse', 'Crétacé supérieur', 'US', 86, 88, 'Sa collerette osseuse et ses trois cornes lui servaient à se défendre et à parader.', { ...L('Triceratops'), ...D(),
-    ulti: sig('triceratops', 'Charge à trois cornes', 'FOR devient la stat principale, +14, et l’adversaire perd 4.', [{ kind: 'stat-swap', stat: 'for', value: 14 }, { kind: 'debuff', value: 4 }]),
   }),
-  x('megalodon', 'Mégalodon', 'prehistoire', 'dino-marin', 'Néogène', 'XO', 84, 96, 'Le plus grand requin ayant existé, peut-être 18 m, avec des dents de 18 cm.', { ...L('Otodus megalodon'), ...D(), stats: { for: 99 },
-    ulti: sig('megalodon', 'Mâchoire géante', '+16 de puissance, et la manche compte double.', [{ kind: 'boost', value: 16 }, { kind: 'double', value: 0 }]),
+  x('megalodon', 'Mégalodon', 'prehistoire', 'dino-marin', 'Néogène', 'XO', 84, 96, 'Le plus grand requin ayant existé, peut-être 18 m, avec des dents de 18 cm.', { ...L('Otodus megalodon'), ...D(),
   }),
   x('brachiosaure', 'Brachiosaure', 'prehistoire', 'dino-colosse', 'Jurassique supérieur', 'US', 82, 86, 'Plus de 12 m de haut : il broutait la cime des arbres comme une girafe géante.', { ...L('Brachiosaurus altithorax'), ...D() }),
   x('stegosaure', 'Stégosaure', 'prehistoire', 'dino-colosse', 'Jurassique supérieur', 'US', 80, 82, 'Les plaques de son dos et les pointes de sa queue le rendent reconnaissable entre tous.', { ...L('Stegosaurus'), ...D() }),
@@ -691,48 +599,14 @@ const CURATED: Athlete[] = [
   x('trilobite', 'Trilobite', 'prehistoire', 'dino-marin', 'Paléozoïque', 'MA', 40, 50, 'Ils ont peuplé les mers pendant près de 300 millions d’années.', { ...L('Trilobita'), ...D() }),
   x('meganeura', 'Meganeura', 'prehistoire', 'dino-volant', 'Carbonifère', 'FR', 36, 66, 'Une libellule géante de 70 cm d’envergure, découverte à Commentry, dans l’Allier.', { ...L('Meganeura monyi'), ...D() }),
   x('deinosuchus', 'Deinosuchus', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'US', 34, 90, 'Un crocodile géant de plus de 10 m, qui s’attaquait peut-être aux dinosaures.', { ...L('Deinosuchus'), ...D() }),
-
-  // ───────────────────────── MYTHES ─────────────────────────
-  // Créatures fantastiques des mythes et légendes du monde. Pas des espèces : elles se placent dans l'emplacement
-  // « Mythe » de l'équipe et donnent un bonus en match. Célébrité 62 = Or, 80 = Épique, 92 = Légende.
-  ...[
-    // légendes
-    M('dragon', 'Dragon', 'reptiles', 'competition', 'GB-WLS', 92, 'l’Antiquité', 'le dragon rouge du drapeau gallois', 'Le serpent ailé cracheur de feu des légendes européennes, gardien de trésors.', { sport: 'reptiles', value: 5, events: ['face-a-face'], eventBonus: 3 }),
-    M('phenix', 'Phénix', 'oiseaux', 'competition', 'EG', 92, 'l’Antiquité', 'renaît de ses cendres', 'L’oiseau sacré des Égyptiens et des Grecs, symbole d’immortalité.', { sport: 'oiseaux', value: 5, events: ['money-time'], eventBonus: 3 }),
-    M('licorne', 'Licorne', 'ongules', 'competition', 'GB-SCT', 92, 'l’Antiquité', 'animal national de l’Écosse', 'Un cheval à corne unique ; au Moyen Âge, les « cornes de licorne » vendues étaient souvent des dents de narval.', { sport: 'ongules', value: 5, events: ['bain-de-foule'], eventBonus: 3 }),
-    M('griffon', 'Griffon', 'rapaces', 'competition', 'GR', 92, 'l’Antiquité', 'gardien de l’or des montagnes', 'Corps de lion, tête et ailes d’aigle : le roi des animaux et le roi des oiseaux réunis.', { sport: 'rapaces', value: 5, events: ['face-a-face'], eventBonus: 3 }),
-    M('pegase', 'Pégase', 'ferme', 'competition', 'GR', 92, 'l’Antiquité', 'devenu une constellation', 'Le cheval ailé de la mythologie grecque, né du sang de Méduse.', { sport: 'ferme', value: 5, events: ['sprint'], eventBonus: 3 }),
-    // épiques
-    M('kraken', 'Kraken', 'invertebres', 'competition', 'NO', 80, 'le Moyen Âge', 'assez grand pour être pris pour une île', 'Le monstre des mers des marins scandinaves, sans doute inspiré par le calmar géant.', { sport: 'invertebres', value: 5, events: ['bras-de-fer'], eventBonus: 3 }),
-    M('yeti', 'Yéti', 'primates', 'competition', 'NP', 80, 'le XIXe siècle', 'des empreintes géantes dans la neige de l’Himalaya', 'L’« abominable homme des neiges » ; les poils analysés venaient souvent d’ours.', { sport: 'primates', value: 4, events: ['marathon'], eventBonus: 3 }),
-    M('nessie', 'Monstre du loch Ness', 'prehistoire', 'competition', 'GB-SCT', 80, '1933', 'la célèbre photo de 1934 était un canular', 'Le monstre du lac écossais, souvent imaginé comme un plésiosaure survivant.', { sport: 'prehistoire', value: 5, events: ['coup-de-genie'], eventBonus: 3 }),
-    M('hydre', 'Hydre de Lerne', 'amphibiens', 'competition', 'GR', 80, 'l’Antiquité', 'chaque tête coupée repoussait en double', 'Le serpent à plusieurs têtes des marais de Lerne, vaincu par Héraclès lors de son deuxième travail.', { sport: 'amphibiens', value: 5, events: ['marathon'], eventBonus: 2 }),
-    M('cerbere', 'Cerbère', 'canides', 'competition', 'GR', 80, 'l’Antiquité', 'le chien à trois têtes des Enfers', 'Le gardien des Enfers grecs, qui empêchait les morts d’en sortir ; Héraclès le ramena enchaîné lors de son dernier travail.', { sport: 'canides', value: 4, events: ['face-a-face'], eventBonus: 3 }),
-    M('leviathan', 'Léviathan', 'marins', 'competition', 'IL', 80, 'l’Antiquité', 'le monstre marin de la Bible', 'Une créature des mers gigantesque, devenue synonyme de géant tout-puissant.', { sport: 'marins', value: 4, events: ['bras-de-fer'], eventBonus: 3 }),
-    M('fenrir', 'Fenrir', 'canides', 'competition', 'NO', 80, 'le Moyen Âge', 'enchaîné par les dieux avec un lien magique', 'Le loup géant de la mythologie nordique, fils de Loki ; selon la légende, il dévorera Odin lors du Ragnarök.', { sport: 'canides', value: 5, events: ['bras-de-fer'], eventBonus: 2 }),
-    M('kitsune', 'Kitsune', 'canides', 'competition', 'JP', 80, 'le Moyen Âge', 'jusqu’à neuf queues', 'Le renard magique du Japon : plus il est vieux et sage, plus il a de queues.', { sport: 'canides', value: 4, events: ['coup-de-genie'], eventBonus: 4 }),
-    M('quetzalcoatl', 'Quetzalcóatl', 'reptiles', 'competition', 'MX', 80, 'l’Antiquité', 'le serpent à plumes', 'La divinité du vent et du savoir des Aztèques, que les Mayas appelaient Kukulkan.', { sport: 'reptiles', value: 4, events: ['coup-de-genie'], eventBonus: 3 }),
-    M('long', 'Dragon chinois', 'poissons', 'competition', 'CN', 80, 'l’Antiquité', 'la carpe qui franchit la Porte du Dragon devient dragon', 'Le dragon de la Chine, maître des eaux et de la pluie, symbole de chance et de puissance.', { sport: 'poissons', value: 5, events: ['geste-technique'], eventBonus: 2 }),
-    M('gevaudan', 'Bête du Gévaudan', 'canides', 'competition', 'FR', 80, '1764', 'trois ans de terreur en Lozère', 'Une bête mystérieuse qui attaqua les habitants du Gévaudan de 1764 à 1767 ; sans doute un ou plusieurs loups.', { sport: 'canides', value: 4, events: ['money-time'], eventBonus: 3 }),
-    M('oiseau-tonnerre', 'Oiseau-tonnerre', 'rapaces', 'competition', 'US', 80, 'des siècles', 'ses ailes font gronder le tonnerre', 'Un oiseau géant des légendes amérindiennes : ses battements d’ailes font le tonnerre et ses yeux lancent des éclairs.', { sport: 'rapaces', value: 4, events: ['sprint'], eventBonus: 4 }),
-    // or
-    M('simurgh', 'Simurgh', 'oiseaux', 'competition', 'IR', 62, 'l’Antiquité', 'a vu le monde détruit trois fois', 'L’oiseau géant et bienveillant de la mythologie perse, qui éleva le héros Zal.', { sport: 'oiseaux', value: 4, events: ['coup-de-genie'], eventBonus: 3 }),
-    M('tigre-blanc', 'Tigre blanc', 'felins', 'competition', 'CN', 62, 'l’Antiquité', 'gardien de l’Ouest et de l’automne', 'L’un des quatre animaux gardiens du ciel chinois, avec le Dragon azur, l’Oiseau vermillon et la Tortue noire.', { sport: 'felins', value: 5, events: ['face-a-face'], eventBonus: 2 }),
-    M('lion-aile', 'Lion ailé', 'felins', 'competition', 'IT', 62, 'l’Antiquité', 'symbole de Venise depuis le Moyen Âge', 'L’emblème de saint Marc et de Venise ; des lions ailés ornaient déjà les palais de la Perse antique.', { sport: 'felins', value: 4, events: ['coup-de-genie'], eventBonus: 4 }),
-    M('jormungand', 'Jörmungand', 'marins', 'competition', 'NO', 62, 'le Moyen Âge', 'assez long pour faire le tour de la Terre', 'Le serpent de mer nordique, fils de Loki, qui encercle le monde en se mordant la queue.', { sport: 'marins', value: 5, events: ['marathon'], eventBonus: 2 }),
-    M('grande-ourse', 'Grande Ourse', 'ours', 'competition', 'GR', 62, 'l’Antiquité', 'sept étoiles qui ne se couchent jamais en Europe', 'Dans la mythologie grecque, la nymphe Callisto, changée en ourse, fut placée parmi les étoiles par Zeus.', { sport: 'ours', value: 5, events: ['face-a-face'], eventBonus: 3 }),
-    M('lapin-de-jade', 'Lapin de jade', 'petits', 'competition', 'CN', 62, 'l’Antiquité', 'a donné son nom au robot lunaire chinois Yutu', 'Selon les légendes d’Asie, il prépare l’élixir d’immortalité sur la Lune.', { sport: 'petits', value: 5, events: ['geste-technique'], eventBonus: 2 }),
-    M('salamandre', 'Salamandre de feu', 'amphibiens', 'competition', 'FR', 62, 'l’Antiquité', 'emblème du roi François Ier', 'On a longtemps cru que la salamandre vivait dans les flammes sans brûler.', { sport: 'amphibiens', value: 4, events: ['money-time'], eventBonus: 3 }),
-    M('tortue-monde', 'Tortue du monde', 'reptiles', 'competition', 'IN', 62, 'l’Antiquité', 'porte la Terre sur sa carapace', 'Dans les mythes de l’Inde et de plusieurs peuples d’Amérique du Nord, une tortue géante porte le monde sur son dos.', { sport: 'all', value: 2 }),
-    M('behemoth', 'Béhémoth', 'geants', 'competition', 'IL', 62, 'l’Antiquité', 'le monstre de la terre, face au Léviathan des mers', 'Une bête colossale du livre de Job, souvent imaginée comme un hippopotame ou un éléphant géant.', { sport: 'geants', value: 5, events: ['bras-de-fer'], eventBonus: 2 }),
-    M('cerf-blanc', 'Cerf blanc', 'ongules', 'competition', 'GB-ENG', 62, 'le Moyen Âge', 'sa poursuite annonce une aventure', 'Dans les légendes du roi Arthur, le cerf blanc apparaît aux chevaliers pour les entraîner dans une quête.', { sport: 'ongules', value: 4, events: ['sprint'], eventBonus: 3 }),
-    M('dakuwaqa', 'Dakuwaqa', 'requins', 'competition', 'FJ', 62, 'des siècles', 'le protecteur des pêcheurs', 'Le dieu-requin des îles Fidji, gardien des récifs.', { sport: 'requins', value: 5, events: ['face-a-face'], eventBonus: 2 }),
-    M('jorogumo', 'Jorōgumo', 'insectes', 'competition', 'JP', 62, 'le XVIIe siècle', 'une araignée qui prend forme humaine', 'Une araignée-démon du folklore japonais, qui attire les voyageurs avant de les prendre dans sa toile.', { sport: 'insectes', value: 5, events: ['geste-technique'], eventBonus: 2 }),
-    M('taureau-de-crete', 'Taureau de Crète', 'ferme', 'competition', 'GR', 62, 'l’Antiquité', 'capturé par Héraclès', 'Le taureau surgi de la mer, offert par Poséidon au roi Minos, puis capturé par Héraclès lors de son septième travail.', { sport: 'ferme', value: 4, events: ['bras-de-fer'], eventBonus: 3 }),
-    M('bunyip', 'Bunyip', 'marsupiaux', 'competition', 'AU', 62, 'des siècles', 'hante les trous d’eau', 'Un monstre des légendes aborigènes d’Australie, qui vit au fond des marais et des points d’eau.', { sport: 'marsupiaux', value: 5, events: ['money-time'], eventBonus: 2 }),
-  ],
 ];
 
-export const ATHLETES: Athlete[] = CURATED;
+// une espèce présente sur plusieurs continents porte le logo « Plusieurs continents » (XW) au lieu d'un drapeau
+export const ATHLETES: Athlete[] = [...CURATED, ...HABITATS].map((a) => ({
+  ...a,
+  // drapeau : un globe si l'espèce vit sur plusieurs continents, sinon le pays où elle est la plus présente
+  country: CONTINENTS_MULTIPLES[a.id] ? 'XW' : (PAYS_PRINCIPAL[a.id] ?? a.country),
+  role: MILIEU_CORRIGE[a.id] ?? a.role,
+}));
 
 export const ATHLETES_BY_ID: Record<string, Athlete> = Object.fromEntries(ATHLETES.map((athlete) => [athlete.id, athlete]));

@@ -4,7 +4,7 @@ import { MESURES, formatLongevite, formatPoids, formatTaille, mesuresOf } from '
 
 describe('mesures des espèces', () => {
   it('chaque espèce a ses mesures, et aucune mesure ne vise une espèce inconnue', () => {
-    const species = ATHLETES.filter((a) => !a.mythe).map((a) => a.id);
+    const species = ATHLETES.filter((a) => !a.habitat).map((a) => a.id);
     expect(species.filter((id) => !MESURES[id])).toEqual([]);
     const known = new Set(species);
     expect(Object.keys(MESURES).filter((id) => !known.has(id))).toEqual([]);
@@ -26,8 +26,8 @@ describe('mesures des espèces', () => {
     expect(formatLongevite(0.04)).toBe('15 jours');
   });
 
-  it('les cartes Mythe n’ont pas de mesures', () => {
-    expect(mesuresOf('mythe-dragon')).toBeNull();
+  it('les cartes Habitat n’ont pas de mesures', () => {
+    expect(mesuresOf('habitat-amazonie')).toBeNull();
     expect(mesuresOf('lion')).toMatchObject({ poids: '190 kg', taille: '2,5 m', longevite: '14 ans' });
   });
 });

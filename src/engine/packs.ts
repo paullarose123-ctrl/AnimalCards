@@ -3,7 +3,7 @@ import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS } from '../data/sports';
 import {
   ICON_CHANCE,
-  MYTHE_CHANCE,
+  HABITAT_CHANCE,
   PRIME_CHANCE,
   RARITY_ORDER,
   REVERSE_CHANCE,
@@ -11,10 +11,10 @@ import {
   dropWeight,
   iconWeight,
   isIcon,
-  isMythe,
-  mytheWeight,
-  primeRecordStart,
+  habitatWeight,
+  isHabitat,
   rarityOf,
+  rarityScore,
 } from './cards';
 import { weightedPick, weightedPickCached, type Rng } from './random';
 
@@ -35,6 +35,9 @@ export interface PackDef {
   tone: 'bronze' | 'silver' | 'gold' | 'violet' | 'black' | 'icon' | 'prime' | 'sport';
   sport?: SportId;
 }
+
+/** La série en cours : tous les animaux du monde. Les suivantes seront consacrées chacune à un pays. */
+export const SERIES = { number: 1, name: 'Animaux du monde' } as const;
 
 export const FREE_ODDS: Odds = { commune: 60, 'peu-commune': 26, rare: 10, epique: 3.2, legendaire: 0.8 };
 
@@ -85,12 +88,12 @@ export const SHOP_PACKS: PackDef[] = [
   {
     id: 'icones',
     name: 'Pack Icônes',
-    tagline: '3 espèces disparues (dinosaures, thylacine, tigre de Java…), 1 Rare ou mieux garantie',
-    price: 60_000,
-    size: 3,
-    odds: { commune: 25, 'peu-commune': 35, rare: 27, epique: 10, legendaire: 3 },
-    primeChance: PRIME_CHANCE * 1.25,
-    guaranteed: { min: 'rare', odds: { rare: 60, epique: 30, legendaire: 10 } },
+    tagline: '1 seule carte, une Icône garantie : une espèce disparue (T. rex, mammouth, thylacine, tigre de Java…)',
+    price: 600_000,
+    size: 1,
+    odds: { commune: 40, 'peu-commune': 30, rare: 18, epique: 9, legendaire: 3 },
+    primeChance: PRIME_CHANCE,
+    guaranteed: { min: 'commune', odds: { commune: 40, 'peu-commune': 30, rare: 18, epique: 9, legendaire: 3 } },
     filter: (athlete) => !!athlete.retired,
     tone: 'icon',
   },
@@ -124,7 +127,7 @@ export function sportPack(sport: SportId, sportName: string): PackDef {
     name: `Pack ${sportName}`,
     tagline: `5 cartes, uniquement ${SPORTS[sport].group}`,
     // la Préhistoire ne contient que des Icônes : son pack coûte le prix d'un trésor
-    price: sport === 'prehistoire' ? 100_000 : 1_500,
+    price: sport === 'prehistoire' ? 100_000 : 4_000,
     size: 5,
     odds: { commune: 50, 'peu-commune': 30, rare: 14, epique: 4.8, legendaire: 1.2 },
     primeChance: PRIME_CHANCE,
@@ -146,8 +149,8 @@ function poolFor(pack: PackDef): Record<RarityId, Athlete[]> {
   if (cached) return cached;
   const pool = { commune: [], 'peu-commune': [], rare: [], epique: [], legendaire: [] } as Record<RarityId, Athlete[]>;
   for (const athlete of ATHLETES) {
-    // les Mythes ont leur propre tirage, et les Icônes aussi hors de leurs packs (voir drawCard)
-    if (isMythe(athlete) || (isIcon(athlete) && !isIconPack(pack))) continue;
+    // les Habitats ont leur propre tirage, et les Icônes aussi hors de leurs packs (voir drawCard)
+    if (isHabitat(athlete) || (isIcon(athlete) && !isIconPack(pack))) continue;
     if (!pack.filter || pack.filter(athlete)) pool[rarityOf(athlete).id].push(athlete);
   }
   poolCache.set(pack.id, pool);
@@ -157,7 +160,7 @@ function poolFor(pack: PackDef): Record<RarityId, Athlete[]> {
 /** Icônes qui peuvent sortir, très rarement, dans un booster ordinaire. */
 export function iconPool(pack: PackDef): Athlete[] {
   if (isIconPack(pack)) return [];
-  return ATHLETES.filter((athlete) => isIcon(athlete) && !isMythe(athlete) && (!pack.filter || pack.filter(athlete)));
+  return ATHLETES.filter((athlete) => isIcon(athlete) && !isHabitat(athlete) && (!pack.filter || pack.filter(athlete)));
 }
 
 /** Probabilité qu'une carte ordinaire du booster soit une Icône (affichée en boutique ; 1 pour les packs d'Icônes). */
@@ -176,18 +179,17 @@ function rollRarity(rng: Rng, odds: Partial<Odds>, pool: Record<RarityId, Athlet
 }
 
 function cardOf(athlete: Athlete, variant: Variant): CardFace {
-  const record = primeRecordStart(athlete);
-  return { athleteId: athlete.id, variant, ...(record ? { record: variant === 'prime' ? record + 4 : record } : {}) };
+  return { athleteId: athlete.id, variant };
 }
 
-/** Mythes (créatures fantastiques) qui peuvent sortir dans ce booster. */
-export function mythePool(pack: PackDef): Athlete[] {
-  return ATHLETES.filter((athlete) => isMythe(athlete) && (!pack.filter || pack.filter(athlete)));
+/** Habitats (grands lieux de la planète) qui peuvent sortir dans ce booster. */
+export function habitatPool(pack: PackDef): Athlete[] {
+  return ATHLETES.filter((athlete) => isHabitat(athlete) && (!pack.filter || pack.filter(athlete)));
 }
 
-/** Probabilité qu'une carte ordinaire du booster soit un Mythe (affichée en boutique). */
-export function mytheOdds(pack: PackDef): number {
-  return mythePool(pack).length ? MYTHE_CHANCE : 0;
+/** Probabilité qu'une carte ordinaire du booster soit un Habitat (affichée en boutique). */
+export function habitatOdds(pack: PackDef): number {
+  return habitatPool(pack).length ? HABITAT_CHANCE : 0;
 }
 
 /** Nombre de boosters sur lesquels une même espèce ne peut pas ressortir. */
@@ -212,17 +214,17 @@ function drawCard(
   pack: PackDef,
   odds: Partial<Odds>,
   pool: Record<RarityId, Athlete[]>,
-  allowMythe = true,
+  allowHabitat = true,
   avoid: ReadonlySet<string> = new Set(),
   taken: ReadonlySet<string> = new Set(),
 ): CardFace {
-  if (allowMythe && rng() < MYTHE_CHANCE) {
-    const mythes = mythePool(pack);
-    if (mythes.length) return cardOf(pickFresh(rng, mythes, mytheWeight, avoid, taken), 'base');
+  if (allowHabitat && rng() < HABITAT_CHANCE) {
+    const habitats = habitatPool(pack);
+    if (habitats.length) return cardOf(pickFresh(rng, habitats, habitatWeight, avoid, taken), 'base');
   }
   let athlete: Athlete | null = null;
   // une Icône, très rarement, à la place d'une carte ordinaire (jamais à la place de la carte garantie)
-  if (allowMythe && rng() < ICON_CHANCE) {
+  if (allowHabitat && rng() < ICON_CHANCE) {
     const icons = iconPool(pack);
     if (icons.length) athlete = pickFresh(rng, icons, iconWeight, avoid, taken);
   }
@@ -248,9 +250,12 @@ export function primePool(pack: PackDef): Athlete[] {
   return pool;
 }
 
-/** Poids de tirage de la Prime garantie : le lion ou le T. rex sortent plus rarement que le mouton. */
+/**
+ * Poids de tirage de la Prime garantie : les individus des espèces vedettes (Épiques et Légendaires : Elsa la
+ * lionne, Knut, Keiko, Sue le T. rex…) sortent bien plus souvent que ceux des espèces communes (Dolly, les chiens).
+ */
 export function primeWeight(athlete: Athlete): number {
-  return Math.exp(-(athlete.fame - 60) / 20);
+  return [1, 1.5, 3, 4, 4][rarityOf(athlete).order];
 }
 
 /** Probabilité qu'une carte ordinaire du booster sorte en version Prime (affichée en boutique). */
@@ -295,7 +300,8 @@ export function openPack(pack: PackDef, rng: Rng, avoid: ReadonlySet<string> = n
 
 export function cardRank(card: CardFace): number {
   const athlete = ATHLETES_BY_ID[card.athleteId];
-  return rarityOf(athlete).order * 10 + (card.variant === 'prime' ? 5 : card.variant === 'reverse' ? 2 : 0) + athlete.fame / 100;
+  // une Prime est toujours révélée en dernier, quelle que soit la rareté de son espèce
+  return (card.variant === 'prime' ? 100 : 0) + rarityOf(athlete).order * 10 + (card.variant === 'reverse' ? 2 : 0) + rarityScore(athlete) / 100;
 }
 
 export function sortByRarity(cards: CardFace[]): CardFace[] {

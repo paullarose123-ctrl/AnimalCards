@@ -1,21 +1,25 @@
-import { useMemo } from 'react';
+import { useMemo, type PointerEvent } from 'react';
 import type { CardFace } from '../engine/types';
 import { useGame, OBJECTIVES, MAX_FREE_PACKS, FREE_PACK_INTERVAL } from '../store/game';
 import { useUi } from '../store/ui';
 import { useNow, formatDuration, timeAgo } from '../hooks/useNow';
 import { ATHLETES } from '../data/athletes';
-import { RARITIES, RARITY_ORDER, RECORD_START, rarityOf } from '../engine/cards';
+import { RARITIES, RARITY_ORDER, rarityOf } from '../engine/cards';
 import { FREE_PACK } from '../engine/packs';
 import { PackArt } from '../components/PackArt';
 import { Landscape } from '../components/PackScene';
 import { HERO_SCENE } from '../art/scenes';
 import { Card } from '../components/Card';
+import { CardBack } from '../components/CardBack';
+import { SERIES } from '../engine/packs';
 import { Balles } from '../components/Balles';
 import { sfx } from '../audio/sfx';
+import { useAccount } from '../store/account';
+import { accountsEnabled } from '../account/supabase';
 
-// Ce qu'on peut décrocher : une légende et son record, le roi des animaux, une Icône en version Prime.
+// Ce qu'on peut décrocher : une légende, le roi des animaux, une Icône en version Prime (éventail fixe).
 const SHOWCASE: CardFace[] = [
-  { athleteId: 'guepard', variant: 'base', record: RECORD_START },
+  { athleteId: 'guepard', variant: 'base' },
   { athleteId: 'lion', variant: 'base' },
   { athleteId: 't-rex', variant: 'prime' },
 ];
@@ -36,6 +40,120 @@ function Showcase() {
   );
 }
 
+/** Invitation à créer un compte, tant que le joueur joue en invité. */
+function AccountInvite() {
+  const guest = useAccount((s) => !s.session);
+  const packsOpened = useGame((s) => s.stats.packsOpened);
+  const setTab = useUi((s) => s.setTab);
+  if (!guest || !accountsEnabled()) return null;
+  return (
+    <section className="panel invite" aria-labelledby="invite-title">
+      <div>
+        <h2 id="invite-title">Garde ta collection pour toujours</h2>
+        <p className="muted">
+          {packsOpened > 0
+            ? 'Crée un compte avec un pseudo et un mot de passe : ta progression sera sauvegardée et tu la retrouveras partout.'
+            : 'Un pseudo, un mot de passe, et ta progression est sauvegardée : tu la retrouves sur n’importe quel appareil.'}
+        </p>
+      </div>
+      <button type="button" className="btn btn--primary" onClick={() => setTab('profil')}>
+        Créer mon compte
+      </button>
+    </section>
+  );
+}
+
+/** Le booster de l'accueil s'incline en 3D vers la souris. */
+function tiltHero(event: PointerEvent<HTMLElement>) {
+  if (event.pointerType !== 'mouse') return;
+  const rect = event.currentTarget.getBoundingClientRect();
+  const x = (event.clientX - rect.left) / rect.width - 0.5;
+  const y = (event.clientY - rect.top) / rect.height - 0.5;
+  event.currentTarget.style.setProperty('--hx', `${(-y * 18).toFixed(2)}deg`);
+  event.currentTarget.style.setProperty('--hy', `${(x * 30).toFixed(2)}deg`);
+}
+
+function untiltHero(event: PointerEvent<HTMLElement>) {
+  event.currentTarget.style.setProperty('--hx', '0deg');
+  event.currentTarget.style.setProperty('--hy', '0deg');
+}
+
+/** Le 1er du mois prochain, à minuit (heure du joueur) : sortie de la prochaine extension. */
+function nextRelease(now: number): Date {
+  const d = new Date(now);
+  return new Date(d.getFullYear(), d.getMonth() + 1, 1);
+}
+
+const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+
+/** Une nouvelle extension chaque mois : la série en cours, la suivante en approche et son compte à rebours. */
+function ExpansionBanner() {
+  const now = useNow(1000);
+  const release = nextRelease(now);
+  const left = Math.max(0, release.getTime() - now);
+  const days = Math.floor(left / 86_400_000);
+  const hours = Math.floor((left % 86_400_000) / 3_600_000);
+  const minutes = Math.floor((left % 3_600_000) / 60_000);
+  const seconds = Math.floor((left % 60_000) / 1000);
+  const current = new Date(now);
+  const timeline = [0, 1, 2].map((offset) => {
+    const month = new Date(current.getFullYear(), current.getMonth() + offset, 1);
+    return { label: MONTHS[month.getMonth()], serie: offset + 1, state: offset === 0 ? 'live' : offset === 1 ? 'next' : 'later' };
+  });
+  const species = ATHLETES.filter((a) => !a.habitat).length;
+  return (
+    <section className="expansion" aria-labelledby="expansion-title">
+      <div className="expansion__glow" aria-hidden="true" />
+      <div className="expansion__text">
+        <p className="eyebrow">Extensions</p>
+        <h2 id="expansion-title">Une nouvelle extension chaque mois</h2>
+        <p className="expansion__sub">
+          La <b>Série {SERIES.number} · {SERIES.name}</b> est disponible : {species} espèces des quatre coins de la planète, {ATHLETES.filter((a) => a.habitat).length} Habitats et{' '}
+          {ATHLETES.filter((a) => a.retired).length} Icônes. Le 1er de chaque mois, une nouvelle série part à la découverte d’un pays : ses espèces, ses
+          habitats et son booster.
+        </p>
+        <div className="expansion__countdown" aria-label={`Série 2 dans ${days} jours et ${hours} heures`}>
+          <span className="expansion__next">Série 2 · le 1er {MONTHS[release.getMonth()]}</span>
+          <div className="countdown">
+            {[
+              [days, 'jours'],
+              [hours, 'h'],
+              [minutes, 'min'],
+              [seconds, 's'],
+            ].map(([value, unit]) => (
+              <span key={unit} className="countdown__cell">
+                <b>{String(value).padStart(2, '0')}</b>
+                <small>{unit}</small>
+              </span>
+            ))}
+          </div>
+        </div>
+        <ol className="expansion__timeline">
+          {timeline.map((step) => (
+            <li key={step.serie} className={`is-${step.state}`}>
+              <i aria-hidden="true" />
+              <b>Série {step.serie}</b>
+              <span>{step.state === 'live' ? 'disponible' : step.label}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div className="expansion__teaser" aria-hidden="true">
+        <div className="expansion__card expansion__card--1">
+          <CardBack />
+        </div>
+        <div className="expansion__card expansion__card--2">
+          <CardBack />
+        </div>
+        <div className="expansion__card expansion__card--3">
+          <CardBack />
+          <span className="expansion__mystery">?</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FreePackHero() {
   const freePacks = useGame((s) => s.freePacks);
   const nextFreePackAt = useGame((s) => s.nextFreePackAt);
@@ -45,14 +163,16 @@ function FreePackHero() {
   const progress = full ? 1 : 1 - Math.max(0, nextFreePackAt - now) / FREE_PACK_INTERVAL;
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section className="hero" aria-labelledby="hero-title" onPointerMove={tiltHero} onPointerLeave={untiltHero}>
       <Landscape className="hero__art" scene={HERO_SCENE} seed="accueil" />
       <div className="hero__pack">
-        <PackArt tone="bronze" name={FREE_PACK.name} size={FREE_PACK.size} className={freePacks > 0 ? 'is-ready' : ''} />
+        <div className="hero__tilt">
+          <PackArt tone="bronze" name={FREE_PACK.name} title={SERIES.name} size={FREE_PACK.size} className={freePacks > 0 ? 'is-ready' : ''} />
+        </div>
         {freePacks > 0 && <span className="hero__count">×{freePacks}</span>}
       </div>
       <div className="hero__text">
-        <p className="eyebrow">Booster gratuit · 5 cartes</p>
+        <p className="eyebrow">Série {SERIES.number} · {SERIES.name} · booster gratuit</p>
         <h1 id="hero-title">
           {freePacks > 0 ? (
             <>
@@ -63,7 +183,7 @@ function FreePackHero() {
           )}
         </h1>
         <p className="hero__sub">
-          Un nouveau booster toutes les 10 minutes, jusqu’à {MAX_FREE_PACKS} en réserve. Plus une espèce est célèbre, plus sa carte est rare.
+          Un nouveau booster toutes les {FREE_PACK_INTERVAL / 60_000} minutes, jusqu’à {MAX_FREE_PACKS} en réserve. Plus une espèce est célèbre, plus sa carte est rare.
         </p>
         <div className="hero__timer" aria-label={full ? 'Réserve pleine' : `Prochain booster dans ${formatDuration(nextFreePackAt - now)}`}>
           <div className="meter">
@@ -243,6 +363,8 @@ export function HomeScreen() {
   return (
     <div className="screen screen--home">
       <FreePackHero />
+      <ExpansionBanner />
+      <AccountInvite />
       <div className="grid-2">
         <CollectionSummary />
         <Objectives />
@@ -250,8 +372,8 @@ export function HomeScreen() {
       <RecentPulls />
       <MarketNewsPanel />
       <p className="footnote">
-        Les notes et stats sont une interprétation de jeu. {ATHLETES.filter((a) => !a.mythe).length} espèces, dont {ATHLETES.filter((a) => a.retired).length} Icônes (espèces disparues),
-        et {ATHLETES.filter((a) => a.mythe).length} cartes Mythe. Photos libres de Wikimedia Commons, iNaturalist, Unsplash et Pixabay (dont des illustrations réalistes pour les dinosaures, la préhistoire et les créatures), auteurs crédités dans la fiche de chaque carte.
+        Mesures, populations et anecdotes réelles (estimations arrondies). {ATHLETES.filter((a) => !a.habitat).length} espèces, dont {ATHLETES.filter((a) => a.retired).length} Icônes (espèces disparues),
+        et {ATHLETES.filter((a) => a.habitat).length} cartes Habitat. Photos libres de Wikimedia Commons, iNaturalist, Unsplash et Pixabay (dont des illustrations réalistes pour les dinosaures et la préhistoire), auteurs crédités dans la fiche de chaque carte.
       </p>
     </div>
   );

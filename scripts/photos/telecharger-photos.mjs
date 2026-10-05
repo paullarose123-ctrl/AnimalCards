@@ -5,7 +5,7 @@
 //   node scripts/photos/telecharger-photos.mjs finaliser
 //   node scripts/photos/telecharger-photos.mjs recadrer [--seulement lion,tigre]   (après un changement de cadrage)
 //
-// Étape « telecharger » : pour chaque espèce (et chaque carte Mythe), prend la première photo libre de Commons
+// Étape « telecharger » : pour chaque espèce (et chaque carte Habitat), prend la première photo libre de Commons
 // parmi l'image principale de sa page Wikipédia en français (titre imposé dans titres.json, sinon nom scientifique,
 // sinon nom commun), celle de sa page en anglais, puis son image Wikidata. Une photo choisie à la main dans
 // choix.json (éventuellement recadrée) passe avant tout ; celles listées dans refus.json sont ignorées
@@ -34,6 +34,8 @@ const CONFIG = readJson('./config.json');
 const OVERRIDES = readJson('./titres.json');
 const REFUS = readJson('./refus.json');
 const CHOIX = readJson('./choix.json');
+/** Recherche Commons imposée (id → mots-clés) : ses premiers résultats passent avant la photo de la page Wikipédia. */
+const RECHERCHE = readJson('./recherche.json');
 /**
  * Photo choisie à la main : un nom de fichier Commons, ou { fichier, recadrage: [x, y, largeur, hauteur] } en fractions
  * de l'image, ou une image hors Commons { url, page, auteur } (Pixabay, licence Pixabay : réutilisation libre).
@@ -203,7 +205,7 @@ async function json(url) {
 /** Espèces et cartes Mythe de la base (src/data/athletes.ts), les plus célèbres d'abord. */
 async function readAnimals() {
   const { ATHLETES } = await import(pathToFileURL(path('src/data/athletes.ts')).href);
-  return ATHLETES.map((a) => ({ id: a.id, name: a.last, latin: a.latin, sport: a.sport, fame: a.fame, mythe: !!a.mythe })).sort((a, b) => b.fame - a.fame);
+  return ATHLETES.map((a) => ({ id: a.id, name: a.last, latin: a.latin, sport: a.sport, fame: a.fame, mythe: false })).sort((a, b) => b.fame - a.fame);
 }
 
 /** Nom de fichier Commons d'une page de crédit (https://commons.wikimedia.org/wiki/File:…). */
@@ -247,6 +249,30 @@ async function resolve(lang, animal, log, hint) {
 
 const isPhoto = (file) => /\.(jpe?g|png|webp)$/i.test(file);
 
+/** Cartes, vues satellites, reliefs, montages, panneaux : pas une photo de l'animal ou du lieu. */
+const NOT_A_PHOTO = /map|carte|satellite|topograph|annotated|\bDEM|relief|location|locator|copernicus|landsat|sentinel|astronaut|\bISS\b|blue[ _]marble|\bEO\b|-EO\.|assemblage|montage|collage|sign\b|panneau|logo|diagram|\bplan\b/i;
+
+/** Premières photos libres d'une recherche Commons. */
+async function searchCommons(query) {
+  const params = new URLSearchParams({
+    action: 'query',
+    format: 'json',
+    formatversion: '2',
+    generator: 'search',
+    gsrsearch: `${query} filetype:bitmap`,
+    gsrnamespace: '6',
+    gsrlimit: '20',
+    prop: 'imageinfo',
+    iiprop: 'size',
+  });
+  const data = await json(`https://commons.wikimedia.org/w/api.php?${params}`);
+  return (data?.query?.pages ?? [])
+    .sort((a, b) => a.index - b.index)
+    .filter((page) => (page.imageinfo?.[0]?.width ?? 0) >= 1000)
+    .map((page) => page.title.replace(/^File:/, ''))
+    .filter((file) => isPhoto(file) && !NOT_A_PHOTO.test(file));
+}
+
 /** Images Wikidata (P18) d'un élément, la préférée d'abord. */
 async function wikidataImages(item) {
   const data = await json(`https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&entity=${item}&property=P18`);
@@ -266,6 +292,13 @@ async function* candidates(animal, log) {
     seen.add(choice.file);
     yield { ...choice, source: choice.direct ? 'pixabay' : 'choix' };
   }
+  if (RECHERCHE[animal.id]) {
+    for (const file of await searchCommons(RECHERCHE[animal.id])) {
+      if (seen.has(file)) continue;
+      seen.add(file);
+      yield { file, source: `recherche:${RECHERCHE[animal.id]}` };
+    }
+  }
   let item = null;
   let enTitle = null;
   for (const lang of ['fr', 'en']) {
@@ -276,7 +309,7 @@ async function* candidates(animal, log) {
     const file = page.image?.replace(/_/g, ' ');
     // une carte Mythe accepte aussi une illustration vectorielle (dieux égyptiens…) ; pour une espèce, un SVG est
     // presque toujours une carte de répartition
-    if (!file || !(isPhoto(file) || (animal.mythe && /\.svg$/i.test(file)))) log.push(`${lang}:« ${page.title} » sans photo`);
+    if (!file || !isPhoto(file) || NOT_A_PHOTO.test(file)) log.push(`${lang}:« ${page.title} » sans photo`);
     else if (!seen.has(file)) {
       seen.add(file);
       yield { file, source: `${lang}:${page.title}` };
@@ -284,7 +317,7 @@ async function* candidates(animal, log) {
   }
   if (!item) return;
   for (const file of await wikidataImages(item)) {
-    if (seen.has(file)) continue;
+    if (seen.has(file) || NOT_A_PHOTO.test(file)) continue;
     seen.add(file);
     yield { file, source: `wikidata:${item}` };
   }

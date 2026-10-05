@@ -1,6 +1,6 @@
 // Régions de la carte du monde : chaque pays emblématique des espèces (code du drapeau), son identifiant
 // ISO 3166 numérique dans le tracé world-atlas, et la position de son repère [longitude, latitude].
-// Le Royaume-Uni regroupe l'Angleterre et l'Écosse ; « Océans » et « Monde entier » n'ont qu'un repère.
+// Le Royaume-Uni regroupe l'Angleterre et l'Écosse ; « Océans » et « Plusieurs continents » n'ont qu'un repère.
 
 export interface Region {
   key: string;

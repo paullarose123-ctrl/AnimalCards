@@ -55,7 +55,11 @@ export const pts = (list: Pt[]) => list.map(([x, y]) => `${f(x)} ${f(y)}`).join(
 export const poly = (list: Pt[]) => `M${pts(list)}Z`;
 
 export function ellipse(cx: number, cy: number, rx: number, ry: number): string {
-  return `M${f(cx - rx)} ${f(cy)}a${f(rx)} ${f(ry)} 0 1 0 ${f(2 * rx)} 0a${f(rx)} ${f(ry)} 0 1 0 ${f(-2 * rx)} 0Z`;
+  // le diamètre se calcule sur le rayon déjà arrondi : sinon, pour un petit point, la corde ne vaut plus le
+  // diamètre et les deux demi-arcs se décalent (une étoile devient deux ronds superposés)
+  const a = f(rx);
+  const b = f(ry);
+  return `M${f(cx - a)} ${f(cy)}a${a} ${b} 0 1 0 ${2 * a} 0a${a} ${b} 0 1 0 ${-2 * a} 0Z`;
 }
 
 export const circle = (cx: number, cy: number, r: number) => ellipse(cx, cy, r, r);

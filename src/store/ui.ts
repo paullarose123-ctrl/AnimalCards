@@ -1,12 +1,14 @@
 import { create } from 'zustand';
 import type { CardFace, OwnedCard, RarityId, SportId } from '../engine/types';
 
-export type Tab = 'boosters' | 'collection' | 'mercato' | 'matchs' | 'boutique';
+export type Tab = 'boosters' | 'collection' | 'mercato' | 'matchs' | 'boutique' | 'profil';
 
 export interface DetailTarget {
   card: CardFace | OwnedCard;
   /** annonce du marché d'où vient la carte */
   listingId?: string;
+  /** carte de l'album pas encore obtenue : elle reste sombre dans la fiche */
+  unknown?: boolean;
 }
 
 export interface MarketFilters {
@@ -16,7 +18,7 @@ export interface MarketFilters {
   prime: boolean;
   icons: boolean;
   maxPrice: number | null;
-  sort: 'ending' | 'price-asc' | 'price-desc' | 'rating';
+  sort: 'ending' | 'price-asc' | 'price-desc' | 'number';
 }
 
 interface UiState {
@@ -32,7 +34,7 @@ interface UiState {
   searchMarketFor: (athleteName: string) => void;
 }
 
-const TABS: Tab[] = ['boosters', 'collection', 'mercato', 'matchs', 'boutique'];
+const TABS: Tab[] = ['boosters', 'collection', 'mercato', 'matchs', 'boutique', 'profil'];
 
 function tabFromHash(): Tab {
   try {
