@@ -52,7 +52,7 @@ interface Options {
   keepalive?: boolean;
 }
 
-async function call<T>(path: string, { method = 'GET', body, token, prefer, keepalive }: Options = {}): Promise<T> {
+export async function call<T>(path: string, { method = 'GET', body, token, prefer, keepalive }: Options = {}): Promise<T> {
   if (!accountsEnabled()) throw new AccountError('Les comptes ne sont pas encore ouverts.');
   const headers: Record<string, string> = { apikey: SUPABASE_KEY };
   if (body !== undefined) headers['Content-Type'] = 'application/json';
@@ -87,6 +87,16 @@ function explain(status: number, data: unknown): string {
   if (code === 'over_request_rate_limit' || code === 'over_email_send_rate_limit' || status === 429) return 'Trop d’essais d’un coup. Attends une minute et réessaie.';
   if (code === 'signup_disabled') return 'Les inscriptions sont fermées pour le moment.';
   if (code === 'PGRST205' || code === '42P01') return 'Cette fonction n’est pas encore activée sur le serveur du jeu.';
+  // erreurs levées par les fonctions du marché en ligne (supabase/schema.sql)
+  if (code === 'P0001') {
+    if (text.includes('indisponible')) return 'Trop tard : cette carte vient d’être vendue ou retirée.';
+    if (text.includes('trop d')) return 'Tu as déjà 15 cartes en vente en ligne. Attends qu’une vente se termine.';
+    if (text.includes('profil')) return 'Ton profil n’est pas encore enregistré. Réessaie dans un instant.';
+    if (text.includes('non connect')) return 'Ta session a expiré. Reconnecte-toi.';
+    return 'Cette annonce n’est pas valable.';
+  }
+  if (code === 'PGRST202') return 'Le marché en ligne n’est pas encore activé sur le serveur du jeu.';
+  if (code === '23514') return 'Le prix doit être compris entre 10 et 100 000 000 graines.';
   if (code === '23505') return 'Ce pseudo est déjà pris. Choisis-en un autre.';
   if (status === 401 || status === 403) return 'Ta session a expiré. Reconnecte-toi.';
   return 'Le serveur a répondu par une erreur. Réessaie dans un moment.';

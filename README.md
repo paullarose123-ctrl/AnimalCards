@@ -84,6 +84,7 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 
 ### Marché
 
+- **Entre joueurs, en ligne** (avec un compte) : on met une carte en vente à prix fixe pour 1 h, 6 h, 1 jour ou 3 jours ; tous les joueurs la voient et le premier qui l’achète l’emporte. Le serveur (fonctions `market_*` de `supabase/schema.sql`) garantit qu’une carte n’est vendue qu’une fois, jamais à son vendeur. L’acheteur reçoit la carte tout de suite, le vendeur ses graines (moins 5 %) dès que son jeu est ouvert ; une carte invendue revient dans la réserve. 15 annonces en ligne au plus par joueur.
 - Des collectionneurs IA mettent des cartes en vente, enchérissent et achètent les tiennes.
 - Achat immédiat ou enchères (remboursement automatique si quelqu’un surenchérit).
 - Vente : enchère de départ, prix d’achat immédiat, durée de 5 min à 3 h. Taxe de 5 % sur chaque vente.
@@ -150,6 +151,6 @@ Dans la version en un seul fichier (`npm run build:single`), les photos sont reg
 
 - Plus d’espèces (le moteur a été testé avec 10 000 cartes).
 - Photos des races de chien (onze d’entre elles affichent encore le médaillon de leur famille).
-- Multijoueur : un vrai marché entre joueurs demande un serveur qui fait autorité sur les soldes, l’ouverture des boosters et les ventes.
+- Économie côté serveur : les ventes en ligne sont garanties par le serveur, mais les graines et l’ouverture des boosters restent calculées dans le jeu de chaque joueur.
 
 Mesures et populations sont des estimations arrondies. AnimalCards est un projet de fan non commercial.

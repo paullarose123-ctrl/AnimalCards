@@ -51,3 +51,104 @@ create policy "Envoyer une demande" on public.friendships for insert with check 
 create policy "Accepter une demande reçue" on public.friendships for update using ((select auth.uid()) = to_id) with check ((select auth.uid()) = to_id and status = 'accepted');
 create policy "Retirer un ami ou une demande" on public.friendships for delete using ((select auth.uid()) in (from_id, to_id));
 grant select, insert, update, delete on public.friendships to authenticated;
+
+-- ───────────── Marché en ligne entre joueurs ─────────────
+-- Une annonce = une carte mise en vente à prix fixe par un joueur. Toutes les écritures passent par les fonctions
+-- ci-dessous (security definer) : une carte ne peut être achetée qu'une seule fois, jamais par son vendeur,
+-- et seul le vendeur peut la retirer. Les joueurs ne peuvent pas modifier les lignes directement.
+create table if not exists public.market_listings (
+  id uuid primary key default gen_random_uuid(),
+  seller_id uuid not null references auth.users (id) on delete cascade,
+  seller_pseudo text not null,
+  card jsonb not null,
+  price bigint not null check (price between 10 and 100000000),
+  status text not null default 'active' check (status in ('active', 'sold', 'cancelled')),
+  buyer_id uuid references auth.users (id) on delete set null,
+  buyer_pseudo text,
+  created_at timestamptz not null default now(),
+  expires_at timestamptz not null,
+  sold_at timestamptz,
+  -- la carte a été livrée à l'acheteur / les graines versées au vendeur / la carte rendue au vendeur
+  buyer_done boolean not null default false,
+  seller_done boolean not null default false
+);
+create index if not exists market_active on public.market_listings (status, expires_at);
+create index if not exists market_seller on public.market_listings (seller_id);
+create index if not exists market_buyer on public.market_listings (buyer_id);
+
+alter table public.market_listings enable row level security;
+create policy "Annonces visibles" on public.market_listings for select
+  using (status = 'active' or (select auth.uid()) in (seller_id, buyer_id));
+grant select on public.market_listings to anon, authenticated;
+
+-- Mettre une carte en vente (15 annonces actives au plus par joueur).
+create or replace function public.market_list(p_card jsonb, p_price bigint, p_hours int)
+returns public.market_listings language plpgsql security definer set search_path = public as $$
+declare
+  me uuid := auth.uid();
+  v_name text;
+  r public.market_listings;
+begin
+  if me is null then raise exception 'non connecté'; end if;
+  if p_hours not in (1, 6, 24, 72) then raise exception 'durée invalide'; end if;
+  if jsonb_typeof(p_card -> 'athleteId') <> 'string' or coalesce(p_card ->> 'variant', '') not in ('base', 'reverse', 'prime') then
+    raise exception 'carte invalide';
+  end if;
+  select pseudo into v_name from profiles where id = me;
+  if v_name is null then raise exception 'profil manquant'; end if;
+  if (select count(*) from market_listings where seller_id = me and status = 'active') >= 15 then
+    raise exception 'trop d''annonces';
+  end if;
+  insert into market_listings (seller_id, seller_pseudo, card, price, expires_at)
+  values (me, v_name, jsonb_build_object('athleteId', p_card ->> 'athleteId', 'variant', p_card ->> 'variant'), p_price, now() + make_interval(hours => p_hours))
+  returning * into r;
+  return r;
+end $$;
+
+-- Acheter : réussit pour un seul acheteur, et jamais sa propre carte ni une annonce expirée.
+create or replace function public.market_buy(p_id uuid)
+returns public.market_listings language plpgsql security definer set search_path = public as $$
+declare
+  me uuid := auth.uid();
+  v_name text;
+  r public.market_listings;
+begin
+  if me is null then raise exception 'non connecté'; end if;
+  select pseudo into v_name from profiles where id = me;
+  update market_listings
+     set status = 'sold', buyer_id = me, buyer_pseudo = coalesce(v_name, 'Un joueur'), sold_at = now()
+   where id = p_id and status = 'active' and expires_at > now() and seller_id <> me
+  returning * into r;
+  if r.id is null then raise exception 'indisponible'; end if;
+  return r;
+end $$;
+
+-- Retirer son annonce (ou récupérer une annonce expirée).
+create or replace function public.market_cancel(p_id uuid)
+returns public.market_listings language plpgsql security definer set search_path = public as $$
+declare
+  r public.market_listings;
+begin
+  update market_listings set status = 'cancelled'
+   where id = p_id and status = 'active' and seller_id = auth.uid()
+  returning * into r;
+  if r.id is null then raise exception 'indisponible'; end if;
+  return r;
+end $$;
+
+-- Confirmer que la carte (acheteur) ou les graines / la carte rendue (vendeur) sont arrivées dans la partie.
+create or replace function public.market_done(p_id uuid)
+returns void language plpgsql security definer set search_path = public as $$
+begin
+  update market_listings set buyer_done = true where id = p_id and buyer_id = auth.uid();
+  update market_listings set seller_done = true where id = p_id and seller_id = auth.uid() and status <> 'active';
+end $$;
+
+revoke all on function public.market_list(jsonb, bigint, int) from public, anon;
+revoke all on function public.market_buy(uuid) from public, anon;
+revoke all on function public.market_cancel(uuid) from public, anon;
+revoke all on function public.market_done(uuid) from public, anon;
+grant execute on function public.market_list(jsonb, bigint, int) to authenticated;
+grant execute on function public.market_buy(uuid) to authenticated;
+grant execute on function public.market_cancel(uuid) to authenticated;
+grant execute on function public.market_done(uuid) to authenticated;

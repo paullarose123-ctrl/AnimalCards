@@ -10,6 +10,7 @@ import {
   advanceMarket,
   createMarket,
   createMyListing,
+  netAfterTax,
   nextMinBid,
   type MarketEvent,
   type MarketState,
@@ -193,6 +194,14 @@ export interface GameState {
   toast: (kind: ToastKind, text: string) => void;
   dismissToast: (id: string) => void;
   resetGame: () => void;
+  /** marché en ligne : ventes, achats et retours déjà réglés dans cette partie (clé « rôle:id ») */
+  onlineDone: string[];
+  /** retire une carte de la réserve pour la mettre en vente en ligne (null si elle n'est pas vendable) */
+  escrowCard: (uid: string) => OwnedCard | null;
+  /** rend une carte retirée par escrowCard (la mise en vente a échoué) */
+  restoreCard: (card: OwnedCard) => void;
+  /** règle une annonce en ligne dans la partie, une seule fois : carte achetée, graines d'une vente ou carte rendue */
+  settleOnline: (role: 'buy' | 'sell' | 'back', listing: { id: string; card: CardFace; price: number; buyer?: string | null; expired?: boolean }) => boolean;
 }
 
 // Le stockage du navigateur peut être indisponible (navigation privée, aperçu) : on retombe sur la mémoire.
@@ -257,6 +266,7 @@ function initialState(now: number) {
     match: null as DuelState | null,
     stats: { packsOpened: 0, cardsSold: 0, cardsBought: 0, matchesPlayed: 0, matchesWon: 0 } as GameStats,
     claimed: [] as string[],
+    onlineDone: [] as string[],
     muted: false,
     musicOff: false,
     unlimited: false,
@@ -683,6 +693,49 @@ export const useGame = create<GameState>()(
         toast: pushToast,
         dismissToast: (id) => set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })),
         resetGame: () => set({ ...initialState(Date.now()) }),
+
+        escrowCard: (uid) => {
+          const card = get().collection.find((c) => c.uid === uid);
+          if (!card || card.locked) return null;
+          set((s) => ({
+            collection: s.collection.filter((c) => c.uid !== uid),
+            team: s.team.map((t) => (t === uid ? '' : t)),
+            favorites: s.favorites.map((f) => (f === uid ? '' : f)),
+          }));
+          return card;
+        },
+
+        restoreCard: (card) => set((s) => ({ collection: s.collection.some((c) => c.uid === card.uid) ? s.collection : [...s.collection, card] })),
+
+        settleOnline: (role, listing) => {
+          const key = `${role}:${listing.id}`;
+          if (get().onlineDone.includes(key)) return false;
+          const athlete = ATHLETES_BY_ID[listing.card.athleteId];
+          if (!athlete) return false;
+          const done = (s: GameState) => [key, ...s.onlineDone].slice(0, 400);
+          if (role === 'sell') {
+            const net = netAfterTax(listing.price);
+            set((s) => ({ balles: s.balles + net, onlineDone: done(s), stats: { ...s.stats, cardsSold: s.stats.cardsSold + 1 } }));
+            pushToast('gold', `${listing.buyer ?? 'Un joueur'} a acheté ton ${athlete.last} : +${formatBalles(net)}`);
+            return true;
+          }
+          const card = toOwned(listing.card, Date.now());
+          if (role === 'buy') {
+            set((s) => ({
+              balles: Math.max(0, s.balles - listing.price),
+              collection: [...s.collection, card],
+              discovered: { ...s.discovered, [card.athleteId]: (s.discovered[card.athleteId] ?? 0) + 1 },
+              primesFound: card.variant === 'prime' ? { ...s.primesFound, [card.athleteId]: (s.primesFound[card.athleteId] ?? 0) + 1 } : s.primesFound,
+              onlineDone: done(s),
+              stats: { ...s.stats, cardsBought: s.stats.cardsBought + 1 },
+            }));
+            pushToast('gold', `${athlete.last} rejoint ta réserve pour ${formatBalles(listing.price)}`);
+            return true;
+          }
+          set((s) => ({ collection: [...s.collection, card], onlineDone: done(s) }));
+          pushToast('info', listing.expired ? `${athlete.last} n’a pas trouvé preneur : la carte revient dans ta réserve` : `${athlete.last} est retiré du marché et revient dans ta réserve`);
+          return true;
+        },
       };
     },
     {
