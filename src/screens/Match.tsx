@@ -66,7 +66,7 @@ function Picker({ onPick, onClose, exclude }: { onPick: (uid: string) => void; o
         ) : (
           <div className="card-grid">
             {cards.map((card) => (
-              <Card key={card.uid} card={card} size="sm" hideFacts onClick={() => onPick(card.uid)} />
+              <Card key={card.uid} card={card} size="sm" hideFacts tilt onClick={() => onPick(card.uid)} />
             ))}
           </div>
         )}
@@ -130,7 +130,7 @@ function TeamBuilder() {
             <div key={i} className="team-slot">
               {card ? (
                 <>
-                  <Card card={card} size="sm" hideFacts onClick={() => openDetail({ card })} />
+                  <Card card={card} size="sm" hideFacts tilt onClick={() => openDetail({ card })} />
                   <div className="team-slot__actions">
                     <button type="button" className="btn btn--ghost btn--xs" onClick={() => setPicking(i)}>
                       Changer

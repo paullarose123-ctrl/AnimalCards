@@ -184,7 +184,7 @@ function Club() {
           const card = group.cards[0];
           return (
             <div key={group.key} className="card-cell">
-              <Card card={card} size="sm" onClick={() => openDetail({ card })} />
+              <Card card={card} size="sm" tilt onClick={() => openDetail({ card })} />
               {group.cards.length > 1 && <span className="count-badge">×{group.cards.length}</span>}
               {group.cards.some((c) => team.includes(c.uid)) && <span className="team-badge">Équipe</span>}
               {group.cards.some((c) => c.locked) && (

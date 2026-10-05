@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, type PointerEvent } from 'react';
 import type { CardFace } from '../engine/types';
 import { useGame, OBJECTIVES, MAX_FREE_PACKS, FREE_PACK_INTERVAL } from '../store/game';
 import { useUi } from '../store/ui';
@@ -10,28 +10,40 @@ import { PackArt } from '../components/PackArt';
 import { Landscape } from '../components/PackScene';
 import { HERO_SCENE } from '../art/scenes';
 import { Card } from '../components/Card';
+import { CardBack } from '../components/CardBack';
 import { Balles } from '../components/Balles';
 import { sfx } from '../audio/sfx';
 import { useAccount } from '../store/account';
 import { accountsEnabled } from '../account/supabase';
 
-// Ce qu'on peut décrocher : une légende, le roi des animaux, une Icône en version Prime.
+// Ce qu'on peut décrocher : les légendes les plus célèbres et une Icône en version Prime,
+// sur un manège en 3D qui tourne lentement (il s'arrête au survol).
 const SHOWCASE: CardFace[] = [
-  { athleteId: 'guepard', variant: 'base' },
-  { athleteId: 'lion', variant: 'base' },
   { athleteId: 't-rex', variant: 'prime' },
+  ...ATHLETES.filter((a) => rarityOf(a).id === 'legendaire' && !a.habitat && a.id !== 't-rex')
+    .sort((a, b) => b.fame - a.fame)
+    .slice(0, 5)
+    .map((a): CardFace => ({ athleteId: a.id, variant: 'base' })),
 ];
 
 function Showcase() {
   const openDetail = useUi((s) => s.openDetail);
+  const step = 360 / SHOWCASE.length;
   return (
     <figure className="showcase">
-      <div className="showcase__fan">
-        {SHOWCASE.map((card) => (
-          <div key={card.athleteId} className="showcase__slot">
-            <Card card={card} size="sm" tilt onClick={() => openDetail({ card })} />
-          </div>
-        ))}
+      <div className="carousel3d">
+        <div className="carousel3d__ring" style={{ ['--n' as string]: SHOWCASE.length }}>
+          {SHOWCASE.map((card, i) => (
+            <div key={card.athleteId} className="carousel3d__item" style={{ ['--angle' as string]: `${i * step}deg` }}>
+              <div className="carousel3d__face">
+                <Card card={card} size="sm" onClick={() => openDetail({ card })} />
+              </div>
+              <div className="carousel3d__face carousel3d__back">
+                <CardBack />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <figcaption>À décrocher : légendaires, Icônes et versions Prime</figcaption>
     </figure>
@@ -61,6 +73,21 @@ function AccountInvite() {
   );
 }
 
+/** Le booster de l'accueil s'incline en 3D vers la souris. */
+function tiltHero(event: PointerEvent<HTMLElement>) {
+  if (event.pointerType !== 'mouse') return;
+  const rect = event.currentTarget.getBoundingClientRect();
+  const x = (event.clientX - rect.left) / rect.width - 0.5;
+  const y = (event.clientY - rect.top) / rect.height - 0.5;
+  event.currentTarget.style.setProperty('--hx', `${(-y * 18).toFixed(2)}deg`);
+  event.currentTarget.style.setProperty('--hy', `${(x * 30).toFixed(2)}deg`);
+}
+
+function untiltHero(event: PointerEvent<HTMLElement>) {
+  event.currentTarget.style.setProperty('--hx', '0deg');
+  event.currentTarget.style.setProperty('--hy', '0deg');
+}
+
 function FreePackHero() {
   const freePacks = useGame((s) => s.freePacks);
   const nextFreePackAt = useGame((s) => s.nextFreePackAt);
@@ -70,10 +97,12 @@ function FreePackHero() {
   const progress = full ? 1 : 1 - Math.max(0, nextFreePackAt - now) / FREE_PACK_INTERVAL;
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section className="hero" aria-labelledby="hero-title" onPointerMove={tiltHero} onPointerLeave={untiltHero}>
       <Landscape className="hero__art" scene={HERO_SCENE} seed="accueil" />
       <div className="hero__pack">
-        <PackArt tone="bronze" name={FREE_PACK.name} size={FREE_PACK.size} className={freePacks > 0 ? 'is-ready' : ''} />
+        <div className="hero__tilt">
+          <PackArt tone="bronze" name={FREE_PACK.name} size={FREE_PACK.size} className={freePacks > 0 ? 'is-ready' : ''} />
+        </div>
         {freePacks > 0 && <span className="hero__count">×{freePacks}</span>}
       </div>
       <div className="hero__text">

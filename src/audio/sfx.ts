@@ -20,12 +20,23 @@ function audio(): { ac: AudioContext; bus: Bus; t: number } | null {
   return { ac, bus, t: ac.currentTime + 0.01 };
 }
 
+/** Vibration du téléphone (Android) : le jeu se ressent aussi dans la main. Coupée avec le son. */
+export function buzz(pattern: number | number[]): void {
+  if (muted) return;
+  try {
+    navigator.vibrate?.(pattern);
+  } catch {
+    // pas de vibreur
+  }
+}
+
 // Gamme de ré majeur pentatonique, comme la musique : tous les effets sonnent juste avec elle.
 const PENTA = [62, 64, 66, 69, 71, 74, 76, 78, 81, 83, 86, 88, 90, 93];
 
 export const sfx = {
   /** clic de bouton : petit tic boisé */
   click: () => {
+    buzz(6);
     const a = audio();
     if (a) tick(a.ac, a.bus, a.t, 0.06, 1800);
   },
@@ -61,6 +72,7 @@ export const sfx = {
   },
   /** une carte posée : glissement sec sur la table */
   deal: () => {
+    buzz(5);
     const a = audio();
     if (a) air(a.ac, a.bus, a.t, 0.09, { gain: 0.07, from: 3500, to: 2200, type: 'highpass', q: 0.5, attack: 0.008, pan: Math.random() * 0.4 - 0.2, send: 0.1 });
   },
@@ -76,6 +88,7 @@ export const sfx = {
     const a = audio();
     if (!a) return;
     const level = Math.max(0, Math.min(4, tier));
+    buzz(level >= 4 ? [40, 50, 40, 50, 160] : level >= 3 ? [30, 40, 80] : 10);
     const count = 2 + level;
     const start = 5 - Math.min(2, level);
     for (let i = 0; i < count; i++) {
@@ -98,6 +111,7 @@ export const sfx = {
   },
   /** victoire, carte légendaire : accord plein, arpège de harpe, cloche et timbale */
   fanfare: () => {
+    buzz([60, 60, 140]);
     const a = audio();
     if (!a) return;
     boom(a.ac, a.bus, a.t, 0.25, 55);
@@ -112,6 +126,7 @@ export const sfx = {
   },
   /** pièces, graines gagnées : deux petites cloches */
   coin: () => {
+    buzz(12);
     const a = audio();
     if (!a) return;
     bell(a.ac, a.bus, midi(95), a.t, 0.05, -0.15, 0.9);
@@ -119,6 +134,7 @@ export const sfx = {
   },
   /** action impossible : deux notes graves qui descendent, sans agressivité */
   error: () => {
+    buzz([20, 50, 20]);
     const a = audio();
     if (!a) return;
     pluck(a.ac, a.bus, midi(57), a.t, 0.25, 0, 0.3);
@@ -126,6 +142,7 @@ export const sfx = {
   },
   /** coup marquant (point gagné en duel) */
   hit: () => {
+    buzz([40, 30, 60]);
     const a = audio();
     if (!a) return;
     boom(a.ac, a.bus, a.t, 0.28, 65);

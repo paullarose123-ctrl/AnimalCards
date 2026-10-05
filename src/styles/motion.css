@@ -352,28 +352,62 @@ h3 {
   }
 }
 
-@media (min-width: 1100px) {
-  .showcase__slot > * {
-    animation: fan-bob 5s ease-in-out infinite;
-  }
-  .showcase__slot:nth-child(2) > * {
-    animation-delay: -1.6s;
-  }
-  .showcase__slot:nth-child(3) > * {
-    animation-delay: -3.2s;
-  }
-  .showcase__slot {
-    transition: transform 0.35s var(--ease-spring);
-  }
+/* le booster s'incline vers la souris */
+.hero__tilt {
+  transform: perspective(800px) rotateX(var(--hx, 0deg)) rotateY(var(--hy, 0deg));
+  transition: transform 0.4s var(--ease-out);
+  transform-style: preserve-3d;
 }
 
-@keyframes fan-bob {
-  0%,
-  100% {
-    transform: translateY(0);
+/* manège 3D des cartes à décrocher */
+.carousel3d {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  perspective: 1000px;
+  perspective-origin: 50% 30%;
+}
+
+.carousel3d__ring {
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  width: 140px;
+  height: 196px;
+  margin-left: -70px;
+  transform-style: preserve-3d;
+  animation: ring-spin 36s linear infinite;
+}
+
+.carousel3d:hover .carousel3d__ring {
+  animation-play-state: paused;
+}
+
+.carousel3d__item {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(var(--angle)) translateZ(140px);
+  transform-style: preserve-3d;
+}
+
+.carousel3d__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.carousel3d__back {
+  transform: rotateY(180deg);
+  filter: brightness(0.75);
+}
+
+@keyframes ring-spin {
+  from {
+    transform: rotateX(-6deg) rotateY(0deg);
   }
-  50% {
-    transform: translateY(-8px);
+  to {
+    transform: rotateX(-6deg) rotateY(-360deg);
   }
 }
 
@@ -644,7 +678,7 @@ h3 {
   .hero__pack::before,
   .hero__count,
   .hero .btn--primary,
-  .showcase__slot > *,
+  .carousel3d__ring,
   .meter__fill::after,
   .btn--primary::after,
   .btn--gold::after,
@@ -659,5 +693,164 @@ h3 {
   }
   .fireflies {
     display: none;
+  }
+}
+
+/* ───────────── Carte en 3D (fiche) ───────────── */
+.spin3d {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 10px 30px 26px;
+  perspective: 1100px;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.spin3d:active {
+  cursor: grabbing;
+}
+
+.spin3d__object {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.spin3d__face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.spin3d__front {
+  transform: translateZ(2.2px);
+}
+
+.spin3d__front .card {
+  transform: none;
+  transition: none;
+}
+
+/* le reflet suit l'angle de la carte */
+.spin3d__front .card__shine {
+  opacity: var(--glare, 0.4);
+}
+
+.spin3d__front .card__holo {
+  animation: none;
+  opacity: calc(var(--glare, 0.4) * 0.5);
+}
+
+.spin3d__back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg) translateZ(2.2px);
+}
+
+/* tranche de la carte : des couches empilées qui donnent l'épaisseur */
+.spin3d__layer {
+  position: absolute;
+  inset: 0.5px;
+  border-radius: 8% / 5.7%;
+  background: linear-gradient(90deg, #2b3a2f, #57705a 50%, #2b3a2f);
+}
+
+.spin3d__shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 210px;
+  height: 22px;
+  margin-left: -105px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.55), transparent);
+  transform: scaleX(var(--shadow, 1));
+  pointer-events: none;
+}
+
+/* ───────────── Profondeur des cartes : la photo glisse en parallaxe quand on incline ───────────── */
+.has-tilt .card__player {
+  transition: transform 0.5s var(--ease-out);
+}
+
+.has-tilt[data-active='true'] .card__player {
+  transform: translate(calc(var(--px, 0) * -7%), calc(var(--py, 0) * -6%)) scale(1.08);
+  transition: transform 0.08s linear;
+}
+
+.has-tilt[data-active='true'] {
+  filter: drop-shadow(calc(var(--px, 0) * -1.2em) 1.1em 1.2em rgba(0, 0, 0, 0.55));
+}
+
+/* ───────────── Changement d'écran : pivot en 3D ───────────── */
+.view {
+  animation: view-next 0.55s var(--ease-out) backwards;
+  transform-origin: 50% 30%;
+}
+
+.view--prev {
+  animation-name: view-prev;
+}
+
+@keyframes view-next {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) translate3d(70px, 0, -90px) rotateY(-14deg);
+  }
+}
+
+@keyframes view-prev {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) translate3d(-70px, 0, -90px) rotateY(14deg);
+  }
+}
+
+/* ───────────── Onde au toucher, pièces qui volent ───────────── */
+.btn {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ripple {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 240, 0.4), rgba(255, 255, 240, 0));
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple 0.6s var(--ease-out) forwards;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.flying-coin {
+  position: fixed;
+  left: -11px;
+  top: -11px;
+  z-index: 300;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff3c4, #e5b04d 45%, #9a6512);
+  box-shadow: 0 0 12px rgba(255, 210, 110, 0.8), inset 0 0 0 2px rgba(255, 243, 200, 0.5);
+  pointer-events: none;
+}
+
+.chip--balles.is-hit {
+  animation: chip-hit 0.45s var(--ease-spring);
+}
+
+@keyframes chip-hit {
+  40% {
+    transform: scale(1.15);
+    box-shadow: 0 0 24px rgba(255, 210, 110, 0.6);
   }
 }
