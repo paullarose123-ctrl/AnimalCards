@@ -77,6 +77,7 @@ create index if not exists market_seller on public.market_listings (seller_id);
 create index if not exists market_buyer on public.market_listings (buyer_id);
 
 alter table public.market_listings enable row level security;
+drop policy if exists "Annonces visibles" on public.market_listings;
 create policy "Annonces visibles" on public.market_listings for select
   using (status = 'active' or (select auth.uid()) in (seller_id, buyer_id));
 grant select on public.market_listings to anon, authenticated;
@@ -152,3 +153,6 @@ grant execute on function public.market_list(jsonb, bigint, int) to authenticate
 grant execute on function public.market_buy(uuid) to authenticated;
 grant execute on function public.market_cancel(uuid) to authenticated;
 grant execute on function public.market_done(uuid) to authenticated;
+
+-- l'API de Supabase relit la base pour voir la nouvelle table et les nouvelles fonctions
+notify pgrst, 'reload schema';
