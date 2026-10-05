@@ -807,9 +807,17 @@ export const useGame = create<GameState>()(
   ),
 );
 
+/**
+ * Commandes de triche (graines) : seulement en développement et dans la version de test (mode « single »).
+ * Sur le site public, les joueurs échangent au marché en ligne : personne ne doit pouvoir se donner des graines.
+ */
+const CHEATS = import.meta.env.DEV || import.meta.env.MODE === 'single';
+
 // Graines illimitées : le solde est remis au plafond dès qu'une dépense le fait baisser.
+// Sur le site public, une partie restée en mode illimité (ancienne triche) repart au solde de départ.
 useGame.subscribe((state) => {
-  if (state.unlimited && state.balles < UNLIMITED_BALLES) useGame.setState({ balles: UNLIMITED_BALLES });
+  if (state.unlimited && !CHEATS) useGame.setState({ unlimited: false, balles: START_BALLES });
+  else if (state.unlimited && state.balles < UNLIMITED_BALLES) useGame.setState({ balles: UNLIMITED_BALLES });
 });
 
 /** Fixe le solde à un montant précis (commande de triche). */
@@ -823,7 +831,7 @@ function setSolde(amount: number) {
 //   ?graines=1000000000          → solde fixé à ce montant        (console : animalcards.solde(1000000000))
 //   ?graines=illimite            → graines illimitées              (console : animalcards.graines())
 //   ?graines=normal              → retour au jeu normal            (console : animalcards.graines(false))
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && CHEATS) {
   const flag = new URLSearchParams(window.location.search).get('graines');
   if (flag === 'illimite' || flag === 'illimité' || flag === 'infini') useGame.getState().setUnlimited(true);
   else if (flag === 'normal') useGame.getState().setUnlimited(false);

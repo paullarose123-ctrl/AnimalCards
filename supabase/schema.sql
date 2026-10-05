@@ -21,12 +21,18 @@ create table if not exists public.saves (
 alter table public.profiles enable row level security;
 alter table public.saves enable row level security;
 
+drop policy if exists "Profils visibles par tous" on public.profiles;
 create policy "Profils visibles par tous" on public.profiles for select using (true);
+drop policy if exists "Chacun crée son profil" on public.profiles;
 create policy "Chacun crée son profil" on public.profiles for insert with check ((select auth.uid()) = id);
+drop policy if exists "Chacun modifie son profil" on public.profiles;
 create policy "Chacun modifie son profil" on public.profiles for update using ((select auth.uid()) = id);
 
+drop policy if exists "Chacun lit sa sauvegarde" on public.saves;
 create policy "Chacun lit sa sauvegarde" on public.saves for select using ((select auth.uid()) = user_id);
+drop policy if exists "Chacun crée sa sauvegarde" on public.saves;
 create policy "Chacun crée sa sauvegarde" on public.saves for insert with check ((select auth.uid()) = user_id);
+drop policy if exists "Chacun modifie sa sauvegarde" on public.saves;
 create policy "Chacun modifie sa sauvegarde" on public.saves for update using ((select auth.uid()) = user_id);
 
 grant select on public.profiles to anon, authenticated;
@@ -46,9 +52,13 @@ create table if not exists public.friendships (
   check (from_id <> to_id)
 );
 alter table public.friendships enable row level security;
+drop policy if exists "Voir ses demandes et ses amis" on public.friendships;
 create policy "Voir ses demandes et ses amis" on public.friendships for select using ((select auth.uid()) in (from_id, to_id));
+drop policy if exists "Envoyer une demande" on public.friendships;
 create policy "Envoyer une demande" on public.friendships for insert with check ((select auth.uid()) = from_id and status = 'pending');
+drop policy if exists "Accepter une demande reçue" on public.friendships;
 create policy "Accepter une demande reçue" on public.friendships for update using ((select auth.uid()) = to_id) with check ((select auth.uid()) = to_id and status = 'accepted');
+drop policy if exists "Retirer un ami ou une demande" on public.friendships;
 create policy "Retirer un ami ou une demande" on public.friendships for delete using ((select auth.uid()) in (from_id, to_id));
 grant select, insert, update, delete on public.friendships to authenticated;
 
@@ -77,6 +87,7 @@ create index if not exists market_seller on public.market_listings (seller_id);
 create index if not exists market_buyer on public.market_listings (buyer_id);
 
 alter table public.market_listings enable row level security;
+drop policy if exists "Annonces visibles" on public.market_listings;
 create policy "Annonces visibles" on public.market_listings for select
   using (status = 'active' or (select auth.uid()) in (seller_id, buyer_id));
 grant select on public.market_listings to anon, authenticated;
@@ -152,3 +163,6 @@ grant execute on function public.market_list(jsonb, bigint, int) to authenticate
 grant execute on function public.market_buy(uuid) to authenticated;
 grant execute on function public.market_cancel(uuid) to authenticated;
 grant execute on function public.market_done(uuid) to authenticated;
+
+-- l'API de Supabase relit la base pour voir la nouvelle table et les nouvelles fonctions
+notify pgrst, 'reload schema';

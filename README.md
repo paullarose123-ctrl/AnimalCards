@@ -8,7 +8,7 @@ Le logo (`src/components/Logo.tsx`) écrit « animalcards » en serif (police Fr
 
 ## Commandes de triche
 
-Dans l’adresse du jeu (ou dans la console du navigateur) :
+Seulement en développement (`npm run dev`) et dans la version de test (`npm run build:single`) : elles n’existent pas sur le site public, où les joueurs échangent au marché en ligne. Dans l’adresse du jeu (ou dans la console du navigateur) :
 
 - `?graines=1000000000` fixe le solde à ce montant (`animalcards.solde(1000000000)`) ;
 - `?graines=illimite` donne des graines illimitées, affichées « ∞ » (`animalcards.graines()`) ;
