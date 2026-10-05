@@ -128,6 +128,9 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
         el.style.setProperty('--my', `${(y * 100).toFixed(1)}%`);
         el.style.setProperty('--rx', `${((0.5 - y) * 16).toFixed(2)}deg`);
         el.style.setProperty('--ry', `${((x - 0.5) * 20).toFixed(2)}deg`);
+        // parallaxe : la photo glisse un peu à l'opposé, comme si elle était au fond du cadre
+        el.style.setProperty('--px', (x - 0.5).toFixed(3));
+        el.style.setProperty('--py', (y - 0.5).toFixed(3));
         el.dataset.active = 'true';
       });
     },
@@ -140,6 +143,8 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
     cancelAnimationFrame(frame.current);
     el.style.setProperty('--rx', '0deg');
     el.style.setProperty('--ry', '0deg');
+    el.style.setProperty('--px', '0');
+    el.style.setProperty('--py', '0');
     el.dataset.active = 'false';
   }, []);
 

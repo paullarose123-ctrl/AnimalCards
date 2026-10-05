@@ -247,7 +247,7 @@ function Showcase() {
           const card = byUid.get(favorites[slot] ?? '');
           return card ? (
             <div key={slot} className="vitrine__slot">
-              <Card card={card} size="sm" onClick={() => openDetail({ card })} />
+              <Card card={card} size="sm" tilt onClick={() => openDetail({ card })} />
               <div className="vitrine__actions">
                 <button type="button" className="btn btn--ghost btn--xs" onClick={() => setPicking(slot)}>
                   Changer

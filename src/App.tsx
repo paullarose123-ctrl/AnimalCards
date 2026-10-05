@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { useGame, MAX_FREE_PACKS } from './store/game';
 import { useUi, type Tab } from './store/ui';
 import { useNow, formatDuration } from './hooks/useNow';
@@ -18,6 +18,7 @@ import { PackOpening } from './overlays/PackOpening';
 import { CardDetail } from './overlays/CardDetail';
 import { Toasts } from './components/Toasts';
 import { Fireflies } from './components/Fireflies';
+import { Juice } from './components/Juice';
 import { Landscape } from './components/PackScene';
 import { SITE_SCENE } from './art/scenes';
 
@@ -167,8 +168,16 @@ function BottomNav() {
   );
 }
 
+/** ordre des écrans de gauche à droite, pour faire pivoter la transition dans le bon sens */
+const ORDER: Tab[] = ['boosters', 'collection', 'mercato', 'matchs', 'boutique', 'profil'];
+
 export function App() {
   const tab = useUi((s) => s.tab);
+  const previousTab = useRef(tab);
+  const direction = ORDER.indexOf(tab) >= ORDER.indexOf(previousTab.current) ? 'next' : 'prev';
+  useEffect(() => {
+    previousTab.current = tab;
+  }, [tab]);
   const tick = useGame((s) => s.tick);
   const muted = useGame((s) => s.muted);
   const musicOff = useGame((s) => s.musicOff);
@@ -219,17 +228,21 @@ export function App() {
       <Fireflies />
       <Topbar />
       <main className="content" id="contenu">
-        {tab === 'boosters' && <HomeScreen />}
-        {tab === 'collection' && <CollectionScreen />}
-        {tab === 'mercato' && <MarketScreen />}
-        {tab === 'matchs' && <MatchScreen />}
-        {tab === 'boutique' && <ShopScreen />}
-        {tab === 'profil' && <ProfileScreen />}
+        {/* chaque écran arrive en pivotant en 3D, du côté de l'onglet choisi */}
+        <div key={tab} className={`view view--${direction}`}>
+          {tab === 'boosters' && <HomeScreen />}
+          {tab === 'collection' && <CollectionScreen />}
+          {tab === 'mercato' && <MarketScreen />}
+          {tab === 'matchs' && <MatchScreen />}
+          {tab === 'boutique' && <ShopScreen />}
+          {tab === 'profil' && <ProfileScreen />}
+        </div>
       </main>
       <BottomNav />
       <CardDetail />
       <PackOpening />
       <Toasts />
+      <Juice />
     </div>
   );
 }

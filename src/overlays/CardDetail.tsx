@@ -10,7 +10,7 @@ import { collectionNumber, displayName, extinctionLabel, isIcon, quickSellValue,
 import { canDuel } from '../engine/duel';
 import { MARKET_TAX, marketPrice, netAfterTax, nextMinBid, priceBounds, priceHistory, suggestedPrices } from '../engine/market';
 import type { CardFace, OwnedCard } from '../engine/types';
-import { Card } from '../components/Card';
+import { Spin3D } from '../components/Spin3D';
 import { packScene } from '../components/PackArt';
 import { Landscape } from '../components/PackScene';
 import { Flag, countryName } from '../components/Flag';
@@ -243,9 +243,9 @@ export function CardDetail() {
           {/* la carte posée sur le paysage de sa famille */}
           <div className="detail__stage">
             <Landscape className="detail__scene" scene={habitat ? habitat.scene : packScene('sport', athlete.sport)} seed={habitat ? athlete.id : `Pack ${sport.name}`} />
-            <Card card={detail.card} size="lg" tilt />
+            <Spin3D card={detail.card} size="lg" />
           </div>
-          <p className="detail__tip">Bouge la carte avec le doigt ou la souris</p>
+          <p className="detail__tip">Fais tourner la carte · double-clic pour la retourner</p>
           {photoCredit(face.athleteId) && (
             <p className="detail__credit">
               Photo :{' '}
