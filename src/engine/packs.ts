@@ -39,6 +39,9 @@ export interface PackDef {
 /** La série en cours : tous les animaux du monde. Les suivantes seront consacrées chacune à un pays. */
 export const SERIES = { number: 1, name: 'Animaux du monde' } as const;
 
+/** Prochaine série (consacrée à un pays) : sa date de sortie, à minuit heure du joueur. */
+export const NEXT_SERIES = { number: 2, release: new Date(2026, 11, 1) };
+
 export const FREE_ODDS: Odds = { commune: 60, 'peu-commune': 26, rare: 10, epique: 3.2, legendaire: 0.8 };
 
 export const FREE_PACK: PackDef = {

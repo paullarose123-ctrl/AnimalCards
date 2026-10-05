@@ -75,7 +75,7 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 
 ### Boosters et boutique
 
-- Séries : la Série 1 « Animaux du monde » (le booster gratuit porte ce nom) réunit des espèces de toute la planète ; les séries suivantes seront consacrées chacune à un pays. Une nouvelle extension chaque mois : l’accueil annonce la série en cours, la prochaine (le 1er du mois suivant, avec compte à rebours) et la suivante. Nom de la série en cours : `SERIES` dans `src/engine/packs.ts`.
+- Séries : la Série 1 « Animaux du monde » (le booster gratuit porte ce nom) réunit des espèces de toute la planète ; les séries suivantes seront consacrées chacune à un pays. L’accueil annonce la série en cours et la prochaine, avec un compte à rebours : la Série 2 sort le 1er décembre 2026. Série en cours et prochaine sortie : `SERIES` et `NEXT_SERIES` dans `src/engine/packs.ts`.
 
 - Un booster gratuit toutes les 30 minutes, jusqu’à 5 en réserve.
 - Pas de doublon rapproché : une espèce sortie dans un booster ne peut pas ressortir avant 7 boosters (ni deux fois dans le même). Seuls les petits packs de famille relâchent cette règle quand il ne reste plus d’espèce disponible dans la rareté tirée.
