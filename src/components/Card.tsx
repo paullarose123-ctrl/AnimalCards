@@ -1,9 +1,10 @@
 import { memo, useCallback, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
-import type { Athlete, CardFace, OwnedCard, RarityId } from '../engine/types';
+import type { Athlete, CardFace, OwnedCard } from '../engine/types';
 import { collectionNumber, displayName, extinctionLabel, getAthlete, isIcon, rarityOf } from '../engine/cards';
 import { SPORTS } from '../data/sports';
 import { mesuresOf, type MesuresAffichees } from '../data/mesures';
 import { populationOf, type PopulationAffichee } from '../data/populations';
+import { milieuCourt } from '../data/milieux';
 import { usePhoto } from '../photos';
 import { Flag } from './Flag';
 import { Bust } from './Bust';
@@ -19,14 +20,6 @@ export type CardSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 const WIDTHS: Record<CardSize, number> = { xs: 104, sm: 140, md: 196, lg: 250, xl: 300 };
 
-/** Nom du palier affiché au-dessus du numéro : le paysage de sa palette (comme les boosters). */
-const TIERS: Record<RarityId, string> = {
-  commune: 'Forêt',
-  'peu-commune': 'Cimes',
-  rare: 'Savane',
-  epique: 'Aurore',
-  legendaire: 'Légende',
-};
 
 interface CardProps {
   card: CardFace | OwnedCard;
@@ -109,7 +102,8 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
   const habitat = athlete.habitat;
   const mesures = habitat ? null : mesuresOf(athlete.id);
   const population = populationOf(athlete);
-  const tier = habitat ? 'Habitat' : prime ? 'Prime' : reverse ? 'Reverse' : icon ? 'Icône' : TIERS[rarity.id];
+  // losange : les versions spéciales gardent leur nom, sinon le milieu de vie en un mot (Ville, Campagne, Océan…)
+  const tier = habitat ? 'Habitat' : prime ? 'Prime' : reverse ? 'Reverse' : icon ? 'Icône' : milieuCourt(athlete);
   // le losange porte le numéro de la carte dans l'album
   const number = collectionNumber(athlete);
   const subtitle = [athlete.role, extinctionLabel(athlete)].filter(Boolean).join(' · ');
@@ -217,7 +211,7 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
         <div className="card__code metal-text">{athleteCode(athlete)}</div>
 
         <div className="card__badge">
-          <span className="card__tier">
+          <span className="card__tier" style={tier.length > 7 ? { fontSize: `${(0.86 * 6.6) / tier.length}em` } : undefined}>
             <i>{tier}</i>
           </span>
           <span className="card__rating" title={`Carte n° ${number}`}>

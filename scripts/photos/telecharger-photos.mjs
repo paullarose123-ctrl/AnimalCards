@@ -663,6 +663,8 @@ async function finalize() {
     // espèce retirée du jeu depuis le téléchargement : on l'ignore
     if (!known.has(id) || !existsSync(join(RAW_DIR, `${id}.jpg`))) continue;
     await renderCard(id);
+    // taille de la photo brute : sert à régler un cadrage précis (config.json) sans la retélécharger
+    const { width: rawW, height: rawH } = await sharp(join(RAW_DIR, `${id}.jpg`)).metadata();
     credits[id] = {
       file: `${id}.webp`,
       cutout: false,
@@ -671,6 +673,7 @@ async function finalize() {
       licenseUrl: info.licenseUrl,
       page: info.page,
       ...(info.crop ? { crop: info.crop } : {}),
+      brut: [rawW, rawH],
     };
   }
   // images qui n'ont plus d'animal
