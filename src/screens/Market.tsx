@@ -40,6 +40,8 @@ function OnlineRow({ listing, now, mine = false }: { listing: OnlineListing; now
   const athlete = ATHLETES_BY_ID[listing.card.athleteId];
   const news = useGame((s) => s.market.news);
   const balles = useGame((s) => s.balles);
+  // espèce pas encore dans la collection du joueur
+  const discovered = useGame((s) => !!s.discovered[listing.card.athleteId]);
   const openDetail = useUi((s) => s.openDetail);
   const buy = useOnline((s) => s.buy);
   const cancel = useOnline((s) => s.cancel);
@@ -56,6 +58,7 @@ function OnlineRow({ listing, now, mine = false }: { listing: OnlineListing; now
       <div className="listing__info">
         <p className="listing__name">
           <b>{displayName(athlete)}</b>
+          {!discovered && <span className="new-tag">Nouveau</span>}
           {listing.card.variant === 'prime' && <span className="chip-rarity chip-rarity--prime">Prime</span>}
           {listing.card.variant === 'reverse' && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
         </p>
@@ -140,6 +143,8 @@ function ListingRow({ listing, now }: { listing: Listing; now: number }) {
   const athlete = ATHLETES_BY_ID[listing.card.athleteId];
   const news = useGame((s) => s.market.news);
   const balles = useGame((s) => s.balles);
+  // espèce pas encore dans la collection du joueur
+  const discovered = useGame((s) => !!s.discovered[listing.card.athleteId]);
   const buy = useGame((s) => s.buyListing);
   const bid = useGame((s) => s.placeBid);
   const watch = useGame((s) => s.toggleWatch);
@@ -159,6 +164,7 @@ function ListingRow({ listing, now }: { listing: Listing; now: number }) {
       <div className="listing__info">
         <p className="listing__name">
           <b>{displayName(athlete)}</b>
+          {!discovered && <span className="new-tag">Nouveau</span>}
           {listing.card.variant === 'prime' && <span className="chip-rarity chip-rarity--prime">Prime</span>}
           {listing.card.variant === 'reverse' && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
         </p>

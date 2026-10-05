@@ -1,4 +1,4 @@
-import { useMemo, type PointerEvent } from 'react';
+import { useMemo, type CSSProperties, type PointerEvent } from 'react';
 import type { CardFace } from '../engine/types';
 import { useGame, OBJECTIVES, MAX_FREE_PACKS, FREE_PACK_INTERVAL } from '../store/game';
 import { useUi } from '../store/ui';
@@ -11,7 +11,7 @@ import { Landscape } from '../components/PackScene';
 import { HERO_SCENE } from '../art/scenes';
 import { Card } from '../components/Card';
 import { CardBack } from '../components/CardBack';
-import { SERIES } from '../engine/packs';
+import { NEXT_SERIES, SERIES } from '../engine/packs';
 import { Balles } from '../components/Balles';
 import { sfx } from '../audio/sfx';
 import { useAccount } from '../store/account';
@@ -78,42 +78,36 @@ function untiltHero(event: PointerEvent<HTMLElement>) {
   event.currentTarget.style.setProperty('--hy', '0deg');
 }
 
-/** Le 1er du mois prochain, à minuit (heure du joueur) : sortie de la prochaine extension. */
-function nextRelease(now: number): Date {
-  const d = new Date(now);
-  return new Date(d.getFullYear(), d.getMonth() + 1, 1);
-}
-
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
 
-/** Une nouvelle extension chaque mois : la série en cours, la suivante en approche et son compte à rebours. */
+/** Extensions : la série en cours, la prochaine (consacrée à un pays) et son compte à rebours. */
 function ExpansionBanner() {
   const now = useNow(1000);
-  const release = nextRelease(now);
+  const release = NEXT_SERIES.release;
   const left = Math.max(0, release.getTime() - now);
   const days = Math.floor(left / 86_400_000);
   const hours = Math.floor((left % 86_400_000) / 3_600_000);
   const minutes = Math.floor((left % 3_600_000) / 60_000);
   const seconds = Math.floor((left % 60_000) / 1000);
-  const current = new Date(now);
-  const timeline = [0, 1, 2].map((offset) => {
-    const month = new Date(current.getFullYear(), current.getMonth() + offset, 1);
-    return { label: MONTHS[month.getMonth()], serie: offset + 1, state: offset === 0 ? 'live' : offset === 1 ? 'next' : 'later' };
-  });
+  const timeline = [
+    { serie: SERIES.number, label: 'disponible', state: 'live' },
+    { serie: NEXT_SERIES.number, label: MONTHS[release.getMonth()], state: 'next' },
+    { serie: NEXT_SERIES.number + 1, label: 'bientôt', state: 'later' },
+  ];
   const species = ATHLETES.filter((a) => !a.habitat).length;
   return (
     <section className="expansion" aria-labelledby="expansion-title">
       <div className="expansion__glow" aria-hidden="true" />
       <div className="expansion__text">
         <p className="eyebrow">Extensions</p>
-        <h2 id="expansion-title">Une nouvelle extension chaque mois</h2>
+        <h2 id="expansion-title">La Série {NEXT_SERIES.number} arrive en {MONTHS[release.getMonth()]}</h2>
         <p className="expansion__sub">
           La <b>Série {SERIES.number} · {SERIES.name}</b> est disponible : {species} espèces des quatre coins de la planète, {ATHLETES.filter((a) => a.habitat).length} Habitats et{' '}
-          {ATHLETES.filter((a) => a.retired).length} Icônes. Le 1er de chaque mois, une nouvelle série part à la découverte d’un pays : ses espèces, ses
-          habitats et son booster.
+          {ATHLETES.filter((a) => a.retired).length} Icônes. Les prochaines séries partiront chacune à la découverte d’un pays : ses espèces, ses habitats et
+          son booster.
         </p>
-        <div className="expansion__countdown" aria-label={`Série 2 dans ${days} jours et ${hours} heures`}>
-          <span className="expansion__next">Série 2 · le 1er {MONTHS[release.getMonth()]}</span>
+        <div className="expansion__countdown" aria-label={`Série ${NEXT_SERIES.number} dans ${days} jours et ${hours} heures`}>
+          <span className="expansion__next">Série {NEXT_SERIES.number} · le 1er {MONTHS[release.getMonth()]}</span>
           <div className="countdown">
             {[
               [days, 'jours'],
@@ -133,7 +127,7 @@ function ExpansionBanner() {
             <li key={step.serie} className={`is-${step.state}`}>
               <i aria-hidden="true" />
               <b>Série {step.serie}</b>
-              <span>{step.state === 'live' ? 'disponible' : step.label}</span>
+              <span>{step.label}</span>
             </li>
           ))}
         </ol>
@@ -169,7 +163,18 @@ function FreePackHero() {
         <div className="hero__tilt">
           <PackArt tone="bronze" name={FREE_PACK.name} title={SERIES.name} size={FREE_PACK.size} className={freePacks > 0 ? 'is-ready' : ''} />
         </div>
-        {freePacks > 0 && <span className="hero__count">×{freePacks}</span>}
+        {/* les boosters en réserve : des sachets empilés derrière, et une pastille par booster dessous */}
+        {freePacks > 1 && <span className="hero__ghost hero__ghost--1" aria-hidden="true" />}
+        {freePacks > 2 && <span className="hero__ghost hero__ghost--2" aria-hidden="true" />}
+        <div className="hero__pips" role="img" aria-label={`${freePacks} booster${freePacks > 1 ? 's' : ''} sur ${MAX_FREE_PACKS}`}>
+          {Array.from({ length: MAX_FREE_PACKS }, (_, i) => (
+            <i
+              key={i}
+              className={i < freePacks ? 'is-full' : i === freePacks ? 'is-next' : ''}
+              style={i === freePacks ? ({ ['--fill' as string]: `${Math.round(progress * 100)}%` } as CSSProperties) : undefined}
+            />
+          ))}
+        </div>
       </div>
       <div className="hero__text">
         <p className="eyebrow">Série {SERIES.number} · {SERIES.name} · booster gratuit</p>
