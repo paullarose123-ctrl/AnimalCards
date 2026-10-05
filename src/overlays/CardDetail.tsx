@@ -16,6 +16,9 @@ import { Landscape } from '../components/PackScene';
 import { Flag, countryName } from '../components/Flag';
 import { Balles } from '../components/Balles';
 import { photoCredit } from '../photos';
+import { useOnline, ONLINE_HOURS } from '../store/online';
+import { useAccount } from '../store/account';
+import { accountsEnabled } from '../account/supabase';
 
 /** Site d'où vient la photo, d'après l'adresse de sa page. */
 const PHOTO_SITES: Array<[string, string]> = [
@@ -46,6 +49,107 @@ function Sparkline({ points }: { points: Array<{ t: number; price: number }> }) 
       <path d={line} className="sparkline__line" />
       <circle cx={lx} cy={ly} r={3.5} className="sparkline__dot" />
     </svg>
+  );
+}
+
+/** Vente en ligne aux autres joueurs : un prix fixe et une durée. */
+function OnlineSellForm({ card, onDone }: { card: OwnedCard; onDone: () => void }) {
+  const news = useGame((s) => s.market.news);
+  const list = useOnline((s) => s.list);
+  const suggestion = useMemo(() => suggestedPrices(card, Date.now(), news), [card, news]);
+  const [price, setPrice] = useState(suggestion.buyNow);
+  const [hours, setHours] = useState<number>(24);
+  const [busy, setBusy] = useState(false);
+  const invalid = !Number.isFinite(price) || price < 10 || price > 100_000_000;
+  return (
+    <form
+      className="sell-form"
+      noValidate
+      onSubmit={async (event) => {
+        event.preventDefault();
+        if (invalid || busy) return;
+        setBusy(true);
+        const ok = await list(card.uid, Math.round(price), hours);
+        setBusy(false);
+        if (ok) onDone();
+      }}
+    >
+      <p className="sell-form__hint">
+        Cote actuelle : <Balles value={suggestion.market} />. Ta carte est visible par tous les joueurs ; le premier qui l’achète l’emporte.
+      </p>
+      <label className="field">
+        <span>Prix de vente</span>
+        <input id="sell-online-price" type="number" inputMode="numeric" min={10} max={100_000_000} step={1} value={price} onChange={(e) => setPrice(Number(e.target.value))} />
+      </label>
+      <div className="presets" role="group" aria-label="Prix rapides">
+        {[
+          ['Vente express', 0.85],
+          ['Au prix du marché', 1],
+          ['Pour les collectionneurs', 1.25],
+        ].map(([label, factor]) => (
+          <button key={label} type="button" className="btn btn--ghost btn--sm" onClick={() => setPrice(Math.max(10, Math.round((suggestion.market * (factor as number)) / 50) * 50))}>
+            {label}
+          </button>
+        ))}
+      </div>
+      <fieldset className="durations">
+        <legend>Durée</legend>
+        {ONLINE_HOURS.map((h) => (
+          <label key={h} className={`pill${hours === h ? ' is-active' : ''}`}>
+            <input type="radio" name="online-hours" value={h} checked={hours === h} onChange={() => setHours(h)} />
+            {h < 24 ? `${h} h` : `${h / 24} j`}
+          </label>
+        ))}
+      </fieldset>
+      <p className="sell-form__net">
+        À la vente, tu touches <Balles value={netAfterTax(price || 0)} /> (taxe du marché {Math.round(MARKET_TAX * 100)} %). Si personne ne l’achète, elle revient dans ta réserve.
+      </p>
+      {invalid && (
+        <p className="error-text" role="alert">
+          Choisis un prix entre 10 et 100 000 000 graines.
+        </p>
+      )}
+      <div className="sell-form__actions">
+        <button type="submit" className="btn btn--primary" disabled={invalid || busy}>
+          {busy ? 'Mise en vente…' : 'Vendre aux joueurs'}
+        </button>
+        <button type="button" className="btn btn--ghost" onClick={onDone}>
+          Annuler
+        </button>
+      </div>
+    </form>
+  );
+}
+
+/** Choix de l'acheteur : les autres joueurs (en ligne, avec un compte) ou les collectionneurs du jeu. */
+function SellPanel({ card, onDone }: { card: OwnedCard; onDone: () => void }) {
+  const connected = useAccount((s) => !!s.session);
+  const online = accountsEnabled();
+  const [mode, setMode] = useState<'online' | 'ai'>(online && connected ? 'online' : 'ai');
+  return (
+    <div className="sell-panel">
+      {online && (
+        <div className="segmented segmented--sm" role="tablist" aria-label="À qui vendre">
+          <button type="button" role="tab" aria-selected={mode === 'online'} className={mode === 'online' ? 'is-active' : ''} onClick={() => setMode('online')}>
+            Aux joueurs
+          </button>
+          <button type="button" role="tab" aria-selected={mode === 'ai'} className={mode === 'ai' ? 'is-active' : ''} onClick={() => setMode('ai')}>
+            Aux collectionneurs du jeu
+          </button>
+        </div>
+      )}
+      {mode === 'online' ? (
+        connected ? (
+          <OnlineSellForm card={card} onDone={onDone} />
+        ) : (
+          <p className="info-bar">
+            <span>Crée un compte ou connecte-toi pour vendre aux autres joueurs.</span>
+          </p>
+        )
+      ) : (
+        <SellForm card={card} onDone={onDone} />
+      )}
+    </div>
   );
 }
 
@@ -405,7 +509,7 @@ export function CardDetail() {
               {owned.locked && <p className="muted small">Carte verrouillée : elle ne peut pas être vendue par erreur.</p>}
             </div>
           )}
-          {owned && selling && <SellForm card={owned} onDone={() => setSelling(false)} />}
+          {owned && selling && <SellPanel card={owned} onDone={() => setSelling(false)} />}
           {!owned && !detail.listingId && (
             <div className="btn-row">
               <button type="button" className="btn btn--primary" onClick={() => searchMarketFor(athlete.last)}>

@@ -58,7 +58,7 @@ let lastSent: string | null = null;
 let timer: number | undefined;
 
 /** La session, avec un jeton encore valable au moins une minute (rafraîchi au besoin). */
-async function freshSession(): Promise<Session | null> {
+export async function freshSession(): Promise<Session | null> {
   const session = useAccount.getState().session;
   if (!session) return null;
   if (session.expiresAt - Date.now() > 60_000) return session;

@@ -19,6 +19,8 @@ import { CardDetail } from './overlays/CardDetail';
 import { Toasts } from './components/Toasts';
 import { Fireflies } from './components/Fireflies';
 import { Juice } from './components/Juice';
+import { useOnline } from './store/online';
+import { accountsEnabled } from './account/supabase';
 import { Landscape } from './components/PackScene';
 import { SITE_SCENE } from './art/scenes';
 
@@ -206,6 +208,24 @@ export function App() {
       document.removeEventListener('visibilitychange', sync);
     };
   }, [muted, musicOff]);
+
+  // marché en ligne : annonces des joueurs et règlement des ventes (souvent sur l'écran du marché,
+  // de temps en temps ailleurs pour prévenir le vendeur dès qu'une carte part)
+  const userId = useAccount((s) => s.session?.userId);
+  useEffect(() => {
+    if (!accountsEnabled()) return;
+    if (!userId) useOnline.setState({ mine: [], history: [] });
+    const sync = () => {
+      if (document.visibilityState === 'visible') void useOnline.getState().sync();
+    };
+    sync();
+    const id = window.setInterval(sync, tab === 'mercato' ? 15_000 : 60_000);
+    document.addEventListener('visibilitychange', sync);
+    return () => {
+      window.clearInterval(id);
+      document.removeEventListener('visibilitychange', sync);
+    };
+  }, [userId, tab]);
 
   // le marché et les boosters avancent en temps réel (et rattrapent le temps passé hors du jeu)
   useEffect(() => {

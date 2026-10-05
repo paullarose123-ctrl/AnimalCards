@@ -5401,3 +5401,131 @@
   left: auto;
   right: -6px;
 }
+
+/* ───────────── Marché en ligne ───────────── */
+.market-section {
+  display: grid;
+  gap: 12px;
+}
+
+.market-section__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 0;
+  font-size: 1.35rem;
+}
+
+.market-section__title small {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-faint);
+}
+
+/* point vert qui pulse : en direct */
+.live-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--good);
+  box-shadow: 0 0 10px rgba(143, 212, 126, 0.8);
+}
+
+.live-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--good);
+  animation: live-ring 1.8s ease-out infinite;
+}
+
+@keyframes live-ring {
+  from {
+    opacity: 0.8;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.listing--online {
+  border-color: rgba(143, 212, 126, 0.28);
+  background:
+    linear-gradient(90deg, rgba(143, 212, 126, 0.07), transparent 40%),
+    var(--bg-2);
+}
+
+.player-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 7px;
+  border-radius: 99px;
+  background: rgba(134, 188, 203, 0.14);
+  color: var(--info);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.player-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.trade-log {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trade-log li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(232, 222, 196, 0.04);
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+.trade-log li.is-sold {
+  box-shadow: inset 3px 0 0 var(--good);
+}
+
+.trade-log li.is-bought {
+  box-shadow: inset 3px 0 0 var(--honey);
+}
+
+.trade-log time {
+  margin-left: auto;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+}
+
+.sell-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.segmented--sm button {
+  min-height: 34px;
+  font-size: 0.88rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot::after {
+    animation: none;
+  }
+}
