@@ -7,6 +7,8 @@ export interface DetailTarget {
   card: CardFace | OwnedCard;
   /** annonce du marché d'où vient la carte */
   listingId?: string;
+  /** carte de l'album pas encore obtenue : elle reste sombre dans la fiche */
+  unknown?: boolean;
 }
 
 export interface MarketFilters {

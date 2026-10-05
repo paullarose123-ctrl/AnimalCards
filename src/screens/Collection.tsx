@@ -287,7 +287,7 @@ function Album() {
           const card = mine ?? { athleteId: athlete.id, variant: 'base' as const };
           return (
             <div key={athlete.id} className="card-cell">
-              <Card card={card} size="xs" locked={!have} onClick={() => openDetail({ card })} />
+              <Card card={card} size="xs" locked={!have} onClick={() => openDetail({ card, unknown: !have })} />
               {!have && <span className="album-name">{athlete.last}</span>}
             </div>
           );

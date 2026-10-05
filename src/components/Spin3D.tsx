@@ -13,9 +13,11 @@ const THICKNESS = 6; // couches de la tranche
 interface Spin3DProps {
   card: CardFace | OwnedCard;
   size?: CardSize;
+  /** carte pas encore obtenue : affichée sombre */
+  locked?: boolean;
 }
 
-export function Spin3D({ card, size = 'lg' }: Spin3DProps) {
+export function Spin3D({ card, size = 'lg', locked = false }: Spin3DProps) {
   const stage = useRef<HTMLDivElement>(null);
   const object = useRef<HTMLDivElement>(null);
   const state = useRef({
@@ -146,7 +148,7 @@ export function Spin3D({ card, size = 'lg' }: Spin3DProps) {
     >
       <div ref={object} className="spin3d__object">
         <div className="spin3d__face spin3d__front">
-          <Card card={card} size={size} />
+          <Card card={card} size={size} locked={locked} />
         </div>
         {Array.from({ length: THICKNESS }, (_, i) => (
           <div key={i} className="spin3d__layer" style={{ transform: `translateZ(${(i - (THICKNESS - 1) / 2) * 0.7}px)` }} />
