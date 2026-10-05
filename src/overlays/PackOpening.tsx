@@ -135,6 +135,9 @@ function Walkout({ card, onDone }: { card: CardFace; onDone: () => void }) {
   // étapes : 0 drapeau, 1 famille, 2 note, (2.5 silhouette si photo détourée), 3 carte
   const [shadow, setShadow] = useState(false);
   const fxColors = useMemo(() => [glowOf(card), ...confettiColors(card)], [card]);
+  // téléphone : la carte seule, bien centrée ; la fiche s'ouvre à la demande
+  const phone = typeof window !== 'undefined' && window.matchMedia?.('(max-width: 760px)').matches;
+  const [showStats, setShowStats] = useState(false);
 
   useEffect(() => {
     if (step >= 3) return;
@@ -224,14 +227,30 @@ function Walkout({ card, onDone }: { card: CardFace; onDone: () => void }) {
               <div className="walkout__aura" aria-hidden="true" />
               <Card card={card} size="xl" tilt className="walkout__card" />
             </div>
-            {/* lire la fiche ne ferme pas la révélation */}
-            <div className="walkout__stats" onClick={(event) => event.stopPropagation()}>
-              <CardStats card={card} />
-            </div>
+            {/* lire la fiche ne ferme pas la révélation ; sur téléphone, elle s'ouvre à la demande */}
+            {(showStats || !phone) && (
+              <div className="walkout__stats" onClick={(event) => event.stopPropagation()}>
+                <CardStats card={card} />
+              </div>
+            )}
           </div>
-          <button type="button" className="btn btn--primary" onClick={onDone}>
-            Continuer
-          </button>
+          <div className="walkout__actions">
+            <button type="button" className="btn btn--primary" onClick={onDone}>
+              Continuer
+            </button>
+            {phone && !showStats && (
+              <button
+                type="button"
+                className="btn btn--ghost"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setShowStats(true);
+                }}
+              >
+                Voir la fiche
+              </button>
+            )}
+          </div>
         </div>
       )}
       {step < 3 && (
