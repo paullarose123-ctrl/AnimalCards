@@ -64,7 +64,8 @@ export function RevealFx({ phase, colors, intensity = 1 }: RevealFxProps) {
 
     const spawnIn = () => {
       const angle = Math.random() * Math.PI * 2;
-      const radius = Math.max(width, height) * (0.45 + Math.random() * 0.25);
+      // départ tout autour de l'écran, même sur un téléphone en hauteur (sans partir trop loin du centre)
+      const radius = Math.min(width, height) * (0.45 + Math.random() * 0.4) + Math.random() * Math.max(0, Math.abs(height - width)) * 0.35;
       sparks.push({ x: 0, y: 0, vx: 0, vy: 0, life: 0, max: 1.6 + Math.random() * 0.8, size: 1 + Math.random() * 2.2, color: pick(), kind: 'in', angle, radius });
     };
 

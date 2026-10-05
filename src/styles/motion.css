@@ -1427,3 +1427,74 @@ h3 {
     animation: none;
   }
 }
+
+/* ───────────── Duel sur téléphone : rien ne se chevauche ───────────── */
+.scoreboard__team span {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+@media (max-width: 520px) {
+  .scoreboard {
+    gap: 8px;
+    padding: 12px;
+  }
+  .scoreboard__team {
+    font-size: 0.9rem;
+  }
+  .scoreboard__score {
+    gap: 5px;
+    font-size: 2rem;
+  }
+  .clash__arena {
+    gap: 6px;
+  }
+  .clash__side .card {
+    --card-w: min(196px, 34vw) !important;
+  }
+  .clash__vs {
+    font-size: 1.2rem;
+  }
+  .clash__power {
+    font-size: 2.2rem;
+  }
+  .clash__team {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+  .clash__event {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}
+
+/* ───────────── Révélation sur téléphone : la carte au centre, le bouton toujours visible ───────────── */
+.walkout__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .walkout__reveal {
+    gap: 10px;
+    padding: 12px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+  .walkout__title {
+    font-size: clamp(2rem, 11vw, 3rem);
+    letter-spacing: 0.06em;
+  }
+  .walkout__card {
+    --card-w: min(260px, 66vw, 46vh) !important;
+  }
+  .walkout__aura {
+    inset: -25% -30%;
+  }
+  .walkout__streak {
+    left: 0;
+    right: 0;
+  }
+}
