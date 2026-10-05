@@ -12,6 +12,7 @@ import { Avatar } from '../components/Avatar';
 import { photoCredit } from '../photos';
 import { Landscape } from '../components/PackScene';
 import { SCREEN_SCENES } from '../art/scenes';
+import { TradeModal, TradesPanel } from './Trades';
 
 // Écran Profil : le compte du joueur (création, connexion, sauvegarde), sa vitrine de cartes préférées,
 // et ses amis (demandes d'ami à accepter) : leur photo, leur vitrine et un duel contre elle.
@@ -277,6 +278,7 @@ function FriendRow({ profile, onRemove }: { profile: PublicProfile; onRemove: ()
   const setTab = useUi((s) => s.setTab);
   const [open, setOpen] = useState(false);
   const [confirmRemove, setConfirmRemove] = useState(false);
+  const [trading, setTrading] = useState(false);
   const faces: CardFace[] = profile.favorites.filter((face) => ATHLETES_BY_ID[face?.athleteId]).slice(0, FAVORITES_SIZE);
   const challenge = () => {
     if (match) {
@@ -302,6 +304,9 @@ function FriendRow({ profile, onRemove }: { profile: PublicProfile; onRemove: ()
               {open ? 'Cacher' : 'Sa vitrine'}
             </button>
           )}
+          <button type="button" className="btn btn--gold btn--sm" onClick={() => setTrading(true)} title="Lui proposer une de tes cartes contre une des siennes, de même rareté">
+            Échanger
+          </button>
           <button type="button" className="btn btn--primary btn--sm" onClick={challenge} title="Un duel contre les animaux de sa vitrine (complétée au hasard)">
             {match ? 'Duel en cours' : 'Défier'}
           </button>
@@ -316,6 +321,7 @@ function FriendRow({ profile, onRemove }: { profile: PublicProfile; onRemove: ()
           )}
         </div>
       </div>
+      {trading && <TradeModal friend={profile} onClose={() => setTrading(false)} />}
       {open && faces.length > 0 && (
         <div className="vitrine vitrine--public">
           {faces.map((face, i) => (
@@ -408,7 +414,7 @@ function Friends() {
       <h2>
         Mes amis <small>· {friends.length}</small>
       </h2>
-      <p className="muted small">Envoie une demande d’ami avec un pseudo. Une fois acceptée, tu vois sa photo et sa vitrine, et tu peux le défier en duel.</p>
+      <p className="muted small">Envoie une demande d’ami avec un pseudo. Une fois acceptée, tu vois sa photo et sa vitrine, tu peux le défier en duel et échanger des cartes avec lui.</p>
       <form className="search-player" onSubmit={add}>
         <label className="field field--grow">
           <span className="visually-hidden">Pseudo de l’ami</span>
@@ -550,6 +556,7 @@ export function ProfileScreen() {
       )}
       <Showcase />
       {enabled && <Friends />}
+      {enabled && <TradesPanel />}
     </div>
   );
 }

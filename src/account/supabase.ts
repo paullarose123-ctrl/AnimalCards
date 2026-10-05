@@ -89,8 +89,10 @@ function explain(status: number, data: unknown): string {
   if (code === 'PGRST205' || code === '42P01') return 'Cette fonction n’est pas encore activée sur le serveur du jeu.';
   // erreurs levées par les fonctions du marché en ligne (supabase/schema.sql)
   if (code === 'P0001') {
-    if (text.includes('indisponible')) return 'Trop tard : cette carte vient d’être vendue ou retirée.';
+    if (text.includes('indisponible')) return 'Trop tard : cette carte ou cet échange n’est plus disponible.';
     if (text.includes('trop d')) return 'Tu as déjà 15 cartes en vente en ligne. Attends qu’une vente se termine.';
+    if (text.includes('pas ami')) return 'Vous devez être amis pour échanger des cartes.';
+    if (text.includes('trop d’échanges') || text.includes("trop d'échanges")) return 'Tu as déjà 10 propositions d’échange en attente.';
     if (text.includes('profil')) return 'Ton profil n’est pas encore enregistré. Réessaie dans un instant.';
     if (text.includes('non connect')) return 'Ta session a expiré. Reconnecte-toi.';
     return 'Cette annonce n’est pas valable.';

@@ -18,8 +18,10 @@ import { PackOpening } from './overlays/PackOpening';
 import { CardDetail } from './overlays/CardDetail';
 import { Toasts } from './components/Toasts';
 import { Fireflies } from './components/Fireflies';
+import { MiniPack } from './components/MiniPack';
 import { Juice } from './components/Juice';
 import { useOnline } from './store/online';
+import { useTrades } from './store/trades';
 import { accountsEnabled } from './account/supabase';
 import { Landscape } from './components/PackScene';
 import { SITE_SCENE } from './art/scenes';
@@ -63,10 +65,14 @@ function Topbar() {
   const setTab = useUi((s) => s.setTab);
   const tab = useUi((s) => s.tab);
   const pseudo = useAccount((s) => s.session?.pseudo);
+  const pseudoId = useAccount((s) => s.session?.userId);
   const syncError = useAccount((s) => s.status === 'error');
   const avatar = useGame((s) => s.avatar);
   // demandes d'ami en attente de réponse
-  const requests = useAccount((s) => (s.session ? s.friendships.filter((f) => f.status === 'pending' && f.toId === s.session!.userId).length : 0));
+  const friendRequests = useAccount((s) => (s.session ? s.friendships.filter((f) => f.status === 'pending' && f.toId === s.session!.userId).length : 0));
+  // et propositions d'échange reçues
+  const tradeRequests = useTrades((s) => s.trades.filter((t) => t.status === 'pending' && t.toId === pseudoId).length);
+  const requests = friendRequests + tradeRequests;
   const now = useNow(1000);
   const full = freePacks >= MAX_FREE_PACKS;
 
@@ -78,9 +84,9 @@ function Topbar() {
       </button>
       <div className="topbar__right">
         <button type="button" className="chip chip--packs" onClick={() => setTab('boosters')} title="Boosters gratuits disponibles">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7,3 H17 L18,5 V19 L17,21 H7 L6,19 V5 Z" />
-          </svg>
+          <span className={`chip__pack${freePacks > 0 ? ' is-ready' : ''}`}>
+            <MiniPack />
+          </span>
           <b>{freePacks}</b>
           <span className="chip__timer">{full ? 'plein' : formatDuration(nextFreePackAt - now)}</span>
         </button>
@@ -89,14 +95,14 @@ function Topbar() {
           type="button"
           className={`chip chip--profile${tab === 'profil' ? ' is-active' : ''}${pseudo ? '' : ' is-guest'}`}
           onClick={() => setTab('profil')}
-          aria-label={pseudo ? `Profil de ${pseudo}${requests ? `, ${requests} demande${requests > 1 ? 's' : ''} d’ami` : ''}` : 'Profil : crée ton compte'}
+          aria-label={pseudo ? `Profil de ${pseudo}${requests ? `, ${requests} demande${requests > 1 ? 's' : ''} en attente` : ''}` : 'Profil : crée ton compte'}
           title={syncError ? 'La dernière sauvegarde n’est pas partie' : pseudo ? `Profil de ${pseudo}` : 'Crée ton compte pour sauvegarder ta progression'}
         >
           <Avatar athleteId={avatar} pseudo={pseudo} />
           <span className="chip__pseudo">{pseudo ?? 'Profil'}</span>
           {syncError && <i className="chip__alert" aria-hidden="true" />}
           {requests > 0 && (
-            <i className="badge chip__badge" title={`${requests} demande${requests > 1 ? 's' : ''} d’ami`}>
+            <i className="badge chip__badge" title={`${requests} demande${requests > 1 ? 's' : ''} en attente`}>
               {requests}
             </i>
           )}
@@ -216,10 +222,12 @@ export function App() {
     if (!accountsEnabled()) return;
     if (!userId) useOnline.setState({ mine: [], history: [] });
     const sync = () => {
-      if (document.visibilityState === 'visible') void useOnline.getState().sync();
+      if (document.visibilityState !== 'visible') return;
+      void useOnline.getState().sync();
+      void useTrades.getState().sync();
     };
     sync();
-    const id = window.setInterval(sync, tab === 'mercato' ? 15_000 : 60_000);
+    const id = window.setInterval(sync, tab === 'mercato' || tab === 'profil' ? 15_000 : 60_000);
     document.addEventListener('visibilitychange', sync);
     return () => {
       window.clearInterval(id);

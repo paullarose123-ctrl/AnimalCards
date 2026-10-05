@@ -79,7 +79,7 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 
 - Un booster gratuit toutes les 10 minutes, jusqu’à 10 en réserve.
 - Pas de doublon rapproché : une espèce sortie dans un booster ne peut pas ressortir avant 7 boosters (ni deux fois dans le même). Seuls les petits packs de famille relâchent cette règle quand il ne reste plus d’espèce disponible dans la rareté tirée.
-- Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (1 seule carte, toujours une Icône : le pack le plus cher, 600 000 crédits), Prime (1 individu célèbre garanti, 250 000 crédits), Légende (1 Légendaire garantie) et un pack par famille (1 500 crédits ; pas de pack Préhistoire, ses espèces sont des Icônes). Les chances sont affichées sur chaque pack.
+- Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (1 seule carte, toujours une Icône : le pack le plus cher, 600 000 crédits), Prime (1 individu célèbre garanti, 250 000 crédits), Légende (1 Légendaire garantie) et un pack par famille (4 000 crédits ; pas de pack Préhistoire, ses espèces sont des Icônes). Les chances sont affichées sur chaque pack.
 - Les Icônes sont les cartes les plus rares : hors du Pack Icônes, environ 1 carte sur 1 000 seulement (jamais à la place de la carte garantie), et elles passent très rarement sur le marché. Une Icône vaut au moins 100 000 crédits (dix fois la cote de sa rareté).
 - La monnaie du jeu : les crédits.
 - Les Épiques, Légendaires, Prime et Icônes ont droit à leur révélation : drapeau, puis famille, puis numéro, pendant que des étincelles sont aspirées vers un cœur d’énergie ; puis flash, onde de choc, gerbe d’étincelles et la carte qui jaillit dans un halo de sa couleur, avec confettis et fanfare.
@@ -104,6 +104,9 @@ Un jeu de culture générale sur les animaux.
 - On peut aussi défier un ami : son équipe est faite des animaux de sa vitrine (complétée au hasard), joués par l’ordinateur. Ce duel rapporte des crédits mais ne compte pas pour la ligue.
 
 ### Comptes et profil
+
+- Échanges entre amis : depuis la liste d’amis, « Échanger » propose une de ses cartes contre une espèce **de même rareté** (celles de la vitrine de l’ami en premier). La carte proposée quitte la réserve en attendant ; l’ami accepte en donnant un exemplaire (le plus simple qu’il ait) ou refuse, et la carte revient si c’est refusé ou annulé. Le serveur (fonctions `trade_*` de `supabase/schema.sql`) vérifie que les deux joueurs sont amis et que l’espèce donnée est la bonne ; chaque échange n’est réglé qu’une fois dans la partie.
+- Album : une carte jamais obtenue reste sombre, même ouverte en grand.
 
 - Un compte se crée avec un pseudo et un mot de passe (écran Profil, bouton en haut à droite). Toute la progression est alors sauvegardée dans le compte (au plus toutes les 30 secondes quand elle change, et à la fermeture de l’onglet) et rechargée à la connexion, sur n’importe quel appareil. Sans compte, la partie reste dans le navigateur.
 - Le profil montre une photo de profil (la photo d’un animal déjà découvert) et une vitrine de 5 cartes préférées.

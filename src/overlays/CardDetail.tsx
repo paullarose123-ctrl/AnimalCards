@@ -347,7 +347,8 @@ export function CardDetail() {
           {/* la carte posée sur le paysage de sa famille */}
           <div className="detail__stage">
             <Landscape className="detail__scene" scene={habitat ? habitat.scene : packScene('sport', athlete.sport)} seed={habitat ? athlete.id : `Pack ${sport.name}`} />
-            <Spin3D card={detail.card} size="lg" />
+            {/* carte jamais obtenue (album) : elle reste dans l'ombre */}
+            <Spin3D card={detail.card} size="lg" locked={!!detail.unknown} />
           </div>
           <p className="detail__tip">Fais tourner la carte · double-clic pour la retourner</p>
           {photoCredit(face.athleteId) && (

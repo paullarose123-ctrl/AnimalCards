@@ -166,3 +166,121 @@ grant execute on function public.market_done(uuid) to authenticated;
 
 -- l'API de Supabase relit la base pour voir la nouvelle table et les nouvelles fonctions
 notify pgrst, 'reload schema';
+
+-- ───────────── Échanges de cartes entre amis ─────────────
+-- from_id propose sa carte « offer » à son ami to_id contre une espèce « want » (même rareté, vérifiée par le jeu).
+-- to_id accepte en donnant un exemplaire (« given »), ou refuse ; from_id peut annuler tant que c'est en attente.
+-- Chaque joueur règle l'échange dans sa partie puis le confirme (trade_done) pour ne jamais recevoir deux fois.
+create table if not exists public.trades (
+  id uuid primary key default gen_random_uuid(),
+  from_id uuid not null references auth.users (id) on delete cascade,
+  from_pseudo text not null,
+  to_id uuid not null references auth.users (id) on delete cascade,
+  to_pseudo text not null,
+  offer jsonb not null,
+  want jsonb not null,
+  given jsonb,
+  status text not null default 'pending' check (status in ('pending', 'accepted', 'declined', 'cancelled')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  from_done boolean not null default false,
+  to_done boolean not null default false,
+  check (from_id <> to_id)
+);
+create index if not exists trades_from on public.trades (from_id);
+create index if not exists trades_to on public.trades (to_id);
+
+alter table public.trades enable row level security;
+drop policy if exists "Voir ses échanges" on public.trades;
+create policy "Voir ses échanges" on public.trades for select using ((select auth.uid()) in (from_id, to_id));
+grant select on public.trades to authenticated;
+
+create or replace function public.valid_card(c jsonb) returns boolean language sql immutable as $$
+  select jsonb_typeof(c -> 'athleteId') = 'string' and coalesce(c ->> 'variant', '') in ('base', 'reverse', 'prime')
+$$;
+
+-- Proposer un échange à un ami (10 propositions en attente au plus).
+create or replace function public.trade_propose(p_to uuid, p_offer jsonb, p_want jsonb)
+returns public.trades language plpgsql security definer set search_path = public as $$
+declare
+  me uuid := auth.uid();
+  my_name text;
+  their_name text;
+  r public.trades;
+begin
+  if me is null then raise exception 'non connecté'; end if;
+  if not valid_card(p_offer) or jsonb_typeof(p_want -> 'athleteId') <> 'string' then raise exception 'carte invalide'; end if;
+  if not exists (
+    select 1 from friendships
+     where status = 'accepted' and ((from_id = me and to_id = p_to) or (from_id = p_to and to_id = me))
+  ) then raise exception 'pas ami'; end if;
+  if (select count(*) from trades where from_id = me and status = 'pending') >= 10 then raise exception 'trop d''échanges'; end if;
+  select pseudo into my_name from profiles where id = me;
+  select pseudo into their_name from profiles where id = p_to;
+  insert into trades (from_id, from_pseudo, to_id, to_pseudo, offer, want)
+  values (
+    me, coalesce(my_name, 'Un joueur'), p_to, coalesce(their_name, 'Un joueur'),
+    jsonb_build_object('athleteId', p_offer ->> 'athleteId', 'variant', p_offer ->> 'variant'),
+    jsonb_build_object('athleteId', p_want ->> 'athleteId')
+  )
+  returning * into r;
+  return r;
+end $$;
+
+-- Accepter (en donnant un exemplaire de l'espèce demandée), refuser ou annuler.
+create or replace function public.trade_accept(p_id uuid, p_given jsonb)
+returns public.trades language plpgsql security definer set search_path = public as $$
+declare
+  r public.trades;
+begin
+  if not valid_card(p_given) then raise exception 'carte invalide'; end if;
+  update trades set status = 'accepted', given = jsonb_build_object('athleteId', p_given ->> 'athleteId', 'variant', p_given ->> 'variant'), updated_at = now()
+   where id = p_id and to_id = auth.uid() and status = 'pending' and want ->> 'athleteId' = p_given ->> 'athleteId'
+  returning * into r;
+  if r.id is null then raise exception 'indisponible'; end if;
+  return r;
+end $$;
+
+create or replace function public.trade_decline(p_id uuid)
+returns public.trades language plpgsql security definer set search_path = public as $$
+declare
+  r public.trades;
+begin
+  update trades set status = 'declined', updated_at = now(), to_done = true
+   where id = p_id and to_id = auth.uid() and status = 'pending'
+  returning * into r;
+  if r.id is null then raise exception 'indisponible'; end if;
+  return r;
+end $$;
+
+create or replace function public.trade_cancel(p_id uuid)
+returns public.trades language plpgsql security definer set search_path = public as $$
+declare
+  r public.trades;
+begin
+  update trades set status = 'cancelled', updated_at = now(), to_done = true
+   where id = p_id and from_id = auth.uid() and status = 'pending'
+  returning * into r;
+  if r.id is null then raise exception 'indisponible'; end if;
+  return r;
+end $$;
+
+create or replace function public.trade_done(p_id uuid)
+returns void language plpgsql security definer set search_path = public as $$
+begin
+  update trades set from_done = true where id = p_id and from_id = auth.uid() and status <> 'pending';
+  update trades set to_done = true where id = p_id and to_id = auth.uid() and status = 'accepted';
+end $$;
+
+revoke all on function public.trade_propose(uuid, jsonb, jsonb) from public, anon;
+revoke all on function public.trade_accept(uuid, jsonb) from public, anon;
+revoke all on function public.trade_decline(uuid) from public, anon;
+revoke all on function public.trade_cancel(uuid) from public, anon;
+revoke all on function public.trade_done(uuid) from public, anon;
+grant execute on function public.trade_propose(uuid, jsonb, jsonb) to authenticated;
+grant execute on function public.trade_accept(uuid, jsonb) to authenticated;
+grant execute on function public.trade_decline(uuid) to authenticated;
+grant execute on function public.trade_cancel(uuid) to authenticated;
+grant execute on function public.trade_done(uuid) to authenticated;
+
+notify pgrst, 'reload schema';

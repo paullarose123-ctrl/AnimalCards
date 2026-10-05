@@ -201,6 +201,8 @@ export interface GameState {
   /** rend une carte retirée par escrowCard (la mise en vente a échoué) */
   restoreCard: (card: OwnedCard) => void;
   /** règle une annonce en ligne dans la partie, une seule fois : carte achetée, graines d'une vente ou carte rendue */
+  /** reçoit une carte une seule fois (clé déjà réglée : rien), avec une notification */
+  receiveOnce: (key: string, card: CardFace, toast: string) => boolean;
   settleOnline: (role: 'buy' | 'sell' | 'back', listing: { id: string; card: CardFace; price: number; buyer?: string | null; expired?: boolean }) => boolean;
 }
 
@@ -706,6 +708,19 @@ export const useGame = create<GameState>()(
         },
 
         restoreCard: (card) => set((s) => ({ collection: s.collection.some((c) => c.uid === card.uid) ? s.collection : [...s.collection, card] })),
+
+        receiveOnce: (key, face, text) => {
+          if (get().onlineDone.includes(key) || !ATHLETES_BY_ID[face.athleteId]) return false;
+          const card = toOwned(face, Date.now());
+          set((s) => ({
+            collection: [...s.collection, card],
+            discovered: { ...s.discovered, [card.athleteId]: (s.discovered[card.athleteId] ?? 0) + 1 },
+            primesFound: card.variant === 'prime' ? { ...s.primesFound, [card.athleteId]: (s.primesFound[card.athleteId] ?? 0) + 1 } : s.primesFound,
+            onlineDone: [key, ...s.onlineDone].slice(0, 400),
+          }));
+          pushToast('gold', text);
+          return true;
+        },
 
         settleOnline: (role, listing) => {
           const key = `${role}:${listing.id}`;
