@@ -287,8 +287,9 @@ function Album() {
           const card = mine ?? { athleteId: athlete.id, variant: 'base' as const };
           return (
             <div key={athlete.id} className="card-cell">
-              {/* une carte pas encore découverte reste un mystère : ni fiche, ni nom */}
+              {/* une carte pas encore découverte reste grisée, et sa fiche ne s'ouvre qu'une fois la carte obtenue */}
               <Card card={card} size="xs" locked={!have} onClick={have ? () => openDetail({ card }) : undefined} />
+              {!have && <span className="album-name">{athlete.last}</span>}
             </div>
           );
         })}

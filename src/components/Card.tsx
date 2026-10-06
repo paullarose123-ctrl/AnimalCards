@@ -10,7 +10,6 @@ import { Flag } from './Flag';
 import { Bust } from './Bust';
 import { SportIcon } from './SportIcon';
 import { PackScene } from './PackScene';
-import { CardBack } from './CardBack';
 
 // Carte au style « cadre de naturaliste » : palette de booster selon le palier (forêt, cimes, savane…),
 // cadre sombre avec code de l'espèce en onglet, losange avec le numéro de collection, famille écrite à la verticale,
@@ -162,28 +161,6 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
   ]
     .filter(Boolean)
     .join(' ');
-
-  // carte pas encore découverte (album) : posée face cachée, le dos du jeu dans la nuit, un « ? » doré et son
-  // numéro ; rien qui la dévoile (ni photo, ni nom, ni rareté)
-  if (locked) {
-    return (
-      <div
-        className={`card card--${size} is-mystery${compact ? ' is-compact' : ''}${tiny ? ' is-tiny' : ''}${onClick ? ' is-clickable' : ''} ${className}`}
-        style={{ ['--card-w' as string]: `${width}px`, ...style }}
-        onClick={onClick}
-        role="img"
-        aria-label={`Carte n° ${number}, pas encore découverte`}
-      >
-        <div className="card__body">
-          <CardBack className="card__mystery-back" />
-          <span className="card__mystery" aria-hidden="true">
-            ?
-          </span>
-          <span className="card__mystery-number">N° {number}</span>
-        </div>
-      </div>
-    );
-  }
 
   const ariaLabel = habitat
     ? `${athlete.last}, carte Habitat n° ${number}, ${athlete.role}`

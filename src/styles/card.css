@@ -1118,73 +1118,9 @@
   font-size: 2.15em;
 }
 
-/* ─── album : carte pas encore découverte ───
-   Posée face cachée : le dos du jeu (affiche de crépuscule, logo, filet crème) plongé dans la nuit, un grand
-   « ? » doré qui luit doucement et le numéro dans un cartouche. Ni photo, ni nom, ni rareté. */
-.card.is-mystery .card__body {
-  display: grid;
-  place-items: center;
-  background: #0b170f;
-}
-
-/* le dos remplit toute la carte (la règle .card-back d'app.css le mettrait sinon dans la grille) */
-.card.is-mystery .card__mystery-back {
-  position: absolute;
-  inset: 0;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  box-shadow: none;
-  filter: brightness(0.34) saturate(0.6);
-}
-
-/* voile de nuit, plus sombre en bas, comme sous les collines */
-.card.is-mystery .card__body::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(60% 40% at 50% 52%, rgba(243, 215, 156, 0.1), transparent 70%),
-    linear-gradient(180deg, rgba(5, 10, 8, 0.1), rgba(5, 10, 8, 0.55));
-  pointer-events: none;
-}
-
-.card__mystery {
-  position: relative;
-  z-index: 1;
-  margin-top: 0.6em;
-  font-family: var(--font-display);
-  font-size: 9em;
-  line-height: 1;
-  background: linear-gradient(180deg, #fffaf0 15%, #f3d79c 60%, #d9a441 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  opacity: 0.78;
-  filter: drop-shadow(0 0.04em 0 rgba(0, 0, 0, 0.55)) drop-shadow(0 0 0.35em rgba(217, 164, 65, 0.35));
-}
-
-/* numéro de l'album dans un cartouche sombre au filet crème */
-.card__mystery-number {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  bottom: 1.4em;
-  transform: translateX(-50%);
-  padding: 0.25em 0.8em 0.2em;
-  border: 0.06em solid rgba(232, 222, 196, 0.35);
-  border-radius: 99px;
-  background: rgba(8, 14, 10, 0.75);
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 1.15em;
-  letter-spacing: 0.12em;
-  white-space: nowrap;
-  color: rgba(243, 215, 156, 0.85);
-}
-
-.card.is-tiny .card__mystery-number {
-  font-size: 1.6em;
+/* ─── album : carte pas encore obtenue ─── */
+.card.is-locked .card__body {
+  filter: grayscale(1) brightness(0.42) contrast(0.95);
 }
 
 @media (prefers-reduced-motion: reduce) {
