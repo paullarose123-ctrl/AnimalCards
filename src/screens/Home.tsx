@@ -18,11 +18,11 @@ import { sfx } from '../audio/sfx';
 import { useAccount } from '../store/account';
 import { accountsEnabled } from '../account/supabase';
 
-// Ce qu'on peut décrocher : une légende, le roi des animaux, une Icône en version Prime (éventail fixe).
+// Ce qu'on peut décrocher : un guépard en version Prime, le roi des animaux, un orang-outan Épique (éventail fixe).
 const SHOWCASE: CardFace[] = [
-  { athleteId: 'guepard', variant: 'base' },
+  { athleteId: 'guepard', variant: 'prime' },
   { athleteId: 'lion', variant: 'base' },
-  { athleteId: 't-rex', variant: 'prime' },
+  { athleteId: 'orang-outan', variant: 'base' },
 ];
 
 function Showcase() {
@@ -36,7 +36,7 @@ function Showcase() {
           </div>
         ))}
       </div>
-      <figcaption>À décrocher : légendaires, Icônes et versions Prime</figcaption>
+      <figcaption>À décrocher : versions Prime, légendaires et épiques</figcaption>
     </figure>
   );
 }

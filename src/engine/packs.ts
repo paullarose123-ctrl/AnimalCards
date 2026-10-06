@@ -124,14 +124,15 @@ export const SHOP_PACKS: PackDef[] = [
   },
 ];
 
+/** Pack d'une seule famille : 3 cartes, jamais deux fois la même espèce (certaines familles sont petites). */
 export function sportPack(sport: SportId, sportName: string): PackDef {
   return {
     id: `sport-${sport}`,
     name: `Pack ${sportName}`,
-    tagline: `5 cartes, uniquement ${SPORTS[sport].group}`,
+    tagline: `3 cartes, uniquement ${SPORTS[sport].group}`,
     // la Préhistoire ne contient que des Icônes : son pack coûte le prix d'un trésor
-    price: sport === 'prehistoire' ? 100_000 : 4_000,
-    size: 5,
+    price: sport === 'prehistoire' ? 60_000 : 2_400,
+    size: 3,
     odds: { commune: 50, 'peu-commune': 30, rare: 14, epique: 4.8, legendaire: 1.2 },
     primeChance: PRIME_CHANCE,
     filter: (athlete) => athlete.sport === sport,
@@ -172,13 +173,18 @@ export function iconOdds(pack: PackDef): number {
   return iconPool(pack).length ? ICON_CHANCE : 0;
 }
 
-function rollRarity(rng: Rng, odds: Partial<Odds>, pool: Record<RarityId, Athlete[]>): RarityId {
+/**
+ * Tire la rareté d'une carte. Une rareté dont toutes les espèces sont déjà dans le booster (`taken`) est écartée :
+ * dans une petite famille (un seul canidé commun), la carte suivante sort dans une autre rareté plutôt qu'en double.
+ */
+function rollRarity(rng: Rng, odds: Partial<Odds>, pool: Record<RarityId, Athlete[]>, taken: ReadonlySet<string> = new Set()): RarityId {
   const available = RARITY_ORDER.filter((id) => (odds[id] ?? 0) > 0 && pool[id].length > 0);
   if (available.length === 0) {
     // repli : la rareté disponible la plus proche
     return RARITY_ORDER.find((id) => pool[id].length > 0) ?? 'commune';
   }
-  return weightedPick(rng, available, (id) => odds[id] ?? 0);
+  const open = taken.size ? available.filter((id) => pool[id].some((athlete) => !taken.has(athlete.id))) : available;
+  return weightedPick(rng, open.length ? open : available, (id) => odds[id] ?? 0);
 }
 
 function cardOf(athlete: Athlete, variant: Variant): CardFace {
@@ -201,7 +207,8 @@ export const NO_DUPE_WINDOW = 7;
 /**
  * Tire une espèce en écartant celles déjà sorties récemment (`avoid`) et celles du booster en cours (`taken`).
  * Si la rareté tirée n'a plus d'espèce disponible (petit pack de famille), on relâche d'abord la fenêtre des
- * boosters précédents, puis le booster en cours : la rareté promise est toujours respectée.
+ * boosters précédents. Le booster en cours ne se relâche qu'en dernier recours, pour la carte garantie : les
+ * cartes ordinaires changent de rareté avant d'en arriver là (rollRarity).
  */
 function pickFresh(rng: Rng, candidates: Athlete[], weight: (athlete: Athlete) => number, avoid: ReadonlySet<string>, taken: ReadonlySet<string>): Athlete {
   if (!avoid.size && !taken.size) return weightedPickCached(rng, candidates, weight);
@@ -221,17 +228,18 @@ function drawCard(
   avoid: ReadonlySet<string> = new Set(),
   taken: ReadonlySet<string> = new Set(),
 ): CardFace {
+  // (un Habitat ou une Icône déjà dans le booster ne ressort pas : la carte redevient un animal ordinaire)
   if (allowHabitat && rng() < HABITAT_CHANCE) {
-    const habitats = habitatPool(pack);
+    const habitats = habitatPool(pack).filter((habitat) => !taken.has(habitat.id));
     if (habitats.length) return cardOf(pickFresh(rng, habitats, habitatWeight, avoid, taken), 'base');
   }
   let athlete: Athlete | null = null;
   // une Icône, très rarement, à la place d'une carte ordinaire (jamais à la place de la carte garantie)
   if (allowHabitat && rng() < ICON_CHANCE) {
-    const icons = iconPool(pack);
+    const icons = iconPool(pack).filter((icon) => !taken.has(icon.id));
     if (icons.length) athlete = pickFresh(rng, icons, iconWeight, avoid, taken);
   }
-  athlete ??= pickFresh(rng, pool[rollRarity(rng, odds, pool)], dropWeight, avoid, taken);
+  athlete ??= pickFresh(rng, pool[rollRarity(rng, odds, pool, taken)], dropWeight, avoid, taken);
   if (canBePrime(athlete) && rng() < pack.primeChance) return cardOf(athlete, 'prime');
   return cardOf(athlete, rng() < REVERSE_CHANCE ? 'reverse' : 'base');
 }

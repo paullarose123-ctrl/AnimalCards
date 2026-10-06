@@ -5,6 +5,8 @@ import { FREE_ODDS, FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, primeOdds, 
 import { advanceMarket, createAiListing, createMarket, createMyListing, marketPrice, netAfterTax, TARGET_LISTINGS, type MarketState } from '../market';
 import { MAX_QUESTIONS, RECORDS, ROUNDS, aiSkill, autoTeamFrom, classeOf, compare, createDuel, drawRecords, duelResult, formatRecordValue, playDuelRound, recordValue, type DuelCard } from '../duel';
 import { mulberry32 } from '../random';
+import { SPORTS } from '../../data/sports';
+import type { SportId } from '../types';
 
 const MINUTE = 60_000;
 
@@ -29,6 +31,19 @@ describe('boosters', () => {
       expect(new Set(ids).size).toBe(ids.length);
       for (const id of ids) expect(recent.flat()).not.toContain(id);
       recent = [...recent, ids].slice(-(NO_DUPE_WINDOW - 1));
+    }
+  });
+
+  it('donne 3 espèces différentes dans chaque pack de famille, même les plus petites familles', () => {
+    const rng = mulberry32(31);
+    for (const sport of Object.keys(SPORTS) as SportId[]) {
+      const pack = sportPack(sport, SPORTS[sport].name);
+      for (let i = 0; i < 400; i++) {
+        const cards = openPack(pack, rng);
+        expect(cards).toHaveLength(3);
+        expect(new Set(cards.map((c) => c.athleteId)).size).toBe(3);
+        for (const card of cards) expect(ATHLETES_BY_ID[card.athleteId].sport).toBe(sport);
+      }
     }
   });
 
