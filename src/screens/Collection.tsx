@@ -287,8 +287,8 @@ function Album() {
           const card = mine ?? { athleteId: athlete.id, variant: 'base' as const };
           return (
             <div key={athlete.id} className="card-cell">
-              <Card card={card} size="xs" locked={!have} onClick={() => openDetail({ card, unknown: !have })} />
-              {!have && <span className="album-name">{athlete.last}</span>}
+              {/* une carte pas encore découverte reste un mystère : ni fiche, ni nom */}
+              <Card card={card} size="xs" locked={!have} onClick={have ? () => openDetail({ card }) : undefined} />
             </div>
           );
         })}
@@ -299,7 +299,7 @@ function Album() {
 }
 
 export function CollectionScreen() {
-  const [view, setView] = useState<'club' | 'album' | 'carte'>('club');
+  const [view, setView] = useState<'club' | 'album' | 'carte'>('album');
   const collection = useGame((s) => s.collection);
   const discovered = useGame((s) => s.discovered);
   return (
@@ -314,11 +314,11 @@ export function CollectionScreen() {
           </p>
         </div>
         <div className="segmented" role="tablist" aria-label="Vue de la collection">
-          <button type="button" role="tab" aria-selected={view === 'club'} className={view === 'club' ? 'is-active' : ''} onClick={() => setView('club')}>
-            Ma réserve
-          </button>
           <button type="button" role="tab" aria-selected={view === 'album'} className={view === 'album' ? 'is-active' : ''} onClick={() => setView('album')}>
             Album
+          </button>
+          <button type="button" role="tab" aria-selected={view === 'club'} className={view === 'club' ? 'is-active' : ''} onClick={() => setView('club')}>
+            Ma réserve
           </button>
           <button type="button" role="tab" aria-selected={view === 'carte'} className={view === 'carte' ? 'is-active' : ''} onClick={() => setView('carte')}>
             Carte du monde
