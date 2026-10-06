@@ -164,7 +164,7 @@ async function composeOnLandscape(animalBuffer, fond, detourer = 'alpha') {
     .toBuffer();
 }
 const EXPLORE_DIR = path('scripts/photos/explorer');
-const REPO = process.env.GITHUB_REPOSITORY ?? 'paullarose123-ctrl/AnimalCards';
+const REPO = process.env.GITHUB_REPOSITORY ?? 'paullarose123-ctrl/projet-web';
 const USER_AGENT = `AnimalCardsPhotos/1.0 (https://github.com/${REPO}; jeu de fan non commercial)`;
 
 const argv = process.argv.slice(2);
