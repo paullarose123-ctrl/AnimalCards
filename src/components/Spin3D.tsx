@@ -21,9 +21,9 @@ export function Spin3D({ card, size = 'lg', locked = false }: Spin3DProps) {
   const stage = useRef<HTMLDivElement>(null);
   const object = useRef<HTMLDivElement>(null);
   const state = useRef({
-    rotY: -200, // entrée : la carte arrive en tournoyant
+    rotY: 0, // la carte s'ouvre de face, sans tourner
     rotX: 0,
-    velY: 14,
+    velY: 0,
     target: 0 as number | null,
     dragging: false,
     lastX: 0,
