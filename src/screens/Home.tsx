@@ -382,6 +382,7 @@ export function HomeScreen() {
         Mesures, populations et anecdotes réelles (estimations arrondies). {ATHLETES.filter((a) => !a.habitat).length} espèces, dont {ATHLETES.filter((a) => a.retired).length} Icônes (espèces disparues),
         et {ATHLETES.filter((a) => a.habitat).length} cartes Habitat. Photos libres de Wikimedia Commons, iNaturalist, Unsplash et Pixabay (dont des illustrations réalistes pour les dinosaures et la préhistoire), auteurs crédités dans la fiche de chaque carte.
       </p>
+      <p className="footnote">© 2026 AnimalCards · le jeu, ses dessins et ses textes : tous droits réservés.</p>
     </div>
   );
 }
