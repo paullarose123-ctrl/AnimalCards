@@ -1052,7 +1052,8 @@ h3 {
   }
 }
 
-/* trois dos de cartes de la prochaine série ; celle du milieu flotte, accroche la lumière et garde un « ? » */
+/* la prochaine série : deux de ses boosters en éventail, et devant eux un dos de carte qui flotte,
+   accroche la lumière et garde un « ? » */
 .expansion__teaser {
   position: relative;
   justify-self: center;
@@ -1061,33 +1062,37 @@ h3 {
   perspective: 900px;
 }
 
+.expansion__pack,
 .expansion__card {
   position: absolute;
   top: 10px;
   left: 50%;
   width: 112px;
-  aspect-ratio: 100 / 140;
   margin-left: -56px;
+}
+
+/* en retrait : un peu plus sombres (opaques, pour ne pas se voir l'un à travers l'autre) */
+.expansion__pack {
+  filter: brightness(0.9);
+}
+
+.expansion__pack--left {
+  transform: translateX(-72px) rotate(-11deg);
+}
+
+.expansion__pack--right {
+  transform: translateX(72px) rotate(11deg);
+}
+
+.expansion__card {
+  z-index: 1;
+  aspect-ratio: 100 / 140;
   border-radius: 10px;
   filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.5));
-}
-
-.expansion__card--1 {
-  transform: translateX(-62px) rotate(-14deg);
-  opacity: 0.75;
-}
-
-.expansion__card--2 {
-  transform: translateX(62px) rotate(14deg);
-  opacity: 0.75;
-}
-
-.expansion__card--3 {
-  z-index: 1;
   animation: teaser-float 4s ease-in-out infinite;
 }
 
-.expansion__card--3::after {
+.expansion__card::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -1137,8 +1142,8 @@ h3 {
 
 @media (prefers-reduced-motion: reduce) {
   .expansion__glow,
-  .expansion__card--3,
-  .expansion__card--3::after,
+  .expansion__card,
+  .expansion__card::after,
   .countdown__cell:last-child b,
   .expansion__timeline .is-next i {
     animation: none;

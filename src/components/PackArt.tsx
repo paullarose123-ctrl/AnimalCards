@@ -127,7 +127,8 @@ function creases(seed: string): Crease[] {
   return list;
 }
 
-function Plastic({ seed }: { seed: string }) {
+/** Le plastique froissé du sachet (aussi utilisé par le booster de la Série 2, PackArtMexique). */
+export function Plastic({ seed }: { seed: string }) {
   const list = useMemo(() => creases(seed), [seed]);
   return (
     <svg className="pack-art__plastic" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" aria-hidden="true">
