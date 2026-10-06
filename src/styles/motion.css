@@ -864,7 +864,9 @@ h3 {
   }
 }
 
-/* ───────────── Accueil : une nouvelle extension chaque mois ───────────── */
+/* ───────────── Accueil : l'annonce de la prochaine série ─────────────
+   La matière des panneaux du site (vert forêt sombre, filets crème) avec le filet de cadre des boosters ;
+   seule une lumière chaude, très douce, éclaire les boosters de la prochaine série. */
 .expansion {
   position: relative;
   isolation: isolate;
@@ -874,27 +876,24 @@ h3 {
   align-items: center;
   padding: 24px 22px;
   border-radius: 24px;
-  border: 1px solid rgba(185, 139, 255, 0.35);
+  border: 1px solid var(--line-2);
   background:
-    radial-gradient(90% 120% at 100% 0%, rgba(185, 139, 255, 0.28), transparent 60%),
-    radial-gradient(70% 90% at 0% 100%, rgba(127, 205, 184, 0.22), transparent 60%),
-    linear-gradient(135deg, #171630, #0f1d1a);
-  box-shadow: 0 18px 40px rgba(3, 10, 6, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    radial-gradient(55% 120% at 90% 50%, rgba(230, 196, 120, 0.07), transparent 70%),
+    radial-gradient(120% 80% at 0% 0%, rgba(230, 196, 120, 0.04), transparent 60%),
+    linear-gradient(180deg, rgba(232, 222, 196, 0.03), rgba(232, 222, 196, 0) 45%),
+    var(--bg-2);
+  box-shadow: inset 0 1px 0 rgba(232, 222, 196, 0.06), 0 18px 40px rgba(3, 10, 6, 0.4);
 }
 
-/* lueur d'aurore qui ondule derrière */
-.expansion__glow {
+/* filet de cadre, comme sur les boosters et l'affiche de l'accueil */
+.expansion::before {
+  content: '';
   position: absolute;
-  inset: -40%;
+  inset: 8px;
   z-index: -1;
-  background: conic-gradient(from 0deg, transparent, rgba(185, 139, 255, 0.18), transparent 30%, rgba(127, 205, 184, 0.16), transparent 60%);
-  animation: aurora-spin 18s linear infinite;
-}
-
-@keyframes aurora-spin {
-  to {
-    transform: rotate(360deg);
-  }
+  border: 1px solid rgba(255, 248, 236, 0.12);
+  border-radius: 16px;
+  pointer-events: none;
 }
 
 .expansion__text {
@@ -903,16 +902,14 @@ h3 {
   justify-items: start;
 }
 
+/* titre crème qui se réchauffe vers le bas, comme celui de l'affiche */
 .expansion h2 {
   font-size: clamp(1.6rem, 4vw, 2.3rem);
-  background: linear-gradient(90deg, #fff8ec, #d9c2ff 60%, #a8e8d6);
+  background: linear-gradient(180deg, #fffaf0 30%, #f3d79c 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-.expansion .eyebrow {
-  color: #d9c2ff;
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.3));
 }
 
 .expansion__sub {
@@ -936,7 +933,7 @@ h3 {
 .expansion__next {
   font-family: var(--font-display);
   font-size: 1.05rem;
-  color: #d9c2ff;
+  color: var(--honey);
 }
 
 .countdown {
@@ -950,9 +947,9 @@ h3 {
   min-width: 52px;
   padding: 6px 8px 4px;
   border-radius: 12px;
-  background: rgba(10, 8, 24, 0.55);
-  border: 1px solid rgba(217, 194, 255, 0.25);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 0 rgba(0, 0, 0, 0.3);
+  background: var(--bg);
+  border: 1px solid var(--line-2);
+  box-shadow: inset 0 1px 0 rgba(232, 222, 196, 0.05), 0 4px 0 rgba(0, 0, 0, 0.3);
 }
 
 .countdown__cell b {
@@ -961,7 +958,7 @@ h3 {
   font-size: 1.5rem;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
-  color: #fff8ec;
+  color: var(--text);
 }
 
 .countdown__cell small {
@@ -1011,7 +1008,7 @@ h3 {
   right: 50%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, rgba(217, 194, 255, 0.5), rgba(217, 194, 255, 0.15));
+  background: linear-gradient(90deg, rgba(232, 222, 196, 0.32), rgba(232, 222, 196, 0.1));
   z-index: -1;
 }
 
@@ -1019,8 +1016,8 @@ h3 {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 2px solid rgba(217, 194, 255, 0.5);
-  background: #171630;
+  border: 2px solid rgba(232, 222, 196, 0.32);
+  background: var(--bg-2);
 }
 
 .expansion__timeline b {
@@ -1041,14 +1038,14 @@ h3 {
 }
 
 .expansion__timeline .is-next i {
-  background: #b98bff;
-  border-color: #d9c2ff;
+  background: var(--honey);
+  border-color: #f0cf86;
   animation: next-blink 1.6s ease-in-out infinite;
 }
 
 @keyframes next-blink {
   50% {
-    box-shadow: 0 0 14px rgba(185, 139, 255, 0.9);
+    box-shadow: 0 0 14px rgba(217, 164, 65, 0.8);
   }
 }
 
@@ -1111,7 +1108,7 @@ h3 {
   font-family: var(--font-display);
   font-size: 3.4rem;
   color: #fff8ec;
-  text-shadow: 0 0 18px rgba(185, 139, 255, 0.95), 0 3px 0 rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 18px rgba(217, 164, 65, 0.9), 0 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 @keyframes teaser-float {
@@ -1141,7 +1138,6 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .expansion__glow,
   .expansion__card,
   .expansion__card::after,
   .countdown__cell:last-child b,

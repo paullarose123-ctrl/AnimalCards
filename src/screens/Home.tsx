@@ -98,7 +98,6 @@ function ExpansionBanner() {
   const species = ATHLETES.filter((a) => !a.habitat).length;
   return (
     <section className="expansion" aria-labelledby="expansion-title">
-      <div className="expansion__glow" aria-hidden="true" />
       <div className="expansion__text">
         <p className="eyebrow">Extensions</p>
         <h2 id="expansion-title">La Série {NEXT_SERIES.number} arrive en {MONTHS[release.getMonth()]}</h2>
