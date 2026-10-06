@@ -865,9 +865,10 @@ h3 {
 }
 
 /* ───────────── Accueil : l'annonce de la prochaine série ─────────────
-   La matière des panneaux du site (vert forêt sombre, filets crème) avec le filet de cadre des boosters ;
+   Le bleu nuit de l'affiche de l'accueil, les filets crème des panneaux et le filet de cadre des boosters ;
    seule une lumière chaude, très douce, éclaire les boosters de la prochaine série. */
 .expansion {
+  --expansion-bg: #0c0f1c;
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -881,7 +882,7 @@ h3 {
     radial-gradient(55% 120% at 90% 50%, rgba(230, 196, 120, 0.07), transparent 70%),
     radial-gradient(120% 80% at 0% 0%, rgba(230, 196, 120, 0.04), transparent 60%),
     linear-gradient(180deg, rgba(232, 222, 196, 0.03), rgba(232, 222, 196, 0) 45%),
-    var(--bg-2);
+    var(--expansion-bg);
   box-shadow: inset 0 1px 0 rgba(232, 222, 196, 0.06), 0 18px 40px rgba(3, 10, 6, 0.4);
 }
 
@@ -947,7 +948,7 @@ h3 {
   min-width: 52px;
   padding: 6px 8px 4px;
   border-radius: 12px;
-  background: var(--bg);
+  background: #080a14;
   border: 1px solid var(--line-2);
   box-shadow: inset 0 1px 0 rgba(232, 222, 196, 0.05), 0 4px 0 rgba(0, 0, 0, 0.3);
 }
@@ -1017,7 +1018,7 @@ h3 {
   height: 14px;
   border-radius: 50%;
   border: 2px solid rgba(232, 222, 196, 0.32);
-  background: var(--bg-2);
+  background: var(--expansion-bg);
 }
 
 .expansion__timeline b {
