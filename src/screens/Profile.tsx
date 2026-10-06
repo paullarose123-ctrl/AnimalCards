@@ -13,9 +13,12 @@ import { photoCredit } from '../photos';
 import { Landscape } from '../components/PackScene';
 import { SCREEN_SCENES } from '../art/scenes';
 import { TradeModal, TradesPanel } from './Trades';
+import { FamilyBadge } from '../components/FamilyBadge';
+import { familyProgress } from '../engine/badges';
+import { SPORTS, SPORT_ORDER } from '../data/sports';
 
 // Écran Profil : le compte du joueur (création, connexion, sauvegarde), sa vitrine de cartes préférées,
-// et ses amis (demandes d'ami à accepter) : leur photo, leur vitrine et un duel contre elle.
+// ses badges de collection, et ses amis (demandes d'ami à accepter) : leur photo, leur vitrine et un duel contre elle.
 
 function normalize(text: string): string {
   return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -267,6 +270,36 @@ function Showcase() {
         })}
       </div>
       {picking !== null && <Picker slot={picking} onClose={() => setPicking(null)} />}
+    </section>
+  );
+}
+
+/** Badges de collection : un par famille de l'album, gagné quand toutes ses espèces sont découvertes. */
+function Badges() {
+  const discovered = useGame((s) => s.discovered);
+  const badges = useGame((s) => s.badges);
+  const earned = SPORT_ORDER.filter((sport) => badges[sport]).length;
+  return (
+    <section className="panel">
+      <h2>
+        Mes badges <small>· {earned}/{SPORT_ORDER.length}</small>
+      </h2>
+      <p className="muted small">Complète une famille de l’album (toutes ses espèces, Icônes comprises) pour gagner son badge. Il est à toi pour toujours.</p>
+      <div className="badges">
+        {SPORT_ORDER.map((sport) => {
+          const earnedAt = badges[sport];
+          const [owned, total] = familyProgress(discovered, sport);
+          return (
+            <div key={sport} className={`badges__item${earnedAt ? ' is-earned' : ''}`}>
+              <FamilyBadge sport={sport} earned={!!earnedAt} />
+              <span className="badges__name">{SPORTS[sport].name}</span>
+              <span className="badges__state">
+                {earnedAt ? `Obtenu le ${new Date(earnedAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })}` : `${owned}/${total} espèces`}
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }
@@ -555,6 +588,7 @@ export function ProfileScreen() {
         </section>
       )}
       <Showcase />
+      <Badges />
       {enabled && <Friends />}
       {enabled && <TradesPanel />}
     </div>

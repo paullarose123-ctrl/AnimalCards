@@ -5,6 +5,7 @@ import { FREE_ODDS, FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, primeOdds, 
 import { advanceMarket, createAiListing, createMarket, createMyListing, marketPrice, netAfterTax, TARGET_LISTINGS, type MarketState } from '../market';
 import { MAX_QUESTIONS, RECORDS, ROUNDS, aiSkill, autoTeamFrom, classeOf, compare, createDuel, drawRecords, duelResult, formatRecordValue, playDuelRound, recordValue, type DuelCard } from '../duel';
 import { mulberry32 } from '../random';
+import { completedFamilies, familyProgress, newBadges } from '../badges';
 import { SPORTS } from '../../data/sports';
 import type { SportId } from '../types';
 
@@ -183,6 +184,20 @@ describe('boosters', () => {
     expect(share).toBeLessThan(0.011);
     // plus une espèce est célèbre, plus sa carte est rare : le lion sort bien moins souvent que le crocodile du Nil
     expect(lion).toBeLessThan(crocodile);
+  });
+});
+
+describe('badges de collection', () => {
+  it('donne le badge d’une famille quand toutes ses espèces sont découvertes, et une seule fois', () => {
+    const felins = ATHLETES.filter((a) => a.sport === 'felins' && !a.habitat);
+    const discovered: Record<string, number> = Object.fromEntries(felins.map((a) => [a.id, 1]));
+    expect(familyProgress(discovered, 'felins')).toEqual([felins.length, felins.length]);
+    expect(completedFamilies(discovered)).toEqual(['felins']);
+    expect(newBadges(discovered, {})).toEqual(['felins']);
+    expect(newBadges(discovered, { felins: 1 })).toEqual([]);
+    // une espèce manquante : pas de badge
+    delete discovered[felins[0].id];
+    expect(completedFamilies(discovered)).toEqual([]);
   });
 });
 

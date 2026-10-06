@@ -18,6 +18,7 @@ import {
 } from '../engine/market';
 import { TEAM_SIZE, autoTeamFrom, canDuel, createDuel, duelResult, playDuelRound, rewardFor, type DuelState } from '../engine/duel';
 import { makeUid } from '../engine/random';
+import { newBadges } from '../engine/badges';
 
 export const FREE_PACK_INTERVAL = 30 * 60_000;
 /** nombre de cartes de la vitrine du profil */
@@ -164,6 +165,8 @@ export interface GameState {
   favorites: string[];
   /** photo de profil : l'espèce dont la photo est affichée (chaîne vide : l'initiale du pseudo) */
   avatar: string;
+  /** badges de collection : famille complétée → date d'obtention (gardés même si la famille s'agrandit) */
+  badges: Record<string, number>;
   opening: Opening | null;
   toasts: Toast[];
 
@@ -276,6 +279,7 @@ function initialState(now: number) {
     recentPacks: [] as string[][],
     favorites: [] as string[],
     avatar: '',
+    badges: {} as Record<string, number>,
     opening: null as Opening | null,
     toasts: [] as Toast[],
   };
@@ -824,6 +828,22 @@ export const useGame = create<GameState>()(
     },
   ),
 );
+
+// Badges de collection : dès qu'une famille de l'album est complète (booster, marché, échange, partie rechargée…),
+// son badge est gagné pour de bon, avec une notification.
+function awardBadges(state: GameState) {
+  const earned = newBadges(state.discovered, state.badges ?? {});
+  if (!earned.length) return;
+  const now = Date.now();
+  useGame.setState({ badges: { ...state.badges, ...Object.fromEntries(earned.map((sport) => [sport, now])) } });
+  for (const sport of earned) useGame.getState().toast('gold', `Badge ${SPORTS[sport].name} : tu as complété la collection ${SPORTS[sport].of} !`);
+}
+
+useGame.subscribe((state, previous) => {
+  if (state.discovered !== previous.discovered) awardBadges(state);
+});
+// la sauvegarde du navigateur est relue avant cet abonnement : on vérifie aussi la partie chargée
+awardBadges(useGame.getState());
 
 /**
  * Commandes de triche (graines) : seulement en développement et dans la version de test (mode « single »).

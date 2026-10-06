@@ -5739,3 +5739,162 @@
   box-shadow: 0 0 10px rgba(243, 220, 154, 0.45);
   vertical-align: middle;
 }
+
+/* ───────────── Badges de collection (profil) ─────────────
+   Médaillon cerclé d'or, paysage du pack de la famille, emblème au centre et ruban au nom de la famille.
+   --badge-size : diamètre du médaillon ; --badge-near : premier plan du paysage ; --sport : couleur de la famille. */
+.badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 18px 10px;
+  justify-items: center;
+  margin-top: 14px;
+}
+
+.badges__item {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.badges__name {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.badges__state {
+  font-size: 0.74rem;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.badges__item.is-earned .badges__state {
+  color: var(--honey);
+}
+
+.fbadge {
+  --badge-size: 104px;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: var(--badge-size);
+  padding-bottom: calc(var(--badge-size) * 0.1);
+}
+
+.fbadge__medal {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  isolation: isolate;
+  border: calc(var(--badge-size) * 0.055) solid transparent;
+  background:
+    linear-gradient(var(--badge-near), var(--badge-near)) padding-box,
+    linear-gradient(155deg, #fff1c4 0%, #d9a441 32%, #8a5a1c 62%, #f3d79c 100%) border-box;
+  box-shadow: 0 0 0 1px rgba(40, 24, 6, 0.7), 0 8px 18px rgba(3, 10, 6, 0.5);
+}
+
+.fbadge__scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* filet crème à l'intérieur du cercle d'or, comme sur les boosters */
+.fbadge__medal::after {
+  content: '';
+  position: absolute;
+  inset: 6%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 248, 236, 0.55);
+  pointer-events: none;
+}
+
+/* emblème de la famille, comme le médaillon des cartes */
+.fbadge__emblem {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--badge-near) 70%, #fff), var(--badge-near) 72%);
+  box-shadow:
+    inset 0 0 0 calc(var(--badge-size) * 0.012) #e9c46a,
+    inset 0 0 0 calc(var(--badge-size) * 0.03) var(--badge-near),
+    inset 0 0 0 calc(var(--badge-size) * 0.036) #e9c46a,
+    0 3px 8px rgba(0, 0, 0, 0.45);
+  color: #f3d79c;
+}
+
+.fbadge__emblem svg {
+  width: 60%;
+  height: 60%;
+  stroke-width: 1.7;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+}
+
+/* ruban au nom de la famille, à cheval sur le bas du médaillon */
+.fbadge__ribbon {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 2;
+  transform: translateX(-50%);
+  max-width: 116%;
+  padding: 2px 10px 3px;
+  clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sport) 80%, #fff), var(--sport));
+  color: #1b130a;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: calc(var(--badge-size) * 0.085);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* badge pas encore gagné : en grisaille, l'or terni */
+.fbadge.is-locked {
+  filter: grayscale(1) brightness(0.55) contrast(0.9);
+  opacity: 0.75;
+}
+
+/* badge gagné : un reflet passe de temps en temps sur l'or */
+.fbadge.is-earned .fbadge__medal::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--badge-size) * -0.055);
+  z-index: 2;
+  border-radius: 50%;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 38%, rgba(255, 246, 214, 0.55) 50%, transparent 62%) 0 0 / 300% 100%;
+  mix-blend-mode: soft-light;
+  animation: badge-glint 5s ease-in-out infinite;
+}
+
+@keyframes badge-glint {
+  0%,
+  60% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -20% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fbadge.is-earned .fbadge__medal::before {
+    animation: none;
+  }
+}
