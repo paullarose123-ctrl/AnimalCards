@@ -418,7 +418,8 @@ export function CardDetail() {
 
           {face.variant === 'reverse' && (
             <p className="detail__prime">
-              <b>Version Reverse</b> : finition holographique, environ 1 carte sur 20. La même carte que la classique, mais une cote bien plus élevée au marché.
+              <b>Version Reverse</b> : finition aquarelle aux couleurs de sa rareté, réservée aux cartes Rares, Épiques et Légendaires (environ 1 sur 20). La même carte que
+              la classique, mais une cote bien plus élevée au marché.
             </p>
           )}
 

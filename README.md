@@ -59,7 +59,7 @@ Le jeu compte 446 espèces dans 19 familles, dont 46 Icônes (espèces disparues
 
 - **Icônes** : les espèces disparues. Les dinosaures et la mégafaune de la préhistoire, et les espèces éteintes par l’homme, avec leur année de disparition et une vraie photo (de l’animal lui-même, ou à défaut d’un congénère de la même espèce) : quagga (1883), tourte voyageuse (1914), thylacine (1936), tigre de Java (1976), tortue de Pinta (2012), rainette de Rabb (2016)… Carte marbre blanc et or.
 - **Prime** : un individu célèbre d’une espèce vedette, avec son année et son histoire : Félicette (chat, 1963), Keiko (orque, 1993), Knut (ours polaire, 2006), Koko (gorille, 1972), Jumbo (éléphant, 1882), Hachikō (akita, 1925), Balto (husky, 1925), Barry (saint-bernard, 1800), Sue (T. rex, 1990)… 28 au total. Une de ces espèces tirée dans un booster a 5 % de chances d’être en Prime. Valeur ×6 au marché.
-- **Reverse** : n’importe quelle carte peut sortir en finition aquarelle pastel (environ 1 carte sur 20). Valeur ×2,5 au marché.
+- **Reverse** : seules les cartes Rares, Épiques et Légendaires peuvent sortir en finition aquarelle (environ 1 sur 20), chacune aux couleurs de sa rareté : lavis pêche et corail pour la Rare, lavande et menthe étoilées pour l’Épique, lavis irisé et filet d’or pour la Légendaire. Valeur ×2,5 au marché.
 
 ### Cartes Habitat
 

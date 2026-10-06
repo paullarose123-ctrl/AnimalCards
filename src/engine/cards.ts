@@ -96,10 +96,14 @@ export const PRIME_VALUE_MULTIPLIER = 6;
 export const PRIME_MIN_VALUE = 50_000;
 
 // ───────────── Reverse ─────────────
-// Finition holographique : n'importe quelle carte peut sortir en Reverse (environ 1 carte sur 20),
-// identique à la classique, mais avec une cote plus élevée.
+// Finition aquarelle : seules les cartes Rares, Épiques et Légendaires peuvent sortir en Reverse (environ 1 sur 20),
+// identique à la classique, mais avec une cote plus élevée. Jamais une Commune, une Peu commune ni un Habitat.
 export const REVERSE_CHANCE = 0.05;
 export const REVERSE_VALUE_MULTIPLIER = 2.5;
+
+export function canBeReverse(athlete: Athlete): boolean {
+  return !athlete.habitat && rarityOf(athlete).order >= RARITIES.rare.order;
+}
 
 // ───────────── Habitats ─────────────
 // Grands lieux de la planète (Amazonie, Grande Barrière…) : environ 1 carte sur 40 dans les boosters.

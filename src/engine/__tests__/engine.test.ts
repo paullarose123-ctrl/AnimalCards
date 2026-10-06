@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ATHLETES, ATHLETES_BY_ID } from '../../data/athletes';
-import { baseValueOf, canBePrime, rarityOf } from '../cards';
+import { baseValueOf, canBePrime, canBeReverse, rarityOf } from '../cards';
 import { FREE_ODDS, FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, primeOdds, sportPack } from '../packs';
 import { advanceMarket, createAiListing, createMarket, createMyListing, marketPrice, netAfterTax, TARGET_LISTINGS, type MarketState } from '../market';
 import { MAX_QUESTIONS, RECORDS, ROUNDS, aiSkill, autoTeamFrom, classeOf, compare, createDuel, drawRecords, duelResult, formatRecordValue, playDuelRound, recordValue, type DuelCard } from '../duel';
@@ -61,18 +61,26 @@ describe('boosters', () => {
     }
   });
 
-  it('sort environ une carte sur 20 en version Reverse, plus chère que la classique', () => {
+  it('sort environ une Rare (ou mieux) sur 20 en version Reverse, jamais une Commune ni une Peu commune', () => {
     const rng = mulberry32(2026);
     let reverse = 0;
-    let total = 0;
-    for (let i = 0; i < 4000; i++) {
+    let eligible = 0;
+    for (let i = 0; i < 12_000; i++) {
       for (const card of openPack(FREE_PACK, rng)) {
-        total += 1;
-        if (card.variant === 'reverse') reverse += 1;
+        const athlete = ATHLETES_BY_ID[card.athleteId];
+        if (card.variant === 'reverse') {
+          reverse += 1;
+          expect(rarityOf(athlete).order).toBeGreaterThanOrEqual(2);
+        }
+        if (canBeReverse(athlete) && card.variant !== 'prime') eligible += 1;
       }
     }
-    expect(reverse / total).toBeGreaterThan(0.04);
-    expect(reverse / total).toBeLessThan(0.06);
+    expect(reverse / eligible).toBeGreaterThan(0.04);
+    expect(reverse / eligible).toBeLessThan(0.06);
+    for (let i = 0; i < 2000; i++) {
+      const listing = createAiListing(rng, 0, []);
+      if (listing.card.variant === 'reverse') expect(canBeReverse(ATHLETES_BY_ID[listing.card.athleteId])).toBe(true);
+    }
     const zebre = ATHLETES_BY_ID.zebre;
     expect(baseValueOf(zebre, 'reverse')).toBeGreaterThan(baseValueOf(zebre));
   });

@@ -247,6 +247,77 @@
   --tier-ink: #5b4380;
   --hill-far: #f6e2f1;
   --hill-near: #eedcf6;
+  /* lavis posé sur la photo, et dégradé du mot « Reverse » */
+  --reverse-wash: linear-gradient(140deg, rgba(255, 184, 216, 0.75), rgba(255, 232, 186, 0.45) 35%, rgba(186, 240, 218, 0.5) 65%, rgba(204, 196, 255, 0.75));
+  --reverse-tier: linear-gradient(90deg, #cf5f97, #8a5cc4, #4c96bd);
+}
+
+/* Chaque Reverse reprend en aquarelle la palette de sa rareté (seules les Rares et au-dessus en ont une ;
+   les anciennes Reverse communes gardent le lavis multicolore ci-dessus). */
+
+/* Reverse Rare : savane au couchant, en lavis pêche, abricot et corail, liserés terre cuite */
+.card.is-reverse.r-rare {
+  --foil:
+    radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.95) 0 0.04em, transparent 0.1em) 0 0 / 0.8em 1em,
+    radial-gradient(50% 34% at 12% 8%, rgba(255, 176, 150, 0.95), transparent 72%),
+    radial-gradient(44% 30% at 92% 18%, rgba(255, 214, 140, 0.95), transparent 72%),
+    radial-gradient(48% 32% at 86% 82%, rgba(255, 160, 150, 0.9), transparent 72%),
+    radial-gradient(46% 30% at 10% 86%, rgba(255, 226, 168, 0.95), transparent 72%),
+    linear-gradient(165deg, #ffd8c8 0%, #ffe6cc 30%, #fff1d2 55%, #ffe0c8 80%, #ffd0c4 100%);
+  --panel: #fffaf2;
+  --trim: #d9825a;
+  --metal: linear-gradient(180deg, #d0603a 0%, #b4423f 50%, #8c2f3c 100%);
+  --plate-ink: #8a3b2e;
+  --tier-bg: linear-gradient(180deg, #ffffff, #fff1e2 60%, #ffdcc0);
+  --tier-ink: #8a3b2e;
+  --hill-far: #fde3d2;
+  --hill-near: #fbd9c6;
+  --reverse-wash: linear-gradient(140deg, rgba(255, 168, 140, 0.7), rgba(255, 222, 150, 0.45) 40%, rgba(255, 196, 168, 0.5) 70%, rgba(255, 150, 140, 0.7));
+  --reverse-tier: linear-gradient(90deg, #e2703c, #c4455e);
+}
+
+/* Reverse Épique : aurore en lavis lavande, menthe et ciel, semée d'étoiles, liserés violets */
+.card.is-reverse.r-epique {
+  --foil:
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 0.04em, transparent 0.09em) 0 0 / 1.1em 0.9em,
+    radial-gradient(circle at 70% 30%, rgba(170, 150, 255, 0.8) 0 0.035em, transparent 0.08em) 0 0 / 1.5em 1.3em,
+    linear-gradient(160deg, transparent 18%, rgba(150, 240, 206, 0.75) 36%, transparent 56%),
+    linear-gradient(200deg, transparent 38%, rgba(206, 170, 255, 0.75) 58%, transparent 80%),
+    linear-gradient(170deg, #e9e4ff 0%, #e2f6f1 35%, #eef0ff 62%, #e4d8ff 100%);
+  --panel: #f8f7ff;
+  --trim: #8a74d8;
+  --metal: linear-gradient(180deg, #2f9d8c 0%, #5a4fbf 50%, #3a2c8a 100%);
+  --plate-ink: #3b2f86;
+  --tier-bg: linear-gradient(180deg, #ffffff, #eef0ff 60%, #dde6ff);
+  --tier-ink: #3b2f86;
+  --hill-far: #e6e2fb;
+  --hill-near: #dcefee;
+  --reverse-wash: linear-gradient(140deg, rgba(170, 240, 214, 0.7), rgba(196, 186, 255, 0.5) 40%, rgba(160, 214, 255, 0.55) 70%, rgba(214, 170, 255, 0.7));
+  --reverse-tier: linear-gradient(90deg, #22a98f, #7c58d6);
+}
+
+/* Reverse Légendaire : lavis irisé (rose, corail, or, menthe, ciel) rehaussé de feuille d'or, liserés dorés */
+.card.is-reverse.r-legendaire {
+  --foil:
+    radial-gradient(circle at 30% 40%, rgba(255, 216, 120, 0.95) 0 0.05em, transparent 0.11em) 0 0 / 0.9em 1.1em,
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.9) 0 0.04em, transparent 0.1em) 0 0 / 1.3em 1.5em,
+    conic-gradient(from 200deg at 40% 35%, rgba(255, 170, 200, 0.6), rgba(255, 210, 140, 0.6), rgba(170, 240, 210, 0.6), rgba(170, 210, 255, 0.6), rgba(220, 180, 255, 0.6), rgba(255, 170, 200, 0.6)),
+    linear-gradient(165deg, #ffe1ec 0%, #ffe9cf 30%, #fff3cf 50%, #e0f6ea 70%, #e6e2ff 100%);
+  --panel: #fffaf0;
+  --trim: #c9973c;
+  --metal: linear-gradient(180deg, #c27a2c 0%, #a2456c 50%, #6a3c96 100%);
+  --plate-ink: #6b3a5c;
+  --tier-bg: linear-gradient(90deg, #e9c46a, #fff4d6 50%, #e3b452);
+  --tier-ink: #5a3418;
+  --hill-far: #fbe6da;
+  --hill-near: #f7e3ee;
+  --reverse-wash: conic-gradient(from 160deg at 50% 50%, rgba(255, 170, 200, 0.65), rgba(255, 214, 140, 0.55), rgba(170, 240, 210, 0.55), rgba(170, 210, 255, 0.6), rgba(220, 180, 255, 0.65), rgba(255, 170, 200, 0.65));
+  --reverse-tier: linear-gradient(90deg, #c27a2c, #b0457a, #6a4bb0);
+}
+
+/* un filet d'or autour de la Reverse Légendaire, comme sur les Icônes */
+.card.is-reverse.r-legendaire .card__body {
+  box-shadow: inset 0 0 0 0.08em rgba(201, 151, 60, 0.75), inset 0 0 0 0.2em rgba(255, 236, 190, 0.5);
 }
 
 /* les lavis glissent très lentement d'une teinte à l'autre */
@@ -525,7 +596,7 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(140deg, rgba(255, 184, 216, 0.75), rgba(255, 232, 186, 0.45) 35%, rgba(186, 240, 218, 0.5) 65%, rgba(204, 196, 255, 0.75));
+  background: var(--reverse-wash);
   mix-blend-mode: soft-light;
 }
 
@@ -545,7 +616,7 @@
 }
 
 .is-reverse .card__tier i {
-  background: linear-gradient(90deg, #cf5f97, #8a5cc4, #4c96bd);
+  background: var(--reverse-tier);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -876,8 +947,8 @@
 /* Reverse : réglette crème et texte prune, comme le reste de la carte */
 .is-reverse .card__facts {
   background: linear-gradient(180deg, rgba(255, 250, 244, 0.72), rgba(255, 246, 252, 0.86));
-  box-shadow: inset 0 0 0 0.07em rgba(179, 131, 201, 0.5), 0 0.15em 0.4em rgba(90, 60, 120, 0.25);
-  color: #5b4380;
+  box-shadow: inset 0 0 0 0.07em color-mix(in srgb, var(--trim) 60%, transparent), 0 0.15em 0.4em rgba(90, 60, 120, 0.25);
+  color: var(--plate-ink);
 }
 
 .is-reverse .card__fact + .card__fact {
@@ -1125,7 +1196,7 @@
 }
 
 .is-reverse .card__latin {
-  color: #5b4380;
+  color: var(--plate-ink);
   text-shadow: 0 0 0.3em rgba(255, 255, 255, 0.9);
 }
 

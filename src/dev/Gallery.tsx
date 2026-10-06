@@ -72,10 +72,12 @@ export function Gallery() {
           <Card key={id} card={{ athleteId: id, variant: 'base' }} size="md" />
         ))}
       </section>
+      {/* une Reverse par rareté (Rare, Épique, Légendaire), chacune à côté de sa version classique */}
       <section id="reverse" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {['guepard', 'herisson', 'requin-marteau', 'thylacine', 'abeille'].map((id) => (
-          <Card key={id} card={{ athleteId: id, variant: 'reverse' }} size="lg" />
-        ))}
+        {['flamant-rose', 'zebre', 'tigre'].flatMap((id) => [
+          <Card key={`${id}-base`} card={{ athleteId: id, variant: 'base' }} size="lg" />,
+          <Card key={`${id}-reverse`} card={{ athleteId: id, variant: 'reverse' }} size="lg" />,
+        ])}
       </section>
       <section id="icones" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
         {ATHLETES.filter((a) => a.retired && !a.habitat).map((a) => (

@@ -8,6 +8,7 @@ import {
   RARITY_ORDER,
   REVERSE_CHANCE,
   canBePrime,
+  canBeReverse,
   dropWeight,
   iconWeight,
   isIcon,
@@ -241,12 +242,22 @@ function drawCard(
   }
   athlete ??= pickFresh(rng, pool[rollRarity(rng, odds, pool, taken)], dropWeight, avoid, taken);
   if (canBePrime(athlete) && rng() < pack.primeChance) return cardOf(athlete, 'prime');
-  return cardOf(athlete, rng() < REVERSE_CHANCE ? 'reverse' : 'base');
+  return cardOf(athlete, canBeReverse(athlete) && rng() < REVERSE_CHANCE ? 'reverse' : 'base');
 }
 
-/** Probabilité qu'une carte ordinaire du booster sorte en version Reverse (affichée en boutique). */
+/** Probabilité qu'une carte ordinaire du booster sorte en version Reverse (affichée en boutique) : Rares et au-dessus. */
 export function reverseOdds(pack: PackDef): number {
-  return (1 - primeOdds(pack)) * REVERSE_CHANCE;
+  const pool = poolFor(pack);
+  const available = RARITY_ORDER.filter((id) => pack.odds[id] > 0 && pool[id].length > 0);
+  const total = available.reduce((sum, id) => sum + pack.odds[id], 0);
+  let share = 0;
+  for (const id of available) {
+    if (!canBeReverse(pool[id][0])) continue;
+    const all = pool[id].reduce((sum, athlete) => sum + dropWeight(athlete), 0);
+    const prime = pool[id].filter(canBePrime).reduce((sum, athlete) => sum + dropWeight(athlete), 0) * pack.primeChance;
+    share += (pack.odds[id] / total) * (1 - prime / all);
+  }
+  return share * REVERSE_CHANCE;
 }
 
 const primePools = new Map<string, Athlete[]>();
