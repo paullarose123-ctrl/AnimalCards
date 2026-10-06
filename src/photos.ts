@@ -13,6 +13,8 @@ export interface PhotoCredit {
   license: string;
   licenseUrl: string;
   page: string;
+  /** empreinte de l'image : ajoutée à son adresse, elle force le navigateur à recharger une photo qui a changé */
+  v?: string;
 }
 
 const CREDITS = credits as Record<string, PhotoCredit>;
@@ -67,7 +69,7 @@ export function usePhoto(athlete: Athlete): { src?: string; cutout: boolean } {
   const loaded = useSyncExternalStore(subscribe, () => cache.get(athlete.id));
   const credit = CREDITS[athlete.id];
   if (!credit) return { cutout: false };
-  if (!SINGLE_FILE) return { src: `${import.meta.env.BASE_URL}photos/${credit.file}`, cutout: credit.cutout };
+  if (!SINGLE_FILE) return { src: `${import.meta.env.BASE_URL}photos/${credit.file}${credit.v ? `?v=${credit.v}` : ''}`, cutout: credit.cutout };
   if (!loaded) loadPhoto(athlete.id);
   return { src: loaded, cutout: credit.cutout };
 }

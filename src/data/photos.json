@@ -5,7 +5,8 @@
   "author": "Hans",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/bee-insect-lavender-honey-bee-167789/"
+  "page": "https://pixabay.com/photos/bee-insect-lavender-honey-bee-167789/",
+  "v": "e1a5fe98"
  },
  "aigle-royal": {
   "file": "aigle-royal.webp",
@@ -13,7 +14,8 @@
   "author": "Giles Laurent",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg",
+  "v": "4a1d23e3"
  },
  "akita": {
   "file": "akita.webp",
@@ -25,7 +27,8 @@
   "brut": [
    1800,
    1343
-  ]
+  ],
+  "v": "8f868d6e"
  },
  "albatros": {
   "file": "albatros.webp",
@@ -33,7 +36,8 @@
   "author": "angelicabest",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/albatross-bird-beak-2239254/"
+  "page": "https://pixabay.com/photos/albatross-bird-beak-2239254/",
+  "v": "21a98256"
  },
  "alligator": {
   "file": "alligator.webp",
@@ -41,7 +45,8 @@
   "author": "David Clode",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/nGqJCrxN6dI"
+  "page": "https://unsplash.com/photos/nGqJCrxN6dI",
+  "v": "021e7c08"
  },
  "alpaga": {
   "file": "alpaga.webp",
@@ -49,7 +54,8 @@
   "author": "Ian Cruickshank",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/351768042"
+  "page": "https://www.inaturalist.org/photos/351768042",
+  "v": "aeb1a63a"
  },
  "anaconda": {
   "file": "anaconda.webp",
@@ -57,7 +63,8 @@
   "author": "Lingchor",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/-aTwPsTweJs"
+  "page": "https://unsplash.com/photos/-aTwPsTweJs",
+  "v": "33493808"
  },
  "ane": {
   "file": "ane.webp",
@@ -65,7 +72,8 @@
   "author": "JACLOU-DL",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/donkey-equine-herbivorous-5038112/"
+  "page": "https://pixabay.com/photos/donkey-equine-herbivorous-5038112/",
+  "v": "7de8a72b"
  },
  "anemone": {
   "file": "anemone.webp",
@@ -73,7 +81,8 @@
   "author": "Tomasz_Mikolajczyk",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/anemone-water-aquarium-sea-reef-635164/"
+  "page": "https://pixabay.com/photos/anemone-water-aquarium-sea-reef-635164/",
+  "v": "eb5ae55a"
  },
  "anguille": {
   "file": "anguille.webp",
@@ -81,7 +90,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/eel-electric-fish-underwater-dark-10198425/"
+  "page": "https://pixabay.com/photos/eel-electric-fish-underwater-dark-10198425/",
+  "v": "46356bf1"
  },
  "antilocapre": {
   "file": "antilocapre.webp",
@@ -89,7 +99,8 @@
   "author": "Thomas Wolf , www.foto-tw.de",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Pronghorn_Yellowstone.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Pronghorn_Yellowstone.jpg",
+  "v": "45884e7e"
  },
  "ara": {
   "file": "ara.webp",
@@ -97,7 +108,8 @@
   "author": "José Antonio Linage Espinosa",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/30793273"
+  "page": "https://www.inaturalist.org/photos/30793273",
+  "v": "db40a8b0"
  },
  "araignee-paon": {
   "file": "araignee-paon.webp",
@@ -105,7 +117,8 @@
   "author": "Nigel Main",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Maratus_volans_152652557.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Maratus_volans_152652557.jpg",
+  "v": "04a691b2"
  },
  "atele": {
   "file": "atele.webp",
@@ -113,7 +126,8 @@
   "author": "Pixabay",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/spider-monkey-monkey-primate-ape-4546438/"
+  "page": "https://pixabay.com/photos/spider-monkey-monkey-primate-ape-4546438/",
+  "v": "de7d611e"
  },
  "autour": {
   "file": "autour.webp",
@@ -121,7 +135,8 @@
   "author": "Maurizio Carlini",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Poiana_interessata.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Poiana_interessata.jpg",
+  "v": "4762c850"
  },
  "autruche": {
   "file": "autruche.webp",
@@ -129,7 +144,8 @@
   "author": "Andrew Allen",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/55506762"
+  "page": "https://www.inaturalist.org/photos/55506762",
+  "v": "627eae20"
  },
  "autruche-d-arabie": {
   "file": "autruche-d-arabie.webp",
@@ -141,7 +157,8 @@
   "brut": [
    1800,
    1200
-  ]
+  ],
+  "v": "6c319d41"
  },
  "axolotl": {
   "file": "axolotl.webp",
@@ -149,7 +166,8 @@
   "author": "Lutz Stallknecht",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/un-axolotl-pale-aux-branchies-roses-sous-leau-Mg1j9kIT2Fg"
+  "page": "https://unsplash.com/photos/un-axolotl-pale-aux-branchies-roses-sous-leau-Mg1j9kIT2Fg",
+  "v": "f51a5527"
  },
  "aye-aye": {
   "file": "aye-aye.webp",
@@ -157,7 +175,8 @@
   "author": "nomis-simon",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Wild_aye_aye.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Wild_aye_aye.jpg",
+  "v": "74042b70"
  },
  "babouin": {
   "file": "babouin.webp",
@@ -165,7 +184,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Chacma_baboon_(Papio_ursinus_griseipes)_female_head_2.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Chacma_baboon_(Papio_ursinus_griseipes)_female_head_2.jpg",
+  "v": "d660f071"
  },
  "balbuzard": {
   "file": "balbuzard.webp",
@@ -173,7 +193,8 @@
   "author": "GregSabin",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/osprey-bird-raptor-flying-animal-6357148/"
+  "page": "https://pixabay.com/photos/osprey-bird-raptor-flying-animal-6357148/",
+  "v": "0470c15c"
  },
  "baleine-a-bosse": {
   "file": "baleine-a-bosse.webp",
@@ -181,7 +202,8 @@
   "author": "DesignScape",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/humpback-whale-whale-ocean-sea-7546810/"
+  "page": "https://pixabay.com/photos/humpback-whale-whale-ocean-sea-7546810/",
+  "v": "edefa837"
  },
  "baleine-bleue": {
   "file": "baleine-bleue.webp",
@@ -189,7 +211,8 @@
   "author": "steve3rivers",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/610949536"
+  "page": "https://www.inaturalist.org/photos/610949536",
+  "v": "d62482ec"
  },
  "baleine-boreale": {
   "file": "baleine-boreale.webp",
@@ -197,7 +220,8 @@
   "author": "Vicki Beaver, Alaska Fisheries Science Center, NOAA FIsheries, Marine Mammal Permit#14245",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Bowhead_Whale_NOAA.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bowhead_Whale_NOAA.jpg",
+  "v": "eacfd368"
  },
  "barracuda": {
   "file": "barracuda.webp",
@@ -205,7 +229,8 @@
   "author": "BuchArena",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/barracuda-school-fish-silver-10493422/"
+  "page": "https://pixabay.com/photos/barracuda-school-fish-silver-10493422/",
+  "v": "ccc4b4e4"
  },
  "basilic": {
   "file": "basilic.webp",
@@ -213,7 +238,8 @@
   "author": "Steven G. Johnson",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Female_common_basilisk,_Costa_Rica.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Female_common_basilisk,_Costa_Rica.JPG",
+  "v": "4289abf6"
  },
  "baudroie": {
   "file": "baudroie.webp",
@@ -221,7 +247,8 @@
   "author": "Ryan Somma",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Melanocetus_johnsonii1.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Melanocetus_johnsonii1.jpg",
+  "v": "8046e996"
  },
  "beagle": {
   "file": "beagle.webp",
@@ -229,7 +256,8 @@
   "author": "Ruth Ellison",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Beagle_portrait_Camry.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Beagle_portrait_Camry.jpg",
+  "v": "75d7d631"
  },
  "belette": {
   "file": "belette.webp",
@@ -237,7 +265,8 @@
   "author": "R Clarke",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Mustela_nivalis_355302903.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Mustela_nivalis_355302903.jpg",
+  "v": "c1409dbc"
  },
  "beluga": {
   "file": "beluga.webp",
@@ -245,7 +274,8 @@
   "author": "azure27014",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/561462803"
+  "page": "https://www.inaturalist.org/photos/561462803",
+  "v": "91b6550d"
  },
  "berger-allemand": {
   "file": "berger-allemand.webp",
@@ -253,7 +283,8 @@
   "author": "Flaurentine",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Berger_allemand_en_montagne.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Berger_allemand_en_montagne.jpg",
+  "v": "32386a3e"
  },
  "bernard-l-ermite": {
   "file": "bernard-l-ermite.webp",
@@ -261,7 +292,8 @@
   "author": "NorbertNagel",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Hermit_crab_-_Long_Island_-_Mahe_-_Seychelles_-_03.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Hermit_crab_-_Long_Island_-_Mahe_-_Seychelles_-_03.jpg",
+  "v": "3e9379d6"
  },
  "bilby": {
   "file": "bilby.webp",
@@ -269,7 +301,8 @@
   "author": "semi-milker",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/723881839"
+  "page": "https://www.inaturalist.org/photos/723881839",
+  "v": "6014025a"
  },
  "bison": {
   "file": "bison.webp",
@@ -277,7 +310,8 @@
   "author": "Cristofer Maximilian",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/eVZ8FdhdQzE"
+  "page": "https://unsplash.com/photos/eVZ8FdhdQzE",
+  "v": "216783d9"
  },
  "bison-d-europe": {
   "file": "bison-d-europe.webp",
@@ -285,7 +319,8 @@
   "author": "Georg_Wietschorke",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/animal-pasture-european-bison-bison-6178537/"
+  "page": "https://pixabay.com/photos/animal-pasture-european-bison-bison-6178537/",
+  "v": "a2b2e5c3"
  },
  "bison-du-caucase": {
   "file": "bison-du-caucase.webp",
@@ -297,7 +332,8 @@
   "brut": [
    1800,
    1200
-  ]
+  ],
+  "v": "3699acd0"
  },
  "blaireau": {
   "file": "blaireau.webp",
@@ -305,7 +341,8 @@
   "author": "Valentino Traversa",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/156485891"
+  "page": "https://www.inaturalist.org/photos/156485891",
+  "v": "cc7135e2"
  },
  "bongo": {
   "file": "bongo.webp",
@@ -313,7 +350,8 @@
   "author": "Pexels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/animal-antelope-bongo-endangered-1851591/"
+  "page": "https://pixabay.com/photos/animal-antelope-bongo-endangered-1851591/",
+  "v": "fb598a72"
  },
  "bonobo": {
   "file": "bonobo.webp",
@@ -321,7 +359,8 @@
   "author": "erwinbosman",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/bonobo-primate-chimpanzee-great-ape-10109690/"
+  "page": "https://pixabay.com/photos/bonobo-primate-chimpanzee-great-ape-10109690/",
+  "v": "f0a71bbc"
  },
  "border-collie": {
   "file": "border-collie.webp",
@@ -329,7 +368,8 @@
   "author": "IketaniDaisei",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Border_collie_taking_break_at_park.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Border_collie_taking_break_at_park.jpg",
+  "v": "943094d9"
  },
  "bouquetin": {
   "file": "bouquetin.webp",
@@ -337,7 +377,8 @@
   "author": "Godot13",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Israel-2013-Makhtesh_Ramon_02_(Ibex).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Israel-2013-Makhtesh_Ramon_02_(Ibex).jpg",
+  "v": "55b0eee1"
  },
  "bouquetin-des-pyrenees": {
   "file": "bouquetin-des-pyrenees.webp",
@@ -345,7 +386,8 @@
   "author": "raul.iquitos",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Capra-pyrenaica-01-gredos-raul.iquitos.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Capra-pyrenaica-01-gredos-raul.iquitos.jpg",
+  "v": "c59be146"
  },
  "bourdon": {
   "file": "bourdon.webp",
@@ -353,7 +395,8 @@
   "author": "adege",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/bumblebee-insect-pollen-pollination-2338763/"
+  "page": "https://pixabay.com/photos/bumblebee-insect-pollen-pollination-2338763/",
+  "v": "14642ce1"
  },
  "bousier": {
   "file": "bousier.webp",
@@ -361,7 +404,8 @@
   "author": "Gab-Rysia",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/beetle-insect-leaf-dung-beetle-6062572/"
+  "page": "https://pixabay.com/photos/beetle-insect-leaf-dung-beetle-6062572/",
+  "v": "d20a947a"
  },
  "bouvier-bernois": {
   "file": "chien.webp",
@@ -369,7 +413,8 @@
   "author": "FriendlyToaster",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:2-BerneseMountainDogInGrass.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:2-BerneseMountainDogInGrass.jpg",
+  "v": "12ec1cd5"
  },
  "brochet": {
   "file": "brochet.webp",
@@ -377,7 +422,8 @@
   "author": "MartinPhotography",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/pike-fish-water-plants-5328779/"
+  "page": "https://pixabay.com/photos/pike-fish-water-plants-5328779/",
+  "v": "7f1360b7"
  },
  "bubale": {
   "file": "bubale.webp",
@@ -389,7 +435,8 @@
   "brut": [
    1800,
    1350
-  ]
+  ],
+  "v": "158c69a6"
  },
  "buffle": {
   "file": "buffle.webp",
@@ -397,7 +444,8 @@
   "author": "viechfisch",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/water-buffalo-africa-animal-buffalo-85662/"
+  "page": "https://pixabay.com/photos/water-buffalo-africa-animal-buffalo-85662/",
+  "v": "23eded50"
  },
  "buffle-d-eau": {
   "file": "buffle-d-eau.webp",
@@ -405,7 +453,8 @@
   "author": "Basile Morin",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Water_buffalo_the_feet_in_a_pond_looking_at_the_viewer_at_golden_hour_in_Laos.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Water_buffalo_the_feet_in_a_pond_looking_at_the_viewer_at_golden_hour_in_Laos.jpg",
+  "v": "692319f2"
  },
  "buse": {
   "file": "buse.webp",
@@ -413,7 +462,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg",
+  "v": "3fbd24ee"
  },
  "cachalot": {
   "file": "cachalot.webp",
@@ -421,7 +471,8 @@
   "author": "Martin Holladay",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/649789156"
+  "page": "https://www.inaturalist.org/photos/649789156",
+  "v": "d47d27c1"
  },
  "calao": {
   "file": "calao.webp",
@@ -429,7 +480,8 @@
   "author": "Rajan Hatiskar",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Great_Hornbill_Goa.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Great_Hornbill_Goa.jpg",
+  "v": "af0baa47"
  },
  "calmar-geant": {
   "file": "calmar-geant.webp",
@@ -437,7 +489,8 @@
   "author": "Auckland War Memorial Museum",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Architeuthis_dux_68146399.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Architeuthis_dux_68146399.jpg",
+  "v": "0a4e1a1b"
  },
  "cameleon": {
   "file": "cameleon.webp",
@@ -445,7 +498,8 @@
   "author": "Christophe Germain",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Furcifer_pardalis_004.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Furcifer_pardalis_004.jpg",
+  "v": "b84a899a"
  },
  "canard": {
   "file": "canard.webp",
@@ -453,7 +507,8 @@
   "author": "This picture was realized by Richard Bartz by using a Canon EF 70-300mm f/4-5.6 IS USM Len",
   "license": "CC BY-SA 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-  "page": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_male_female_quadrat.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_male_female_quadrat.jpg",
+  "v": "7e92cc03"
  },
  "canard-des-mariannes": {
   "file": "canard-des-mariannes.webp",
@@ -461,7 +516,8 @@
   "author": "Eugene Kridler",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_oustaleti_last_male.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_oustaleti_last_male.jpg",
+  "v": "30eda0a9"
  },
  "caniche": {
   "file": "caniche.webp",
@@ -469,7 +525,8 @@
   "author": "John Leslie from London, UK",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Standard_poodle_apricot.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Standard_poodle_apricot.jpg",
+  "v": "bfbcee15"
  },
  "capucin": {
   "file": "capucin.webp",
@@ -477,7 +534,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Black-striped_capuchin_(Cebus_libidinosus)_Pantanal.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Black-striped_capuchin_(Cebus_libidinosus)_Pantanal.jpg",
+  "v": "cac69ce3"
  },
  "capybara": {
   "file": "capybara.webp",
@@ -485,7 +543,8 @@
   "author": "Taiel Nazar",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Hydrochoerus_hydrochaeris_188912237.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Hydrochoerus_hydrochaeris_188912237.jpg",
+  "v": "931724c6"
  },
  "caracal": {
   "file": "caracal.webp",
@@ -493,7 +552,8 @@
   "author": "Ray_Shrewsberry",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/caracal-animal-nature-cat-wildcat-10225436/"
+  "page": "https://pixabay.com/photos/caracal-animal-nature-cat-wildcat-10225436/",
+  "v": "9da4e856"
  },
  "caribou-de-dawson": {
   "file": "caribou-de-dawson.webp",
@@ -505,7 +565,8 @@
   "brut": [
    1800,
    1286
-  ]
+  ],
+  "v": "033c4200"
  },
  "carpe-koi": {
   "file": "carpe-koi.webp",
@@ -513,7 +574,8 @@
   "author": "Jakub Hałun",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Fish_pond_in_Sun_World_Halong_Park._Ha_Long_Town,_Vietnam,_20240129_1534_4200.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Fish_pond_in_Sun_World_Halong_Park._Ha_Long_Town,_Vietnam,_20240129_1534_4200.jpg",
+  "v": "fe7b6789"
  },
  "casoar": {
   "file": "casoar.webp",
@@ -521,7 +583,8 @@
   "author": "Jeremy Jones",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Casuarius_casuarius_452632030.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Casuarius_casuarius_452632030.jpg",
+  "v": "8e4f3f19"
  },
  "castor": {
   "file": "castor.webp",
@@ -529,7 +592,8 @@
   "author": "Steve from Washington, DC, USA",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:American_Beaver.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:American_Beaver.jpg",
+  "v": "6e09b6d3"
  },
  "cecilie": {
   "file": "cecilie.webp",
@@ -537,7 +601,8 @@
   "author": "Philipp Kraemer",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/242632649"
+  "page": "https://www.inaturalist.org/photos/242632649",
+  "v": "13ea57d1"
  },
  "cerf": {
   "file": "cerf.webp",
@@ -545,7 +610,8 @@
   "author": "Lviatour",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Cervus_elaphus_Luc_Viatour_5.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Cervus_elaphus_Luc_Viatour_5.jpg",
+  "v": "1e738964"
  },
  "chacal-a-chabraque": {
   "file": "chacal-a-chabraque.webp",
@@ -553,7 +619,8 @@
   "author": "Giles Laurent",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:136_Black-backed_jackal_hunting_for_food_at_Cape_cross_Photo_by_Giles_Laurent.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:136_Black-backed_jackal_hunting_for_food_at_Cape_cross_Photo_by_Giles_Laurent.jpg",
+  "v": "273a19c2"
  },
  "chacal-dore": {
   "file": "chacal-dore.webp",
@@ -561,7 +628,8 @@
   "author": "Вых Пыхманн",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Canis_aureus_-_golden_jackal.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Canis_aureus_-_golden_jackal.jpg",
+  "v": "af26f8fd"
  },
  "chamois": {
   "file": "chamois.webp",
@@ -569,7 +637,8 @@
   "author": "Stephan Sprinz",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:G%C3%A4mse_(Rupicapra_rupicapra)_auf_dem_Ornach_07.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:G%C3%A4mse_(Rupicapra_rupicapra)_auf_dem_Ornach_07.jpg",
+  "v": "e117bdfa"
  },
  "chat": {
   "file": "chat.webp",
@@ -577,7 +646,8 @@
   "author": "LoggaWiggler",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/cat-pet-animal-mackerel-cat-61079/"
+  "page": "https://pixabay.com/photos/cat-pet-animal-mackerel-cat-61079/",
+  "v": "732a9183"
  },
  "chat-a-pieds-noirs": {
   "file": "chat-a-pieds-noirs.webp",
@@ -585,7 +655,8 @@
   "author": "Patrick Ch. Apfeld , derivative editing by Poke2001",
   "license": "CC BY 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Zoo_Wuppertal_Schwarzfusskatze.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Zoo_Wuppertal_Schwarzfusskatze.jpg",
+  "v": "1f85a850"
  },
  "chat-des-sables": {
   "file": "chat-des-sables.webp",
@@ -593,7 +664,8 @@
   "author": "Alahamali70",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Sand_cat_(Kuwait).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Sand_cat_(Kuwait).jpg",
+  "v": "e7aa794b"
  },
  "chat-forestier": {
   "file": "chat-forestier.webp",
@@ -601,7 +673,8 @@
   "author": "Alvesgaspar",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Cat_November_2010-1a.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Cat_November_2010-1a.jpg",
+  "v": "90d60fc6"
  },
  "chat-rubigineux": {
   "file": "chat-rubigineux.webp",
@@ -609,7 +682,8 @@
   "author": "metalquip",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/302840680"
+  "page": "https://www.inaturalist.org/photos/302840680",
+  "v": "fb27b157"
  },
  "chat-viverrin": {
   "file": "chat-viverrin.webp",
@@ -617,7 +691,8 @@
   "author": "Srichakra Pranav",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Close-up_of_fishing_cat.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Close-up_of_fishing_cat.jpg",
+  "v": "83374314"
  },
  "cheval": {
   "file": "cheval.webp",
@@ -625,7 +700,8 @@
   "author": "fir0002 flagstaffotos [at] gmail.com Canon 20D + Canon 70-200mm f/2.8 L",
   "license": "GFDL 1.2",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
-  "page": "https://commons.wikimedia.org/wiki/File:White_horse_in_field.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:White_horse_in_field.jpg",
+  "v": "d90360a7"
  },
  "cheval-de-przewalski": {
   "file": "cheval-de-przewalski.webp",
@@ -633,7 +709,8 @@
   "author": "dendoktoor",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/horse-brown-horse-farm-animal-7201032/"
+  "page": "https://pixabay.com/photos/horse-brown-horse-farm-animal-7201032/",
+  "v": "354422a8"
  },
  "cheveche": {
   "file": "cheveche.webp",
@@ -641,7 +718,8 @@
   "author": "Wagner Machado Carlos Lemes from Goiânia, Brazil; derivative work by King of Hearts",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Athene_cunicularia_-near_Goiania,_Goias,_Brazil-8_edit.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Athene_cunicularia_-near_Goiania,_Goias,_Brazil-8_edit.jpg",
+  "v": "3504eb7e"
  },
  "chevre": {
   "file": "chevre.webp",
@@ -649,7 +727,8 @@
   "author": "onlyme21",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/422211798"
+  "page": "https://www.inaturalist.org/photos/422211798",
+  "v": "17a31f52"
  },
  "chevreuil": {
   "file": "chevreuil.webp",
@@ -657,7 +736,8 @@
   "author": "Scosse",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Capriolo_maschio.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Capriolo_maschio.jpg",
+  "v": "76cf1f38"
  },
  "chien-de-prairie": {
   "file": "chien-de-prairie.webp",
@@ -665,7 +745,8 @@
   "author": "Cephas",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Cynomys_ludovicianus_GNP_21.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Cynomys_ludovicianus_GNP_21.jpg",
+  "v": "43e58c78"
  },
  "chien-viverrin": {
   "file": "chien-viverrin.webp",
@@ -673,7 +754,8 @@
   "author": "Bru-nO",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/raccoon-dog-tanuki-enok-fruit-fuchs-871608/"
+  "page": "https://pixabay.com/photos/raccoon-dog-tanuki-enok-fruit-fuchs-871608/",
+  "v": "f428ad2f"
  },
  "chihuahua": {
   "file": "chihuahua.webp",
@@ -681,7 +763,8 @@
   "author": "Caterinarufo",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Chihuahuas-_Holly,_Nina,_Doralice.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Chihuahuas-_Holly,_Nina,_Doralice.jpg",
+  "v": "bdfbf8cd"
  },
  "chimpanze": {
   "file": "chimpanze.webp",
@@ -689,7 +772,8 @@
   "author": "Giles Laurent",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:016_Alpha_male_chimpanzee_walking_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:016_Alpha_male_chimpanzee_walking_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg",
+  "v": "e215443f"
  },
  "chinchilla": {
   "file": "chinchilla.webp",
@@ -697,7 +781,8 @@
   "author": "thefly25",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/chinchilla-grey-standing-2802457/"
+  "page": "https://pixabay.com/photos/chinchilla-grey-standing-2802457/",
+  "v": "380401bb"
  },
  "chirurgien-bleu": {
   "file": "chirurgien-bleu.webp",
@@ -705,7 +790,8 @@
   "author": "Jonathan Hidalgo",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/Gy46uFdzdec"
+  "page": "https://unsplash.com/photos/Gy46uFdzdec",
+  "v": "068bb2dd"
  },
  "cigale": {
   "file": "cigale.webp",
@@ -713,7 +799,8 @@
   "author": "Jeevan Jose, Kerala, India",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Purana-Kadavoor-2017-06-03-002.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Purana-Kadavoor-2017-06-03-002.jpg",
+  "v": "c7aef4ee"
  },
  "cigogne": {
   "file": "cigogne.webp",
@@ -721,7 +808,8 @@
   "author": "Jakub Hałun",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Bocian_bia%C5%82y,_Grocholice_w_wojew%C3%B3dztwie_%C5%9Bwi%C4%99tokrzyskim,_20250419_1013_3879.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bocian_bia%C5%82y,_Grocholice_w_wojew%C3%B3dztwie_%C5%9Bwi%C4%99tokrzyskim,_20250419_1013_3879.jpg",
+  "v": "209013ef"
  },
  "circaete": {
   "file": "circaete.webp",
@@ -729,7 +817,8 @@
   "author": "Tisha Mukherjee",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Short-toed_Snake-Eagle_in_Bhigwan_August_2025_by_Tisha_Mukherjee_01.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Short-toed_Snake-Eagle_in_Bhigwan_August_2025_by_Tisha_Mukherjee_01.jpg",
+  "v": "bdc1804b"
  },
  "cobra-royal": {
   "file": "cobra-royal.webp",
@@ -737,7 +826,8 @@
   "author": "flutie8211",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/king-cobra-snake-reptile-dangerous-10419614/"
+  "page": "https://pixabay.com/photos/king-cobra-snake-reptile-dangerous-10419614/",
+  "v": "7674c8f6"
  },
  "coccinelle": {
   "file": "coccinelle.webp",
@@ -745,7 +835,8 @@
   "author": "Maurizio Carlini",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Coccinella_d%27autunno.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Coccinella_d%27autunno.jpg",
+  "v": "06daa8f1"
  },
  "cochon": {
   "file": "cochon.webp",
@@ -753,7 +844,8 @@
   "author": "Mathias Grischott",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/un-petit-cochon-debout-au-sommet-dun-champ-verdoyant-nG_Y_TG3O-w"
+  "page": "https://unsplash.com/photos/un-petit-cochon-debout-au-sommet-dun-champ-verdoyant-nG_Y_TG3O-w",
+  "v": "863b5f43"
  },
  "cochon-d-inde": {
   "file": "cochon-d-inde.webp",
@@ -761,7 +853,8 @@
   "author": "Laurona94",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:220620_-_guinea_pig_-_Laura_Pernigoni.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:220620_-_guinea_pig_-_Laura_Pernigoni.jpg",
+  "v": "3e962927"
  },
  "coelacanthe": {
   "file": "coelacanthe.webp",
@@ -769,7 +862,8 @@
   "author": "wrecklessmarine",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/242640282"
+  "page": "https://www.inaturalist.org/photos/242640282",
+  "v": "0d538f98"
  },
  "colibri": {
   "file": "colibri.webp",
@@ -777,7 +871,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Buff-tailed_coronet_(Boissonneaua_flavescens_flavescens)_Caldas.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Buff-tailed_coronet_(Boissonneaua_flavescens_flavescens)_Caldas.jpg",
+  "v": "9788f209"
  },
  "colobe": {
   "file": "colobe.webp",
@@ -785,7 +880,8 @@
   "author": "RoDobby",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/colobus-ape-mantle-monkey-africa-280706/"
+  "page": "https://pixabay.com/photos/colobus-ape-mantle-monkey-africa-280706/",
+  "v": "a618c3f3"
  },
  "condor": {
   "file": "condor.webp",
@@ -793,7 +889,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Andean_condor_(Vultur_gryphus)_male_Farellones.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Andean_condor_(Vultur_gryphus)_male_Farellones.jpg",
+  "v": "f6971067"
  },
  "conure-de-caroline": {
   "file": "conure-de-caroline.webp",
@@ -805,7 +902,8 @@
   "brut": [
    1800,
    1200
-  ]
+  ],
+  "v": "1f17e197"
  },
  "corail": {
   "file": "corail.webp",
@@ -813,7 +911,8 @@
   "author": "marcelokato",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/coral-reef-sea-nature-wildlife-3628406/"
+  "page": "https://pixabay.com/photos/coral-reef-sea-nature-wildlife-3628406/",
+  "v": "825a8f44"
  },
  "corbeau": {
   "file": "corbeau.webp",
@@ -821,7 +920,8 @@
   "author": "Cyberolm",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Towerrabe.png"
+  "page": "https://commons.wikimedia.org/wiki/File:Towerrabe.png",
+  "v": "165fe74a"
  },
  "couleuvre": {
   "file": "couleuvre.webp",
@@ -829,7 +929,8 @@
   "author": "Michi8989",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/line-creature-snakehead-213120/"
+  "page": "https://pixabay.com/photos/line-creature-snakehead-213120/",
+  "v": "6a777969"
  },
  "coyote": {
   "file": "coyote.webp",
@@ -837,7 +938,8 @@
   "author": "MargSkogland",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/coyote-animal-wildlife-predator-6510080/"
+  "page": "https://pixabay.com/photos/coyote-animal-wildlife-predator-6510080/",
+  "v": "307f7bb4"
  },
  "crabe-de-cocotier": {
   "file": "crabe-de-cocotier.webp",
@@ -845,7 +947,8 @@
   "author": "michelemenegon",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/210789339"
+  "page": "https://www.inaturalist.org/photos/210789339",
+  "v": "fc262b33"
  },
  "crabe-royal": {
   "file": "crabe-royal.webp",
@@ -853,7 +956,8 @@
   "author": "swiftsoutdoors",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/450385184"
+  "page": "https://www.inaturalist.org/photos/450385184",
+  "v": "8aa7835e"
  },
  "crapaud-buffle": {
   "file": "crapaud-buffle.webp",
@@ -861,7 +965,8 @@
   "author": "John Robert McPherson",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Rhinella_marina_near_rainwater_pools_7th_Brigade_Park_Chermside_P1090820.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Rhinella_marina_near_rainwater_pools_7th_Brigade_Park_Chermside_P1090820.jpg",
+  "v": "af5b8053"
  },
  "crapaud-commun": {
   "file": "crapaud-commun.webp",
@@ -869,7 +974,8 @@
   "author": "Richard Bartz",
   "license": "CC BY-SA 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-  "page": "https://commons.wikimedia.org/wiki/File:Bufotes_balearicus_female.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bufotes_balearicus_female.jpg",
+  "v": "1e354256"
  },
  "crapaud-dore": {
   "file": "crapaud-dore.webp",
@@ -877,7 +983,8 @@
   "author": "WikiImages",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/gold-toad-toad-frog-through-62871/"
+  "page": "https://pixabay.com/photos/gold-toad-toad-frog-through-62871/",
+  "v": "e3dcabbb"
  },
  "crecerelle": {
   "file": "crecerelle.webp",
@@ -885,7 +992,8 @@
   "author": "Jakub Hałun",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Common_kestrel_on_a_tree_in_Krak%C3%B3w,_20250412_1051_3635.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Common_kestrel_on_a_tree_in_Krak%C3%B3w,_20250412_1051_3635.jpg",
+  "v": "51f71d51"
  },
  "crevette-mante": {
   "file": "crevette-mante.webp",
@@ -893,7 +1001,8 @@
   "author": "Kai Squires",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Odontodactylus_scyllarus_60094688.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Odontodactylus_scyllarus_60094688.jpg",
+  "v": "8cd42e13"
  },
  "criquet-pelerin": {
   "file": "criquet-pelerin.webp",
@@ -901,7 +1010,8 @@
   "author": "Biddanda Somaya Nanjapa",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Locusts_-_Pappliaman_Malai.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Locusts_-_Pappliaman_Malai.jpg",
+  "v": "baf06453"
  },
  "crocodile-du-nil": {
   "file": "crocodile-du-nil.webp",
@@ -909,7 +1019,8 @@
   "author": "Haim Charbit",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/KnaI2wDtbjw"
+  "page": "https://unsplash.com/photos/KnaI2wDtbjw",
+  "v": "b9e46577"
  },
  "crocodile-marin": {
   "file": "crocodile-marin.webp",
@@ -917,7 +1028,8 @@
   "author": "David Clode",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/fYSEk1FaUCY"
+  "page": "https://unsplash.com/photos/fYSEk1FaUCY",
+  "v": "a0a3d193"
  },
  "crotale": {
   "file": "crotale.webp",
@@ -925,7 +1037,8 @@
   "author": "Ty Sharrow",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/63666236"
+  "page": "https://www.inaturalist.org/photos/63666236",
+  "v": "f5529e57"
  },
  "cygne": {
   "file": "cygne.webp",
@@ -933,7 +1046,8 @@
   "author": "Jakub Hałun",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Cygnus_olor,_Brze%C5%BAnica,_20230729_0809_7268.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Cygnus_olor,_Brze%C5%BAnica,_20230729_0809_7268.jpg",
+  "v": "8068daa4"
  },
  "cyprinodon-de-catarina": {
   "file": "cyprinodon-de-catarina.webp",
@@ -941,7 +1055,8 @@
   "author": "Fishspeciation",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Megupsilon_aporus_-_last_male.tif"
+  "page": "https://commons.wikimedia.org/wiki/File:Megupsilon_aporus_-_last_male.tif",
+  "v": "8858e690"
  },
  "dalmatien": {
   "file": "dalmatien.webp",
@@ -949,7 +1064,8 @@
   "author": "Jeffarson",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Nova-zembla.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Nova-zembla.jpg",
+  "v": "3079a59b"
  },
  "dauphin": {
   "file": "dauphin.webp",
@@ -957,7 +1073,8 @@
   "author": "Rafi Amar",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/203547729"
+  "page": "https://www.inaturalist.org/photos/203547729",
+  "v": "9af6e028"
  },
  "dauphin-de-commerson": {
   "file": "dauphin-de-commerson.webp",
@@ -965,7 +1082,8 @@
   "author": "Marco Silva",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/345903534"
+  "page": "https://www.inaturalist.org/photos/345903534",
+  "v": "a1295a8d"
  },
  "dauphin-rose": {
   "file": "dauphin-rose.webp",
@@ -973,7 +1091,8 @@
   "author": "leonardodalligna",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/269014354"
+  "page": "https://www.inaturalist.org/photos/269014354",
+  "v": "429888b9"
  },
  "dendrolague": {
   "file": "dendrolague.webp",
@@ -981,7 +1100,8 @@
   "author": "Eric Gropp",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Lumholtz%27s_tree-kangaroo.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Lumholtz%27s_tree-kangaroo.jpg",
+  "v": "db668af6"
  },
  "dhole": {
   "file": "dhole.webp",
@@ -989,7 +1109,8 @@
   "author": "Rohit Sharma",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dhole_Stroll_at_Pench_National_Park,_India.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Dhole_Stroll_at_Pench_National_Park,_India.jpg",
+  "v": "c21177f7"
  },
  "diable-de-tasmanie": {
   "file": "diable-de-tasmanie.webp",
@@ -997,7 +1118,8 @@
   "author": "Alan Couch from Australia",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Tassy_Devil.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tassy_Devil.jpg",
+  "v": "6b2d8038"
  },
  "dik-dik": {
   "file": "dik-dik.webp",
@@ -1005,7 +1127,8 @@
   "author": "Ikiwaner",
   "license": "GFDL 1.2",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
-  "page": "https://commons.wikimedia.org/wiki/File:Tarangire_Kirk-Dikdik3.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tarangire_Kirk-Dikdik3.jpg",
+  "v": "b691b83a"
  },
  "dindon": {
   "file": "dindon.webp",
@@ -1013,7 +1136,8 @@
   "author": "Frank Schulenburg",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Male_wild_turkey_(Meleagris_gallopavo)_strutting.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Male_wild_turkey_(Meleagris_gallopavo)_strutting.jpg",
+  "v": "11f14788"
  },
  "dingo": {
   "file": "dingo.webp",
@@ -1021,7 +1145,8 @@
   "author": "Rae Wallis",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/XXRt2HPxMHg"
+  "page": "https://unsplash.com/photos/XXRt2HPxMHg",
+  "v": "ef6d687b"
  },
  "dragon-de-komodo": {
   "file": "dragon-de-komodo.webp",
@@ -1029,7 +1154,8 @@
   "author": "M. Ewell Young",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/1892238"
+  "page": "https://www.inaturalist.org/photos/1892238",
+  "v": "0d2634c8"
  },
  "dromadaire": {
   "file": "dromadaire.webp",
@@ -1037,7 +1163,8 @@
   "author": "Skander zarrad",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Pair_of_dromedaries.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Pair_of_dromedaries.jpg",
+  "v": "f571f5d0"
  },
  "dugong": {
   "file": "dugong.webp",
@@ -1045,7 +1172,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/dugong-sea-underwater-seagrass-10212406/"
+  "page": "https://pixabay.com/photos/dugong-sea-underwater-seagrass-10212406/",
+  "v": "dda7d460"
  },
  "dynaste-hercule": {
   "file": "dynaste-hercule.webp",
@@ -1053,7 +1181,8 @@
   "author": "Hans Hillewaert",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dynastes_hercules_(female).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Dynastes_hercules_(female).jpg",
+  "v": "cc6b00d7"
  },
  "echidne": {
   "file": "echidne.webp",
@@ -1061,7 +1190,8 @@
   "author": "Krigore",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Tachyglossus_aculeatus_%E2%80%93_Short-beaked_echidna_%E2%80%93_Kolczatka_australijska.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tachyglossus_aculeatus_%E2%80%93_Short-beaked_echidna_%E2%80%93_Kolczatka_australijska.jpg",
+  "v": "f701ebe3"
  },
  "ecureuil-roux": {
   "file": "ecureuil-roux.webp",
@@ -1069,7 +1199,8 @@
   "author": "brigitteJ",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/red-squirrel-squirrel-animal-rodent-6867099/"
+  "page": "https://pixabay.com/photos/red-squirrel-squirrel-animal-rodent-6867099/",
+  "v": "97b1c009"
  },
  "effraie": {
   "file": "effraie.webp",
@@ -1077,7 +1208,8 @@
   "author": "Alun Williams333",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Tyto_alba_tylluan_wen.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tyto_alba_tylluan_wen.jpg",
+  "v": "21377834"
  },
  "elan": {
   "file": "elan.webp",
@@ -1085,7 +1217,8 @@
   "author": "Cora Leach",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/kowlD5rb9wE"
+  "page": "https://unsplash.com/photos/kowlD5rb9wE",
+  "v": "5a72d25e"
  },
  "elephant": {
   "file": "elephant.webp",
@@ -1093,7 +1226,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Elefante_africano_de_sabana_(Loxodonta_africana),_parque_nacional_de_Amboseli,_Kenia,_2024-05-22,_DD_07.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Elefante_africano_de_sabana_(Loxodonta_africana),_parque_nacional_de_Amboseli,_Kenia,_2024-05-22,_DD_07.jpg",
+  "v": "7cefcf7e"
  },
  "elephant-d-asie": {
   "file": "elephant-d-asie.webp",
@@ -1101,7 +1235,8 @@
   "author": "thestorychef",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/elephant-itch-tree-trunk-wild-4487095/"
+  "page": "https://pixabay.com/photos/elephant-itch-tree-trunk-wild-4487095/",
+  "v": "dbf49998"
  },
  "elephant-de-foret": {
   "file": "elephant-de-foret.webp",
@@ -1109,7 +1244,8 @@
   "author": "PavanPrasad_IND",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/elephant-animal-forest-wildlife-6992329/"
+  "page": "https://pixabay.com/photos/elephant-animal-forest-wildlife-6992329/",
+  "v": "f8742a0e"
  },
  "elephant-de-mer": {
   "file": "elephant-de-mer.webp",
@@ -1117,7 +1253,8 @@
   "author": "Antoine Lamielle",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:2020-11_Kerguelen_Islands_-_Southern_elephant_seal_30.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:2020-11_Kerguelen_Islands_-_Southern_elephant_seal_30.jpg",
+  "v": "f22f58b6"
  },
  "emeu": {
   "file": "emeu.webp",
@@ -1125,7 +1262,8 @@
   "author": "IsabelVdN",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/ostrich-emu-fauna-australia-629050/"
+  "page": "https://pixabay.com/photos/ostrich-emu-fauna-australia-629050/",
+  "v": "25569003"
  },
  "emeu-de-king-island": {
   "file": "emeu-de-king-island.webp",
@@ -1137,7 +1275,8 @@
   "brut": [
    1800,
    1350
-  ]
+  ],
+  "v": "3b1c0215"
  },
  "epeire": {
   "file": "epeire.webp",
@@ -1145,7 +1284,8 @@
   "author": "Kathy_Büscher",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/spider-garden-spider-araneus-nature-2394870/"
+  "page": "https://pixabay.com/photos/spider-garden-spider-araneus-nature-2394870/",
+  "v": "bc2b6869"
  },
  "escargot": {
   "file": "escargot.webp",
@@ -1153,7 +1293,8 @@
   "author": "jbooba",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/snail-shell-mollusk-gastropod-7976786/"
+  "page": "https://pixabay.com/photos/snail-shell-mollusk-gastropod-7976786/",
+  "v": "4e1df273"
  },
  "espadon": {
   "file": "espadon.webp",
@@ -1161,7 +1302,8 @@
   "author": "Rinaldi Gotama",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/441927444"
+  "page": "https://www.inaturalist.org/photos/441927444",
+  "v": "4124ad23"
  },
  "esturgeon": {
   "file": "esturgeon.webp",
@@ -1169,7 +1311,8 @@
   "author": "Joshua Doby",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/41248575"
+  "page": "https://www.inaturalist.org/photos/41248575",
+  "v": "132bff3c"
  },
  "etoile-de-mer": {
   "file": "etoile-de-mer.webp",
@@ -1177,7 +1320,8 @@
   "author": "Hans",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/starfish-red-aquarium-red-starfish-452927/"
+  "page": "https://pixabay.com/photos/starfish-red-aquarium-red-starfish-452927/",
+  "v": "30b7180a"
  },
  "exocet": {
   "file": "exocet.webp",
@@ -1185,7 +1329,8 @@
   "author": "Auteur inconnu",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Pink-wing_flying_fish.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Pink-wing_flying_fish.jpg",
+  "v": "16b44ddb"
  },
  "faucon-pelerin": {
   "file": "faucon-pelerin.webp",
@@ -1193,7 +1338,8 @@
   "author": "Sumeet Moghe",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Peregrine_Falcon_(male)_cropped.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Peregrine_Falcon_(male)_cropped.jpg",
+  "v": "86123504"
  },
  "fennec": {
   "file": "fennec.webp",
@@ -1201,7 +1347,8 @@
   "author": "pfaucher",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/38258258"
+  "page": "https://www.inaturalist.org/photos/38258258",
+  "v": "436ec901"
  },
  "flamant-rose": {
   "file": "flamant-rose.webp",
@@ -1209,7 +1356,8 @@
   "author": "Giles Laurent",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:017_Greater_flamingo_drinking_in_the_Camargue_Photo_by_Giles_Laurent.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:017_Greater_flamingo_drinking_in_the_Camargue_Photo_by_Giles_Laurent.jpg",
+  "v": "ea495a76"
  },
  "fossa": {
   "file": "fossa.webp",
@@ -1217,7 +1365,8 @@
   "author": "Chad Teer",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Cryptoprocta_ferox.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Cryptoprocta_ferox.jpg",
+  "v": "a80c4cfc"
  },
  "fourmi": {
   "file": "fourmi.webp",
@@ -1225,7 +1374,8 @@
   "author": "Richard Bartz, Munich Makro Freak",
   "license": "CC BY-SA 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-  "page": "https://commons.wikimedia.org/wiki/File:Camponotus_herculeanus_queen_high_res.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Camponotus_herculeanus_queen_high_res.jpg",
+  "v": "02e6a382"
  },
  "fourmilier": {
   "file": "fourmilier.webp",
@@ -1233,7 +1383,8 @@
   "author": "Andy Jones",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/108811809"
+  "page": "https://www.inaturalist.org/photos/108811809",
+  "v": "3f2ad8f5"
  },
  "frelon": {
   "file": "frelon.webp",
@@ -1241,7 +1392,8 @@
   "author": "Lesbains39",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/hornet-wasp-insect-entomology-8287485/"
+  "page": "https://pixabay.com/photos/hornet-wasp-insect-entomology-8287485/",
+  "v": "9e031992"
  },
  "frelon-geant": {
   "file": "frelon-geant.webp",
@@ -1249,7 +1401,8 @@
   "author": "DerWeg",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/asian-giant-hornet-insect-leaf-8335576/"
+  "page": "https://pixabay.com/photos/asian-giant-hornet-insect-leaf-8335576/",
+  "v": "49c3f0e1"
  },
  "fugu": {
   "file": "fugu.webp",
@@ -1257,7 +1410,8 @@
   "author": "Totti",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Takifugu_rubripes_juvenile_1.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Takifugu_rubripes_juvenile_1.jpg",
+  "v": "7647aa84"
  },
  "furet": {
   "file": "furet.webp",
@@ -1265,7 +1419,8 @@
   "author": "bandwidthbob",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/66911599"
+  "page": "https://www.inaturalist.org/photos/66911599",
+  "v": "0edb4d0c"
  },
  "gavial": {
   "file": "gavial.webp",
@@ -1273,7 +1428,8 @@
   "author": "Fábio Olmos",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/73811430"
+  "page": "https://www.inaturalist.org/photos/73811430",
+  "v": "73d6fb2f"
  },
  "gazelle": {
   "file": "gazelle.webp",
@@ -1281,7 +1437,8 @@
   "author": "Ikiwaner",
   "license": "GFDL 1.2",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
-  "page": "https://commons.wikimedia.org/wiki/File:Serengeti_Thomson-Gazelle3.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Serengeti_Thomson-Gazelle3.jpg",
+  "v": "0081ba6c"
  },
  "gecko": {
   "file": "gecko.webp",
@@ -1289,7 +1446,8 @@
   "author": "SharkLin",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/gecko-animal-wildlife-tokay-gecko-5652518/"
+  "page": "https://pixabay.com/photos/gecko-animal-wildlife-tokay-gecko-5652518/",
+  "v": "efa095e7"
  },
  "gelada": {
   "file": "gelada.webp",
@@ -1297,7 +1455,8 @@
   "author": "IQSPhotography",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/gelada-primate-baboon-nature-10291267/"
+  "page": "https://pixabay.com/photos/gelada-primate-baboon-nature-10291267/",
+  "v": "7394238f"
  },
  "gerenuk": {
   "file": "gerenuk.webp",
@@ -1305,7 +1464,8 @@
   "author": "ecovore",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Litocranius_walleri_walleri_388183522.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Litocranius_walleri_walleri_388183522.jpg",
+  "v": "bf39d269"
  },
  "gibbon": {
   "file": "gibbon.webp",
@@ -1313,7 +1473,8 @@
   "author": "JJ Harrison ( jjharrison89@facebook.com )",
   "license": "CC BY 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Hylobates_lar_-_Kaeng_Krachan_WB.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Hylobates_lar_-_Kaeng_Krachan_WB.jpg",
+  "v": "992977a5"
  },
  "girafe": {
   "file": "girafe.webp",
@@ -1321,7 +1482,8 @@
   "author": "NRay91",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/giraffe-animal-safari-wildlife-7708387/"
+  "page": "https://pixabay.com/photos/giraffe-animal-safari-wildlife-7708387/",
+  "v": "e9fef81e"
  },
  "glouton": {
   "file": "glouton.webp",
@@ -1329,7 +1491,8 @@
   "author": "ichuck",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/44493725"
+  "page": "https://www.inaturalist.org/photos/44493725",
+  "v": "ffa30a9f"
  },
  "gnou": {
   "file": "gnou.webp",
@@ -1337,7 +1500,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:%C3%91u_com%C3%BAn_(Connochaetes_taurinus),_parque_nacional_de_Amboseli,_Kenia,_2024-05-23,_DD_16.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:%C3%91u_com%C3%BAn_(Connochaetes_taurinus),_parque_nacional_de_Amboseli,_Kenia,_2024-05-23,_DD_16.jpg",
+  "v": "b672e3dc"
  },
  "goliath": {
   "file": "goliath.webp",
@@ -1345,7 +1509,8 @@
   "author": "Ryan van Huyssteen",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/15670633"
+  "page": "https://www.inaturalist.org/photos/15670633",
+  "v": "b4fe39ee"
  },
  "gorille": {
   "file": "gorille.webp",
@@ -1353,7 +1518,8 @@
   "author": "Sponchia",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/gorilla-silverback-monkey-primate-610457/"
+  "page": "https://pixabay.com/photos/gorilla-silverback-monkey-primate-610457/",
+  "v": "5a9e9c36"
  },
  "grand-duc": {
   "file": "grand-duc.webp",
@@ -1361,7 +1527,8 @@
   "author": "Rhododendrites",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Flaco_(86944).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Flaco_(86944).jpg",
+  "v": "40281370"
  },
  "grenouille-de-verre": {
   "file": "grenouille-de-verre.webp",
@@ -1369,7 +1536,8 @@
   "author": "Javier Ábalos from Valencia, España",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Glass_frog_(Centrolenidae)_in_Mindo_(Ecuador)_(21090206496).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Glass_frog_(Centrolenidae)_in_Mindo_(Ecuador)_(21090206496).jpg",
+  "v": "a8a699a8"
  },
  "grenouille-goliath": {
   "file": "grenouille-goliath.webp",
@@ -1377,7 +1545,8 @@
   "author": "jeanlouisamiet",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Conraua_goliath_photo_from_iNaturalist_539752953.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Conraua_goliath_photo_from_iNaturalist_539752953.jpg",
+  "v": "bef6e9a1"
  },
  "grenouille-verte": {
   "file": "grenouille-verte.webp",
@@ -1385,7 +1554,8 @@
   "author": "IndigoBunting",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/frog-green-frog-amphibian-nature-8431942/"
+  "page": "https://pixabay.com/photos/frog-green-frog-amphibian-nature-8431942/",
+  "v": "5560a88c"
  },
  "greyhound": {
   "file": "greyhound.webp",
@@ -1397,7 +1567,8 @@
   "brut": [
    1800,
    1009
-  ]
+  ],
+  "v": "e8cc2f1b"
  },
  "grizzly-de-californie": {
   "file": "grizzly-de-californie.webp",
@@ -1405,7 +1576,8 @@
   "author": "ambquinn",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/brown-bear-bear-predator-animal-7460699/"
+  "page": "https://pixabay.com/photos/brown-bear-bear-predator-animal-7460699/",
+  "v": "65f54774"
  },
  "grue": {
   "file": "grue.webp",
@@ -1413,7 +1585,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Crane_(Grus_grus)_Slimbridge.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Crane_(Grus_grus)_Slimbridge.jpg",
+  "v": "7088b352"
  },
  "guepard": {
   "file": "guepard.webp",
@@ -1421,7 +1594,8 @@
   "author": "James Temple",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:TheCheethcat.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:TheCheethcat.jpg",
+  "v": "1e0ec3ef"
  },
  "guepe": {
   "file": "guepe.webp",
@@ -1429,7 +1603,8 @@
   "author": "makamuki0",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/paper-wasps-wasps-wasp-nest-nest-5572866/"
+  "page": "https://pixabay.com/photos/paper-wasps-wasps-wasp-nest-nest-5572866/",
+  "v": "f5191d02"
  },
  "gymnote": {
   "file": "gymnote.webp",
@@ -1437,7 +1612,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/eel-electric-fish-underwater-dark-10198425/"
+  "page": "https://pixabay.com/photos/eel-electric-fish-underwater-dark-10198425/",
+  "v": "32567caf"
  },
  "gypaete": {
   "file": "gypaete.webp",
@@ -1445,7 +1621,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/vulture-bird-bearded-raptor-10244835/"
+  "page": "https://pixabay.com/photos/vulture-bird-bearded-raptor-10244835/",
+  "v": "9b8d4976"
  },
  "habitat-amazonie": {
   "file": "habitat-amazonie.webp",
@@ -1453,7 +1630,8 @@
   "author": "CIAT",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Amazon17_(5641020319).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Amazon17_(5641020319).jpg",
+  "v": "8843c4aa"
  },
  "habitat-antarctique": {
   "file": "habitat-antarctique.webp",
@@ -1461,7 +1639,8 @@
   "author": "Pedro Szekely from Los Angeles, USA",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Antarctica_iceberg_-_Flickr_-_szeke.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Antarctica_iceberg_-_Flickr_-_szeke.jpg",
+  "v": "ce4da72a"
  },
  "habitat-banquise": {
   "file": "habitat-banquise.webp",
@@ -1469,7 +1648,8 @@
   "author": "Auteur inconnu",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Greenland_East_Coast_7.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Greenland_East_Coast_7.jpg",
+  "v": "1902eeb5"
  },
  "habitat-bialowieza": {
   "file": "habitat-bialowieza.webp",
@@ -1477,7 +1657,8 @@
   "author": "WildberryPassion",
   "license": "CC BY-SA 3.0 pl",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/pl/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Bialowieza04.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bialowieza04.jpg",
+  "v": "aa039ce4"
  },
  "habitat-borneo": {
   "file": "habitat-borneo.webp",
@@ -1485,7 +1666,8 @@
   "author": "Rob and Stephanie Levy",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Sunrise_in_Danum_Valley,_Borneo.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Sunrise_in_Danum_Valley,_Borneo.jpg",
+  "v": "1b49175b"
  },
  "habitat-camargue": {
   "file": "habitat-camargue.webp",
@@ -1493,7 +1675,8 @@
   "author": "Pia Parolin",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Portrait_de_flamant_rose_dans_la_r%C3%A9serve_nationale_de_Camargue.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Portrait_de_flamant_rose_dans_la_r%C3%A9serve_nationale_de_Camargue.jpg",
+  "v": "7788c2eb"
  },
  "habitat-congo": {
   "file": "habitat-congo.webp",
@@ -1501,7 +1684,8 @@
   "author": "Axel Rouvin [2]",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Rainforest_Gabon.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Rainforest_Gabon.jpg",
+  "v": "08251a67"
  },
  "habitat-everglades": {
   "file": "habitat-everglades.webp",
@@ -1513,7 +1697,8 @@
   "brut": [
    1800,
    1200
-  ]
+  ],
+  "v": "9be7ff29"
  },
  "habitat-galapagos": {
   "file": "habitat-galapagos.webp",
@@ -1521,7 +1706,8 @@
   "author": "kuhnmi",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Bartolome_Island,_Galapagos_(50122421803).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bartolome_Island,_Galapagos_(50122421803).jpg",
+  "v": "42a3ebc4"
  },
  "habitat-gobi": {
   "file": "habitat-gobi.webp",
@@ -1529,7 +1715,8 @@
   "author": "Niek van Son from Eindhoven, Nederland",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Mongolia_-_Gobi_Desert_(49310228777).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Mongolia_-_Gobi_Desert_(49310228777).jpg",
+  "v": "8d6095b9"
  },
  "habitat-grande-barriere": {
   "file": "habitat-grande-barriere.webp",
@@ -1537,7 +1724,8 @@
   "author": "Toby Hudson",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Coral_Outcrop_Flynn_Reef.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Coral_Outcrop_Flynn_Reef.jpg",
+  "v": "7a0d408e"
  },
  "habitat-himalaya": {
   "file": "habitat-himalaya.webp",
@@ -1545,7 +1733,8 @@
   "author": "Vyacheslav Argenberg",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Mountains_in_snow,_Mountain_lake,_Chola_Valley,_Nepal,_Himalayas.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Mountains_in_snow,_Mountain_lake,_Chola_Valley,_Nepal,_Himalayas.jpg",
+  "v": "eaee44f6"
  },
  "habitat-madagascar": {
   "file": "habitat-madagascar.webp",
@@ -1553,15 +1742,21 @@
   "author": "Bernard Gagnon",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Adansonia_grandidieri04.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Adansonia_grandidieri04.jpg",
+  "v": "efa66d70"
  },
  "habitat-mariannes": {
   "file": "habitat-mariannes.webp",
   "cutout": false,
-  "author": "NOAA Ocean Exploration, Deepwater Exploration of the Marianas",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Relicanthus_daphneae_2016.jpg"
+  "author": "NOAA Ocean Exploration & Research from USA",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Jellyfish_-_Flickr_-_NOAA_Ocean_Exploration_%5E_Research.jpg",
+  "brut": [
+   1800,
+   1013
+  ],
+  "v": "38d51ab2"
  },
  "habitat-monteverde": {
   "file": "habitat-monteverde.webp",
@@ -1569,7 +1764,8 @@
   "author": "Junebug2433",
   "license": "CC0",
   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:One_of_the_Skywalk_Hanging_Bridges_at_Sky_Monteverde_in_Costa_Rica.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:One_of_the_Skywalk_Hanging_Bridges_at_Sky_Monteverde_in_Costa_Rica.jpg",
+  "v": "c6228874"
  },
  "habitat-okavango": {
   "file": "habitat-okavango.webp",
@@ -1577,7 +1773,8 @@
   "author": "diego_cue",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Elephants_in_the_Okavango_Delta_-_Botswana_-_panoramio.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Elephants_in_the_Okavango_Delta_-_Botswana_-_panoramio.jpg",
+  "v": "9a0d1192"
  },
  "habitat-outback": {
   "file": "habitat-outback.webp",
@@ -1585,7 +1782,8 @@
   "author": "Gabriele Delhey",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Mount_Conner,_August_2003.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Mount_Conner,_August_2003.jpg",
+  "v": "b64cf17a"
  },
  "habitat-pantanal": {
   "file": "habitat-pantanal.webp",
@@ -1593,7 +1791,8 @@
   "author": "Alicia Yo",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Pantanal,_south-central_South_America_5170.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Pantanal,_south-central_South_America_5170.jpg",
+  "v": "b4774f8f"
  },
  "habitat-patagonie": {
   "file": "habitat-patagonie.webp",
@@ -1601,7 +1800,8 @@
   "author": "Pedro Szekely from Los Angeles, USA",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Cuernos_del_Paine_in_Torres_del_Paine_National_Park.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Cuernos_del_Paine_in_Torres_del_Paine_National_Park.jpg",
+  "v": "8cee521c"
  },
  "habitat-sahara": {
   "file": "habitat-sahara.webp",
@@ -1609,7 +1809,8 @@
   "author": "Rosa Cabecinhas and Alcino Cunha",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Morocco_Africa_Flickr_Rosino_December_2005_84514010_edited_by_Buchling.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Morocco_Africa_Flickr_Rosino_December_2005_84514010_edited_by_Buchling.jpg",
+  "v": "6f768743"
  },
  "habitat-sargasses": {
   "file": "habitat-sargasses.webp",
@@ -1621,7 +1822,8 @@
   "brut": [
    1800,
    1200
-  ]
+  ],
+  "v": "85e2a0ec"
  },
  "habitat-serengeti": {
   "file": "habitat-serengeti.webp",
@@ -1629,7 +1831,8 @@
   "author": "Wolves201",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Serengeti_wildebeest_migration_JF.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Serengeti_wildebeest_migration_JF.jpg",
+  "v": "f1d471b8"
  },
  "habitat-sundarbans": {
   "file": "habitat-sundarbans.webp",
@@ -1637,7 +1840,8 @@
   "author": "Kingshuk Mondal",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dense_Mangrove_Forest_of_the_Sundarban_Tiger_Reserve_during_High_Tide,_West_Bengal,_India_03.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Dense_Mangrove_Forest_of_the_Sundarban_Tiger_Reserve_during_High_Tide,_West_Bengal,_India_03.jpg",
+  "v": "f40d7534"
  },
  "habitat-taiga": {
   "file": "habitat-taiga.webp",
@@ -1645,7 +1849,8 @@
   "author": "Vyacheslav Argenberg",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Ergaki,_Taiga_in_Siberia,_Dark_coniferous_forest,_Sayan_Mountains,_Russia.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Ergaki,_Taiga_in_Siberia,_Dark_coniferous_forest,_Sayan_Mountains,_Russia.jpg",
+  "v": "a5a29f2e"
  },
  "habitat-tasmanie": {
   "file": "habitat-tasmanie.webp",
@@ -1653,7 +1858,8 @@
   "author": "Jörn Brauns",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:CradleMountain.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:CradleMountain.jpg",
+  "v": "25893c1a"
  },
  "habitat-yellowstone": {
   "file": "habitat-yellowstone.webp",
@@ -1661,7 +1867,8 @@
   "author": "James St. John from Newark, Ohio",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Grand_Prismatic_Spring_2013.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Grand_Prismatic_Spring_2013.jpg",
+  "v": "0d6e8bd2"
  },
  "hamster": {
   "file": "hamster.webp",
@@ -1669,7 +1876,8 @@
   "author": "Wschlitz",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Juvenile_Female_Mesocricetus_auratus_in_Pet_Store_enclosure,_Illinois,_USA.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Juvenile_Female_Mesocricetus_auratus_in_Pet_Store_enclosure,_Illinois,_USA.jpg",
+  "v": "d6c56def"
  },
  "harfang": {
   "file": "harfang.webp",
@@ -1677,7 +1885,8 @@
   "author": "David Syzdek",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Bubo_scandiacus_Delta_3.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bubo_scandiacus_Delta_3.jpg",
+  "v": "ddca15c5"
  },
  "harpie": {
   "file": "harpie.webp",
@@ -1685,7 +1894,8 @@
   "author": "Luiz Fernando Matos",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Gavi%C3%A3o-real_-_FLONA_de_Caraj%C3%A1s_-_Luiz_Fernando_Matos(001).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Gavi%C3%A3o-real_-_FLONA_de_Caraj%C3%A1s_-_Luiz_Fernando_Matos(001).jpg",
+  "v": "0970da17"
  },
  "heloderme": {
   "file": "heloderme.webp",
@@ -1693,7 +1903,8 @@
   "author": "Alvaro Monter Pozos",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/114066566"
+  "page": "https://www.inaturalist.org/photos/114066566",
+  "v": "06757e2d"
  },
  "herisson": {
   "file": "herisson.webp",
@@ -1701,7 +1912,8 @@
   "author": "kallerna",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Erinaceus_europaeus_3.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Erinaceus_europaeus_3.JPG",
+  "v": "54dd7dbf"
  },
  "hermine": {
   "file": "hermine.webp",
@@ -1709,7 +1921,8 @@
   "author": "Giles Laurent",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:035_Stoat_in_winter_coat_in_Parc_naturel_r%C3%A9gional_Jura_vaudois_Photo_by_Giles_Laurent.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:035_Stoat_in_winter_coat_in_Parc_naturel_r%C3%A9gional_Jura_vaudois_Photo_by_Giles_Laurent.jpg",
+  "v": "a07ee14f"
  },
  "hippocampe": {
   "file": "hippocampe.webp",
@@ -1717,7 +1930,8 @@
   "author": "Wildfaces",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/seahorse-bony-fish-sea-water-ocean-7291590/"
+  "page": "https://pixabay.com/photos/seahorse-bony-fish-sea-water-ocean-7291590/",
+  "v": "5145f206"
  },
  "hippopotame": {
   "file": "hippopotame.webp",
@@ -1725,7 +1939,8 @@
   "author": "Emmy Shingiro",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/Fb0k8nC_6j4"
+  "page": "https://unsplash.com/photos/Fb0k8nC_6j4",
+  "v": "4fa4c9ad"
  },
  "hippopotame-nain": {
   "file": "hippopotame-nain.webp",
@@ -1733,7 +1948,8 @@
   "author": "leekelai",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/604021616"
+  "page": "https://www.inaturalist.org/photos/604021616",
+  "v": "64545027"
  },
  "hirondelle": {
   "file": "hirondelle.webp",
@@ -1741,7 +1957,8 @@
   "author": "Rhododendrites",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Barn_swallow_in_Montezuma_(14460).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Barn_swallow_in_Montezuma_(14460).jpg",
+  "v": "9d21fec0"
  },
  "homard": {
   "file": "homard.webp",
@@ -1749,7 +1966,8 @@
   "author": "H. Zell",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Homarus_gammarus_03.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Homarus_gammarus_03.JPG",
+  "v": "b270acd5"
  },
  "husky": {
   "file": "husky.webp",
@@ -1757,7 +1975,8 @@
   "author": "Klmw",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Moscow_et_Owana_de_l%E2%80%99%C3%A9levage_Of_Kolyma_Wolves.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Moscow_et_Owana_de_l%E2%80%99%C3%A9levage_Of_Kolyma_Wolves.jpg",
+  "v": "09c7c8b8"
  },
  "hyene": {
   "file": "hyene.webp",
@@ -1765,7 +1984,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Hiena_manchada_(Crocuta_crocuta),_parque_nacional_de_Tarangire,_Tanzania,_2024-05-25,_DD_24.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Hiena_manchada_(Crocuta_crocuta),_parque_nacional_de_Tarangire,_Tanzania,_2024-05-25,_DD_24.jpg",
+  "v": "3055d5e2"
  },
  "hyene-rayee": {
   "file": "hyene-rayee.webp",
@@ -1773,7 +1993,8 @@
   "author": "Tisha Mukherjee",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Striped_hyena_in_Bhigwan_August_2025_by_Tisha_Mukherjee_15_(cropped).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Striped_hyena_in_Bhigwan_August_2025_by_Tisha_Mukherjee_15_(cropped).jpg",
+  "v": "0d8ff1cd"
  },
  "iguane-marin": {
   "file": "iguane-marin.webp",
@@ -1781,7 +2002,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Iguana_marina_(Amblyrhynchus_cristatus),_Las_Bachas,_isla_Santa_Cruz,_islas_Gal%C3%A1pagos,_Ecuador,_2015-07-23,_DD_27.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Iguana_marina_(Amblyrhynchus_cristatus),_Las_Bachas,_isla_Santa_Cruz,_islas_Gal%C3%A1pagos,_Ecuador,_2015-07-23,_DD_27.jpg",
+  "v": "6311a14e"
  },
  "impala": {
   "file": "impala.webp",
@@ -1789,7 +2011,8 @@
   "author": "Yathin sk",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Black-faced_impala_from_Etosha_National_Park,_Namibia,_2014.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Black-faced_impala_from_Etosha_National_Park,_Namibia,_2014.jpg",
+  "v": "e7df4bf5"
  },
  "isopode-geant": {
   "file": "isopode-geant.webp",
@@ -1797,7 +2020,8 @@
   "author": "shingha4223",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/368459851"
+  "page": "https://www.inaturalist.org/photos/368459851",
+  "v": "41b97a2c"
  },
  "jaguar": {
   "file": "jaguar.webp",
@@ -1805,7 +2029,8 @@
   "author": "Gerry Zambonini (Zambog)",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Jaguar_in_the_Pantanal.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Jaguar_in_the_Pantanal.jpg",
+  "v": "3fce68b1"
  },
  "jaguarondi": {
   "file": "jaguarondi.webp",
@@ -1813,7 +2038,8 @@
   "author": "COMUNA LAS BALSAS",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/122416475"
+  "page": "https://www.inaturalist.org/photos/122416475",
+  "v": "00debe84"
  },
  "kangourou": {
   "file": "kangourou.webp",
@@ -1821,7 +2047,8 @@
   "author": "PotMart186",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Red_Kangaroos_at_Sturt_National_Park_NSW.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Red_Kangaroos_at_Sturt_National_Park_NSW.jpg",
+  "v": "805513f9"
  },
  "kea": {
   "file": "kea.webp",
@@ -1829,7 +2056,8 @@
   "author": "Makalu",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/kea-bird-animal-mountain-parrot-4865533/"
+  "page": "https://pixabay.com/photos/kea-bird-animal-mountain-parrot-4865533/",
+  "v": "52c13742"
  },
  "kiwi": {
   "file": "kiwi.webp",
@@ -1837,7 +2065,8 @@
   "author": "Genevieve Early",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/473849812"
+  "page": "https://www.inaturalist.org/photos/473849812",
+  "v": "7cd7d8fb"
  },
  "koala": {
   "file": "koala.webp",
@@ -1845,7 +2074,8 @@
   "author": "Yu Chu Chin",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Black_Hill_Conservation_Park_on_27_June_2025_08.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Black_Hill_Conservation_Park_on_27_June_2025_08.jpg",
+  "v": "7abb9093"
  },
  "kodiak": {
   "file": "kodiak.webp",
@@ -1853,7 +2083,8 @@
   "author": "Yathin S Krishnappa",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:2010-brown-bear.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:2010-brown-bear.jpg",
+  "v": "bb46414f"
  },
  "koudou": {
   "file": "koudou.webp",
@@ -1861,7 +2092,8 @@
   "author": "Hans Hillewaert",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Tragelaphus_strepsiceros_%E2%99%82_(head).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tragelaphus_strepsiceros_%E2%99%82_(head).jpg",
+  "v": "2cdf85da"
  },
  "krill": {
   "file": "krill.webp",
@@ -1869,7 +2101,8 @@
   "author": "Pat Webster @underwaterpat",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/593455917"
+  "page": "https://www.inaturalist.org/photos/593455917",
+  "v": "5c0d5f1c"
  },
  "labrador": {
   "file": "labrador.webp",
@@ -1877,7 +2110,8 @@
   "author": "Original author Hand , edit by Pharaoh Hound",
   "license": "CC BY 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-  "page": "https://commons.wikimedia.org/wiki/File:Labrador_Retriever_snow.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Labrador_Retriever_snow.jpg",
+  "v": "c1ad4e15"
  },
  "lama": {
   "file": "lama.webp",
@@ -1885,7 +2119,8 @@
   "author": "Frank Dietze",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/65675113"
+  "page": "https://www.inaturalist.org/photos/65675113",
+  "v": "6002aa47"
  },
  "lamantin": {
   "file": "lamantin.webp",
@@ -1893,7 +2128,8 @@
   "author": "ungerlord",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/173261823"
+  "page": "https://www.inaturalist.org/photos/173261823",
+  "v": "624e0a04"
  },
  "lapin": {
   "file": "lapin.webp",
@@ -1901,7 +2137,8 @@
   "author": "JM Ligero Loarte",
   "license": "CC BY 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Oryctolagus_cuniculus_Rcdo.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Oryctolagus_cuniculus_Rcdo.jpg",
+  "v": "97da8751"
  },
  "lemming": {
   "file": "lemming.webp",
@@ -1909,7 +2146,8 @@
   "author": "Argus fin",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Tunturisopuli_Lemmus_Lemmus.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tunturisopuli_Lemmus_Lemmus.jpg",
+  "v": "7f2d99d6"
  },
  "lemur-catta": {
   "file": "lemur-catta.webp",
@@ -1917,7 +2155,8 @@
   "author": "Royle Safaris",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/302094730"
+  "page": "https://www.inaturalist.org/photos/302094730",
+  "v": "cdba06a4"
  },
  "leopard": {
   "file": "leopard.webp",
@@ -1925,7 +2164,8 @@
   "author": "Bibake Uppal",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/leopard-debout-sur-une-branche-darbre-83uG2S0aT_I"
+  "page": "https://unsplash.com/photos/leopard-debout-sur-une-branche-darbre-83uG2S0aT_I",
+  "v": "b331316a"
  },
  "leopard-de-mer": {
   "file": "leopard-de-mer.webp",
@@ -1933,7 +2173,8 @@
   "author": "Gilad Rom",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Hydrurga_leptonyx_on_ice.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Hydrurga_leptonyx_on_ice.jpg",
+  "v": "b7b01ef7"
  },
  "lezard-vert": {
   "file": "lezard-vert.webp",
@@ -1941,7 +2182,8 @@
   "author": "AmayaArt",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/western-green-lizard-lizard-animal-7060414/"
+  "page": "https://pixabay.com/photos/western-green-lizard-lizard-animal-7060414/",
+  "v": "60bd3b1d"
  },
  "libellule": {
   "file": "libellule.webp",
@@ -1949,7 +2191,8 @@
   "author": "Andreas Eichler",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:2015.08.07.-02-Anglersee_Huettenfeld-Lampertheim--Grosse_Koenigslibelle-Maennchen.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:2015.08.07.-02-Anglersee_Huettenfeld-Lampertheim--Grosse_Koenigslibelle-Maennchen.jpg",
+  "v": "496773d7"
  },
  "lievre": {
   "file": "lievre.webp",
@@ -1957,7 +2200,8 @@
   "author": "Jakub Hałun",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Zaj%C4%85c_szarak_na_polu_w_Grocholicach_w_gminie_Sadowie_w_wojew%C3%B3dztwie_%C5%9Bwi%C4%99tokrzyskim,_20260419_0913_5163.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Zaj%C4%85c_szarak_na_polu_w_Grocholicach_w_gminie_Sadowie_w_wojew%C3%B3dztwie_%C5%9Bwi%C4%99tokrzyskim,_20260419_0913_5163.jpg",
+  "v": "97223ca5"
  },
  "limule": {
   "file": "limule.webp",
@@ -1965,7 +2209,8 @@
   "author": "Auteur inconnu",
   "license": "CC BY-SA 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-  "page": "https://commons.wikimedia.org/wiki/File:Limulus_polyphemus_suma.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Limulus_polyphemus_suma.jpg",
+  "v": "56a35bb5"
  },
  "lion": {
   "file": "lion.webp",
@@ -1973,7 +2218,8 @@
   "author": "Charl Durand",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/lion-adulte-sur-un-champ-dherbe-Sb7UlHaJGVk"
+  "page": "https://unsplash.com/photos/lion-adulte-sur-un-champ-dherbe-Sb7UlHaJGVk",
+  "v": "8d982c08"
  },
  "lion-d-asie": {
   "file": "lion-d-asie.webp",
@@ -1981,7 +2227,8 @@
   "author": "ambquinn",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/lion-feline-mane-barbary-lion-8096155/"
+  "page": "https://pixabay.com/photos/lion-feline-mane-barbary-lion-8096155/",
+  "v": "698e8ec9"
  },
  "lion-de-l-atlas": {
   "file": "lion-de-l-atlas.webp",
@@ -1993,7 +2240,8 @@
   "brut": [
    1800,
    1285
-  ]
+  ],
+  "v": "cad984b0"
  },
  "loir": {
   "file": "loir.webp",
@@ -2001,7 +2249,8 @@
   "author": "Michael Barth",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/203605351"
+  "page": "https://www.inaturalist.org/photos/203605351",
+  "v": "2cbe3ffc"
  },
  "loris-lent": {
   "file": "loris-lent.webp",
@@ -2009,7 +2258,8 @@
   "author": "Aprisonsan",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Coucang.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Coucang.jpg",
+  "v": "00b9f44d"
  },
  "loup": {
   "file": "loup.webp",
@@ -2017,7 +2267,8 @@
   "author": "Gary Kramer",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Front_view_of_a_resting_Canis_lupus_ssp.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Front_view_of_a_resting_Canis_lupus_ssp.jpg",
+  "v": "4e5fb3cb"
  },
  "loup-a-criniere": {
   "file": "loup-a-criniere.webp",
@@ -2025,7 +2276,8 @@
   "author": "guagui",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/325044233"
+  "page": "https://www.inaturalist.org/photos/325044233",
+  "v": "6114f4da"
  },
  "loup-arctique": {
   "file": "loup-arctique.webp",
@@ -2033,7 +2285,8 @@
   "author": "Noureddine BOUABDALLAH",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/40DNmazK7pQ"
+  "page": "https://unsplash.com/photos/40DNmazK7pQ",
+  "v": "692135c2"
  },
  "loup-d-ethiopie": {
   "file": "loup-d-ethiopie.webp",
@@ -2041,7 +2294,8 @@
   "author": "Stuart Orford",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Canis_simensis.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Canis_simensis.jpg",
+  "v": "0c02d6b1"
  },
  "loup-du-japon": {
   "file": "loup-du-japon.webp",
@@ -2053,7 +2307,8 @@
   "brut": [
    1800,
    1350
-  ]
+  ],
+  "v": "5ff56db0"
  },
  "loutre": {
   "file": "loutre.webp",
@@ -2061,7 +2316,8 @@
   "author": "Byrdyak",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:%D0%92%D0%B8%D0%B4%D1%80%D0%B0.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%92%D0%B8%D0%B4%D1%80%D0%B0.jpg",
+  "v": "f8318835"
  },
  "loutre-de-mer": {
   "file": "loutre-de-mer.webp",
@@ -2069,7 +2325,8 @@
   "author": "blmcalifornia",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Sea_Otter_(37795898225).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Sea_Otter_(37795898225).jpg",
+  "v": "473c7e06"
  },
  "loutre-du-japon": {
   "file": "loutre-du-japon.webp",
@@ -2081,7 +2338,8 @@
   "brut": [
    1800,
    1209
-  ]
+  ],
+  "v": "7426b2e4"
  },
  "lucane": {
   "file": "lucane.webp",
@@ -2089,7 +2347,8 @@
   "author": "George Chernilevsky",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Lucanus_cervus_male_2017_G1.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Lucanus_cervus_male_2017_G1.jpg",
+  "v": "20cca740"
  },
  "luciole": {
   "file": "luciole.webp",
@@ -2097,7 +2356,8 @@
   "author": "FranciscoJavierCoradoR",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/insect-nature-yard-firefly-5151913/"
+  "page": "https://pixabay.com/photos/insect-nature-yard-firefly-5151913/",
+  "v": "3fc25b44"
  },
  "lycaon": {
   "file": "lycaon.webp",
@@ -2105,7 +2365,8 @@
   "author": "greatplaces360",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/wild-dog-african-painted-dog-animal-9503012/"
+  "page": "https://pixabay.com/photos/wild-dog-african-painted-dog-animal-9503012/",
+  "v": "9ae27c3b"
  },
  "lynx": {
   "file": "lynx.webp",
@@ -2113,7 +2374,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Lince_ib%C3%A9rico_(Lynx_pardinus),_Almuradiel,_Ciudad_Real,_Espa%C3%B1a,_2021-12-19,_DD_07.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Lince_ib%C3%A9rico_(Lynx_pardinus),_Almuradiel,_Ciudad_Real,_Espa%C3%B1a,_2021-12-19,_DD_07.jpg",
+  "v": "c3899a44"
  },
  "lynx-pardelle": {
   "file": "lynx-pardelle.webp",
@@ -2121,7 +2383,8 @@
   "author": "Jose Luis Cano",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/504018056"
+  "page": "https://www.inaturalist.org/photos/504018056",
+  "v": "4fe23689"
  },
  "lynx-roux": {
   "file": "lynx-roux.webp",
@@ -2129,7 +2392,8 @@
   "author": "Tom Murray",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/469339788"
+  "page": "https://www.inaturalist.org/photos/469339788",
+  "v": "1cad4d36"
  },
  "macaque-japonais": {
   "file": "macaque-japonais.webp",
@@ -2137,7 +2401,8 @@
   "author": "Frank Schulenburg",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Juveniler_Japanmakak_(Macaca_fuscata)_im_Jigokudani_Yaen_K%C5%8Den.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Juveniler_Japanmakak_(Macaca_fuscata)_im_Jigokudani_Yaen_K%C5%8Den.jpg",
+  "v": "2eac2e29"
  },
  "macareux": {
   "file": "macareux.webp",
@@ -2145,7 +2410,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Puffin_(Fratercula_arctica).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Puffin_(Fratercula_arctica).jpg",
+  "v": "28dade60"
  },
  "mamba-noir": {
   "file": "mamba-noir.webp",
@@ -2153,7 +2419,8 @@
   "author": "Bill Love/Blue Chameleon Ventures",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dendroaspis_polylepis_by_Bill_Love.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Dendroaspis_polylepis_by_Bill_Love.jpg",
+  "v": "d5b3fd9b"
  },
  "manchot-empereur": {
   "file": "manchot-empereur.webp",
@@ -2161,7 +2428,8 @@
   "author": "This illustration was made by Samuel Blanc . If you plan on using it, an email to samuel @",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Emperor_Penguin_Manchot_empereur.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Emperor_Penguin_Manchot_empereur.jpg",
+  "v": "3f90490f"
  },
  "mandrill": {
   "file": "mandrill.webp",
@@ -2169,7 +2437,8 @@
   "author": "Julien Renoult",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Mandrillus_sphinx_339428057.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Mandrillus_sphinx_339428057.jpg",
+  "v": "d4ed2325"
  },
  "mangouste": {
   "file": "mangouste.webp",
@@ -2177,7 +2446,8 @@
   "author": "Tisha Mukherjee",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Indian_grey_mongoose_in_Rabindra_Sarobar_June_2024_by_Tisha_Mukherjee_04.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Indian_grey_mongoose_in_Rabindra_Sarobar_June_2024_by_Tisha_Mukherjee_04.jpg",
+  "v": "80525a1e"
  },
  "mante-religieuse": {
   "file": "mante-religieuse.webp",
@@ -2185,7 +2455,8 @@
   "author": "sanek10",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/insect-mantis-animal-entomology-9619206/"
+  "page": "https://pixabay.com/photos/insect-mantis-animal-entomology-9619206/",
+  "v": "7d072fc5"
  },
  "manul": {
   "file": "manul.webp",
@@ -2193,7 +2464,8 @@
   "author": "Hyppolyte de Saint-Rambert",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Otocolobus_manul_(_Felis_manul)_Kobe_Animal_Kingdom_hdsr_S5_15.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Otocolobus_manul_(_Felis_manul)_Kobe_Animal_Kingdom_hdsr_S5_15.jpg",
+  "v": "ab18facd"
  },
  "margay": {
   "file": "margay.webp",
@@ -2201,7 +2473,8 @@
   "author": "Supreet Sahoo",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Margay_in_Costa_Rica.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Margay_in_Costa_Rica.jpg",
+  "v": "6877f105"
  },
  "marmotte": {
   "file": "marmotte.webp",
@@ -2209,7 +2482,8 @@
   "author": "Nils",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/395222440"
+  "page": "https://www.inaturalist.org/photos/395222440",
+  "v": "0321559e"
  },
  "marsouin": {
   "file": "marsouin.webp",
@@ -2217,7 +2491,8 @@
   "author": "Ecomare/Sytske Dijksen",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Phocoena_phocoena_Ecomare_4.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Phocoena_phocoena_Ecomare_4.jpg",
+  "v": "f096b7aa"
  },
  "martin-pecheur": {
   "file": "martin-pecheur.webp",
@@ -2225,7 +2500,8 @@
   "author": "Luc Viatour",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:04--Martin-Pecheur-20-01-24-Halois-Belgium-Luc_viatour.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:04--Martin-Pecheur-20-01-24-Halois-Belgium-Luc_viatour.jpg",
+  "v": "d7ac7c73"
  },
  "martinet": {
   "file": "martinet.webp",
@@ -2233,7 +2509,8 @@
   "author": "Alexis Lours",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Common_Swift_2025_07_18_02_(cropped).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Common_Swift_2025_07_18_02_(cropped).jpg",
+  "v": "22a1262f"
  },
  "meduse": {
   "file": "meduse.webp",
@@ -2241,7 +2518,8 @@
   "author": "Photo taken by user de:Benutzer:BS Thurner Hof",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Qualle_Ohrenqualle_2006-01-01_215.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Qualle_Ohrenqualle_2006-01-01_215.jpg",
+  "v": "49829c04"
  },
  "melomys": {
   "file": "melomys.webp",
@@ -2249,7 +2527,8 @@
   "author": "I. Bell",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Melomys_rubicola_2.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Melomys_rubicola_2.jpg",
+  "v": "d006a3e6"
  },
  "menure": {
   "file": "menure.webp",
@@ -2257,7 +2536,8 @@
   "author": "haruspex",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/108961003"
+  "page": "https://www.inaturalist.org/photos/108961003",
+  "v": "18718ca3"
  },
  "milan-royal": {
   "file": "milan-royal.webp",
@@ -2265,7 +2545,8 @@
   "author": "TheOtherKev",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/red-kite-bird-flying-sky-5950159/"
+  "page": "https://pixabay.com/photos/red-kite-bird-flying-sky-5950159/",
+  "v": "f8e192a7"
  },
  "mille-pattes": {
   "file": "mille-pattes.webp",
@@ -2273,7 +2554,8 @@
   "author": "makamuki0",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/worms-millipede-centipede-2120866/"
+  "page": "https://pixabay.com/photos/worms-millipede-centipede-2120866/",
+  "v": "0e596658"
  },
  "moineau": {
   "file": "moineau.webp",
@@ -2281,7 +2563,8 @@
   "author": "Kathy_Büscher",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/sparrow-sperling-house-sparrow-bird-2404824/"
+  "page": "https://pixabay.com/photos/sparrow-sperling-house-sparrow-bird-2404824/",
+  "v": "bc887f61"
  },
  "moloch": {
   "file": "moloch.webp",
@@ -2289,7 +2572,8 @@
   "author": "Christopher Watson ( http://www.comebirdwatching.blogspot.com/ )",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Moloch_defence_pose_-_Christopher_Watson.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Moloch_defence_pose_-_Christopher_Watson.jpg",
+  "v": "89834114"
  },
  "monarque": {
   "file": "monarque.webp",
@@ -2297,7 +2581,8 @@
   "author": "Photo (c)2006 Derek Ramsey ( Ram-Man )",
   "license": "GFDL 1.2",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
-  "page": "https://commons.wikimedia.org/wiki/File:Monarch_Butterfly_Pink_Zinnia_1800px.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Monarch_Butterfly_Pink_Zinnia_1800px.jpg",
+  "v": "0fbedea4"
  },
  "morpho": {
   "file": "morpho.webp",
@@ -2305,7 +2590,8 @@
   "author": "Quartl",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Morpho_peleides_qtl3.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Morpho_peleides_qtl3.jpg",
+  "v": "cfca537f"
  },
  "morse": {
   "file": "morse.webp",
@@ -2313,7 +2599,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/walrus-arctic-wildlife-ocean-ice-10383187/"
+  "page": "https://pixabay.com/photos/walrus-arctic-wildlife-ocean-ice-10383187/",
+  "v": "fbd6ea43"
  },
  "moufette": {
   "file": "moufette.webp",
@@ -2321,7 +2608,8 @@
   "author": "Wallace Keck",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Skunk_about_to_spray.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Skunk_about_to_spray.jpg",
+  "v": "2006510d"
  },
  "mouflon": {
   "file": "mouflon.webp",
@@ -2329,7 +2617,8 @@
   "author": "Burak Doğansoysal",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/330765177"
+  "page": "https://www.inaturalist.org/photos/330765177",
+  "v": "188ef9fb"
  },
  "moustique": {
   "file": "moustique.webp",
@@ -2337,7 +2626,8 @@
   "author": "shammiknr",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/mosquito-nature-insect-malaria-4998148/"
+  "page": "https://pixabay.com/photos/mosquito-nature-insect-malaria-4998148/",
+  "v": "ed356eb2"
  },
  "mouton": {
   "file": "mouton.webp",
@@ -2345,7 +2635,8 @@
   "author": "Pixabay",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/sheep-lamb-texel-sheep-texel-dike-966749/"
+  "page": "https://pixabay.com/photos/sheep-lamb-texel-sheep-texel-dike-966749/",
+  "v": "3906a054"
  },
  "mygale": {
   "file": "mygale.webp",
@@ -2353,7 +2644,8 @@
   "author": "George Chernilevsky",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Brachypelma_smithi_2009_G09.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Brachypelma_smithi_2009_G09.jpg",
+  "v": "794435b0"
  },
  "narval": {
   "file": "narval.webp",
@@ -2361,7 +2653,8 @@
   "author": "azure27014",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/561463407"
+  "page": "https://www.inaturalist.org/photos/561463407",
+  "v": "2ec2bc44"
  },
  "nasique": {
   "file": "nasique.webp",
@@ -2369,7 +2662,8 @@
   "author": "Syarif9691",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Chill_bekantan.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Chill_bekantan.jpg",
+  "v": "d65c0fc1"
  },
  "nautile": {
   "file": "nautile.webp",
@@ -2377,7 +2671,8 @@
   "author": "Shaun Low",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/Yy2cBOqUN_o"
+  "page": "https://unsplash.com/photos/Yy2cBOqUN_o",
+  "v": "b951c0ea"
  },
  "numbat": {
   "file": "numbat.webp",
@@ -2385,7 +2680,8 @@
   "author": "Seashalia",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/animal-numbat-mammal-species-fauna-4070485/"
+  "page": "https://pixabay.com/photos/animal-numbat-mammal-species-fauna-4070485/",
+  "v": "00c7971d"
  },
  "ocelot": {
   "file": "ocelot.webp",
@@ -2393,7 +2689,8 @@
   "author": "Giles Laurent",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:081_Ocelot_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:081_Ocelot_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg",
+  "v": "19bce9e3"
  },
  "oie": {
   "file": "oie.webp",
@@ -2401,7 +2698,8 @@
   "author": "JJ Harrison",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Domestic_Goose.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Domestic_Goose.jpg",
+  "v": "540df873"
  },
  "okapi": {
   "file": "okapi.webp",
@@ -2409,7 +2707,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/okapi-wildlife-animal-mammal-10187607/"
+  "page": "https://pixabay.com/photos/okapi-wildlife-animal-mammal-10187607/",
+  "v": "ee89c445"
  },
  "opossum": {
   "file": "opossum.webp",
@@ -2417,7 +2716,8 @@
   "author": "Cody Pope",
   "license": "CC BY-SA 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
-  "page": "https://commons.wikimedia.org/wiki/File:Opossum_1.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Opossum_1.jpg",
+  "v": "126b1bab"
  },
  "orang-outan": {
   "file": "orang-outan.webp",
@@ -2425,7 +2725,8 @@
   "author": "ambquinn",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/orangutan-ape-primate-7760085/"
+  "page": "https://pixabay.com/photos/orangutan-ape-primate-7760085/",
+  "v": "b34eae5a"
  },
  "ornithorynque": {
   "file": "ornithorynque.webp",
@@ -2433,7 +2734,8 @@
   "author": "Alex Slavenko",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/316930862"
+  "page": "https://www.inaturalist.org/photos/316930862",
+  "v": "8caefc9a"
  },
  "orque": {
   "file": "orque.webp",
@@ -2441,7 +2743,8 @@
   "author": "Sherry Kirkvold",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/223550594"
+  "page": "https://www.inaturalist.org/photos/223550594",
+  "v": "3e5b3fe0"
  },
  "oryx": {
   "file": "oryx.webp",
@@ -2449,7 +2752,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Gemsbok_(Oryx_gazella)_male.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Gemsbok_(Oryx_gazella)_male.jpg",
+  "v": "3220f7a3"
  },
  "otarie": {
   "file": "otarie.webp",
@@ -2457,7 +2761,8 @@
   "author": "ketennison",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/sea-lion-sea-park-fauna-mamals-1521993/"
+  "page": "https://pixabay.com/photos/sea-lion-sea-park-fauna-mamals-1521993/",
+  "v": "e396355d"
  },
  "otocyon": {
   "file": "otocyon.webp",
@@ -2465,7 +2770,8 @@
   "author": "Derek Keats from Johannesburg, South Africa",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Bat-eared_fox,_Kgalagadi_Transfrontier_Park_(38065016606).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bat-eared_fox,_Kgalagadi_Transfrontier_Park_(38065016606).jpg",
+  "v": "43c4417a"
  },
  "ouaouaron": {
   "file": "ouaouaron.webp",
@@ -2473,7 +2779,8 @@
   "author": "lwolfartist",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:American_bullfrog_huntley_meadows_7.20.24_DSC_3172-topaz-denoiseraw.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:American_bullfrog_huntley_meadows_7.20.24_DSC_3172-topaz-denoiseraw.jpg",
+  "v": "bccba6e3"
  },
  "ouistiti-pygmee": {
   "file": "ouistiti-pygmee.webp",
@@ -2481,7 +2788,8 @@
   "author": "jbooba",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/pygmy-marmoset-monkey-animal-7811041/"
+  "page": "https://pixabay.com/photos/pygmy-marmoset-monkey-animal-7811041/",
+  "v": "89062937"
  },
  "ours-a-collier": {
   "file": "ours-a-collier.webp",
@@ -2489,7 +2797,8 @@
   "author": "武亦乾 Yiqian Wu",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/280918640"
+  "page": "https://www.inaturalist.org/photos/280918640",
+  "v": "530c4189"
  },
  "ours-a-lunettes": {
   "file": "ours-a-lunettes.webp",
@@ -2497,7 +2806,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/bear-cub-spectacled-bear-nature-10256241/"
+  "page": "https://pixabay.com/photos/bear-cub-spectacled-bear-nature-10256241/",
+  "v": "9bb6afd7"
  },
  "ours-brun": {
   "file": "ours-brun.webp",
@@ -2505,7 +2815,8 @@
   "author": "pen_ash",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/bear-brown-bear-hokkaido-brown-bear-9201157/"
+  "page": "https://pixabay.com/photos/bear-brown-bear-hokkaido-brown-bear-9201157/",
+  "v": "669b26ae"
  },
  "ours-de-gobi": {
   "file": "ours-de-gobi.webp",
@@ -2513,7 +2824,8 @@
   "author": "Anders_Mejlvang",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/bear-tree-animal-nature-game-8916279/"
+  "page": "https://pixabay.com/photos/bear-tree-animal-nature-game-8916279/",
+  "v": "eae73644"
  },
  "ours-isabelle": {
   "file": "ours-isabelle.webp",
@@ -2521,7 +2833,8 @@
   "author": "Antranias",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/brown-bear-bear-sitting-nature-fur-7670224/"
+  "page": "https://pixabay.com/photos/brown-bear-bear-sitting-nature-fur-7670224/",
+  "v": "47ce4e13"
  },
  "ours-lippu": {
   "file": "ours-lippu.webp",
@@ -2529,7 +2842,8 @@
   "author": "sameer_kote",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/382044000"
+  "page": "https://www.inaturalist.org/photos/382044000",
+  "v": "addef82e"
  },
  "ours-malais": {
   "file": "ours-malais.webp",
@@ -2537,7 +2851,8 @@
   "author": "Rushenb",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Sun-bear.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Sun-bear.jpg",
+  "v": "09e03d9b"
  },
  "ours-noir": {
   "file": "ours-noir.webp",
@@ -2545,7 +2860,8 @@
   "author": "LocoLocal",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/black-bear-in-tree-bear-wildlife-4061807/"
+  "page": "https://pixabay.com/photos/black-bear-in-tree-bear-wildlife-4061807/",
+  "v": "ab6a64c8"
  },
  "ours-polaire": {
   "file": "ours-polaire.webp",
@@ -2553,7 +2869,8 @@
   "author": "mickeydylan",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/322031330"
+  "page": "https://www.inaturalist.org/photos/322031330",
+  "v": "fb2e131a"
  },
  "oursin": {
   "file": "oursin.webp",
@@ -2561,7 +2878,8 @@
   "author": "Justine007",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/sea-sea-food-urchin-beach-water-4133999/"
+  "page": "https://pixabay.com/photos/sea-sea-food-urchin-beach-water-4133999/",
+  "v": "25817a86"
  },
  "panda": {
   "file": "panda.webp",
@@ -2569,7 +2887,8 @@
   "author": "Smithsonian",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/T9Tqf2zq3A8"
+  "page": "https://unsplash.com/photos/T9Tqf2zq3A8",
+  "v": "ba6e6747"
  },
  "panda-roux": {
   "file": "panda-roux.webp",
@@ -2577,7 +2896,8 @@
   "author": "Sunuwargr",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Curious_Red_Panda_in_Langtang_National_Park.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Curious_Red_Panda_in_Langtang_National_Park.jpg",
+  "v": "d2d1ee65"
  },
  "pangolin": {
   "file": "pangolin.webp",
@@ -2585,7 +2905,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/pangolin-wildlife-nature-forest-10229812/"
+  "page": "https://pixabay.com/photos/pangolin-wildlife-nature-forest-10229812/",
+  "v": "3dd7d2bc"
  },
  "panthere-des-neiges": {
   "file": "panthere-des-neiges.webp",
@@ -2593,7 +2914,8 @@
   "author": "Pixel-mixer",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/snow-leopard-dormant-predator-896603/"
+  "page": "https://pixabay.com/photos/snow-leopard-dormant-predator-896603/",
+  "v": "dd36c419"
  },
  "panthere-nebuleuse": {
   "file": "panthere-nebuleuse.webp",
@@ -2601,7 +2923,8 @@
   "author": "Rushenb",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Neofelis_nebulosa,_Clouded_leopard.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Neofelis_nebulosa,_Clouded_leopard.jpg",
+  "v": "9efa3aed"
  },
  "panthere-noire": {
   "file": "panthere-noire.webp",
@@ -2609,7 +2932,8 @@
   "author": "Carla_Manneh",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/panther-feline-animal-predator-9376689/"
+  "page": "https://pixabay.com/photos/panther-feline-animal-predator-9376689/",
+  "v": "27c83171"
  },
  "paon": {
   "file": "paon.webp",
@@ -2617,7 +2941,8 @@
   "author": "Giles Laurent",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:012_Indian_peafowl_in_Keoladeo_National_Park_Photo_by_Giles_Laurent.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:012_Indian_peafowl_in_Keoladeo_National_Park_Photo_by_Giles_Laurent.jpg",
+  "v": "ed7c83f6"
  },
  "paradisier": {
   "file": "paradisier.webp",
@@ -2625,7 +2950,8 @@
   "author": "JJ Harrison",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Red_Bird-of-Paradise_0A2A2853.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Red_Bird-of-Paradise_0A2A2853.jpg",
+  "v": "95c0f7e1"
  },
  "paraponera": {
   "file": "paraponera.webp",
@@ -2633,7 +2959,8 @@
   "author": "Hans Hillewaert",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Paraponera_clavata.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Paraponera_clavata.jpg",
+  "v": "8c3335bb"
  },
  "paresseux": {
   "file": "paresseux.webp",
@@ -2641,7 +2968,8 @@
   "author": "Stefan Laube ( Tauchgurke )",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Bradypus.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bradypus.jpg",
+  "v": "1bb81611"
  },
  "paruline-de-bachman": {
   "file": "paruline-de-bachman.webp",
@@ -2649,7 +2977,8 @@
   "author": "Jerry A. Payne",
   "license": "CC BY 3.0 us",
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Vermivora_bachmanii.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Vermivora_bachmanii.jpg",
+  "v": "50f7246d"
  },
  "pastenague": {
   "file": "pastenague.webp",
@@ -2657,7 +2986,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Raya_pel%C3%A1gica_(Pteroplatytrygon_violacea),_Cabo_de_Palos,_Espa%C3%B1a,_2022-07-16,_DD_69.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Raya_pel%C3%A1gica_(Pteroplatytrygon_violacea),_Cabo_de_Palos,_Espa%C3%B1a,_2022-07-16,_DD_69.jpg",
+  "v": "b3bb78ad"
  },
  "peau-bleue": {
   "file": "peau-bleue.webp",
@@ -2665,7 +2995,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Tibur%C3%B3n_azul_(Prionace_glauca),_canal_Fayal-Pico,_islas_Azores,_Portugal,_2020-07-27,_DD_21.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tibur%C3%B3n_azul_(Prionace_glauca),_canal_Fayal-Pico,_islas_Azores,_Portugal,_2020-07-27,_DD_21.jpg",
+  "v": "bcc77ff9"
  },
  "pelican": {
   "file": "pelican.webp",
@@ -2673,7 +3004,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Great_white_pelican_(Pelecanus_onocrotalus).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Great_white_pelican_(Pelecanus_onocrotalus).jpg",
+  "v": "b5d6f23b"
  },
  "perruche": {
   "file": "perruche.webp",
@@ -2681,7 +3013,8 @@
   "author": "photowoods",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/budgerigars-fence-post-desert-10407090/"
+  "page": "https://pixabay.com/photos/budgerigars-fence-post-desert-10407090/",
+  "v": "52e1f57c"
  },
  "petite-roussette": {
   "file": "petite-roussette.webp",
@@ -2689,7 +3022,8 @@
   "author": "Ana Santos",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/431068031"
+  "page": "https://www.inaturalist.org/photos/431068031",
+  "v": "331690a8"
  },
  "phacochere": {
   "file": "phacochere.webp",
@@ -2697,7 +3031,8 @@
   "author": "Alex Kraft",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/Jlbr6RJ4ADk"
+  "page": "https://unsplash.com/photos/Jlbr6RJ4ADk",
+  "v": "2a2133e1"
  },
  "phalanger-volant": {
   "file": "phalanger-volant.webp",
@@ -2705,7 +3040,8 @@
   "author": "Greg Tasney",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Petaurus_breviceps_119464446.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Petaurus_breviceps_119464446.jpg",
+  "v": "81dc489d"
  },
  "phasme": {
   "file": "phasme.webp",
@@ -2713,7 +3049,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Stick_insect_(Phasmatodea_sp.)_Las_Tangaras.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Stick_insect_(Phasmatodea_sp.)_Las_Tangaras.jpg",
+  "v": "cfab6370"
  },
  "phoque": {
   "file": "phoque.webp",
@@ -2721,7 +3058,8 @@
   "author": "AWeith",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Harbor_seal_(Phoca_vitulina)_at_Magdalen_fjord,_Svalbard_(1).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Harbor_seal_(Phoca_vitulina)_at_Magdalen_fjord,_Svalbard_(1).jpg",
+  "v": "16f6fff8"
  },
  "phoque-du-groenland": {
   "file": "phoque-du-groenland.webp",
@@ -2729,7 +3067,8 @@
   "author": "IanLJones",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/450633309"
+  "page": "https://www.inaturalist.org/photos/450633309",
+  "v": "dfe0cd9a"
  },
  "phyllobate": {
   "file": "phyllobate.webp",
@@ -2737,7 +3076,8 @@
   "author": "Marcel Burkhard - http://www.tierlexikon.ch/",
   "license": "CC BY-SA 2.0 de",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Goldenergiftfrosch2cele4.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Goldenergiftfrosch2cele4.jpg",
+  "v": "e06a2d89"
  },
  "physalie": {
   "file": "physalie.webp",
@@ -2745,7 +3085,8 @@
   "author": "Image courtesy of Islands in the Sea 2002, NOAA/OER.",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Portuguese_Man-O-War_(Physalia_physalis).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Portuguese_Man-O-War_(Physalia_physalis).jpg",
+  "v": "8e834856"
  },
  "pic-vert": {
   "file": "pic-vert.webp",
@@ -2753,7 +3094,8 @@
   "author": "Ryzhkov Sergey",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:%D0%96%D0%BE%D0%B2%D0%BD%D0%B0_%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0_(Picus_viridis).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%96%D0%BE%D0%B2%D0%BD%D0%B0_%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0_(Picus_viridis).jpg",
+  "v": "82d627f6"
  },
  "pie": {
   "file": "pie.webp",
@@ -2761,7 +3103,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Urraca_(Pica_pica),_Almuradiel,_Ciudad_Real,_Espa%C3%B1a,_2021-12-19,_DD_04.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Urraca_(Pica_pica),_Almuradiel,_Ciudad_Real,_Espa%C3%B1a,_2021-12-19,_DD_04.jpg",
+  "v": "70c4bbaf"
  },
  "pieuvre": {
   "file": "pieuvre.webp",
@@ -2769,7 +3112,8 @@
   "author": "Kostas Morfiris",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/qs1r3BWKLGs"
+  "page": "https://unsplash.com/photos/qs1r3BWKLGs",
+  "v": "05aa5ba2"
  },
  "pigeon": {
   "file": "pigeon.webp",
@@ -2777,7 +3121,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Paloma_brav%C3%ADa_(Columba_livia),_Palacio_de_Nymphenburg,_M%C3%BAnich,_Alemania01.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Paloma_brav%C3%ADa_(Columba_livia),_Palacio_de_Nymphenburg,_M%C3%BAnich,_Alemania01.JPG",
+  "v": "0a708ed2"
  },
  "pika": {
   "file": "pika.webp",
@@ -2785,7 +3130,8 @@
   "author": "csledge",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/175911614"
+  "page": "https://www.inaturalist.org/photos/175911614",
+  "v": "b3312bff"
  },
  "pipa": {
   "file": "pipa.webp",
@@ -2793,7 +3139,8 @@
   "author": "Pouzin Olivier 26 july 2007",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Pipa_pipa_juillet_2007_-_3.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Pipa_pipa_juillet_2007_-_3.jpg",
+  "v": "840d681f"
  },
  "pipistrelle": {
   "file": "pipistrelle.webp",
@@ -2801,7 +3148,8 @@
   "author": "Gilles San Martin from Namur, Belgium",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Pipistrellus_pipistrellus_(5933130195).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Pipistrellus_pipistrellus_(5933130195).jpg",
+  "v": "21837a4a"
  },
  "piranha": {
   "file": "piranha.webp",
@@ -2809,7 +3157,8 @@
   "author": "Guille Ivan Spajic",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/41242203"
+  "page": "https://www.inaturalist.org/photos/41242203",
+  "v": "c9de155f"
  },
  "pithecophage": {
   "file": "pithecophage.webp",
@@ -2817,7 +3166,8 @@
   "author": "Aimee Valencia",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Pamarayeg_IIIx2.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Pamarayeg_IIIx2.jpg",
+  "v": "cf294142"
  },
  "poisson-archer": {
   "file": "poisson-archer.webp",
@@ -2825,7 +3175,8 @@
   "author": "Bj.schoenmakers",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Toxotes_jaculatrix,_(banded_archerfish_or_riflefish)_-_Museon_-_Omniversum,_the_Hague,_the_Netherlands.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Toxotes_jaculatrix,_(banded_archerfish_or_riflefish)_-_Museon_-_Omniversum,_the_Hague,_the_Netherlands.jpg",
+  "v": "04f88cd3"
  },
  "poisson-clown": {
   "file": "poisson-clown.webp",
@@ -2833,7 +3184,8 @@
   "author": "Nhobgood - Nick Hobgood",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Anemone_purple_anemonefish.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Anemone_purple_anemonefish.jpg",
+  "v": "bccdb057"
  },
  "poisson-lune": {
   "file": "poisson-lune.webp",
@@ -2841,7 +3193,8 @@
   "author": "Pat Webster @underwaterpat",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/599631861"
+  "page": "https://www.inaturalist.org/photos/599631861",
+  "v": "91e470cf"
  },
  "poisson-perroquet": {
   "file": "poisson-perroquet.webp",
@@ -2849,7 +3202,8 @@
   "author": "James St. John",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Scarus_vetula_(queen_parrotfish)_(San_Salvador_Island,_Bahamas)_(15548372734).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Scarus_vetula_(queen_parrotfish)_(San_Salvador_Island,_Bahamas)_(15548372734).jpg",
+  "v": "48daafa2"
  },
  "poisson-pierre": {
   "file": "poisson-pierre.webp",
@@ -2857,7 +3211,8 @@
   "author": "Franziska_Stier",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/stonefish-scorpionfish-fish-8939204/"
+  "page": "https://pixabay.com/photos/stonefish-scorpionfish-fish-8939204/",
+  "v": "b5cf81a0"
  },
  "poisson-rouge": {
   "file": "poisson-rouge.webp",
@@ -2865,7 +3220,8 @@
   "author": "Asteroide_B612",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/fish-goldfish-red-aquarium-blue-4752920/"
+  "page": "https://pixabay.com/photos/fish-goldfish-red-aquarium-blue-4752920/",
+  "v": "244dcf93"
  },
  "poisson-scie": {
   "file": "poisson-scie.webp",
@@ -2873,7 +3229,8 @@
   "author": "David Clode",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/fZu1iB6QxyQ"
+  "page": "https://unsplash.com/photos/fZu1iB6QxyQ",
+  "v": "bcf5ae37"
  },
  "polatouche": {
   "file": "polatouche.webp",
@@ -2881,7 +3238,8 @@
   "author": "Sergey Simonov",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/471742878"
+  "page": "https://www.inaturalist.org/photos/471742878",
+  "v": "fb7bae58"
  },
  "porc-epic": {
   "file": "porc-epic.webp",
@@ -2889,7 +3247,8 @@
   "author": "thierry_aebischer_chinko",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/335793264"
+  "page": "https://www.inaturalist.org/photos/335793264",
+  "v": "f0111960"
  },
  "poule": {
   "file": "poule.webp",
@@ -2897,7 +3256,8 @@
   "author": "Andrei Niemimäki from Turku, Finland",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Male_and_female_chicken_sitting_together.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Male_and_female_chicken_sitting_together.jpg",
+  "v": "3f31ea6e"
  },
  "poulpe-a-anneaux-bleus": {
   "file": "poulpe-a-anneaux-bleus.webp",
@@ -2905,7 +3265,8 @@
   "author": "Jens Petersen",
   "license": "CC BY 2.5",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
-  "page": "https://commons.wikimedia.org/wiki/File:Hapalochlaena_lunulata2.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Hapalochlaena_lunulata2.JPG",
+  "v": "940674d2"
  },
  "poulpe-dumbo": {
   "file": "poulpe-dumbo.webp",
@@ -2913,7 +3274,8 @@
   "author": "NOAA Okeanos Explorer",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Dumbo-hires.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Dumbo-hires.jpg",
+  "v": "3ea5d760"
  },
  "protee": {
   "file": "protee.webp",
@@ -2921,7 +3283,8 @@
   "author": "Nacionalni park Una",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:RIJETKE_%C5%BDIVOTINJE_U_NP_UNA.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:RIJETKE_%C5%BDIVOTINJE_U_NP_UNA.jpg",
+  "v": "2d138fa5"
  },
  "protele": {
   "file": "protele.webp",
@@ -2929,7 +3292,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/aardwolf-proteles-cristata-10256240/"
+  "page": "https://pixabay.com/photos/aardwolf-proteles-cristata-10256240/",
+  "v": "122a433b"
  },
  "puce": {
   "file": "puce.webp",
@@ -2937,7 +3301,8 @@
   "author": "WikiImages",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/flea-siphonaptera-insect-parasite-63043/"
+  "page": "https://pixabay.com/photos/flea-siphonaptera-insect-parasite-63043/",
+  "v": "f2c5e9e1"
  },
  "puma": {
   "file": "puma.webp",
@@ -2945,7 +3310,8 @@
   "author": "No-longer-here",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/cougar-mountain-lion-puma-concolor-275945/"
+  "page": "https://pixabay.com/photos/cougar-mountain-lion-puma-concolor-275945/",
+  "v": "3b0026d3"
  },
  "pygargue": {
   "file": "pygargue.webp",
@@ -2953,7 +3319,8 @@
   "author": "Paul Danese",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:20250116_bald_eagle_hockanum_reservoir_PD202495.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:20250116_bald_eagle_hockanum_reservoir_PD202495.jpg",
+  "v": "0f697ed0"
  },
  "python-reticule": {
   "file": "python-reticule.webp",
@@ -2961,7 +3328,8 @@
   "author": "Rushenb",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Malayopython_reticulatus,_Reticulated_python_-_Kaeng_Krachan_District,_Phetchaburi_Province_(47924282891).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Malayopython_reticulatus,_Reticulated_python_-_Kaeng_Krachan_District,_Phetchaburi_Province_(47924282891).jpg",
+  "v": "56336df5"
  },
  "quagga": {
   "file": "quagga.webp",
@@ -2969,7 +3337,8 @@
   "author": "F. York",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Quagga_HIFI.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Quagga_HIFI.jpg",
+  "v": "d66511ce"
  },
  "quetzal": {
   "file": "quetzal.webp",
@@ -2977,7 +3346,8 @@
   "author": "Giles Laurent",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:056_Male_Resplendent_quetzal_in_Los_Quetzales_National_Park_Photo_by_Giles_Laurent.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:056_Male_Resplendent_quetzal_in_Los_Quetzales_National_Park_Photo_by_Giles_Laurent.jpg",
+  "v": "187ba10d"
  },
  "quokka": {
   "file": "quokka.webp",
@@ -2985,7 +3355,8 @@
   "author": "patrickkavanagh",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Quokka_(Setonix_brachyurus)_(27725086285).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Quokka_(Setonix_brachyurus)_(27725086285).jpg",
+  "v": "642000bc"
  },
  "quoll": {
   "file": "quoll.webp",
@@ -2993,7 +3364,8 @@
   "author": "JJ Harrison",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Tiger_Quoll_6178.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Tiger_Quoll_6178.jpg",
+  "v": "f9dfa0cc"
  },
  "raie-manta": {
   "file": "raie-manta.webp",
@@ -3001,7 +3373,8 @@
   "author": "Lakshmi Sawitri",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:2015_01_Koh_Lanta_27_entering_cleaning_station_(16422545698).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:2015_01_Koh_Lanta_27_entering_cleaning_station_(16422545698).jpg",
+  "v": "164bbee1"
  },
  "rainette-aux-yeux-rouges": {
   "file": "rainette-aux-yeux-rouges.webp",
@@ -3009,7 +3382,8 @@
   "author": "Hans Hillewaert",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Agalychnis_callidryas_(eye_detail).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Agalychnis_callidryas_(eye_detail).jpg",
+  "v": "320d4783"
  },
  "rainette-de-rabb": {
   "file": "rainette-de-rabb.webp",
@@ -3017,7 +3391,8 @@
   "author": "Brian Gratwicke from DC, USA",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Ecnomiohyla_rabborum.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Ecnomiohyla_rabborum.jpg",
+  "v": "3b3693ac"
  },
  "rainette-verte": {
   "file": "rainette-verte.webp",
@@ -3025,7 +3400,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:European_tree_frog_(Hyla_arborea)_Extremadura.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:European_tree_frog_(Hyla_arborea)_Extremadura.jpg",
+  "v": "4322cc3b"
  },
  "rat": {
   "file": "rat.webp",
@@ -3033,7 +3409,8 @@
   "author": "jimmykphotos",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/rodent-rat-rats-nature-animal-10079153/"
+  "page": "https://pixabay.com/photos/rodent-rat-rats-nature-animal-10079153/",
+  "v": "b09a2c13"
  },
  "rat-taupe-nu": {
   "file": "rat-taupe-nu.webp",
@@ -3041,7 +3418,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/mole-rat-naked-rodent-subterranean-10198428/"
+  "page": "https://pixabay.com/photos/mole-rat-naked-rodent-subterranean-10198428/",
+  "v": "af2a86a3"
  },
  "ratel": {
   "file": "ratel.webp",
@@ -3049,7 +3427,8 @@
   "author": "copper",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/13703579"
+  "page": "https://www.inaturalist.org/photos/13703579",
+  "v": "1a0e6566"
  },
  "raton-laveur": {
   "file": "raton-laveur.webp",
@@ -3057,7 +3436,8 @@
   "author": "Korall",
   "license": "CC BY 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Racoon_clinging_to_a_tree.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Racoon_clinging_to_a_tree.JPG",
+  "v": "41ea897b"
  },
  "renard-polaire": {
   "file": "renard-polaire.webp",
@@ -3065,7 +3445,8 @@
   "author": "Jonatan Pie ( unsplash.com/@r3dmax )",
   "license": "CC0",
   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Vulpes_lagopus_in_Iceland_(cropped_3).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Vulpes_lagopus_in_Iceland_(cropped_3).jpg",
+  "v": "b4b60d46"
  },
  "renard-roux": {
   "file": "renard-roux.webp",
@@ -3073,7 +3454,8 @@
   "author": "Jakub Hałun",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:20181006_Lis_rudy_Tatrza%C5%84ski_Park_Narodowy_1440_7492_DxO.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:20181006_Lis_rudy_Tatrza%C5%84ski_Park_Narodowy_1440_7492_DxO.jpg",
+  "v": "5fe4d122"
  },
  "renne": {
   "file": "renne.webp",
@@ -3081,7 +3463,8 @@
   "author": "Waschdel",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/reindeer-norway-winter-nature-5005123/"
+  "page": "https://pixabay.com/photos/reindeer-norway-winter-nature-5005123/",
+  "v": "86896c5c"
  },
  "requin-a-pointes-noires": {
   "file": "requin-a-pointes-noires.webp",
@@ -3089,7 +3472,8 @@
   "author": "Ila France",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/112902911"
+  "page": "https://www.inaturalist.org/photos/112902911",
+  "v": "8e7c25c5"
  },
  "requin-baleine": {
   "file": "requin-baleine.webp",
@@ -3097,7 +3481,8 @@
   "author": "briellereid",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/32061876"
+  "page": "https://www.inaturalist.org/photos/32061876",
+  "v": "53cc28f4"
  },
  "requin-blanc": {
   "file": "requin-blanc.webp",
@@ -3105,7 +3490,8 @@
   "author": "Gerald Schömbs",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/8DO2XXCoB0Q"
+  "page": "https://unsplash.com/photos/8DO2XXCoB0Q",
+  "v": "6f0968f1"
  },
  "requin-bouledogue": {
   "file": "requin-bouledogue.webp",
@@ -3113,7 +3499,8 @@
   "author": "Albertofuego",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Bullshark_Bahamas.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bullshark_Bahamas.jpg",
+  "v": "3f69dfd8"
  },
  "requin-citron": {
   "file": "requin-citron.webp",
@@ -3121,7 +3508,8 @@
   "author": "Fiona Ayerst",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/AhGS_FMEU0s"
+  "page": "https://unsplash.com/photos/AhGS_FMEU0s",
+  "v": "35054ec3"
  },
  "requin-mako": {
   "file": "requin-mako.webp",
@@ -3129,7 +3517,8 @@
   "author": "Fábio Olmos",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Shortfin_mako_(Isurus_oxyrinchus).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Shortfin_mako_(Isurus_oxyrinchus).jpg",
+  "v": "82e4581c"
  },
  "requin-marteau": {
   "file": "requin-marteau.webp",
@@ -3137,7 +3526,8 @@
   "author": "katradd7777",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/394448626"
+  "page": "https://www.inaturalist.org/photos/394448626",
+  "v": "558c76c3"
  },
  "requin-nourrice": {
   "file": "requin-nourrice.webp",
@@ -3145,7 +3535,8 @@
   "author": "Pauline Walsh Jacobson",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/179498581"
+  "page": "https://www.inaturalist.org/photos/179498581",
+  "v": "5df29c06"
  },
  "requin-oceanique": {
   "file": "requin-oceanique.webp",
@@ -3153,7 +3544,8 @@
   "author": "Gerald Schömbs",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/pWSjdGBWyAo"
+  "page": "https://unsplash.com/photos/pWSjdGBWyAo",
+  "v": "d1a8e58f"
  },
  "requin-pelerin": {
   "file": "requin-pelerin.webp",
@@ -3161,7 +3553,8 @@
   "author": "azure27014",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/154156679"
+  "page": "https://www.inaturalist.org/photos/154156679",
+  "v": "f838b168"
  },
  "requin-tigre": {
   "file": "requin-tigre.webp",
@@ -3169,7 +3562,8 @@
   "author": "Maahid Photos",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/ELwhnMLRVSQ"
+  "page": "https://unsplash.com/photos/ELwhnMLRVSQ",
+  "v": "a93f08ef"
  },
  "rhacophore": {
   "file": "rhacophore.webp",
@@ -3177,7 +3571,8 @@
   "author": "Tim",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Rhacophorus_nigropalmatus_227261158.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Rhacophorus_nigropalmatus_227261158.jpg",
+  "v": "edbad6fa"
  },
  "rhinoceros-blanc": {
   "file": "rhinoceros-blanc.webp",
@@ -3185,7 +3580,8 @@
   "author": "Axel Tschentscher",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:White_Rhinoceros_Alert_2019-07-27.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:White_Rhinoceros_Alert_2019-07-27.jpg",
+  "v": "a9499853"
  },
  "rhinoceros-de-java-du-vietnam": {
   "file": "rhinoceros-de-java-du-vietnam.webp",
@@ -3197,7 +3593,8 @@
   "brut": [
    1800,
    1477
-  ]
+  ],
+  "v": "c7888afe"
  },
  "rhinoceros-de-sumatra": {
   "file": "rhinoceros-de-sumatra.webp",
@@ -3205,7 +3602,8 @@
   "author": "26Isabella",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Sumatran_Rhinoceros_at_Sumatran_Rhino_Sanctuary_Lampung_Indonesia_2013.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Sumatran_Rhinoceros_at_Sumatran_Rhino_Sanctuary_Lampung_Indonesia_2013.JPG",
+  "v": "bd9d10f1"
  },
  "rhinoceros-indien": {
   "file": "rhinoceros-indien.webp",
@@ -3213,7 +3611,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Indian_rhinoceros_(Rhinoceros_unicornis)_1.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Indian_rhinoceros_(Rhinoceros_unicornis)_1.jpg",
+  "v": "be6f7f7a"
  },
  "rhinoceros-noir": {
   "file": "rhinoceros-noir.webp",
@@ -3221,7 +3620,8 @@
   "author": "NIR HIMI",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/LOZfJ00eeUs"
+  "page": "https://unsplash.com/photos/LOZfJ00eeUs",
+  "v": "69758db2"
  },
  "rhinoceros-noir-de-l-ouest": {
   "file": "rhinoceros-noir-de-l-ouest.webp",
@@ -3229,7 +3629,8 @@
   "author": "garethdoc",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/animal-rhinoceros-mammal-species-7177008/"
+  "page": "https://pixabay.com/photos/animal-rhinoceros-mammal-species-7177008/",
+  "v": "3a7bf4c7"
  },
  "rorqual-commun": {
   "file": "rorqual-commun.webp",
@@ -3237,7 +3638,8 @@
   "author": "Vuelve al Océano",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/214218386"
+  "page": "https://www.inaturalist.org/photos/214218386",
+  "v": "b34f348b"
  },
  "rougegorge": {
   "file": "rougegorge.webp",
@@ -3245,7 +3647,8 @@
   "author": "Arjan Haverkamp",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Erithacus_rubecula_-Netherlands-8.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Erithacus_rubecula_-Netherlands-8.jpg",
+  "v": "cd719e7f"
  },
  "saiga": {
   "file": "saiga.webp",
@@ -3253,7 +3656,8 @@
   "author": "Navinder Singh",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Saiga_tartarica.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Saiga_tartarica.jpg",
+  "v": "dbced4a4"
  },
  "saimiri": {
   "file": "saimiri.webp",
@@ -3261,7 +3665,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Ecuadorian_squirrel_monkey_(Saimiri_macrodon)_head_Rio_Napo.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Ecuadorian_squirrel_monkey_(Saimiri_macrodon)_head_Rio_Napo.jpg",
+  "v": "3d2eacca"
  },
  "saint-bernard": {
   "file": "saint-bernard.webp",
@@ -3273,7 +3678,8 @@
   "brut": [
    926,
    926
-  ]
+  ],
+  "v": "11e60c94"
  },
  "salamandre": {
   "file": "salamandre.webp",
@@ -3281,7 +3687,8 @@
   "author": "carnifex",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/186036678"
+  "page": "https://www.inaturalist.org/photos/186036678",
+  "v": "c4b436e9"
  },
  "salamandre-geante": {
   "file": "salamandre-geante.webp",
@@ -3289,7 +3696,8 @@
   "author": "Petr Hamerník",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Velemlok_%C4%8D%C3%ADnsk%C3%BD_zoo_praha_1.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Velemlok_%C4%8D%C3%ADnsk%C3%BD_zoo_praha_1.jpg",
+  "v": "5d55fcae"
  },
  "sanglier": {
   "file": "sanglier.webp",
@@ -3297,7 +3705,8 @@
   "author": "Wildfaces",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/wild-boar-boar-animal-forest-3240210/"
+  "page": "https://pixabay.com/photos/wild-boar-boar-animal-forest-3240210/",
+  "v": "97c68cbd"
  },
  "saumon": {
   "file": "saumon.webp",
@@ -3305,7 +3714,8 @@
   "author": "v_moss",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/555838239"
+  "page": "https://www.inaturalist.org/photos/555838239",
+  "v": "548cbefd"
  },
  "scinque-de-christmas": {
   "file": "scinque-de-christmas.webp",
@@ -3313,7 +3723,8 @@
   "author": "Dion Maple",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/67834735"
+  "page": "https://www.inaturalist.org/photos/67834735",
+  "v": "fd699ec4"
  },
  "scorpion": {
   "file": "scorpion.webp",
@@ -3321,7 +3732,8 @@
   "author": "Aristos Aristidou",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/3CETwKAWY_U"
+  "page": "https://unsplash.com/photos/3CETwKAWY_U",
+  "v": "766d352d"
  },
  "seiche": {
   "file": "seiche.webp",
@@ -3329,7 +3741,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Sepia_com%C3%BAn_(Sepia_officinalis),_Parque_natural_de_la_Arr%C3%A1bida,_Portugal,_2021-09-09,_DD_33.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Sepia_com%C3%BAn_(Sepia_officinalis),_Parque_natural_de_la_Arr%C3%A1bida,_Portugal,_2021-09-09,_DD_33.jpg",
+  "v": "4889a7da"
  },
  "serpentaire": {
   "file": "serpentaire.webp",
@@ -3337,7 +3750,8 @@
   "author": "Diego Delso",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Secretario_(Sagittarius_serpentarius),_parque_nacional_de_Amboseli,_Kenia,_2024-05-23,_DD_13.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Secretario_(Sagittarius_serpentarius),_parque_nacional_de_Amboseli,_Kenia,_2024-05-23,_DD_13.jpg",
+  "v": "75a1a8b9"
  },
  "serval": {
   "file": "serval.webp",
@@ -3345,7 +3759,8 @@
   "author": "DavidClode",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-cat-feline-serval-8909377/"
+  "page": "https://pixabay.com/illustrations/ai-generated-cat-feline-serval-8909377/",
+  "v": "2ffc6b01"
  },
  "sifaka": {
   "file": "sifaka.webp",
@@ -3353,7 +3768,8 @@
   "author": "Jeff Gibbs",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Propithecus_verreauxi_002.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Propithecus_verreauxi_002.jpg",
+  "v": "dedc3896"
  },
  "silure": {
   "file": "silure.webp",
@@ -3361,7 +3777,8 @@
   "author": "Ingo Rogalla",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/487831370"
+  "page": "https://www.inaturalist.org/photos/487831370",
+  "v": "79912679"
  },
  "singe-hurleur": {
   "file": "singe-hurleur.webp",
@@ -3369,7 +3786,8 @@
   "author": "Rhododendrites",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Mantled_howler_monkey_and_baby_(81337)2.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Mantled_howler_monkey_and_baby_(81337)2.jpg",
+  "v": "e3b69d24"
  },
  "souris": {
   "file": "souris.webp",
@@ -3377,7 +3795,8 @@
   "author": "4028mdk09",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Maus_au%C3%9Fer_Haus.JPG"
+  "page": "https://commons.wikimedia.org/wiki/File:Maus_au%C3%9Fer_Haus.JPG",
+  "v": "50193e3e"
  },
  "springbok": {
   "file": "springbok.webp",
@@ -3385,7 +3804,8 @@
   "author": "Yathin S Krishnappa",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Antidorcas_marsupialis,_female_(Etosha,_2012).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Antidorcas_marsupialis,_female_(Etosha,_2012).jpg",
+  "v": "7dc2b783"
  },
  "sterne-arctique": {
   "file": "sterne-arctique.webp",
@@ -3393,7 +3813,8 @@
   "author": "AidanSemmens",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/bird-seabird-nature-wildlife-tern-7699431/"
+  "page": "https://pixabay.com/photos/bird-seabird-nature-wildlife-tern-7699431/",
+  "v": "67b8cea9"
  },
  "suricate": {
   "file": "suricate.webp",
@@ -3401,7 +3822,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Meerkat_(Suricata_suricatta)_with_3_young.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Meerkat_(Suricata_suricatta)_with_3_young.jpg",
+  "v": "32863eb1"
  },
  "taipan": {
   "file": "taipan.webp",
@@ -3409,7 +3831,8 @@
   "author": "Storme22k",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/snake-reptile-scales-7786205/"
+  "page": "https://pixabay.com/photos/snake-reptile-scales-7786205/",
+  "v": "baf9d0a7"
  },
  "tamarin-lion": {
   "file": "tamarin-lion.webp",
@@ -3417,7 +3840,8 @@
   "author": "thibaudaronson",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Leontopithecus_rosalia_56711057.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Leontopithecus_rosalia_56711057.jpg",
+  "v": "a1e76f8f"
  },
  "tapir": {
   "file": "tapir.webp",
@@ -3425,7 +3849,8 @@
   "author": "Dušan veverkolog",
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/tDKIWqedgh8"
+  "page": "https://unsplash.com/photos/tDKIWqedgh8",
+  "v": "347cc4d1"
  },
  "tardigrade": {
   "file": "tardigrade.webp",
@@ -3433,7 +3858,8 @@
   "author": "GabruPawPixels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/tardigrade-waterbear-microscopic-10187598/"
+  "page": "https://pixabay.com/photos/tardigrade-waterbear-microscopic-10187598/",
+  "v": "048cbb4e"
  },
  "tarsier": {
   "file": "tarsier.webp",
@@ -3441,7 +3867,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Philippine_tarsier_(Carlito_syrichta_fraterculus)_Bohol_2.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Philippine_tarsier_(Carlito_syrichta_fraterculus)_Bohol_2.jpg",
+  "v": "16e5603d"
  },
  "tatou": {
   "file": "tatou.webp",
@@ -3449,7 +3876,8 @@
   "author": "Rhododendrites",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Nine-banded_armadillo_(13594).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Nine-banded_armadillo_(13594).jpg",
+  "v": "63c3e6ee"
  },
  "taupe": {
   "file": "taupe.webp",
@@ -3457,7 +3885,8 @@
   "author": "Christoph Moning",
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Talpa_europaea_(Freising,_Deutschland)_4.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Talpa_europaea_(Freising,_Deutschland)_4.jpg",
+  "v": "2ccdb18a"
  },
  "termite": {
   "file": "termite.webp",
@@ -3465,7 +3894,8 @@
   "author": "Richard Ong",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/45612214"
+  "page": "https://www.inaturalist.org/photos/45612214",
+  "v": "b26bb5a9"
  },
  "tetras-des-bruyeres": {
   "file": "tetras-des-bruyeres.webp",
@@ -3477,7 +3907,8 @@
   "brut": [
    1800,
    1199
-  ]
+  ],
+  "v": "0e755636"
  },
  "thon-rouge": {
   "file": "thon-rouge.webp",
@@ -3485,7 +3916,8 @@
   "author": "Danilo Cedrone (United Nations Food and Agriculture Organization)",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Group_of_tuna.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Group_of_tuna.jpg",
+  "v": "581434e3"
  },
  "thylacine": {
   "file": "thylacine.webp",
@@ -3493,7 +3925,8 @@
   "author": "Unknown author Unknown author",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Thylacine_in_Hobart_Zoo_Australia.webp"
+  "page": "https://commons.wikimedia.org/wiki/File:Thylacine_in_Hobart_Zoo_Australia.webp",
+  "v": "36074bc8"
  },
  "tigre": {
   "file": "tigre.webp",
@@ -3501,7 +3934,8 @@
   "author": "Pexels",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/"
+  "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/",
+  "v": "4f703655"
  },
  "torpille": {
   "file": "torpille.webp",
@@ -3509,7 +3943,8 @@
   "author": "eduardmarques",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/172997484"
+  "page": "https://www.inaturalist.org/photos/172997484",
+  "v": "1f7d51fd"
  },
  "tortue-alligator": {
   "file": "tortue-alligator.webp",
@@ -3517,7 +3952,8 @@
   "author": "Peter Paplanus from St. Louis, Missouri",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Alligator_Snapping_Turtle_(Macrochelys_temminckii)_(35856633000).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Alligator_Snapping_Turtle_(Macrochelys_temminckii)_(35856633000).jpg",
+  "v": "445c89b3"
  },
  "tortue-d-hermann": {
   "file": "tortue-d-hermann.webp",
@@ -3525,7 +3961,8 @@
   "author": "Orchi",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Testudo_hermanni_hermanni_Mallorca_02.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Testudo_hermanni_hermanni_Mallorca_02.jpg",
+  "v": "d0af7e94"
  },
  "tortue-de-pinta": {
   "file": "tortue-de-pinta.webp",
@@ -3533,7 +3970,8 @@
   "author": "Peter Wilton",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Lonesome_George_(2009).jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Lonesome_George_(2009).jpg",
+  "v": "9cbb2a6b"
  },
  "tortue-geante": {
   "file": "tortue-geante.webp",
@@ -3541,7 +3979,8 @@
   "author": "ignartonosbg",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/giant-turtle-animal-tortoise-6527490/"
+  "page": "https://pixabay.com/photos/giant-turtle-animal-tortoise-6527490/",
+  "v": "d8a42c18"
  },
  "tortue-luth": {
   "file": "tortue-luth.webp",
@@ -3549,7 +3988,8 @@
   "author": "andresfho",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/sea-turtle-is-animals-2547084/"
+  "page": "https://pixabay.com/photos/sea-turtle-is-animals-2547084/",
+  "v": "19327275"
  },
  "toucan": {
   "file": "toucan.webp",
@@ -3557,7 +3997,8 @@
   "author": "Chris Parfitt from East Grinstead, West Sussex, England",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Ramphastos_toco_-Birdworld,_Farnham,_Surrey,_England-8a.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Ramphastos_toco_-Birdworld,_Farnham,_Surrey,_England-8a.jpg",
+  "v": "6a37cdc7"
  },
  "triton-crete": {
   "file": "triton-crete.webp",
@@ -3565,7 +4006,8 @@
   "author": "Rainer Theuer.",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Kammmolchmaennchen.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Kammmolchmaennchen.jpg",
+  "v": "43a40fd1"
  },
  "tuatara": {
   "file": "tuatara.webp",
@@ -3573,7 +4015,8 @@
   "author": "Successful4",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/tuatara-reptile-new-zealand-nz-2190866/"
+  "page": "https://pixabay.com/photos/tuatara-reptile-new-zealand-nz-2190866/",
+  "v": "bc785fa2"
  },
  "vache": {
   "file": "vache.webp",
@@ -3581,7 +4024,8 @@
   "author": "Daniel Schwen",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:CH_cow_2.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:CH_cow_2.jpg",
+  "v": "9db7a7be"
  },
  "vampire": {
   "file": "vampire.webp",
@@ -3589,7 +4033,8 @@
   "author": "Uwe Schmidt",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Desmo-Flug-01.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Desmo-Flug-01.jpg",
+  "v": "04626b07"
  },
  "vautour-fauve": {
   "file": "vautour-fauve.webp",
@@ -3597,7 +4042,8 @@
   "author": "José Antonio Lagier Martin",
   "license": "CC BY 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Buitre_Leonado_(98727731).jpeg"
+  "page": "https://commons.wikimedia.org/wiki/File:Buitre_Leonado_(98727731).jpeg",
+  "v": "aecbefaf"
  },
  "ver-a-soie": {
   "file": "ver-a-soie.webp",
@@ -3605,7 +4051,8 @@
   "author": "ivabalk",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/silkworm-mulberry-silk-insect-worm-5370807/"
+  "page": "https://pixabay.com/photos/silkworm-mulberry-silk-insect-worm-5370807/",
+  "v": "55fdbc7e"
  },
  "veuve-noire": {
   "file": "veuve-noire.webp",
@@ -3613,7 +4060,8 @@
   "author": "tinyfroglet",
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Latrodectus_mactans_2.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Latrodectus_mactans_2.jpg",
+  "v": "6fc2b9aa"
  },
  "vipere-aspic": {
   "file": "vipere-aspic.webp",
@@ -3621,7 +4069,8 @@
   "author": "Photorama",
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/adder-viper-reptile-snake-scales-6198889/"
+  "page": "https://pixabay.com/photos/adder-viper-reptile-snake-scales-6198889/",
+  "v": "baa1d5c8"
  },
  "voilier": {
   "file": "voilier.webp",
@@ -3629,7 +4078,8 @@
   "author": "Wayne and Pam Osborn",
   "license": "CC BY-NC 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/255463195"
+  "page": "https://www.inaturalist.org/photos/255463195",
+  "v": "d505156e"
  },
  "wallaby": {
   "file": "wallaby.webp",
@@ -3637,7 +4087,8 @@
   "author": "User:benjamint444",
   "license": "CC BY-SA 3.0",
   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Young_red_necked_wallaby.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Young_red_necked_wallaby.jpg",
+  "v": "a3e2533c"
  },
  "wapiti-de-l-est": {
   "file": "wapiti-de-l-est.webp",
@@ -3649,7 +4100,8 @@
   "brut": [
    1609,
    2048
-  ]
+  ],
+  "v": "5428771b"
  },
  "wombat": {
   "file": "wombat.webp",
@@ -3657,7 +4109,8 @@
   "author": "Charles J. Sharp",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Common_wombat_(Vombatus_ursinus_tasmaniensis)_juvenile_Maria_Island.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Common_wombat_(Vombatus_ursinus_tasmaniensis)_juvenile_Maria_Island.jpg",
+  "v": "0b63ac10"
  },
  "yak": {
   "file": "yak.webp",
@@ -3665,7 +4118,8 @@
   "author": "travelwayoflife",
   "license": "CC BY-SA 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Bos_grunniens_at_Letdar_on_Annapurna_Circuit.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bos_grunniens_at_Letdar_on_Annapurna_Circuit.jpg",
+  "v": "36997fc4"
  },
  "zebre": {
   "file": "zebre.webp",
@@ -3673,6 +4127,7 @@
   "author": "This Photo was taken by Timothy A. Gonsalves . Feel free to use my photos, but please ment",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Zebra_Family_Luangwa_Zambia_Jul23_A7C_05903.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Zebra_Family_Luangwa_Zambia_Jul23_A7C_05903.jpg",
+  "v": "b1dedf9f"
  }
 }

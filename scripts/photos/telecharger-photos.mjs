@@ -17,6 +17,7 @@
 // et met à jour src/data/photos.json (crédits affichés dans le jeu).
 // Demande Node 22.18 ou plus récent (le script lit directement src/data/athletes.ts).
 
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -680,8 +681,20 @@ async function finalize() {
   const used = new Set(Object.values(credits).map((credit) => credit.file));
   for (const file of readdirSync(OUT_DIR)) if (!used.has(file)) unlinkSync(join(OUT_DIR, file));
   const sorted = Object.fromEntries(Object.entries(credits).sort(([a], [b]) => a.localeCompare(b)));
+  stampVersions(sorted);
   writeFileSync(CREDITS_FILE, `${JSON.stringify(sorted, null, 1)}\n`);
   console.log(`${Object.keys(photos).length} photos traitées, ${Object.keys(sorted).length} au total dans public/photos`);
+}
+
+/**
+ * Empreinte de chaque image de carte (« v ») : le jeu l'ajoute à l'adresse de la photo, pour qu'un navigateur
+ * qui garde l'ancienne image en cache charge la nouvelle dès qu'elle change (nouvelle photo ou nouveau cadrage).
+ */
+function stampVersions(credits) {
+  for (const [id, credit] of Object.entries(credits)) {
+    const file = join(OUT_DIR, credit.file);
+    if (existsSync(file)) credits[id] = { ...credit, v: createHash('sha1').update(readFileSync(file)).digest('hex').slice(0, 8) };
+  }
 }
 
 /** Refait les images de carte de toutes les photos déjà téléchargées, après un changement de cadrage. */
@@ -694,6 +707,8 @@ async function recrop() {
     const part = await renderCard(id);
     if (typeof part === 'number' && part < 0.97) cut.push(`${id} (${Math.round(part * 100)} %)`);
   }
+  stampVersions(credits);
+  writeFileSync(CREDITS_FILE, `${JSON.stringify(credits, null, 1)}\n`);
   console.log(`${ids.length} images de carte recadrées`);
   if (cut.length) console.log(`Animal pas entièrement visible (photo à remplacer) : ${cut.join(', ')}`);
 }

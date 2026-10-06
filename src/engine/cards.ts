@@ -208,7 +208,7 @@ export function athletesByRarity(): Record<RarityId, Athlete[]> {
 
 // ───────────── Numéros de collection ─────────────
 // Chaque espèce a son numéro dans l'album, famille par famille (dans l'ordre du jeu), sans trou : N° 001 à N° 4xx.
-// Les Habitats ont leur propre série : H01, H02…
+// Dans chaque famille, ses Icônes (espèces disparues) viennent en dernier. Les Habitats ont leur propre série : H01, H02…
 let numbers: Map<string, string> | null = null;
 
 export function collectionNumber(athlete: Athlete): string {
@@ -216,7 +216,9 @@ export function collectionNumber(athlete: Athlete): string {
     numbers = new Map();
     let n = 0;
     for (const sport of SPORT_ORDER) {
-      for (const a of ATHLETES) if (a.sport === sport && !a.habitat) numbers.set(a.id, String(++n).padStart(3, '0'));
+      for (const extinct of [false, true]) {
+        for (const a of ATHLETES) if (a.sport === sport && !a.habitat && !!a.retired === extinct) numbers.set(a.id, String(++n).padStart(3, '0'));
+      }
     }
     let h = 0;
     for (const a of ATHLETES) if (a.habitat) numbers.set(a.id, `H${String(++h).padStart(2, '0')}`);
