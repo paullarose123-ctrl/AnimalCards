@@ -131,7 +131,7 @@ export function sportPack(sport: SportId, sportName: string): PackDef {
     name: `Pack ${sportName}`,
     tagline: `3 cartes, uniquement ${SPORTS[sport].group}`,
     // la Préhistoire ne contient que des Icônes : son pack coûte le prix d'un trésor
-    price: sport === 'prehistoire' ? 60_000 : 2_400,
+    price: sport === 'prehistoire' ? 100_000 : 4_000,
     size: 3,
     odds: { commune: 50, 'peu-commune': 30, rare: 14, epique: 4.8, legendaire: 1.2 },
     primeChance: PRIME_CHANCE,
