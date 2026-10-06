@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useGame } from '../store/game';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
 import { RARITIES, RARITY_ORDER } from '../engine/cards';
-import { SHOP_PACKS, iconOdds, habitatOdds, primeOdds, primePool, reverseOdds, sportPack, type PackDef } from '../engine/packs';
+import { SHOP_PACKS, iconOdds, habitatOdds, isIconPack, primeOdds, primePool, reverseOdds, sportPack, type PackDef } from '../engine/packs';
 import type { SportId } from '../engine/types';
 import { PackArt } from '../components/PackArt';
 import { Balles } from '../components/Balles';
@@ -40,23 +40,25 @@ function Odds({ pack }: { pack: PackDef }) {
             <b>{percent(prime)}</b>
           </li>
         )}
-        <li className="rarity-row rarity-row--reverse">
-          <span className="rarity-dot" />
-          <span>Version Reverse</span>
-          <b>{percent(reverseOdds(pack))}</b>
-        </li>
-        {habitatOdds(pack) > 0 && (
+        {iconOdds(pack) > 0 && (
+          <li className="rarity-row rarity-row--icone">
+            <span className="rarity-dot" />
+            <span>Icône (espèce disparue)</span>
+            <b>{percent(iconOdds(pack))}</b>
+          </li>
+        )}
+        {reverseOdds(pack) > 0 && (
+          <li className="rarity-row rarity-row--reverse">
+            <span className="rarity-dot" />
+            <span>Version Reverse</span>
+            <b>{percent(reverseOdds(pack))}</b>
+          </li>
+        )}
+        {habitatOdds(pack) > 0 && !isIconPack(pack) && (
           <li className="rarity-row rarity-row--habitat">
             <span className="rarity-dot" />
             <span>Carte Habitat</span>
             <b>{percent(habitatOdds(pack))}</b>
-          </li>
-        )}
-        {iconOdds(pack) > 0 && iconOdds(pack) < 1 && (
-          <li className="rarity-row rarity-row--icon">
-            <span className="rarity-dot" />
-            <span>Icône (espèce disparue)</span>
-            <b>{percent(iconOdds(pack))}</b>
           </li>
         )}
       </ul>
@@ -65,11 +67,11 @@ function Odds({ pack }: { pack: PackDef }) {
           {pack.guaranteed.prime
             ? `Dernière carte : une version Prime garantie, parmi les ${primePool(pack).length} individus célèbres.`
             : pack.tone === 'icon'
-              ? 'Une seule carte, toujours une Icône : une espèce disparue, la carte la plus rare du jeu.'
+              ? 'Une seule carte, toujours une Icône : une espèce disparue, le palier le plus rare du jeu, au-dessus de Légendaire.'
               : `Dernière carte : ${RARITIES[pack.guaranteed.min].name} ou mieux garantie.`}
         </p>
       )}
-      <p className="small muted">Seules les espèces vedettes existent en version Prime : un individu célèbre (Laïka, Keiko, Sue…).</p>
+      {!isIconPack(pack) && <p className="small muted">Seules les espèces vedettes existent en version Prime : un individu célèbre (Laïka, Keiko, Knut…).</p>}
     </details>
   );
 }

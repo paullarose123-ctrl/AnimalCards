@@ -86,18 +86,18 @@ describe('boosters', () => {
     expect(baseValueOf(zebre, 'reverse')).toBeGreaterThan(baseValueOf(zebre));
   });
 
-  it('sort une carte Habitat environ une fois sur 40, sans toucher à la carte garantie', () => {
+  it('sort une carte Habitat environ une fois sur 30, sans toucher à la carte garantie', () => {
     const rng = mulberry32(99);
     let habitats = 0;
     let total = 0;
-    for (let i = 0; i < 4000; i++) {
+    for (let i = 0; i < 6000; i++) {
       for (const card of openPack(FREE_PACK, rng)) {
         total += 1;
         if (ATHLETES_BY_ID[card.athleteId].habitat) habitats += 1;
       }
     }
-    expect(habitats / total).toBeGreaterThan(0.018);
-    expect(habitats / total).toBeLessThan(0.032);
+    expect(habitats / total).toBeGreaterThan(0.027);
+    expect(habitats / total).toBeLessThan(0.041);
     // la carte garantie reste un animal Légendaire ; un Habitat tiré en plus peut être classé après elle
     const legende = SHOP_PACKS.find((p) => p.id === 'legende')!;
     for (let i = 0; i < 300; i++) {
@@ -122,13 +122,24 @@ describe('boosters', () => {
     }
     expect(icons / total).toBeGreaterThan(0.0004);
     expect(icons / total).toBeLessThan(0.0018);
-    // le Pack Icônes contient une seule carte : toujours une Icône
+    // le Pack Icônes contient une seule carte : toujours une Icône, en version classique
     const single = SHOP_PACKS.find((p) => p.id === 'icones')!;
-    for (let i = 0; i < 200; i++) {
+    const seen = new Set<string>();
+    for (let i = 0; i < 400; i++) {
       const cards = openPack(single, rng);
       expect(cards).toHaveLength(1);
       expect(isIconCard(cards[0])).toBe(true);
+      expect(cards[0].variant).toBe('base');
+      seen.add(cards[0].athleteId);
     }
+    // toutes ou presque y passent, le lion de l'Atlas (la plus célèbre) bien plus rarement que le bubale
+    expect(seen.size).toBeGreaterThan(15);
+    // l'Icône est un palier de rareté à part, au-dessus de Légendaire, sans Reverse
+    for (const icon of ATHLETES.filter((a) => a.retired && !a.habitat)) {
+      expect(rarityOf(icon).id, icon.id).toBe('icone');
+      expect(canBeReverse(icon)).toBe(false);
+    }
+    expect(rarityOf(ATHLETES_BY_ID['lion-de-l-atlas']).order).toBeGreaterThan(rarityOf(ATHLETES_BY_ID.lion).order);
     expect(Math.max(...SHOP_PACKS.map((p) => p.price))).toBe(single.price);
     // les Icônes sont des espèces disparues depuis 1800, avec leur année : plus de créatures préhistoriques
     const extinct = ATHLETES.filter((a) => a.retired && !a.habitat);

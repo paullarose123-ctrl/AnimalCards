@@ -4,7 +4,7 @@ import { useUi, DEFAULT_FILTERS } from '../store/ui';
 import { useNow, formatDuration, timeAgo } from '../hooks/useNow';
 import { ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { RARITIES, RARITY_ORDER, collectionNumber, displayName, rarityOf } from '../engine/cards';
+import { RARITIES, RARITY_TIERS, collectionNumber, displayName, rarityOf } from '../engine/cards';
 import { MARKET_TAX, MAX_MY_LISTINGS, marketPrice, netAfterTax, nextMinBid, type Listing, type MyListing } from '../engine/market';
 import type { RarityId, SportId } from '../engine/types';
 import { Card } from '../components/Card';
@@ -274,7 +274,7 @@ function BuyTab() {
           <span className="visually-hidden">Rareté</span>
           <select id="market-rarity" value={filters.rarity} onChange={(e) => setFilters({ rarity: e.target.value as RarityId | '' })}>
             <option value="">Toutes les raretés</option>
-            {RARITY_ORDER.map((id) => (
+            {RARITY_TIERS.map((id) => (
               <option key={id} value={id}>
                 {RARITIES[id].name}
               </option>

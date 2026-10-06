@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { CardFace } from '../engine/types';
-import { collectionNumber, displayName, getAthlete, isIcon, rarityOf } from '../engine/cards';
+import { collectionNumber, displayName, getAthlete, rarityOf } from '../engine/cards';
 import { ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS } from '../data/sports';
 import { mesuresOf } from '../data/mesures';
@@ -48,7 +48,6 @@ export function CardStats({ card, children, className = '' }: CardStatsProps) {
             {prime && <span className="chip-rarity chip-rarity--prime">Prime{athlete.prime ? ` ${athlete.prime.year}` : ''}</span>}
             {reverse && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
             {habitat && <span className="chip-rarity chip-rarity--habitat">Habitat</span>}
-            {isIcon(athlete) && <span className="chip-rarity chip-rarity--icon">Icône</span>}
           </div>
           <h3 className="card-stats__name">{displayName(athlete)}</h3>
           {athlete.latin && <p className="card-stats__latin">{athlete.latin}</p>}

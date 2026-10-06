@@ -1797,7 +1797,8 @@
   background: linear-gradient(115deg, #ffc9df, #ffe6c4 35%, #c8f2df 65%, #d6d0ff);
   color: #5b4380;
 }
-.chip-rarity--icon {
+.chip-rarity--icon,
+.chip-rarity--icone {
   background: #f5eedd;
   color: #6f5420;
 }
@@ -4393,7 +4394,8 @@
 }
 
 /* Icône : marbre blanc et or, comme la carte */
-.rarity-row--icon {
+.rarity-row--icon,
+.rarity-row--icone {
   --dot: linear-gradient(135deg, #fbf3df, #d9b874 60%, #c39a4b);
 }
 
@@ -4445,6 +4447,9 @@
 }
 .card-stats--prime {
   --tier: var(--prime);
+}
+.card-stats--icone {
+  --tier: #d9b874;
 }
 .card-stats--habitat {
   --tier: #e9c77b;

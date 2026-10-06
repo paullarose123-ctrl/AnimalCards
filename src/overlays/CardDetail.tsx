@@ -6,7 +6,7 @@ import { ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS } from '../data/sports';
 import { mesuresOf } from '../data/mesures';
 import { populationOf } from '../data/populations';
-import { collectionNumber, displayName, extinctionLabel, isIcon, quickSellValue, rarityOf } from '../engine/cards';
+import { collectionNumber, displayName, extinctionLabel, quickSellValue, rarityOf } from '../engine/cards';
 import { canDuel } from '../engine/duel';
 import { MARKET_TAX, marketPrice, netAfterTax, nextMinBid, priceBounds, priceHistory, suggestedPrices } from '../engine/market';
 import type { CardFace, OwnedCard } from '../engine/types';
@@ -370,7 +370,6 @@ export function CardDetail() {
             {face.variant === 'reverse' && <span className="chip-rarity chip-rarity--reverse">Reverse</span>}
             {habitat && <span className="chip-rarity chip-rarity--habitat">Habitat</span>}
             <span className="chip-rarity">N° {collectionNumber(athlete)}</span>
-            {isIcon(athlete) && <span className="chip-rarity chip-rarity--icon">Icône</span>}
           </div>
           <h2 id="detail-title">
             {displayName(athlete)}

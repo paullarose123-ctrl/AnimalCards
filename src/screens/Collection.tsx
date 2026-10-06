@@ -3,7 +3,7 @@ import { useGame, formatBalles } from '../store/game';
 import { useUi } from '../store/ui';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { RARITIES, RARITY_ORDER, collectionNumber, displayName, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
+import { RARITIES, RARITY_TIERS, collectionNumber, displayName, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import type { OwnedCard, RarityId, SportId } from '../engine/types';
 import { Card } from '../components/Card';
 import { SportIcon } from '../components/SportIcon';
@@ -125,7 +125,7 @@ function Club() {
           <span className="visually-hidden">Rareté</span>
           <select id="club-rarity" value={rarity} onChange={(e) => setRarity(e.target.value as RarityId | '')}>
             <option value="">Toutes les raretés</option>
-            {RARITY_ORDER.map((id) => (
+            {RARITY_TIERS.map((id) => (
               <option key={id} value={id}>
                 {RARITIES[id].name}
               </option>

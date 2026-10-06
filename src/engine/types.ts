@@ -3,7 +3,11 @@ import type { SceneDef } from '../components/PackScene';
 // Le code reprend celui d'AthletiCards : une « Athlete » est ici une espèce animale (ou une carte Habitat)
 // et un « sport » est une famille d'animaux.
 
-export type RarityId = 'commune' | 'peu-commune' | 'rare' | 'epique' | 'legendaire';
+/** Raretés : les cinq paliers des espèces vivantes, et l'Icône (espèce disparue), un palier à part au-dessus. */
+export type RarityId = 'commune' | 'peu-commune' | 'rare' | 'epique' | 'legendaire' | 'icone';
+
+/** Les cinq paliers tirés dans les boosters selon les chances de chaque pack (les Icônes ont leur propre tirage). */
+export type BaseRarityId = Exclude<RarityId, 'icone'>;
 
 /** Famille d'animaux : chacune a sa couleur et son emblème. */
 export type SportId =

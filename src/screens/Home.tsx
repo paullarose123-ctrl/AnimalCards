@@ -4,7 +4,7 @@ import { useGame, OBJECTIVES, MAX_FREE_PACKS, FREE_PACK_INTERVAL } from '../stor
 import { useUi } from '../store/ui';
 import { useNow, formatDuration, timeAgo } from '../hooks/useNow';
 import { ATHLETES } from '../data/athletes';
-import { RARITIES, RARITY_ORDER, rarityOf } from '../engine/cards';
+import { RARITIES, RARITY_TIERS, rarityOf } from '../engine/cards';
 import { FREE_PACK } from '../engine/packs';
 import { PackArt } from '../components/PackArt';
 import { Landscape } from '../components/PackScene';
@@ -222,7 +222,7 @@ function CollectionSummary() {
   const setTab = useUi((s) => s.setTab);
 
   const perRarity = useMemo(() => {
-    const totals = Object.fromEntries(RARITY_ORDER.map((id) => [id, { owned: 0, total: 0 }])) as Record<string, { owned: number; total: number }>;
+    const totals = Object.fromEntries(RARITY_TIERS.map((id) => [id, { owned: 0, total: 0 }])) as Record<string, { owned: number; total: number }>;
     for (const athlete of ATHLETES) {
       const entry = totals[rarityOf(athlete).id];
       entry.total += 1;
@@ -258,7 +258,7 @@ function CollectionSummary() {
             <span>espèces découvertes · {collection.length} cartes</span>
           </div>
           <ul className="rarity-list">
-            {RARITY_ORDER.slice()
+            {RARITY_TIERS.slice()
               .reverse()
               .map((id) => (
                 <li key={id} className={`rarity-row rarity-row--${id}`}>

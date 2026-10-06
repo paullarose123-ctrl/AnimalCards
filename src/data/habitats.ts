@@ -3,7 +3,7 @@ import type { SceneDef } from '../components/PackScene';
 
 // Cartes Habitat : de grands lieux de la planète (forêt amazonienne, Grande Barrière de corail…). Ce ne sont pas
 // des espèces : la carte montre le lieu en paysage peint, sa superficie et les animaux du jeu qui y vivent.
-// Elles sortent environ une fois sur 40 des boosters. Célébrité 92 = Légendaire, 80 = Épique, 66 = Rare,
+// Elles sortent environ une fois sur 30 des boosters. Célébrité 92 = Légendaire, 80 = Épique, 66 = Rare,
 // 50 = Peu commune. Les faits restent sobres et vérifiables.
 
 /** Profil requis par le type Athlete (les Habitats ne jouent pas en duel). */

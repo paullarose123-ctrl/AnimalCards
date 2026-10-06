@@ -187,7 +187,7 @@ export const Card = memo(function Card({ card, size = 'md', tilt = false, locked
 
   const ariaLabel = habitat
     ? `${athlete.last}, carte Habitat n° ${number}, ${athlete.role}`
-    : `${displayName(athlete)}, ${rarity.name}${prime ? ' Prime' : ''}${reverse ? ' Reverse' : ''}${icon ? ', Icône' : ''}, n° ${number}`;
+    : `${displayName(athlete)}, ${rarity.name}${prime ? ' Prime' : ''}${reverse ? ' Reverse' : ''}, n° ${number}`;
 
   return (
     <div

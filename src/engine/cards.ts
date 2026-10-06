@@ -1,4 +1,4 @@
-import type { Athlete, Rarity, RarityId, Variant } from './types';
+import type { Athlete, BaseRarityId, Rarity, RarityId, Variant } from './types';
 import { SPORT_ORDER } from '../data/sports';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { CHIENS_DANS_LE_MONDE, POPULATIONS } from '../data/populations';
@@ -14,9 +14,16 @@ export const RARITIES: Record<RarityId, Rarity> = {
   rare: { id: 'rare', name: 'Rare', minScore: 58, baseValue: 1_500, order: 2 },
   epique: { id: 'epique', name: 'Épique', minScore: 72, baseValue: 6_000, order: 3 },
   legendaire: { id: 'legendaire', name: 'Légendaire', minScore: 80, baseValue: 25_000, order: 4 },
+  // les Icônes (espèces disparues) forment un palier à part, au-dessus de Légendaire : on y entre par l'extinction,
+  // pas par le score
+  icone: { id: 'icone', name: 'Icône', minScore: 101, baseValue: 100_000, order: 5 },
 };
 
-export const RARITY_ORDER: RarityId[] = ['commune', 'peu-commune', 'rare', 'epique', 'legendaire'];
+/** Les cinq paliers des espèces vivantes, du plus courant au plus rare (chances des boosters). */
+export const RARITY_ORDER: BaseRarityId[] = ['commune', 'peu-commune', 'rare', 'epique', 'legendaire'];
+
+/** Tous les paliers, Icône comprise (filtres, résumés de collection). */
+export const RARITY_TIERS: RarityId[] = [...RARITY_ORDER, 'icone'];
 
 /**
  * Rareté dans la nature (0-100), sur une échelle logarithmique : 1 000 individus → 100, 10 000 → 85,
@@ -59,6 +66,7 @@ export function rarityScore(athlete: Athlete): number {
 }
 
 export function rarityOf(athlete: Athlete): Rarity {
+  if (athlete.retired && !athlete.habitat) return RARITIES.icone;
   const score = rarityScore(athlete);
   for (let i = RARITY_ORDER.length - 1; i >= 0; i--) {
     const rarity = RARITIES[RARITY_ORDER[i]];
@@ -67,7 +75,7 @@ export function rarityOf(athlete: Athlete): Rarity {
   return RARITIES.commune;
 }
 
-/** Plage de score couverte par une rareté (pour graduer la rareté à l'intérieur d'un palier). */
+/** Plage de score couverte par un palier d'espèces vivantes (pour graduer la rareté à l'intérieur du palier). */
 function scoreSpan(rarity: Rarity): [number, number] {
   const next = RARITY_ORDER[rarity.order + 1];
   return [rarity.minScore, next ? RARITIES[next].minScore : 100];
@@ -78,6 +86,8 @@ function scoreSpan(rarity: Rarity): [number, number] {
  * Le panda sort environ 6 fois moins souvent que le loup.
  */
 export function dropWeight(athlete: Athlete): number {
+  // Icônes : d'après leur célébrité seule ; le lion de l'Atlas sort une quarantaine de fois moins que le bubale
+  if (isIcon(athlete)) return Math.exp(-(rarityScore(athlete) - 30) / 14);
   const rarity = rarityOf(athlete);
   return Math.exp(-(rarityScore(athlete) - rarity.minScore) / 6);
 }
@@ -97,33 +107,35 @@ export const PRIME_MIN_VALUE = 50_000;
 
 // ───────────── Reverse ─────────────
 // Finition aquarelle : seules les cartes Rares, Épiques et Légendaires peuvent sortir en Reverse (environ 1 sur 20),
-// identique à la classique, mais avec une cote plus élevée. Jamais une Commune, une Peu commune ni un Habitat.
+// identique à la classique, mais avec une cote plus élevée. Jamais une Commune, une Peu commune, une Icône ni un Habitat.
 export const REVERSE_CHANCE = 0.05;
 export const REVERSE_VALUE_MULTIPLIER = 2.5;
 
 export function canBeReverse(athlete: Athlete): boolean {
-  return !athlete.habitat && rarityOf(athlete).order >= RARITIES.rare.order;
+  const order = rarityOf(athlete).order;
+  return !athlete.habitat && order >= RARITIES.rare.order && order <= RARITIES.legendaire.order;
 }
 
 // ───────────── Habitats ─────────────
-// Grands lieux de la planète (Amazonie, Grande Barrière…) : environ 1 carte sur 40 dans les boosters.
-export const HABITAT_CHANCE = 0.025;
+// Grands lieux de la planète (Amazonie, Grande Barrière…) : environ 1 carte sur 30 dans les boosters.
+export const HABITAT_CHANCE = 0.034;
 
 export function isHabitat(athlete: Athlete): boolean {
   return !!athlete.habitat;
 }
 
 // ───────────── Icônes ─────────────
-// Espèces disparues depuis 1800 (thylacine, lion de l'Atlas, loup du Japon…) : un trésor, environ 1 carte sur 1 000
-// dans les boosters ordinaires. Seul le Pack Icônes, bien plus cher, n'en contient que.
+// Espèces disparues depuis 1800 (thylacine, lion de l'Atlas, loup du Japon…) : un palier de rareté à part, au-dessus
+// de Légendaire. Un trésor, environ 1 carte sur 1 000 dans les boosters ordinaires. Seul le Pack Icônes, bien plus
+// cher, n'en contient que.
 export const ICON_CHANCE = 0.001;
-/** Une Icône vaut au moins ICON_MIN_VALUE, et dix fois la valeur de sa rareté. */
-export const ICON_VALUE_MULTIPLIER = 10;
+/** Une Icône vaut de ICON_MIN_VALUE (une espèce peu connue) à ICON_MAX_VALUE (la plus célèbre). */
 export const ICON_MIN_VALUE = 100_000;
+export const ICON_MAX_VALUE = 350_000;
 
-/** Poids de tirage d'une Icône : le lion de l'Atlas (Légende) sort huit fois moins qu'une Icône commune. */
+/** Poids de tirage d'une Icône : plus elle est célèbre, plus elle sort rarement. */
 export function iconWeight(athlete: Athlete): number {
-  return [8, 6, 4, 2, 1][rarityOf(athlete).order] * dropWeight(athlete);
+  return dropWeight(athlete);
 }
 
 /** Poids de tirage d'un Habitat selon sa rareté : les Légendaires sortent six fois moins que les Rares. */
@@ -137,12 +149,16 @@ export function habitatWeight(athlete: Athlete): number {
 /** Valeur de référence d'une carte en graines (sans les fluctuations du marché). */
 export function baseValueOf(athlete: Athlete, variant: Variant = 'base'): number {
   const rarity = rarityOf(athlete);
-  const [lo, hi] = scoreSpan(rarity);
-  const withinTier = clamp((rarityScore(athlete) - lo) / (hi - lo), 0, 1); // 0 → 1
   const multiplier = variant === 'prime' ? PRIME_VALUE_MULTIPLIER : variant === 'reverse' ? REVERSE_VALUE_MULTIPLIER : 1;
-  let value = rarity.baseValue * (1 + withinTier * 1.5);
-  // une Icône (espèce disparue) est la carte la plus rare du jeu : elle vaut une fortune
-  if (isIcon(athlete)) value = Math.max(value * ICON_VALUE_MULTIPLIER, ICON_MIN_VALUE);
+  let value: number;
+  if (isIcon(athlete)) {
+    // une Icône (espèce disparue) est la carte la plus rare du jeu : elle vaut une fortune, d'autant plus qu'elle est célèbre
+    value = ICON_MIN_VALUE + clamp((rarityScore(athlete) - 40) / 44, 0, 1) * (ICON_MAX_VALUE - ICON_MIN_VALUE);
+  } else {
+    const [lo, hi] = scoreSpan(rarity);
+    const withinTier = clamp((rarityScore(athlete) - lo) / (hi - lo), 0, 1); // 0 → 1
+    value = rarity.baseValue * (1 + withinTier * 1.5);
+  }
   value *= multiplier;
   // une Prime est un individu unique et célèbre (Hachikō, Dolly…) : elle vaut cher même si son espèce est commune
   return roundPrice(variant === 'prime' ? Math.max(value, PRIME_MIN_VALUE) : value);
@@ -185,7 +201,7 @@ export function extinctionLabel(athlete: Athlete): string {
 }
 
 export function athletesByRarity(): Record<RarityId, Athlete[]> {
-  const out = { commune: [], 'peu-commune': [], rare: [], epique: [], legendaire: [] } as Record<RarityId, Athlete[]>;
+  const out = { commune: [], 'peu-commune': [], rare: [], epique: [], legendaire: [], icone: [] } as Record<RarityId, Athlete[]>;
   for (const athlete of ATHLETES) out[rarityOf(athlete).id].push(athlete);
   return out;
 }

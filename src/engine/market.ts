@@ -138,7 +138,7 @@ export function nextMinBid(listing: Pick<Listing, 'currentBid' | 'startPrice'>):
 function listingWeight(athleteId: string): number {
   const athlete = ATHLETES_BY_ID[athleteId];
   // les cartes courantes circulent davantage, mais on garde du rêve dans les annonces
-  const tierWeight = [1, 0.8, 0.55, 0.4, 0.28][rarityOf(athlete).order];
+  const tierWeight = [1, 0.8, 0.55, 0.4, 0.28, 0.28][rarityOf(athlete).order];
   // les Icônes (espèces disparues) sont des trésors : elles passent très rarement sur le marché
   return tierWeight * (0.35 + dropWeight(athlete)) * (athlete.retired ? 0.05 : 1);
 }
@@ -195,7 +195,8 @@ export function createAiListing(rng: Rng, t: number, news: MarketNews[], forceAt
 export function createMarket(t: number, rng: Rng): MarketState {
   const listings: Listing[] = [];
   // quelques têtes d'affiche dès l'ouverture, pour faire rêver
-  const headliners = ATHLETES.filter((a) => rarityOf(a).order >= 3);
+  // (des Épiques et des Légendaires : les Icônes restent des trésors, rares sur le marché)
+  const headliners = ATHLETES.filter((a) => rarityOf(a).order >= 3 && !a.retired);
   for (let i = 0; i < 6; i++) listings.push(createAiListing(rng, t, [], pick(rng, headliners).id));
   while (listings.length < TARGET_LISTINGS) listings.push(createAiListing(rng, t, []));
   return { listings, myListings: [], news: [], lastTick: t, nextNewsAt: t + 2 * MINUTE };
