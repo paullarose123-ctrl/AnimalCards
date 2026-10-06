@@ -9,6 +9,7 @@ import { App } from './App';
 import { AllCards, Gallery } from './dev/Gallery';
 import { useGame } from './store/game';
 import { startAutoSave } from './store/account';
+import { startAnalytics } from './analytics';
 
 // En développement, l'état du jeu est accessible depuis la console (tests visuels).
 if (import.meta.env.DEV) (window as unknown as { __game: typeof useGame }).__game = useGame;
@@ -19,6 +20,8 @@ const hash = typeof window !== 'undefined' ? window.location.hash : '';
 
 // la partie d'un joueur connecté part toute seule dans son compte
 startAutoSave();
+// mesure d'audience anonyme (GoatCounter), sur le vrai site seulement
+startAnalytics();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>{hash === '#galerie' ? <Gallery /> : hash === '#toutes-les-cartes' ? <AllCards /> : <App />}</StrictMode>,

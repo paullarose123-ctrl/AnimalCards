@@ -381,7 +381,7 @@ export function HomeScreen() {
         Mesures, populations et anecdotes réelles (estimations arrondies). {ATHLETES.filter((a) => !a.habitat).length} espèces, dont {ATHLETES.filter((a) => a.retired).length} Icônes (espèces disparues),
         et {ATHLETES.filter((a) => a.habitat).length} cartes Habitat. Photos libres de Wikimedia Commons, iNaturalist, Unsplash et Pixabay, auteurs crédités dans la fiche de chaque carte ; pour une Icône sans photo d’elle-même, un animal vivant de la même espèce.
       </p>
-      <p className="footnote">© 2026 AnimalCards · le jeu, ses dessins et ses textes : tous droits réservés.</p>
+      <p className="footnote">© 2026 AnimalCards · le jeu, ses dessins et ses textes : tous droits réservés. Mesure d’audience anonyme, sans cookie (GoatCounter).</p>
     </div>
   );
 }
