@@ -1,6 +1,6 @@
 import type { Athlete, Rarity, RarityId, Variant } from './types';
 import { SPORT_ORDER } from '../data/sports';
-import { ATHLETES, ATHLETES_BY_ID, ICONES_RECENTES } from '../data/athletes';
+import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { CHIENS_DANS_LE_MONDE, POPULATIONS } from '../data/populations';
 import { clamp } from './random';
 
@@ -114,7 +114,7 @@ export function isHabitat(athlete: Athlete): boolean {
 }
 
 // ───────────── Icônes ─────────────
-// Espèces disparues depuis 1800 (tigre de Java, thylacine, lion de l'Atlas…) : un trésor, environ 1 carte sur 1 000
+// Espèces disparues depuis 1800 (thylacine, lion de l'Atlas, loup du Japon…) : un trésor, environ 1 carte sur 1 000
 // dans les boosters ordinaires. Seul le Pack Icônes, bien plus cher, n'en contient que.
 export const ICON_CHANCE = 0.001;
 /** Une Icône vaut au moins ICON_MIN_VALUE, et dix fois la valeur de sa rareté. */
@@ -167,7 +167,7 @@ export function getAthlete(id: string): Athlete {
   return athlete;
 }
 
-/** Icône : une espèce disparue depuis 1800 (thylacine, tigre de Java, lion de l'Atlas…). */
+/** Icône : une espèce disparue depuis 1800 (thylacine, lion de l'Atlas, loup du Japon…). */
 export function isIcon(athlete: Athlete): boolean {
   return !!athlete.retired;
 }
@@ -191,19 +191,16 @@ export function athletesByRarity(): Record<RarityId, Athlete[]> {
 }
 
 // ───────────── Numéros de collection ─────────────
-// Chaque espèce a son numéro dans l'album, famille par famille (dans l'ordre du jeu) : N° 001 à N° 4xx.
-// Les Icônes ajoutées en octobre 2026 viennent après toutes les autres, pour que les numéros déjà connus ne
-// bougent pas. Les Habitats ont leur propre série : H01, H02…
+// Chaque espèce a son numéro dans l'album, famille par famille (dans l'ordre du jeu), sans trou : N° 001 à N° 4xx.
+// Les Habitats ont leur propre série : H01, H02…
 let numbers: Map<string, string> | null = null;
 
 export function collectionNumber(athlete: Athlete): string {
   if (!numbers) {
     numbers = new Map();
     let n = 0;
-    for (const late of [false, true]) {
-      for (const sport of SPORT_ORDER) {
-        for (const a of ATHLETES) if (a.sport === sport && !a.habitat && ICONES_RECENTES.has(a.id) === late) numbers.set(a.id, String(++n).padStart(3, '0'));
-      }
+    for (const sport of SPORT_ORDER) {
+      for (const a of ATHLETES) if (a.sport === sport && !a.habitat) numbers.set(a.id, String(++n).padStart(3, '0'));
     }
     let h = 0;
     for (const a of ATHLETES) if (a.habitat) numbers.set(a.id, `H${String(++h).padStart(2, '0')}`);

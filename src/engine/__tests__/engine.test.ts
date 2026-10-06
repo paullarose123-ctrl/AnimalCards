@@ -132,7 +132,7 @@ describe('boosters', () => {
     expect(Math.max(...SHOP_PACKS.map((p) => p.price))).toBe(single.price);
     // les Icônes sont des espèces disparues depuis 1800, avec leur année : plus de créatures préhistoriques
     const extinct = ATHLETES.filter((a) => a.retired && !a.habitat);
-    expect(extinct.length).toBeGreaterThanOrEqual(30);
+    expect(extinct.length).toBeGreaterThanOrEqual(20);
     // (la paruline de Bachman n'a pas d'année : elle a été déclarée éteinte en 2023)
     for (const icon of extinct) expect(icon.died ?? 2023, icon.id).toBeGreaterThanOrEqual(1800);
     expect(ATHLETES_BY_ID['t-rex']).toBeUndefined();
@@ -304,7 +304,7 @@ describe('duel de records', () => {
     expect(classeOf(ATHLETES_BY_ID['requin-blanc'])).toBe('poisson');
     expect(classeOf(ATHLETES_BY_ID['lion-de-l-atlas'])).toBe('mammifere');
     expect(classeOf(ATHLETES_BY_ID['autruche-d-arabie'])).toBe('oiseau');
-    expect(recordValue(face('tigre-de-la-caspienne'), 'asie')).toBe(1);
+    expect(recordValue(face('loup-du-japon'), 'asie')).toBe(1);
     expect(formatRecordValue(face('aigle-royal'), 'oiseau')).toBe('Oui');
   });
 

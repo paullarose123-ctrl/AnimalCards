@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { createJSONStorage, persist, type StateStorage } from 'zustand/middleware';
 import type { CardFace, OwnedCard } from '../engine/types';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
-import { ICONES_REMPLACEES, PREHISTOIRE_REMPLACEE } from '../data/remplacements';
+import { ICONES_REMPLACEES, ICONES_RETIREES, PREHISTOIRE_REMPLACEE } from '../data/remplacements';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
 import { canBePrime, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import { FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, sportPack, type PackDef } from '../engine/packs';
@@ -761,17 +761,18 @@ export const useGame = create<GameState>()(
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
       name: SAVE_NAME,
-      version: 8,
+      version: 9,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
         let state = persisted as GameState;
-        // versions 5, 7 et 8 : des espèces sont remplacées par une autre ; les cartes déjà obtenues deviennent la
+        // versions 5, 7, 8 et 9 : des espèces sont remplacées par une autre ; les cartes déjà obtenues deviennent la
         // nouvelle espèce (identifiants remplacés partout dans la sauvegarde). Avant le nettoyage de la version 4,
         // qui retire les cartes d'espèces inconnues.
         const replacements = {
           ...(version < 5 ? ESPECES_REMPLACEES : {}),
           ...(version < 7 ? ICONES_REMPLACEES : {}),
           ...(version < 8 ? PREHISTOIRE_REMPLACEE : {}),
+          ...(version < 9 ? ICONES_RETIREES : {}),
         };
         if (Object.keys(replacements).length) {
           let text = JSON.stringify(state);

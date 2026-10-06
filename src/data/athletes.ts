@@ -86,7 +86,6 @@ const CURATED: Athlete[] = [
   x('jaguarondi', 'Jaguarondi', 'felins', 'felin-agile', 'Forêt', 'MX', 24, 63, 'Un corps de belette, une queue de loutre, et il chasse surtout de jour.', L('Herpailurus yagouaroundi')),
   x('lynx-pardelle', 'Lynx pardelle', 'felins', 'felin-agile', 'Maquis andalou', 'ES', 22, 62, 'Le félin le plus menacé d’Europe : moins de 100 en 2002, plus de 2 000 aujourd’hui grâce à sa protection.', L('Lynx pardinus')),
   x('chat-rubigineux', 'Chat rubigineux', 'felins', 'felin-agile', 'Forêt', 'LK', 20, 60, 'L’un des plus petits félins du monde : à peine plus d’un kilo.', L('Prionailurus rubiginosus')),
-  x('tigre-de-java', 'Tigre de Java', 'felins', 'felin-puissant', 'Jungle', 'ID', 70, 90, 'Les derniers ont été aperçus en 1976 dans l’est de Java ; il a été déclaré éteint en 2008.', { ...L('Panthera tigris sondaica'), ...D(1976) }),
 
   // ───────────────────────── CANIDÉS & HYÈNES ─────────────────────────
   x('loup', 'Loup gris', 'canides', 'canide-meute', 'Forêt et toundra', 'CA', 95, 90, 'Vit en meute familiale menée par un couple ; son hurlement porte à plus de 10 km.', { ...L('Canis lupus'), ...P('2011', 'OR-7, le loup qui a parcouru plus de 1 600 km jusqu’en Californie.'),
@@ -399,7 +398,6 @@ const CURATED: Athlete[] = [
   x('martinet', 'Martinet noir', 'oiseaux', 'oiseau-voyageur', 'Ciel des villes', 'FR', 40, 70, 'Peut rester en vol dix mois sans se poser.', L('Apus apus')),
   x('calao', 'Calao bicorne', 'oiseaux', 'oiseau-paradeur', 'Forêt', 'IN', 40, 62, 'La femelle s’emmure dans un arbre creux pendant la couvaison, nourrie par le mâle.', L('Buceros bicornis')),
   x('grue', 'Grue cendrée', 'oiseaux', 'oiseau-voyageur', 'Marais', 'FR', 40, 72, 'Des dizaines de milliers font étape chaque automne au lac du Der.', L('Grus grus')),
-  x('tourte-voyageuse', 'Tourte voyageuse', 'oiseaux', 'oiseau-voyageur', 'Forêts', 'US', 40, 64, 'Des milliards au XIXe siècle ; la dernière, Martha, est morte au zoo de Cincinnati en 1914.', { ...L('Ectopistes migratorius'), ...D(1914) }),
   x('paruline-de-bachman', 'Paruline de Bachman', 'oiseaux', 'oiseau-voyageur', 'Marais boisés', 'US', 38, 52, 'Petit oiseau migrateur qui hivernait à Cuba ; les États-Unis l’ont déclarée éteinte en 2023.', { ...L('Vermivora bachmanii'), ...D() }),
   x('canard-des-mariannes', 'Canard des Mariannes', 'oiseaux', 'oiseau-voyageur', 'Marais', 'MP', 36, 56, 'Les derniers ont été capturés pour tenter de sauver l’espèce ; le dernier est mort en captivité en 1981.', { ...L('Anas oustaleti'), ...D(1981) }),
   x('menure', 'Ménure superbe', 'oiseaux', 'oiseau-malin', 'Forêt', 'AU', 34, 60, 'Imite tous les sons, jusqu’aux appareils photo et aux tronçonneuses.', L('Menura novaehollandiae')),
@@ -456,7 +454,6 @@ const CURATED: Athlete[] = [
   x('grenouille-de-verre', 'Grenouille de verre', 'amphibiens', 'amphibien-sauteur', 'Forêt tropicale', 'EC', 40, 50, 'Sa peau transparente laisse voir son cœur battre.', L('Centrolenidae')),
   x('crapaud-dore', 'Crapaud doré', 'amphibiens', 'amphibien-toxique', 'Monteverde', 'CR', 38, 52, 'Vu pour la dernière fois en 1989 dans la forêt de nuages de Monteverde.', { ...L('Incilius periglenes'), ...D(1989) }),
   x('rainette-de-rabb', 'Rainette de Rabb', 'amphibiens', 'amphibien-sauteur', 'Canopée', 'PA', 38, 58, 'Elle planait d’arbre en arbre ; le dernier individu connu, surnommé Toughie, est mort en 2016.', { ...L('Ecnomiohyla rabborum'), ...D(2016), nick: 'Toughie' }),
-  x('arlequin-de-chiriqui', 'Arlequin de Chiriquí', 'amphibiens', 'amphibien-toxique', 'Torrents', 'CR', 34, 54, 'Cette grenouille arlequin, décimée par un champignon mortel, n’a plus été vue au Costa Rica depuis 1996.', { ...L('Atelopus chiriquiensis'), ...D(1996) }),
   x('triton-crete', 'Triton crêté', 'amphibiens', 'amphibien-etrange', 'Mares', 'FR', 36, 52, 'Au printemps, le mâle arbore une crête dentelée.', L('Triturus cristatus')),
   x('protee', 'Protée anguillard', 'amphibiens', 'amphibien-etrange', 'Grottes', 'SI', 30, 56, 'Aveugle, il vit dans les grottes et peut rester des années sans manger.', L('Proteus anguinus')),
   x('rhacophore', 'Grenouille volante', 'amphibiens', 'amphibien-sauteur', 'Forêt tropicale', 'MY', 26, 56, 'Plane d’arbre en arbre grâce à ses grandes pattes palmées.', L('Rhacophorus nigropalmatus')),
@@ -565,20 +562,16 @@ const CURATED: Athlete[] = [
 
 // Icônes ajoutées en octobre 2026, à la place des créatures préhistoriques : des espèces ou sous-espèces disparues
 // depuis 1800, chassées, braconnées ou privées de leur milieu. Quand il n'existe pas de photo de l'animal lui-même,
-// la carte montre un animal vivant de la même espèce (comme pour le rhinocéros noir de l'Ouest). Elles sont
-// numérotées après toutes les autres espèces, pour que les numéros de l'album ne changent pas (cards.ts).
+// la carte montre un animal vivant de la même espèce (comme pour le rhinocéros noir de l'Ouest). Dans l'album, elles
+// sont numérotées à la fin de leur famille.
 const RECENT_ICONS: Athlete[] = [
   x('lion-de-l-atlas', 'Lion de l’Atlas', 'felins', 'felin-puissant', 'Monts Atlas', 'MA', 92, 96, 'Le lion d’Afrique du Nord, à la crinière sombre, que les Romains faisaient combattre dans les arènes ; le dernier lion sauvage connu a été abattu au Maroc en 1942.', { ...L('Panthera leo leo'), ...D(1942) }),
-  x('tigre-de-la-caspienne', 'Tigre de la Caspienne', 'felins', 'felin-puissant', 'Asie centrale', 'IR', 84, 94, 'Il vivait de la Turquie à l’Asie centrale jusqu’aux années 1970. Son plus proche parent vivant est le tigre de Sibérie, presque identique génétiquement.', { ...L('Panthera tigris virgata'), ...D(1970) }),
-  x('tigre-de-bali', 'Tigre de Bali', 'felins', 'felin-puissant', 'Île de Bali', 'ID', 76, 86, 'Le plus petit des tigres ; le dernier, une tigresse, a été tué en 1937. Ses plus proches parents vivants sont les tigres de Sumatra.', { ...L('Panthera tigris sondaica'), ...D(1937) }),
-  x('panthere-de-formose', 'Panthère de Formose', 'felins', 'felin-agile', 'Taïwan', 'TW', 48, 78, 'La panthère nébuleuse de Taïwan : après 13 ans de pièges photographiques sans en voir une seule, elle a été déclarée éteinte en 2013.', { ...L('Neofelis nebulosa brachyura'), ...D(2013) }),
   x('loup-du-japon', 'Loup du Japon', 'canides', 'canide-meute', 'Honshū', 'JP', 62, 74, 'Le plus petit des loups, vénéré comme le gardien des récoltes ; le dernier connu a été tué en 1905 dans la préfecture de Nara.', { ...L('Canis lupus hodophilax'), ...D(1905) }),
   x('rhinoceros-de-java-du-vietnam', 'Rhinocéros de Java du Vietnam', 'geants', 'geant-colosse', 'Cát Tiên', 'VN', 50, 86, 'Le dernier, une femelle, a été tué par des braconniers en 2010 pour sa corne. Il ne reste qu’environ 80 rhinocéros de Java, tous sur l’île de Java.', { ...L('Rhinoceros sondaicus annamiticus'), ...D(2010) }),
   x('bison-du-caucase', 'Bison du Caucase', 'ongules', 'ongule-costaud', 'Caucase', 'RU', 50, 86, 'Les trois derniers bisons sauvages du Caucase ont été tués par des braconniers en 1927 ; ses gènes survivent chez certains bisons d’Europe.', { ...L('Bison bonasus caucasicus'), ...D(1927) }),
   x('bubale', 'Bubale', 'ongules', 'ongule-sprinteur', 'Maghreb', 'MA', 36, 74, 'Cette antilope d’Afrique du Nord, peinte par les Égyptiens, a été massacrée par troupeaux entiers ; la dernière connue a été abattue au Maroc en 1925.', { ...L('Alcelaphus buselaphus buselaphus'), ...D(1925) }),
   x('wapiti-de-l-est', 'Wapiti de l’Est', 'ongules', 'ongule-costaud', 'Appalaches', 'US', 42, 82, 'Il peuplait les forêts de l’est de l’Amérique du Nord ; le dernier a été abattu en Pennsylvanie en 1877.', { ...L('Cervus canadensis canadensis'), ...D(1877) }),
   x('caribou-de-dawson', 'Caribou de Dawson', 'ongules', 'ongule-endurant', 'Haida Gwaii', 'CA', 34, 70, 'Un petit caribou de l’archipel Haida Gwaii, au Canada ; les derniers ont été vus en 1908.', { ...L('Rangifer tarandus dawsoni'), ...D(1908) }),
-  x('cerf-de-schomburgk', 'Cerf de Schomburgk', 'ongules', 'ongule-costaud', 'Thaïlande', 'TH', 40, 76, 'Célèbre pour ses bois en corbeille ; le dernier, un cerf apprivoisé qui vivait dans un temple, a été tué en 1938.', { ...L('Rucervus schomburgki'), ...D(1938) }),
   x('loutre-du-japon', 'Loutre du Japon', 'petits', 'petit-agile', 'Rivières', 'JP', 46, 68, 'Vue pour la dernière fois en 1979 sur l’île de Shikoku ; le Japon l’a déclarée éteinte en 2012.', { ...L('Lutra lutra whiteleyi'), ...D(1979) }),
   x('conure-de-caroline', 'Conure de Caroline', 'oiseaux', 'oiseau-malin', 'Forêts', 'US', 64, 52, 'Le seul perroquet des États-Unis ; le dernier, Incas, est mort en 1918 au zoo de Cincinnati, dans la cage où était morte Martha, la dernière tourte voyageuse.', { ...L('Conuropsis carolinensis'), ...D(1918), nick: 'Incas' }),
   x('tetras-des-bruyeres', 'Tétras des bruyères', 'oiseaux', 'oiseau-paradeur', 'Landes', 'US', 38, 50, 'Ce tétras de la Nouvelle-Angleterre a fini sur une seule île, Martha’s Vineyard ; le dernier, Booming Ben, a été vu en 1932.', { ...L('Tympanuchus cupido cupido'), ...D(1932), nick: 'Booming Ben' }),
@@ -593,8 +586,5 @@ export const ATHLETES: Athlete[] = [...CURATED, ...RECENT_ICONS, ...HABITATS].ma
   country: CONTINENTS_MULTIPLES[a.id] ? 'XW' : (PAYS_PRINCIPAL[a.id] ?? a.country),
   role: MILIEU_CORRIGE[a.id] ?? a.role,
 }));
-
-/** Icônes ajoutées en octobre 2026 : numérotées après les autres espèces dans l'album. */
-export const ICONES_RECENTES: ReadonlySet<string> = new Set(RECENT_ICONS.map((a) => a.id));
 
 export const ATHLETES_BY_ID: Record<string, Athlete> = Object.fromEntries(ATHLETES.map((athlete) => [athlete.id, athlete]));

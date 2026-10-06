@@ -45,12 +45,6 @@
         0.8
       ]
     },
-    "arlequin-de-chiriqui": {
-      "etendre": true,
-      "miroir": true,
-      "fond": "#ffffff",
-      "marge": 0.05
-    },
     "autour": {
       "corps": [
         0.1,
@@ -319,14 +313,6 @@
         0.05,
         0.75,
         0.92
-      ]
-    },
-    "cerf-de-schomburgk": {
-      "corps": [
-        0.05,
-        0.02,
-        0.98,
-        0.85
       ]
     },
     "chacal-a-chabraque": {
@@ -1543,15 +1529,6 @@
         0.65
       ]
     },
-    "panthere-de-formose": {
-      "corps": [
-        0.34,
-        0.12,
-        0.8,
-        0.85
-      ],
-      "miroir": true
-    },
     "panthere-nebuleuse": {
       "corps": [
         0.25,
@@ -2234,30 +2211,6 @@
       0.5,
       1
     ],
-    "tigre-de-bali": {
-      "corps": [
-        0.22,
-        0.18,
-        0.72,
-        0.99
-      ]
-    },
-    "tigre-de-java": {
-      "cadre": [
-        0.63,
-        0.5,
-        1
-      ],
-      "miroir": true
-    },
-    "tigre-de-la-caspienne": {
-      "corps": [
-        0.16,
-        0.34,
-        0.7,
-        0.99
-      ]
-    },
     "torpille": {
       "corps": [
         0.18,
@@ -2295,11 +2248,6 @@
         0.98
       ]
     },
-    "tourte-voyageuse": [
-      0.52,
-      0.52,
-      1.6
-    ],
     "triton-crete": {
       "cadre": [
         0.7,

@@ -92,7 +92,7 @@ export const SHOP_PACKS: PackDef[] = [
   {
     id: 'icones',
     name: 'Pack Icônes',
-    tagline: '1 seule carte, une Icône garantie : une espèce disparue depuis 1800 (lion de l’Atlas, thylacine, tigre de Java…)',
+    tagline: '1 seule carte, une Icône garantie : une espèce disparue depuis 1800 (lion de l’Atlas, thylacine, loup du Japon…)',
     price: 600_000,
     size: 1,
     odds: { commune: 40, 'peu-commune': 30, rare: 18, epique: 9, legendaire: 3 },

@@ -107,14 +107,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Maratus_volans_152652557.jpg"
  },
- "arlequin-de-chiriqui": {
-  "file": "arlequin-de-chiriqui.webp",
-  "cutout": false,
-  "author": "Brian Gratwicke from DC, USA",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Chiriqui_harlequin_frog_-_Atelopus_chiriquiensis.jpg"
- },
  "atele": {
   "file": "atele.webp",
   "cutout": false,
@@ -554,18 +546,6 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Cervus_elaphus_Luc_Viatour_5.jpg"
- },
- "cerf-de-schomburgk": {
-  "file": "cerf-de-schomburgk.webp",
-  "cutout": false,
-  "author": "Vassil",
-  "license": "CC0",
-  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Mus_Nat_Hist_Nat_25022013_Cervus_schomburgki_1.jpg",
-  "brut": [
-   1800,
-   2718
-  ]
  },
  "chacal-a-chabraque": {
   "file": "chacal-a-chabraque.webp",
@@ -1526,10 +1506,14 @@
  "habitat-everglades": {
   "file": "habitat-everglades.webp",
   "cutout": false,
-  "author": "Jonathan Palombo",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Everglades_(12561344465).jpg"
+  "author": "evergladesnps",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Fiery_Reflection_I_2023_Photo_Contest_(53382845920).jpg",
+  "brut": [
+   1800,
+   1200
+  ]
  },
  "habitat-galapagos": {
   "file": "habitat-galapagos.webp",
@@ -1630,10 +1614,14 @@
  "habitat-sargasses": {
   "file": "habitat-sargasses.webp",
   "cutout": false,
-  "author": "Unknown author Unknown author",
+  "author": "NASA/Milan Loiacono",
   "license": "Public domain",
   "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Sargassum_weeds_closeup.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Underwater_Sargassum_(oceanos2024loiacono-2059).jpg",
+  "brut": [
+   1800,
+   1200
+  ]
  },
  "habitat-serengeti": {
   "file": "habitat-serengeti.webp",
@@ -2599,18 +2587,6 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/pangolin-wildlife-nature-forest-10229812/"
  },
- "panthere-de-formose": {
-  "file": "panthere-de-formose.webp",
-  "cutout": false,
-  "author": "Rushenb",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Neofelis_nebulosa,_Clouded_leopard.jpg",
-  "brut": [
-   1800,
-   1200
-  ]
- },
  "panthere-des-neiges": {
   "file": "panthere-des-neiges.webp",
   "cutout": false,
@@ -3527,38 +3503,6 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/"
  },
- "tigre-de-bali": {
-  "file": "tigre-de-bali.webp",
-  "cutout": false,
-  "author": "NasserHalaweh",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Felidae_Panthera_tigris_sumatrae_3.jpg",
-  "brut": [
-   1800,
-   1350
-  ]
- },
- "tigre-de-java": {
-  "file": "tigre-de-java.webp",
-  "cutout": false,
-  "author": "Andries Hoogerwerf (29 August 1906 – 5 February 1977)",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Panthera_tigris_sondaica_01.jpg"
- },
- "tigre-de-la-caspienne": {
-  "file": "tigre-de-la-caspienne.webp",
-  "cutout": false,
-  "author": "Royle Safaris",
-  "license": "CC BY-NC 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/339563450",
-  "brut": [
-   1737,
-   1200
-  ]
- },
  "torpille": {
   "file": "torpille.webp",
   "cutout": false,
@@ -3614,14 +3558,6 @@
   "license": "CC BY 2.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
   "page": "https://commons.wikimedia.org/wiki/File:Ramphastos_toco_-Birdworld,_Farnham,_Surrey,_England-8a.jpg"
- },
- "tourte-voyageuse": {
-  "file": "tourte-voyageuse.webp",
-  "cutout": false,
-  "author": "J.G. Hubbard",
-  "license": "Public domain",
-  "licenseUrl": "",
-  "page": "https://commons.wikimedia.org/wiki/File:Passenger_Pigeon_Profile_View_with_Shadow.jpg"
  },
  "triton-crete": {
   "file": "triton-crete.webp",

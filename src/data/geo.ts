@@ -30,7 +30,6 @@ export const REGIONS: Region[] = [
   { key: 'NO', codes: ['NO'], iso: '578', at: [9, 61.5] },
   { key: 'MG', codes: ['MG'], iso: '450', at: [46.8, -19.5] },
   { key: 'TH', codes: ['TH'], iso: '764', at: [101, 15.5] },
-  { key: 'TW', codes: ['TW'], iso: '158', at: [121, 23.7] },
   { key: 'VN', codes: ['VN'], iso: '704', at: [106.3, 16] },
   { key: 'SA', codes: ['SA'], iso: '682', at: [45, 24] },
   { key: 'BW', codes: ['BW'], iso: '072', at: [24, -22.3] },

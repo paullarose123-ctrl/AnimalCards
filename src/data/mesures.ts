@@ -33,7 +33,6 @@ export const MESURES: Record<string, Mesure> = {
   jaguarondi: [6, 1.2, 'L', 10],
   'lynx-pardelle': [13, 1, 'L', 13],
   'chat-rubigineux': [1.4, 0.7, 'L', 12],
-  'tigre-de-java': [120, 2.45, 'L', 15],
 
   // canidés et hyènes
   loup: [45, 1.8, 'L', 13],
@@ -315,7 +314,6 @@ export const MESURES: Record<string, Mesure> = {
   martinet: [0.04, 0.45, 'E', 20],
   calao: [3, 1.1, 'L', 40],
   grue: [5.5, 2.2, 'E', 30],
-  'tourte-voyageuse': [0.33, 0.4, 'L', null],
   'paruline-de-bachman': [0.008, 0.19, 'E', null],
   'canard-des-mariannes': [1, 0.85, 'E', null],
   menure: [1, 1, 'L', 25],
@@ -364,7 +362,6 @@ export const MESURES: Record<string, Mesure> = {
   'grenouille-de-verre': [0.002, 0.03, 'L', 10],
   'crapaud-dore': [0.01, 0.05, 'L', null],
   'rainette-de-rabb': [null, 0.1, 'L', null],
-  'arlequin-de-chiriqui': [null, 0.05, 'L', null],
   'triton-crete': [0.01, 0.16, 'L', 15],
   protee: [0.02, 0.3, 'L', 100],
   rhacophore: [0.04, 0.1, 'L', 5],
@@ -463,16 +460,12 @@ export const MESURES: Record<string, Mesure> = {
 
   // Icônes ajoutées en octobre 2026 (espèces disparues depuis 1800 : longévité inconnue dans la nature)
   'lion-de-l-atlas': [200, 2.8, 'L', 15],
-  'tigre-de-la-caspienne': [200, 2.8, 'L', 15],
-  'tigre-de-bali': [95, 2.3, 'L', 15],
-  'panthere-de-formose': [18, 1.7, 'L', 11],
   'loup-du-japon': [15, 1.2, 'L', null],
   'rhinoceros-de-java-du-vietnam': [1200, 3, 'L', null],
   'bison-du-caucase': [700, 2.8, 'L', 25],
   bubale: [150, 2.2, 'L', 15],
   'wapiti-de-l-est': [400, 2.7, 'L', 15],
   'caribou-de-dawson': [90, 1.8, 'L', null],
-  'cerf-de-schomburgk': [110, 1.9, 'L', null],
   'loutre-du-japon': [8, 1.2, 'L', 10],
   'conure-de-caroline': [0.1, 0.33, 'L', null],
   'tetras-des-bruyeres': [0.9, 0.43, 'L', null],

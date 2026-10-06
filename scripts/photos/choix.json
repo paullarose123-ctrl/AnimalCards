@@ -56,7 +56,6 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "araignee-paon": "Maratus volans 152652557.jpg",
-  "arlequin-de-chiriqui": "Chiriqui harlequin frog - Atelopus chiriquiensis.jpg",
   "atele": {
     "url": "https://cdn.pixabay.com/photo/2019/10/13/15/52/spider-monkey-4546438_1280.jpg",
     "page": "https://pixabay.com/photos/spider-monkey-monkey-primate-ape-4546438/",
@@ -229,7 +228,6 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "cerf": "Cervus elaphus Luc Viatour 5.jpg",
-  "cerf-de-schomburgk": "Mus Nat Hist Nat 25022013 Cervus schomburgki 1.jpg",
   "chacal-a-chabraque": "136 Black-backed jackal hunting for food at Cape cross Photo by Giles Laurent.jpg",
   "chacal-dore": "Canis aureus - golden jackal.jpg",
   "chamois": "Gämse (Rupicapra rupicapra) auf dem Ornach 07.jpg",
@@ -605,6 +603,8 @@
     "page": "https://pixabay.com/photos/vulture-bird-bearded-raptor-10244835/",
     "auteur": "GabruPawPixels"
   },
+  "habitat-everglades": "Fiery Reflection I 2023 Photo Contest (53382845920).jpg",
+  "habitat-sargasses": "Underwater Sargassum (oceanos2024loiacono-2059).jpg",
   "hamster": "Juvenile Female Mesocricetus auratus in Pet Store enclosure, Illinois, USA.jpg",
   "harpie": "Gavião-real - FLONA de Carajás - Luiz Fernando Matos(001).jpg",
   "heloderme": {
@@ -1143,7 +1143,6 @@
     "page": "https://pixabay.com/photos/pangolin-wildlife-nature-forest-10229812/",
     "auteur": "GabruPawPixels"
   },
-  "panthere-de-formose": "Neofelis nebulosa, Clouded leopard.jpg",
   "panthere-des-neiges": {
     "url": "https://cdn.pixabay.com/photo/2015/08/19/20/27/snow-leopard-896603_1280.jpg",
     "page": "https://pixabay.com/photos/snow-leopard-dormant-predator-896603/",
@@ -1498,15 +1497,6 @@
     "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/",
     "auteur": "Pexels"
   },
-  "tigre-de-bali": "Felidae Panthera tigris sumatrae 3.jpg",
-  "tigre-de-java": "Panthera tigris sondaica 01.jpg",
-  "tigre-de-la-caspienne": {
-    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339563450/original.jpg",
-    "page": "https://www.inaturalist.org/photos/339563450",
-    "auteur": "Royle Safaris",
-    "licence": "CC BY-NC 4.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
-  },
   "torpille": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172997484/original.jpeg",
     "page": "https://www.inaturalist.org/photos/172997484",
@@ -1527,7 +1517,6 @@
     "auteur": "andresfho"
   },
   "toucan": "Ramphastos toco -Birdworld, Farnham, Surrey, England-8a.jpg",
-  "tourte-voyageuse": "Passenger Pigeon Profile View with Shadow.jpg",
   "tuatara": {
     "url": "https://cdn.pixabay.com/photo/2017/03/31/10/06/tuatara-2190866_1280.jpg",
     "page": "https://pixabay.com/photos/tuatara-reptile-new-zealand-nz-2190866/",

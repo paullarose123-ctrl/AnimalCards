@@ -68,7 +68,7 @@ export function Gallery() {
         ))}
       </section>
       <section id="apercu" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {['crocodile-du-nil', 'alligator', 'husky', 'requin-baleine', 'lion-de-l-atlas', 'tigre-de-la-caspienne', 'conure-de-caroline', 'bison-du-caucase', 'habitat-amazonie', 'habitat-grande-barriere', 'habitat-banquise', 'habitat-camargue'].map((id) => (
+        {['crocodile-du-nil', 'alligator', 'husky', 'requin-baleine', 'lion-de-l-atlas', 'loup-du-japon', 'conure-de-caroline', 'bison-du-caucase', 'habitat-amazonie', 'habitat-grande-barriere', 'habitat-banquise', 'habitat-camargue'].map((id) => (
           <Card key={id} card={{ athleteId: id, variant: 'base' }} size="md" />
         ))}
       </section>
