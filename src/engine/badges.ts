@@ -2,15 +2,15 @@ import type { SportId } from './types';
 import { ATHLETES } from '../data/athletes';
 import { SPORT_ORDER } from '../data/sports';
 
-// Badges de collection : une famille de l'album complétée (toutes ses espèces découvertes, Icônes comprises,
-// comme le compte « 24/24 » de l'onglet de l'album) donne le badge de la famille, gardé pour toujours.
+// Badges de collection : une famille complétée (toutes ses espèces découvertes, sans compter ses Icônes, les espèces
+// disparues bien trop rares pour être exigées) donne le badge de la famille, gardé pour toujours.
 
-/** Espèces découvertes et espèces de la famille, comme dans l'onglet de l'album. */
+/** Espèces découvertes et espèces de la famille, Icônes et Habitats mis à part. */
 export function familyProgress(discovered: Record<string, number>, sport: SportId): [number, number] {
   let owned = 0;
   let total = 0;
   for (const athlete of ATHLETES) {
-    if (athlete.sport !== sport || athlete.habitat) continue;
+    if (athlete.sport !== sport || athlete.habitat || athlete.retired) continue;
     total += 1;
     if (discovered[athlete.id]) owned += 1;
   }

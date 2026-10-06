@@ -186,8 +186,9 @@ describe('boosters', () => {
 });
 
 describe('badges de collection', () => {
-  it('donne le badge d’une famille quand toutes ses espèces sont découvertes, et une seule fois', () => {
-    const felins = ATHLETES.filter((a) => a.sport === 'felins' && !a.habitat);
+  it('donne le badge d’une famille quand toutes ses espèces sont découvertes (sans ses Icônes), et une seule fois', () => {
+    const felins = ATHLETES.filter((a) => a.sport === 'felins' && !a.habitat && !a.retired);
+    expect(ATHLETES.some((a) => a.sport === 'felins' && a.retired)).toBe(true);
     const discovered: Record<string, number> = Object.fromEntries(felins.map((a) => [a.id, 1]));
     expect(familyProgress(discovered, 'felins')).toEqual([felins.length, felins.length]);
     expect(completedFamilies(discovered)).toEqual(['felins']);

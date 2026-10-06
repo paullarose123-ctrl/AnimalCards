@@ -284,7 +284,7 @@ function Badges() {
       <h2>
         Mes badges <small>· {earned}/{SPORT_ORDER.length}</small>
       </h2>
-      <p className="muted small">Complète une famille de l’album (toutes ses espèces, Icônes comprises) pour gagner son badge. Il est à toi pour toujours.</p>
+      <p className="muted small">Découvre toutes les espèces d’une famille (les Icônes ne sont pas obligatoires) pour gagner son badge. Il est à toi pour toujours.</p>
       <div className="badges">
         {SPORT_ORDER.map((sport) => {
           const earnedAt = badges[sport];
