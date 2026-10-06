@@ -39,6 +39,6 @@ describe('base de données', () => {
     expect(baseValueOf(lion, 'reverse')).toBeGreaterThan(baseValueOf(lion));
     // une Icône vaut une fortune, même la plus commune
     expect(baseValueOf(ATHLETES_BY_ID.quagga)).toBeGreaterThanOrEqual(100_000);
-    expect(baseValueOf(ATHLETES_BY_ID['t-rex'])).toBeGreaterThan(baseValueOf(ATHLETES_BY_ID.lion) * 5);
+    expect(baseValueOf(ATHLETES_BY_ID['lion-de-l-atlas'])).toBeGreaterThan(baseValueOf(ATHLETES_BY_ID.lion) * 5);
   });
 });

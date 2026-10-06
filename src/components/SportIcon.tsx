@@ -170,14 +170,6 @@ const ICONS: Record<SportId, ReactNode> = {
       <path d="M10.4,9.4 H13.6" strokeWidth={1.4} />
     </>
   ),
-  // empreinte de dinosaure à trois doigts
-  prehistoire: (
-    <path
-      d="M12,21 Q8.4,21 8.6,17.2 L4.9,7.6 Q4.7,6.1 6,6.5 L10.4,13.2 L11,3.7 Q12,2.3 13,3.7 L13.6,13.2 L18,6.5 Q19.3,6.1 19.1,7.6 L15.4,17.2 Q15.6,21 12,21 Z"
-      fill="currentColor"
-      stroke="none"
-    />
-  ),
 };
 
 interface SportIconProps {

@@ -1,6 +1,6 @@
 # AnimalCards
 
-Jeu de cartes à collectionner d’animaux, jouable dans le navigateur. On ouvre des boosters, on collectionne des espèces réelles (du lion au tardigrade, en passant par le T. rex), on les revend au marché et on les fait jouer en match.
+Jeu de cartes à collectionner d’animaux, jouable dans le navigateur. On ouvre des boosters, on collectionne des espèces réelles (du lion au tardigrade, en passant par le thylacine), on les revend au marché et on les fait jouer en match.
 
 C’est le même jeu qu’AthletiCards (même moteur, même interface, mêmes règles), avec des animaux à la place des sportifs : les sports deviennent des familles d’animaux, les légendes retraitées deviennent les espèces disparues, et les meilleures saisons deviennent des individus célèbres.
 
@@ -43,11 +43,11 @@ npm run build:single # un seul fichier HTML autonome dans artifact/
 
 La rareté d’une carte mélange deux choses, à parts égales : la célébrité de l’espèce (0-100) et sa rareté dans la nature, calculée sur le nombre d’individus encore vivants (1 000 individus → 100, 10 000 → 85, 100 000 → 70, un million → 55, un milliard → 10). Le lion, le tigre et le panda restent Légendaires, parce qu’ils sont très connus et en déclin ; le loup d’Éthiopie (500 individus) monte ; le moineau ou la vache, très nombreux, sont communs. Les espèces éteintes et les Habitats gardent une rareté fixée par leur célébrité. Les races de chien comptent comme l’ensemble des chiens du monde.
 
-Le jeu compte 446 espèces dans 19 familles, dont 46 Icônes (espèces disparues) et 12 races de chien, plus 26 cartes Habitat.
+Le jeu compte 432 espèces dans 18 familles, dont 32 Icônes (espèces disparues depuis 1800) et 12 races de chien, plus 26 cartes Habitat.
 
 | Rareté | Score | Booster gratuit |
 | --- | --- | --- |
-| Légendaire | 80 et plus (panda, tigre, lion, axolotl, requin blanc, T. rex…) | 0,8 % par carte |
+| Légendaire | 80 et plus (panda, tigre, lion, axolotl, requin blanc…) | 0,8 % par carte |
 | Épique | 72 à 79 | 3,2 % |
 | Rare | 58 à 71 | 10 % |
 | Peu commune | 43 à 57 | 26 % |
@@ -57,8 +57,8 @@ Le jeu compte 446 espèces dans 19 familles, dont 46 Icônes (espèces disparues
 
 ### Versions spéciales
 
-- **Icônes** : les espèces disparues. Les dinosaures et la mégafaune de la préhistoire, et les espèces éteintes par l’homme, avec leur année de disparition et une vraie photo (de l’animal lui-même, ou à défaut d’un congénère de la même espèce) : quagga (1883), tourte voyageuse (1914), thylacine (1936), tigre de Java (1976), tortue de Pinta (2012), rainette de Rabb (2016)… Carte marbre blanc et or.
-- **Prime** : un individu célèbre d’une espèce vedette, avec son année et son histoire : Félicette (chat, 1963), Keiko (orque, 1993), Knut (ours polaire, 2006), Koko (gorille, 1972), Jumbo (éléphant, 1882), Hachikō (akita, 1925), Balto (husky, 1925), Barry (saint-bernard, 1800), Sue (T. rex, 1990)… 28 au total. Une de ces espèces tirée dans un booster a 5 % de chances d’être en Prime. Valeur ×6 au marché.
+- **Icônes** : les espèces et sous-espèces disparues depuis 1800, presque toujours à cause de l’homme (chasse, braconnage, milieu détruit), avec leur année de disparition et une vraie photo : de l’animal lui-même, ou à défaut d’un animal vivant de la même espèce (le rhinocéros noir pour le rhinocéros noir de l’Ouest, le tigre de Sibérie pour le tigre de la Caspienne). Émeu de King Island (1822), quagga (1883), loup du Japon (1905), conure de Caroline (1918), thylacine (1936), lion de l’Atlas (1942), tigre de Java (1976), rhinocéros de Java du Vietnam (2010), tortue de Pinta (2012), panthère de Formose (2013)… 32 au total. Plus de dinosaures ni de mégafaune préhistorique depuis octobre 2026 : les cartes déjà obtenues sont devenues une Icône de même rareté (le T. rex est devenu le lion de l’Atlas). Carte marbre blanc et or.
+- **Prime** : un individu célèbre d’une espèce vedette, avec son année et son histoire : Félicette (chat, 1963), Keiko (orque, 1993), Knut (ours polaire, 2006), Koko (gorille, 1972), Jumbo (éléphant, 1882), Hachikō (akita, 1925), Balto (husky, 1925), Barry (saint-bernard, 1800)… 26 au total. Une de ces espèces tirée dans un booster a 5 % de chances d’être en Prime. Valeur ×6 au marché.
 - **Reverse** : seules les cartes Rares, Épiques et Légendaires peuvent sortir en finition aquarelle (environ 1 sur 20), chacune aux couleurs de sa rareté : lavis pêche et corail pour la Rare, lavande et menthe étoilées pour l’Épique, lavis irisé et filet d’or pour la Légendaire. Valeur ×2,5 au marché.
 
 ### Cartes Habitat
@@ -67,7 +67,7 @@ Le jeu compte 446 espèces dans 19 familles, dont 46 Icônes (espèces disparues
 
 ### La carte
 
-Style « cadre de naturaliste » : chaque palier reprend la palette d’un booster (Forêt au lever du jour = Commune, Cimes au matin bleu = Peu commune, Savane au couchant = Rare, Aurore boréale = Épique, Crépuscule flamboyant = Légende, marbre blanc et or = Icône, Océan pastel = Prime, mousse et miel = Habitat, aquarelle pastel = Reverse). Cadre sombre avec le code de l’espèce en onglet (« LIO », « REQ »), losange avec le **milieu de vie en un mot** (Ville, Campagne, Forêt, Jungle, Savane, Océan, Montagne… déduit du milieu détaillé, `src/data/milieux.ts` ; Prime, Reverse, Icône et Habitat gardent leur nom) et le **numéro de collection** (N° 001 à 446, famille par famille dans l’ordre de l’album ; H01 à H26 pour les Habitats), famille écrite à la verticale, photo dans une fenêtre, drapeau du pays où l’espèce est la plus présente aujourd’hui (un globe si elle vit sur plusieurs continents, « Océans » pour les espèces marines de tous les océans ; corrections dans `src/data/repartition.ts`, cachés pendant les duels), médaillon de la famille, nom dans un bandeau et milieu de vie sur la plaque du bas. Le nom scientifique est écrit en petit, en italique, en bas de la photo, et une réglette donne le poids, la taille (longueur, hauteur ou envergure) et la population restante sur Terre (« Éteint » pour les espèces disparues). Mesures dans `src/data/mesures.ts` (valeurs typiques d’un adulte), populations dans `src/data/populations.ts` (estimations arrondies : population sauvage, ou mondiale élevage compris pour les animaux domestiques).
+Style « cadre de naturaliste » : chaque palier reprend la palette d’un booster (Forêt au lever du jour = Commune, Cimes au matin bleu = Peu commune, Savane au couchant = Rare, Aurore boréale = Épique, Crépuscule flamboyant = Légende, marbre blanc et or = Icône, Océan pastel = Prime, mousse et miel = Habitat, aquarelle pastel = Reverse). Cadre sombre avec le code de l’espèce en onglet (« LIO », « REQ »), losange avec le **milieu de vie en un mot** (Ville, Campagne, Forêt, Jungle, Savane, Océan, Montagne… déduit du milieu détaillé, `src/data/milieux.ts` ; Prime, Reverse, Icône et Habitat gardent leur nom) et le **numéro de collection** (N° 001 à 432, famille par famille dans l’ordre de l’album, les Icônes ajoutées en octobre 2026 en dernier, de 417 à 432, pour que les autres numéros ne changent pas ; H01 à H26 pour les Habitats), famille écrite à la verticale, photo dans une fenêtre, drapeau du pays où l’espèce est la plus présente aujourd’hui (un globe si elle vit sur plusieurs continents, « Océans » pour les espèces marines de tous les océans ; corrections dans `src/data/repartition.ts`, cachés pendant les duels), médaillon de la famille, nom dans un bandeau et milieu de vie sur la plaque du bas. Le nom scientifique est écrit en petit, en italique, en bas de la photo, et une réglette donne le poids, la taille (longueur, hauteur ou envergure) et la population restante sur Terre (« Éteint » pour les espèces disparues). Mesures dans `src/data/mesures.ts` (valeurs typiques d’un adulte), populations dans `src/data/populations.ts` (estimations arrondies : population sauvage, ou mondiale élevage compris pour les animaux domestiques).
 
 À l’ouverture d’un booster, chaque carte révélée s’accompagne d’une fiche avec de vraies informations : nom scientifique, pays, famille, milieu, poids, taille, longévité, population, une anecdote (« Le savais-tu ? ») et l’histoire de l’individu célèbre pour une version Prime.
 
@@ -79,7 +79,7 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 
 - Un booster gratuit toutes les 30 minutes, jusqu’à 5 en réserve.
 - Pas de doublon rapproché : une espèce sortie dans un booster ne peut pas ressortir avant 7 boosters, et jamais deux fois dans le même booster (quand toutes les espèces d’une rareté y sont déjà, la carte suivante sort dans une autre rareté). Seuls les petits packs de famille relâchent la règle des 7 boosters quand il ne reste plus d’espèce disponible dans la rareté tirée.
-- Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (1 seule carte, toujours une Icône : le pack le plus cher, 600 000 crédits), Prime (1 individu célèbre garanti, 250 000 crédits), Légende (1 Légendaire garantie) et un pack de 3 cartes par famille (4 000 crédits ; pas de pack Préhistoire, ses espèces sont des Icônes). Les chances sont affichées sur chaque pack.
+- Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (1 seule carte, toujours une Icône : le pack le plus cher, 600 000 crédits), Prime (1 individu célèbre garanti, 250 000 crédits), Légende (1 Légendaire garantie) et un pack de 3 cartes par famille (4 000 crédits). Les chances sont affichées sur chaque pack.
 - Les Icônes sont les cartes les plus rares : hors du Pack Icônes, environ 1 carte sur 1 000 seulement (jamais à la place de la carte garantie), et elles passent très rarement sur le marché. Une Icône vaut au moins 100 000 crédits (dix fois la cote de sa rareté).
 - La monnaie du jeu : les crédits.
 - Les Épiques, Légendaires, Prime et Icônes ont droit à leur révélation : drapeau, puis famille, puis numéro, pendant que des étincelles sont aspirées vers un cœur d’énergie ; puis flash, onde de choc, gerbe d’étincelles et la carte qui jaillit dans un halo de sa couleur, avec confettis et fanfare.
@@ -119,7 +119,7 @@ Le code est celui d’AthletiCards : les noms internes n’ont pas changé (une 
 
 ```
 src/
-  data/athletes.ts   les 446 espèces et leurs versions Prime
+  data/athletes.ts   les 432 espèces et leurs versions Prime
   data/habitats.ts   les 26 cartes Habitat
   data/sports.ts     familles : nom, couleur
   engine/            moteur pur, sans interface : cartes, boosters, marché, duels de records
@@ -136,7 +136,7 @@ Pour ajouter une espèce : une ligne `x('id', 'Nom', 'famille', 'profil', 'Milie
 
 ## Photos des animaux
 
-Les photos viennent de Wikimedia Commons (licences libres : CC BY, CC BY-SA, domaine public…), d’iNaturalist (photos d’observations dans la nature, sous licence Creative Commons, y compris « pas d’utilisation commerciale » : le jeu est gratuit et sans publicité), d’Unsplash (licence Unsplash) et de Pixabay (licence Pixabay, réutilisation libre), avec l’auteur et la licence affichés dans la fiche de chaque carte. Les espèces disparues depuis l’invention de la photographie ont de vraies photos, parfois anciennes et en noir et blanc ; seuls les dinosaures et la mégafaune préhistorique sont des illustrations réalistes de Pixabay (souvent générées par IA), l’animal en entier dans son décor, comme une photo de documentaire.
+Les photos viennent de Wikimedia Commons (licences libres : CC BY, CC BY-SA, domaine public…), d’iNaturalist (photos d’observations dans la nature, sous licence Creative Commons, y compris « pas d’utilisation commerciale » : le jeu est gratuit et sans publicité), d’Unsplash (licence Unsplash) et de Pixabay (licence Pixabay, réutilisation libre), avec l’auteur et la licence affichés dans la fiche de chaque carte. Les espèces disparues depuis l’invention de la photographie ont de vraies photos, parfois anciennes et en noir et blanc, l’animal en entier dans son décor, comme une photo de documentaire.
 
 ```bash
 node scripts/photos/telecharger-photos.mjs telecharger   # cherche et télécharge (Node 22.18 ou plus récent)
@@ -146,7 +146,7 @@ node scripts/photos/telecharger-photos.mjs finaliser     # public/photos/<id>.we
 1. Pour chaque espèce, le script prend l’image principale de sa page Wikipédia en français (trouvée par le titre imposé dans `scripts/photos/titres.json`, sinon par le nom scientifique, sinon par le nom commun), sinon celle de sa page en anglais, sinon son image Wikidata.
 2. La photo est cadrée au format 3:4 de la fenêtre des cartes (600 × 800, WebP).
 
-Si une photo ne convient pas (carte de répartition, squelette, mauvais animal…), ajoute son nom de fichier Commons dans `scripts/photos/refus.json` : le script prendra la suivante. Pour choisir soi-même, mets le nom du fichier retenu dans `scripts/photos/choix.json` (avec au besoin un recadrage : `{ "fichier": "…", "recadrage": [x, y, largeur, hauteur] }`, en fractions de l’image), ou une image Pixabay : `{ "url": "https://cdn.pixabay.com/photo/…_1280.jpg", "page": "https://pixabay.com/…", "auteur": "…" }` ; `"explorer"` dans `config.json` produit une planche numérotée des photos Commons d’une espèce. Sans photo libre, la carte affiche le médaillon de sa famille. Le cadrage de chaque carte est dans `config.json`, « cadrage » : `[x, y, zoom]` (centre du cadre en fractions de la photo, 1 = le plus grand cadre 3:4 possible), choisi pour montrer l’animal entier et non sa seule tête ; `"etendre"` garde l’image entière et prolonge son fond uni (rendus 3D et maquettes photographiées en studio). Les photos viennent de la nature autant que possible ; les dinosaures et la mégafaune préhistorique sont des illustrations réalistes (pas des dessins ni des maquettes de parc). Aucun cadrage n’ajoute de fond flou : un animal trop allongé pour la carte est recadré, ou mérite une autre photo.
+Si une photo ne convient pas (carte de répartition, squelette, mauvais animal…), ajoute son nom de fichier Commons dans `scripts/photos/refus.json` : le script prendra la suivante. Pour choisir soi-même, mets le nom du fichier retenu dans `scripts/photos/choix.json` (avec au besoin un recadrage : `{ "fichier": "…", "recadrage": [x, y, largeur, hauteur] }`, en fractions de l’image), ou une image Pixabay : `{ "url": "https://cdn.pixabay.com/photo/…_1280.jpg", "page": "https://pixabay.com/…", "auteur": "…" }` ; `"explorer"` dans `config.json` produit une planche numérotée des photos Commons d’une espèce. Sans photo libre, la carte affiche le médaillon de sa famille. Le cadrage de chaque carte est dans `config.json`, « cadrage » : `[x, y, zoom]` (centre du cadre en fractions de la photo, 1 = le plus grand cadre 3:4 possible), choisi pour montrer l’animal entier et non sa seule tête ; `"etendre"` garde l’image entière et prolonge son fond uni (rendus 3D et maquettes photographiées en studio). Les photos viennent de la nature autant que possible. Aucun cadrage n’ajoute de fond flou : un animal trop allongé pour la carte est recadré, ou mérite une autre photo.
 
 La GitHub Action `.github/workflows/photos.yml` fait la même chose en ligne.
 

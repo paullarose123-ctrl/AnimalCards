@@ -148,19 +148,10 @@ export const SPORTS: Record<SportId, SportDef> = {
     of: 'de la ferme',
     color: '#d84343',
   },
-  prehistoire: {
-    id: 'prehistoire',
-    name: 'Préhistoire',
-    short: 'PRÉHISTOIRE',
-    group: 'les créatures préhistoriques',
-    of: 'de la préhistoire',
-    color: '#d9c8a3',
-    ink: '#2a1f12',
-  },
 };
 
 export const SPORT_ORDER: SportId[] = [
   'felins', 'canides', 'ours', 'primates', 'geants', 'ongules', 'petits', 'marsupiaux',
   'marins', 'requins', 'poissons', 'rapaces', 'oiseaux', 'reptiles', 'amphibiens', 'insectes',
-  'invertebres', 'ferme', 'prehistoire',
+  'invertebres', 'ferme',
 ];

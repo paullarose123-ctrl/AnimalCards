@@ -5,8 +5,8 @@ import { CONTINENTS_MULTIPLES, MILIEU_CORRIGE, PAYS_PRINCIPAL } from './repartit
 // Base des espèces animales (le fichier garde son nom d'AthletiCards).
 // - fame (0-100) : célébrité de l'espèce. Elle fixe la rareté.
 // - level (0-100) : puissance naturelle. Elle place la note de la carte dans la plage de sa rareté.
-// - country : pays emblématique de l'espèce (pays de découverte pour les fossiles ; XO = océans, XW = monde entier).
-// - role : milieu de vie (période géologique pour la préhistoire).
+// - country : pays emblématique de l'espèce (XO = océans, XW = monde entier).
+// - role : milieu de vie.
 // Les faits restent volontairement sobres et vérifiables.
 
 type Extra = Partial<Omit<Athlete, 'id' | 'first' | 'last' | 'sport' | 'archetype' | 'role' | 'country' | 'fame' | 'level' | 'fact'>>;
@@ -561,52 +561,40 @@ const CURATED: Athlete[] = [
   x('buffle-d-eau', 'Buffle domestique', 'ferme', 'ferme-trait', 'Rizières', 'IN', 40, 76, 'En Inde, près de la moitié du lait vient de lui.', L('Bubalus bubalis')),
   x('escargot', 'Escargot de Bourgogne', 'ferme', 'ferme-basse-cour', 'Jardins', 'FR', 38, 30, 'Quand il fait trop sec, il peut dormir des mois dans sa coquille.', L('Helix pomatia')),
   x('ver-a-soie', 'Ver à soie', 'ferme', 'ferme-basse-cour', 'Mûriers', 'CN', 36, 40, 'Sa chenille produit un fil de soie qui peut mesurer plus d’un kilomètre.', L('Bombyx mori')),
+];
 
-  // ───────────────────────── PRÉHISTOIRE (Icônes) ─────────────────────────
-  x('t-rex', 'Tyrannosaure', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'US', 99, 99, 'La morsure la plus puissante de tous les animaux terrestres connus : plusieurs tonnes de force.', { ...L('Tyrannosaurus rex'), ...D(), ...P('1990', 'Sue, le squelette de T. rex le plus complet jamais découvert, dans le Dakota du Sud.'),
-    nick: 'T. rex',
-  }),
-  x('mammouth', 'Mammouth laineux', 'prehistoire', 'dino-colosse', 'Pléistocène', 'RU', 90, 92, 'Les derniers vivaient sur l’île Wrangel il y a 4 000 ans, quand les pyramides d’Égypte existaient déjà.', { ...L('Mammuthus primigenius'), ...D(), ...P('2007', 'Lyuba, bébé mammouth retrouvé presque intact dans le permafrost sibérien.'),
-  }),
-  x('velociraptor', 'Vélociraptor', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'MN', 90, 84, 'Bien plus petit qu’au cinéma, de la taille d’une dinde, et couvert de plumes.', { ...L('Velociraptor mongoliensis'), ...D(),
-  }),
-  x('triceratops', 'Tricératops', 'prehistoire', 'dino-colosse', 'Crétacé supérieur', 'US', 86, 88, 'Sa collerette osseuse et ses trois cornes lui servaient à se défendre et à parader.', { ...L('Triceratops'), ...D(),
-  }),
-  x('megalodon', 'Mégalodon', 'prehistoire', 'dino-marin', 'Néogène', 'XO', 84, 96, 'Le plus grand requin ayant existé, peut-être 18 m, avec des dents de 18 cm.', { ...L('Otodus megalodon'), ...D(),
-  }),
-  x('brachiosaure', 'Brachiosaure', 'prehistoire', 'dino-colosse', 'Jurassique supérieur', 'US', 82, 86, 'Plus de 12 m de haut : il broutait la cime des arbres comme une girafe géante.', { ...L('Brachiosaurus altithorax'), ...D() }),
-  x('stegosaure', 'Stégosaure', 'prehistoire', 'dino-colosse', 'Jurassique supérieur', 'US', 80, 82, 'Les plaques de son dos et les pointes de sa queue le rendent reconnaissable entre tous.', { ...L('Stegosaurus'), ...D() }),
-  x('spinosaure', 'Spinosaure', 'prehistoire', 'dino-predateur', 'Crétacé', 'EG', 80, 92, 'Le plus long carnivore connu, environ 15 m ; il chassait le poisson.', { ...L('Spinosaurus aegyptiacus'), ...D() }),
-  x('smilodon', 'Smilodon', 'prehistoire', 'dino-predateur', 'Pléistocène', 'US', 79, 88, 'Ses canines de près de 28 cm lui valent le surnom de « tigre à dents de sabre ».', { ...L('Smilodon fatalis'), ...D() }),
-  x('diplodocus', 'Diplodocus', 'prehistoire', 'dino-colosse', 'Jurassique supérieur', 'US', 74, 82, 'Long de plus de 25 m, avec une queue qui claquait peut-être comme un fouet.', { ...L('Diplodocus'), ...D() }),
-  x('pteranodon', 'Ptéranodon', 'prehistoire', 'dino-volant', 'Crétacé supérieur', 'US', 74, 76, 'Un reptile volant de 7 m d’envergure, sans dents, qui n’était pas un dinosaure.', { ...L('Pteranodon'), ...D() }),
-  x('ankylosaure', 'Ankylosaure', 'prehistoire', 'dino-colosse', 'Crétacé supérieur', 'US', 66, 86, 'Un char d’assaut vivant : carapace osseuse et queue terminée par une massue.', { ...L('Ankylosaurus magniventris'), ...D() }),
-  x('mosasaure', 'Mosasaure', 'prehistoire', 'dino-marin', 'Crétacé supérieur', 'NL', 66, 92, 'Découvert près de Maastricht, d’où son nom : le « lézard de la Meuse ».', { ...L('Mosasaurus hoffmannii'), ...D() }),
-  x('archeopteryx', 'Archéoptéryx', 'prehistoire', 'dino-volant', 'Jurassique supérieur', 'DE', 64, 64, 'Mi-dinosaure, mi-oiseau : des plumes, mais aussi des dents et une longue queue osseuse.', { ...L('Archaeopteryx lithographica'), ...D() }),
-  x('allosaure', 'Allosaure', 'prehistoire', 'dino-predateur', 'Jurassique supérieur', 'US', 62, 88, 'Le grand prédateur du Jurassique, des dizaines de millions d’années avant le T. rex.', { ...L('Allosaurus fragilis'), ...D() }),
-  x('iguanodon', 'Iguanodon', 'prehistoire', 'dino-colosse', 'Crétacé inférieur', 'BE', 60, 80, 'Une trentaine de squelettes ont été découverts ensemble dans une mine de charbon de Bernissart, en 1878.', { ...L('Iguanodon bernissartensis'), ...D() }),
-  x('plesiosaure', 'Plésiosaure', 'prehistoire', 'dino-marin', 'Jurassique inférieur', 'GB-ENG', 60, 80, 'Découvert en 1823 par Mary Anning, pionnière de la paléontologie.', { ...L('Plesiosaurus dolichodeirus'), ...D() }),
-  x('giganotosaure', 'Giganotosaure', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'AR', 56, 94, 'Un carnivore géant d’Argentine, aussi grand que le T. rex.', { ...L('Giganotosaurus carolinii'), ...D() }),
-  x('argentinosaure', 'Argentinosaure', 'prehistoire', 'dino-colosse', 'Crétacé supérieur', 'AR', 54, 94, 'L’un des plus grands animaux terrestres de tous les temps : plus de 30 m et 70 tonnes.', { ...L('Argentinosaurus huinculensis'), ...D() }),
-  x('titanoboa', 'Titanoboa', 'prehistoire', 'dino-predateur', 'Paléocène', 'CO', 52, 88, 'Le plus grand serpent ayant existé : environ 13 m.', { ...L('Titanoboa cerrejonensis'), ...D() }),
-  x('dimetrodon', 'Dimétrodon', 'prehistoire', 'dino-predateur', 'Permien', 'US', 50, 78, 'Avec sa voile dorsale, il a vécu avant les dinosaures et il est plus proche de nous que d’eux.', { ...L('Dimetrodon'), ...D() }),
-  x('lion-des-cavernes', 'Lion des cavernes', 'prehistoire', 'dino-predateur', 'Pléistocène', 'FR', 50, 86, 'Plus grand que le lion actuel, il est peint sur les parois de la grotte Chauvet.', { ...L('Panthera spelaea'), ...D() }),
-  x('quetzalcoatlus', 'Quetzalcoatlus', 'prehistoire', 'dino-volant', 'Crétacé supérieur', 'US', 48, 80, 'L’un des plus grands animaux volants de tous les temps : environ 10 m d’envergure.', { ...L('Quetzalcoatlus northropi'), ...D() }),
-  x('ichtyosaure', 'Ichtyosaure', 'prehistoire', 'dino-marin', 'Jurassique', 'GB-ENG', 46, 80, 'Un reptile marin en forme de dauphin, aux yeux immenses.', { ...L('Ichthyosaurus'), ...D() }),
-  x('ours-des-cavernes', 'Ours des cavernes', 'prehistoire', 'dino-colosse', 'Pléistocène', 'FR', 44, 86, 'Des milliers de squelettes ont été retrouvés dans les grottes d’Europe, où il hibernait.', { ...L('Ursus spelaeus'), ...D() }),
-  x('dunkleosteus', 'Dunkleosteus', 'prehistoire', 'dino-marin', 'Dévonien', 'US', 42, 86, 'Un poisson cuirassé de 6 m aux mâchoires tranchantes comme des cisailles.', { ...L('Dunkleosteus terrelli'), ...D() }),
-  x('megaloceros', 'Mégalocéros', 'prehistoire', 'dino-colosse', 'Pléistocène', 'IE', 42, 80, 'Le « cerf géant d’Irlande » portait des bois de 3,6 m d’envergure.', { ...L('Megaloceros giganteus'), ...D() }),
-  x('trilobite', 'Trilobite', 'prehistoire', 'dino-marin', 'Paléozoïque', 'MA', 40, 50, 'Ils ont peuplé les mers pendant près de 300 millions d’années.', { ...L('Trilobita'), ...D() }),
-  x('meganeura', 'Meganeura', 'prehistoire', 'dino-volant', 'Carbonifère', 'FR', 36, 66, 'Une libellule géante de 70 cm d’envergure, découverte à Commentry, dans l’Allier.', { ...L('Meganeura monyi'), ...D() }),
-  x('deinosuchus', 'Deinosuchus', 'prehistoire', 'dino-predateur', 'Crétacé supérieur', 'US', 34, 90, 'Un crocodile géant de plus de 10 m, qui s’attaquait peut-être aux dinosaures.', { ...L('Deinosuchus'), ...D() }),
+// Icônes ajoutées en octobre 2026, à la place des créatures préhistoriques : des espèces ou sous-espèces disparues
+// depuis 1800, chassées, braconnées ou privées de leur milieu. Quand il n'existe pas de photo de l'animal lui-même,
+// la carte montre un animal vivant de la même espèce (comme pour le rhinocéros noir de l'Ouest). Elles sont
+// numérotées après toutes les autres espèces, pour que les numéros de l'album ne changent pas (cards.ts).
+const RECENT_ICONS: Athlete[] = [
+  x('lion-de-l-atlas', 'Lion de l’Atlas', 'felins', 'felin-puissant', 'Monts Atlas', 'MA', 92, 96, 'Le lion d’Afrique du Nord, à la crinière sombre, que les Romains faisaient combattre dans les arènes ; le dernier lion sauvage connu a été abattu au Maroc en 1942.', { ...L('Panthera leo leo'), ...D(1942) }),
+  x('tigre-de-la-caspienne', 'Tigre de la Caspienne', 'felins', 'felin-puissant', 'Asie centrale', 'IR', 84, 94, 'Il vivait de la Turquie à l’Asie centrale jusqu’aux années 1970. Son plus proche parent vivant est le tigre de Sibérie, presque identique génétiquement.', { ...L('Panthera tigris virgata'), ...D(1970) }),
+  x('tigre-de-bali', 'Tigre de Bali', 'felins', 'felin-puissant', 'Île de Bali', 'ID', 76, 86, 'Le plus petit des tigres ; le dernier, une tigresse, a été tué en 1937. Ses plus proches parents vivants sont les tigres de Sumatra.', { ...L('Panthera tigris sondaica'), ...D(1937) }),
+  x('panthere-de-formose', 'Panthère de Formose', 'felins', 'felin-agile', 'Taïwan', 'TW', 48, 78, 'La panthère nébuleuse de Taïwan : après 13 ans de pièges photographiques sans en voir une seule, elle a été déclarée éteinte en 2013.', { ...L('Neofelis nebulosa brachyura'), ...D(2013) }),
+  x('loup-du-japon', 'Loup du Japon', 'canides', 'canide-meute', 'Honshū', 'JP', 62, 74, 'Le plus petit des loups, vénéré comme le gardien des récoltes ; le dernier connu a été tué en 1905 dans la préfecture de Nara.', { ...L('Canis lupus hodophilax'), ...D(1905) }),
+  x('rhinoceros-de-java-du-vietnam', 'Rhinocéros de Java du Vietnam', 'geants', 'geant-colosse', 'Cát Tiên', 'VN', 50, 86, 'Le dernier, une femelle, a été tué par des braconniers en 2010 pour sa corne. Il ne reste qu’environ 80 rhinocéros de Java, tous sur l’île de Java.', { ...L('Rhinoceros sondaicus annamiticus'), ...D(2010) }),
+  x('bison-du-caucase', 'Bison du Caucase', 'ongules', 'ongule-costaud', 'Caucase', 'RU', 50, 86, 'Les trois derniers bisons sauvages du Caucase ont été tués par des braconniers en 1927 ; ses gènes survivent chez certains bisons d’Europe.', { ...L('Bison bonasus caucasicus'), ...D(1927) }),
+  x('bubale', 'Bubale', 'ongules', 'ongule-sprinteur', 'Maghreb', 'MA', 36, 74, 'Cette antilope d’Afrique du Nord, peinte par les Égyptiens, a été massacrée par troupeaux entiers ; la dernière connue a été abattue au Maroc en 1925.', { ...L('Alcelaphus buselaphus buselaphus'), ...D(1925) }),
+  x('wapiti-de-l-est', 'Wapiti de l’Est', 'ongules', 'ongule-costaud', 'Appalaches', 'US', 42, 82, 'Il peuplait les forêts de l’est de l’Amérique du Nord ; le dernier a été abattu en Pennsylvanie en 1877.', { ...L('Cervus canadensis canadensis'), ...D(1877) }),
+  x('caribou-de-dawson', 'Caribou de Dawson', 'ongules', 'ongule-endurant', 'Haida Gwaii', 'CA', 34, 70, 'Un petit caribou de l’archipel Haida Gwaii, au Canada ; les derniers ont été vus en 1908.', { ...L('Rangifer tarandus dawsoni'), ...D(1908) }),
+  x('cerf-de-schomburgk', 'Cerf de Schomburgk', 'ongules', 'ongule-costaud', 'Thaïlande', 'TH', 40, 76, 'Célèbre pour ses bois en corbeille ; le dernier, un cerf apprivoisé qui vivait dans un temple, a été tué en 1938.', { ...L('Rucervus schomburgki'), ...D(1938) }),
+  x('loutre-du-japon', 'Loutre du Japon', 'petits', 'petit-agile', 'Rivières', 'JP', 46, 68, 'Vue pour la dernière fois en 1979 sur l’île de Shikoku ; le Japon l’a déclarée éteinte en 2012.', { ...L('Lutra lutra whiteleyi'), ...D(1979) }),
+  x('conure-de-caroline', 'Conure de Caroline', 'oiseaux', 'oiseau-malin', 'Forêts', 'US', 64, 52, 'Le seul perroquet des États-Unis ; le dernier, Incas, est mort en 1918 au zoo de Cincinnati, dans la cage où était morte Martha, la dernière tourte voyageuse.', { ...L('Conuropsis carolinensis'), ...D(1918), nick: 'Incas' }),
+  x('tetras-des-bruyeres', 'Tétras des bruyères', 'oiseaux', 'oiseau-paradeur', 'Landes', 'US', 38, 50, 'Ce tétras de la Nouvelle-Angleterre a fini sur une seule île, Martha’s Vineyard ; le dernier, Booming Ben, a été vu en 1932.', { ...L('Tympanuchus cupido cupido'), ...D(1932), nick: 'Booming Ben' }),
+  x('autruche-d-arabie', 'Autruche d’Arabie', 'oiseaux', 'oiseau-coureur', 'Désert', 'SA', 50, 74, 'Les fusils et les voitures ont eu raison d’elle : l’une des dernières a été abattue et mangée par des ouvriers d’un oléoduc vers 1941.', { ...L('Struthio camelus syriacus'), ...D(1941) }),
+  x('emeu-de-king-island', 'Émeu de King Island', 'oiseaux', 'oiseau-coureur', 'King Island', 'AU', 40, 60, 'Un émeu nain de 87 cm, sombre, de l’île King au sud de l’Australie ; les deux derniers sont morts en captivité à Paris en 1822.', { ...L('Dromaius novaehollandiae minor'), ...D(1822) }),
 ];
 
 // une espèce présente sur plusieurs continents porte le logo « Plusieurs continents » (XW) au lieu d'un drapeau
-export const ATHLETES: Athlete[] = [...CURATED, ...HABITATS].map((a) => ({
+export const ATHLETES: Athlete[] = [...CURATED, ...RECENT_ICONS, ...HABITATS].map((a) => ({
   ...a,
   // drapeau : un globe si l'espèce vit sur plusieurs continents, sinon le pays où elle est la plus présente
   country: CONTINENTS_MULTIPLES[a.id] ? 'XW' : (PAYS_PRINCIPAL[a.id] ?? a.country),
   role: MILIEU_CORRIGE[a.id] ?? a.role,
 }));
+
+/** Icônes ajoutées en octobre 2026 : numérotées après les autres espèces dans l'album. */
+export const ICONES_RECENTES: ReadonlySet<string> = new Set(RECENT_ICONS.map((a) => a.id));
 
 export const ATHLETES_BY_ID: Record<string, Athlete> = Object.fromEntries(ATHLETES.map((athlete) => [athlete.id, athlete]));

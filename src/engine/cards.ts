@@ -1,6 +1,6 @@
 import type { Athlete, Rarity, RarityId, Variant } from './types';
 import { SPORT_ORDER } from '../data/sports';
-import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
+import { ATHLETES, ATHLETES_BY_ID, ICONES_RECENTES } from '../data/athletes';
 import { CHIENS_DANS_LE_MONDE, POPULATIONS } from '../data/populations';
 import { clamp } from './random';
 
@@ -52,7 +52,7 @@ const scoreCache = new Map<string, number>();
 export function rarityScore(athlete: Athlete): number {
   const cached = scoreCache.get(athlete.id);
   if (cached !== undefined) return cached;
-  const population = athlete.retired || athlete.sport === 'prehistoire' ? undefined : athlete.race ? CHIENS_DANS_LE_MONDE : POPULATIONS[athlete.id];
+  const population = athlete.retired ? undefined : athlete.race ? CHIENS_DANS_LE_MONDE : POPULATIONS[athlete.id];
   const score = population === undefined ? fameOnly(athlete.fame) : (athlete.fame + scarcityOf(population)) / 2;
   scoreCache.set(athlete.id, score);
   return score;
@@ -114,14 +114,14 @@ export function isHabitat(athlete: Athlete): boolean {
 }
 
 // ───────────── Icônes ─────────────
-// Espèces disparues : un trésor, environ 1 carte sur 200 dans les boosters ordinaires. Seuls le Pack Icônes et le
-// Pack Préhistoire, bien plus chers, n'en contiennent que.
+// Espèces disparues depuis 1800 (tigre de Java, thylacine, lion de l'Atlas…) : un trésor, environ 1 carte sur 1 000
+// dans les boosters ordinaires. Seul le Pack Icônes, bien plus cher, n'en contient que.
 export const ICON_CHANCE = 0.001;
 /** Une Icône vaut au moins ICON_MIN_VALUE, et dix fois la valeur de sa rareté. */
 export const ICON_VALUE_MULTIPLIER = 10;
 export const ICON_MIN_VALUE = 100_000;
 
-/** Poids de tirage d'une Icône : le T. rex ou le mammouth (Légende) sortent huit fois moins qu'une Icône commune. */
+/** Poids de tirage d'une Icône : le lion de l'Atlas (Légende) sort huit fois moins qu'une Icône commune. */
 export function iconWeight(athlete: Athlete): number {
   return [8, 6, 4, 2, 1][rarityOf(athlete).order] * dropWeight(athlete);
 }
@@ -167,7 +167,7 @@ export function getAthlete(id: string): Athlete {
   return athlete;
 }
 
-/** Icône : une espèce disparue (thylacine, tigre de Java, dinosaures…). */
+/** Icône : une espèce disparue depuis 1800 (thylacine, tigre de Java, lion de l'Atlas…). */
 export function isIcon(athlete: Athlete): boolean {
   return !!athlete.retired;
 }
@@ -192,15 +192,18 @@ export function athletesByRarity(): Record<RarityId, Athlete[]> {
 
 // ───────────── Numéros de collection ─────────────
 // Chaque espèce a son numéro dans l'album, famille par famille (dans l'ordre du jeu) : N° 001 à N° 4xx.
-// Les Habitats ont leur propre série : H01, H02…
+// Les Icônes ajoutées en octobre 2026 viennent après toutes les autres, pour que les numéros déjà connus ne
+// bougent pas. Les Habitats ont leur propre série : H01, H02…
 let numbers: Map<string, string> | null = null;
 
 export function collectionNumber(athlete: Athlete): string {
   if (!numbers) {
     numbers = new Map();
     let n = 0;
-    for (const sport of SPORT_ORDER) {
-      for (const a of ATHLETES) if (a.sport === sport && !a.habitat) numbers.set(a.id, String(++n).padStart(3, '0'));
+    for (const late of [false, true]) {
+      for (const sport of SPORT_ORDER) {
+        for (const a of ATHLETES) if (a.sport === sport && !a.habitat && ICONES_RECENTES.has(a.id) === late) numbers.set(a.id, String(++n).padStart(3, '0'));
+      }
     }
     let h = 0;
     for (const a of ATHLETES) if (a.habitat) numbers.set(a.id, `H${String(++h).padStart(2, '0')}`);

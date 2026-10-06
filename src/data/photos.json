@@ -43,14 +43,6 @@
   "licenseUrl": "https://unsplash.com/license",
   "page": "https://unsplash.com/photos/nGqJCrxN6dI"
  },
- "allosaure": {
-  "file": "allosaure.webp",
-  "cutout": false,
-  "author": "Jimbo457",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-dinosaur-8441049/"
- },
  "alpaga": {
   "file": "alpaga.webp",
   "cutout": false,
@@ -91,14 +83,6 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/eel-electric-fish-underwater-dark-10198425/"
  },
- "ankylosaure": {
-  "file": "ankylosaure.webp",
-  "cutout": false,
-  "author": "DigitalRoo",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-ankylosaurus-dinosaurs-8561926/"
- },
  "antilocapre": {
   "file": "antilocapre.webp",
   "cutout": false,
@@ -122,22 +106,6 @@
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Maratus_volans_152652557.jpg"
- },
- "archeopteryx": {
-  "file": "archeopteryx.webp",
-  "cutout": false,
-  "author": "Terranaut",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/archaeopteryx-dinosaur-primeval-bird-8743160/"
- },
- "argentinosaure": {
-  "file": "argentinosaure.webp",
-  "cutout": false,
-  "author": "AiArtista",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-sauropod-dinosaur-9082674/"
  },
  "arlequin-de-chiriqui": {
   "file": "arlequin-de-chiriqui.webp",
@@ -170,6 +138,18 @@
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
   "page": "https://www.inaturalist.org/photos/55506762"
+ },
+ "autruche-d-arabie": {
+  "file": "autruche-d-arabie.webp",
+  "cutout": false,
+  "author": "Kenton",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/361015195",
+  "brut": [
+   1800,
+   1200
+  ]
  },
  "axolotl": {
   "file": "axolotl.webp",
@@ -315,6 +295,18 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/animal-pasture-european-bison-bison-6178537/"
  },
+ "bison-du-caucase": {
+  "file": "bison-du-caucase.webp",
+  "cutout": false,
+  "author": "Franus",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/718179893",
+  "brut": [
+   1800,
+   1200
+  ]
+ },
  "blaireau": {
   "file": "blaireau.webp",
   "cutout": false,
@@ -387,14 +379,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:2-BerneseMountainDogInGrass.jpg"
  },
- "brachiosaure": {
-  "file": "brachiosaure.webp",
-  "cutout": false,
-  "author": "skystars78",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/dinosaur-sauropod-brachiosaurus-10018990/"
- },
  "brochet": {
   "file": "brochet.webp",
   "cutout": false,
@@ -402,6 +386,18 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/pike-fish-water-plants-5328779/"
+ },
+ "bubale": {
+  "file": "bubale.webp",
+  "cutout": false,
+  "author": "Jean-Paul Boerekamps",
+  "license": "CC0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/110413421",
+  "brut": [
+   1800,
+   1350
+  ]
  },
  "buffle": {
   "file": "buffle.webp",
@@ -507,6 +503,18 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/caracal-animal-nature-cat-wildcat-10225436/"
  },
+ "caribou-de-dawson": {
+  "file": "caribou-de-dawson.webp",
+  "cutout": false,
+  "author": "Raphaël Grellety",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/663428202",
+  "brut": [
+   1800,
+   1286
+  ]
+ },
  "carpe-koi": {
   "file": "carpe-koi.webp",
   "cutout": false,
@@ -546,6 +554,18 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Cervus_elaphus_Luc_Viatour_5.jpg"
+ },
+ "cerf-de-schomburgk": {
+  "file": "cerf-de-schomburgk.webp",
+  "cutout": false,
+  "author": "Vassil",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:Mus_Nat_Hist_Nat_25022013_Cervus_schomburgki_1.jpg",
+  "brut": [
+   1800,
+   2718
+  ]
  },
  "chacal-a-chabraque": {
   "file": "chacal-a-chabraque.webp",
@@ -795,6 +815,18 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Andean_condor_(Vultur_gryphus)_male_Farellones.jpg"
  },
+ "conure-de-caroline": {
+  "file": "conure-de-caroline.webp",
+  "cutout": false,
+  "author": "Cephas",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Conuropsis_carolinensis_male_Ulaval.jpg",
+  "brut": [
+   1800,
+   1200
+  ]
+ },
  "corail": {
   "file": "corail.webp",
   "cutout": false,
@@ -963,14 +995,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/269014354"
  },
- "deinosuchus": {
-  "file": "deinosuchus.webp",
-  "cutout": false,
-  "author": "HeckiMG",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-dragon-water-lake-9518268/"
- },
  "dendrolague": {
   "file": "dendrolague.webp",
   "cutout": false,
@@ -1003,14 +1027,6 @@
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
   "page": "https://commons.wikimedia.org/wiki/File:Tarangire_Kirk-Dikdik3.jpg"
  },
- "dimetrodon": {
-  "file": "dimetrodon.webp",
-  "cutout": false,
-  "author": "DiBgd at English Wikipedia",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "page": "https://commons.wikimedia.org/wiki/File:Dimetrodon_loomisi_DB.jpg"
- },
  "dindon": {
   "file": "dindon.webp",
   "cutout": false,
@@ -1026,14 +1042,6 @@
   "license": "Licence Unsplash",
   "licenseUrl": "https://unsplash.com/license",
   "page": "https://unsplash.com/photos/XXRt2HPxMHg"
- },
- "diplodocus": {
-  "file": "diplodocus.webp",
-  "cutout": false,
-  "author": "a_scarcy",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/dinosaur-diplodocus-drinks-8340972/"
  },
  "dragon-de-komodo": {
   "file": "dragon-de-komodo.webp",
@@ -1058,14 +1066,6 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/dugong-sea-underwater-seagrass-10212406/"
- },
- "dunkleosteus": {
-  "file": "dunkleosteus.webp",
-  "cutout": false,
-  "author": "RobinGoodfellow_(m)",
-  "license": "CC BY-SA 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-  "page": "https://www.flickr.com/photos/130140542@N03/54024954589"
  },
  "dynaste-hercule": {
   "file": "dynaste-hercule.webp",
@@ -1146,6 +1146,18 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/ostrich-emu-fauna-australia-629050/"
+ },
+ "emeu-de-king-island": {
+  "file": "emeu-de-king-island.webp",
+  "cutout": false,
+  "author": "ridgevale",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/198480860",
+  "brut": [
+   1800,
+   1350
+  ]
  },
  "epeire": {
   "file": "epeire.webp",
@@ -1322,14 +1334,6 @@
   "license": "CC BY 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Hylobates_lar_-_Kaeng_Krachan_WB.jpg"
- },
- "giganotosaure": {
-  "file": "giganotosaure.webp",
-  "cutout": false,
-  "author": "Artie_Navarre",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-tyrannosaurus-t-rex-8738055/"
  },
  "girafe": {
   "file": "girafe.webp",
@@ -1783,14 +1787,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Striped_hyena_in_Bhigwan_August_2025_by_Tisha_Mukherjee_15_(cropped).jpg"
  },
- "ichtyosaure": {
-  "file": "ichtyosaure.webp",
-  "cutout": false,
-  "author": "JuliusH",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-fishes-sea-monster-8489512/"
- },
  "iguane-marin": {
   "file": "iguane-marin.webp",
   "cutout": false,
@@ -1798,14 +1794,6 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Iguana_marina_(Amblyrhynchus_cristatus),_Las_Bachas,_isla_Santa_Cruz,_islas_Gal%C3%A1pagos,_Ecuador,_2015-07-23,_DD_27.jpg"
- },
- "iguanodon": {
-  "file": "iguanodon.webp",
-  "cutout": false,
-  "author": "iloveai",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/argentinosaurus-dinosaur-fossil-8595515/"
  },
  "impala": {
   "file": "impala.webp",
@@ -2007,13 +1995,17 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/lion-feline-mane-barbary-lion-8096155/"
  },
- "lion-des-cavernes": {
-  "file": "lion-des-cavernes.webp",
+ "lion-de-l-atlas": {
+  "file": "lion-de-l-atlas.webp",
   "cutout": false,
-  "author": "AiCreatorImage",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-lion-animal-nature-9247445/"
+  "author": "Photo by and (C)2007 Derek Ramsey ( Ram-Man )",
+  "license": "GFDL 1.2",
+  "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
+  "page": "https://commons.wikimedia.org/wiki/File:African_Lion_Panthera_leo_Male_Pittsburgh_2800px_adjusted.jpg",
+  "brut": [
+   1800,
+   1285
+  ]
  },
  "loir": {
   "file": "loir.webp",
@@ -2063,6 +2055,18 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
   "page": "https://commons.wikimedia.org/wiki/File:Canis_simensis.jpg"
  },
+ "loup-du-japon": {
+  "file": "loup-du-japon.webp",
+  "cutout": false,
+  "author": "אריאל שמיר",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/13310507",
+  "brut": [
+   1800,
+   1350
+  ]
+ },
  "loutre": {
   "file": "loutre.webp",
   "cutout": false,
@@ -2078,6 +2082,18 @@
   "license": "Public domain",
   "licenseUrl": "",
   "page": "https://commons.wikimedia.org/wiki/File:Sea_Otter_(37795898225).jpg"
+ },
+ "loutre-du-japon": {
+  "file": "loutre-du-japon.webp",
+  "cutout": false,
+  "author": "Sebastián Lescano",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/43355690",
+  "brut": [
+   1800,
+   1209
+  ]
  },
  "lucane": {
   "file": "lucane.webp",
@@ -2150,14 +2166,6 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Dendroaspis_polylepis_by_Bill_Love.jpg"
- },
- "mammouth": {
-  "file": "mammouth.webp",
-  "cutout": false,
-  "author": "CharcoalDrawing",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-mammoths-extinct-8984451/"
  },
  "manchot-empereur": {
   "file": "manchot-empereur.webp",
@@ -2247,30 +2255,6 @@
   "licenseUrl": "",
   "page": "https://commons.wikimedia.org/wiki/File:Qualle_Ohrenqualle_2006-01-01_215.jpg"
  },
- "megaloceros": {
-  "file": "megaloceros.webp",
-  "cutout": false,
-  "author": "jcoope12",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-buck-deer-animal-8986719/"
- },
- "megalodon": {
-  "file": "megalodon.webp",
-  "cutout": false,
-  "author": "RALPH_GERMANY",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-shark-fish-animal-sea-8383720/"
- },
- "meganeura": {
-  "file": "meganeura.webp",
-  "cutout": false,
-  "author": "DjordjeR1982",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/dragonfly-insect-macro-wings-6536606/"
- },
  "melomys": {
   "file": "melomys.webp",
   "cutout": false,
@@ -2342,14 +2326,6 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/walrus-arctic-wildlife-ocean-ice-10383187/"
- },
- "mosasaure": {
-  "file": "mosasaure.webp",
-  "cutout": false,
-  "author": "a_scarcy",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-pterosaur-plesiosaur-8336920/"
  },
  "moufette": {
   "file": "moufette.webp",
@@ -2551,14 +2527,6 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/bear-tree-animal-nature-game-8916279/"
  },
- "ours-des-cavernes": {
-  "file": "ours-des-cavernes.webp",
-  "cutout": false,
-  "author": "Terranaut",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/brown-bear-bear-hibernation-fall-9205026/"
- },
  "ours-isabelle": {
   "file": "ours-isabelle.webp",
   "cutout": false,
@@ -2630,6 +2598,18 @@
   "license": "Licence Pixabay",
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/pangolin-wildlife-nature-forest-10229812/"
+ },
+ "panthere-de-formose": {
+  "file": "panthere-de-formose.webp",
+  "cutout": false,
+  "author": "Rushenb",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Neofelis_nebulosa,_Clouded_leopard.jpg",
+  "brut": [
+   1800,
+   1200
+  ]
  },
  "panthere-des-neiges": {
   "file": "panthere-des-neiges.webp",
@@ -2863,14 +2843,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Pamarayeg_IIIx2.jpg"
  },
- "plesiosaure": {
-  "file": "plesiosaure.webp",
-  "cutout": false,
-  "author": "DigitalRoo",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-plesiosaur-dinosaur-8561923/"
- },
  "poisson-archer": {
   "file": "poisson-archer.webp",
   "cutout": false,
@@ -2983,14 +2955,6 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/aardwolf-proteles-cristata-10256240/"
  },
- "pteranodon": {
-  "file": "pteranodon.webp",
-  "cutout": false,
-  "author": "mrganso",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/photos/pterosaur-reptile-extinct-2735500/"
- },
  "puce": {
   "file": "puce.webp",
   "cutout": false,
@@ -3038,14 +3002,6 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:056_Male_Resplendent_quetzal_in_Los_Quetzales_National_Park_Photo_by_Giles_Laurent.jpg"
- },
- "quetzalcoatlus": {
-  "file": "quetzalcoatlus.webp",
-  "cutout": false,
-  "author": "HeckiMG",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/quetzalcoatlus-dinosaur-pterosaurs-8815659/"
  },
  "quokka": {
   "file": "quokka.webp",
@@ -3255,6 +3211,18 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:White_Rhinoceros_Alert_2019-07-27.jpg"
  },
+ "rhinoceros-de-java-du-vietnam": {
+  "file": "rhinoceros-de-java-du-vietnam.webp",
+  "cutout": false,
+  "author": "Scott Nelson",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Lesser_One_Horned_Rhinoceros_Rhinoceros_Sondaicus_(53549614).jpeg",
+  "brut": [
+   1800,
+   1477
+  ]
+ },
  "rhinoceros-de-sumatra": {
   "file": "rhinoceros-de-sumatra.webp",
   "cutout": false,
@@ -3427,14 +3395,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Mantled_howler_monkey_and_baby_(81337)2.jpg"
  },
- "smilodon": {
-  "file": "smilodon.webp",
-  "cutout": false,
-  "author": "HeckiMG",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-saber-toothed-cat-8671438/"
- },
  "souris": {
   "file": "souris.webp",
   "cutout": false,
@@ -3443,14 +3403,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Maus_au%C3%9Fer_Haus.JPG"
  },
- "spinosaure": {
-  "file": "spinosaure.webp",
-  "cutout": false,
-  "author": "TheDigitalArtist",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/dinosaur-lizard-reptile-extinct-5112276/"
- },
  "springbok": {
   "file": "springbok.webp",
   "cutout": false,
@@ -3458,14 +3410,6 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Antidorcas_marsupialis,_female_(Etosha,_2012).jpg"
- },
- "stegosaure": {
-  "file": "stegosaure.webp",
-  "cutout": false,
-  "author": "DigitalRoo",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-stegosaurus-dinosaur-8561927/"
  },
  "sterne-arctique": {
   "file": "sterne-arctique.webp",
@@ -3482,14 +3426,6 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Meerkat_(Suricata_suricatta)_with_3_young.jpg"
- },
- "t-rex": {
-  "file": "t-rex.webp",
-  "cutout": false,
-  "author": "jcoope12",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-t-rex-dinosaur-8919371/"
  },
  "taipan": {
   "file": "taipan.webp",
@@ -3555,6 +3491,18 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "page": "https://www.inaturalist.org/photos/45612214"
  },
+ "tetras-des-bruyeres": {
+  "file": "tetras-des-bruyeres.webp",
+  "cutout": false,
+  "author": "Adam Jackson",
+  "license": "CC0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/362740742",
+  "brut": [
+   1800,
+   1199
+  ]
+ },
  "thon-rouge": {
   "file": "thon-rouge.webp",
   "cutout": false,
@@ -3579,6 +3527,18 @@
   "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
   "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/"
  },
+ "tigre-de-bali": {
+  "file": "tigre-de-bali.webp",
+  "cutout": false,
+  "author": "NasserHalaweh",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Felidae_Panthera_tigris_sumatrae_3.jpg",
+  "brut": [
+   1800,
+   1350
+  ]
+ },
  "tigre-de-java": {
   "file": "tigre-de-java.webp",
   "cutout": false,
@@ -3587,13 +3547,17 @@
   "licenseUrl": "",
   "page": "https://commons.wikimedia.org/wiki/File:Panthera_tigris_sondaica_01.jpg"
  },
- "titanoboa": {
-  "file": "titanoboa.webp",
+ "tigre-de-la-caspienne": {
+  "file": "tigre-de-la-caspienne.webp",
   "cutout": false,
-  "author": "ZT_OSCAR",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-snake-reptile-animal-8700431/"
+  "author": "Royle Safaris",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/339563450",
+  "brut": [
+   1737,
+   1200
+  ]
  },
  "torpille": {
   "file": "torpille.webp",
@@ -3659,28 +3623,6 @@
   "licenseUrl": "",
   "page": "https://commons.wikimedia.org/wiki/File:Passenger_Pigeon_Profile_View_with_Shadow.jpg"
  },
- "triceratops": {
-  "file": "triceratops.webp",
-  "cutout": false,
-  "author": "soundset",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/ai-generated-triceratops-dinosaur-9509933/"
- },
- "trilobite": {
-  "file": "trilobite.webp",
-  "cutout": false,
-  "author": "Moussa Direct Ltd.",
-  "license": "CC BY-SA 3.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Kainops_invius_lateral_and_ventral.JPG",
-  "crop": [
-   0.31,
-   0.44,
-   0.69,
-   0.56
-  ]
- },
  "triton-crete": {
   "file": "triton-crete.webp",
   "cutout": false,
@@ -3721,14 +3663,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Buitre_Leonado_(98727731).jpeg"
  },
- "velociraptor": {
-  "file": "velociraptor.webp",
-  "cutout": false,
-  "author": "EDU012",
-  "license": "Licence Pixabay",
-  "licenseUrl": "https://pixabay.com/fr/service/license-summary/",
-  "page": "https://pixabay.com/illustrations/velociraptor-raptor-dinosaur-8727661/"
- },
  "ver-a-soie": {
   "file": "ver-a-soie.webp",
   "cutout": false,
@@ -3768,6 +3702,18 @@
   "license": "CC BY-SA 3.0",
   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
   "page": "https://commons.wikimedia.org/wiki/File:Young_red_necked_wallaby.jpg"
+ },
+ "wapiti-de-l-est": {
+  "file": "wapiti-de-l-est.webp",
+  "cutout": false,
+  "author": "Alexa Wilcock",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/580052477",
+  "brut": [
+   1609,
+   2048
+  ]
  },
  "wombat": {
   "file": "wombat.webp",

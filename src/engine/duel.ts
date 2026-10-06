@@ -46,7 +46,7 @@ export interface RecordDef {
   format: (value: number, athlete: Athlete) => string;
 }
 
-const extinct = (a: Athlete) => !!a.retired || a.sport === 'prehistoire';
+const extinct = (a: Athlete) => !!a.retired;
 
 /** Individus encore vivants : 0 pour une espèce éteinte, les chiens du monde pour une race de chien. */
 function population(a: Athlete): number | null {
@@ -69,7 +69,7 @@ const CONTINENT: Record<string, Continent> = Object.fromEntries(
   (
     [
       ['afrique', 'BW CD CG CM DZ EG ET GA GH KE KM LR MA MG MU NA RW SC SD SO TZ ZA'],
-      ['asie', 'BD CN ID IN JP KZ LK MN MY NP PH SY TH RU'],
+      ['asie', 'BD CN ID IN IR JP KZ LK MN MY NP PH SA SY TH TW VN RU'],
       ['europe', 'BE CH DE ES FI FR GB GB-ENG GB-SCT GB-WLS GR HR IE IS IT NL NO PL RO SI SE'],
       ['amerique', 'AR BO BR CA CL CO CR CU EC GT JM MX PE US GL'],
       ['oceanie', 'AU FJ NZ PG'],
@@ -85,18 +85,15 @@ const CLASSE_DES_FAMILLES: Partial<Record<Athlete['sport'], Classe>> = {
   requins: 'poisson', poissons: 'poisson', rapaces: 'oiseau', oiseaux: 'oiseau', reptiles: 'reptile',
 };
 
-/** Exceptions des familles mélangées (ferme, préhistoire) ; le reste de la préhistoire est fait de reptiles. */
+/** Exceptions de la famille mélangée (ferme et compagnie). */
 const CLASSE_A_PART: Record<string, Classe> = {
   poule: 'oiseau', canard: 'oiseau', oie: 'oiseau', dindon: 'oiseau', pigeon: 'oiseau', perruche: 'oiseau',
   'poisson-rouge': 'poisson', escargot: 'autre', 'ver-a-soie': 'autre',
-  mammouth: 'mammifere', smilodon: 'mammifere', 'lion-des-cavernes': 'mammifere', 'ours-des-cavernes': 'mammifere',
-  megaloceros: 'mammifere', megalodon: 'poisson', dunkleosteus: 'poisson', archeopteryx: 'oiseau', trilobite: 'autre', meganeura: 'autre',
 };
 
 export function classeOf(a: Athlete): Classe {
   if (CLASSE_A_PART[a.id]) return CLASSE_A_PART[a.id];
   if (a.sport === 'ferme') return 'mammifere';
-  if (a.sport === 'prehistoire') return 'reptile';
   return CLASSE_DES_FAMILLES[a.sport] ?? 'autre';
 }
 

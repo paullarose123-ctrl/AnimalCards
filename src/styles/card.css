@@ -504,13 +504,6 @@
   --floor-pattern: linear-gradient(180deg, transparent 30%, rgba(120, 80, 40, 0.75) 30% 36%, transparent 36%);
 }
 
-/* préhistoire : roche et strates */
-.s-prehistoire .card__scene {
-  --floor: #8b7356;
-  --floor-far: #5f4d38;
-  --floor-pattern: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0 0.12em, transparent 0.12em 1em);
-}
-
 .is-prime .card__scene {
   background:
     radial-gradient(circle, rgba(255, 255, 255, 0.35) 0 0.06em, transparent 0.14em) 0 0 / 0.7em 0.9em,

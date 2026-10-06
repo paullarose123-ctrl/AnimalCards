@@ -68,7 +68,7 @@ export function Gallery() {
         ))}
       </section>
       <section id="apercu" style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-        {['crocodile-du-nil', 'alligator', 'husky', 'requin-baleine', 't-rex', 'triceratops', 'mammouth', 'smilodon', 'habitat-amazonie', 'habitat-grande-barriere', 'habitat-banquise', 'habitat-camargue'].map((id) => (
+        {['crocodile-du-nil', 'alligator', 'husky', 'requin-baleine', 'lion-de-l-atlas', 'tigre-de-la-caspienne', 'conure-de-caroline', 'bison-du-caucase', 'habitat-amazonie', 'habitat-grande-barriere', 'habitat-banquise', 'habitat-camargue'].map((id) => (
           <Card key={id} card={{ athleteId: id, variant: 'base' }} size="md" />
         ))}
       </section>
@@ -105,7 +105,7 @@ export function Gallery() {
       <section style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
         <Card card={{ athleteId: 'lion', variant: 'base' }} size="lg" />
         <Card card={{ athleteId: 'tigre', variant: 'base' }} size="lg" />
-        <Card card={{ athleteId: 't-rex', variant: 'base' }} size="lg" />
+        <Card card={{ athleteId: 'lion-de-l-atlas', variant: 'base' }} size="lg" />
         <Card card={{ athleteId: 'akita', variant: 'prime' }} size="lg" />
         <Card card={{ athleteId: 'guepard', variant: 'base' }} size="lg" />
       </section>

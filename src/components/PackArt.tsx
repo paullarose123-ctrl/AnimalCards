@@ -51,7 +51,6 @@ const FAMILY_SCENES: Record<SportId, SceneDef> = {
   insectes: { kind: 'collines', creature: 'papillons', palette: { sky: ['#ff9e45', '#ffe9a6'], sun: '#fffbe6', far: '#b3c75a', near: '#1b2f10', accent: '#4fc3f7' } },
   invertebres: { kind: 'recif', creature: 'meduses', palette: { sky: ['#ff9cc2', '#33246f'], sun: '#fff0f6', far: '#b9579a', near: '#120a2b', accent: '#ffd1ec' } },
   ferme: { kind: 'collines', creature: 'ferme', palette: { sky: ['#7fc2ff', '#fff0c6'], sun: '#fffbe8', far: '#9fd06f', near: '#1f3d1d', accent: '#ffffff' } },
-  prehistoire: { kind: 'volcan', creature: 'pteros', palette: { sky: ['#57bf9c', '#f8e2a0'], sun: '#fff6d6', far: '#4c9775', near: '#0e2419', accent: '#ff7a2b' } },
 };
 
 /** Tous les paysages des boosters (packs de la boutique et packs par famille). */

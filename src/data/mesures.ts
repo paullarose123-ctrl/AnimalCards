@@ -2,7 +2,7 @@
 // beaucoup), arrondies. [poids en kg, taille en m, sens de la taille, longévité en années (dans la nature)].
 // Sens : L = longueur du museau au bout de la queue, H = hauteur (au garrot, ou debout pour les grands singes
 // et les oiseaux coureurs), E = envergure (oiseaux, chauves-souris, papillons, raies) ou écartement des pattes.
-// null quand la valeur n'est pas connue (longévité des espèces fossiles, poids d'une colonie de corail…).
+// null quand la valeur n'est pas connue (longévité des espèces disparues, poids d'une colonie de corail…).
 
 export type Sens = 'L' | 'H' | 'E';
 export type Mesure = [poids: number | null, taille: number | null, sens: Sens, longevite: number | null];
@@ -461,38 +461,23 @@ export const MESURES: Record<string, Mesure> = {
   escargot: [0.03, 0.1, 'L', 7],
   'ver-a-soie': [0.004, 0.07, 'L', 0.15],
 
-  // préhistoire (estimations des paléontologues)
-  't-rex': [8000, 12, 'L', 28],
-  mammouth: [6000, 3.2, 'H', 60],
-  velociraptor: [15, 2, 'L', null],
-  triceratops: [9000, 9, 'L', null],
-  megalodon: [50000, 16, 'L', 90],
-  brachiosaure: [40000, 22, 'L', null],
-  stegosaure: [5000, 9, 'L', null],
-  spinosaure: [7000, 15, 'L', null],
-  smilodon: [280, 1.9, 'L', null],
-  diplodocus: [15000, 26, 'L', null],
-  pteranodon: [30, 6.5, 'E', null],
-  ankylosaure: [6000, 8, 'L', null],
-  mosasaure: [15000, 15, 'L', null],
-  archeopteryx: [0.8, 0.5, 'L', null],
-  allosaure: [2000, 9.5, 'L', null],
-  iguanodon: [3500, 10, 'L', null],
-  plesiosaure: [450, 3.5, 'L', null],
-  giganotosaure: [8000, 12.5, 'L', null],
-  argentinosaure: [70000, 35, 'L', null],
-  titanoboa: [1100, 13, 'L', null],
-  dimetrodon: [250, 3.2, 'L', null],
-  'lion-des-cavernes': [300, 2.1, 'L', null],
-  quetzalcoatlus: [250, 10, 'E', null],
-  ichtyosaure: [100, 3, 'L', null],
-  'ours-des-cavernes': [500, 3, 'L', null],
-  dunkleosteus: [1000, 4, 'L', null],
-  megaloceros: [600, 2.1, 'H', null],
-  trilobite: [0.01, 0.05, 'L', null],
-  meganeura: [null, 0.7, 'E', null],
-  deinosuchus: [5000, 11, 'L', 50],
-};
+  // Icônes ajoutées en octobre 2026 (espèces disparues depuis 1800 : longévité inconnue dans la nature)
+  'lion-de-l-atlas': [200, 2.8, 'L', 15],
+  'tigre-de-la-caspienne': [200, 2.8, 'L', 15],
+  'tigre-de-bali': [95, 2.3, 'L', 15],
+  'panthere-de-formose': [18, 1.7, 'L', 11],
+  'loup-du-japon': [15, 1.2, 'L', null],
+  'rhinoceros-de-java-du-vietnam': [1200, 3, 'L', null],
+  'bison-du-caucase': [700, 2.8, 'L', 25],
+  bubale: [150, 2.2, 'L', 15],
+  'wapiti-de-l-est': [400, 2.7, 'L', 15],
+  'caribou-de-dawson': [90, 1.8, 'L', null],
+  'cerf-de-schomburgk': [110, 1.9, 'L', null],
+  'loutre-du-japon': [8, 1.2, 'L', 10],
+  'conure-de-caroline': [0.1, 0.33, 'L', null],
+  'tetras-des-bruyeres': [0.9, 0.43, 'L', null],
+  'autruche-d-arabie': [100, 2.2, 'H', null],
+  'emeu-de-king-island': [23, 0.87, 'H', null],};
 
 const SENS_LABEL: Record<Sens, string> = { L: 'Longueur', H: 'Hauteur', E: 'Envergure' };
 

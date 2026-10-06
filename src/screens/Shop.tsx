@@ -129,9 +129,9 @@ export function ShopScreen() {
       </div>
       <section className="panel">
         <h2>Packs par famille</h2>
-        <p className="muted small">3 cartes d’une seule famille, jamais deux fois la même espèce, pour compléter ton album plus vite. Les espèces disparues (Préhistoire comprise) sont des Icônes : à chercher dans le Pack Icônes.</p>
+        <p className="muted small">3 cartes d’une seule famille, jamais deux fois la même espèce, pour compléter ton album plus vite. Les espèces disparues de chaque famille (ses Icônes) y sortent très rarement : le Pack Icônes n’a qu’elles.</p>
         <div className="sport-tabs" role="tablist" aria-label="Choisir une famille">
-          {SPORT_ORDER.filter((id) => id !== 'prehistoire').map((id) => (
+          {SPORT_ORDER.map((id) => (
             <button
               key={id}
               type="button"

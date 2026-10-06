@@ -130,14 +130,12 @@ describe('boosters', () => {
       expect(isIconCard(cards[0])).toBe(true);
     }
     expect(Math.max(...SHOP_PACKS.map((p) => p.price))).toBe(single.price);
-    // le Pack Icônes et le Pack Préhistoire, eux, ne contiennent que des Icônes (ou un Habitat)
-    const iconPack = SHOP_PACKS.find((p) => p.id === 'icones')!;
-    const prehistoire = sportPack('prehistoire', 'Préhistoire');
-    for (let i = 0; i < 300; i++) {
-      for (const pack of [iconPack, prehistoire]) {
-        for (const card of openPack(pack, rng)) expect(isIconCard(card) || !!ATHLETES_BY_ID[card.athleteId].habitat).toBe(true);
-      }
-    }
+    // les Icônes sont des espèces disparues depuis 1800, avec leur année : plus de créatures préhistoriques
+    const extinct = ATHLETES.filter((a) => a.retired && !a.habitat);
+    expect(extinct.length).toBeGreaterThanOrEqual(30);
+    // (la paruline de Bachman n'a pas d'année : elle a été déclarée éteinte en 2023)
+    for (const icon of extinct) expect(icon.died ?? 2023, icon.id).toBeGreaterThanOrEqual(1800);
+    expect(ATHLETES_BY_ID['t-rex']).toBeUndefined();
   });
 
   it('donne surtout des individus d’espèces vedettes dans le Pack Prime', () => {
@@ -155,7 +153,7 @@ describe('boosters', () => {
   it('ne donne une version Prime qu’aux espèces vedettes', () => {
     const rng = mulberry32(99);
     const legends = ATHLETES.filter(canBePrime).map((a) => a.id);
-    expect(legends).toEqual(expect.arrayContaining(['lion', 't-rex', 'loup', 'husky', 'guepard']));
+    expect(legends).toEqual(expect.arrayContaining(['lion', 'loup', 'husky', 'guepard']));
     expect(legends).not.toContain('fennec');
     const isLegendPrime = (card: { athleteId: string; variant: string }) => card.variant !== 'prime' || canBePrime(ATHLETES_BY_ID[card.athleteId]);
     const packs = [FREE_PACK, ...SHOP_PACKS];
@@ -303,8 +301,9 @@ describe('duel de records', () => {
     expect(classeOf(ATHLETES_BY_ID.dauphin)).toBe('mammifere');
     expect(classeOf(ATHLETES_BY_ID.poule)).toBe('oiseau');
     expect(classeOf(ATHLETES_BY_ID['requin-blanc'])).toBe('poisson');
-    expect(classeOf(ATHLETES_BY_ID.mammouth)).toBe('mammifere');
-    expect(classeOf(ATHLETES_BY_ID['t-rex'])).toBe('reptile');
+    expect(classeOf(ATHLETES_BY_ID['lion-de-l-atlas'])).toBe('mammifere');
+    expect(classeOf(ATHLETES_BY_ID['autruche-d-arabie'])).toBe('oiseau');
+    expect(recordValue(face('tigre-de-la-caspienne'), 'asie')).toBe(1);
     expect(formatRecordValue(face('aigle-royal'), 'oiseau')).toBe('Oui');
   });
 

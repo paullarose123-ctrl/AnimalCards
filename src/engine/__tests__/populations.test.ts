@@ -3,7 +3,7 @@ import { ATHLETES, ATHLETES_BY_ID } from '../../data/athletes';
 import { POPULATIONS, formatPopulation, populationOf } from '../../data/populations';
 
 // les races de chien n'ont pas de recensement propre
-const living = ATHLETES.filter((a) => !a.habitat && !a.race && !a.retired && a.sport !== 'prehistoire');
+const living = ATHLETES.filter((a) => !a.habitat && !a.race && !a.retired);
 
 describe('populations restantes', () => {
   it('chaque espèce vivante a une estimation, et seulement elles', () => {
@@ -25,7 +25,7 @@ describe('populations restantes', () => {
 
   it('les espèces disparues sont « Éteint », les Habitats n’ont pas de population', () => {
     expect(populationOf(ATHLETES_BY_ID['thylacine'])).toMatchObject({ value: 'Éteint', extinct: true });
-    expect(populationOf(ATHLETES_BY_ID['t-rex'])?.extinct).toBe(true);
+    expect(populationOf(ATHLETES_BY_ID['lion-de-l-atlas'])?.extinct).toBe(true);
     expect(populationOf(ATHLETES_BY_ID['habitat-amazonie'])).toBeNull();
     expect(plain(populationOf(ATHLETES_BY_ID['lion'])?.value)).toBe('23 000');
     expect(populationOf(ATHLETES_BY_ID['lion'])?.label).toBe('Population sauvage');

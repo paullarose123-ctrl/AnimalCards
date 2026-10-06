@@ -18,11 +18,6 @@
     "licence": "Licence Unsplash",
     "licenceUrl": "https://unsplash.com/license"
   },
-  "allosaure": {
-    "url": "https://cdn.pixabay.com/photo/2023/12/10/10/45/ai-generated-8441049_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-dinosaur-8441049/",
-    "auteur": "Jimbo457"
-  },
   "alpaga": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/351768042/original.jpg",
     "page": "https://www.inaturalist.org/photos/351768042",
@@ -52,11 +47,6 @@
     "page": "https://pixabay.com/photos/eel-electric-fish-underwater-dark-10198425/",
     "auteur": "GabruPawPixels"
   },
-  "ankylosaure": {
-    "url": "https://cdn.pixabay.com/photo/2024/02/08/22/14/ai-generated-8561926_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-ankylosaurus-dinosaurs-8561926/",
-    "auteur": "DigitalRoo"
-  },
   "antilocapre": "Pronghorn Yellowstone.jpg",
   "ara": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30793273/original.jpg",
@@ -66,16 +56,6 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "araignee-paon": "Maratus volans 152652557.jpg",
-  "archeopteryx": {
-    "url": "https://cdn.pixabay.com/photo/2024/05/06/11/35/archaeopteryx-8743160_1280.jpg",
-    "page": "https://pixabay.com/illustrations/archaeopteryx-dinosaur-primeval-bird-8743160/",
-    "auteur": "Terranaut"
-  },
-  "argentinosaure": {
-    "url": "https://cdn.pixabay.com/photo/2024/09/29/03/53/ai-generated-9082674_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-sauropod-dinosaur-9082674/",
-    "auteur": "AiArtista"
-  },
   "arlequin-de-chiriqui": "Chiriqui harlequin frog - Atelopus chiriquiensis.jpg",
   "atele": {
     "url": "https://cdn.pixabay.com/photo/2019/10/13/15/52/spider-monkey-4546438_1280.jpg",
@@ -89,6 +69,13 @@
     "auteur": "Andrew Allen",
     "licence": "CC BY 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "autruche-d-arabie": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/361015195/original.jpeg",
+    "page": "https://www.inaturalist.org/photos/361015195",
+    "auteur": "Kenton",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "axolotl": {
     "url": "https://images.unsplash.com/photo-1763755876890-a3acebd28ed5?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8YXhvbG90bHxmcnwwfHx8fDE3OTEwNzg3NjF8MA&ixlib=rb-4.1.0&w=2400&q=90&fm=jpg",
@@ -151,6 +138,13 @@
     "page": "https://pixabay.com/photos/animal-pasture-european-bison-bison-6178537/",
     "auteur": "Georg_Wietschorke"
   },
+  "bison-du-caucase": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/718179893/original.jpg",
+    "page": "https://www.inaturalist.org/photos/718179893",
+    "auteur": "Franus",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
   "blaireau": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/156485891/original.jpeg",
     "page": "https://www.inaturalist.org/photos/156485891",
@@ -181,15 +175,17 @@
     "auteur": "Gab-Rysia"
   },
   "bouvier-bernois": "2-BerneseMountainDogInGrass.jpg",
-  "brachiosaure": {
-    "url": "https://cdn.pixabay.com/photo/2025/12/16/18/40/dinosaur-10018990_1280.png",
-    "page": "https://pixabay.com/illustrations/dinosaur-sauropod-brachiosaurus-10018990/",
-    "auteur": "skystars78"
-  },
   "brochet": {
     "url": "https://cdn.pixabay.com/photo/2020/06/22/10/54/pike-5328779_1280.jpg",
     "page": "https://pixabay.com/photos/pike-fish-water-plants-5328779/",
     "auteur": "MartinPhotography"
+  },
+  "bubale": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/110413421/original.jpg",
+    "page": "https://www.inaturalist.org/photos/110413421",
+    "auteur": "Jean-Paul Boerekamps",
+    "licence": "CC0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
   },
   "buffle": {
     "url": "https://cdn.pixabay.com/photo/2013/02/24/14/31/water-buffalo-85662_1280.jpg",
@@ -216,6 +212,13 @@
     "page": "https://pixabay.com/photos/caracal-animal-nature-cat-wildcat-10225436/",
     "auteur": "Ray_Shrewsberry"
   },
+  "caribou-de-dawson": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/663428202/original.jpg",
+    "page": "https://www.inaturalist.org/photos/663428202",
+    "auteur": "Raphaël Grellety",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
   "carpe-koi": "Fish pond in Sun World Halong Park. Ha Long Town, Vietnam, 20240129 1534 4200.jpg",
   "casoar": "Casuarius casuarius 452632030.jpg",
   "cecilie": {
@@ -226,6 +229,7 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "cerf": "Cervus elaphus Luc Viatour 5.jpg",
+  "cerf-de-schomburgk": "Mus Nat Hist Nat 25022013 Cervus schomburgki 1.jpg",
   "chacal-a-chabraque": "136 Black-backed jackal hunting for food at Cape cross Photo by Giles Laurent.jpg",
   "chacal-dore": "Canis aureus - golden jackal.jpg",
   "chamois": "Gämse (Rupicapra rupicapra) auf dem Ornach 07.jpg",
@@ -309,6 +313,7 @@
     "auteur": "RoDobby"
   },
   "condor": "Andean condor (Vultur gryphus) male Farellones.jpg",
+  "conure-de-caroline": "Conuropsis carolinensis male Ulaval.jpg",
   "corail": {
     "url": "https://cdn.pixabay.com/photo/2018/08/24/17/33/coral-3628406_1280.jpg",
     "page": "https://pixabay.com/photos/coral-reef-sea-nature-wildlife-3628406/",
@@ -393,16 +398,10 @@
     "licence": "CC BY-NC 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
-  "deinosuchus": {
-    "url": "https://cdn.pixabay.com/photo/2025/04/07/05/14/ai-generated-9518268_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-dragon-water-lake-9518268/",
-    "auteur": "HeckiMG"
-  },
   "dendrolague": "Lumholtz's tree-kangaroo.jpg",
   "dhole": "Dhole Stroll at Pench National Park, India.jpg",
   "diable-de-tasmanie": "Tassy Devil.jpg",
   "dik-dik": "Tarangire Kirk-Dikdik3.jpg",
-  "dimetrodon": "Dimetrodon loomisi DB.jpg",
   "dindon": "Male wild turkey (Meleagris gallopavo) strutting.jpg",
   "dingo": {
     "url": "https://images.unsplash.com/photo-1682308241632-d85496e9318f?ixlib=rb-4.1.0&w=2400&q=90&fm=jpg",
@@ -410,11 +409,6 @@
     "auteur": "Rae Wallis",
     "licence": "Licence Unsplash",
     "licenceUrl": "https://unsplash.com/license"
-  },
-  "diplodocus": {
-    "url": "https://cdn.pixabay.com/photo/2023/10/25/17/45/dinosaur-8340972_1280.png",
-    "page": "https://pixabay.com/illustrations/dinosaur-diplodocus-drinks-8340972/",
-    "auteur": "a_scarcy"
   },
   "dragon-de-komodo": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1892238/original.jpg",
@@ -428,13 +422,6 @@
     "url": "https://cdn.pixabay.com/photo/2026/04/06/17/34/17-34-36-431_1280.jpg",
     "page": "https://pixabay.com/photos/dugong-sea-underwater-seagrass-10212406/",
     "auteur": "GabruPawPixels"
-  },
-  "dunkleosteus": {
-    "url": "https://live.staticflickr.com/65535/54024954589_5d6daa2f51_b.jpg",
-    "page": "https://www.flickr.com/photos/130140542@N03/54024954589",
-    "auteur": "RobinGoodfellow_(m)",
-    "licence": "CC BY-SA 2.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
   },
   "dynaste-hercule": "Dynastes hercules (female).jpg",
   "echidne": "Tachyglossus aculeatus – Short-beaked echidna – Kolczatka australijska.jpg",
@@ -467,6 +454,13 @@
     "url": "https://cdn.pixabay.com/photo/2015/02/08/20/46/ostrich-629050_1280.jpg",
     "page": "https://pixabay.com/photos/ostrich-emu-fauna-australia-629050/",
     "auteur": "IsabelVdN"
+  },
+  "emeu-de-king-island": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/198480860/original.jpg",
+    "page": "https://www.inaturalist.org/photos/198480860",
+    "auteur": "ridgevale",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "epeire": {
     "url": "https://cdn.pixabay.com/photo/2017/06/12/08/52/spider-2394870_1280.jpg",
@@ -556,11 +550,6 @@
   },
   "gerenuk": "Litocranius walleri walleri 388183522.jpg",
   "gibbon": "Hylobates lar - Kaeng Krachan WB.jpg",
-  "giganotosaure": {
-    "url": "https://cdn.pixabay.com/photo/2024/05/03/23/00/ai-generated-8738055_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-tyrannosaurus-t-rex-8738055/",
-    "auteur": "Artie_Navarre"
-  },
   "girafe": {
     "url": "https://cdn.pixabay.com/photo/2023/01/09/22/08/giraffe-7708387_1280.jpg",
     "page": "https://pixabay.com/photos/giraffe-animal-safari-wildlife-7708387/",
@@ -649,17 +638,7 @@
   "hirondelle": "Barn swallow in Montezuma (14460).jpg",
   "homard": "Homarus gammarus 03.JPG",
   "hyene": "Hiena manchada (Crocuta crocuta), parque nacional de Tarangire, Tanzania, 2024-05-25, DD 24.jpg",
-  "ichtyosaure": {
-    "url": "https://cdn.pixabay.com/photo/2024/01/05/13/20/ai-generated-8489512_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-fishes-sea-monster-8489512/",
-    "auteur": "JuliusH"
-  },
   "iguane-marin": "Iguana marina (Amblyrhynchus cristatus), Las Bachas, isla Santa Cruz, islas Galápagos, Ecuador, 2015-07-23, DD 27.jpg",
-  "iguanodon": {
-    "url": "https://cdn.pixabay.com/photo/2024/02/25/10/00/argentinosaurus-8595515_1280.jpg",
-    "page": "https://pixabay.com/illustrations/argentinosaurus-dinosaur-fossil-8595515/",
-    "auteur": "iloveai"
-  },
   "impala": "Black-faced impala from Etosha National Park, Namibia, 2014.jpg",
   "isopode-geant": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/368459851/original.jpeg",
@@ -749,11 +728,7 @@
     "page": "https://pixabay.com/photos/lion-feline-mane-barbary-lion-8096155/",
     "auteur": "ambquinn"
   },
-  "lion-des-cavernes": {
-    "url": "https://cdn.pixabay.com/photo/2024/12/05/20/38/ai-generated-9247445_1280.png",
-    "page": "https://pixabay.com/illustrations/ai-generated-lion-animal-nature-9247445/",
-    "auteur": "AiCreatorImage"
-  },
+  "lion-de-l-atlas": "African Lion Panthera leo Male Pittsburgh 2800px adjusted.jpg",
   "loir": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/203605351/original.jpeg",
     "page": "https://www.inaturalist.org/photos/203605351",
@@ -778,8 +753,22 @@
     "licenceUrl": "https://unsplash.com/license"
   },
   "loup-d-ethiopie": "Canis simensis.jpg",
+  "loup-du-japon": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13310507/original.jpeg",
+    "page": "https://www.inaturalist.org/photos/13310507",
+    "auteur": "אריאל שמיר",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
   "loutre": "Видра.jpg",
   "loutre-de-mer": "Sea Otter (37795898225).jpg",
+  "loutre-du-japon": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43355690/original.jpg",
+    "page": "https://www.inaturalist.org/photos/43355690",
+    "auteur": "Sebastián Lescano",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
   "lucane": "Lucanus cervus male 2017 G1.jpg",
   "luciole": {
     "url": "https://cdn.pixabay.com/photo/2020/05/10/01/20/insect-5151913_1280.jpg",
@@ -808,11 +797,6 @@
   },
   "macaque-japonais": "Juveniler Japanmakak (Macaca fuscata) im Jigokudani Yaen Kōen.jpg",
   "macareux": "Puffin (Fratercula arctica).jpg",
-  "mammouth": {
-    "url": "https://cdn.pixabay.com/photo/2024/08/20/21/33/ai-generated-8984451_1280.png",
-    "page": "https://pixabay.com/illustrations/ai-generated-mammoths-extinct-8984451/",
-    "auteur": "CharcoalDrawing"
-  },
   "mandrill": "Mandrillus sphinx 339428057.jpg",
   "mangouste": "Indian grey mongoose in Rabindra Sarobar June 2024 by Tisha Mukherjee 04.jpg",
   "mante-religieuse": {
@@ -831,21 +815,6 @@
   },
   "marsouin": "Phocoena phocoena Ecomare 4.jpg",
   "martin-pecheur": "04--Martin-Pecheur-20-01-24-Halois-Belgium-Luc viatour.jpg",
-  "megaloceros": {
-    "url": "https://cdn.pixabay.com/photo/2024/08/21/16/25/ai-generated-8986719_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-buck-deer-animal-8986719/",
-    "auteur": "jcoope12"
-  },
-  "megalodon": {
-    "url": "https://cdn.pixabay.com/photo/2023/11/12/17/30/ai-generated-8383720_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-shark-fish-animal-sea-8383720/",
-    "auteur": "RALPH_GERMANY"
-  },
-  "meganeura": {
-    "url": "https://cdn.pixabay.com/photo/2021/08/10/18/01/dragonfly-6536606_1280.jpg",
-    "page": "https://pixabay.com/photos/dragonfly-insect-macro-wings-6536606/",
-    "auteur": "DjordjeR1982"
-  },
   "melomys": "Melomys rubicola 2.jpg",
   "menure": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/108961003/original.jpg",
@@ -876,11 +845,6 @@
     "url": "https://cdn.pixabay.com/photo/2026/07/18/10/07/10-07-31-274_1280.jpg",
     "page": "https://pixabay.com/photos/walrus-arctic-wildlife-ocean-ice-10383187/",
     "auteur": "GabruPawPixels"
-  },
-  "mosasaure": {
-    "url": "https://cdn.pixabay.com/photo/2023/10/23/20/24/ai-generated-8336920_1280.png",
-    "page": "https://pixabay.com/illustrations/ai-generated-pterosaur-plesiosaur-8336920/",
-    "auteur": "a_scarcy"
   },
   "mouflon": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/330765177/original.jpg",
@@ -1136,11 +1100,6 @@
     "page": "https://pixabay.com/photos/bear-tree-animal-nature-game-8916279/",
     "auteur": "Anders_Mejlvang"
   },
-  "ours-des-cavernes": {
-    "url": "https://cdn.pixabay.com/photo/2024/11/18/01/16/brown-bear-9205026_1280.jpg",
-    "page": "https://pixabay.com/illustrations/brown-bear-bear-hibernation-fall-9205026/",
-    "auteur": "Terranaut"
-  },
   "ours-isabelle": {
     "url": "https://cdn.pixabay.com/photo/2022/12/21/14/46/brown-bear-7670224_1280.jpg",
     "page": "https://pixabay.com/photos/brown-bear-bear-sitting-nature-fur-7670224/",
@@ -1184,6 +1143,7 @@
     "page": "https://pixabay.com/photos/pangolin-wildlife-nature-forest-10229812/",
     "auteur": "GabruPawPixels"
   },
+  "panthere-de-formose": "Neofelis nebulosa, Clouded leopard.jpg",
   "panthere-des-neiges": {
     "url": "https://cdn.pixabay.com/photo/2015/08/19/20/27/snow-leopard-896603_1280.jpg",
     "page": "https://pixabay.com/photos/snow-leopard-dormant-predator-896603/",
@@ -1257,11 +1217,6 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "pithecophage": "Pamarayeg IIIx2.jpg",
-  "plesiosaure": {
-    "url": "https://cdn.pixabay.com/photo/2024/02/08/22/14/ai-generated-8561923_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-plesiosaur-dinosaur-8561923/",
-    "auteur": "DigitalRoo"
-  },
   "poisson-archer": "Toxotes jaculatrix, (banded archerfish or riflefish) - Museon - Omniversum, the Hague, the Netherlands.jpg",
   "poisson-clown": "Anemone purple anemonefish.jpg",
   "poisson-lune": {
@@ -1309,11 +1264,6 @@
     "page": "https://pixabay.com/photos/aardwolf-proteles-cristata-10256240/",
     "auteur": "GabruPawPixels"
   },
-  "pteranodon": {
-    "url": "https://cdn.pixabay.com/photo/2017/09/10/13/06/pterosaur-2735500_1280.jpg",
-    "page": "https://pixabay.com/photos/pterosaur-reptile-extinct-2735500/",
-    "auteur": "mrganso"
-  },
   "puce": {
     "url": "https://cdn.pixabay.com/photo/2012/10/26/01/41/flea-63043_1280.jpg",
     "page": "https://pixabay.com/photos/flea-siphonaptera-insect-parasite-63043/",
@@ -1328,11 +1278,6 @@
   "python-reticule": "Malayopython reticulatus, Reticulated python - Kaeng Krachan District, Phetchaburi Province (47924282891).jpg",
   "quagga": "Quagga HIFI.jpg",
   "quetzal": "056 Male Resplendent quetzal in Los Quetzales National Park Photo by Giles Laurent.jpg",
-  "quetzalcoatlus": {
-    "url": "https://cdn.pixabay.com/photo/2024/06/08/02/38/quetzalcoatlus-8815659_1280.png",
-    "page": "https://pixabay.com/illustrations/quetzalcoatlus-dinosaur-pterosaurs-8815659/",
-    "auteur": "HeckiMG"
-  },
   "quokka": "Quokka (Setonix brachyurus) (27725086285).jpg",
   "quoll": "Tiger Quoll 6178.jpg",
   "raie-manta": "2015 01 Koh Lanta 27 entering cleaning station (16422545698).jpg",
@@ -1429,6 +1374,7 @@
   },
   "rhacophore": "Rhacophorus nigropalmatus 227261158.jpg",
   "rhinoceros-blanc": "White Rhinoceros Alert 2019-07-27.jpg",
+  "rhinoceros-de-java-du-vietnam": "Lesser One Horned Rhinoceros Rhinoceros Sondaicus (53549614).jpeg",
   "rhinoceros-de-sumatra": "Sumatran Rhinoceros at Sumatran Rhino Sanctuary Lampung Indonesia 2013.JPG",
   "rhinoceros-indien": "Indian rhinoceros (Rhinoceros unicornis) 1.jpg",
   "rhinoceros-noir": {
@@ -1504,34 +1450,14 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "singe-hurleur": "Mantled howler monkey and baby (81337)2.jpg",
-  "smilodon": {
-    "url": "https://cdn.pixabay.com/photo/2024/04/02/18/09/ai-generated-8671438_1280.png",
-    "page": "https://pixabay.com/illustrations/ai-generated-saber-toothed-cat-8671438/",
-    "auteur": "HeckiMG"
-  },
   "souris": "Maus außer Haus.JPG",
-  "spinosaure": {
-    "url": "https://cdn.pixabay.com/photo/2020/04/30/10/24/dinosaur-5112276_1280.jpg",
-    "page": "https://pixabay.com/illustrations/dinosaur-lizard-reptile-extinct-5112276/",
-    "auteur": "TheDigitalArtist"
-  },
   "springbok": "Antidorcas marsupialis, female (Etosha, 2012).jpg",
-  "stegosaure": {
-    "url": "https://cdn.pixabay.com/photo/2024/02/08/22/14/ai-generated-8561927_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-stegosaurus-dinosaur-8561927/",
-    "auteur": "DigitalRoo"
-  },
   "sterne-arctique": {
     "url": "https://cdn.pixabay.com/photo/2023/01/05/17/24/bird-7699431_1280.jpg",
     "page": "https://pixabay.com/photos/bird-seabird-nature-wildlife-tern-7699431/",
     "auteur": "AidanSemmens"
   },
   "suricate": "Meerkat (Suricata suricatta) with 3 young.jpg",
-  "t-rex": {
-    "url": "https://cdn.pixabay.com/photo/2024/07/24/19/37/ai-generated-8919371_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-t-rex-dinosaur-8919371/",
-    "auteur": "jcoope12"
-  },
   "taipan": {
     "url": "https://cdn.pixabay.com/photo/2023/02/12/23/32/snake-7786205_1280.jpg",
     "page": "https://pixabay.com/photos/snake-reptile-scales-7786205/",
@@ -1558,6 +1484,13 @@
     "licence": "CC BY-NC 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
+  "tetras-des-bruyeres": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/362740742/original.jpg",
+    "page": "https://www.inaturalist.org/photos/362740742",
+    "auteur": "Adam Jackson",
+    "licence": "CC0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
   "thon-rouge": "Group of tuna.jpg",
   "thylacine": "Thylacine in Hobart Zoo Australia.webp",
   "tigre": {
@@ -1565,11 +1498,14 @@
     "page": "https://pixabay.com/photos/tiger-big-cat-carnivore-cat-feline-1851653/",
     "auteur": "Pexels"
   },
+  "tigre-de-bali": "Felidae Panthera tigris sumatrae 3.jpg",
   "tigre-de-java": "Panthera tigris sondaica 01.jpg",
-  "titanoboa": {
-    "url": "https://cdn.pixabay.com/photo/2024/04/16/16/53/ai-generated-8700431_1280.jpg",
-    "page": "https://pixabay.com/illustrations/ai-generated-snake-reptile-animal-8700431/",
-    "auteur": "ZT_OSCAR"
+  "tigre-de-la-caspienne": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339563450/original.jpg",
+    "page": "https://www.inaturalist.org/photos/339563450",
+    "auteur": "Royle Safaris",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "torpille": {
     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172997484/original.jpeg",
@@ -1592,32 +1528,12 @@
   },
   "toucan": "Ramphastos toco -Birdworld, Farnham, Surrey, England-8a.jpg",
   "tourte-voyageuse": "Passenger Pigeon Profile View with Shadow.jpg",
-  "triceratops": {
-    "url": "https://cdn.pixabay.com/photo/2025/04/02/19/31/ai-generated-9509933_1280.png",
-    "page": "https://pixabay.com/illustrations/ai-generated-triceratops-dinosaur-9509933/",
-    "auteur": "soundset"
-  },
-  "trilobite": {
-    "fichier": "Kainops invius lateral and ventral.JPG",
-    "recadrage": [
-      0.31,
-      0.44,
-      0.69,
-      0.56
-    ],
-    "rotation": 90
-  },
   "tuatara": {
     "url": "https://cdn.pixabay.com/photo/2017/03/31/10/06/tuatara-2190866_1280.jpg",
     "page": "https://pixabay.com/photos/tuatara-reptile-new-zealand-nz-2190866/",
     "auteur": "Successful4"
   },
   "vautour-fauve": "Buitre Leonado (98727731).jpeg",
-  "velociraptor": {
-    "url": "https://cdn.pixabay.com/photo/2024/04/29/11/14/velociraptor-8727661_1280.png",
-    "page": "https://pixabay.com/illustrations/velociraptor-raptor-dinosaur-8727661/",
-    "auteur": "EDU012"
-  },
   "ver-a-soie": {
     "url": "https://cdn.pixabay.com/photo/2020/07/04/20/07/silkworm-5370807_1280.jpg",
     "page": "https://pixabay.com/photos/silkworm-mulberry-silk-insect-worm-5370807/",
@@ -1637,6 +1553,13 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
   },
   "wallaby": "Young red necked wallaby.jpg",
+  "wapiti-de-l-est": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/580052477/original.jpg",
+    "page": "https://www.inaturalist.org/photos/580052477",
+    "auteur": "Alexa Wilcock",
+    "licence": "CC BY-NC 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
   "wombat": "Common wombat (Vombatus ursinus tasmaniensis) juvenile Maria Island.jpg",
   "yak": "Bos grunniens at Letdar on Annapurna Circuit.jpg",
   "zebre": "Zebra Family Luangwa Zambia Jul23 A7C 05903.jpg"

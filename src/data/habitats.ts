@@ -12,7 +12,6 @@ const ARCHETYPE: Record<SportId, ArchetypeId> = {
   ongules: 'ongule-endurant', petits: 'petit-agile', marsupiaux: 'marsu-sauteur', marins: 'marin-geant', requins: 'requin-predateur',
   poissons: 'poisson-rapide', rapaces: 'rapace-aigle', oiseaux: 'oiseau-paradeur', reptiles: 'reptile-mastodonte',
   amphibiens: 'amphibien-toxique', insectes: 'insecte-colonie', invertebres: 'cephalopode', ferme: 'ferme-compagnon',
-  prehistoire: 'dino-predateur',
 };
 
 interface Def {
@@ -232,10 +231,10 @@ const DEFS: Def[] = [
     scene: { kind: 'foret', palette: { sky: ['#6a8fb8', '#f0dcc0'], sun: '#fff6e0', far: '#6f8f78', near: '#101c18', accent: '#ffffff' } },
   },
   {
-    id: 'gobi', name: 'Désert de Gobi', sport: 'prehistoire', country: 'MN', fame: 50,
+    id: 'gobi', name: 'Désert de Gobi', sport: 'ongules', country: 'MN', fame: 50,
     lieu: 'Mongolie et Chine', superficie: '1,3 million de km²',
-    especes: ['ours-de-gobi', 'cheval-de-przewalski', 'manul', 'velociraptor', 'saiga'],
-    fact: 'Un désert froid : il y gèle l’hiver. En 1923, on y a reconnu pour la première fois des œufs de dinosaures.',
+    especes: ['ours-de-gobi', 'cheval-de-przewalski', 'manul', 'saiga'],
+    fact: 'Un désert froid : il y gèle l’hiver. Le cheval de Przewalski, disparu de la nature, y a été réintroduit en 1992.',
     scene: { kind: 'desert', palette: { sky: ['#d07a4a', '#f8d8a8'], sun: '#fff2d8', far: '#c08a5a', near: '#2e1a10', accent: '#ffffff' } },
   },
   {

@@ -92,7 +92,7 @@ export const SHOP_PACKS: PackDef[] = [
   {
     id: 'icones',
     name: 'Pack Icônes',
-    tagline: '1 seule carte, une Icône garantie : une espèce disparue (T. rex, mammouth, thylacine, tigre de Java…)',
+    tagline: '1 seule carte, une Icône garantie : une espèce disparue depuis 1800 (lion de l’Atlas, thylacine, tigre de Java…)',
     price: 600_000,
     size: 1,
     odds: { commune: 40, 'peu-commune': 30, rare: 18, epique: 9, legendaire: 3 },
@@ -131,8 +131,7 @@ export function sportPack(sport: SportId, sportName: string): PackDef {
     id: `sport-${sport}`,
     name: `Pack ${sportName}`,
     tagline: `3 cartes, uniquement ${SPORTS[sport].group}`,
-    // la Préhistoire ne contient que des Icônes : son pack coûte le prix d'un trésor
-    price: sport === 'prehistoire' ? 100_000 : 4_000,
+    price: 4_000,
     size: 3,
     odds: { commune: 50, 'peu-commune': 30, rare: 14, epique: 4.8, legendaire: 1.2 },
     primeChance: PRIME_CHANCE,
@@ -144,9 +143,9 @@ export function sportPack(sport: SportId, sportName: string): PackDef {
 
 const poolCache = new Map<string, Record<RarityId, Athlete[]>>();
 
-/** Booster qui ne contient que des Icônes (Pack Icônes, Pack Préhistoire) : elles y sortent normalement. */
+/** Booster qui ne contient que des Icônes (Pack Icônes) : elles y sortent normalement. */
 export function isIconPack(pack: PackDef): boolean {
-  return pack.tone === 'icon' || pack.sport === 'prehistoire';
+  return pack.tone === 'icon';
 }
 
 function poolFor(pack: PackDef): Record<RarityId, Athlete[]> {

@@ -63,7 +63,7 @@ await desk.getByRole('button', { name: 'Terminer' }).click().catch(() => {});
 await desk.waitForTimeout(300);
 // donne des cartes et des balles pour tester le reste
 await desk.evaluate(() => {
-  const ids = ['lion', 'tigre', 'loup', 'orque', 'gorille', 't-rex', 'zebre', 'herisson', 'gnou', 'castor', 'koala', 'pieuvre'];
+  const ids = ['lion', 'tigre', 'loup', 'orque', 'gorille', 'lion-de-l-atlas', 'zebre', 'herisson', 'gnou', 'castor', 'koala', 'pieuvre'];
   const now = Date.now();
   const s = window.__game.getState();
   window.__game.setState({ balles: 150000, collection: [...s.collection, ...ids.map((id, i) => ({ uid: 'q' + i, athleteId: id, variant: i === 0 ? 'prime' : 'base', obtainedAt: now + i }))], discovered: { ...s.discovered, ...Object.fromEntries(ids.map((id) => [id, 1])) } });

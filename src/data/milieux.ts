@@ -30,7 +30,6 @@ const RULES: Array<[string, RegExp]> = [
 
 /** Milieu en un mot pour le losange de la carte. */
 export function milieuCourt(athlete: Athlete): string {
-  if (athlete.sport === 'prehistoire') return 'Fossile';
   const text = athlete.role.toLowerCase();
   for (const [label, re] of RULES) if (re.test(text)) return label;
   if (athlete.sport === 'marins' || athlete.sport === 'requins') return 'Océan';

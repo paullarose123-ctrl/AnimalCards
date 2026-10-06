@@ -24,8 +24,7 @@ export type SportId =
   | 'amphibiens'
   | 'insectes'
   | 'invertebres'
-  | 'ferme'
-  | 'prehistoire';
+  | 'ferme';
 
 /** Profil de l'animal dans sa famille (hérité de l'ancien système de stats, gardé pour classer les espèces). */
 export type ArchetypeId =
@@ -64,9 +63,7 @@ export type ArchetypeId =
   // invertébrés marins
   | 'cephalopode' | 'crustace' | 'invertebre-etrange'
   // ferme et compagnie
-  | 'ferme-compagnon' | 'ferme-trait' | 'ferme-basse-cour'
-  // préhistoire
-  | 'dino-predateur' | 'dino-colosse' | 'dino-volant' | 'dino-marin';
+  | 'ferme-compagnon' | 'ferme-trait' | 'ferme-basse-cour';
 
 /**
  * Version d'une carte : classique, Prime (un individu célèbre de l'espèce, plus rare)
