@@ -1,5 +1,5 @@
 import type { CardFace } from '../engine/types';
-import { currentAthleteId } from '../data/remplacements';
+import { currentFace } from '../engine/cards';
 import { PSEUDO_EMAIL_DOMAIN, SUPABASE_KEY, SUPABASE_URL } from './config';
 
 // Petit client Supabase, sans bibliothèque : l'authentification (GoTrue) et deux tables (PostgREST).
@@ -201,8 +201,8 @@ const toProfile = (row: ProfileRow): PublicProfile => ({
   id: row.id,
   pseudo: row.pseudo,
   avatar: row.avatar ?? '',
-  // une vitrine enregistrée avant le remplacement d'une espèce montre l'espèce qui la remplace
-  favorites: Array.isArray(row.favorites) ? row.favorites.map((f) => (f ? { ...f, athleteId: currentAthleteId(f.athleteId) } : f)) : [],
+  // une vitrine enregistrée avant le remplacement d'une espèce (ou d'une finition retirée) montre la carte d'aujourd'hui
+  favorites: Array.isArray(row.favorites) ? row.favorites.map((f) => (f ? currentFace(f) : f)) : [],
   updatedAt: row.updated_at,
 });
 

@@ -1,5 +1,6 @@
 import type { CardFace } from '../engine/types';
 import { currentAthleteId } from '../data/remplacements';
+import { currentFace } from '../engine/cards';
 import { call, type Session } from './supabase';
 
 // Échanges de cartes entre amis (table trades et fonctions trade_* de supabase/schema.sql).
@@ -42,8 +43,8 @@ interface Row {
   to_done: boolean;
 }
 
-// une carte enregistrée avant le remplacement d'une espèce devient l'espèce qui la remplace
-const face = (c: CardFace): CardFace => ({ athleteId: currentAthleteId(c.athleteId), variant: c.variant });
+// une carte enregistrée avant le remplacement d'une espèce (ou d'une finition retirée) devient la carte d'aujourd'hui
+const face = (c: CardFace): CardFace => currentFace({ athleteId: c.athleteId, variant: c.variant });
 
 const toTrade = (r: Row): Trade => ({
   id: r.id,

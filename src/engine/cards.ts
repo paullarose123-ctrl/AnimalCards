@@ -1,4 +1,5 @@
-import type { Athlete, BaseRarityId, Rarity, RarityId, Variant } from './types';
+import type { Athlete, BaseRarityId, CardFace, Rarity, RarityId, Variant } from './types';
+import { currentAthleteId } from '../data/remplacements';
 import { SPORT_ORDER } from '../data/sports';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { CHIENS_DANS_LE_MONDE, POPULATIONS } from '../data/populations';
@@ -114,6 +115,19 @@ export const REVERSE_VALUE_MULTIPLIER = 2.5;
 export function canBeReverse(athlete: Athlete): boolean {
   const order = rarityOf(athlete).order;
   return !athlete.habitat && order >= RARITIES.rare.order && order <= RARITIES.legendaire.order;
+}
+
+/**
+ * Carte telle qu'elle existe aujourd'hui : l'espèce qui remplace une espèce retirée, et la version classique d'une
+ * finition qui n'existe plus pour elle (Reverse d'une Commune, Peu commune ou Icône ; Prime d'une espèce sans Prime).
+ * Sert aux cartes venues du serveur (marché en ligne, échanges, vitrines) ; les sauvegardes sont converties au chargement.
+ */
+export function currentFace<T extends CardFace>(card: T): T {
+  const athleteId = currentAthleteId(card.athleteId);
+  const athlete = ATHLETES_BY_ID[athleteId];
+  if (!athlete) return { ...card, athleteId };
+  const invalid = (card.variant === 'reverse' && !canBeReverse(athlete)) || (card.variant === 'prime' && !canBePrime(athlete));
+  return { ...card, athleteId, variant: invalid ? 'base' : card.variant };
 }
 
 // ───────────── Habitats ─────────────

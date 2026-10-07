@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ATHLETES, ATHLETES_BY_ID } from '../../data/athletes';
-import { baseValueOf, canBePrime, canBeReverse, rarityOf } from '../cards';
+import { baseValueOf, canBePrime, canBeReverse, currentFace, rarityOf } from '../cards';
 import { FREE_ODDS, FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, primeOdds, sportPack } from '../packs';
 import { advanceMarket, createAiListing, createMarket, createMyListing, marketPrice, netAfterTax, TARGET_LISTINGS, type MarketState } from '../market';
 import { MAX_QUESTIONS, RECORDS, ROUNDS, aiSkill, autoTeamFrom, classeOf, compare, createDuel, drawRecords, duelResult, formatRecordValue, playDuelRound, recordValue, type DuelCard } from '../duel';
@@ -82,6 +82,10 @@ describe('boosters', () => {
       const listing = createAiListing(rng, 0, []);
       if (listing.card.variant === 'reverse') expect(canBeReverse(ATHLETES_BY_ID[listing.card.athleteId])).toBe(true);
     }
+    // une ancienne Reverse de Commune venue du serveur (marché en ligne, échange, vitrine) redevient classique
+    expect(currentFace({ athleteId: 'coccinelle', variant: 'reverse' }).variant).toBe('base');
+    expect(currentFace({ athleteId: 'tigre', variant: 'reverse' }).variant).toBe('reverse');
+    expect(currentFace({ athleteId: 't-rex', variant: 'prime' })).toEqual({ athleteId: 'lion-de-l-atlas', variant: 'base' });
     const zebre = ATHLETES_BY_ID.zebre;
     expect(baseValueOf(zebre, 'reverse')).toBeGreaterThan(baseValueOf(zebre));
   });

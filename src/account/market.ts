@@ -1,5 +1,5 @@
 import type { CardFace } from '../engine/types';
-import { currentAthleteId } from '../data/remplacements';
+import { currentFace } from '../engine/cards';
 import { call, type Session } from './supabase';
 
 // Marché en ligne entre joueurs (table market_listings et fonctions market_* de supabase/schema.sql).
@@ -45,8 +45,8 @@ const toListing = (r: Row): OnlineListing => ({
   id: r.id,
   sellerId: r.seller_id,
   seller: r.seller_pseudo,
-  // une annonce passée avant le remplacement d'une espèce montre l'espèce qui la remplace
-  card: { athleteId: currentAthleteId(r.card.athleteId), variant: r.card.variant },
+  // une annonce passée avant le remplacement d'une espèce (ou d'une finition retirée) montre la carte d'aujourd'hui
+  card: currentFace({ athleteId: r.card.athleteId, variant: r.card.variant }),
   price: Number(r.price),
   status: r.status,
   buyerId: r.buyer_id,

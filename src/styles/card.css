@@ -252,8 +252,7 @@
   --reverse-tier: linear-gradient(90deg, #cf5f97, #8a5cc4, #4c96bd);
 }
 
-/* Chaque Reverse reprend en aquarelle la palette de sa rareté (seules les Rares et au-dessus en ont une ;
-   les anciennes Reverse communes gardent le lavis multicolore ci-dessus). */
+/* Chaque Reverse reprend en aquarelle la palette de sa rareté (seules les Rares, Épiques et Légendaires en ont une). */
 
 /* Reverse Rare : savane au couchant, en lavis pêche, abricot et corail, liserés terre cuite */
 .card.is-reverse.r-rare {

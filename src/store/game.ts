@@ -4,7 +4,7 @@ import type { CardFace, OwnedCard } from '../engine/types';
 import { ATHLETES, ATHLETES_BY_ID } from '../data/athletes';
 import { ICONES_REMPLACEES, ICONES_RETIREES, PREHISTOIRE_REMPLACEE } from '../data/remplacements';
 import { SPORTS, SPORT_ORDER } from '../data/sports';
-import { canBePrime, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
+import { canBePrime, canBeReverse, quickSellValue, rarityOf, rarityScore } from '../engine/cards';
 import { FREE_PACK, NO_DUPE_WINDOW, SHOP_PACKS, openPack, sportPack, type PackDef } from '../engine/packs';
 import {
   MAX_MY_LISTINGS,
@@ -326,11 +326,16 @@ export function packById(id: string): PackDef | undefined {
   return SHOP_PACKS.find((pack) => pack.id === id);
 }
 
-/** Les cartes Prime d'espèces qui n'ont pas (ou plus) de version Prime redeviennent des cartes classiques. */
+/**
+ * Les finitions qui n'existent plus pour une espèce redeviennent des cartes classiques : une Prime d'espèce sans Prime,
+ * une Reverse de Commune, de Peu commune ou d'Icône (les Reverse sont réservées aux Rares, Épiques et Légendaires).
+ */
 function dropInvalidPrimes(state: GameState): GameState {
   const fix = <T extends CardFace>(card: T): T => {
     const athlete = ATHLETES_BY_ID[card.athleteId];
-    return card.variant === 'prime' && athlete && !canBePrime(athlete) ? { ...card, variant: 'base' } : card;
+    if (!athlete) return card;
+    const invalid = (card.variant === 'prime' && !canBePrime(athlete)) || (card.variant === 'reverse' && !canBeReverse(athlete));
+    return invalid ? { ...card, variant: 'base' } : card;
   };
   state.collection = state.collection.map(fix);
   state.market = {
@@ -761,7 +766,7 @@ export const useGame = create<GameState>()(
     {
       // AnimalCards a sa propre sauvegarde (même si AthletiCards est publié sur le même domaine)
       name: SAVE_NAME,
-      version: 9,
+      version: 10,
       storage: createJSONStorage(() => safeStorage),
       migrate: (persisted, version) => {
         let state = persisted as GameState;
@@ -779,8 +784,9 @@ export const useGame = create<GameState>()(
           for (const [from, to] of Object.entries(replacements)) text = text.replaceAll(`"${from}"`, `"${to}"`);
           state = JSON.parse(text) as GameState;
         }
-        // version 8 : le T. rex et le mammouth avaient une version Prime, pas le lion de l'Atlas qui les remplace
-        if (version < 8) state = dropInvalidPrimes(state);
+        // version 8 : le T. rex et le mammouth avaient une version Prime, pas le lion de l'Atlas qui les remplace ;
+        // version 10 : plus de Reverse pour les Communes, les Peu communes et les Icônes (elles deviennent classiques)
+        if (version < 10) state = dropInvalidPrimes(state);
         if (version < 3) {
           // version 3 : les cartes Mythe ne sont plus que des créatures fantastiques. Chaque sanctuaire ou divinité
           // déjà obtenu devient la créature de la même famille (identifiants remplacés partout dans la sauvegarde).
