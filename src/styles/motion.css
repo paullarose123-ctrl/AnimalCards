@@ -1500,3 +1500,125 @@ h3 {
     right: 0;
   }
 }
+
+/* ───────────── Divisions : médaillon de l'animal, anneau du métal ───────────── */
+.division {
+  --metal: linear-gradient(135deg, #b8733a, #f0b47a 45%, #7a4520);
+  --metal-glow: rgba(214, 140, 80, 0.45);
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.division--argent {
+  --metal: linear-gradient(135deg, #8d98a3, #f3f6f8 45%, #69737d);
+  --metal-glow: rgba(220, 230, 240, 0.4);
+}
+
+.division--or {
+  --metal: linear-gradient(135deg, #b8862b, #fff1b8 45%, #8f6215);
+  --metal-glow: rgba(243, 210, 120, 0.55);
+}
+
+.division--platine {
+  --metal: linear-gradient(135deg, #7fa7b3, #e8fbff 45%, #57808c);
+  --metal-glow: rgba(170, 230, 245, 0.5);
+}
+
+.division--diamant {
+  --metal: conic-gradient(from 20deg, #9fe8ff, #f4d4ff, #b7ffe3, #fff, #9fe8ff);
+  --metal-glow: rgba(190, 220, 255, 0.65);
+}
+
+.division--legende {
+  --metal: conic-gradient(from 0deg, #ffd76a, #ff8f78, #f2b8cf, #ffd76a, #fff3c4, #ffd76a);
+  --metal-glow: rgba(255, 190, 110, 0.75);
+}
+
+.division__emblem {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  grid-row: span 2;
+}
+
+.division__photo {
+  width: 86px !important;
+  height: 86px !important;
+  padding: 4px;
+  border-radius: 50%;
+  background: var(--metal);
+  box-shadow: 0 0 22px var(--metal-glow), 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+.division__photo img {
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.35);
+}
+
+.division--diamant .division__photo,
+.division--legende .division__photo {
+  animation: medal-glow 2.6s ease-in-out infinite;
+}
+
+@keyframes medal-glow {
+  50% {
+    box-shadow: 0 0 34px var(--metal-glow), 0 6px 16px rgba(0, 0, 0, 0.45);
+  }
+}
+
+.division__metal {
+  padding: 2px 10px;
+  border-radius: 99px;
+  background: var(--metal);
+  color: #1e1608;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.division .division__progress {
+  grid-column: 2;
+}
+
+@media (min-width: 760px) {
+  .division {
+    grid-template-columns: auto 1.3fr 1fr;
+  }
+  .division__emblem {
+    grid-row: auto;
+  }
+  .division .division__progress {
+    grid-column: 3;
+  }
+}
+
+@media (max-width: 520px) {
+  .division h2 {
+    font-size: 1.5rem;
+  }
+  .division__photo {
+    width: 70px !important;
+    height: 70px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .division__photo {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .summary__head {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .summary__head .btn-row {
+    width: 100%;
+  }
+  .summary__head .btn-row .btn {
+    flex: 1;
+  }
+}

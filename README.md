@@ -77,7 +77,7 @@ Le dos des cartes est une affiche de crépuscule : soleil couchant dans une vall
 
 - Séries : la Série 1 « Animaux du monde » (le booster gratuit porte ce nom) réunit des espèces de toute la planète ; les séries suivantes seront consacrées chacune à un pays. L’accueil annonce la série en cours et la prochaine, avec un compte à rebours : la Série 2, consacrée au Mexique, sort le 1er novembre 2026, et l’accueil montre déjà son dos de carte et son booster (`CardBackMexique` et `PackArtMexique`, dessinés avec les silhouettes de `src/art/mexique.ts`). Série en cours et prochaine sortie : `SERIES` et `NEXT_SERIES` dans `src/engine/packs.ts`.
 
-- Un booster gratuit toutes les 30 minutes, jusqu’à 5 en réserve.
+- Un booster gratuit toutes les 15 minutes, jusqu’à 5 en réserve.
 - Pas de doublon rapproché : une espèce sortie dans un booster ne peut pas ressortir avant 7 boosters, et jamais deux fois dans le même booster (quand toutes les espèces d’une rareté y sont déjà, la carte suivante sort dans une autre rareté). Seuls les petits packs de famille relâchent la règle des 7 boosters quand il ne reste plus d’espèce disponible dans la rareté tirée.
 - Boutique : Découverte, Pro (1 Rare garantie), Élite (1 Épique garantie), Icônes (1 seule carte, toujours une Icône : le pack le plus cher, 600 000 crédits), Prime (1 individu célèbre garanti, 250 000 crédits), Légende (1 Légendaire garantie) et un pack de 3 cartes par famille (4 000 crédits). Les chances sont affichées sur chaque pack.
 - Les Icônes sont les cartes les plus rares : hors du Pack Icônes, environ 1 carte sur 1 000 seulement (jamais à la place de la carte garantie), et elles passent très rarement sur le marché. Une Icône vaut de 100 000 à 350 000 crédits selon sa célébrité.
@@ -100,7 +100,8 @@ Un jeu de culture générale sur les animaux.
 - Équipe de 5 animaux, toutes familles mélangées (pas de carte Habitat).
 - 5 manches, chacune une question tirée au sort parmi 17 et annoncée dès le début. Des records : le plus lourd, le plus léger, le plus grand, le plus petit, vit le plus longtemps, vit le moins longtemps, le plus nombreux, le plus rare (une espèce éteinte n’a plus aucun individu). Et au plus deux questions oui/non : vit en Afrique, en Asie, en Amérique, en Europe ou en Océanie (les espèces de plusieurs continents, comme le chat ou le loup, sont listées dans `src/data/repartition.ts` et portent le logo « Plusieurs continents ») ; est un mammifère, un oiseau, un reptile ou un poisson.
 - Les mesures sont cachées sur toutes les cartes pendant le duel : on choisit quel animal envoyer d’après ce qu’on sait. Chaque animal ne joue qu’une fois. Ce sont les vraies mesures de l’espèce qui décident (une mesure inconnue perd la manche) ; pour une question, oui bat non.
-- Plus la division est haute, plus l’adversaire joue juste. Ligue de la division 10 à la division 1 : victoire +3 points, nul +1, promotion à 7 points.
+- Plus la division est haute, plus l’adversaire joue juste. Dix divisions, chacune avec un animal emblème et un métal : Hérisson et Renard de bronze, Loup et Gorille d’argent, Guépard et Aigle d’or, Ours et Orque de platine, Tigre de diamant, Lion légendaire (`src/engine/divisions.ts`). Victoire +3 points, nul +1, promotion à 7 points.
+- Équipe : « Équipe au hasard » tire cinq espèces différentes de la réserve (jamais deux fois de suite la même équipe), « Vider l’équipe » retire les cinq d’un coup.
 - On peut aussi défier un ami : son équipe est faite des animaux de sa vitrine (complétée au hasard), joués par l’ordinateur. Ce duel rapporte des crédits mais ne compte pas pour la ligue.
 
 ### Comptes et profil

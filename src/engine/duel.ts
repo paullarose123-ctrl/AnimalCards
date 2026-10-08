@@ -358,21 +358,22 @@ export function formatRecordValue(card: CardFace, record: RecordId, value = reco
  * Équipe auto : cinq espèces différentes qui couvrent au mieux tous les records
  * (la plus lourde, la plus légère, la plus grande, la plus petite et celle qui vit le plus longtemps).
  */
-export function autoTeamFrom(cards: DuelCard[]): string[] {
+export function autoTeamFrom(cards: DuelCard[], rng: Rng = Math.random, current: string[] = []): string[] {
+  // un exemplaire par espèce, tirées au hasard
   const unique = new Map<string, DuelCard>();
   for (const card of cards) if (canDuel(ATHLETES_BY_ID[card.athleteId]) && !unique.has(card.athleteId)) unique.set(card.athleteId, card);
   const list = [...unique.values()];
-  const team: DuelCard[] = [];
-  for (const record of ['lourd', 'leger', 'vieux', 'rare', 'grand'] as RecordId[]) {
-    const best = list
-      .filter((c) => !team.includes(c) && recordValue(c, record) !== null)
-      .sort((a, b) => {
-        const va = recordValue(a, record)!;
-        const vb = recordValue(b, record)!;
-        return RECORDS[record].best === 'max' ? vb - va : va - vb;
-      })[0];
-    if (best) team.push(best);
-  }
-  for (const card of list) if (team.length < TEAM_SIZE && !team.includes(card)) team.push(card);
-  return team.slice(0, TEAM_SIZE).map((c) => c.uid);
+  const draw = () => {
+    const pool = list.slice();
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    return pool.slice(0, TEAM_SIZE).map((c) => c.uid);
+  };
+  // si la réserve le permet, jamais deux fois de suite exactement la même équipe
+  const same = (team: string[]) => team.length === current.filter(Boolean).length && team.every((uid) => current.includes(uid));
+  let team = draw();
+  for (let tries = 0; tries < 12 && list.length > TEAM_SIZE && same(team); tries++) team = draw();
+  return team;
 }

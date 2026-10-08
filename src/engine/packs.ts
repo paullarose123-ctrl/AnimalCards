@@ -49,7 +49,7 @@ export const FREE_ODDS: Odds = { commune: 60, 'peu-commune': 26, rare: 10, epiqu
 export const FREE_PACK: PackDef = {
   id: 'gratuit',
   name: 'Booster gratuit',
-  tagline: '5 cartes, un nouveau toutes les 30 minutes',
+  tagline: '5 cartes, un nouveau toutes les 15 minutes',
   price: 0,
   size: 5,
   odds: FREE_ODDS,
