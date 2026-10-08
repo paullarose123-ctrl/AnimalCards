@@ -341,13 +341,21 @@ describe('duel de records', () => {
     expect(aiSkill(1)).toBeLessThanOrEqual(0.95);
   });
 
-  it('compose une équipe auto de cinq espèces différentes, sans carte Habitat', () => {
-    const cards = team(['elephant', 'elephant', 'souris', 'tortue-geante', 'loup-d-ethiopie', 'baleine-bleue', 'habitat-amazonie', 'lion']);
-    const uids = autoTeamFrom(cards);
-    expect(uids).toHaveLength(5);
-    const ids = uids.map((uid) => cards.find((c) => c.uid === uid)!.athleteId);
-    expect(new Set(ids).size).toBe(5);
-    expect(ids).not.toContain('habitat-amazonie');
-    expect(ids).toEqual(expect.arrayContaining(['baleine-bleue', 'souris']));
+  it('compose une équipe au hasard de cinq espèces différentes, sans carte Habitat, jamais deux fois la même', () => {
+    const cards = team(['elephant', 'elephant', 'souris', 'tortue-geante', 'loup-d-ethiopie', 'baleine-bleue', 'habitat-amazonie', 'lion', 'koala', 'tigre']);
+    const rng = mulberry32(3);
+    let previous: string[] = [];
+    const seen = new Set<string>();
+    for (let i = 0; i < 20; i++) {
+      const uids = autoTeamFrom(cards, rng, previous);
+      expect(uids).toHaveLength(5);
+      const ids = uids.map((uid) => cards.find((c) => c.uid === uid)!.athleteId);
+      expect(new Set(ids).size).toBe(5);
+      expect(ids).not.toContain('habitat-amazonie');
+      expect([...uids].sort()).not.toEqual([...previous].sort());
+      seen.add([...ids].sort().join(','));
+      previous = uids;
+    }
+    expect(seen.size).toBeGreaterThan(5);
   });
 });

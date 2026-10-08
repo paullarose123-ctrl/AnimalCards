@@ -18,9 +18,10 @@ import {
 } from '../engine/market';
 import { TEAM_SIZE, autoTeamFrom, canDuel, createDuel, duelResult, playDuelRound, rewardFor, type DuelState } from '../engine/duel';
 import { makeUid } from '../engine/random';
+import { divisionName } from '../engine/divisions';
 import { newBadges } from '../engine/badges';
 
-export const FREE_PACK_INTERVAL = 30 * 60_000;
+export const FREE_PACK_INTERVAL = 15 * 60_000;
 /** nombre de cartes de la vitrine du profil */
 export const FAVORITES_SIZE = 5;
 /** nom de la sauvegarde dans le stockage du navigateur */
@@ -183,6 +184,8 @@ export interface GameState {
   toggleWatch: (listingId: string) => void;
   setTeamSlot: (slot: number, uid: string | null) => void;
   autoTeam: () => void;
+  /** retire les cinq animaux de l'équipe d'un coup */
+  clearTeam: () => void;
   /** lance un duel de la ligue, ou contre la vitrine d'un ami */
   startMatch: (friend?: { pseudo: string; cards: CardFace[] }) => boolean;
   playMatchRound: (index: number) => void;
@@ -311,7 +314,7 @@ export const OBJECTIVES: Objective[] = [
   { id: 'first-win', title: 'Gagner un duel de records', reward: 1_500, progress: (s) => [Math.min(1, s.stats.matchesWon), 1] },
   { id: 'first-epic', title: 'Obtenir une carte Épique', reward: 2_500, progress: (s) => [hasRarity(s, 3) ? 1 : 0, 1] },
   { id: 'collect-100', title: 'Obtenir 100 espèces différentes', reward: 10_000, progress: (s) => [Math.min(100, uniqueCount(s)), 100] },
-  { id: 'division-5', title: 'Atteindre la division 5', reward: 8_000, progress: (s) => [Math.min(5, 10 - s.division), 5] },
+  { id: 'division-5', title: `Atteindre la division ${divisionName(5)}`, reward: 8_000, progress: (s) => [Math.min(5, 10 - s.division), 5] },
   { id: 'first-legend', title: 'Obtenir une carte Légendaire', reward: 10_000, progress: (s) => [hasRarity(s, 4) ? 1 : 0, 1] },
   { id: 'first-prime', title: 'Obtenir une carte Prime', reward: 10_000, progress: (s) => [Object.keys(s.primesFound).length ? 1 : 0, 1] },
   { id: 'sport-complete', title: 'Compléter une famille de l’album', reward: 20_000, progress: (s) => bestSportCompletion(s) },
@@ -616,7 +619,9 @@ export const useGame = create<GameState>()(
             return { team };
           }),
 
-        autoTeam: () => set((s) => ({ team: autoTeamFrom(s.collection) })),
+        autoTeam: () => set((s) => ({ team: autoTeamFrom(s.collection, Math.random, s.team) })),
+
+        clearTeam: () => set({ team: Array.from({ length: TEAM_SIZE }, () => '') }),
 
         startMatch: (friend) => {
           const state = get();
@@ -667,7 +672,7 @@ export const useGame = create<GameState>()(
             stats: { ...s.stats, matchesPlayed: s.stats.matchesPlayed + 1, matchesWon: s.stats.matchesWon + (result === 'win' ? 1 : 0) },
           }));
           pushToast(result === 'win' ? 'gold' : 'info', `${result === 'win' ? 'Victoire' : result === 'draw' ? 'Match nul' : 'Défaite'} : +${formatBalles(reward)}`);
-          if (promoted) pushToast('gold', `Promotion ! Bienvenue en division ${division}`);
+          if (promoted) pushToast('gold', `Promotion ! Bienvenue en division ${divisionName(division)}`);
         },
 
         abandonMatch: () => set({ match: null }),

@@ -21,6 +21,8 @@ import { Balles } from '../components/Balles';
 import { Landscape } from '../components/PackScene';
 import { SCREEN_SCENES } from '../art/scenes';
 import { sfx } from '../audio/sfx';
+import { Avatar } from '../components/Avatar';
+import { TIER_NAMES, divisionInfo, divisionName } from '../engine/divisions';
 
 // Duel de records : 5 animaux, 5 records tirés au sort. Ce sont les vraies mesures des espèces
 // (poids, taille, longévité, population restante) qui décident de chaque manche.
@@ -80,6 +82,7 @@ function TeamBuilder() {
   const team = useGame((s) => s.team);
   const setTeamSlot = useGame((s) => s.setTeamSlot);
   const autoTeam = useGame((s) => s.autoTeam);
+  const clearTeam = useGame((s) => s.clearTeam);
   const startMatch = useGame((s) => s.startMatch);
   const division = useGame((s) => s.division);
   const points = useGame((s) => s.divisionPoints);
@@ -94,10 +97,14 @@ function TeamBuilder() {
 
   return (
     <>
-      <section className="panel division">
+      <section className={`panel division division--${divisionInfo(division).tier}`}>
+        <div className="division__emblem" aria-hidden="true">
+          <Avatar athleteId={divisionInfo(division).athleteId} className="division__photo" />
+          <span className="division__metal">{TIER_NAMES[divisionInfo(division).tier]}</span>
+        </div>
         <div>
-          <p className="eyebrow">Ligue des naturalistes</p>
-          <h2>Division {division}</h2>
+          <p className="eyebrow">Ligue des naturalistes · rang {11 - division}/10</p>
+          <h2>Division {divisionName(division)}</h2>
           <p className="muted">
             Plus la division est haute, mieux tes adversaires connaissent leurs animaux. Victoire : <Balles value={rewardFor('win', division)} /> · Nul :{' '}
             <Balles value={rewardFor('draw', division)} />
@@ -105,21 +112,30 @@ function TeamBuilder() {
         </div>
         <div className="division__progress">
           <span>
-            {points}/7 points pour monter {division > 1 ? `en division ${division - 1}` : '(division d’élite)'}
+            {division > 1 ? `${points}/7 points pour monter en division ${divisionName(division - 1)}` : 'Tu es au sommet de la ligue'}
           </span>
-          <span className="meter">
-            <span className="meter__fill" style={{ width: `${(points / 7) * 100}%` }} />
-          </span>
-          <span className="muted small">Victoire +3, nul +1</span>
+          {division > 1 && (
+            <>
+              <span className="meter">
+                <span className="meter__fill" style={{ width: `${(points / 7) * 100}%` }} />
+              </span>
+              <span className="muted small">Victoire +3, nul +1</span>
+            </>
+          )}
         </div>
       </section>
 
       <section className="panel">
         <div className="summary__head">
           <h2>Mon équipe</h2>
-          <button type="button" className="btn btn--ghost btn--sm" onClick={autoTeam} disabled={!collection.length}>
-            Équipe auto
-          </button>
+          <div className="btn-row">
+            <button type="button" className="btn btn--ghost btn--sm" onClick={clearTeam} disabled={!filled.length}>
+              Vider l’équipe
+            </button>
+            <button type="button" className="btn btn--ghost btn--sm" onClick={autoTeam} disabled={!collection.length} title="Cinq animaux de ta réserve, tirés au hasard">
+              Équipe au hasard
+            </button>
+          </div>
         </div>
         <p className="muted small">
           Varie les profils : un géant, un poids plume, un animal qui vit très vieux, une espèce très rare, des animaux de plusieurs continents… Pendant le
@@ -257,7 +273,7 @@ function DuelView({ match }: { match: DuelState }) {
     const result = duelResult(match);
     return (
       <section className={`panel final final--${result}`}>
-        <p className="eyebrow">Fin du duel · {match.friend ? `contre ton ami ${match.friend}` : `Division ${match.division}`}</p>
+        <p className="eyebrow">Fin du duel · {match.friend ? `contre ton ami ${match.friend}` : `Division ${divisionName(match.division)}`}</p>
         <h1>{result === 'win' ? 'Victoire !' : result === 'draw' ? 'Match nul' : 'Défaite'}</h1>
         <p className="final__score">
           {match.me.name} {match.me.score} – {match.opp.score} {match.opp.name}
