@@ -1,0 +1,27 @@
+# Vérifie les fiches des espèces avec Wikidata (statut UICN, gestation, nourriture) et enregistre le résultat
+# dans scripts/fiches/wikidata.json. À lancer à la main : onglet Actions → « Fiches des espèces » → Run workflow.
+name: Fiches des espèces
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  wikidata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node scripts/fiches/wikidata.mjs
+      - name: Enregistrer le résultat
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/fiches/wikidata.json
+          if git diff --cached --quiet; then echo "Rien de nouveau"; exit 0; fi
+          git commit -m "Fiches des espèces : données Wikidata"
+          git push

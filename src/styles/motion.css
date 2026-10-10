@@ -1726,3 +1726,272 @@ h3 {
     animation: none;
   }
 }
+
+/* ───────────── Fiche : « En savoir plus » ───────────── */
+.encyclo {
+  margin-top: 16px;
+}
+
+.encyclo__icons {
+  display: grid;
+  grid-template-columns: repeat(var(--n, 7), minmax(0, 1fr));
+  gap: 6px;
+}
+
+.encyclo__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 8px 2px 7px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(232, 222, 196, 0.035);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.encyclo__icon:hover {
+  color: var(--text);
+  border-color: var(--line-2);
+  transform: translateY(-2px);
+}
+
+.encyclo__icon.is-open {
+  color: var(--text);
+  border-color: rgba(169, 207, 126, 0.55);
+  background: rgba(169, 207, 126, 0.09);
+}
+
+.encyclo__glyph {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: var(--bg-3);
+  color: var(--accent-text);
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.encyclo__glyph svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.encyclo__icon.is-open .encyclo__glyph {
+  background: var(--accent);
+  border-color: var(--accent-2);
+  color: var(--accent-ink);
+}
+
+.encyclo__label {
+  max-width: 100%;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* unité plus petite dans les mesures de la fiche (« 100 km/h ») */
+.detail__mesures dd small {
+  font-size: 0.62em;
+  color: var(--text-dim);
+}
+
+/* le bouclier prend la couleur du statut de la Liste rouge */
+.encyclo__icon--lc .encyclo__glyph { color: #7fd36f; }
+.encyclo__icon--nt .encyclo__glyph { color: #c9dc3c; }
+.encyclo__icon--vu .encyclo__glyph { color: #f2d43a; }
+.encyclo__icon--en .encyclo__glyph { color: #fc8f4f; }
+.encyclo__icon--cr .encyclo__glyph { color: #ff5a43; }
+.encyclo__icon--ew .encyclo__glyph { color: #c58be0; }
+.encyclo__icon--ex .encyclo__glyph { color: #b9b2a0; }
+
+.encyclo__panel {
+  margin-top: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line-2);
+  background: linear-gradient(180deg, rgba(169, 207, 126, 0.07), rgba(169, 207, 126, 0.01)), var(--bg-2);
+  line-height: 1.5;
+  animation: encyclo-in 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+.encyclo__panel p {
+  margin: 0 0 6px;
+}
+
+.encyclo__panel p:last-child {
+  margin-bottom: 0;
+}
+
+.encyclo__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--accent-text);
+}
+
+.encyclo__tag {
+  display: inline-block;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: rgba(169, 207, 126, 0.13);
+  color: var(--accent-text);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.encyclo__hint {
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.encyclo__big {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--text);
+}
+
+.encyclo__big small {
+  font-size: 0.5em;
+  color: var(--text-dim);
+}
+
+.encyclo__bars {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 12px 0 10px;
+}
+
+.encyclo__barlabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.encyclo__track {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(232, 222, 196, 0.07);
+  overflow: hidden;
+}
+
+.encyclo__bar {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transform-origin: left;
+  animation: encyclo-bar 0.7s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.encyclo__bar--animal {
+  background: linear-gradient(90deg, var(--accent-2), var(--accent-text));
+}
+
+.encyclo__bar--bolt {
+  background: rgba(232, 222, 196, 0.35);
+}
+
+/* échelle de la Liste rouge : de « préoccupation mineure » à « éteinte » */
+.uicn-scale {
+  display: flex;
+  gap: 4px;
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.uicn-scale__step {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 7px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  color: rgba(14, 23, 18, 0.75);
+  opacity: 0.32;
+  transition: transform 0.2s ease;
+}
+
+.uicn-scale__step--lc { background: #60c659; }
+.uicn-scale__step--nt { background: #cce226; }
+.uicn-scale__step--vu { background: #f9e814; }
+.uicn-scale__step--en { background: #fc7f3f; }
+.uicn-scale__step--cr { background: #e8452c; color: #fff; }
+.uicn-scale__step--ew { background: #7e3f8f; color: #fff; }
+.uicn-scale__step--ex { background: #1a1a1a; color: #fff; border: 1px solid var(--line-2); }
+
+.uicn-scale__step.is-current {
+  opacity: 1;
+  transform: scale(1.14);
+  box-shadow: 0 0 0 2px var(--bg-2), 0 0 0 3px currentColor, 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.uicn-scale.is-off .uicn-scale__step {
+  opacity: 0.18;
+}
+
+.encyclo__status {
+  font-size: 1.05rem;
+}
+
+@keyframes encyclo-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes encyclo-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 420px) {
+  .encyclo__icons {
+    gap: 4px;
+  }
+  .encyclo__glyph {
+    width: 34px;
+    height: 34px;
+  }
+  .encyclo__label {
+    font-size: 0.62rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .encyclo__panel,
+  .encyclo__bar {
+    animation: none;
+  }
+}
