@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useId, useState, type ReactNode } from 'react';
 import { REGIMES, RYTHMES, UICN, UICN_ECHELLE, encyclopedieOf, type Encyclo, type Rythme, type Uicn } from '../data/encyclopedie';
 
 // « En savoir plus » dans la fiche d'une carte : une rangée de petites icônes (menu, vitesse, jour ou nuit,
@@ -109,7 +109,7 @@ const TITLES: Record<Topic, string> = {
   social: 'Vie de groupe',
   petits: 'Les petits',
   protection: 'Statut de l’espèce',
-  savais: 'Le savais-tu ?',
+  savais: 'Encore une anecdote',
 };
 
 /** Comparaison avec Usain Bolt, l'humain le plus rapide. */
@@ -202,6 +202,8 @@ const statusClass = (uicn: Uicn) => `encyclo__icon--${uicn.toLowerCase()}`;
 export function Encyclopedie({ athleteId, name }: { athleteId: string; name: string }) {
   const e = encyclopedieOf(athleteId);
   const [open, setOpen] = useState<Topic | null>(null);
+  // identifiants uniques : la fiche d'une carte peut s'ouvrir par-dessus celle de l'ouverture du booster
+  const uid = useId();
   // une autre carte : on referme
   useEffect(() => setOpen(null), [athleteId]);
   if (!e) return null;
@@ -218,9 +220,10 @@ export function Encyclopedie({ athleteId, name }: { athleteId: string; name: str
             key={topic}
             type="button"
             role="tab"
-            id={`encyclo-tab-${topic}`}
+            id={`${uid}-${topic}`}
             aria-selected={open === topic}
-            aria-controls="encyclo-panel"
+            aria-controls={`${uid}-panel`}
+            data-topic={topic}
             className={`encyclo__icon${open === topic ? ' is-open' : ''}${topic === 'protection' ? ` ${statusClass(e.uicn)}` : ''}`}
             onClick={() => setOpen((current) => (current === topic ? null : topic))}
           >
@@ -230,7 +233,7 @@ export function Encyclopedie({ athleteId, name }: { athleteId: string; name: str
         ))}
       </div>
       {open ? (
-        <div key={open} id="encyclo-panel" className="encyclo__panel" role="tabpanel" aria-labelledby={`encyclo-tab-${open}`}>
+        <div key={open} id={`${uid}-panel`} className="encyclo__panel" role="tabpanel" aria-labelledby={`${uid}-${open}`}>
           <p className="encyclo__title">{TITLES[open]}</p>
           <Panel topic={open} e={e} name={name} />
         </div>

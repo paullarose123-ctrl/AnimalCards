@@ -556,7 +556,19 @@ export function PackOpening() {
           </div>
           {revealed > current && (
             <div className="opening__stats">
-              <CardStats card={cards[current]} />
+              <CardStats card={cards[current]}>
+                {collection.some((c) => c.uid === cards[current].uid) && (
+                  <div className="card-stats__actions">
+                    <button
+                      type="button"
+                      className="btn btn--ghost btn--sm"
+                      onClick={() => openDetail({ card: collection.find((c) => c.uid === cards[current].uid)! })}
+                    >
+                      Fiche complète
+                    </button>
+                  </div>
+                )}
+              </CardStats>
             </div>
           )}
         </div>
