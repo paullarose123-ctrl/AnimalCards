@@ -283,4 +283,40 @@ grant execute on function public.trade_decline(uuid) to authenticated;
 grant execute on function public.trade_cancel(uuid) to authenticated;
 grant execute on function public.trade_done(uuid) to authenticated;
 
+-- Joueurs en ligne : chaque navigateur ouvert sur le jeu (avec ou sans compte) envoie un signal toutes les minutes
+-- avec un identifiant anonyme tiré au hasard, et un dernier signal quand il se ferme ou passe en arrière-plan.
+-- On n'en garde que l'heure du dernier signal : ni pseudo, ni adresse, rien qui permette de savoir qui c'est.
+create table if not exists public.presence (
+  visitor uuid primary key,
+  last_seen timestamptz not null default now(),
+  online boolean not null default true
+);
+create index if not exists presence_last_seen on public.presence (last_seen);
+alter table public.presence enable row level security;
+-- aucune règle d'accès : la table ne se lit et ne s'écrit qu'à travers presence_ping
+revoke all on public.presence from anon, authenticated;
+
+-- Enregistre le signal d'un visiteur (en ligne, ou qui s'en va) et renvoie les deux compteurs :
+-- « online » : les visiteurs dont le jeu est ouvert (signal reçu il y a moins de 2 min 30, sans départ depuis) ;
+-- « today » : les visiteurs passés au moins une fois depuis minuit (heure de Paris).
+create or replace function public.presence_ping(p_visitor uuid, p_online boolean default true)
+returns jsonb language plpgsql security definer set search_path = public as $$
+declare
+  midnight timestamptz := date_trunc('day', now() at time zone 'Europe/Paris') at time zone 'Europe/Paris';
+begin
+  if p_visitor is not null then
+    insert into presence (visitor, last_seen, online) values (p_visitor, now(), coalesce(p_online, true))
+    on conflict (visitor) do update set last_seen = now(), online = excluded.online;
+  end if;
+  -- ménage : on oublie les visiteurs qui ne sont pas revenus depuis deux jours
+  delete from presence where last_seen < now() - interval '2 days';
+  return jsonb_build_object(
+    'online', (select count(*) from presence where online and last_seen > now() - interval '150 seconds'),
+    'today', (select count(*) from presence where last_seen >= midnight)
+  );
+end $$;
+
+revoke all on function public.presence_ping(uuid, boolean) from public;
+grant execute on function public.presence_ping(uuid, boolean) to anon, authenticated;
+
 notify pgrst, 'reload schema';

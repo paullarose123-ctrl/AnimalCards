@@ -22,6 +22,8 @@ import { MiniPack } from './components/MiniPack';
 import { Juice } from './components/Juice';
 import { useOnline } from './store/online';
 import { useTrades } from './store/trades';
+import { startPresence } from './store/presence';
+import { OnlinePlayers } from './components/OnlinePlayers';
 import { accountsEnabled } from './account/supabase';
 import { Landscape } from './components/PackScene';
 import { SITE_SCENE } from './art/scenes';
@@ -83,6 +85,7 @@ function Topbar() {
         <LogoMark className="brand__mark" />
       </button>
       <div className="topbar__right">
+        <OnlinePlayers compact className="chip" />
         <button type="button" className="chip chip--packs" onClick={() => setTab('boosters')} title="Boosters gratuits disponibles">
           <span className={`chip__pack${freePacks > 0 ? ' is-ready' : ''}`}>
             <MiniPack />
@@ -234,6 +237,9 @@ export function App() {
       document.removeEventListener('visibilitychange', sync);
     };
   }, [userId, tab]);
+
+  // joueurs en ligne : un signal anonyme par minute tant que le jeu est affiché (avec ou sans compte)
+  useEffect(() => startPresence(), []);
 
   // le marché et les boosters avancent en temps réel (et rattrapent le temps passé hors du jeu)
   useEffect(() => {

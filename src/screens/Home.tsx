@@ -17,6 +17,7 @@ import { Balles } from '../components/Balles';
 import { sfx } from '../audio/sfx';
 import { useAccount } from '../store/account';
 import { accountsEnabled } from '../account/supabase';
+import { OnlinePlayers } from '../components/OnlinePlayers';
 
 // Ce qu'on peut décrocher : un guépard en version Prime, le roi des animaux, un orang-outan Épique (éventail fixe).
 const SHOWCASE: CardFace[] = [
@@ -369,6 +370,7 @@ export function HomeScreen() {
   return (
     <div className="screen screen--home">
       <FreePackHero />
+      <OnlinePlayers />
       <ExpansionBanner />
       <AccountInvite />
       <div className="grid-2">
