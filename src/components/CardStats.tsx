@@ -6,10 +6,12 @@ import { SPORTS } from '../data/sports';
 import { mesuresOf } from '../data/mesures';
 import { populationOf } from '../data/populations';
 import { Flag, countryName } from './Flag';
+import { Encyclopedie } from './Encyclopedie';
+import { encyclopedieOf } from '../data/encyclopedie';
 
 // Fiche express d'une carte, à l'ouverture des boosters : de vraies informations sur l'espèce.
-// Nom scientifique, mesures d'un adulte, population restante, une anecdote, et l'histoire de l'individu
-// célèbre pour une version Prime. Une carte Habitat montre son lieu, sa superficie et les animaux qui y vivent.
+// Nom scientifique, mesures d'un adulte, population restante, une anecdote, l'histoire de l'individu
+// célèbre pour une version Prime, et les icônes « En savoir plus » (menu, vitesse, statut…). Une carte Habitat montre son lieu, sa superficie et les animaux qui y vivent.
 
 interface CardStatsProps {
   card: CardFace;
@@ -31,6 +33,8 @@ export function CardStats({ card, children, className = '' }: CardStatsProps) {
   if (mesures?.taille) facts.push([mesures.tailleLabel, mesures.taille]);
   if (mesures?.longevite) facts.push(['Longévité', mesures.longevite]);
   if (population) facts.push([population.extinct ? 'Statut' : population.label, population.extinct ? 'Espèce éteinte' : population.value]);
+  const vitesse = habitat ? undefined : encyclopedieOf(athlete.id)?.vitesse;
+  if (vitesse) facts.push(['Vitesse max', `${vitesse.kmh.toLocaleString('fr-FR')} km/h`]);
   if (habitat) facts.push(['Superficie', habitat.superficie]);
   const inhabitants = habitat?.especes.map((id) => ATHLETES_BY_ID[id]).filter(Boolean) ?? [];
 
@@ -88,6 +92,8 @@ export function CardStats({ card, children, className = '' }: CardStatsProps) {
         <span className="card-stats__label">Le savais-tu ?</span>
         {athlete.fact}
       </p>
+
+      {!habitat && <Encyclopedie athleteId={athlete.id} name={displayName(athlete)} />}
 
       {habitat && (
         <>
