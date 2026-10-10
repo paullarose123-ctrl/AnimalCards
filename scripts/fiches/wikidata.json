@@ -7,7 +7,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Acinonyx jubatus": {
   "items": [
@@ -54,6 +57,9 @@
    "Capra aegagrus aegagrus",
    "Neotragus",
    "Calao d'Afrique du Sud"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Acipenser sturio": {
@@ -64,7 +70,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Actiniaria": {
   "items": [
@@ -84,7 +93,10 @@
   "gestation": [
    "6.75 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Agalychnis callidryas": {
   "items": [
@@ -94,7 +106,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Ailuropoda melanoleuca": {
   "items": [
@@ -108,6 +123,9 @@
   ],
   "food": [
    "bambou"
+  ],
+  "detail": [
+   "VU Preferred   2023-01-02"
   ]
  },
  "Ailurus fulgens": {
@@ -128,6 +146,9 @@
    "œuf",
    "fruit comestible",
    "gland"
+  ],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
   ]
  },
  "Alcedo atthis": {
@@ -140,6 +161,9 @@
   "gestation": [],
   "food": [
    "osteichthyes"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Alcelaphus buselaphus buselaphus": {
@@ -150,7 +174,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-02"
+  ]
  },
  "Alces alces": {
   "items": [
@@ -172,6 +199,9 @@
    "lys",
    "phorbe",
    "Potamogeton distinctus"
+  ],
+  "detail": [
+   "LC Normal   2023-01-03"
   ]
  },
  "Aldabrachelys gigantea": {
@@ -199,7 +229,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Alouatta": {
   "items": [
@@ -217,7 +250,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Ambystoma mexicanum": {
   "items": [
@@ -227,7 +263,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Amphiprion ocellaris": {
   "items": [
@@ -237,7 +276,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Anas oustaleti": {
   "items": [
@@ -269,6 +311,9 @@
    "tubercule",
    "Trichoptera",
    "Gastropoda"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Anax imperator": {
@@ -279,7 +324,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Andrias davidianus": {
   "items": [
@@ -289,7 +337,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Anguilla anguilla": {
   "items": [
@@ -299,7 +350,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-03"
+  ]
  },
  "Anser anser domesticus": {
   "items": [
@@ -328,7 +382,10 @@
   "gestation": [
    "5.75 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Antilocapra americana": {
   "items": [
@@ -340,7 +397,10 @@
   "gestation": [
    "250 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Apis mellifera": {
   "items": [
@@ -353,6 +413,9 @@
   "food": [
    "pollen",
    "nectar"
+  ],
+  "detail": [
+   "DD Normal   2026-05-13"
   ]
  },
  "Aptenodytes forsteri": {
@@ -363,7 +426,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   "
+  ]
  },
  "Apteryx": {
   "items": [
@@ -381,7 +447,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Aquila chrysaetos": {
   "items": [
@@ -391,7 +460,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Ara macao": {
   "items": [
@@ -407,6 +479,9 @@
    "graine",
    "nectar",
    "fruit comestible"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Araneus diadematus": {
@@ -425,7 +500,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Asteroidea": {
   "items": [
@@ -451,7 +529,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Balaena mysticetus": {
   "items": [
@@ -465,6 +546,9 @@
   ],
   "food": [
    "zooplancton"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Balaenoptera musculus": {
@@ -479,6 +563,9 @@
   ],
   "food": [
    "Euphausiacea"
+  ],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
   ]
  },
  "Balaenoptera physalus": {
@@ -491,7 +578,10 @@
   "gestation": [
    "11.5 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Basiliscus basiliscus": {
   "items": [
@@ -501,7 +591,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Bathynomus giganteus": {
   "items": [
@@ -519,7 +612,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Bison bison": {
   "items": [
@@ -531,7 +627,10 @@
   "gestation": [
    "285 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Bison bonasus": {
   "items": [
@@ -543,7 +642,10 @@
   "gestation": [
    "263 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Bison bonasus caucasicus": {
   "items": [
@@ -579,7 +681,10 @@
   "gestation": [
    "258 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Bos taurus": {
   "items": [
@@ -598,7 +703,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-03"
+  ]
  },
  "Bradypus": {
   "items": [
@@ -627,7 +735,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Bubo scandiacus": {
   "items": [
@@ -637,7 +748,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2021-12-27"
+  ]
  },
  "Buceros bicornis": {
   "items": [
@@ -652,6 +766,9 @@
    "Ficus",
    "Myristicaceae",
    "Vitex altissima"
+  ],
+  "detail": [
+   "VU Normal   2021-12-27"
   ]
  },
  "Bufo bufo": {
@@ -662,7 +779,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Buteo buteo": {
   "items": [
@@ -672,7 +792,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Camelus dromedarius": {
   "items": [
@@ -694,7 +817,10 @@
   "gestation": [
    "9 semaine"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-04"
+  ]
  },
  "Canis latrans": {
   "items": [
@@ -708,6 +834,25 @@
    "62 jour"
   ],
   "food": [
+   "chat",
+   "poisson",
+   "poulet",
+   "insecte",
+   "chèvre",
+   "écureuil roux",
+   "mouton",
+   "gaspillage alimentaire",
+   "Canard colvert",
+   "Oryctolagus cuniculus",
+   "Perdrix grise",
+   "Bernache du Canada",
+   "Dindon sauvage",
+   "chien de prairie",
+   "Rattus",
+   "musaraigne",
+   "castor",
+   "champignon",
+   "Mephitidae",
    "œuf",
    "raton laveur",
    "Didelphis virginiana",
@@ -730,26 +875,10 @@
    "saumon",
    "grenouille",
    "fruit comestible",
-   "porc-épic d'Amérique",
-   "chat",
-   "poisson",
-   "poulet",
-   "insecte",
-   "chèvre",
-   "écureuil roux",
-   "mouton",
-   "gaspillage alimentaire",
-   "Canard colvert",
-   "Oryctolagus cuniculus",
-   "Perdrix grise",
-   "Bernache du Canada",
-   "Dindon sauvage",
-   "chien de prairie",
-   "Rattus",
-   "musaraigne",
-   "castor",
-   "champignon",
-   "Mephitidae"
+   "porc-épic d'Amérique"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Canis lupus": {
@@ -799,6 +928,9 @@
    "mouflon corse",
    "saumon",
    "poire"
+  ],
+  "detail": [
+   "LC Normal   2023-01-04"
   ]
  },
  "Canis lupus arctos": {
@@ -833,7 +965,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Capra hircus": {
   "items": [
@@ -855,7 +990,10 @@
   "gestation": [
    "167 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Capra pyrenaica pyrenaica": {
   "items": [
@@ -865,7 +1003,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   "
+  ]
  },
  "Capreolus capreolus": {
   "items": [
@@ -877,7 +1018,10 @@
   "gestation": [
    "283 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Caracal caracal": {
   "items": [
@@ -914,6 +1058,9 @@
    "poule",
    "Pedetes",
    "Felis lybica"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Carassius auratus": {
@@ -924,7 +1071,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Carcharhinus leucas": {
   "items": [
@@ -934,7 +1084,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Carcharhinus longimanus": {
   "items": [
@@ -944,7 +1097,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Carcharhinus melanopterus": {
   "items": [
@@ -954,7 +1110,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Carcharodon carcharias": {
   "items": [
@@ -1019,6 +1178,9 @@
    "Myliobatoidei",
    "Puffin fuligineux",
    "Delphinus coeruleoalbus"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Carlito syrichta": {
@@ -1029,7 +1191,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Castor canadensis": {
   "items": [
@@ -1043,6 +1208,9 @@
    "aspen",
    "willow",
    "peuplier"
+  ],
+  "detail": [
+   "LC Normal 2016-08-07  2023-01-02"
   ]
  },
  "Casuarius casuarius": {
@@ -1059,6 +1227,9 @@
    "Reptiles",
    "champignon",
    "escargot"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Cavia porcellus": {
@@ -1079,7 +1250,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-03"
+  ]
  },
  "Centrolenidae": {
   "items": [
@@ -1097,7 +1271,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Ceratotherium simum": {
   "items": [
@@ -1111,6 +1288,9 @@
   ],
   "food": [
    "herbe"
+  ],
+  "detail": [
+   "NT Normal   2023-01-02"
   ]
  },
  "Cervus canadensis canadensis": {
@@ -1131,7 +1311,10 @@
   "gestation": [
    "33.5 semaine"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Cetorhinus maximus": {
   "items": [
@@ -1141,7 +1324,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Chelonoidis abingdonii": {
   "items": [
@@ -1151,7 +1337,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-02"
+  ]
  },
  "Chinchilla": {
   "items": [
@@ -1169,7 +1358,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Chrysocyon brachyurus": {
   "items": [
@@ -1181,7 +1373,10 @@
   "gestation": [
    "65 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Cicadidae": {
   "items": [
@@ -1212,6 +1407,9 @@
    "taupe",
    "campagnol",
    "sauteriau"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Circaetus gallicus": {
@@ -1222,7 +1420,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Coccinella septempunctata": {
   "items": [
@@ -1244,7 +1445,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Columba livia": {
   "items": [
@@ -1254,7 +1458,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Connochaetes taurinus": {
   "items": [
@@ -1266,7 +1473,10 @@
   "gestation": [
    "8.25 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Conraua goliath": {
   "items": [
@@ -1276,7 +1486,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Conuropsis carolinensis": {
   "items": [
@@ -1286,7 +1499,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2021-12-27"
+  ]
  },
  "Corvus corax": {
   "items": [
@@ -1296,7 +1512,11 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27",
+   "LC Normal   2022-09-29"
+  ]
  },
  "Crocodylus niloticus": {
   "items": [
@@ -1306,7 +1526,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Crocodylus porosus": {
   "items": [
@@ -1316,7 +1539,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Crocuta crocuta": {
   "items": [
@@ -1331,6 +1557,9 @@
   "food": [
    "charogne",
    "Ungulata"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Crotalus adamanteus": {
@@ -1341,7 +1570,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Cryptoprocta ferox": {
   "items": [
@@ -1353,7 +1585,10 @@
   "gestation": [
    "90 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Culicidae": {
   "items": [
@@ -1414,6 +1649,9 @@
    "fruit comestible",
    "Tragulidae",
    "campagnol"
+  ],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
   ]
  },
  "Cygnus olor": {
@@ -1424,7 +1662,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Cynomys": {
   "items": [
@@ -1453,6 +1694,9 @@
   "gestation": [],
   "food": [
    "Q173756"
+  ],
+  "detail": [
+   "LC Normal   2023-01-03"
   ]
  },
  "Dasyatis pastinaca": {
@@ -1463,7 +1707,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-03"
+  ]
  },
  "Dasypus novemcinctus": {
   "items": [
@@ -1473,7 +1720,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Dasyurus maculatus": {
   "items": [
@@ -1485,7 +1735,10 @@
   "gestation": [
    "21 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Daubentonia madagascariensis": {
   "items": [
@@ -1497,7 +1750,10 @@
   "gestation": [
    "165 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Delphinapterus leucas": {
   "items": [
@@ -1509,7 +1765,10 @@
   "gestation": [
    "1 année"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Dendroaspis polylepis": {
   "items": [
@@ -1519,7 +1778,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Dendrolagus": {
   "items": [
@@ -1537,7 +1799,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Desmodus rotundus": {
   "items": [
@@ -1549,7 +1814,10 @@
   "gestation": [
    "7 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Dicerorhinus sumatrensis": {
   "items": [
@@ -1561,7 +1829,10 @@
   "gestation": [
    "400 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Diceros bicornis": {
   "items": [
@@ -1573,7 +1844,10 @@
   "gestation": [
    "450 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Diceros bicornis longipes": {
   "items": [
@@ -1583,7 +1857,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-02"
+  ]
  },
  "Didelphis virginiana": {
   "items": [
@@ -1595,7 +1872,10 @@
   "gestation": [
    "12.75 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Diomedea exulans": {
   "items": [
@@ -1605,7 +1885,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2021-12-27"
+  ]
  },
  "Diplopoda": {
   "items": [
@@ -1623,7 +1906,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Dromaius novaehollandiae minor": {
   "items": [
@@ -1641,7 +1927,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Dynastes hercules": {
   "items": [
@@ -1668,7 +1957,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-03"
+  ]
  },
  "Electrophorus electricus": {
   "items": [
@@ -1678,7 +1970,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Elephas maximus": {
   "items": [
@@ -1690,7 +1985,10 @@
   "gestation": [
    "22 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Emoia nativitatis": {
   "items": [
@@ -1700,7 +1998,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-03"
+  ]
  },
  "Enhydra lutris": {
   "items": [
@@ -1710,7 +2011,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Equus asinus": {
   "items": [
@@ -1742,7 +2046,10 @@
   "gestation": [
    "340 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Equus quagga": {
   "items": [
@@ -1759,6 +2066,9 @@
    "Themeda triandra",
    "Cenchrus ciliaris",
    "Eragrostis superba"
+  ],
+  "detail": [
+   "NT Normal   2023-01-02"
   ]
  },
  "Equus quagga quagga": {
@@ -1769,7 +2079,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-02"
+  ]
  },
  "Erinaceus europaeus": {
   "items": [
@@ -1781,7 +2094,11 @@
   "gestation": [
    "34 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2024-11-19",
+   "LC Deprecated   2023-01-02"
+  ]
  },
  "Erithacus rubecula": {
   "items": [
@@ -1791,7 +2108,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Esox lucius": {
   "items": [
@@ -1801,7 +2121,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Eudorcas thomsonii": {
   "items": [
@@ -1815,6 +2138,9 @@
   ],
   "food": [
    "herbe"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Eunectes murinus": {
@@ -1825,7 +2151,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Euphausia superba": {
   "items": [
@@ -1835,7 +2164,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Exocoetidae": {
   "items": [
@@ -1858,6 +2190,9 @@
    "colombe",
    "goéland",
    "canard"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Falco tinnunculus": {
@@ -1868,7 +2203,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Felis catus": {
   "items": [
@@ -1888,7 +2226,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Felis nigripes": {
   "items": [
@@ -1900,7 +2241,10 @@
   "gestation": [
    "65 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Felis silvestris": {
   "items": [
@@ -1912,7 +2256,10 @@
   "gestation": [
    "65 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-04"
+  ]
  },
  "Formicidae": {
   "items": [
@@ -1930,7 +2277,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2021-12-27"
+  ]
  },
  "Furcifer pardalis": {
   "items": [
@@ -1940,7 +2290,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Galeocerdo cuvier": {
   "items": [
@@ -1950,7 +2303,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Gallus gallus domesticus": {
   "items": [
@@ -1970,7 +2326,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Gekko gecko": {
   "items": [
@@ -1980,7 +2339,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Ginglymostoma cirratum": {
   "items": [
@@ -1990,7 +2352,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-04"
+  ]
  },
  "Giraffa camelopardalis": {
   "items": [
@@ -2002,7 +2367,10 @@
   "gestation": [
    "457 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Glis glis": {
   "items": [
@@ -2012,7 +2380,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Goliathus": {
   "items": [
@@ -2050,6 +2421,9 @@
   "gestation": [],
   "food": [
    "omnivore"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Gulo gulo": {
@@ -2104,6 +2478,9 @@
    "Lemmus lemmus",
    "porc-épic d'Amérique",
    "poire"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Gymnophiona": {
@@ -2124,6 +2501,9 @@
   "gestation": [],
   "food": [
    "moelle osseuse"
+  ],
+  "detail": [
+   "NT Normal   2021-12-27"
   ]
  },
  "Gyps fulvus": {
@@ -2134,7 +2514,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Haliaeetus leucocephalus": {
   "items": [
@@ -2144,7 +2527,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Hapalochlaena": {
   "items": [
@@ -2162,7 +2548,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2021-12-27"
+  ]
  },
  "Helarctos malayanus": {
   "items": [
@@ -2174,7 +2563,10 @@
   "gestation": [
    "96 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Helix pomatia": {
   "items": [
@@ -2184,7 +2576,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Heloderma suspectum": {
   "items": [
@@ -2194,7 +2589,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Herpailurus yagouaroundi": {
   "items": [
@@ -2205,7 +2603,11 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   ",
+   "LC Normal   2023-01-02"
+  ]
  },
  "Heterocephalus glaber": {
   "items": [
@@ -2217,7 +2619,10 @@
   "gestation": [
    "70 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Hippocampus": {
   "items": [
@@ -2239,6 +2644,9 @@
   ],
   "food": [
    "herbe"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Hirundo rustica": {
@@ -2249,7 +2657,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Homarus gammarus": {
   "items": [
@@ -2259,7 +2670,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Hyaena hyaena": {
   "items": [
@@ -2273,6 +2687,9 @@
   ],
   "food": [
    "charogne"
+  ],
+  "detail": [
+   "NT Normal   2023-01-02"
   ]
  },
  "Hydrochoerus hydrochaeris": {
@@ -2285,7 +2702,10 @@
   "gestation": [
    "150 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Hydrurga leptonyx": {
   "items": [
@@ -2295,7 +2715,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Hyla arborea": {
   "items": [
@@ -2307,6 +2730,9 @@
   "gestation": [],
   "food": [
    "arthropodes"
+  ],
+  "detail": [
+   "LC Normal   2023-01-03"
   ]
  },
  "Hylobates lar": {
@@ -2319,7 +2745,10 @@
   "gestation": [
    "210 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Hystrix cristata": {
   "items": [
@@ -2329,7 +2758,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Incilius periglenes": {
   "items": [
@@ -2339,7 +2771,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-02"
+  ]
  },
  "Inia geoffrensis": {
   "items": [
@@ -2351,7 +2786,10 @@
   "gestation": [
    "1 année"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Isoptera": {
   "items": [
@@ -2372,7 +2810,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-03"
+  ]
  },
  "Isurus oxyrinchus": {
   "items": [
@@ -2382,7 +2823,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Lacerta bilineata": {
   "items": [
@@ -2392,7 +2836,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Lama glama": {
   "items": [
@@ -2420,7 +2867,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Latrodectus mactans": {
   "items": [
@@ -2438,7 +2888,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Lemur catta": {
   "items": [
@@ -2450,7 +2903,10 @@
   "gestation": [
    "133 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Leontopithecus rosalia": {
   "items": [
@@ -2462,7 +2918,10 @@
   "gestation": [
    "128.5 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Leopardus pardalis": {
   "items": [
@@ -2494,6 +2953,9 @@
    "Amazone à front jaune",
    "Hocco globuleux",
    "paresseux"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Leopardus wiedii": {
@@ -2506,7 +2968,10 @@
   "gestation": [
    "80 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Leptailurus serval": {
   "items": [
@@ -2533,6 +2998,9 @@
    "Spatule d'Afrique",
    "lièvre du Cap",
    "Elephantulus myurus"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Lepus europaeus": {
@@ -2554,6 +3022,9 @@
    "coquelicot",
    "betterave sucrière",
    "Blé d'hiver"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Limulus polyphemus": {
@@ -2564,7 +3035,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Lithobates catesbeianus": {
   "items": [
@@ -2574,7 +3048,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Litocranius walleri": {
   "items": [
@@ -2586,7 +3063,10 @@
   "gestation": [
    "7 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Loxodonta africana": {
   "items": [
@@ -2598,7 +3078,10 @@
   "gestation": [
    "22 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-04"
+  ]
  },
  "Loxodonta cyclotis": {
   "items": [
@@ -2608,7 +3091,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-04"
+  ]
  },
  "Lucanus cervus": {
   "items": [
@@ -2618,7 +3104,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   "
+  ]
  },
  "Lupulella mesomelas": {
   "items": [
@@ -2630,7 +3119,10 @@
   "gestation": [
    "62.5 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Lutra lutra": {
   "items": [
@@ -2642,7 +3134,10 @@
   "gestation": [
    "67.5 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Lutra lutra whiteleyi": {
   "items": [
@@ -2662,7 +3157,10 @@
   "gestation": [
    "70 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Lynx lynx": {
   "items": [
@@ -2726,6 +3224,9 @@
    "Marmota himalayana",
    "Mustela nivalis nivalis",
    "campagnol"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Lynx pardinus": {
@@ -2770,6 +3271,9 @@
    "Grenouille de Pérez",
    "Mustela nivalis nivalis",
    "Pie-bleue ibérique"
+  ],
+  "detail": [
+   "VU Normal   2021-12-22"
   ]
  },
  "Lynx rufus": {
@@ -2809,6 +3313,9 @@
    "Sylvilagus",
    "saumon",
    "porc-épic d'Amérique"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Macaca fuscata": {
@@ -2821,7 +3328,10 @@
   "gestation": [
    "180 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Macrochelys temminckii": {
   "items": [
@@ -2832,7 +3342,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2025-11-17"
+  ]
  },
  "Macrotis lagotis": {
   "items": [
@@ -2844,7 +3357,11 @@
   "gestation": [
    "2 semaine"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2021-12-22",
+   "VU Normal   2022-10-09"
+  ]
  },
  "Madoqua": {
   "items": [
@@ -2869,6 +3386,10 @@
    "Rattus",
    "Myotis",
    "Scandentia"
+  ],
+  "detail": [
+   "LC Normal   ",
+   "LC Normal   2023-01-03"
   ]
  },
  "Mandrillus sphinx": {
@@ -2879,7 +3400,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Manis": {
   "items": [
@@ -2898,7 +3422,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Maratus volans": {
   "items": [
@@ -2918,7 +3445,10 @@
   "gestation": [
    "33 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Medusozoa": {
   "items": [
@@ -2943,6 +3473,9 @@
    "Euphausiacea",
    "maquereau commun",
    "zooplancton"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Megupsilon aporus": {
@@ -2953,7 +3486,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-02"
+  ]
  },
  "Melanocetus johnsonii": {
   "items": [
@@ -2963,7 +3499,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Meleagris gallopavo": {
   "items": [
@@ -2978,6 +3517,9 @@
    "fruit à coque",
    "grain",
    "gland"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Meles meles": {
@@ -2988,7 +3530,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Mellivora capensis": {
   "items": [
@@ -3014,6 +3559,9 @@
    "Hystricidae",
    "lièvre sauteur",
    "Rhombomyina"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Melomys rubicola": {
@@ -3024,7 +3572,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-02"
+  ]
  },
  "Melopsittacus undulatus": {
   "items": [
@@ -3034,7 +3585,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Melursus ursinus": {
   "items": [
@@ -3049,6 +3603,9 @@
   "food": [
    "Formicidae",
    "Termite"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Menura novaehollandiae": {
@@ -3059,7 +3616,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Mephitis mephitis": {
   "items": [
@@ -3093,6 +3653,9 @@
    "campagnol",
    "crabe",
    "sauteriau"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Mesocricetus auratus": {
@@ -3105,7 +3668,10 @@
   "gestation": [
    "16 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Milvus milvus": {
   "items": [
@@ -3113,7 +3679,10 @@
   ],
   "uicn": [],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Deprecated   2021-12-27"
+  ]
  },
  "Mirounga leonina": {
   "items": [
@@ -3125,7 +3694,10 @@
   "gestation": [
    "50 semaine"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Mobula birostris": {
   "items": [
@@ -3135,7 +3707,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-03"
+  ]
  },
  "Mola mola": {
   "items": [
@@ -3145,7 +3720,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-03"
+  ]
  },
  "Moloch horridus": {
   "items": [
@@ -3155,7 +3733,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Monodon monoceros": {
   "items": [
@@ -3169,6 +3750,9 @@
   ],
   "food": [
    "Morue polaire"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Morpho": {
@@ -3188,7 +3772,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Mustela erminea": {
   "items": [
@@ -3205,12 +3792,15 @@
    "Arvicola amphibius",
    "Ochotona",
    "Hamster d'Europe"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Mustela furo": {
   "items": [
-   "Q178973",
-   "Q122171688"
+   "Q122171688",
+   "Q178973"
   ],
   "uicn": [],
   "gestation": [
@@ -3228,7 +3818,10 @@
   "gestation": [
    "35 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Myrmecobius fasciatus": {
   "items": [
@@ -3240,7 +3833,10 @@
   "gestation": [
    "14 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Myrmecophaga tridactyla": {
   "items": [
@@ -3252,7 +3848,10 @@
   "gestation": [
    "180 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Nasalis larvatus": {
   "items": [
@@ -3262,7 +3861,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Natrix helvetica": {
   "items": [
@@ -3288,7 +3890,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Neofelis nebulosa": {
   "items": [
@@ -3326,6 +3931,9 @@
    "Menetes berdmorei",
    "Sanglier de Java",
    "Tragulus"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Nestor notabilis": {
@@ -3336,7 +3944,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2021-12-27"
+  ]
  },
  "Notamacropus rufogriseus": {
   "items": [
@@ -3346,7 +3957,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Nyctereutes procyonoides": {
   "items": [
@@ -3358,7 +3972,10 @@
   "gestation": [
    "61 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Nycticebus": {
   "items": [
@@ -3378,7 +3995,10 @@
   "gestation": [
    "30.5 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Octopus vulgaris": {
   "items": [
@@ -3388,7 +4008,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Odobenus rosmarus": {
   "items": [
@@ -3400,7 +4023,10 @@
   "gestation": [
    "15 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Odontodactylus scyllarus": {
   "items": [
@@ -3420,7 +4046,10 @@
   "gestation": [
    "14.5 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Ophiophagus hannah": {
   "items": [
@@ -3430,7 +4059,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-03"
+  ]
  },
  "Orcinus orca": {
   "items": [
@@ -3491,6 +4123,9 @@
    "hareng",
    "saumon",
    "Manta raya"
+  ],
+  "detail": [
+   "DD Normal   2023-01-02"
   ]
  },
  "Ornithorhynchus anatinus": {
@@ -3501,7 +4136,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Oryctolagus cuniculus": {
   "items": [
@@ -3526,6 +4164,9 @@
    "Blé d'hiver",
    "mûre",
    "cecotropes"
+  ],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
   ]
  },
  "Oryx gazella": {
@@ -3538,7 +4179,10 @@
   "gestation": [
    "9.25 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Osphranter rufus": {
   "items": [
@@ -3548,7 +4192,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Otocolobus manul": {
   "items": [
@@ -3560,7 +4207,10 @@
   "gestation": [
    "76 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Otocyon megalotis": {
   "items": [
@@ -3572,7 +4222,10 @@
   "gestation": [
    "2 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Ovis aries": {
   "items": [
@@ -3601,7 +4254,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-06-28"
+  ]
  },
  "Oxyuranus microlepidotus": {
   "items": [
@@ -3611,7 +4267,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Pagophilus groenlandicus": {
   "items": [
@@ -3623,7 +4282,11 @@
   "gestation": [
    "11.5 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02",
+   "NT Preferred   2025-11-12"
+  ]
  },
  "Paguroidea": {
   "items": [
@@ -3643,7 +4306,10 @@
   "gestation": [
    "8 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Pan troglodytes": {
   "items": [
@@ -3661,6 +4327,9 @@
    "miel",
    "œuf d'oiseau",
    "fruit comestible"
+  ],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
   ]
  },
  "Pandinus imperator": {
@@ -3679,7 +4348,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Panthera leo": {
   "items": [
@@ -3693,6 +4365,9 @@
   ],
   "food": [
    "Ungulata"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Panthera leo leo": {
@@ -3712,7 +4387,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Panthera onca": {
   "items": [
@@ -3764,6 +4442,9 @@
    "Hocco globuleux",
    "Dasyprocta fuliginosa",
    "paresseux"
+  ],
+  "detail": [
+   "NT Normal   2023-01-02"
   ]
  },
  "Panthera pardus": {
@@ -3862,6 +4543,9 @@
    "Pedetes",
    "Chlorocebus pygerythrus",
    "Felis lybica"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Panthera tigris": {
@@ -3880,6 +4564,9 @@
    "Leporidae",
    "Q26375",
    "Ungulata"
+  ],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
   ]
  },
  "Panthera uncia": {
@@ -3920,6 +4607,9 @@
    "Nemorhaedus griseus",
    "campagnol",
    "yack"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Papio ursinus": {
@@ -3930,7 +4620,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Paracanthurus hepatus": {
   "items": [
@@ -3940,7 +4633,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Paradisaeidae": {
   "items": [
@@ -3974,7 +4670,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Pavo cristatus": {
   "items": [
@@ -3984,7 +4683,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Pelecanus onocrotalus": {
   "items": [
@@ -3994,7 +4696,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Pelophylax": {
   "items": [
@@ -4012,7 +4717,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Phacochoerus africanus": {
   "items": [
@@ -4024,7 +4732,10 @@
   "gestation": [
    "172 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Pharomachrus mocinno": {
   "items": [
@@ -4034,7 +4745,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2021-12-27"
+  ]
  },
  "Phascolarctos cinereus": {
   "items": [
@@ -4048,6 +4762,9 @@
   ],
   "food": [
    "feuille"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Phasmatodea": {
@@ -4068,7 +4785,10 @@
   "gestation": [
    "11 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Phocoena phocoena": {
   "items": [
@@ -4080,7 +4800,10 @@
   "gestation": [
    "9 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Phoenicopterus roseus": {
   "items": [
@@ -4090,7 +4813,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Phyllobates terribilis": {
   "items": [
@@ -4100,7 +4826,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Physalia physalis": {
   "items": [
@@ -4122,6 +4851,9 @@
   ],
   "food": [
    "Teuthida"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Pica pica": {
@@ -4134,6 +4866,9 @@
   "gestation": [],
   "food": [
    "omnivore"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Picus viridis": {
@@ -4147,6 +4882,9 @@
   "food": [
    "Lasius",
    "Formica"
+  ],
+  "detail": [
+   "LC Normal   2021-12-27"
   ]
  },
  "Pipa pipa": {
@@ -4157,7 +4895,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Pipistrellus pipistrellus": {
   "items": [
@@ -4167,7 +4908,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Pithecophaga jefferyi": {
   "items": [
@@ -4177,7 +4921,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2021-12-27"
+  ]
  },
  "Pongo pygmaeus": {
   "items": [
@@ -4194,6 +4941,9 @@
    "graine",
    "œuf d'oiseau",
    "fruit comestible"
+  ],
+  "detail": [
+   "CR Normal   2025-07-04"
   ]
  },
  "Prionace glauca": {
@@ -4204,7 +4954,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Prionailurus rubiginosus": {
   "items": [
@@ -4214,7 +4967,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Prionailurus viverrinus": {
   "items": [
@@ -4226,7 +4982,10 @@
   "gestation": [
    "65 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Pristis": {
   "items": [
@@ -4251,6 +5010,9 @@
    "vertébrés",
    "invertébrés",
    "matériel végétal"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Propithecus verreauxi": {
@@ -4261,7 +5023,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Proteles cristatus": {
   "items": [],
@@ -4277,7 +5042,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Pteromys volans": {
   "items": [
@@ -4287,7 +5055,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Puma concolor": {
   "items": [
@@ -4344,6 +5115,9 @@
    "Pudu",
    "paresseux",
    "viscache"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Pygocentrus nattereri": {
@@ -4362,7 +5136,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Rangifer tarandus": {
   "items": [
@@ -4387,6 +5164,9 @@
    "Cladonia rangiferina",
    "Omble chevalier",
    "œuf d'oiseau"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Rangifer tarandus dawsoni": {
@@ -4406,7 +5186,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Rhacophorus nigropalmatus": {
   "items": [
@@ -4416,7 +5199,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Rhincodon typus": {
   "items": [
@@ -4426,7 +5212,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Rhinella marina": {
   "items": [
@@ -4436,7 +5225,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Rhinoceros sondaicus annamiticus": {
   "items": [
@@ -4456,7 +5248,10 @@
   "gestation": [
    "480 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Rupicapra rupicapra": {
   "items": [
@@ -4469,7 +5264,10 @@
    "170 jour",
    "6 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Sagittarius serpentarius": {
   "items": [
@@ -4479,7 +5277,10 @@
    "? espèce menacée"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2021-12-27"
+  ]
  },
  "Saiga tatarica": {
   "items": [
@@ -4491,7 +5292,10 @@
   "gestation": [
    "139 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Saimiri": {
   "items": [
@@ -4509,7 +5313,11 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02",
+   "VU Preferred   2025-11-12"
+  ]
  },
  "Salmo salar": {
   "items": [
@@ -4519,7 +5327,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Sapajus": {
   "items": [
@@ -4539,7 +5350,10 @@
   "gestation": [
    "21 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
+  ]
  },
  "Scarabaeinae": {
   "items": [
@@ -4575,7 +5389,10 @@
   "gestation": [
    "38 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Scyliorhinus canicula": {
   "items": [
@@ -4585,7 +5402,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-04"
+  ]
  },
  "Sepia officinalis": {
   "items": [
@@ -4595,7 +5415,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Setonix brachyurus": {
   "items": [
@@ -4605,7 +5428,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Silurus glanis": {
   "items": [
@@ -4616,7 +5442,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Siphonaptera": {
   "items": [
@@ -4634,7 +5463,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-04"
+  ]
  },
  "Sphyraena barracuda": {
   "items": [
@@ -4644,7 +5476,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03"
+  ]
  },
  "Sphyrna mokarran": {
   "items": [
@@ -4654,7 +5489,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2023-01-02"
+  ]
  },
  "Sterna paradisaea": {
   "items": [
@@ -4664,7 +5502,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Struthio camelus": {
   "items": [
@@ -4674,7 +5515,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Struthio camelus syriacus": {
   "items": [
@@ -4694,7 +5538,10 @@
   "gestation": [
    "11 semaine"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Sus domesticus": {
   "items": [
@@ -4738,6 +5585,9 @@
    "Q2254408",
    "brindille",
    "fruits rouges"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Synanceia verrucosa": {
@@ -4756,7 +5606,10 @@
   "gestation": [
    "340 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Tachyglossus aculeatus": {
   "items": [
@@ -4768,7 +5621,10 @@
   "gestation": [
    "24.5 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Takifugu rubripes": {
   "items": [
@@ -4778,7 +5634,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-03"
+  ]
  },
  "Talpa europaea": {
   "items": [
@@ -4792,6 +5651,9 @@
   ],
   "food": [
    "Lumbricina"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Tapirus terrestris": {
@@ -4804,7 +5666,10 @@
   "gestation": [
    "398 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Tardigrada": {
   "items": [
@@ -4822,7 +5687,11 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02",
+   "VU Preferred   2025-11-12"
+  ]
  },
  "Theropithecus gelada": {
   "items": [
@@ -4834,6 +5703,9 @@
   "gestation": [],
   "food": [
    "herbe"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Thunnus thynnus": {
@@ -4844,7 +5716,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Thylacinus cynocephalus": {
   "items": [
@@ -4854,7 +5729,10 @@
    "EX"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "EX Normal   2023-01-02"
+  ]
  },
  "Torpedo marmorata": {
   "items": [
@@ -4864,7 +5742,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-03"
+  ]
  },
  "Toxotes": {
   "items": [
@@ -4884,7 +5765,10 @@
   "gestation": [
    "9.5 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Tragelaphus strepsiceros": {
   "items": [
@@ -4896,7 +5780,10 @@
   "gestation": [
    "8 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Tremarctos ornatus": {
   "items": [
@@ -4908,7 +5795,10 @@
   "gestation": [
    "247 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Trichechus manatus": {
   "items": [
@@ -4920,7 +5810,10 @@
   "gestation": [
    "13 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Triturus cristatus": {
   "items": [
@@ -4930,7 +5823,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Trochilidae": {
   "items": [
@@ -4950,7 +5846,10 @@
   "gestation": [
    "1 année"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Tympanuchus cupido cupido": {
   "items": [
@@ -4968,7 +5867,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2021-12-27"
+  ]
  },
  "Ursus americanus": {
   "items": [
@@ -4980,7 +5882,10 @@
   "gestation": [
    "212 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Ursus arctos": {
   "items": [
@@ -5047,6 +5952,9 @@
    "poire",
    "fraise",
    "Spermophile de Richardson"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Ursus arctos californicus": {
@@ -5065,7 +5973,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   "
+  ]
  },
  "Ursus arctos isabellinus": {
   "items": [
@@ -5113,6 +6024,9 @@
    "Guillemot de Brünnich",
    "échouage des cétacés",
    "goéland"
+  ],
+  "detail": [
+   "VU Normal   2023-01-02"
   ]
  },
  "Ursus thibetanus": {
@@ -5125,7 +6039,10 @@
   "gestation": [
    "7 mois"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2023-01-02"
+  ]
  },
  "Urva edwardsii": {
   "items": [
@@ -5145,6 +6062,9 @@
   "gestation": [],
   "food": [
    "charogne"
+  ],
+  "detail": [
+   "? espèce menacée Normal   2023-01-02"
   ]
  },
  "Vermivora bachmanii": {
@@ -5155,7 +6075,10 @@
    "CR"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "CR Normal   2021-12-27"
+  ]
  },
  "Vespa crabro": {
   "items": [
@@ -5199,7 +6122,11 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-03",
+   "VU Preferred   2025-11-12"
+  ]
  },
  "Vombatus ursinus": {
   "items": [
@@ -5209,7 +6136,10 @@
    "LC"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Vulpes lagopus": {
   "items": [
@@ -5221,7 +6151,10 @@
   "gestation": [
    "52 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Vulpes vulpes": {
   "items": [
@@ -5236,6 +6169,9 @@
   "food": [
    "fruit comestible",
    "Oryctolagus"
+  ],
+  "detail": [
+   "LC Normal   2023-01-02"
   ]
  },
  "Vulpes zerda": {
@@ -5248,7 +6184,10 @@
   "gestation": [
    "50 jour"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  },
  "Vultur gryphus": {
   "items": [
@@ -5258,7 +6197,10 @@
    "VU"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "VU Normal   2021-12-27"
+  ]
  },
  "Xiphias gladius": {
   "items": [
@@ -5268,7 +6210,10 @@
    "NT"
   ],
   "gestation": [],
-  "food": []
+  "food": [],
+  "detail": [
+   "NT Normal   2023-01-02"
+  ]
  },
  "Zalophus californianus": {
   "items": [
@@ -5280,6 +6225,9 @@
   "gestation": [
    "50 semaine"
   ],
-  "food": []
+  "food": [],
+  "detail": [
+   "LC Normal   2023-01-02"
+  ]
  }
 }
