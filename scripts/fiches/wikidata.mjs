@@ -70,6 +70,31 @@ for (let i = 0; i < names.length; i += 50) {
   await sleep(1000);
 }
 for (const n of names) out[n] ??= { items: [], uicn: [], gestation: [], food: [] };
+// détail des statuts UICN : rang de la déclaration et date de l'évaluation, pour départager les désaccords
+for (let i = 0; i < names.length; i += 50) {
+  const batch = names.slice(i, i + 50);
+  const values = batch.map((n) => JSON.stringify(n)).join(' ');
+  const rows = await sparql(`
+    SELECT ?name ?status ?statusLabel ?rank ?time ?retrieved ?published WHERE {
+      VALUES ?name { ${values} }
+      ?item wdt:P225 ?name ; p:P141 ?st .
+      ?st ps:P141 ?status ; wikibase:rank ?rank .
+      OPTIONAL { ?st pq:P585 ?time . }
+      OPTIONAL { ?st prov:wasDerivedFrom ?ref . OPTIONAL { ?ref pr:P813 ?retrieved . } OPTIONAL { ?ref pr:P577 ?published . } }
+      SERVICE wikibase:label { bd:serviceParam wikibase:language "fr,en". }
+    }`);
+  for (const r of rows) {
+    const entry = (out[r.name.value] ??= { items: [], uicn: [], gestation: [], food: [] });
+    const detail = (entry.detail ??= []);
+    const code = STATUS[r.status.value.split('/').pop()] ?? `? ${r.statusLabel?.value ?? ''}`;
+    const line = [code, r.rank.value.split('#').pop().replace('Rank', ''), r.time?.value.slice(0, 10), r.published?.value.slice(0, 10), r.retrieved?.value.slice(0, 10)]
+      .map((v) => v ?? '')
+      .join(' ');
+    if (!detail.includes(line)) detail.push(line);
+  }
+  await sleep(1000);
+}
+
 
 const sorted = Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
 writeFileSync(`${ROOT}scripts/fiches/wikidata.json`, `${JSON.stringify(sorted, null, 1)}\n`);
