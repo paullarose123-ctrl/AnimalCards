@@ -10,6 +10,8 @@ import { collectionNumber, displayName, extinctionLabel, quickSellValue, rarityO
 import { canDuel } from '../engine/duel';
 import { MARKET_TAX, marketPrice, netAfterTax, nextMinBid, priceBounds, priceHistory, suggestedPrices } from '../engine/market';
 import type { CardFace, OwnedCard } from '../engine/types';
+import { Encyclopedie } from '../components/Encyclopedie';
+import { encyclopedieOf } from '../data/encyclopedie';
 import { Spin3D } from '../components/Spin3D';
 import { packScene } from '../components/PackArt';
 import { Landscape } from '../components/PackScene';
@@ -330,6 +332,7 @@ export function CardDetail() {
   const habitat = athlete.habitat;
   const mesures = habitat ? null : mesuresOf(athlete.id);
   const population = populationOf(athlete);
+  const vitesse = habitat ? undefined : encyclopedieOf(athlete.id)?.vitesse;
   const owned = 'uid' in detail.card && !detail.listingId ? collection.find((c) => c.uid === (detail.card as OwnedCard).uid) : undefined;
   const copies = collection.filter((c) => c.athleteId === face.athleteId && c.variant === face.variant);
   const price = marketPrice(face, now, news);
@@ -406,9 +409,19 @@ export function CardDetail() {
                   <dd>{population.extinct ? 'Éteint' : `≈ ${population.value}`}</dd>
                 </div>
               )}
+              {vitesse && (
+                <div>
+                  <dt>Vitesse max</dt>
+                  <dd>
+                    {vitesse.kmh.toLocaleString('fr-FR')}
+                    <small> km/h</small>
+                  </dd>
+                </div>
+              )}
             </dl>
           )}
           <p className="detail__fact">{athlete.fact}</p>
+          {!habitat && <Encyclopedie athleteId={athlete.id} name={displayName(athlete)} />}
           {face.variant === 'prime' && athlete.prime && (
             <p className="detail__prime">
               <b>Version Prime {athlete.prime.year}</b> : {athlete.prime.note}

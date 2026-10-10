@@ -4,9 +4,6 @@ name: Fiches des espèces
 
 on:
   workflow_dispatch:
-  push:
-    branches: [claude/animal-cards-boosters-rl3v8z]
-    paths: [scripts/fiches/wikidata.mjs, .github/workflows/fiches.yml]
 
 permissions:
   contents: write
