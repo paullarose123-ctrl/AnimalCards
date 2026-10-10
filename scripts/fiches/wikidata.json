@@ -114,7 +114,9 @@
   "items": [
    "Q41960"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "135 jour"
   ],
@@ -469,7 +471,9 @@
   "items": [
    "Q42196"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "11.5 mois"
   ],
@@ -704,25 +708,6 @@
    "62 jour"
   ],
   "food": [
-   "chat",
-   "poisson",
-   "poulet",
-   "insecte",
-   "chèvre",
-   "écureuil roux",
-   "mouton",
-   "gaspillage alimentaire",
-   "Canard colvert",
-   "Oryctolagus cuniculus",
-   "Perdrix grise",
-   "Bernache du Canada",
-   "Dindon sauvage",
-   "chien de prairie",
-   "Rattus",
-   "musaraigne",
-   "castor",
-   "champignon",
-   "Mephitidae",
    "œuf",
    "raton laveur",
    "Didelphis virginiana",
@@ -745,7 +730,26 @@
    "saumon",
    "grenouille",
    "fruit comestible",
-   "porc-épic d'Amérique"
+   "porc-épic d'Amérique",
+   "chat",
+   "poisson",
+   "poulet",
+   "insecte",
+   "chèvre",
+   "écureuil roux",
+   "mouton",
+   "gaspillage alimentaire",
+   "Canard colvert",
+   "Oryctolagus cuniculus",
+   "Perdrix grise",
+   "Bernache du Canada",
+   "Dindon sauvage",
+   "chien de prairie",
+   "Rattus",
+   "musaraigne",
+   "castor",
+   "champignon",
+   "Mephitidae"
   ]
  },
  "Canis lupus": {
@@ -825,7 +829,9 @@
   "items": [
    "Q188957"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -1131,7 +1137,9 @@
   "items": [
    "Q185260"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -1157,7 +1165,9 @@
   "items": [
    "Q22110899"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -1262,7 +1272,9 @@
   "items": [
    "Q739887"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -1355,7 +1367,9 @@
   "items": [
    "Q132585"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "61 jour"
   ],
@@ -1477,7 +1491,9 @@
   "items": [
    "Q186778"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "165 jour"
   ],
@@ -1668,7 +1684,9 @@
   "items": [
    "Q133006"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "22 mois"
   ],
@@ -1688,7 +1706,9 @@
   "items": [
    "Q41407"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -1716,7 +1736,9 @@
   "items": [
    "Q22712"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "340 jour"
   ],
@@ -2291,7 +2313,9 @@
   "items": [
    "Q208043"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "210 jour"
   ],
@@ -2321,7 +2345,9 @@
   "items": [
    "Q205329"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "1 année"
   ],
@@ -2352,7 +2378,9 @@
   "items": [
    "Q192158"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -2416,7 +2444,9 @@
   "items": [
    "Q185385"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "133 jour"
   ],
@@ -2426,7 +2456,9 @@
   "items": [
    "Q208486"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "128.5 jour"
   ],
@@ -2560,7 +2592,9 @@
   "items": [
    "Q36557"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "22 mois"
   ],
@@ -2622,7 +2656,9 @@
   "items": [
    "Q173651"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "70 jour"
   ],
@@ -2792,7 +2828,9 @@
    "Q457872",
    "Q119166735"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -3061,7 +3099,9 @@
   "items": [
    "Q204175"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "16 jour"
   ],
@@ -3091,7 +3131,9 @@
   "items": [
    "Q321976"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -3216,7 +3258,9 @@
   "items": [
    "Q192029"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -3288,7 +3332,9 @@
   "items": [
    "Q193337"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -3368,7 +3414,9 @@
   "items": [
    "Q82037"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "14.5 mois"
   ],
@@ -3459,7 +3507,9 @@
   "items": [
    "Q25851"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "30 jour",
    "29 jour"
@@ -3587,7 +3637,9 @@
   "items": [
    "Q19537"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "8 mois"
   ],
@@ -3597,7 +3649,9 @@
   "items": [
    "Q4126704"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "225 jour"
   ],
@@ -3654,7 +3708,9 @@
   "items": [
    "Q182347"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -3812,7 +3868,9 @@
   "items": [
    "Q19939"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "107 jour"
   ],
@@ -4038,7 +4096,9 @@
   "items": [
    "Q963997"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -4362,7 +4422,9 @@
   "items": [
    "Q80378"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -4413,7 +4475,9 @@
   "items": [
    "Q168748"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": []
  },
@@ -4469,7 +4533,9 @@
   "items": [
    "Q134964"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [
    "21 jour"
   ],
@@ -5073,7 +5139,9 @@
   "items": [
    "Q4504"
   ],
-  "uicn": [],
+  "uicn": [
+   "? espèce menacée"
+  ],
   "gestation": [],
   "food": [
    "charogne"
