@@ -1,0 +1,5217 @@
+{
+ "Accipiter gentilis": {
+  "items": [
+   "Q25353"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Acinonyx jubatus": {
+  "items": [
+   "Q23907"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "92 jour"
+  ],
+  "food": [
+   "chèvre",
+   "gnou",
+   "lapin",
+   "autruche d'Afrique",
+   "zèbre",
+   "Hyracoidea",
+   "impala",
+   "Phacochère commun",
+   "gazelle",
+   "charogne",
+   "springbok",
+   "Madoqua",
+   "Nyala",
+   "Pintade de Numidie",
+   "Gazelle de Thomson",
+   "Ouette d'Égypte",
+   "Ourebia ourebi",
+   "Guib harnaché",
+   "Sturnus",
+   "gazelle dorcas",
+   "Pintade vulturine",
+   "Gazella bennettii",
+   "Gazelle à goitre",
+   "Alcelaphus buselaphus",
+   "Petit koudou",
+   "Oryx",
+   "Gazella dama",
+   "lièvre sauteur",
+   "lièvre du Cap",
+   "Céphalophe de Grimm",
+   "Urial",
+   "Capra aegagrus aegagrus",
+   "Neotragus",
+   "Calao d'Afrique du Sud"
+  ]
+ },
+ "Acipenser sturio": {
+  "items": [
+   "Q300955"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Actiniaria": {
+  "items": [
+   "Q147256"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Aepyceros melampus": {
+  "items": [
+   "Q132576"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "6.75 mois"
+  ],
+  "food": []
+ },
+ "Agalychnis callidryas": {
+  "items": [
+   "Q337616"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Ailuropoda melanoleuca": {
+  "items": [
+   "Q33602"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "130 jour"
+  ],
+  "food": [
+   "bambou"
+  ]
+ },
+ "Ailurus fulgens": {
+  "items": [
+   "Q41960"
+  ],
+  "uicn": [],
+  "gestation": [
+   "135 jour"
+  ],
+  "food": [
+   "insecte",
+   "oiseau",
+   "moss",
+   "bambou",
+   "œuf",
+   "fruit comestible",
+   "gland"
+  ]
+ },
+ "Alcedo atthis": {
+  "items": [
+   "Q79915"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "osteichthyes"
+  ]
+ },
+ "Alcelaphus buselaphus buselaphus": {
+  "items": [
+   "Q1210851"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Alces alces": {
+  "items": [
+   "Q35517"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "233 jour"
+  ],
+  "food": [
+   "bouleau",
+   "Taraxacum",
+   "saule",
+   "Filicopsida",
+   "Peuplier faux-tremble",
+   "Érable de Pennsylvanie",
+   "lys",
+   "phorbe",
+   "Potamogeton distinctus"
+  ]
+ },
+ "Aldabrachelys gigantea": {
+  "items": [
+   "Q27885022"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": [
+   "pomme",
+   "banane",
+   "feuille",
+   "invertébrés",
+   "tronc",
+   "charogne",
+   "herbe",
+   "fruit comestible"
+  ]
+ },
+ "Alligator mississippiensis": {
+  "items": [
+   "Q193327"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Alouatta": {
+  "items": [
+   "Q504247"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Amblyrhynchus cristatus": {
+  "items": [
+   "Q208796"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Ambystoma mexicanum": {
+  "items": [
+   "Q22718"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Amphiprion ocellaris": {
+  "items": [
+   "Q1126155"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Anas oustaleti": {
+  "items": [
+   "Q903669"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Anas platyrhynchos": {
+  "items": [
+   "Q25348"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "arthropodes",
+   "insecte",
+   "beetle",
+   "Q25312",
+   "crustacé",
+   "Q28319",
+   "graine",
+   "racine",
+   "ver",
+   "Anisoptera",
+   "tubercule",
+   "Trichoptera",
+   "Gastropoda"
+  ]
+ },
+ "Anax imperator": {
+  "items": [
+   "Q527496"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Andrias davidianus": {
+  "items": [
+   "Q61312"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Anguilla anguilla": {
+  "items": [
+   "Q26387"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Anser anser domesticus": {
+  "items": [
+   "Q141537272"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Anthozoa": {
+  "items": [
+   "Q28524",
+   "Q27685078"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Antidorcas marsupialis": {
+  "items": [
+   "Q213084"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "5.75 mois"
+  ],
+  "food": []
+ },
+ "Antilocapra americana": {
+  "items": [
+   "Q187943"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "250 jour"
+  ],
+  "food": []
+ },
+ "Apis mellifera": {
+  "items": [
+   "Q30034"
+  ],
+  "uicn": [
+   "DD"
+  ],
+  "gestation": [],
+  "food": [
+   "pollen",
+   "nectar"
+  ]
+ },
+ "Aptenodytes forsteri": {
+  "items": [
+   "Q161829"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Apteryx": {
+  "items": [
+   "Q43642"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Apus apus": {
+  "items": [
+   "Q25377"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Aquila chrysaetos": {
+  "items": [
+   "Q41181"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Ara macao": {
+  "items": [
+   "Q243761"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "fleur",
+   "fruit à coque",
+   "graine",
+   "nectar",
+   "fruit comestible"
+  ]
+ },
+ "Araneus diadematus": {
+  "items": [
+   "Q337509"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Architeuthis dux": {
+  "items": [
+   "Q13537131"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Asteroidea": {
+  "items": [
+   "Q25349"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Ateles": {
+  "items": [
+   "Q258244"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Athene noctua": {
+  "items": [
+   "Q129958"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Balaena mysticetus": {
+  "items": [
+   "Q174652"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "11 mois"
+  ],
+  "food": [
+   "zooplancton"
+  ]
+ },
+ "Balaenoptera musculus": {
+  "items": [
+   "Q42196"
+  ],
+  "uicn": [],
+  "gestation": [
+   "11.5 mois"
+  ],
+  "food": [
+   "Euphausiacea"
+  ]
+ },
+ "Balaenoptera physalus": {
+  "items": [
+   "Q179020"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "11.5 mois"
+  ],
+  "food": []
+ },
+ "Basiliscus basiliscus": {
+  "items": [
+   "Q651273"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Bathynomus giganteus": {
+  "items": [
+   "Q1366514"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Birgus latro": {
+  "items": [
+   "Q206070"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Bison bison": {
+  "items": [
+   "Q82728"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "285 jour"
+  ],
+  "food": []
+ },
+ "Bison bonasus": {
+  "items": [
+   "Q81091"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "263 jour"
+  ],
+  "food": []
+ },
+ "Bison bonasus caucasicus": {
+  "items": [
+   "Q2528872"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Bombus terrestris": {
+  "items": [
+   "Q752274"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Bombyx mori": {
+  "items": [
+   "Q134747"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Bos mutus": {
+  "items": [
+   "Q26547"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "258 jour"
+  ],
+  "food": []
+ },
+ "Bos taurus": {
+  "items": [
+   "L1369439-S1",
+   "Q19610691"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Brachypelma hamorii": {
+  "items": [
+   "Q4122285"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Bradypus": {
+  "items": [
+   "Q185167",
+   "Q138575383"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Bubalus bubalis": {
+  "items": [
+   "Q42710"
+  ],
+  "uicn": [],
+  "gestation": [
+   "320 jour"
+  ],
+  "food": []
+ },
+ "Bubo bubo": {
+  "items": [
+   "Q130933"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Bubo scandiacus": {
+  "items": [
+   "Q170177"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Buceros bicornis": {
+  "items": [
+   "Q232768"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": [
+   "Lauraceae",
+   "Ficus",
+   "Myristicaceae",
+   "Vitex altissima"
+  ]
+ },
+ "Bufo bufo": {
+  "items": [
+   "Q146375"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Buteo buteo": {
+  "items": [
+   "Q25385"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Camelus dromedarius": {
+  "items": [
+   "Q71516"
+  ],
+  "uicn": [],
+  "gestation": [
+   "12.5 mois"
+  ],
+  "food": []
+ },
+ "Canis aureus": {
+  "items": [
+   "Q128098"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "9 semaine"
+  ],
+  "food": []
+ },
+ "Canis latrans": {
+  "items": [
+   "Q44299",
+   "Q131036659"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "62 jour"
+  ],
+  "food": [
+   "chat",
+   "poisson",
+   "poulet",
+   "insecte",
+   "chèvre",
+   "écureuil roux",
+   "mouton",
+   "gaspillage alimentaire",
+   "Canard colvert",
+   "Oryctolagus cuniculus",
+   "Perdrix grise",
+   "Bernache du Canada",
+   "Dindon sauvage",
+   "chien de prairie",
+   "Rattus",
+   "musaraigne",
+   "castor",
+   "champignon",
+   "Mephitidae",
+   "œuf",
+   "raton laveur",
+   "Didelphis virginiana",
+   "Antilocapra americana",
+   "mouflon canadien",
+   "charogne",
+   "Talpa europaea",
+   "Cerf de Virginie",
+   "fruit séché",
+   "Odocoileus hemionus",
+   "Crotalus",
+   "Lepus alleni",
+   "Grand Géocoucou",
+   "Lièvre de Californie",
+   "Geomyidae",
+   "Arvicolinae",
+   "Gophère polyphème",
+   "Marmota olympus",
+   "tamia mineur",
+   "saumon",
+   "grenouille",
+   "fruit comestible",
+   "porc-épic d'Amérique"
+  ]
+ },
+ "Canis lupus": {
+  "items": [
+   "Q18498"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "62 jour"
+  ],
+  "food": [
+   "pomme",
+   "chien",
+   "chat",
+   "poisson",
+   "Bos taurus",
+   "oiseau",
+   "mouton",
+   "renard roux",
+   "raisin",
+   "baie",
+   "bison",
+   "gaspillage alimentaire",
+   "cervidés",
+   "Oryctolagus cuniculus",
+   "Lièvre d'Europe",
+   "élan",
+   "Rangifer tarandus",
+   "sanglier",
+   "cerf élaphe",
+   "chevreuil",
+   "Nyctereutes procyonoides",
+   "wapiti",
+   "Bœuf musqué",
+   "ragondin",
+   "charogne",
+   "lemming",
+   "Castoridae",
+   "Odocoileus hemionus",
+   "Ovis orientalis",
+   "herbe",
+   "Arvicolinae",
+   "Rupicapra",
+   "ibex",
+   "mouflon corse",
+   "saumon",
+   "poire"
+  ]
+ },
+ "Canis lupus arctos": {
+  "items": [
+   "Q216441"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Canis lupus dingo": {
+  "items": [
+   "Q5032447"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Canis lupus hodophilax": {
+  "items": [
+   "Q375750"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Canis simensis": {
+  "items": [
+   "Q188957"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Capra hircus": {
+  "items": [
+   "L1371072-S1",
+   "L1371073-S1",
+   "Q45320358"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Capra ibex": {
+  "items": [
+   "Q168327"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "167 jour"
+  ],
+  "food": []
+ },
+ "Capra pyrenaica pyrenaica": {
+  "items": [
+   "Q1941059"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Capreolus capreolus": {
+  "items": [
+   "Q122069"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "283 jour"
+  ],
+  "food": []
+ },
+ "Caracal caracal": {
+  "items": [
+   "Q30847"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "70 jour"
+  ],
+  "food": [
+   "chèvre",
+   "Mangouste rayée",
+   "Hyracoidea",
+   "impala",
+   "Suricate",
+   "Tourterelle des bois",
+   "charogne",
+   "Gazelle de Waller",
+   "Madoqua",
+   "Manchot du Cap",
+   "Pintade de Numidie",
+   "Gazelle de Thomson",
+   "gazelle dorcas",
+   "Pintade vulturine",
+   "Raphicerus sharpei",
+   "lièvre du Cap",
+   "Céphalophe de Grimm",
+   "Lemniscomys barbarus",
+   "Redunca fulvorufula",
+   "Rhynchocyon petersi",
+   "Myotomys unisulcatus",
+   "poule",
+   "Pedetes",
+   "Felis lybica"
+  ]
+ },
+ "Carassius auratus": {
+  "items": [
+   "Q123141"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Carcharhinus leucas": {
+  "items": [
+   "Q190469"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Carcharhinus longimanus": {
+  "items": [
+   "Q318090"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Carcharhinus melanopterus": {
+  "items": [
+   "Q726384"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Carcharodon carcharias": {
+  "items": [
+   "Q129026"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "18 mois"
+  ],
+  "food": [
+   "poisson",
+   "dauphin",
+   "Labbe antarctique",
+   "Requin bleu",
+   "phoque commun",
+   "Marsouin commun",
+   "Phoque gris",
+   "maquereau commun",
+   "Pinnipède",
+   "Octopoda",
+   "oiseau de mer",
+   "Teuthida",
+   "Ophiodon elongatus",
+   "Scorpaenichthys marmoratus",
+   "espadon",
+   "grand dauphin",
+   "Caretta caretta",
+   "Requin mako",
+   "Chelonia mydas",
+   "Dauphin de Risso",
+   "Dauphin commun à bec court",
+   "Squalus acanthias",
+   "Thunnus thynnus",
+   "sea turtle",
+   "Mugil cephalus",
+   "Sparidae",
+   "Manchot du Cap",
+   "otarie de Californie",
+   "Otarie à fourrure d'Afrique du Sud",
+   "Cormoran à poitrine blanche",
+   "Galeorhinus galeus",
+   "Éléphant de mer du nord",
+   "Dauphin blanc de Chine",
+   "Lion de mer australien",
+   "Otarie à fourrure de Nouvelle-Zélande",
+   "Carcharhinus obscurus",
+   "Rajidae",
+   "Sarda sarda",
+   "Fou du Cap",
+   "Cormoran du Cap",
+   "Decapterus maruadsi",
+   "Goéland dominicain",
+   "Flétan de l'Atlantique",
+   "Atractoscion nobilis",
+   "Triakis semifasciata",
+   "Myliobatis californica",
+   "Mustelus",
+   "thon",
+   "Bullet tuna",
+   "Myliobatoidei",
+   "Puffin fuligineux",
+   "Delphinus coeruleoalbus"
+  ]
+ },
+ "Carlito syrichta": {
+  "items": [
+   "Q536862"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Castor canadensis": {
+  "items": [
+   "Q81056"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "aspen",
+   "willow",
+   "peuplier"
+  ]
+ },
+ "Casuarius casuarius": {
+  "items": [
+   "Q375790"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "fruit",
+   "mammifères",
+   "Reptiles",
+   "champignon",
+   "escargot"
+  ]
+ },
+ "Cavia porcellus": {
+  "items": [
+   "Q79803"
+  ],
+  "uicn": [],
+  "gestation": [
+   "72 jour"
+  ],
+  "food": []
+ },
+ "Cebuella pygmaea": {
+  "items": [
+   "Q14850405"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Centrolenidae": {
+  "items": [
+   "Q53752"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Cephalorhynchus commersonii": {
+  "items": [
+   "Q724354"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Ceratotherium simum": {
+  "items": [
+   "Q159918"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "490 jour"
+  ],
+  "food": [
+   "herbe"
+  ]
+ },
+ "Cervus canadensis canadensis": {
+  "items": [
+   "Q743864"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Cervus elaphus": {
+  "items": [
+   "Q79794"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "33.5 semaine"
+  ],
+  "food": []
+ },
+ "Cetorhinus maximus": {
+  "items": [
+   "Q185260"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Chelonoidis abingdonii": {
+  "items": [
+   "Q4045992"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Chinchilla": {
+  "items": [
+   "Q192930"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Choeropsis liberiensis": {
+  "items": [
+   "Q22110899"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Chrysocyon brachyurus": {
+  "items": [
+   "Q184389"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "65 jour"
+  ],
+  "food": []
+ },
+ "Cicadidae": {
+  "items": [
+   "Q130778"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Ciconia ciconia": {
+  "items": [
+   "Q25352"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "insecte",
+   "Reptiles",
+   "Amphibiens",
+   "Grenouille rousse",
+   "Pelophylax kl. esculentus",
+   "musaraigne",
+   "Gryllidae",
+   "Locuste",
+   "Lumbricina",
+   "taupe",
+   "campagnol",
+   "sauteriau"
+  ]
+ },
+ "Circaetus gallicus": {
+  "items": [
+   "Q170251"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Coccinella septempunctata": {
+  "items": [
+   "Q159543"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": [
+   "Aphidoidea",
+   "Aleurode des serres",
+   "Diaphorina citri"
+  ]
+ },
+ "Colobus guereza": {
+  "items": [
+   "Q628239"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Columba livia": {
+  "items": [
+   "Q42326"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Connochaetes taurinus": {
+  "items": [
+   "Q328809"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "8.25 mois"
+  ],
+  "food": []
+ },
+ "Conraua goliath": {
+  "items": [
+   "Q739887"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Conuropsis carolinensis": {
+  "items": [
+   "Q629204"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Corvus corax": {
+  "items": [
+   "Q25357"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Crocodylus niloticus": {
+  "items": [
+   "Q168745"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Crocodylus porosus": {
+  "items": [
+   "Q182599"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Crocuta crocuta": {
+  "items": [
+   "Q178089"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "110 jour"
+  ],
+  "food": [
+   "charogne",
+   "Ungulata"
+  ]
+ },
+ "Crotalus adamanteus": {
+  "items": [
+   "Q744532"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Cryptoprocta ferox": {
+  "items": [
+   "Q183330"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "90 jour"
+  ],
+  "food": []
+ },
+ "Culicidae": {
+  "items": [
+   "Q7367"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Cuon alpinus": {
+  "items": [
+   "Q132585"
+  ],
+  "uicn": [],
+  "gestation": [
+   "61 jour"
+  ],
+  "food": [
+   "Bos taurus",
+   "chèvre",
+   "rhubarbe",
+   "lapin",
+   "légume",
+   "gaspillage alimentaire",
+   "élan",
+   "Rattus",
+   "Rangifer tarandus",
+   "buffle domestique",
+   "lièvres",
+   "Rhinocéros indien",
+   "sanglier",
+   "paon bleu",
+   "cerf élaphe",
+   "airelle rouge",
+   "chevreuil",
+   "éléphant d'Asie",
+   "Gaur",
+   "wapiti",
+   "Banteng",
+   "Ochotona",
+   "Argali",
+   "Porte-musc de Sibérie",
+   "Cerf Sika",
+   "Antilope Nilgaut",
+   "charogne",
+   "Sambar",
+   "Cerf axis",
+   "Muntiacus",
+   "Capricornis sumatraensis",
+   "Barasingha",
+   "herbe",
+   "semnopithecus",
+   "Maral",
+   "Urial",
+   "Nemorhaedus",
+   "fruit comestible",
+   "Tragulidae",
+   "campagnol"
+  ]
+ },
+ "Cygnus olor": {
+  "items": [
+   "Q25402"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Cynomys": {
+  "items": [
+   "Q30359",
+   "Q20871290"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Cyprinus": {
+  "items": [
+   "Q134653"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Danaus plexippus": {
+  "items": [
+   "Q212398"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "Q173756"
+  ]
+ },
+ "Dasyatis pastinaca": {
+  "items": [
+   "Q586594"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Dasypus novemcinctus": {
+  "items": [
+   "Q649549"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Dasyurus maculatus": {
+  "items": [
+   "Q194526"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "21 jour"
+  ],
+  "food": []
+ },
+ "Daubentonia madagascariensis": {
+  "items": [
+   "Q186778"
+  ],
+  "uicn": [],
+  "gestation": [
+   "165 jour"
+  ],
+  "food": []
+ },
+ "Delphinapterus leucas": {
+  "items": [
+   "Q132072"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "1 année"
+  ],
+  "food": []
+ },
+ "Dendroaspis polylepis": {
+  "items": [
+   "Q188690"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Dendrolagus": {
+  "items": [
+   "Q325064"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Dermochelys coriacea": {
+  "items": [
+   "Q120043"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Desmodus rotundus": {
+  "items": [
+   "Q300981"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "7 mois"
+  ],
+  "food": []
+ },
+ "Dicerorhinus sumatrensis": {
+  "items": [
+   "Q29220"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [
+   "400 jour"
+  ],
+  "food": []
+ },
+ "Diceros bicornis": {
+  "items": [
+   "Q95036"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [
+   "450 jour"
+  ],
+  "food": []
+ },
+ "Diceros bicornis longipes": {
+  "items": [
+   "Q2089396"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Didelphis virginiana": {
+  "items": [
+   "Q147267"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "12.75 jour"
+  ],
+  "food": []
+ },
+ "Diomedea exulans": {
+  "items": [
+   "Q208682"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Diplopoda": {
+  "items": [
+   "Q167367"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Dromaius novaehollandiae": {
+  "items": [
+   "Q93208"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Dromaius novaehollandiae minor": {
+  "items": [
+   "Q27600963"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Dugong dugon": {
+  "items": [
+   "Q129544"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Dynastes hercules": {
+  "items": [
+   "Q503799"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Echinoidea": {
+  "items": [
+   "Q83483",
+   "Q119788843"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Ecnomiohyla rabborum": {
+  "items": [
+   "Q139998"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Electrophorus electricus": {
+  "items": [
+   "Q201235"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Elephas maximus": {
+  "items": [
+   "Q133006"
+  ],
+  "uicn": [],
+  "gestation": [
+   "22 mois"
+  ],
+  "food": []
+ },
+ "Emoia nativitatis": {
+  "items": [
+   "Q3053115"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Enhydra lutris": {
+  "items": [
+   "Q41407"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Equus asinus": {
+  "items": [
+   "Q19829417"
+  ],
+  "uicn": [],
+  "gestation": [
+   "367.5 jour"
+  ],
+  "food": []
+ },
+ "Equus caballus": {
+  "items": [
+   "Q10758650"
+  ],
+  "uicn": [],
+  "gestation": [
+   "335 jour"
+  ],
+  "food": []
+ },
+ "Equus ferus przewalskii": {
+  "items": [
+   "Q22712"
+  ],
+  "uicn": [],
+  "gestation": [
+   "340 jour"
+  ],
+  "food": []
+ },
+ "Equus quagga": {
+  "items": [
+   "Q245305"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "1 année"
+  ],
+  "food": [
+   "Chiendent pied de poule",
+   "Themeda triandra",
+   "Cenchrus ciliaris",
+   "Eragrostis superba"
+  ]
+ },
+ "Equus quagga quagga": {
+  "items": [
+   "Q45969"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Erinaceus europaeus": {
+  "items": [
+   "Q6145"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "34 jour"
+  ],
+  "food": []
+ },
+ "Erithacus rubecula": {
+  "items": [
+   "Q25334"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Esox lucius": {
+  "items": [
+   "Q165278"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Eudorcas thomsonii": {
+  "items": [
+   "Q271705"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "5.5 mois"
+  ],
+  "food": [
+   "herbe"
+  ]
+ },
+ "Eunectes murinus": {
+  "items": [
+   "Q207347"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Euphausia superba": {
+  "items": [
+   "Q571443"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Exocoetidae": {
+  "items": [
+   "Q183686"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Falco peregrinus": {
+  "items": [
+   "Q30535"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "passereaux",
+   "colombe",
+   "goéland",
+   "canard"
+  ]
+ },
+ "Falco tinnunculus": {
+  "items": [
+   "Q26490"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Felis catus": {
+  "items": [
+   "Q20980826"
+  ],
+  "uicn": [],
+  "gestation": [
+   "64 jour"
+  ],
+  "food": []
+ },
+ "Felis margarita": {
+  "items": [
+   "Q175329"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Felis nigripes": {
+  "items": [
+   "Q204814"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "65 jour"
+  ],
+  "food": []
+ },
+ "Felis silvestris": {
+  "items": [
+   "Q43576"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "65 jour"
+  ],
+  "food": []
+ },
+ "Formicidae": {
+  "items": [
+   "Q7386"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Fratercula arctica": {
+  "items": [
+   "Q26685"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Furcifer pardalis": {
+  "items": [
+   "Q838578"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Galeocerdo cuvier": {
+  "items": [
+   "Q188212"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Gallus gallus domesticus": {
+  "items": [
+   "L1370926-S1",
+   "Q780"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Gavialis gangeticus": {
+  "items": [
+   "Q17134",
+   "Q136290804"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Gekko gecko": {
+  "items": [
+   "Q331213"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Ginglymostoma cirratum": {
+  "items": [
+   "Q756859"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Giraffa camelopardalis": {
+  "items": [
+   "Q15083"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "457 jour"
+  ],
+  "food": []
+ },
+ "Glis glis": {
+  "items": [
+   "Q147128"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Goliathus": {
+  "items": [
+   "Q492946"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Gorilla": {
+  "items": [
+   "Q36611"
+  ],
+  "uicn": [],
+  "gestation": [
+   "270 jour"
+  ],
+  "food": []
+ },
+ "Grimpoteuthis": {
+  "items": [
+   "Q2165446"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Grus grus": {
+  "items": [
+   "Q4764"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "omnivore"
+  ]
+ },
+ "Gulo gulo": {
+  "items": [
+   "Q14334"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "8 mois"
+  ],
+  "food": [
+   "pomme",
+   "Bos taurus",
+   "chèvre",
+   "écureuil roux",
+   "mouton",
+   "renard roux",
+   "raisin",
+   "œuf",
+   "bison",
+   "gaspillage alimentaire",
+   "Tamisa",
+   "Mustela erminea",
+   "Oryctolagus cuniculus",
+   "Martre des pins",
+   "Lièvre d'Europe",
+   "Neogale vison",
+   "Mustela",
+   "élan",
+   "Rangifer tarandus",
+   "graine",
+   "racine",
+   "musaraigne",
+   "castor",
+   "sanglier",
+   "cerf élaphe",
+   "renard polaire",
+   "airelle rouge",
+   "chevreuil",
+   "marmotte",
+   "Lepus timidus",
+   "wapiti",
+   "Bœuf musqué",
+   "charogne",
+   "Talpa europaea",
+   "Apodemus sylvaticus",
+   "Cerf de Virginie",
+   "Odocoileus hemionus",
+   "Geomyidae",
+   "Lemmus lemmus",
+   "porc-épic d'Amérique",
+   "poire"
+  ]
+ },
+ "Gymnophiona": {
+  "items": [
+   "Q4758"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Gypaetus barbatus": {
+  "items": [
+   "Q126167"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": [
+   "moelle osseuse"
+  ]
+ },
+ "Gyps fulvus": {
+  "items": [
+   "Q177856"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Haliaeetus leucocephalus": {
+  "items": [
+   "Q127216"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Hapalochlaena": {
+  "items": [
+   "Q540649"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Harpia harpyja": {
+  "items": [
+   "Q53745"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Helarctos malayanus": {
+  "items": [
+   "Q144923"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "96 jour"
+  ],
+  "food": []
+ },
+ "Helix pomatia": {
+  "items": [
+   "Q245314"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Heloderma suspectum": {
+  "items": [
+   "Q207058"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Herpailurus yagouaroundi": {
+  "items": [
+   "Q27450846"
+  ],
+  "uicn": [
+   "NT",
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Heterocephalus glaber": {
+  "items": [
+   "Q276290"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "70 jour"
+  ],
+  "food": []
+ },
+ "Hippocampus": {
+  "items": [
+   "Q74363"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Hippopotamus amphibius": {
+  "items": [
+   "Q34505"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "8 mois"
+  ],
+  "food": [
+   "herbe"
+  ]
+ },
+ "Hirundo rustica": {
+  "items": [
+   "Q25429"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Homarus gammarus": {
+  "items": [
+   "Q27690"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Hyaena hyaena": {
+  "items": [
+   "Q188657"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "91 jour"
+  ],
+  "food": [
+   "charogne"
+  ]
+ },
+ "Hydrochoerus hydrochaeris": {
+  "items": [
+   "Q131538"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "150 jour"
+  ],
+  "food": []
+ },
+ "Hydrurga leptonyx": {
+  "items": [
+   "Q186663"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Hyla arborea": {
+  "items": [
+   "Q2142057"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "arthropodes"
+  ]
+ },
+ "Hylobates lar": {
+  "items": [
+   "Q208043"
+  ],
+  "uicn": [],
+  "gestation": [
+   "210 jour"
+  ],
+  "food": []
+ },
+ "Hystrix cristata": {
+  "items": [
+   "Q262307"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Incilius periglenes": {
+  "items": [
+   "Q320632"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Inia geoffrensis": {
+  "items": [
+   "Q205329"
+  ],
+  "uicn": [],
+  "gestation": [
+   "1 année"
+  ],
+  "food": []
+ },
+ "Isoptera": {
+  "items": [
+   "L1369591-S1",
+   "L1370161-S1",
+   "Q546583",
+   "Q87247781"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Istiophorus platypterus": {
+  "items": [
+   "Q694527"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Isurus oxyrinchus": {
+  "items": [
+   "Q192158"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Lacerta bilineata": {
+  "items": [
+   "Q739025"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Lama glama": {
+  "items": [
+   "Q42569"
+  ],
+  "uicn": [],
+  "gestation": [
+   "358 jour"
+  ],
+  "food": []
+ },
+ "Lampyridae": {
+  "items": [
+   "Q25420"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Latimeria chalumnae": {
+  "items": [
+   "Q668921"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Latrodectus mactans": {
+  "items": [
+   "Q113297"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Lemmus lemmus": {
+  "items": [
+   "Q819985"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Lemur catta": {
+  "items": [
+   "Q185385"
+  ],
+  "uicn": [],
+  "gestation": [
+   "133 jour"
+  ],
+  "food": []
+ },
+ "Leontopithecus rosalia": {
+  "items": [
+   "Q208486"
+  ],
+  "uicn": [],
+  "gestation": [
+   "128.5 jour"
+  ],
+  "food": []
+ },
+ "Leopardus pardalis": {
+  "items": [
+   "Q33261"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "77 jour"
+  ],
+  "food": [
+   "insecte",
+   "Rattus",
+   "Brachyura",
+   "Trochilidae",
+   "Dindon ocellé",
+   "Hydrochoerus hydrochaeris",
+   "Nasua",
+   "Dasyprocta",
+   "Ara bleu",
+   "Iguana iguana",
+   "ara",
+   "Tamandua tetradactyla",
+   "Saïmiri",
+   "Myoprocta",
+   "Toucan toco",
+   "Dasypus novemcinctus",
+   "Amazone à front jaune",
+   "Hocco globuleux",
+   "paresseux"
+  ]
+ },
+ "Leopardus wiedii": {
+  "items": [
+   "Q192421"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "80 jour"
+  ],
+  "food": []
+ },
+ "Leptailurus serval": {
+  "items": [
+   "Q42699"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "74 jour"
+  ],
+  "food": [
+   "lapin",
+   "Rattus",
+   "Phoenicopterus",
+   "Hyracoidea",
+   "Grande aigrette",
+   "Spatule blanche",
+   "gazelle",
+   "Madoqua",
+   "Cephalophinae",
+   "Hystricidae",
+   "Mus minutoides",
+   "Spatule d'Afrique",
+   "lièvre du Cap",
+   "Elephantulus myurus"
+  ]
+ },
+ "Lepus europaeus": {
+  "items": [
+   "Q26838"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "42 jour"
+  ],
+  "food": [
+   "carotte",
+   "soja",
+   "Q43238",
+   "trèfle",
+   "adventice",
+   "coquelicot",
+   "betterave sucrière",
+   "Blé d'hiver"
+  ]
+ },
+ "Limulus polyphemus": {
+  "items": [
+   "Q1133152"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Lithobates catesbeianus": {
+  "items": [
+   "Q4667413"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Litocranius walleri": {
+  "items": [
+   "Q208112"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "7 mois"
+  ],
+  "food": []
+ },
+ "Loxodonta africana": {
+  "items": [
+   "Q36557"
+  ],
+  "uicn": [],
+  "gestation": [
+   "22 mois"
+  ],
+  "food": []
+ },
+ "Loxodonta cyclotis": {
+  "items": [
+   "Q189514"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Lucanus cervus": {
+  "items": [
+   "Q190491"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Lupulella mesomelas": {
+  "items": [
+   "Q125814326"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "62.5 jour"
+  ],
+  "food": []
+ },
+ "Lutra lutra": {
+  "items": [
+   "Q29995"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "67.5 jour"
+  ],
+  "food": []
+ },
+ "Lutra lutra whiteleyi": {
+  "items": [
+   "Q4389469"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Lycaon pictus": {
+  "items": [
+   "Q173651"
+  ],
+  "uicn": [],
+  "gestation": [
+   "70 jour"
+  ],
+  "food": []
+ },
+ "Lynx lynx": {
+  "items": [
+   "Q43375"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "70 jour"
+  ],
+  "food": [
+   "chien",
+   "chat",
+   "poulet",
+   "Bos taurus",
+   "chèvre",
+   "écureuil roux",
+   "hérisson commun",
+   "mouton",
+   "renard roux",
+   "Ovis",
+   "Merle noir",
+   "héron cendré",
+   "Canard colvert",
+   "Faisan de Colchide",
+   "Oryctolagus cuniculus",
+   "oie cendrée",
+   "Martre des pins",
+   "rat musqué",
+   "Lièvre d'Europe",
+   "caille des blés",
+   "élan",
+   "Rangifer tarandus",
+   "castor",
+   "sanglier",
+   "cerf élaphe",
+   "souris domestique",
+   "Gliridae",
+   "raton laveur",
+   "chevreuil",
+   "Chacal doré",
+   "Grand Tétras",
+   "chamois",
+   "marmotte",
+   "Nyctereutes procyonoides",
+   "Felis silvestris silvestris",
+   "daim",
+   "bouquetin des Alpes",
+   "Lagopède des saules",
+   "Lepus timidus",
+   "Ochotona",
+   "Porte-musc de Sibérie",
+   "charogne",
+   "Talpa europaea",
+   "Apodemus sylvaticus",
+   "lemming",
+   "Pteromys volans",
+   "Lièvre laineux",
+   "Perdrix rouge",
+   "Marmota himalayana",
+   "Mustela nivalis nivalis",
+   "campagnol"
+  ]
+ },
+ "Lynx pardinus": {
+  "items": [
+   "Q129727"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": [
+   "écureuil roux",
+   "oiseau",
+   "hérisson commun",
+   "mouton",
+   "Merle noir",
+   "pie bavarde",
+   "Canard colvert",
+   "Faisan de Colchide",
+   "Oryctolagus cuniculus",
+   "Grive musicienne",
+   "Lièvre d'Europe",
+   "caille des blés",
+   "Rattus",
+   "pigeon biset",
+   "Genetta",
+   "sanglier",
+   "cerf élaphe",
+   "Gliridae",
+   "chevreuil",
+   "Felis silvestris silvestris",
+   "daim",
+   "charogne",
+   "Mus spretus",
+   "Lepus granatensis",
+   "Podarcis Hispanicus",
+   "Herpestes ichneumon",
+   "Perdrix rouge",
+   "Lézard ocellé",
+   "mouflon corse",
+   "Couleuvre de Montpellier",
+   "Grenouille de Pérez",
+   "Mustela nivalis nivalis",
+   "Pie-bleue ibérique"
+  ]
+ },
+ "Lynx rufus": {
+  "items": [
+   "Q131907"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "65 jour"
+  ],
+  "food": [
+   "poisson",
+   "insecte",
+   "renard roux",
+   "lapin",
+   "Tamisa",
+   "rat musqué",
+   "Bernache du Canada",
+   "Lièvre d'Europe",
+   "Dindon sauvage",
+   "Lièvre d'Amérique",
+   "Mephitidae",
+   "souris domestique",
+   "raton laveur",
+   "Didelphis virginiana",
+   "ragondin",
+   "charogne",
+   "Talpa europaea",
+   "Urocyon cinereoargenteus",
+   "Chien de prairie à queue noire",
+   "Salmo",
+   "Martes americana",
+   "Tamiasciurus hudsonicus",
+   "Grand Géocoucou",
+   "Sylvilagus",
+   "saumon",
+   "porc-épic d'Amérique"
+  ]
+ },
+ "Macaca fuscata": {
+  "items": [
+   "Q191781"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "180 jour"
+  ],
+  "food": []
+ },
+ "Macrochelys temminckii": {
+  "items": [
+   "Q457872",
+   "Q119166735"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Macrotis lagotis": {
+  "items": [
+   "Q371667"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "2 semaine"
+  ],
+  "food": []
+ },
+ "Madoqua": {
+  "items": [
+   "Q216263",
+   "Q138868504"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Malayopython reticulatus": {
+  "items": [
+   "Q216136",
+   "Q20745991"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "Rodent",
+   "Rattus",
+   "Myotis",
+   "Scandentia"
+  ]
+ },
+ "Mandrillus sphinx": {
+  "items": [
+   "Q189868"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Manis": {
+  "items": [
+   "Q25397",
+   "Q2659251"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Mantis religiosa": {
+  "items": [
+   "Q268319"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Maratus volans": {
+  "items": [
+   "Q312182"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Marmota marmota": {
+  "items": [
+   "Q285884"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "33 jour"
+  ],
+  "food": []
+ },
+ "Medusozoa": {
+  "items": [
+   "Q6596143"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Megaptera novaeangliae": {
+  "items": [
+   "Q132905"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "11.5 mois",
+   "12 mois"
+  ],
+  "food": [
+   "Euphausiacea",
+   "maquereau commun",
+   "zooplancton"
+  ]
+ },
+ "Megupsilon aporus": {
+  "items": [
+   "Q2670192"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Melanocetus johnsonii": {
+  "items": [
+   "Q535212"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Meleagris gallopavo": {
+  "items": [
+   "Q26844"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "insecte",
+   "fruit à coque",
+   "grain",
+   "gland"
+  ]
+ },
+ "Meles meles": {
+  "items": [
+   "Q27066"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Mellivora capensis": {
+  "items": [
+   "Q173128"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "6 mois"
+  ],
+  "food": [
+   "abeille",
+   "miel",
+   "Gekkonidae",
+   "Testudinidae",
+   "larve",
+   "ruche",
+   "tubercule",
+   "charogne",
+   "Madoqua",
+   "Naja",
+   "Hystricidae",
+   "lièvre sauteur",
+   "Rhombomyina"
+  ]
+ },
+ "Melomys rubicola": {
+  "items": [
+   "Q1760943"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Melopsittacus undulatus": {
+  "items": [
+   "Q121221"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Melursus ursinus": {
+  "items": [
+   "Q145016"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "210 jour"
+  ],
+  "food": [
+   "Formicidae",
+   "Termite"
+  ]
+ },
+ "Menura novaehollandiae": {
+  "items": [
+   "Q757013"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Mephitis mephitis": {
+  "items": [
+   "Q368495"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "68 jour"
+  ],
+  "food": [
+   "pomme",
+   "poisson",
+   "abeille",
+   "Reptiles",
+   "Amphibiens",
+   "maïs",
+   "beetle",
+   "ver",
+   "Gryllidae",
+   "chenille",
+   "Solanum",
+   "Prunus serotina",
+   "Coqueret du Pérou",
+   "charogne",
+   "Sylvilagus transitionalis",
+   "Souris à pattes blanches",
+   "langoustes",
+   "Vaccinium",
+   "campagnol",
+   "crabe",
+   "sauteriau"
+  ]
+ },
+ "Mesocricetus auratus": {
+  "items": [
+   "Q204175"
+  ],
+  "uicn": [],
+  "gestation": [
+   "16 jour"
+  ],
+  "food": []
+ },
+ "Milvus milvus": {
+  "items": [
+   "Q156250"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Mirounga leonina": {
+  "items": [
+   "Q215343"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "50 semaine"
+  ],
+  "food": []
+ },
+ "Mobula birostris": {
+  "items": [
+   "Q321976"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Mola mola": {
+  "items": [
+   "Q192285"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Moloch horridus": {
+  "items": [
+   "Q320665"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Monodon monoceros": {
+  "items": [
+   "Q159426"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "1 année"
+  ],
+  "food": [
+   "Morue polaire"
+  ]
+ },
+ "Morpho": {
+  "items": [
+   "Q645804",
+   "Q21441082"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Mus musculus": {
+  "items": [
+   "Q83310"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Mustela erminea": {
+  "items": [
+   "Q25345"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "9.5 mois"
+  ],
+  "food": [
+   "Oryctolagus cuniculus",
+   "Arvicola amphibius",
+   "Ochotona",
+   "Hamster d'Europe"
+  ]
+ },
+ "Mustela furo": {
+  "items": [
+   "Q178973",
+   "Q122171688"
+  ],
+  "uicn": [],
+  "gestation": [
+   "67 jour"
+  ],
+  "food": []
+ },
+ "Mustela nivalis": {
+  "items": [
+   "Q25311"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "35 jour"
+  ],
+  "food": []
+ },
+ "Myrmecobius fasciatus": {
+  "items": [
+   "Q242419"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "14 jour"
+  ],
+  "food": []
+ },
+ "Myrmecophaga tridactyla": {
+  "items": [
+   "Q203033"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "180 jour"
+  ],
+  "food": []
+ },
+ "Nasalis larvatus": {
+  "items": [
+   "Q192029"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Natrix helvetica": {
+  "items": [
+   "Q35541230"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Nautilus pompilius": {
+  "items": [
+   "Q872853"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Negaprion brevirostris": {
+  "items": [
+   "Q206495"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Neofelis nebulosa": {
+  "items": [
+   "Q36135"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "90 jour"
+  ],
+  "food": [
+   "poulet",
+   "serpent",
+   "chèvre",
+   "mouton",
+   "Paradoxurus hermaphroditus",
+   "pangolin",
+   "Rattus",
+   "Pongo",
+   "paon bleu",
+   "gibbons",
+   "Nasalis larvatus",
+   "charogne",
+   "Binturong",
+   "faisan",
+   "Muntiacus",
+   "Athérure malais",
+   "Cerf cochon",
+   "Viverra civettina",
+   "Macaque à queue de cochon",
+   "Q732737",
+   "Arctonyx collaris",
+   "Nycticebus bengalensis",
+   "Menetes berdmorei",
+   "Sanglier de Java",
+   "Tragulus"
+  ]
+ },
+ "Nestor notabilis": {
+  "items": [
+   "Q193337"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Notamacropus rufogriseus": {
+  "items": [
+   "Q109262323"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Nyctereutes procyonoides": {
+  "items": [
+   "Q133189"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "61 jour"
+  ],
+  "food": []
+ },
+ "Nycticebus": {
+  "items": [
+   "Q74941"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Ochotona princeps": {
+  "items": [
+   "Q469908"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "30.5 jour"
+  ],
+  "food": []
+ },
+ "Octopus vulgaris": {
+  "items": [
+   "Q651361"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Odobenus rosmarus": {
+  "items": [
+   "Q40994"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "15 mois"
+  ],
+  "food": []
+ },
+ "Odontodactylus scyllarus": {
+  "items": [
+   "Q43735"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Okapia johnstoni": {
+  "items": [
+   "Q82037"
+  ],
+  "uicn": [],
+  "gestation": [
+   "14.5 mois"
+  ],
+  "food": []
+ },
+ "Ophiophagus hannah": {
+  "items": [
+   "Q48186"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Orcinus orca": {
+  "items": [
+   "Q26843"
+  ],
+  "uicn": [
+   "DD"
+  ],
+  "gestation": [
+   "16.5 mois"
+  ],
+  "food": [
+   "poisson",
+   "dauphin",
+   "marsouin",
+   "Phalacrocorax",
+   "Mouette rieuse",
+   "Requin bleu",
+   "Anguille d'Europe",
+   "fou de Bassan",
+   "Phoque gris",
+   "Euphausiacea",
+   "Lutra lutra",
+   "morse",
+   "Enhydra lutris",
+   "baleine bleue",
+   "albatros",
+   "Requin-baleine",
+   "Teuthida",
+   "Grand requin blanc",
+   "Dugong",
+   "Béluga",
+   "baleine à bosse",
+   "narval",
+   "Manchot empereur",
+   "Stegostoma fasciatum",
+   "grand dauphin",
+   "Éléphant de mer",
+   "Requin pèlerin",
+   "léopard de mer",
+   "Requin-bouledogue",
+   "Chelonia mydas",
+   "morue de l'Atlantique",
+   "Sphyrnidae",
+   "sardine",
+   "Thunnus thynnus",
+   "sea turtle",
+   "Manchot du Cap",
+   "Dauphin tacheté de l'Atlantique",
+   "Otarie à crinière",
+   "requin du Groenland",
+   "otarie de Californie",
+   "Gorfou sauteur",
+   "Dauphin de Commerson",
+   "Anarhichas lupus",
+   "Otarie des Galapagos",
+   "Octopodidae",
+   "hareng",
+   "saumon",
+   "Manta raya"
+  ]
+ },
+ "Ornithorhynchus anatinus": {
+  "items": [
+   "Q15343"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Oryctolagus cuniculus": {
+  "items": [
+   "Q25851"
+  ],
+  "uicn": [],
+  "gestation": [
+   "30 jour",
+   "29 jour"
+  ],
+  "food": [
+   "légume-racine",
+   "Fétuque",
+   "écorce",
+   "plante aromatique",
+   "escargot",
+   "ajonc",
+   "herbe",
+   "gland",
+   "Blé d'hiver",
+   "mûre",
+   "cecotropes"
+  ]
+ },
+ "Oryx gazella": {
+  "items": [
+   "Q207043"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "9.25 mois"
+  ],
+  "food": []
+ },
+ "Osphranter rufus": {
+  "items": [
+   "Q104831614"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Otocolobus manul": {
+  "items": [
+   "Q166794"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "76 jour"
+  ],
+  "food": []
+ },
+ "Otocyon megalotis": {
+  "items": [
+   "Q200400"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "2 mois"
+  ],
+  "food": []
+ },
+ "Ovis aries": {
+  "items": [
+   "Q29350771",
+   "Q136929210"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": [
+   "Euphorbia virgata",
+   "Brome des toits",
+   "fibre alimentaire",
+   "foin",
+   "herbe",
+   "Centaurea maculosa",
+   "phorbe",
+   "Sagebrush",
+   "Pueraria thomsonii"
+  ]
+ },
+ "Ovis gmelini": {
+  "items": [
+   "Q190294"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Oxyuranus microlepidotus": {
+  "items": [
+   "Q72934"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Pagophilus groenlandicus": {
+  "items": [
+   "Q209324"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "11.5 mois"
+  ],
+  "food": []
+ },
+ "Paguroidea": {
+  "items": [
+   "Q273291"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Pan paniscus": {
+  "items": [
+   "Q19537"
+  ],
+  "uicn": [],
+  "gestation": [
+   "8 mois"
+  ],
+  "food": []
+ },
+ "Pan troglodytes": {
+  "items": [
+   "Q4126704"
+  ],
+  "uicn": [],
+  "gestation": [
+   "225 jour"
+  ],
+  "food": [
+   "insecte",
+   "oiseau",
+   "miel",
+   "œuf d'oiseau",
+   "fruit comestible"
+  ]
+ },
+ "Pandinus imperator": {
+  "items": [
+   "Q1142349"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Pandion haliaetus": {
+  "items": [
+   "Q25332"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Panthera leo": {
+  "items": [
+   "Q140"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "108 jour"
+  ],
+  "food": [
+   "Ungulata"
+  ]
+ },
+ "Panthera leo leo": {
+  "items": [
+   "Q221094",
+   "Q56289810"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Panthera leo persica": {
+  "items": [
+   "Q182347"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Panthera onca": {
+  "items": [
+   "Q35694"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "99 jour"
+  ],
+  "food": [
+   "poisson",
+   "poulet",
+   "Bos taurus",
+   "chèvre",
+   "œuf",
+   "Tortue charbonnière à pattes jaunes",
+   "Tinamidae",
+   "âne commun",
+   "ocelot",
+   "Cuniculus paca",
+   "Siluriformes",
+   "Dindon ocellé",
+   "Rattus rattus",
+   "Grande aigrette",
+   "Hydrochoerus hydrochaeris",
+   "Nasua",
+   "piranha",
+   "Eunectes",
+   "Dasyprocta",
+   "Chelonia mydas",
+   "charogne",
+   "Tamanoir",
+   "Iguana",
+   "Cerf de Virginie",
+   "Tapir du Brésil",
+   "Tamandua tetradactyla",
+   "Dinomys branickii",
+   "Onoré rayé",
+   "Myoprocta",
+   "Toucan toco",
+   "Caïman",
+   "Alouate",
+   "Cerf des marais",
+   "Dasypus novemcinctus",
+   "Pécari à collier",
+   "Pénélope de Spix",
+   "Hocco globuleux",
+   "Dasyprocta fuliginosa",
+   "paresseux"
+  ]
+ },
+ "Panthera pardus": {
+  "items": [
+   "Q34706"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "91 jour"
+  ],
+  "food": [
+   "chien",
+   "chat",
+   "poulet",
+   "Bos taurus",
+   "chèvre",
+   "mouton",
+   "gnou",
+   "œuf",
+   "autruche d'Afrique",
+   "Mangouste rayée",
+   "Cigogne blanche",
+   "pangolin",
+   "Cigogne noire",
+   "Faisan de Colchide",
+   "Lièvre d'Europe",
+   "Blaireau européen",
+   "Caracal",
+   "zèbre",
+   "Rattus",
+   "gorille",
+   "serval",
+   "Genetta",
+   "oryctérope",
+   "Hyracoidea",
+   "sanglier",
+   "paon bleu",
+   "Galago senegalensis",
+   "chimpanzé",
+   "Herpestidae",
+   "okapi",
+   "chevreuil",
+   "chacal",
+   "Grande aigrette",
+   "chamois",
+   "impala",
+   "Suricate",
+   "Grand koudou",
+   "babouin",
+   "Chèvre sauvage",
+   "Lepus timidus",
+   "Q182968",
+   "Phacochère commun",
+   "Antilope cervicapre",
+   "Ochotona",
+   "mandrill",
+   "Porte-musc de Sibérie",
+   "Cerf Sika",
+   "gazelle",
+   "Otocyon megalotis",
+   "charogne",
+   "Cerf axis",
+   "Muntiacus",
+   "Nyala",
+   "Civettictis civetta",
+   "Pintade de Numidie",
+   "Cercopithèque",
+   "Gazelle de Thomson",
+   "Ouette d'Égypte",
+   "Ourebia ourebi",
+   "Hystricidae",
+   "Alcelaphus buselaphus cokii",
+   "Capra nubiana",
+   "Guib harnaché",
+   "Sturnus",
+   "colobe",
+   "Raphicerus campestris",
+   "Pintade vulturine",
+   "Cephalophus natalensis",
+   "Sassabi",
+   "Potamochère",
+   "Scolytinae",
+   "semnopithecus",
+   "Elaphodus cephalophus",
+   "lièvre du Cap",
+   "Céphalophe de Grimm",
+   "Lemniscomys barbarus",
+   "Madoqua guentheri",
+   "Thryonomys swinderianus",
+   "Cercocebus",
+   "Rhynchocyon petersi",
+   "Rhizomys sinensis",
+   "Calao d'Afrique du Sud",
+   "Pedetes",
+   "Chlorocebus pygerythrus",
+   "Felis lybica"
+  ]
+ },
+ "Panthera tigris": {
+  "items": [
+   "Q19939"
+  ],
+  "uicn": [],
+  "gestation": [
+   "107 jour"
+  ],
+  "food": [
+   "poisson",
+   "singe",
+   "Leporidae",
+   "Q26375",
+   "Ungulata"
+  ]
+ },
+ "Panthera uncia": {
+  "items": [
+   "Q30197"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "102 jour"
+  ],
+  "food": [
+   "poulet",
+   "chèvre",
+   "mouton",
+   "Faisan de Colchide",
+   "Ailurus fulgens",
+   "sanglier",
+   "chevreuil",
+   "Chèvre sauvage",
+   "Hémione",
+   "Ochotona",
+   "Argali",
+   "Markhor",
+   "Perdrix choukar",
+   "charogne",
+   "Moschidae",
+   "Renard du Tibet",
+   "Gazelle à goitre",
+   "Pseudois nayaur",
+   "Paguma larvata",
+   "Jharal",
+   "Cerf de Thorold",
+   "lièvre du Cap",
+   "Capra sibirica",
+   "Marmota himalayana",
+   "Nemorhaedus griseus",
+   "campagnol",
+   "yack"
+  ]
+ },
+ "Papio ursinus": {
+  "items": [
+   "Q257670"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Paracanthurus hepatus": {
+  "items": [
+   "Q278307"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Paradisaeidae": {
+  "items": [
+   "Q179333"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Paralithodes camtschaticus": {
+  "items": [
+   "Q721171"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Paraponera clavata": {
+  "items": [
+   "Q73901"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Passer domesticus": {
+  "items": [
+   "Q14683"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Pavo cristatus": {
+  "items": [
+   "Q61865"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Pelecanus onocrotalus": {
+  "items": [
+   "Q199427"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Pelophylax": {
+  "items": [
+   "Q1187092"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Petaurus breviceps": {
+  "items": [
+   "Q723435"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Phacochoerus africanus": {
+  "items": [
+   "Q183255"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "172 jour"
+  ],
+  "food": []
+ },
+ "Pharomachrus mocinno": {
+  "items": [
+   "Q459267"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Phascolarctos cinereus": {
+  "items": [
+   "Q36101"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "37 jour"
+  ],
+  "food": [
+   "feuille"
+  ]
+ },
+ "Phasmatodea": {
+  "items": [
+   "Q49381348"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Phoca vitulina": {
+  "items": [
+   "Q26913"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "11 mois"
+  ],
+  "food": []
+ },
+ "Phocoena phocoena": {
+  "items": [
+   "Q27027"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "9 mois"
+  ],
+  "food": []
+ },
+ "Phoenicopterus roseus": {
+  "items": [
+   "Q179863"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Phyllobates terribilis": {
+  "items": [
+   "Q963997"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Physalia physalis": {
+  "items": [
+   "Q202526"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Physeter macrocephalus": {
+  "items": [
+   "Q81214"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "15 mois"
+  ],
+  "food": [
+   "Teuthida"
+  ]
+ },
+ "Pica pica": {
+  "items": [
+   "Q25307"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "omnivore"
+  ]
+ },
+ "Picus viridis": {
+  "items": [
+   "Q166171"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "Lasius",
+   "Formica"
+  ]
+ },
+ "Pipa pipa": {
+  "items": [
+   "Q220414"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Pipistrellus pipistrellus": {
+  "items": [
+   "Q176901"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Pithecophaga jefferyi": {
+  "items": [
+   "Q185213"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Pongo pygmaeus": {
+  "items": [
+   "Q599672"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [
+   "248 jour"
+  ],
+  "food": [
+   "fleur",
+   "graine",
+   "œuf d'oiseau",
+   "fruit comestible"
+  ]
+ },
+ "Prionace glauca": {
+  "items": [
+   "Q26337"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Prionailurus rubiginosus": {
+  "items": [
+   "Q309274"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Prionailurus viverrinus": {
+  "items": [
+   "Q190674"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "65 jour"
+  ],
+  "food": []
+ },
+ "Pristis": {
+  "items": [
+   "Q683945"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Procyon lotor": {
+  "items": [
+   "Q121439"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "62 jour",
+   "66 jour"
+  ],
+  "food": [
+   "vertébrés",
+   "invertébrés",
+   "matériel végétal"
+  ]
+ },
+ "Propithecus verreauxi": {
+  "items": [
+   "Q913789"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Proteles cristatus": {
+  "items": [],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Proteus anguinus": {
+  "items": [
+   "Q15856"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Pteromys volans": {
+  "items": [
+   "Q243339"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Puma concolor": {
+  "items": [
+   "Q35255"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "94 jour"
+  ],
+  "food": [
+   "cheval",
+   "Bos taurus",
+   "chèvre",
+   "écureuil roux",
+   "lapin",
+   "Rhea",
+   "âne commun",
+   "Tamisa",
+   "Canard colvert",
+   "Bernache du Canada",
+   "Lièvre d'Europe",
+   "Dindon sauvage",
+   "élan",
+   "Enhydra lutris",
+   "coyote",
+   "castor",
+   "Mephitidae",
+   "souris domestique",
+   "raton laveur",
+   "Hydrochoerus hydrochaeris",
+   "Lynx roux",
+   "Didelphis virginiana",
+   "vigogne",
+   "guanaco",
+   "wapiti",
+   "ragondin",
+   "mouflon canadien",
+   "Dolichotis patagonum",
+   "charogne",
+   "Cerf de Virginie",
+   "Tapir du Brésil",
+   "manchot de Humboldt",
+   "Taxidea taxus",
+   "chèvre des montagnes Rocheuses",
+   "Odocoileus hemionus",
+   "Cerf des marais",
+   "Lycalopex griseus",
+   "Dasypus novemcinctus",
+   "Pécari à collier",
+   "Dasyprocta leporina",
+   "Erethizontidae",
+   "Pudu",
+   "paresseux",
+   "viscache"
+  ]
+ },
+ "Pygocentrus nattereri": {
+  "items": [
+   "Q928382"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Ramphastos toco": {
+  "items": [
+   "Q376038"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Rangifer tarandus": {
+  "items": [
+   "Q39624"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "228 jour"
+  ],
+  "food": [
+   "poisson",
+   "Rodent",
+   "bouleau",
+   "saule",
+   "lichen",
+   "Q43238",
+   "champignon",
+   "Carex",
+   "lemming",
+   "Cladonia rangiferina",
+   "Omble chevalier",
+   "œuf d'oiseau"
+  ]
+ },
+ "Rangifer tarandus dawsoni": {
+  "items": [
+   "Q3022131"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Rattus norvegicus": {
+  "items": [
+   "L1369336-S1",
+   "Q184224"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Rhacophorus nigropalmatus": {
+  "items": [
+   "Q1190196"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Rhincodon typus": {
+  "items": [
+   "Q80378"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Rhinella marina": {
+  "items": [
+   "Q321087"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Rhinoceros sondaicus annamiticus": {
+  "items": [
+   "Q2000720"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Rhinoceros unicornis": {
+  "items": [
+   "Q47910"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "480 jour"
+  ],
+  "food": []
+ },
+ "Rupicapra rupicapra": {
+  "items": [
+   "Q131340"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "170 jour",
+   "6 mois"
+  ],
+  "food": []
+ },
+ "Sagittarius serpentarius": {
+  "items": [
+   "Q168748"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Saiga tatarica": {
+  "items": [
+   "Q126683"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "139 jour"
+  ],
+  "food": []
+ },
+ "Saimiri": {
+  "items": [
+   "Q309200"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Salamandra salamandra": {
+  "items": [
+   "Q26395"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Salmo salar": {
+  "items": [
+   "Q188879"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Sapajus": {
+  "items": [
+   "Q11703605"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Sarcophilus harrisii": {
+  "items": [
+   "Q134964"
+  ],
+  "uicn": [],
+  "gestation": [
+   "21 jour"
+  ],
+  "food": []
+ },
+ "Scarabaeinae": {
+  "items": [
+   "Q2412715"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Scaridae": {
+  "items": [
+   "Q502220"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Schistocerca gregaria": {
+  "items": [
+   "Q281634"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Sciurus vulgaris": {
+  "items": [
+   "Q4388"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "38 jour"
+  ],
+  "food": []
+ },
+ "Scyliorhinus canicula": {
+  "items": [
+   "Q84822"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Sepia officinalis": {
+  "items": [
+   "Q756724"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Setonix brachyurus": {
+  "items": [
+   "Q726151"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Silurus glanis": {
+  "items": [
+   "L1370990-S1",
+   "Q159323"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Siphonaptera": {
+  "items": [
+   "Q388162"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Sphenodon punctatus": {
+  "items": [
+   "Q3007063"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Sphyraena barracuda": {
+  "items": [
+   "Q2306485"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Sphyrna mokarran": {
+  "items": [
+   "Q757353"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Sterna paradisaea": {
+  "items": [
+   "Q26800"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Struthio camelus": {
+  "items": [
+   "Q17592"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Struthio camelus syriacus": {
+  "items": [
+   "Q624287"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Suricata suricatta": {
+  "items": [
+   "Q134015"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "11 semaine"
+  ],
+  "food": []
+ },
+ "Sus domesticus": {
+  "items": [
+   "L1370930-S1",
+   "L1375680-S1",
+   "Q125459958"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Sus scrofa": {
+  "items": [
+   "Q58697"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "121 jour"
+  ],
+  "food": [
+   "poisson",
+   "insecte",
+   "Rodent",
+   "fruit à coque",
+   "mollusques",
+   "Lumbricus terrestris",
+   "feuille",
+   "graine",
+   "racine",
+   "déchet",
+   "anoures",
+   "tubercule",
+   "rhizome",
+   "écorce",
+   "bulbe",
+   "charogne",
+   "pousse",
+   "œuf d'oiseau",
+   "Q2254408",
+   "brindille",
+   "fruits rouges"
+  ]
+ },
+ "Synanceia verrucosa": {
+  "items": [],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Syncerus caffer": {
+  "items": [
+   "Q160042"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "340 jour"
+  ],
+  "food": []
+ },
+ "Tachyglossus aculeatus": {
+  "items": [
+   "Q193182"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "24.5 jour"
+  ],
+  "food": []
+ },
+ "Takifugu rubripes": {
+  "items": [
+   "Q1065355"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Talpa europaea": {
+  "items": [
+   "Q209067"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "38 jour"
+  ],
+  "food": [
+   "Lumbricina"
+  ]
+ },
+ "Tapirus terrestris": {
+  "items": [
+   "Q220271"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "398 jour"
+  ],
+  "food": []
+ },
+ "Tardigrada": {
+  "items": [
+   "Q5194"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Testudo hermanni": {
+  "items": [
+   "Q262555"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Theropithecus gelada": {
+  "items": [
+   "Q194080"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": [
+   "herbe"
+  ]
+ },
+ "Thunnus thynnus": {
+  "items": [
+   "Q214415"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Thylacinus cynocephalus": {
+  "items": [
+   "Q123102"
+  ],
+  "uicn": [
+   "EX"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Torpedo marmorata": {
+  "items": [
+   "Q912073"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Toxotes": {
+  "items": [
+   "Q732534"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Tragelaphus eurycerus": {
+  "items": [
+   "Q193400"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [
+   "9.5 mois"
+  ],
+  "food": []
+ },
+ "Tragelaphus strepsiceros": {
+  "items": [
+   "Q139487"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "8 mois"
+  ],
+  "food": []
+ },
+ "Tremarctos ornatus": {
+  "items": [
+   "Q137641"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "247 jour"
+  ],
+  "food": []
+ },
+ "Trichechus manatus": {
+  "items": [
+   "Q40261"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "13 mois"
+  ],
+  "food": []
+ },
+ "Triturus cristatus": {
+  "items": [
+   "Q138539"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Trochilidae": {
+  "items": [
+   "Q43624"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Tursiops truncatus": {
+  "items": [
+   "Q174199"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "1 année"
+  ],
+  "food": []
+ },
+ "Tympanuchus cupido cupido": {
+  "items": [
+   "Q125882"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Tyto alba": {
+  "items": [
+   "Q25317"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Ursus americanus": {
+  "items": [
+   "Q122783"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "212 jour"
+  ],
+  "food": []
+ },
+ "Ursus arctos": {
+  "items": [
+   "Q36341"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "7 mois"
+  ],
+  "food": [
+   "pomme",
+   "poisson",
+   "cerise",
+   "porc",
+   "Bos taurus",
+   "insecte",
+   "chèvre",
+   "écureuil roux",
+   "mouton",
+   "raisin",
+   "miel",
+   "maïs",
+   "baie",
+   "bison",
+   "gaspillage alimentaire",
+   "concombre",
+   "mollusques",
+   "Oryctolagus cuniculus",
+   "Lièvre d'Europe",
+   "élan",
+   "pastèque",
+   "Rangifer tarandus",
+   "ver",
+   "castor",
+   "sanglier",
+   "cerf élaphe",
+   "champignon",
+   "laitue",
+   "œuf",
+   "airelle rouge",
+   "chevreuil",
+   "alvéole d'abeille",
+   "larve",
+   "chamois",
+   "marmotte",
+   "wapiti",
+   "tubercule",
+   "Bœuf musqué",
+   "Porte-musc de Sibérie",
+   "charogne",
+   "plante aromatique",
+   "Cerf de Virginie",
+   "lemming",
+   "Odocoileus hemionus",
+   "Mouflon de Dall",
+   "mouflon corse",
+   "échouage des cétacés",
+   "truite",
+   "saumon",
+   "fruit de mer",
+   "prune",
+   "poire",
+   "fraise",
+   "Spermophile de Richardson"
+  ]
+ },
+ "Ursus arctos californicus": {
+  "items": [
+   "Q2565286"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Ursus arctos gobiensis": {
+  "items": [
+   "Q1533533"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Ursus arctos isabellinus": {
+  "items": [
+   "Q944893"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Ursus arctos middendorffi": {
+  "items": [
+   "Q237260"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Ursus maritimus": {
+  "items": [
+   "Q33609"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "8.5 mois"
+  ],
+  "food": [
+   "œuf",
+   "gaspillage alimentaire",
+   "crustacé",
+   "phoque commun",
+   "Phoque gris",
+   "algues",
+   "Rangifer tarandus",
+   "morse",
+   "Béluga",
+   "narval",
+   "charogne",
+   "Phoque annelé",
+   "sardine",
+   "Phoque du Groenland",
+   "Phoca largha",
+   "Lemmus",
+   "Guillemot de Brünnich",
+   "échouage des cétacés",
+   "goéland"
+  ]
+ },
+ "Ursus thibetanus": {
+  "items": [
+   "Q124410"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [
+   "7 mois"
+  ],
+  "food": []
+ },
+ "Urva edwardsii": {
+  "items": [
+   "Q123862361"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Varanus komodoensis": {
+  "items": [
+   "Q4504"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": [
+   "charogne"
+  ]
+ },
+ "Vermivora bachmanii": {
+  "items": [
+   "Q375157"
+  ],
+  "uicn": [
+   "CR"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Vespa crabro": {
+  "items": [
+   "Q30258"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Vespa mandarinia": {
+  "items": [
+   "Q121791"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Vespula vulgaris": {
+  "items": [
+   "Q260482"
+  ],
+  "uicn": [],
+  "gestation": [],
+  "food": []
+ },
+ "Vicugna pacos": {
+  "items": [
+   "Q81564"
+  ],
+  "uicn": [],
+  "gestation": [
+   "293 jour"
+  ],
+  "food": []
+ },
+ "Vipera aspis": {
+  "items": [
+   "Q572447"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Vombatus ursinus": {
+  "items": [
+   "Q752436"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Vulpes lagopus": {
+  "items": [
+   "Q82738"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "52 jour"
+  ],
+  "food": []
+ },
+ "Vulpes vulpes": {
+  "items": [
+   "Q8332"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "52 jour"
+  ],
+  "food": [
+   "fruit comestible",
+   "Oryctolagus"
+  ]
+ },
+ "Vulpes zerda": {
+  "items": [
+   "Q131564"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "50 jour"
+  ],
+  "food": []
+ },
+ "Vultur gryphus": {
+  "items": [
+   "Q170598"
+  ],
+  "uicn": [
+   "VU"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Xiphias gladius": {
+  "items": [
+   "Q164327"
+  ],
+  "uicn": [
+   "NT"
+  ],
+  "gestation": [],
+  "food": []
+ },
+ "Zalophus californianus": {
+  "items": [
+   "Q379732"
+  ],
+  "uicn": [
+   "LC"
+  ],
+  "gestation": [
+   "50 semaine"
+  ],
+  "food": []
+ }
+}
