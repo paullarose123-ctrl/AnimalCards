@@ -44,7 +44,7 @@ for (let i = 0; i < names.length; i += 50) {
   const batch = names.slice(i, i + 50);
   const values = batch.map((n) => JSON.stringify(n)).join(' ');
   const rows = await sparql(`
-    SELECT ?name ?item ?status ?gestation ?unitLabel ?foodLabel WHERE {
+    SELECT ?name ?item ?status ?statusLabel ?gestation ?unitLabel ?foodLabel WHERE {
       VALUES ?name { ${values} }
       ?item wdt:P225 ?name .
       OPTIONAL { ?item wdt:P141 ?status . }
@@ -57,7 +57,8 @@ for (let i = 0; i < names.length; i += 50) {
     const entry = (out[name] ??= { items: [], uicn: [], gestation: [], food: [] });
     const item = r.item.value.split('/').pop();
     if (!entry.items.includes(item)) entry.items.push(item);
-    const status = r.status && STATUS[r.status.value.split('/').pop()];
+    // statut connu, ou son libellé tel quel s'il n'est pas dans la liste (pour le repérer)
+    const status = r.status && (STATUS[r.status.value.split('/').pop()] ?? `? ${r.statusLabel?.value ?? r.status.value}`);
     if (status && !entry.uicn.includes(status)) entry.uicn.push(status);
     if (r.gestation) {
       const g = `${Number(r.gestation.value)} ${r.unitLabel?.value ?? ''}`.trim();
